@@ -1,6 +1,5 @@
 const fs = require("fs");
 const readline = require("readline");
-//const airportData = fs.readFileSync("../dev-data/airports.dat", "utf-8");
 
 /**
  * "id","ident","type","name","latitude_deg","longitude_deg","elevation_ft","continent","iso_country","iso_region","municipality","scheduled_service","gps_code","iata_code","local_code","home_link","wikipedia_link","keywords"
@@ -8,6 +7,8 @@ const readline = require("readline");
  */
 
 const processLineByLine = async () => {
+  let airportArrays = [];
+
   const fileStream = await fs.createReadStream(
     "../dev-data/csv_data/airports.csv"
   );
@@ -20,7 +21,6 @@ const processLineByLine = async () => {
   const airportObj = {};
   rl.on("line", (line) => {
     const airportStringArray = line.split(",");
-    console.log(airportStringArray);
     airportObj._id = airportStringArray[0];
     airportObj.ident = airportStringArray[1].replace(/["']/g, "");
     airportObj.type = airportStringArray[2].replace(/["']/g, "");
@@ -31,7 +31,23 @@ const processLineByLine = async () => {
     airportObj.iso_country = airportStringArray[8].replace(/["']/g, "");
     airportObj.iso_region = airportStringArray[9].replace(/["']/g, "");
     airportObj.municipality = airportStringArray[10].replace(/["']/g, "");
-    console.log(airportObj);
+    airportObj.scheduled_service = airportStringArray[11].replace(/["']/g, "");
+    airportObj.gps_code = airportStringArray[12].replace(/["']/g, "");
+    airportObj.iata_code = airportStringArray[13].replace(/["']/g, "");
+    airportObj.local_code = airportStringArray[14].replace(/["']/g, "");
+    airportObj.home_link = airportStringArray[15].replace(/["']/g, "");
+    airportObj.wikipedia_link = airportStringArray[16].replace(/["']/g, "");
+    airportObj.keywords = airportStringArray[17]
+      .replace(/["']/g, "")
+      .split(",");
+
+    airportArrays.push(airportObj);
+
+    fs.writeFileSync(
+      "../dev-data/json_data/airports.json",
+      JSON.stringify(airportArrays)
+    );
+    console.log("writing...");
   });
 };
 
