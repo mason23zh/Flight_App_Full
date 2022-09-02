@@ -1,9 +1,16 @@
 const { Airports } = require("../models/airportsModel");
-const { APIFeatures } = require("../utils/apiFeatures");
+const APIFeatures = require("../utils/apiFeatures");
 
 module.exports.getAllAirports = async (req, res) => {
   try {
-    const airports = await Airports.find();
+    const airportQueryObj = Airports.find();
+    const featuersQuery = new APIFeatures(airportQueryObj, req.query)
+      .filter()
+      .limitFields()
+      .paginate()
+      .limitResults();
+    //execute query
+    const airports = await featuersQuery.query;
 
     res.status(200).json({
       status: "success",
@@ -21,10 +28,18 @@ module.exports.getAllAirports = async (req, res) => {
 
 module.exports.getAirportByICAO = async (req, res) => {
   try {
-    console.log(req.params);
-    const airport = await Airports.find({
+    console.log("req.query", req.query);
+    console.log("req.params", req.params);
+    const airportQueryObj = Airports.find({
       ident: `${req.params.icao.toUpperCase()}`,
     });
+    const featuersQuery = new APIFeatures(airportQueryObj, req.query)
+      .filter()
+      .limitFields()
+      .paginate();
+
+    const airport = await featuersQuery.query;
+
     res.status(200).json({
       status: "success",
       data: {
@@ -41,9 +56,16 @@ module.exports.getAirportByICAO = async (req, res) => {
 
 module.exports.getAirportByIATA = async (req, res) => {
   try {
-    const airport = await Airports.find({
+    const airportQueryObj = Airports.find({
       iata_code: `${req.params.iata.toUpperCase()}`,
     });
+
+    const featuersQuery = new APIFeatures(airportQueryObj, req.query)
+      .filter()
+      .limitFields()
+      .paginate();
+
+    const airport = await featuersQuery.query;
 
     res.status(200).json({
       status: "success",
@@ -61,9 +83,19 @@ module.exports.getAirportByIATA = async (req, res) => {
 
 module.exports.getAirportByType = async (req, res) => {
   try {
-    const airports = await Airports.find({
+    const airportsQueryObj = Airports.find({
       type: `${req.params.type}`,
     });
+
+    console.log("req.query from type", req.query);
+
+    const featuersQuery = new APIFeatures(airportsQueryObj, req.query)
+      .filter()
+      .limitFields()
+      .paginate()
+      .limitResults();
+
+    const airports = await featuersQuery.query;
 
     res.status(200).json({
       status: "success",
@@ -81,10 +113,17 @@ module.exports.getAirportByType = async (req, res) => {
 
 module.exports.getAirportByName = async (req, res) => {
   try {
-    const airports = await Airports.find({
+    const airportsQueryObj = Airports.find({
       name: { $regex: `${req.params.name}`, $options: "i" },
     });
-    console.log(airports);
+
+    const featuersQuery = new APIFeatures(airportsQueryObj, req.query)
+      .filter()
+      .limitFields()
+      .limitResults()
+      .paginate();
+
+    const airports = await featuersQuery.query;
 
     res.status(200).json({
       status: "success",
