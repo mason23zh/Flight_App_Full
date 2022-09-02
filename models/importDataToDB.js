@@ -38,7 +38,6 @@ class ImportData {
     try {
       await this.model.create(this.data);
       console.log("loaded");
-      process.exit();
     } catch (err) {
       console.error(err);
     }
@@ -52,13 +51,8 @@ const importNavids = new ImportData(Navaids, navaids);
 const importRegions = new ImportData(Regions, regions);
 const importRunways = new ImportData(Runways, runways);
 
-// importAirport.import();
-// importAirportFreq.import();
-// importCountries.import();
-// importNavids.import();
-// importRegions.import();
-// importRunways.import();
-
+//importNavids.import();
+importRunways.import();
 // const importData = async () => {
 //   try {
 //     await Airports.create(airports);
@@ -68,3 +62,5 @@ const importRunways = new ImportData(Runways, runways);
 //     console.error(err);
 //   }
 // };
+
+//Navad: 11018 runway:43455/43675/34859

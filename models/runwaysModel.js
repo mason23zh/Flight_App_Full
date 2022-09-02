@@ -15,7 +15,6 @@ const runwaySchema = new mongoose.Schema({
   },
   length_ft: {
     type: String,
-    required: [true, "Runway need length in feet"],
   },
   width_ft: {
     type: String,
@@ -31,7 +30,6 @@ const runwaySchema = new mongoose.Schema({
   },
   le_ident: {
     type: String,
-    required: [true, "runway need low-numbered end of the runway"],
   },
   le_latitude_deg: {
     type: String,
@@ -50,10 +48,6 @@ const runwaySchema = new mongoose.Schema({
   },
   he_ident: {
     type: String,
-    required: [
-      true,
-      "Runway need identifier for the high-numbered end of the ruwnay",
-    ],
   },
   he_latitude_deg: {
     type: String,

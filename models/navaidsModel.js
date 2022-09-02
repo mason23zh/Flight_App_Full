@@ -59,19 +59,15 @@ const navaidSchema = new mongoose.Schema({
   },
   magnetic_variation_deg: {
     type: String,
-    required: [true, "magnetic_variation_deg required"],
   },
   usageType: {
     type: String,
-    required: [true, "usageType required, HI or LO"],
   },
   power: {
     type: String,
-    required: [true, "HIGH, MEDIUM, LOW or UNKNOWN"],
   },
   associated_airport: {
     type: String,
-    required: [true, "associated airport icao code reuqired"],
   },
 });
 
