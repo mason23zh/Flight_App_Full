@@ -30,7 +30,7 @@ const airportSchema = new mongoose.Schema({
     required: [true, "Aiport must have longitude degree"],
   },
   elevation_ft: {
-    type: String,
+    type: Number,
   },
   continent: {
     type: String,

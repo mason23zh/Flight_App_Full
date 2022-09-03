@@ -1,11 +1,11 @@
 This is an API to get data for the airports, runway, navaids and etc.
 
-http://localhost:8001/api/vi
+http://localhost:8001/api/v1
 
 End Points:
 
 Get All Airports
-Example: http://localhost:8001/api/vi/airports/all-airports
+Example: http://localhost:8001/api/v1/airports/all-airports
 
 Get Airports By ICAO
 Example: http://localhost:8001/api/v1/airports/icao/cywg
@@ -22,10 +22,10 @@ Example: http://localhost:8001/api/v1/airports/name/Winnipeg
 Query:
 
 limitFields
-Example: http://localhost:8001/api/vi/airports/all-airports?fields=icao+type
+Example: http://localhost:8001/api/v1/airports/all-airports?fields=icao+type
 
 limitResults
-Example:http://localhost:8001/api/vi/airports/all-airports?limitedResults=3
+Example:http://localhost:8001/api/v1/airports/all-airports?limitedResults=3
 
 paginate
 Example:http://localhost:8001/api/v1/airports/all-airports?page=1&limit=3

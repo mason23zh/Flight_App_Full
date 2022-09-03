@@ -12,15 +12,14 @@ class APIFeatures {
     //delete the property from the queryObject if it has item from the excludedField
     excludedFields.forEach((el) => delete queryObject[el]);
 
-    //mongo: { difficulty: 'easy', duration: {$gte: 5}}
-    //req.query: { difficulty: { gte: 'easy' }}
-
-    //filter gte, gt, lte, lt and add $ sign to query in the mongo
+    //filter gte, gt, lte, lt, ne and add $ sign to query in the mongo
     let queryString = JSON.stringify(queryObject); //covert queryObj to String
     queryString = queryString.replace(
-      /\b(gte|gt|lte|lt)\b/g,
+      /\b(gte|gt|lte|lt|ne)\b/g,
       (match) => `$${match}`
     );
+
+    console.log("api filter", JSON.parse(queryString));
 
     this.query = this.query.find(JSON.parse(queryString));
 
@@ -38,11 +37,22 @@ class APIFeatures {
     return this;
   }
 
+  sort() {
+    if (this.queryString.sort) {
+      const reqQuery = this.queryString;
+      this.query = this.query.sort(reqQuery.sort);
+    } else {
+      this.query = this.query;
+    }
+
+    return this;
+  }
+
   /**
    * Pagination
     page=2&limit=10 page 2 with 10 results per page
     page 1: 1-10, page 2: 11-20, page 3: 21-30
-    default page
+    default page: 1, default limit: 100
    * @returns paginate object
    */
   paginate() {

@@ -1,4 +1,5 @@
 const { Airports } = require("../models/airportsModel");
+const { Runways } = require("../models/runwaysModel");
 const APIFeatures = require("../utils/apiFeatures");
 
 module.exports.getAllAirports = async (req, res) => {
@@ -8,8 +9,11 @@ module.exports.getAllAirports = async (req, res) => {
       .filter()
       .limitFields()
       .paginate()
-      .limitResults();
+      .limitResults()
+      .sort();
     //execute query
+
+    //console.log("getAllAirports", req.query);
     const airports = await featuersQuery.query;
 
     res.status(200).json({
@@ -138,3 +142,34 @@ module.exports.getAirportByName = async (req, res) => {
     });
   }
 };
+
+// module.exports.includeRunwayInfo = async (req, res) => {
+//   Airports.aggregate([
+//     {
+//       $lookup: {
+//         from: Runways
+//       },
+//     },
+//   ]);
+// };
+
+// module.exports.convertAirportElevationToNumber = async (req, res) => {
+//   try {
+//     const airport = await Airports.updateMany(
+//       {},
+//       { $set: { elevation_ft: Number("$elevation_ft") } }
+//     );
+
+//     res.status(200).json({
+//       status: "success",
+//       data: {
+//         airport,
+//       },
+//     });
+//   } catch (err) {
+//     res.status(400).json({
+//       status: "fail",
+//       message: err,
+//     });
+//   }
+// };

@@ -5,6 +5,7 @@ const {
   getAirportByIATA,
   getAirportByType,
   getAirportByName,
+  convertAirportElevationToNumber,
 } = require("../controllers/airportsControllers");
 const router = express.Router();
 
@@ -14,5 +15,9 @@ router.route("/iata/:iata").get(getAirportByIATA);
 router.route("/type/:type").get(getAirportByType);
 //Able to partially match e.g. winnipeg would match 3 resutls
 router.route("/name/:name").get(getAirportByName);
+
+router
+  .route("/dev/convertAirportElevation")
+  .get(convertAirportElevationToNumber);
 
 module.exports = router;

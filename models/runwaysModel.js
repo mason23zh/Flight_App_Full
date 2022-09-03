@@ -14,10 +14,10 @@ const runwaySchema = new mongoose.Schema({
     required: [true, "Runway need airport ident"],
   },
   length_ft: {
-    type: String,
+    type: Number,
   },
   width_ft: {
-    type: String,
+    type: Number,
   },
   surface: {
     type: String,
@@ -38,13 +38,13 @@ const runwaySchema = new mongoose.Schema({
     type: String,
   },
   le_elevation_ft: {
-    type: String,
+    type: Number,
   },
   le_heading_degT: {
-    type: String,
+    type: Number,
   },
   le_displaced_threshold_ft: {
-    type: String,
+    type: Number,
   },
   he_ident: {
     type: String,
@@ -56,13 +56,13 @@ const runwaySchema = new mongoose.Schema({
     type: String,
   },
   he_elevation_ft: {
-    type: String,
+    type: Number,
   },
   he_heading_degT: {
     type: String,
   },
   he_displaced_threshold_ft: {
-    type: String,
+    type: Number,
   },
 });
 
