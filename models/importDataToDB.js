@@ -1,11 +1,11 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
-const { Airports } = require("../models/airportsModel");
-const { AirportFrequencies } = require("../models/airportFrequenciesModel");
-const { Countries } = require("../models/countriesModel");
-const { Navaids } = require("../models/navaidsModel");
-const { Regions } = require("../models/regionsModel");
-const { Runways } = require("../models/runwaysModel");
+const { Airports } = require("./airports/airportsModel");
+const { AirportFrequencies } = require("./airports/airportFrequenciesModel");
+const { Countries } = require("./airports/countriesModel");
+const { Navaids } = require("./airports/navaidsModel");
+const { Regions } = require("./airports/regionsModel");
+const { Runways } = require("./airports/runwaysModel");
 
 require("dotenv").config({ path: "../config.env" });
 

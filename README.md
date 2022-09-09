@@ -29,3 +29,13 @@ Example:http://localhost:8001/api/v1/airports/all-airports?limitedResults=3
 
 paginate
 Example:http://localhost:8001/api/v1/airports/all-airports?page=1&limit=3
+
+//TODO
+ILS
+ATIS
+METAR
+NOTAM
+User Registration
+User Login
+User Auth
+Protected Routes
