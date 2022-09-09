@@ -2,6 +2,7 @@ const express = require("express");
 require('express-async-error');
 const morgan = require("morgan");
 const airportsRoutes = require("./routes/airportsRoutes");
+const userRoutes = require('./routes/userRoutes')
 const errorHandler = require('./common/middlewares/error-handler');
 const NotFoundError = require('./common/errors/NotFoundError');
 
@@ -16,6 +17,7 @@ app.use(express.static(`${__dirname}/public`));
 
 
 app.use("/api/v1/airports", airportsRoutes);
+app.use('/api/v1/users', userRoutes);
 
 app.all("*", (req, res) => {
   throw new NotFoundError("Page Not Found");

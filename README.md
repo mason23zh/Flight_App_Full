@@ -1,6 +1,7 @@
 This is an API to get data for the airports, runway, navaids and etc.
 
-http://localhost:8001/api/v1
+
+Airports: http://localhost:8001/api/v1/airports
 
 End Points:
 
@@ -30,12 +31,21 @@ Example:http://localhost:8001/api/v1/airports/all-airports?limitedResults=3
 paginate
 Example:http://localhost:8001/api/v1/airports/all-airports?page=1&limit=3
 
-//TODO
+
+Users: http://localhost:8001/api/v1/users
+
+Signup: http://localhost:8001/api/v1/users/signup
+
+Login: http://localhost:8001/api/v1/users/login
+
+ToDo List:
+
 ILS
+
 ATIS
+
 METAR
+
 NOTAM
-User Registration
-User Login
-User Auth
+
 Protected Routes
