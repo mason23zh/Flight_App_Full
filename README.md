@@ -44,8 +44,18 @@ ILS
 
 ATIS
 
-METAR
+METAR (Partially Done, decoded + original)
 
 NOTAM
 
+Get Airports by Weather filter
+
 Protected Routes
+
+Zibo Updates Download (Patch Only, Azure CDN if time allowed)
+
+DB modification with Admin authorization. 
+
+*Navigraph Nadata parser to update the Airports DB. DB Size reduce. 
+
+*Require complete DB model and controllers refactor 
