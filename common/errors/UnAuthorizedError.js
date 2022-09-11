@@ -1,5 +1,5 @@
-const httpStatusCode = require("./httpStatusCode.js");
-const CustomError = require("./custom-error.js");
+const httpStatusCode = require("./httpStatusCode");
+const CustomError = require("./custom-error");
 
 class UnAuthorizedError extends CustomError {
     constructor(message, statusCode) {

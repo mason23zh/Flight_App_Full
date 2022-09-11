@@ -10,15 +10,14 @@ const { Runways } = require("./airports/runwaysModel");
 require("dotenv").config({ path: "../config.env" });
 
 const airportJsonPath = "../dev-data/json_data/airports.json";
-const airportFrequenciesJsonPath =
-  "../dev-data/json_data/airport-frequencies.json";
+const airportFrequenciesJsonPath = "../dev-data/json_data/airport-frequencies.json";
 const countriesJsonPath = "../dev-data/json_data/airport-frequencies.json";
 const navidsJsonPath = "../dev-data/json_data/navaids.json";
 const regionsJsonPath = "../dev-data/json_data/regions.json";
 const runwaysJsonPath = "../dev-data/json_data/runways.json";
 
 mongoose.connect(`${process.env.DATABASE}`).then(() => {
-  console.log("DB connected for import data");
+    console.log("DB connected for import data");
 });
 
 const airports = JSON.parse(fs.readFileSync(airportJsonPath));
@@ -29,19 +28,19 @@ const regions = JSON.parse(fs.readFileSync(regionsJsonPath));
 const runways = JSON.parse(fs.readFileSync(runwaysJsonPath));
 
 class ImportData {
-  constructor(model, data) {
-    this.model = model;
-    this.data = data;
-  }
-
-  async import() {
-    try {
-      await this.model.create(this.data);
-      console.log("loaded");
-    } catch (err) {
-      console.error(err);
+    constructor(model, data) {
+        this.model = model;
+        this.data = data;
     }
-  }
+
+    async import() {
+        try {
+            await this.model.create(this.data);
+            console.log("loaded");
+        } catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 const importAirport = new ImportData(Airports, airports);

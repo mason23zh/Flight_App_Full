@@ -8,6 +8,10 @@
     "prettier"
   ],
   "rules": {
+    "indent": [
+      "error",
+      4
+    ],
     "prettier/prettier": "error",
     "spaced-comment": "off",
     "no-console": "warn",

@@ -1,6 +1,5 @@
 This is an API to get data for the airports, runway, navaids and etc.
 
-
 Airports: http://localhost:8001/api/v1/airports
 
 End Points:
@@ -31,7 +30,6 @@ Example:http://localhost:8001/api/v1/airports/all-airports?limitedResults=3
 paginate
 Example:http://localhost:8001/api/v1/airports/all-airports?page=1&limit=3
 
-
 Users: http://localhost:8001/api/v1/users
 
 Signup: http://localhost:8001/api/v1/users/signup
@@ -54,8 +52,8 @@ Protected Routes
 
 Zibo Updates Download (Patch Only, Azure CDN if time allowed)
 
-DB modification with Admin authorization. 
+DB modification with Admin authorization.
 
-*Navigraph Nadata parser to update the Airports DB. DB Size reduce. 
+*Navigraph Nadata parser to update the Airports DB. DB Size reduce.
 
 *Require complete DB model and controllers refactor 

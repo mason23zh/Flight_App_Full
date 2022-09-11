@@ -1,44 +1,72 @@
-require('express-async-error');
+// noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS
+
+require("express-async-error");
+const axios = require("axios");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
-const NotFoundError = require("../common/errors/NotFoundError");
+const { Navaids } = require("../models/airports/navaidsModel");
 const BadRequestError = require("../common/errors/BadRequestError");
+const NotFoundError = require("../common/errors/NotFoundError");
 const APIFeatures = require("../utils/apiFeatures");
-const axios = require("axios");
 
-let faaAtisAPI = `http://datis.clowd.io/api`;
-//let metarAPI = `https://avwx.rest/api/metar/?options=&airport=true&reporting=true&format=json&remove=&filter=&onfail=cache`;
+const faaAtisAPI = `http://datis.clowd.io/api`;
+
+const getFaaAtis = async (location) => {
+    try {
+        const responseAtis = await axios.get(`${process.env.FAA_ATIS_API_BASE_URL}/${location}`);
+        return responseAtis;
+    } catch (err) {
+        throw new BadRequestError("FAA Atis XPI Error");
+    }
+};
+
+const getMetar = async (station, location) => {
+    try {
+        const config = {
+            headers: {
+                "X-API-KEY": process.env.X_API_KEY,
+            },
+        };
+        const apiURL = `${process.env.CHECK_WEATHER_BASE_URL}/${station}/${location}`;
+        const responseMetar = await axios.get(apiURL, config);
+        const metarData = responseMetar.data;
+
+        return metarData;
+    } catch (err) {
+        throw new BadRequestError(err);
+    }
+};
 
 module.exports.getAllAirports = async (req, res) => {
     const airportQueryObj = Airports.find();
     const featuersQuery = new APIFeatures(airportQueryObj, req.query)
-      .filter()
-      .limitFields()
-      .paginate()
-      .limitResults()
-      .sort();
+        .filter()
+        .limitFields()
+        .paginate()
+        .limitResults()
+        .sort();
     //execute query
     //console.log("getAllAirports", req.query);
     const airports = await featuersQuery.query;
 
     res.status(200).json({
-      status: "success",
-      data: {
-        length: airports.length,
-        airports,
-      },
+        status: "success",
+        data: {
+            length: airports.length,
+            airports,
+        },
     });
 };
 
 module.exports.getAirportByICAO = async (req, res, next) => {
     try {
+        let responseMetar;
         const airportFeatures = new APIFeatures(
             Airports.find({
                 ident: `${req.params.icao.toUpperCase()}`,
             }),
             req.query
         ).limitFields();
-
 
         const runwayFeatures = new APIFeatures(
             Runways.find({
@@ -47,11 +75,19 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             req.query
         ).limitFields();
 
-        const responseATIS = await axios.get(`${faaAtisAPI}/${req.params.icao}`);
+        const responseATIS = await getFaaAtis(req.params.icao.toUpperCase());
 
         if (responseATIS.data.error) {
             responseATIS.data = `No ATIS found in ${req.params.icao.toUpperCase()}`;
         }
+
+        const metarData = await getMetar("metar", req.params.icao.toUpperCase());
+
+        if (metarData.data.length === 0) {
+            responseMetar = `No METAR data found in ${req.params.icao.toUpperCase()}`;
+        }
+
+        responseMetar = metarData.data;
 
         const airport = await airportFeatures.query;
         const runway = await runwayFeatures.query;
@@ -60,17 +96,17 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             throw new BadRequestError(`Airport with ICAO: '${req.params.icao.toUpperCase()}' Not Found`);
         }
 
-
         res.status(200).json({
             status: "success",
             data: {
                 airport,
                 runway,
                 responseATIS: responseATIS.data,
+                responseMetar: responseMetar,
             },
         });
-    }catch (err) {
-    next(err);
+    } catch (err) {
+        next(err);
     }
 };
 
@@ -90,7 +126,6 @@ module.exports.getAirportByIATA = async (req, res, next) => {
             req.query
         ).limitFields();
 
-
         const airport = await airportFeatures.query;
         if (airport.length === 0) {
             throw new BadRequestError(`Airport with IATA: '${req.params.iata.toUpperCase()}' Not Found`);
@@ -104,38 +139,34 @@ module.exports.getAirportByIATA = async (req, res, next) => {
                 runway,
             },
         });
-    }catch (err) {
+    } catch (err) {
         next(err);
     }
 };
 
 module.exports.getAirportByType = async (req, res) => {
     const airportsQueryObj = Airports.find({
-      type: `${req.params.type}`,
+        type: `${req.params.type}`,
     });
 
     console.log("req.query from type", req.query);
 
-    const featuersQuery = new APIFeatures(airportsQueryObj, req.query)
-      .filter()
-      .limitFields()
-      .paginate()
-      .limitResults();
+    const featuersQuery = new APIFeatures(airportsQueryObj, req.query).filter().limitFields().paginate().limitResults();
 
     const airports = await featuersQuery.query;
 
     res.status(200).json({
-      status: "success",
-      data: {
-        airports,
-      },
+        status: "success",
+        data: {
+            airports,
+        },
     });
 };
 
 module.exports.getAirportByName = async (req, res, next) => {
     try {
         const airportsQueryObj = Airports.find({
-            name: {$regex: `${req.params.name}`, $options: "i"},
+            name: { $regex: `${req.params.name}`, $options: "i" },
         });
 
         const featuersQuery = new APIFeatures(airportsQueryObj, req.query)
@@ -152,7 +183,43 @@ module.exports.getAirportByName = async (req, res, next) => {
                 airports,
             },
         });
-    }catch(err){
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports.getAirportWithNavaids = async (req, res, next) => {
+    try {
+        const icao = req.params.icao.toUpperCase();
+        const airport = Airports.findOne({ ident: icao });
+        if (airport.length === 0) {
+            throw new NotFoundError(`Airport with ICAO: ${icao} not found`);
+        }
+
+        const navaids = await Navaids.find({ associated_airport: icao });
+        console.log(navaids);
+
+        res.status(200).json({
+            navaids,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports.getAirportWithRunways = async (req, res, next) => {
+    try {
+        const airport = await Airports.findOne({ ident: `${req.params.icao.toUpperCase()}` });
+        if (airport.lenght === 0) {
+            throw NotFoundError(`Airport with ICAO: ${req.params.icao.toUpperCase()} not found`);
+        }
+        const runways = await Runways.find({ airport_ident: airport.ident });
+
+        res.status(200).json({
+            airport,
+            runways,
+        });
+    } catch (err) {
         next(err);
     }
 };

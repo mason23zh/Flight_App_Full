@@ -3,28 +3,20 @@ const BadRequestError = require("../errors/BadRequestError");
 const ValidationError = require("../errors/ValidationError");
 const UnAuthorizedError = require("../errors/UnAuthorizedError");
 
-const handleCastErrorDB = (err) => {
-    return new BadRequestError(`Invalid ${err.path}: ${err.value}`);
-};
+const handleCastErrorDB = (err) => new BadRequestError(`Invalid ${err.path}: ${err.value}`);
 
-const handleDuplicateFieldsDB = (err) => {
-    return new BadRequestError(
-        `Duplicate field value: ${Object.values(err.keyValue)}`
-    );
-};
+const handleDuplicateFieldsDB = (err) => new BadRequestError(`Duplicate field value: ${Object.values(err.keyValue)}`);
 
 const handleValidationErrorDB = (err) => {
     const errors = Object.values(err.errors).map((error) => error.message);
     return new ValidationError(errors);
 };
 
-const handleJWTError = () => {
-    return new UnAuthorizedError(`Invalid Token, Please Login Again`);
-};
+const handleJWTError = () => new UnAuthorizedError(`Invalid Token, Please Login Again`);
 
-const handleTokenExpiredError = () => {
-    return new UnAuthorizedError(`Token expired, Please Login Again`);
-};
+const handleTokenExpiredError = () => new UnAuthorizedError(`Token expired, Please Login Again`);
+
+const handleCheckWxApiError = () => new BadRequestError("Check Wx API Error");
 
 /**
  *
@@ -62,7 +54,7 @@ const sendErrorDev = (err, res) => {
  * @param res Response
  * @returns json object
  * This method will be used in the production.
- * If error is operational error, then the corseponding error will be
+ * If error is operational error, then the corresponding error will be
  * sent.
  * If error is programming error, a generic 500 error will be sent
  */
@@ -77,16 +69,15 @@ const sendErrorProd = (err, res) => {
                 status: err.status,
             },
         });
-    } else {
-        // Programming Error
-        res.status(500).json({
-            err: {
-                message: "500 Error. Something went very wrong",
-                statusCode: 500,
-                status: "error",
-            },
-        });
     }
+    // Programming Error
+    res.status(500).json({
+        err: {
+            message: "500 Error. Something went very wrong",
+            statusCode: 500,
+            status: "error",
+        },
+    });
 };
 
 const errorHandler = (err, req, res, next) => {
@@ -121,6 +112,11 @@ const errorHandler = (err, req, res, next) => {
         //Token Expired Error
         if (error.name === "TokenExpiredError") {
             error = handleTokenExpiredError();
+        }
+
+        //wxapi error
+        if (error.message.code === "ENOTFOUND") {
+            error = handleCheckWxApiError();
         }
 
         sendErrorProd(error, res);
