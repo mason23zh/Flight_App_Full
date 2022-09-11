@@ -5,15 +5,14 @@ const axios = require("axios");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
 const { Navaids } = require("../models/airports/navaidsModel");
+const { CHECK_WEATHER_BASE_URL, FAA_ATIS_API_BASE_URL } = require("../config");
 const BadRequestError = require("../common/errors/BadRequestError");
 const NotFoundError = require("../common/errors/NotFoundError");
 const APIFeatures = require("../utils/apiFeatures");
 
-const faaAtisAPI = `http://datis.clowd.io/api`;
-
 const getFaaAtis = async (location) => {
     try {
-        const responseAtis = await axios.get(`${process.env.FAA_ATIS_API_BASE_URL}/${location}`);
+        const responseAtis = await axios.get(`${FAA_ATIS_API_BASE_URL}/${location}`);
         return responseAtis;
     } catch (err) {
         throw new BadRequestError("FAA Atis XPI Error");
@@ -27,7 +26,7 @@ const getMetar = async (station, location) => {
                 "X-API-KEY": process.env.X_API_KEY,
             },
         };
-        const apiURL = `${process.env.CHECK_WEATHER_BASE_URL}/${station}/${location}`;
+        const apiURL = `${CHECK_WEATHER_BASE_URL}/${station}/${location}/decoded`;
         const responseMetar = await axios.get(apiURL, config);
         const metarData = responseMetar.data;
 
@@ -35,6 +34,62 @@ const getMetar = async (station, location) => {
     } catch (err) {
         throw new BadRequestError(err);
     }
+};
+
+const metarDecode = (metar) => {
+    const decodedMetar = {
+        rawMetar: "",
+        decoded: {
+            icao: "",
+            flight_category: "",
+            observed: "",
+            clouds: [],
+            conditions: [],
+            wind: {},
+            temperature: {},
+            visibility: {},
+        },
+    };
+
+    decodedMetar.rawMetar = metar.raw_text;
+    decodedMetar.decoded.icao = metar.icao;
+    decodedMetar.decoded.observed = metar.observed;
+    //Barometer
+    decodedMetar.decoded.baroIng = metar.barometer ? metar.barometer.hg : "Not Available";
+    decodedMetar.decoded.baroQNH = metar.barometer ? metar.barometer.mb : "Not Available";
+    //wind
+    decodedMetar.decoded.wind.windSpeed = metar.wind ? metar.wind.speed_kts : 0;
+    decodedMetar.decoded.wind.windDirection = metar.wind ? metar.wind.degrees : 0;
+    decodedMetar.decoded.wind.windGust = metar.wind ? metar.wind.gust_kts : 0;
+    //cloud
+    if (metar.clouds && (metar.clouds[0].code === "CAVOK" || metar.clouds[0].code === "SKC")) {
+        decodedMetar.decoded.clouds.push(metar.clouds[0].text);
+    } else {
+        metar.clouds.forEach((cloud) => {
+            const clouds = `${cloud.text}(${cloud.code}) ${cloud.feet} AGL`;
+            decodedMetar.decoded.clouds.push(clouds);
+        });
+        const clouds = metar.clouds[0]
+            ? `${metar.clouds[0].text}(${metar.clouds[0].code}) ${metar.clouds[0].feet} AGL`
+            : "";
+        decodedMetar.decoded.clouds.push(clouds);
+    }
+    //temperature
+    decodedMetar.decoded.temperature.temperature = metar.temperature ? metar.temperature.celsius : "Not Available";
+    decodedMetar.decoded.temperature.dewpoint = metar.dewpoint ? metar.dewpoint.celsius : "Not Available";
+    //condition
+    if (metar.conditions) {
+        metar.conditions.forEach((condition) => {
+            const conditions = `${condition.code}: ${condition.text}`;
+            decodedMetar.decoded.conditions.push(conditions);
+        });
+    }
+    //visibility
+    decodedMetar.decoded.visibility.mile = metar.visibility ? metar.visibility.miles : "";
+    decodedMetar.decoded.visibility.meter = metar.visibility ? metar.visibility.meters : "";
+    //flight_category
+    decodedMetar.decoded.flight_category = metar.flight_category ? metar.flight_category : "";
+    return decodedMetar;
 };
 
 module.exports.getAllAirports = async (req, res) => {
@@ -60,7 +115,8 @@ module.exports.getAllAirports = async (req, res) => {
 
 module.exports.getAirportByICAO = async (req, res, next) => {
     try {
-        let responseMetar;
+        let responseMetar = {};
+
         const airportFeatures = new APIFeatures(
             Airports.find({
                 ident: `${req.params.icao.toUpperCase()}`,
@@ -86,8 +142,7 @@ module.exports.getAirportByICAO = async (req, res, next) => {
         if (metarData.data.length === 0) {
             responseMetar = `No METAR data found in ${req.params.icao.toUpperCase()}`;
         }
-
-        responseMetar = metarData.data;
+        responseMetar = { ...metarDecode(metarData.data[0]) };
 
         const airport = await airportFeatures.query;
         const runway = await runwayFeatures.query;
@@ -96,13 +151,15 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             throw new BadRequestError(`Airport with ICAO: '${req.params.icao.toUpperCase()}' Not Found`);
         }
 
+        console.log(metarDecode(metarData.data[0]));
+
         res.status(200).json({
             status: "success",
             data: {
                 airport,
                 runway,
-                responseATIS: responseATIS.data,
-                responseMetar: responseMetar,
+                ATIS: responseATIS.data,
+                METAR: responseMetar,
             },
         });
     } catch (err) {
