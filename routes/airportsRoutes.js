@@ -9,6 +9,7 @@ const {
     getAirportByName,
     getAirportWithRunways,
     getAirportWithNavaids,
+    getNOTAM,
 } = require("../controllers/airportsControllers");
 
 const router = express.Router();
@@ -23,6 +24,7 @@ router.route("/name/:name").get(getAirportByName);
 //For test
 router.route("/runways/:icao").get(getAirportWithRunways);
 router.route("/dev/airportWithNavids/:icao").get(getAirportWithNavaids);
+router.route("/dev/notam").get(getNOTAM);
 //router.route("/dev/AirportRunway/:icao").get(testController);
 
 module.exports = router;

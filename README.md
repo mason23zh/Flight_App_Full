@@ -36,13 +36,13 @@ Signup: http://localhost:8001/api/v1/users/signup
 
 Login: http://localhost:8001/api/v1/users/login
 
+METAR: Decoded + Raw METAR
+
 ToDo List:
 
 ILS
 
 ATIS
-
-METAR (Partially Done, decoded + original)
 
 NOTAM
 

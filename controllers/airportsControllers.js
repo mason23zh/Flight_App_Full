@@ -1,7 +1,8 @@
-// noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS
+// noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS,JSCheckFunctionSignatures
 
 require("express-async-error");
 const axios = require("axios");
+const cheerio = require("cheerio");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
 const { Navaids } = require("../models/airports/navaidsModel");
@@ -12,8 +13,7 @@ const APIFeatures = require("../utils/apiFeatures");
 
 const getFaaAtis = async (location) => {
     try {
-        const responseAtis = await axios.get(`${FAA_ATIS_API_BASE_URL}/${location}`);
-        return responseAtis;
+        return await axios.get(`${FAA_ATIS_API_BASE_URL}/${location}`);
     } catch (err) {
         throw new BadRequestError("FAA Atis XPI Error");
     }
@@ -40,6 +40,7 @@ const metarDecode = (metar) => {
     const decodedMetar = {
         rawMetar: "",
         decoded: {
+            name: "",
             icao: "",
             flight_category: "",
             observed: "",
@@ -51,9 +52,14 @@ const metarDecode = (metar) => {
         },
     };
 
+    if (!metar) {
+        return;
+    }
+
     decodedMetar.rawMetar = metar.raw_text;
     decodedMetar.decoded.icao = metar.icao;
     decodedMetar.decoded.observed = metar.observed;
+    decodedMetar.decoded.name = metar.station.name;
     //Barometer
     decodedMetar.decoded.baroIng = metar.barometer ? metar.barometer.hg : "Not Available";
     decodedMetar.decoded.baroQNH = metar.barometer ? metar.barometer.mb : "Not Available";
@@ -75,7 +81,14 @@ const metarDecode = (metar) => {
         decodedMetar.decoded.clouds.push(clouds);
     }
     //temperature
-    decodedMetar.decoded.temperature.temperature = metar.temperature ? metar.temperature.celsius : "Not Available";
+
+    if (metar.temperature && metar.temperature.minimum) {
+        decodedMetar.decoded.temperature.temperature = metar.temperature.minimum.celsius;
+    } else if (metar.temperature) {
+        decodedMetar.decoded.temperature.temperature = metar.temperature.celsius;
+    } else {
+        decodedMetar.decoded.temperature.temperature = "";
+    }
     decodedMetar.decoded.temperature.dewpoint = metar.dewpoint ? metar.dewpoint.celsius : "Not Available";
     //condition
     if (metar.conditions) {
@@ -115,8 +128,7 @@ module.exports.getAllAirports = async (req, res) => {
 
 module.exports.getAirportByICAO = async (req, res, next) => {
     try {
-        let responseMetar = {};
-
+        const responseMetar = { data: [] };
         const airportFeatures = new APIFeatures(
             Airports.find({
                 ident: `${req.params.icao.toUpperCase()}`,
@@ -140,10 +152,10 @@ module.exports.getAirportByICAO = async (req, res, next) => {
         const metarData = await getMetar("metar", req.params.icao.toUpperCase());
 
         if (metarData.data.length === 0) {
-            responseMetar = `No METAR data found in ${req.params.icao.toUpperCase()}`;
+            responseMetar.data = `No METAR data found in ${req.params.icao.toUpperCase()}`;
+        } else {
+            responseMetar.data.push(metarDecode(metarData.data[0]));
         }
-        responseMetar = { ...metarDecode(metarData.data[0]) };
-
         const airport = await airportFeatures.query;
         const runway = await runwayFeatures.query;
 
@@ -151,15 +163,13 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             throw new BadRequestError(`Airport with ICAO: '${req.params.icao.toUpperCase()}' Not Found`);
         }
 
-        console.log(metarDecode(metarData.data[0]));
-
         res.status(200).json({
             status: "success",
             data: {
                 airport,
                 runway,
                 ATIS: responseATIS.data,
-                METAR: responseMetar,
+                METAR: responseMetar.data,
             },
         });
     } catch (err) {
@@ -276,6 +286,26 @@ module.exports.getAirportWithRunways = async (req, res, next) => {
             airport,
             runways,
         });
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports.getNOTAM = async (req, res, next) => {
+    try {
+        //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
+        //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
+        const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
+        const data = await axios({
+            method: "post",
+            url: url3,
+            formData: {
+                formatType: "ICAO",
+                retrieveLocId: "zsss",
+            },
+        });
+        const $ = cheerio.load(data);
+        console.log($(".content"));
     } catch (err) {
         next(err);
     }
