@@ -2,6 +2,8 @@
 
 ## This is an API to get data for the airports, runways, navaids and etc.
 
+---
+
 ### Airports: */api/v1/airports*
 
 **End Points**:
@@ -21,7 +23,9 @@ Example: ***/api/v1/airports/type/heliport***
 Get Airports By Name (Able to partially match e.g. winnipeg would match 3 results)\
 Example: ***/api/v1/airports/name/Winnipeg***
 
-## Airports Query:
+---
+
+### Airports Query:
 
 limitFields\
 Example: ***/api/v1/airports/all-airports?fields=icao+type***
@@ -32,10 +36,11 @@ Example: ***/api/v1/airports/all-airports?limitedResults=3***
 paginate
 Example: ***/api/v1/airports/all-airports?page=1&limit=3***
 
-## Users
+---
 
-Get all Users: \
-Example: ***/api/v1/users***
+### Users: */api/v1/users*
+
+**End Points**:
 
 Signup: \
 Example: ***/api/v1/users/signup***
@@ -43,9 +48,13 @@ Example: ***/api/v1/users/signup***
 Login:\
 Example: ***/api/v1/users/login***
 
+---
+
 ### Additional Features
 
 METAR: Decoded + Raw METAR
+
+---
 
 ### ToDo List:
 
@@ -65,7 +74,9 @@ METAR: Decoded + Raw METAR
 
 * Add Navigraph integration to allow registered user to access more data.
 
-* Require complete DB model and controllers refactor
+*Require complete DB model and controllers refactor
+
+---
 
 ### Credits
 
