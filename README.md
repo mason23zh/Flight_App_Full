@@ -1,59 +1,72 @@
-This is an API to get data for the airports, runway, navaids and etc.
+# Flight Data
 
-Airports: http://localhost:8001/api/v1/airports
+## This is an API to get data for the airports, runways, navaids and etc.
 
-End Points:
+### Airports: */api/v1/airports*
 
-Get All Airports
-Example: http://localhost:8001/api/v1/airports/all-airports
+**End Points**:
 
-Get Airports By ICAO
-Example: http://localhost:8001/api/v1/airports/icao/cywg
+Get All Airports:\
+Example: ***/api/v1/airports/all-airports***
 
-Get Airports By IATA
-Example: http://localhost:8001/api/v1/airports/iata/ywg
+Get Airports By ICAO:\
+Example: ***/api/v1/airports/icao/cywg***
 
-Get Airports By Type (large_airport, medium_airport, small_airport,heliport,seaplane_base,closed_airport)
-Example: http://localhost:8001/api/v1/airports/type/heliport
+Get Airports By IATA:\
+Example: ***/api/v1/airports/iata/ywg***
 
-Get Airports By Name (Able to partially match e.g. winnipeg would match 3 resutls)
-Example: http://localhost:8001/api/v1/airports/name/Winnipeg
+Get Airports By Type (large_airport, medium_airport, small_airport,heliport,seaplane_base,closed_airport)\
+Example: ***/api/v1/airports/type/heliport***
 
-Query:
+Get Airports By Name (Able to partially match e.g. winnipeg would match 3 results)\
+Example: ***/api/v1/airports/name/Winnipeg***
 
-limitFields
-Example: http://localhost:8001/api/v1/airports/all-airports?fields=icao+type
+## Airports Query:
 
-limitResults
-Example:http://localhost:8001/api/v1/airports/all-airports?limitedResults=3
+limitFields\
+Example: ***/api/v1/airports/all-airports?fields=icao+type***
+
+limitResults\n
+Example: ***/api/v1/airports/all-airports?limitedResults=3***
 
 paginate
-Example:http://localhost:8001/api/v1/airports/all-airports?page=1&limit=3
+Example: ***/api/v1/airports/all-airports?page=1&limit=3***
 
-Users: http://localhost:8001/api/v1/users
+## Users
 
-Signup: http://localhost:8001/api/v1/users/signup
+Get all Users: \
+Example: ***/api/v1/users***
 
-Login: http://localhost:8001/api/v1/users/login
+Signup: \
+Example: ***/api/v1/users/signup***
+
+Login:\
+Example: ***/api/v1/users/login***
+
+### Additional Features
 
 METAR: Decoded + Raw METAR
 
-ToDo List:
+### ToDo List:
 
-ILS
+* ILS
+* ATIS
+* NOTAM
 
-ATIS
+* Get Airports by Weather filter
 
-NOTAM
+* Protected Routes
 
-Get Airports by Weather filter
+* Zibo Updates Download (Patch Only, Azure CDN if time allowed)
 
-Protected Routes
+* DB modification with Admin authorization.
 
-Zibo Updates Download (Patch Only, Azure CDN if time allowed)
+* *Navigraph Navdata parser to update the Airports DB. DB Size reduce.
 
-DB modification with Admin authorization.
+* Add Navigraph integration to allow registered user to access more data.
 
-*Navigraph Nadata parser to update the Airports DB. DB Size reduce.
+* Require complete DB model and controllers refactor
 
-*Require complete DB model and controllers refactor 
+### Credits
+
+- [ FAA DATIS ](https://datis.clowd.io/) 

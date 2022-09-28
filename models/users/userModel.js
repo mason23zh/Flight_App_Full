@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         validate: [validator.isEmail, "Please provide a validate Email"],
     },
-    photo: String,
     password: {
         type: String,
         required: [true, "Must have password"],
@@ -23,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     passwordConfirm: {
         type: String,
-        required: [true, "Plase confrim your password"],
+        required: [true, "Please confirm your password"],
         //only works when on doc.create or .save
         validate: {
             validator: function (el) {
@@ -33,6 +32,17 @@ const userSchema = new mongoose.Schema({
         },
     },
     passwordChangedAt: Date,
+    role: {
+        type: String,
+        enum: ["admin", "user"],
+        default: "user",
+    },
+    active: {
+        type: Boolean,
+        default: true,
+        select: false,
+    },
+    photo: String,
 });
 
 // modified the password before saving to the DB

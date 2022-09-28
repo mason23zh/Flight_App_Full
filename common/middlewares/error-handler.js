@@ -94,8 +94,10 @@ const errorHandler = (err, req, res, next) => {
             error = handleCastErrorDB(error);
         }
 
+        //FIXME: Won't Catch 11000 error, need fix.
         //Convert 11000 DB error into an operational BadRequestError
         if (error.code === 11000) {
+            console.log("Duplicated Fileds");
             error = handleDuplicateFieldsDB(error);
         }
 

@@ -1,7 +1,7 @@
 // noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS,JSCheckFunctionSignatures
 
-require("express-async-error");
 const axios = require("axios");
+const request = require("request");
 const cheerio = require("cheerio");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
@@ -28,9 +28,8 @@ const getMetar = async (station, location) => {
         };
         const apiURL = `${CHECK_WEATHER_BASE_URL}/${station}/${location}/decoded`;
         const responseMetar = await axios.get(apiURL, config);
-        const metarData = responseMetar.data;
 
-        return metarData;
+        return responseMetar.data;
     } catch (err) {
         throw new BadRequestError(err);
     }
@@ -148,7 +147,6 @@ module.exports.getAirportByICAO = async (req, res, next) => {
         if (responseATIS.data.error) {
             responseATIS.data = `No ATIS found in ${req.params.icao.toUpperCase()}`;
         }
-
         const metarData = await getMetar("metar", req.params.icao.toUpperCase());
 
         if (metarData.data.length === 0) {
@@ -216,8 +214,6 @@ module.exports.getAirportByType = async (req, res) => {
         type: `${req.params.type}`,
     });
 
-    console.log("req.query from type", req.query);
-
     const featuersQuery = new APIFeatures(airportsQueryObj, req.query).filter().limitFields().paginate().limitResults();
 
     const airports = await featuersQuery.query;
@@ -262,9 +258,7 @@ module.exports.getAirportWithNavaids = async (req, res, next) => {
         if (airport.length === 0) {
             throw new NotFoundError(`Airport with ICAO: ${icao} not found`);
         }
-
         const navaids = await Navaids.find({ associated_airport: icao });
-        console.log(navaids);
 
         res.status(200).json({
             navaids,
@@ -295,17 +289,23 @@ module.exports.getNOTAM = async (req, res, next) => {
     try {
         //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
         //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
-        const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
-        const data = await axios({
-            method: "post",
-            url: url3,
-            formData: {
-                formatType: "ICAO",
-                retrieveLocId: "zsss",
-            },
+        //const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
+        const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
+        request(url4, (error, response, html) => {
+            if (!error && response.statusCode === 200) {
+                const $ = cheerio.load(html);
+                console.log($);
+                console.log($("div.db_res_head").html());
+                // $(".db_res_head .db_res_title").each((i, el) => {
+                //     console.log($(el).text());
+                // });
+
+                //console.log($(".db_res_head .db_res_title").html());
+            }
         });
-        const $ = cheerio.load(data);
-        console.log($(".content"));
+
+        //const $ = cheerio.load(data);
+        //res.status(200).send(data);
     } catch (err) {
         next(err);
     }
