@@ -4,6 +4,7 @@ const httpStatusCode = {
     NOT_FOUND: 404,
     INTERNAL_SERVER: 500,
     UNAUTHORIZED: 401,
+    EXCEED_ACCESS_RATE: 429,
 };
 
 module.exports = httpStatusCode;

@@ -1,14 +1,23 @@
 const { promisify } = require("util");
+// eslint-disable-next-line no-unused-vars
+const express = require("express");
 const jwt = require("jsonwebtoken");
 const User = require("../models/users/userModel");
 const BadRequestError = require("../common/errors/BadRequestError");
 const UnAuthorizedError = require("../common/errors/UnAuthorizedError");
 
+/** create a taken with id **/
 const signToken = (id) =>
     jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
     });
 
+/**
+ * Create a new token and send via the cookie.
+ * @param user {Object} - The user document
+ * @param statusCode {Number} - Http status code
+ * @param res {express.Response}  - Response Object
+ */
 const createSendToken = (user, statusCode, res) => {
     const token = signToken(user._id);
 
@@ -32,6 +41,15 @@ const createSendToken = (user, statusCode, res) => {
             user,
         },
     });
+};
+
+exports.restrictTo = function (...roles) {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            throw new UnAuthorizedError("You do not have permission to access this page.");
+        }
+        next();
+    };
 };
 
 exports.protect = async (req, res, next) => {
@@ -72,6 +90,7 @@ exports.signup = async (req, res, next) => {
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm,
         passwordChangedAt: req.body.passwordChangedAt,
+        role: req.body.role,
     });
 
     // Create JWT token
@@ -94,4 +113,30 @@ exports.login = async (req, res) => {
 
     // Create and send JWT Token
     createSendToken(user, 200, res);
+};
+
+/** update password
+ *
+ * @param req {express.Request} Request Object
+ * @param res {express.Response} Response Object
+ * @returns {Promise<void>}
+ */
+exports.updatePassword = async (req, res) => {
+    const user = await User.findById(req.user.id).select("+password");
+    if (!(await user.correctPassword(req.body.currentPassword, user.password))) {
+        throw new UnAuthorizedError("Current Password is Incorrect");
+    }
+
+    user.password = req.body.newPassword;
+    user.passwordConfirm = req.body.newPasswordConfirm;
+    await user.save();
+
+    const token = signToken(user._id);
+    res.status(201).json({
+        status: "success",
+        token,
+        data: {
+            user,
+        },
+    });
 };

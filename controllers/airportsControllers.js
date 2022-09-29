@@ -1,8 +1,7 @@
 // noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS,JSCheckFunctionSignatures
 
 const axios = require("axios");
-const request = require("request");
-const cheerio = require("cheerio");
+const { JSDOM } = require("jsdom");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
 const { Navaids } = require("../models/airports/navaidsModel");
@@ -285,126 +284,18 @@ module.exports.getAirportWithRunways = async (req, res, next) => {
     }
 };
 
+//FIXME: NOT WORKING
 module.exports.getNOTAM = async (req, res, next) => {
-    try {
-        //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
-        //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
-        //const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
-        const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
-        request(url4, (error, response, html) => {
-            if (!error && response.statusCode === 200) {
-                const $ = cheerio.load(html);
-                console.log($);
-                console.log($("div.db_res_head").html());
-                // $(".db_res_head .db_res_title").each((i, el) => {
-                //     console.log($(el).text());
-                // });
-
-                //console.log($(".db_res_head .db_res_title").html());
-            }
-        });
-
-        //const $ = cheerio.load(data);
-        //res.status(200).send(data);
-    } catch (err) {
-        next(err);
-    }
+    //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
+    //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
+    //const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
+    const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
+    const getUrl = (airportICAO) =>
+        `https://www.simbrief.com/system/dbquery.php?target=notam&icao=${airportICAO}&print=1`;
+    const htmlNOTAM = await axios.get(getUrl("ZSSS"));
+    console.log(htmlNOTAM);
+    //const dom = new JSDOM(htmlNOTAM.data);
+    //const title = dom.window.document.querySelectorAll("p");
+    //const $ = cheerio.load(data);
+    //res.status(200).send(data);
 };
-
-// module.exports.getAirportWithRunways = async (req, res) => {
-//   try {
-
-//     const reqQuery = req.query;
-//     console.log(reqQuery);
-
-//     const stats = await Airports.aggregate([
-//       { $match: { reqQuery } },
-//       { $limit: 4 },
-//       {
-//         $lookup: {
-//           from: "runways",
-//           localField: "ident",
-//           foreignField: "airport_ident",
-//           as: "runways",
-//         },
-//       },
-//     ]);
-
-//     res.status(200).json({
-//       status: "success",
-//       data: {
-//         stats,
-//       },
-//     });
-//   } catch (err) {
-//     res.status(404).json({
-//       status: "fail",
-//       message: err,
-//     });
-//   }
-// };
-
-// module.exports.testController = async (req, res) => {
-//   try {
-//     const airportFeatures = new APIFeatures(
-//       Airports.find({
-//         ident: `${req.params.icao.toUpperCase()}`,
-//       }),
-//       req.query
-//     ).limitFields();
-
-//     const runwayFeatures = new APIFeatures(
-//       Runways.find({
-//         airport_ident: `${req.params.icao.toUpperCase()}`,
-//       }),
-//       req.query
-//     ).limitFields();
-
-//     const airport = await airportFeatures.query;
-//     const runways = await runwayFeatures.query;
-
-//     res.status(200).json({
-//       status: "success",
-//       data: {
-//         airport,
-//         runways,
-//       },
-//     });
-//   } catch (err) {
-//     res.status(404).json({
-//       status: "fail",
-//       message: err,
-//     });
-//   }
-// };
-
-// module.exports.includeRunwayInfo = async (req, res) => {
-//   Airports.aggregate([
-//     {
-//       $lookup: {
-//         from: Runways
-//       },
-//     },
-//   ]);
-// };
-
-// module.exports.convertAirportElevationToNumber = async (req, res) => {
-//   try {
-//     const airport = await Airports.updateMany(
-//       {},
-//       { $set: { elevation_ft: Number("$elevation_ft") } }
-//     );
-
-//     res.status(200).json({
-//       status: "success",
-//       data: {
-//         airport,
-//       },
-//     });
-//   } catch (err) {
-//     res.status(400).json({
-//       status: "fail",
-//       message: err,
-//     });
-//   }
-// };
