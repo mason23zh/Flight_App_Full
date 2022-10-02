@@ -1,12 +1,12 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
-const { Airports } = require("./airports/airportsModel");
-const { AirportFrequencies } = require("./airports/airportFrequenciesModel");
-const { Countries } = require("./airports/countriesModel");
-const { Navaids } = require("./airports/navaidsModel");
-const { Regions } = require("./airports/regionsModel");
-const { Runways } = require("./airports/runwaysModel");
-const { GNS430_Airport } = require("./airports/GNS430_model/gns430AirportsModel");
+// const { Airports } = require("./airports/airportsModel");
+// const { AirportFrequencies } = require("./airports/airportFrequenciesModel");
+// const { Countries } = require("./airports/countriesModel");
+// const { Navaids } = require("./airports/navaidsModel");
+// const { Regions } = require("./airports/regionsModel");
+// const { Runways } = require("./airports/runwaysModel");
+const { GNS430Airport } = require("./airports/GNS430_model/gns430AirportsModel");
 
 require("dotenv").config({ path: "../config.env" });
 
@@ -22,12 +22,12 @@ mongoose.connect(`${process.env.DATABASE}`).then(() => {
     console.log("DB connected for import data");
 });
 
-const airports = JSON.parse(fs.readFileSync(airportJsonPath));
-const airportFreqs = JSON.parse(fs.readFileSync(airportFrequenciesJsonPath));
-const countries = JSON.parse(fs.readFileSync(countriesJsonPath));
-const navaids = JSON.parse(fs.readFileSync(navidsJsonPath));
-const regions = JSON.parse(fs.readFileSync(regionsJsonPath));
-const runways = JSON.parse(fs.readFileSync(runwaysJsonPath));
+// const airports = JSON.parse(fs.readFileSync(airportJsonPath));
+// const airportFreqs = JSON.parse(fs.readFileSync(airportFrequenciesJsonPath));
+// const countries = JSON.parse(fs.readFileSync(countriesJsonPath));
+// const navaids = JSON.parse(fs.readFileSync(navidsJsonPath));
+// const regions = JSON.parse(fs.readFileSync(regionsJsonPath));
+// const runways = JSON.parse(fs.readFileSync(runwaysJsonPath));
 const gns430Runway = JSON.parse(fs.readFileSync(gns430AirportJsonPath));
 
 class ImportData {
@@ -52,7 +52,8 @@ class ImportData {
 // const importNavids = new ImportData(Navaids, navaids);
 // const importRegions = new ImportData(Regions, regions);
 // const importRunways = new ImportData(Runways, runways);
-const importGNS430Airports = new ImportData(GNS430_Airport, gns430Runway);
+const importGNS430Airports = new ImportData(GNS430Airport, gns430Runway);
+
 importGNS430Airports.import();
 //importNavids.import();
 //importRunways.import();

@@ -1,6 +1,3 @@
-// import mongoose from "mongoose";
-//const { Model, Schema } = mongoose;
-
 const mongoose = require("mongoose");
 
 const airportSchema = new mongoose.Schema({

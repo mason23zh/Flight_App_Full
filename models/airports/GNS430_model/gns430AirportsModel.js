@@ -19,7 +19,7 @@ const gns430AirportSchema = new mongoose.Schema({
     },
     runways: [
         {
-            code: {
+            runway_id: {
                 type: String,
             },
             runwayHdg: {
@@ -31,28 +31,28 @@ const gns430AirportSchema = new mongoose.Schema({
             runwayLength: {
                 type: Number,
             },
-            runwayIlsAvl: {
+            runway_ils_avl: {
                 type: Number,
             },
-            runwayIlsFreq: {
+            ilsFreq: {
                 type: Number,
             },
-            runwayIlsHdg: {
+            ilsHdg: {
                 type: Number,
             },
             coordinates: {
                 type: [Number], //longitude,latitude
             },
-            runwayThresholdElevation: {
+            thresholdElevation: {
                 type: Number,
             },
-            runwayThresholdOverflyAltitude: {
+            thresholdOverflyAlt: {
                 type: Number,
             },
-            runwayGsAngle: {
+            gsAngle: {
                 type: Number,
             },
-            runwaySurfaceType: {
+            surfaceType: {
                 type: Number,
                 enum: [0, 1, 2, 3], //0)concrete 1)Asphal/bitumen/blacktop 2)grabel/coral/ice/snow 3)other
             },
@@ -64,4 +64,4 @@ const gns430AirportSchema = new mongoose.Schema({
     ],
 });
 
-module.exports.GNS430_Airport = mongoose.model("GNS430_Airport", gns430AirportSchema);
+module.exports.GNS430Airport = mongoose.model("GNS430Airport", gns430AirportSchema);

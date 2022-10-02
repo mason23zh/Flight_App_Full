@@ -1,10 +1,9 @@
 // noinspection JSUnresolvedVariable,SpellCheckingInspection,ExceptionCaughtLocallyJS,JSCheckFunctionSignatures
-
 const axios = require("axios");
-const { JSDOM } = require("jsdom");
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
 const { Navaids } = require("../models/airports/navaidsModel");
+const { GNS430Airport } = require("../models/airports/GNS430_model/gns430AirportsModel");
 const { CHECK_WEATHER_BASE_URL, FAA_ATIS_API_BASE_URL } = require("../config");
 const BadRequestError = require("../common/errors/BadRequestError");
 const NotFoundError = require("../common/errors/NotFoundError");
@@ -153,6 +152,10 @@ module.exports.getAirportByICAO = async (req, res, next) => {
         } else {
             responseMetar.data.push(metarDecode(metarData.data[0]));
         }
+
+        const gns430Airport = await GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` });
+
+        const gns430RunwayInfos = gns430Airport.runways;
         const airport = await airportFeatures.query;
         const runway = await runwayFeatures.query;
 
@@ -164,7 +167,7 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             status: "success",
             data: {
                 airport,
-                runway,
+                runways: gns430RunwayInfos,
                 ATIS: responseATIS.data,
                 METAR: responseMetar.data,
             },
@@ -284,16 +287,47 @@ module.exports.getAirportWithRunways = async (req, res, next) => {
     }
 };
 
-//FIXME: NOT WORKING
+// const startBrowser = async () => {
+//     let browser;
+//     try {
+//         console.log("Opening the browser......");
+//         browser = await puppeteer.launch({
+//             headless: false,
+//             args: ["--disable-setuid-sandbox"],
+//             ignoreHTTPSErrors: true,
+//         });
+//     } catch (err) {
+//         console.log("Could not create a browser instance => : ", err);
+//     }
+//     return browser;
+// };
+
+/**
+ * FIXME: NOT WORKING, required Simbrief/Navigraph login. Required Simbrief/Navigraph Auth API ingretaion.
+ * Simbrief does not provide NOTAM API, if logged in, required using puppeteer to launch a browswer and scraping
+ * the rendered content.
+ **/
 module.exports.getNOTAM = async (req, res, next) => {
     //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
     //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
     //const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
-    const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
+    //const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
     const getUrl = (airportICAO) =>
         `https://www.simbrief.com/system/dbquery.php?target=notam&icao=${airportICAO}&print=1`;
-    const htmlNOTAM = await axios.get(getUrl("ZSSS"));
-    console.log(htmlNOTAM);
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            url: getUrl("ZSSS"),
+        },
+    });
+
+    // const browser = await startBrowser();
+    // const page = await browser.newPage();
+    // await page.goto(getUrl("ZSSS"));
+
+    //const htmlNOTAM = await axios.get(getUrl("ZSSS"));
+    //console.log(htmlNOTAM);
     //const dom = new JSDOM(htmlNOTAM.data);
     //const title = dom.window.document.querySelectorAll("p");
     //const $ = cheerio.load(data);
