@@ -23,6 +23,7 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             req.query
         ).limitFields();
 
+        //FIXME: will seperate function for user who is logged in as simbrief user or normal user.
         const runwayFeatures = new APIFeatures(
             Runways.find({
                 airport_ident: `${req.params.icao.toUpperCase()}`,
