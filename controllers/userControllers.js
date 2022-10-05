@@ -1,5 +1,6 @@
 const User = require("../models/users/userModel");
 const BadRequestError = require("../common/errors/BadRequestError");
+const factory = require("./factoryController");
 
 /**
  * @param: req.body object
@@ -16,15 +17,7 @@ const filterObject = (reqBodyObject, ...allowedFields) => {
     return newObject;
 };
 
-exports.getAllUsers = async (req, res) => {
-    const users = await User.find();
-
-    res.status(200).send({
-        status: "success",
-        results: users.length,
-        data: users,
-    });
-};
+exports.getAllUsers = factory.getAll(User);
 
 //TODO: Only allowed name and email update, more features will be added
 exports.updateUser = async (req, res) => {
