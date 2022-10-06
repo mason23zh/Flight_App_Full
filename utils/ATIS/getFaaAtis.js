@@ -1,6 +1,6 @@
 const axios = require("axios");
-const { FAA_ATIS_API_BASE_URL } = require("../config");
-const BadRequestError = require("../common/errors/BadRequestError");
+const { FAA_ATIS_API_BASE_URL } = require("../../config");
+const BadRequestError = require("../../common/errors/BadRequestError");
 
 const getFaaAtis = async (location) => {
     try {

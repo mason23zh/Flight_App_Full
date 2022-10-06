@@ -2,14 +2,13 @@
 const { Airports } = require("../models/airports/airportsModel");
 const { Runways } = require("../models/airports/runwaysModel");
 const { Navaids } = require("../models/airports/navaidsModel");
-const { GNS430Airport } = require("../models/airports/GNS430_model/gns430AirportsModel");
 const BadRequestError = require("../common/errors/BadRequestError");
 const NotFoundError = require("../common/errors/NotFoundError");
-const APIFeatures = require("../utils/apiFeatures");
+const APIFeatures = require("../utils/Data_Convert/apiFeatures");
 const factory = require("./factoryController");
-const { metarDecoder } = require("../utils/metarDecoder");
-const { getMetar } = require("../utils/getMetar");
-const { getFaaAtis } = require("../utils/getFaaAtis");
+const { metarDecoder } = require("../utils/METAR/metarDecoder");
+const { getMetar } = require("../utils/METAR/getMetar");
+const { getFaaAtis } = require("../utils/ATIS/getFaaAtis");
 
 module.exports.getAllAirports = factory.getAll(Airports);
 
@@ -23,7 +22,6 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             req.query
         ).limitFields();
 
-        //FIXME: will seperate function for user who is logged in as simbrief user or normal user.
         const runwayFeatures = new APIFeatures(
             Runways.find({
                 airport_ident: `${req.params.icao.toUpperCase()}`,
@@ -44,14 +42,8 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             responseMetar.data.push(metarDecoder(metarData.data[0]));
         }
 
-        const gns430Airport = await GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` });
-        if (!gns430Airport) {
-            throw new BadRequestError(`Airport with ICAO ${req.params.icao.toUpperCase()} not found. `);
-        }
-
-        const gns430RunwayInfos = gns430Airport.runways;
         const airport = await airportFeatures.query;
-        //const runway = await runwayFeatures.query;
+        const runway = await runwayFeatures.query;
 
         if (!airport.length) {
             throw new BadRequestError(`Airport with ICAO: '${req.params.icao.toUpperCase()}' Not Found`);
@@ -61,7 +53,7 @@ module.exports.getAirportByICAO = async (req, res, next) => {
             status: "success",
             data: {
                 airport,
-                runways: gns430RunwayInfos,
+                runways: runway,
                 ATIS: responseATIS.data,
                 METAR: responseMetar.data,
             },

@@ -13,15 +13,20 @@ const {
 } = require("../controllers/airportsControllers");
 
 const { protect } = require("../controllers/authControllers");
+const {
+    getAirportByICAO_GNS430,
+    getAirportByIATA_GNS430,
+    getAirportByName_GNS430,
+} = require("../controllers/GNS430_Controllers/airportsControllers");
 
 const router = express.Router();
 
 router.route("/all-airports").get(getAllAirports);
-router.route("/icao/:icao").get(getAirportByICAO);
-router.route("/iata/:iata").get(getAirportByIATA);
+router.route("/icao/:icao").get(getAirportByICAO_GNS430);
+router.route("/iata/:iata").get(getAirportByIATA_GNS430);
 router.route("/type/:type").get(getAirportByType);
 //Able to partially match e.g. winnipeg would match 3 resutls
-router.route("/name/:name").get(protect, getAirportByName);
+router.route("/name/:name").get(getAirportByName_GNS430);
 
 //For test
 router.route("/runways/:icao").get(getAirportWithRunways);
