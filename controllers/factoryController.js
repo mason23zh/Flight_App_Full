@@ -1,4 +1,4 @@
-const APIFeatures = require("../utils/apiFeatures");
+const APIFeatures = require("../utils/Data_Convert/apiFeatures");
 const NotFoundError = require("../common/errors/NotFoundError");
 
 exports.getAll = (Model) => async (req, res) => {
