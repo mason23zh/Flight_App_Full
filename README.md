@@ -58,13 +58,13 @@ METAR: Decoded + Raw METAR
 
 ### ToDo List:
 
-* ILS
-* ATIS
+* ~~ILS~~
+* ~~ATIS~~
 * NOTAM
 
 * Get Airports by Weather filter
 
-* Protected Routes
+* ~~Protected Routes~~
 
 * Zibo Updates Download (Patch Only, Azure CDN if time allowed)
 

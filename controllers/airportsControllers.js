@@ -177,31 +177,12 @@ module.exports.getAirportWithRunways = async (req, res, next) => {
     }
 };
 
-// const startBrowser = async () => {
-//     let browser;
-//     try {
-//         console.log("Opening the browser......");
-//         browser = await puppeteer.launch({
-//             headless: false,
-//             args: ["--disable-setuid-sandbox"],
-//             ignoreHTTPSErrors: true,
-//         });
-//     } catch (err) {
-//         console.log("Could not create a browser instance => : ", err);
-//     }
-//     return browser;
-// };
-
 /**
- * FIXME: NOT WORKING, required Simbrief/Navigraph login. Required Simbrief/Navigraph Auth API ingretaion.
- * Simbrief does not provide NOTAM API, if logged in, required using puppeteer to launch a browswer and scraping
+ * FIXME: NOT WORKING, required Simbrief/Navigraph login. Required Simbrief/Navigraph Auth API integration.
+ * Simbrief does not provide NOTAM API, if logged in, required using puppeteer to launch a browser and scraping
  * the rendered content.
  **/
 module.exports.getNOTAM = async (req, res, next) => {
-    //const url = `https://www.avdelphi.com/api/1.0/notam.svc?api_key=${process.env.AVDELPHI_API_KEY}&api_password=${process.env.AVDELPHI_API_PASSWORD}&cmd=latest&code_icao=lszh`;
-    //const url2 = "https://notams.aim.faa.gov/notamSearch/search";
-    //const url3 = "https://pilotweb.nas.faa.gov/PilotWeb/notamRetrievalByICAOAction.do?method=displayByICAOs";
-    //const url4 = "https://www.simbrief.com/system/dbquery.php?target=notam&icao=ZSSS&print=1";
     const getUrl = (airportICAO) =>
         `https://www.simbrief.com/system/dbquery.php?target=notam&icao=${airportICAO}&print=1`;
 
@@ -211,15 +192,4 @@ module.exports.getNOTAM = async (req, res, next) => {
             url: getUrl("ZSSS"),
         },
     });
-
-    // const browser = await startBrowser();
-    // const page = await browser.newPage();
-    // await page.goto(getUrl("ZSSS"));
-
-    //const htmlNOTAM = await axios.get(getUrl("ZSSS"));
-    //console.log(htmlNOTAM);
-    //const dom = new JSDOM(htmlNOTAM.data);
-    //const title = dom.window.document.querySelectorAll("p");
-    //const $ = cheerio.load(data);
-    //res.status(200).send(data);
 };
