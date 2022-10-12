@@ -70,7 +70,6 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
     });
 };
 
-//TODO: If search name returns too many results, this will take forever to finish. Need optimize DB model.
 module.exports.getAirportByName_GNS430 = async (req, res) => {
     const airportQueryObj = GNS430Airport.find({
         name: { $regex: `${req.params.name}`, $options: "i" },
@@ -85,6 +84,29 @@ module.exports.getAirportByName_GNS430 = async (req, res) => {
         results: airports.length,
         data: {
             airport: airports,
+        },
+    });
+};
+
+module.exports.getAirportWithin = async (req, res) => {
+    const { icao, distance, unit } = req.params;
+    const originAirport = await GNS430Airport.find({ ICAO: `${icao.toUpperCase()}` });
+    const [lng, lat] = originAirport[0].location.coordinates;
+    const radius = unit === "km" ? distance / 6378.1 : distance / 3863.2;
+
+    const targetAirports = await GNS430Airport.find({
+        location: {
+            $geoWithin: {
+                $centerSphere: [[lng, lat], radius],
+            },
+        },
+    });
+
+    res.status(200).json({
+        status: "success",
+        results: targetAirports.length,
+        data: {
+            airport: targetAirports,
         },
     });
 };

@@ -75,4 +75,6 @@ const gns430AirportSchema = new mongoose.Schema({
     ],
 });
 
+gns430AirportSchema.index({ location: "2dsphere" });
+
 module.exports.GNS430Airport = mongoose.model("GNS430Airport", gns430AirportSchema);

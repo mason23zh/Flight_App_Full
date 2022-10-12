@@ -17,6 +17,7 @@ const {
     getAirportByICAO_GNS430,
     getAirportByIATA_GNS430,
     getAirportByName_GNS430,
+    getAirportWithin,
 } = require("../controllers/GNS430_Controllers/airportsControllers");
 
 const router = express.Router();
@@ -27,6 +28,10 @@ router.route("/iata/:iata").get(getAirportByIATA_GNS430);
 router.route("/type/:type").get(getAirportByType);
 //Able to partially match e.g. winnipeg would match 3 resutls
 router.route("/name/:name").get(getAirportByName_GNS430);
+
+// Geo
+// /airports-within/icao/katl/distance/200/unit/km
+router.route("/airports-within/icao/:icao/distance/:distance/unit/:unit").get(getAirportWithin);
 
 //For test
 router.route("/runways/:icao").get(getAirportWithRunways);
