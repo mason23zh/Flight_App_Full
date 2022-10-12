@@ -8,8 +8,14 @@ const gns430AirportSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    coordinates: {
-        type: [Number], //longitude,latitude
+    location: {
+        // GeoJSON
+        type: {
+            type: String,
+            default: "Point",
+            enum: ["Point"],
+        },
+        coordinates: [Number], //Array of number [lng, lat]
     },
     elevation: {
         type: Number,
@@ -40,8 +46,13 @@ const gns430AirportSchema = new mongoose.Schema({
             ilsHdg: {
                 type: Number,
             },
-            coordinates: {
-                type: [Number], //longitude,latitude
+            runwayLocation: {
+                type: {
+                    type: String,
+                    default: "Point",
+                    enum: ["Point"],
+                },
+                coordinates: [Number],
             },
             thresholdElevation: {
                 type: Number,

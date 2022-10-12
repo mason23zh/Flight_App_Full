@@ -64,6 +64,8 @@ METAR: Decoded + Raw METAR
 
 * Get Airports by Weather filter
 
+* Geo data: nearby airports from selected airport and distance.
+
 * ~~Protected Routes~~
 
 * Zibo Updates Download (Patch Only, Azure CDN if time allowed)
@@ -73,6 +75,11 @@ METAR: Decoded + Raw METAR
 * *Navigraph Navdata parser to update the Airports DB. DB Size reduce.
 
 * Add Navigraph integration to allow registered user to access more data.
+
+* Vatsim data display
+
+    * Online regions
+    * ATIS
 
 *Require complete DB model and controllers refactor
 

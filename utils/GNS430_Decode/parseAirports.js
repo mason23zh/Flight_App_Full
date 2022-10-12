@@ -8,7 +8,8 @@ function processLineByLine1() {
     let runwayObj = {};
     let runwayArray = [];
 
-    const fileStream = fs.createReadStream("H:/node-js-project/Flight-Data/dev-data/GNS430_Data/Airports.txt");
+    const fileStream = fs.createReadStream("../../dev-data/GNS430_Data/Airports.txt");
+    //const fileStream = fs.createReadStream("H:/node-js-project/Flight-Data/dev-data/GNS430_Data/Airports_test.txt");
 
     const rl = readline.createInterface({
         input: fileStream,
@@ -23,7 +24,13 @@ function processLineByLine1() {
 
                 airportObj.ICAO = line.split(",")[1];
                 airportObj.name = line.split(",")[2];
-                airportObj.coordinates = [airportLongitude, airportLatitude];
+
+                const tempObject = {
+                    type: "Point",
+                    coordinates: [airportLongitude, airportLatitude],
+                };
+                airportObj = { ...airportObj, location: tempObject };
+
                 airportObj.elevation = Number(line.split(",")[5]);
                 airportObj.transitionAltitude = Number(line.split(",")[6]);
             } else if (line.startsWith("R")) {
@@ -37,7 +44,12 @@ function processLineByLine1() {
                 runwayObj.runway_ils_avl = Number(line.split(",")[5]);
                 runwayObj.ilsFreq = Number(line.split(",")[6]);
                 runwayObj.ilsHdg = Number(line.split(",")[7]);
-                runwayObj.coordinates = [runwayThrLongitude, runwayThrLatitude];
+                //runwayObj.coordinates = [runwayThrLongitude, runwayThrLatitude];
+                const tempRunwayLocation = {
+                    type: "Point",
+                    coordinates: [runwayThrLongitude, runwayThrLatitude],
+                };
+                runwayObj = { ...runwayObj, runwayLocation: tempRunwayLocation };
                 //runwayObj.thresholdLatitude = Number(line.split(",")[8]);
                 //runwayObj.thresholdLongitude = Number(line.split(",")[9]);
                 runwayObj.thresholdElevation = Number(line.split(",")[10]);
@@ -55,10 +67,7 @@ function processLineByLine1() {
             airportObj = {};
             // eslint-disable-next-line no-plusplus
             console.log(`added ${airportsCount++}`);
-            fs.writeFileSync(
-                "H:/node-js-project/Flight-Data/dev-data/GNS430_Data/airports.json",
-                JSON.stringify(airports)
-            );
+            fs.writeFileSync("../../dev-data/GNS430_Data/Airports_rv1.json", JSON.stringify(airports));
         }
     });
 }
