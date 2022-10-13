@@ -33,6 +33,7 @@ router.route("/airports-distance/origin/:originICAO/destination/:destinationICAO
 router.route("/runways/:icao").get(getAirportWithRunways);
 router.route("/dev/airportWithNavids/:icao").get(getAirportWithNavaids);
 router.route("/dev/notam").get(getNOTAM);
+//router.route("/getRoute").get(getRoute);
 //router.route("/dev/AirportRunway/:icao").get(testController);
 
 module.exports = router;

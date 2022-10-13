@@ -66,6 +66,8 @@ ATIS: FAA published only
 
 ### ToDo List:
 
+* Commentary system to allow user to add comment to airport, such like videos, airport remark, landing performances and
+  etc.
 * ~~ILS~~
 * ~~ATIS~~
 * NOTAM

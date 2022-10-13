@@ -193,3 +193,26 @@ module.exports.getNOTAM = async (req, res, next) => {
         },
     });
 };
+
+// module.exports.getRoute = async (req, res, next) => {
+//     const response = await axios({
+//         method: "POST",
+//         url: "https://efb.xflysim.com/rc.php",
+//         data: {
+//             dep: "zbaa",
+//             arr: "zspd",
+//             dbid: 2209,
+//             aircraft: "A350",
+//             units: "Lbs",
+//         },
+//     });
+//     const $ = cheerio.load(response.data);
+//     console.log($.html());
+//
+//     res.status(200).json({
+//         status: "success",
+//         data: {
+//             response,
+//         },
+//     });
+// };

@@ -135,10 +135,8 @@ const getDistanceFromLatLonInKm = (originLng, originLat, desLng, desLat) => {
 
 module.exports.getAirportsDistance = async (req, res) => {
     const { originICAO, destinationICAO, unit } = req.params;
-    //console.log(originICAO, destinationICAO);
 
     const originAirport = await GNS430Airport.findOne({ ICAO: `${originICAO.toUpperCase()}` });
-    console.log(originAirport);
     if (originAirport === null) {
         throw new NotFoundError(`Airport with ICAO: ${originICAO.toUpperCase()} not found.`);
     }
