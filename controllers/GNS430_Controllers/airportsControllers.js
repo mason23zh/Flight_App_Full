@@ -6,6 +6,9 @@ const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
 const { generateResponseATIS } = require("../../utils/ATIS/generateResponseATIS");
 
+const earthRadiusInNauticalMile = 3443.92;
+const earthRadiusInKM = 6378.1;
+
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
@@ -70,7 +73,6 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
     });
 };
 
-//TODO: If search name returns too many results, this will take forever to finish. Need optimize DB model.
 module.exports.getAirportByName_GNS430 = async (req, res) => {
     const airportQueryObj = GNS430Airport.find({
         name: { $regex: `${req.params.name}`, $options: "i" },
@@ -85,6 +87,77 @@ module.exports.getAirportByName_GNS430 = async (req, res) => {
         results: airports.length,
         data: {
             airport: airports,
+        },
+    });
+};
+
+module.exports.getAirportWithin = async (req, res) => {
+    const { icao, distance, unit } = req.params;
+    const originAirport = await GNS430Airport.findOne({ ICAO: `${icao.toUpperCase()}` });
+
+    if (originAirport === null) {
+        throw new NotFoundError(`Airport with ICAO: ${icao.toUpperCase()} not found`);
+    }
+
+    const [lng, lat] = originAirport.location.coordinates;
+    const radius = unit === "km" ? distance / earthRadiusInKM : distance / earthRadiusInNauticalMile;
+
+    const targetAirports = await GNS430Airport.find({
+        location: {
+            $geoWithin: {
+                $centerSphere: [[lng, lat], radius],
+            },
+        },
+    });
+
+    res.status(200).json({
+        status: "success",
+        results: targetAirports.length,
+        data: {
+            airport: targetAirports,
+        },
+    });
+};
+
+const deg2rad = (deg) => deg * (Math.PI / 180);
+
+const getDistanceFromLatLonInKm = (originLng, originLat, desLng, desLat) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(originLat - desLat); // deg2rad below
+    const dLon = deg2rad(originLng - desLng);
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(originLat)) * Math.cos(deg2rad(desLat)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c; // Distance in km
+    return d;
+};
+
+module.exports.getAirportsDistance = async (req, res) => {
+    const { originICAO, destinationICAO, unit } = req.params;
+    //console.log(originICAO, destinationICAO);
+
+    const originAirport = await GNS430Airport.findOne({ ICAO: `${originICAO.toUpperCase()}` });
+    console.log(originAirport);
+    if (originAirport === null) {
+        throw new NotFoundError(`Airport with ICAO: ${originICAO.toUpperCase()} not found.`);
+    }
+
+    const destinationAirport = await GNS430Airport.findOne({ ICAO: `${destinationICAO.toUpperCase()}` });
+    if (destinationAirport === null) {
+        throw new NotFoundError(`Airport with ICAO: ${destinationICAO.toUpperCase()} not found.`);
+    }
+
+    const [originLng, originLat] = originAirport.location.coordinates;
+    const [destinationLng, destinationLat] = destinationAirport.location.coordinates;
+
+    const calculatedDistance = getDistanceFromLatLonInKm(originLng, originLat, destinationLng, destinationLat);
+    const distance = unit === "km" ? calculatedDistance : calculatedDistance * 0.539957;
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            distance: distance.toFixed(1),
         },
     });
 };

@@ -8,6 +8,12 @@
     "prettier"
   ],
   "rules": {
+    //        "newline-per-chained-call": [
+    //            "error",
+    //            {
+    //                "ignoreChainWithDepth": 1
+    //            }
+    //        ],
     "camelcase": "off",
     "indent": [
       "error",

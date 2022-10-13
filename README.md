@@ -23,6 +23,12 @@ Example: ***/api/v1/airports/type/heliport***
 Get Airports By Name (Able to partially match e.g. winnipeg would match 3 results)\
 Example: ***/api/v1/airports/name/Winnipeg***
 
+Get airports within certain radius (km for kilometers, nm or nautical miles )\
+Example: ***/api/v1/airports/airports-within/icao/katl/distance/30/unit/nm***
+
+Get distance between origin airport and destination airport (km for kilometers, nm or nautical miles)\
+Example: ***/api/v1/airports/airports-distance/origin/katl/destination/kjax/unit/nm***
+
 ---
 
 ### Airports Query:
@@ -54,6 +60,8 @@ Example: ***/api/v1/users/login***
 
 METAR: Decoded + Raw METAR
 
+ATIS: FAA published only
+
 ---
 
 ### ToDo List:
@@ -64,6 +72,10 @@ METAR: Decoded + Raw METAR
 
 * Get Airports by Weather filter
 
+* Geo data:
+    * ~~Nearby airports from selected airport~~
+    * ~~Distance between origin airports to destination airport(approximate ground distance)~~
+    * *Distance between origin airports to destination airport (approximate air distance)
 * ~~Protected Routes~~
 
 * Zibo Updates Download (Patch Only, Azure CDN if time allowed)
@@ -74,7 +86,14 @@ METAR: Decoded + Raw METAR
 
 * Add Navigraph integration to allow registered user to access more data.
 
+* Vatsim data display
+
+    * Online regions
+    * ATIS
+
 *Require complete DB model and controllers refactor
+
+*Need waypoints coordinates to preform graph search
 
 ---
 

@@ -10,13 +10,13 @@ const { GNS430Airport } = require("./airports/GNS430_model/gns430AirportsModel")
 
 require("dotenv").config({ path: "../config.env" });
 
-const airportJsonPath = "../dev-data/json_data/airports.json";
-const airportFrequenciesJsonPath = "../dev-data/json_data/airport-frequencies.json";
-const countriesJsonPath = "../dev-data/json_data/airport-frequencies.json";
-const navidsJsonPath = "../dev-data/json_data/navaids.json";
-const regionsJsonPath = "../dev-data/json_data/regions.json";
-const runwaysJsonPath = "../dev-data/json_data/runways.json";
-const gns430AirportJsonPath = "../dev-data/GNS430_Data/airports.json";
+// const airportJsonPath = "../dev-data/json_data/airports.json";
+// const airportFrequenciesJsonPath = "../dev-data/json_data/airport-frequencies.json";
+// const countriesJsonPath = "../dev-data/json_data/airport-frequencies.json";
+// const navidsJsonPath = "../dev-data/json_data/navaids.json";
+// const regionsJsonPath = "../dev-data/json_data/regions.json";
+// const runwaysJsonPath = "../dev-data/json_data/runways.json";
+const gns430AirportJsonPath = "../dev-data/GNS430_Data/airports_rv1.json";
 
 mongoose.connect(`${process.env.DATABASE}`).then(() => {
     console.log("DB connected for import data");
@@ -39,7 +39,7 @@ class ImportData {
     async import() {
         try {
             await this.model.create(this.data);
-            console.log("loaded");
+            console.log("loaded ");
         } catch (err) {
             console.error(err);
         }
