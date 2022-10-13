@@ -27,6 +27,7 @@ router.route("/name/:name").get(getAirportByName_GNS430);
 // Geo
 // /airports-within/icao/katl/distance/200/unit/km or nm
 router.route("/airports-within/icao/:icao/distance/:distance/unit/:unit").get(getAirportWithin);
+// /airports-distance/origin/katl/destination/kjax/unit/km or nm
 router.route("/airports-distance/origin/:originICAO/destination/:destinationICAO/unit/:unit").get(getAirportsDistance);
 //For test
 router.route("/runways/:icao").get(getAirportWithRunways);
