@@ -15,6 +15,7 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
         req.query
     ).limitFields();
 
+    airportFeatures.query = airportFeatures.query.populate({ path: "comments" });
     const gns430Airport = await airportFeatures.query;
 
     if (!gns430Airport) {

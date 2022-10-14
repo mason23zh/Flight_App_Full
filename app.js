@@ -7,6 +7,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const rateLimit = require("express-rate-limit");
 const airportsRoutes = require("./routes/airportsRoutes");
 const userRoutes = require("./routes/userRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 const errorHandler = require("./common/middlewares/error-handler");
 const NotFoundError = require("./common/errors/NotFoundError");
 const AccessNumberExceedError = require("./common/errors/AccessNumberExceedError");
@@ -43,6 +44,7 @@ app.use(express.static(`${__dirname}/public`));
 
 app.use("/api/v1/airports", airportsRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/comments", commentRoutes);
 
 app.all("*", (req, res) => {
     throw new NotFoundError("Page Not Found");
