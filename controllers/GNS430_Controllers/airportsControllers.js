@@ -5,11 +5,11 @@ const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
 const { generateResponseATIS } = require("../../utils/ATIS/generateResponseATIS");
-const { generateVatsimATIS } = require("../../utils/Vatsim_data/generateVatsimATIS");
+const VatsimData = require("../../utils/Vatsim_data/VatsimData");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
-
+const vatsimData = new VatsimData();
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
@@ -24,10 +24,8 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     }
     const gns430Runway = gns430Airport.runway;
 
-    //Vatsim Data
-    //const vatsimATIS = await getVatsimData(req.params.icao.toUpperCase());
-
-    const vatsimATIS = await generateVatsimATIS(req.params.icao.toUpperCase());
+    //const vatsimATIS = await generateVatsimATIS(req.params.icao.toUpperCase());
+    const vatsimATIS = await vatsimData.getATIS(req.params.icao.toUpperCase());
     const responseMetar = await generateResponseMetar(req.params.icao.toUpperCase());
     const responseATIS = await generateResponseATIS(req.params.icao);
 
