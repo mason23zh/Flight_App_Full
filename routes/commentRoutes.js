@@ -8,9 +8,11 @@ const {
 } = require("../controllers/Comments/commentControllers");
 const { protect, restrictTo } = require("../controllers/authControllers");
 
-const router = express.Router();
+//for nested route from the airport routes
+// post /airports/123asdf/comments
+const router = express.Router({ mergeParams: true });
 
-router.route("/").get(protect, restrictTo("admin"), getAllComments).post(protect, setCommentUserId, createComment);
+router.route("/").get(getAllComments).post(protect, setCommentUserId, createComment);
 
 router.route("/:id").delete(protect, deleteComment).patch(protect, updateComment);
 

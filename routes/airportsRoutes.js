@@ -14,8 +14,12 @@ const {
     getAirportWithin,
     getAirportsDistance,
 } = require("../controllers/GNS430_Controllers/airportsControllers");
+const commentRoutes = require("./commentRoutes");
 
 const router = express.Router();
+
+//nested routes
+router.use("/:airporId/comments", commentRoutes);
 
 router.route("/all-airports").get(getAllAirports);
 router.route("/icao/:icao").get(getAirportByICAO_GNS430);

@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Comment = require("../../models/airport_comment/commentModel");
 const factory = require("../factoryController");
 const NotFoundError = require("../../common/errors/NotFoundError");
@@ -17,6 +16,13 @@ exports.setCommentUserId = (req, res, next) => {
 exports.getAllComments = factory.getAll(Comment);
 
 exports.createComment = async (req, res) => {
+    // for nested route
+    if (!req.body.airports) {
+        req.body.airports = req.params.airportId;
+    }
+    if (!req.body.user) {
+        req.body.user = req.user.id;
+    }
     const { comment, landingRate, route, originAirport, destinationAirport, airport, user } = req.body;
     const newComment = await Comment.create({
         comment,
