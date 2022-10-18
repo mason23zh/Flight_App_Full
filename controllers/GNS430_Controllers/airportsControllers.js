@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { GNS430Airport } = require("../../models/airports/GNS430_model/gns430AirportsModel");
 const BadRequestError = require("../../common/errors/BadRequestError");
 const NotFoundError = require("../../common/errors/NotFoundError");
@@ -6,26 +5,10 @@ const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
 const { generateResponseATIS } = require("../../utils/ATIS/generateResponseATIS");
-const { VATSIM_DATA_URL } = require("../../config");
+const { generateVatsimATIS } = require("../../utils/Vatsim_data/generateVatsimATIS");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
-
-const getVatsimData = async (ICAO) => {
-    const res = await axios.get(VATSIM_DATA_URL);
-    const vatsimAtisArray = res.data.atis;
-    let vatsimAtis = "";
-
-    for (const atis of vatsimAtisArray) {
-        if (atis.callsign.includes(ICAO)) {
-            vatsimAtis = atis.text_atis;
-            break;
-        }
-    }
-    vatsimAtis = vatsimAtis.length > 0 ? vatsimAtis : "No Vatsim Atis Found";
-
-    return vatsimAtis;
-};
 
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
@@ -42,8 +25,9 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const gns430Runway = gns430Airport.runway;
 
     //Vatsim Data
-    const vatsimATIS = await getVatsimData(req.params.icao.toUpperCase());
+    //const vatsimATIS = await getVatsimData(req.params.icao.toUpperCase());
 
+    const vatsimATIS = await generateVatsimATIS(req.params.icao.toUpperCase());
     const responseMetar = await generateResponseMetar(req.params.icao.toUpperCase());
     const responseATIS = await generateResponseATIS(req.params.icao);
 
@@ -55,13 +39,14 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
         ATIS.vatsim = vatsimATIS;
     } else if (responseATIS.data.includes("NO ATIS found") && !vatsimATIS.includes("No Vatsim Atis Found")) {
         //if faa atis not found, but vatsim atis found.
+        ATIS.faa = responseATIS.data;
         ATIS.vatsim = vatsimATIS;
     } else if (responseATIS.data.includes("NO ATIS found") && vatsimATIS.includes("No Vatsim Atis Found")) {
         //if both faa atis and vatsim atis not found
-        ATIS.data = `No ATIS found in ${req.params.icao.toUpperCase()}`;
+        ATIS.faa = responseATIS.data;
+        ATIS.vatsim = vatsimATIS;
     }
 
-    console.log("responseATIS DATA:", responseATIS.data);
     res.status(200).json({
         status: "success",
         data: {
