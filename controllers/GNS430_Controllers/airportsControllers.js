@@ -15,6 +15,7 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
         req.query
     ).limitFields();
 
+    airportFeatures.query = airportFeatures.query.populate({ path: "comments" });
     const gns430Airport = await airportFeatures.query;
 
     if (!gns430Airport) {
@@ -135,10 +136,8 @@ const getDistanceFromLatLonInKm = (originLng, originLat, desLng, desLat) => {
 
 module.exports.getAirportsDistance = async (req, res) => {
     const { originICAO, destinationICAO, unit } = req.params;
-    //console.log(originICAO, destinationICAO);
 
     const originAirport = await GNS430Airport.findOne({ ICAO: `${originICAO.toUpperCase()}` });
-    console.log(originAirport);
     if (originAirport === null) {
         throw new NotFoundError(`Airport with ICAO: ${originICAO.toUpperCase()} not found.`);
     }
