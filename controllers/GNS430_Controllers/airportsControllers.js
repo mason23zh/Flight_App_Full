@@ -24,6 +24,10 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     }
     const gns430Runway = gns430Airport.runway;
 
+    const cob = await vatsimData.displayControllerRange("KBOS");
+    console.log(cob);
+    //await vatsimData.onlineControllersInAirport("KBOS");
+
     //const vatsimATIS = await generateVatsimATIS(req.params.icao.toUpperCase());
     const vatsimATIS = await vatsimData.getATIS(req.params.icao.toUpperCase());
     const responseMetar = await generateResponseMetar(req.params.icao.toUpperCase());
