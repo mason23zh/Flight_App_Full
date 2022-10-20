@@ -1,6 +1,6 @@
 const { getFaaAtis } = require("./getFaaAtis");
 
-module.exports.generateResponseATIS = async (icao) => {
+module.exports.generateFAAResponseATIS = async (icao) => {
     const responseATIS = await getFaaAtis(icao.toUpperCase());
 
     if (responseATIS.data.error) {

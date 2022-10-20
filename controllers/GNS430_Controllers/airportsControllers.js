@@ -4,12 +4,10 @@ const NotFoundError = require("../../common/errors/NotFoundError");
 const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
-const { generateResponseATIS } = require("../../utils/ATIS/generateResponseATIS");
-const VatsimData = require("../../utils/Vatsim_data/VatsimData");
+const { generateGeneralATIS } = require("../../utils/ATIS/generateFaaAndVatsimATIS");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
-const vatsimData = new VatsimData();
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
@@ -24,30 +22,8 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     }
     const gns430Runway = gns430Airport.runway;
 
-    const cob = await vatsimData.displayControllerRange("KBOS");
-    console.log(cob);
-    //await vatsimData.onlineControllersInAirport("KBOS");
-
-    //const vatsimATIS = await generateVatsimATIS(req.params.icao.toUpperCase());
-    const vatsimATIS = await vatsimData.getATIS(req.params.icao.toUpperCase());
     const responseMetar = await generateResponseMetar(req.params.icao.toUpperCase());
-    const responseATIS = await generateResponseATIS(req.params.icao);
-
-    const ATIS = {};
-
-    if (!responseATIS.data.includes("NO ATIS found") && !vatsimATIS.includes("No Vatsim Atis Found")) {
-        //if both faa atis and vatsim atis exist
-        ATIS.faa = responseATIS.data;
-        ATIS.vatsim = vatsimATIS;
-    } else if (responseATIS.data.includes("NO ATIS found") && !vatsimATIS.includes("No Vatsim Atis Found")) {
-        //if faa atis not found, but vatsim atis found.
-        ATIS.faa = responseATIS.data;
-        ATIS.vatsim = vatsimATIS;
-    } else if (responseATIS.data.includes("NO ATIS found") && vatsimATIS.includes("No Vatsim Atis Found")) {
-        //if both faa atis and vatsim atis not found
-        ATIS.faa = responseATIS.data;
-        ATIS.vatsim = vatsimATIS;
-    }
+    const ATIS = await generateGeneralATIS(req.params.icao.toUpperCase());
 
     res.status(200).json({
         status: "success",
@@ -80,20 +56,20 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
 
     const gns430Airport = await airportFeatures.query;
 
+    const ATIS = await generateGeneralATIS(airportICAO_Code);
     if (!gns430Airport) {
         throw new NotFoundError(`Can Not Found Airport with IATA: ${req.params.iata.toUpperCase()}`);
     }
     const gns430Runway = gns430Airport.runway;
 
     const responseMetar = await generateResponseMetar(airportICAO_Code);
-    const responseATIS = await generateResponseATIS(airportICAO_Code);
     res.status(200).json({
         status: "success",
         data: {
             airport: gns430Airport,
             runways: gns430Runway,
             METAR: responseMetar.data,
-            ATIS: responseATIS.data,
+            ATIS,
         },
     });
 };
