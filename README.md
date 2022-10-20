@@ -60,7 +60,7 @@ Example: ***/api/v1/users/login***
 
 METAR: Decoded + Raw METAR
 
-ATIS: FAA published only
+ATIS: FAA published and Vatsim (if they are available)
 
 ---
 
@@ -92,7 +92,7 @@ ATIS: FAA published only
 * Vatsim data display
 
     * Online regions
-    * ATIS
+    * ~~ATIS~~
 
 *Require complete DB model and controllers refactor
 

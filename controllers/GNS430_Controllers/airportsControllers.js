@@ -4,11 +4,10 @@ const NotFoundError = require("../../common/errors/NotFoundError");
 const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
-const { generateResponseATIS } = require("../../utils/ATIS/generateResponseATIS");
+const { generateGeneralATIS } = require("../../utils/ATIS/generateFaaAndVatsimATIS");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
-
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
@@ -24,13 +23,14 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const gns430Runway = gns430Airport.runway;
 
     const responseMetar = await generateResponseMetar(req.params.icao.toUpperCase());
-    const responseATIS = await generateResponseATIS(req.params.icao);
+    const ATIS = await generateGeneralATIS(req.params.icao.toUpperCase());
+
     res.status(200).json({
         status: "success",
         data: {
             airport: gns430Airport,
             runways: gns430Runway,
-            ATIS: responseATIS.data,
+            ATIS,
             METAR: responseMetar.data,
         },
     });
@@ -56,20 +56,20 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
 
     const gns430Airport = await airportFeatures.query;
 
+    const ATIS = await generateGeneralATIS(airportICAO_Code);
     if (!gns430Airport) {
         throw new NotFoundError(`Can Not Found Airport with IATA: ${req.params.iata.toUpperCase()}`);
     }
     const gns430Runway = gns430Airport.runway;
 
     const responseMetar = await generateResponseMetar(airportICAO_Code);
-    const responseATIS = await generateResponseATIS(airportICAO_Code);
     res.status(200).json({
         status: "success",
         data: {
             airport: gns430Airport,
             runways: gns430Runway,
             METAR: responseMetar.data,
-            ATIS: responseATIS.data,
+            ATIS,
         },
     });
 };
