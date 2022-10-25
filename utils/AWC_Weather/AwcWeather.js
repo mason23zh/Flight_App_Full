@@ -14,31 +14,31 @@ class AwcWeather {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
             this.METAR.sort((a, b) => {
-                if (b[propertyName] && a[propertyName]) {
-                    const compareResult = parseFloat(b[propertyName][0]) - parseFloat(a[propertyName][0]);
-                    if (compareResult < 0) {
-                        return 1;
-                    }
-                    if (compareResult > 0) {
-                        return -1;
-                    }
-                    return 0;
+                const aValue = a[propertyName] === undefined ? 0 : parseFloat(a[propertyName][0]);
+                const bValue = b[propertyName] === undefined ? 0 : parseFloat(b[propertyName][0]);
+                const compareResult = bValue - aValue;
+                if (compareResult < 0) {
+                    return 1;
                 }
+                if (compareResult > 0) {
+                    return -1;
+                }
+                return 0;
             });
             return this.METAR;
         }
         if (sortOrder === -1) {
             this.METAR.sort((a, b) => {
-                if (b[propertyName] && a[propertyName]) {
-                    const compareResult = parseFloat(b[propertyName][0]) - parseFloat(a[propertyName][0]);
-                    if (compareResult < 0) {
-                        return -1;
-                    }
-                    if (compareResult > 0) {
-                        return 1;
-                    }
-                    return 0;
+                const aValue = a[propertyName] === undefined ? 0 : parseFloat(a[propertyName][0]);
+                const bValue = b[propertyName] === undefined ? 0 : parseFloat(b[propertyName][0]);
+                const compareResult = bValue - aValue;
+                if (compareResult < 0) {
+                    return -1;
                 }
+                if (compareResult > 0) {
+                    return 1;
+                }
+                return 0;
             });
             return this.METAR;
         }
@@ -61,8 +61,14 @@ class AwcWeather {
         return this.METAR;
     }
 
+    sortTheMetarByWindGust() {
+        this.dynamicSort("wind_gust_kt", -1);
+        const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} ::: wind gust ${metar.wind_gust_kt}`);
+        return responseMetar;
+    }
+
     sortTheMetarByWindSpeed() {
-        this.dynamicSort("wind_speed_kt", 1);
+        this.dynamicSort("wind_speed_kt", -1);
         const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} :::wind speed ${metar.wind_speed_kt}`);
         return responseMetar;
     }

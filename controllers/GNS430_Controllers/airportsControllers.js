@@ -13,6 +13,7 @@ module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const awcWeather = new AwcWeather();
     await awcWeather.getWeatherForCountry("ca");
     console.log(awcWeather.sortTheMetarByWindSpeed());
+    //console.log(awcWeather.sortTheMetarByWindGust());
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
         req.query
