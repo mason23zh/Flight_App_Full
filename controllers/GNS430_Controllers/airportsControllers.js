@@ -11,9 +11,11 @@ const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const awcWeather = new AwcWeather();
-    await awcWeather.getWeatherForCountry("ca");
-    console.log(awcWeather.sortTheMetarByWindSpeed());
+    await awcWeather.getWeatherForCountry("au");
+    //console.log(awcWeather.sortTheMetarByWindSpeed());
+    //console.log(awcWeather.sortTheMetarByVisibility());
     //console.log(awcWeather.sortTheMetarByWindGust());
+    //console.log(awcWeather.sortTheMetarByTemp());
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
         req.query
