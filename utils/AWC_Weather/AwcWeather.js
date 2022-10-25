@@ -1,12 +1,23 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
 const { AWC_METAR_BASE_URL } = require("../../config");
+const { globalICAO } = require("./airportsICAO");
 
 class AwcWeather {
     constructor() {
         this.METAR = [];
+        this.filteredMetar = [];
         this.stationString = "";
         this.hoursBeforeNow = "";
+    }
+
+    //Filter out the airports that does not exist in the database
+    airportsFilter() {
+        this.filteredMetar = this.METAR.filter((metar) => {
+            if (globalICAO.includes(metar.station_id[0])) {
+                return metar;
+            }
+        });
     }
 
     //!FIXME: There is a bug when reaching undefined value and messed up the sorting.
@@ -96,13 +107,14 @@ class AwcWeather {
         parser.parseString(res.data, (err, result) => {
             this.METAR = result.response.data[0].METAR;
         });
-        return this.METAR;
+
+        this.airportsFilter();
     }
 
     // -1: gust from high to low
     // 1: gust from low to high
     sortTheMetarByWindGust() {
-        this.dynamicSort("wind_gust_kt", 1);
+        this.dynamicSort("wind_gust_kt", -1);
         const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} ::: wind gust: ${metar.wind_gust_kt}`);
         return responseMetar;
     }
@@ -129,6 +141,14 @@ class AwcWeather {
         this.dynamicSort("visibility_statute_mi", -1);
         const responseMetar = this.METAR.map(
             (metar) => `${metar.raw_text[0]} ::: visibility_statute_mi: ${metar.visibility_statute_mi} `
+        );
+        return responseMetar;
+    }
+
+    sortTheMetarByBaro() {
+        this.dynamicSort("altim_in_hg", 1);
+        const responseMetar = this.filteredMetar.map(
+            (metar) => `${metar.raw_text[0]} ::: altim_in_hg: ${metar.altim_in_hg} `
         );
         return responseMetar;
     }
