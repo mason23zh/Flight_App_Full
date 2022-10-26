@@ -3,10 +3,20 @@ const xml2js = require("xml2js");
 const { AWC_METAR_BASE_URL } = require("../../config");
 const { globalICAO } = require("./airportsICAO");
 
+//FIXME: NEED REFACTOR!!!
+
 class AwcWeather {
     constructor() {
         this.METAR = [];
         this.filteredMetar = [];
+        this.responseMetar = [];
+        this.windReponseMetar = [];
+        this.gustResponseMetar = [];
+        this.tempReponseMetar = [];
+        this.highestTempMetar = [];
+        this.lowestTempMetar = [];
+        this.baroResponseMetar = [];
+        this.visibilityResponseMetar = [];
         this.stationString = "";
         this.hoursBeforeNow = "";
     }
@@ -20,11 +30,11 @@ class AwcWeather {
         });
     }
 
-    //!FIXME: There is a bug when reaching undefined value and messed up the sorting.
+    //!FIXME: conner case
     dynamicSort(propertyName, sortOrder) {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
-            this.METAR.sort((a, b) => {
+            this.filteredMetar.sort((a, b) => {
                 let aValue = "";
                 let bValue = "";
                 if (propertyName === "visibility_statute_mi") {
@@ -44,7 +54,7 @@ class AwcWeather {
                 }
                 return 0;
             });
-            const newMetar = this.METAR.map((metar) => {
+            const newMetar = this.filteredMetar.map((metar) => {
                 if (metar[propertyName] === undefined && propertyName === "visibility_statute_mi") {
                     metar[propertyName] = Number(999);
                 } else if (metar[propertyName] === undefined) {
@@ -58,7 +68,7 @@ class AwcWeather {
             return newMetar;
         }
         if (sortOrder === -1) {
-            this.METAR.sort((a, b) => {
+            this.filteredMetar.sort((a, b) => {
                 let aValue = "";
                 let bValue = "";
                 if (propertyName === "visibility_statute_mi") {
@@ -78,7 +88,7 @@ class AwcWeather {
                 return 0;
             });
             //TO filter out the undefined properties and re-shape the array.
-            const newMetar = this.METAR.map((metar) => {
+            const newMetar = this.filteredMetar.map((metar) => {
                 if (metar[propertyName] === undefined && propertyName === "visibility_statute_mi") {
                     metar[propertyName] = Number(999);
                 } else if (metar[propertyName] === undefined) {
@@ -108,49 +118,94 @@ class AwcWeather {
             this.METAR = result.response.data[0].METAR;
         });
 
-        this.airportsFilter();
+        return this.airportsFilter();
     }
 
     // -1: gust from high to low
     // 1: gust from low to high
-    sortTheMetarByWindGust() {
-        this.dynamicSort("wind_gust_kt", -1);
-        const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} ::: wind gust: ${metar.wind_gust_kt}`);
-        return responseMetar;
+    sortTheMetarByWindGust(sortOrder) {
+        const metarSortedByGust = this.dynamicSort("wind_gust_kt", sortOrder);
+
+        metarSortedByGust.forEach((metar) => {
+            const metarObj = {};
+            metarObj.station_id = metar.station_id[0];
+            metarObj.metar = metar.raw_text[0];
+            metarObj.wind_gust = metar.wind_gust_kt;
+            this.gustResponseMetar.push(metarObj);
+        });
+        return this.gustResponseMetar;
     }
 
     // -1: wind speed from high to low
     // 1: wind speed from low to high
-    sortTheMetarByWindSpeed() {
-        this.dynamicSort("wind_speed_kt", 1);
-        const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} ::: wind speed: ${metar.wind_speed_kt}`);
-        return responseMetar;
+    sortTheMetarByWindSpeed(sortOrder) {
+        const metarSortedByWind = this.dynamicSort("wind_speed_kt", sortOrder);
+
+        metarSortedByWind.forEach((metar) => {
+            const metarObj = {};
+            metarObj.station_id = metar.station_id[0];
+            metarObj.metar = metar.raw_text[0];
+            metarObj.wind_speed_kt = metar.wind_speed_kt;
+            this.windReponseMetar.push(metarObj);
+        });
+        return this.windReponseMetar;
     }
 
     // -1: temp from highest to lowest
     // 1: temp from lowest to highest
-    sortTheMetarByTemp() {
-        this.dynamicSort("temp_c", -1);
-        const responseMetar = this.METAR.map((metar) => `${metar.raw_text[0]} ::: temp_c: ${metar.temp_c}`);
-        return responseMetar;
+    sortTheMetarByTemp(sortOrder) {
+        const metarSortedByTemp = this.dynamicSort("temp_c", sortOrder);
+        //console.log(metarSortedByTemp);
+        if (sortOrder === 1) {
+            metarSortedByTemp.forEach((metar) => {
+                const metarObj = {};
+                metarObj.station_id = metar.station_id[0];
+                metarObj.metar = metar.raw_text[0];
+                metarObj.temp_c = Number(metar.temp_c);
+                this.lowestTempMetar.push(metarObj);
+            });
+            return this.lowestTempMetar;
+        }
+        if (sortOrder === -1) {
+            metarSortedByTemp.forEach((metar) => {
+                const metarObj = {};
+                metarObj.station_id = metar.station_id[0];
+                metarObj.metar = metar.raw_text[0];
+                metarObj.temp_c = Number(metar.temp_c);
+                this.highestTempMetar.push(metarObj);
+            });
+            return this.highestTempMetar;
+        }
     }
 
     //-1: Visibility from best to worst
     //1: Visibility from worst to best
-    sortTheMetarByVisibility() {
-        this.dynamicSort("visibility_statute_mi", -1);
-        const responseMetar = this.METAR.map(
-            (metar) => `${metar.raw_text[0]} ::: visibility_statute_mi: ${metar.visibility_statute_mi} `
-        );
-        return responseMetar;
+    sortTheMetarByVisibility(sortOrder) {
+        const metarSortedByVisibility = this.dynamicSort("visibility_statute_mi", sortOrder);
+
+        metarSortedByVisibility.forEach((metar) => {
+            const metarObj = {};
+            metarObj.station_id = metar.station_id[0];
+            metarObj.metar = metar.raw_text[0];
+            metarObj.visibility_statute_mi = metar.visibility_statute_mi;
+            this.visibilityResponseMetar.push(metarObj);
+        });
+        return this.visibilityResponseMetar;
     }
 
-    sortTheMetarByBaro() {
-        this.dynamicSort("altim_in_hg", 1);
-        const responseMetar = this.filteredMetar.map(
-            (metar) => `${metar.raw_text[0]} ::: altim_in_hg: ${metar.altim_in_hg} `
-        );
-        return responseMetar;
+    // -1: baro from lowest to highest
+    // 1: baro from highest to lowest
+    sortTheMetarByBaro(sortOrder) {
+        const metarSortedByBaro = this.dynamicSort("altim_in_hg", sortOrder);
+
+        metarSortedByBaro.forEach((metar) => {
+            const metarObj = {};
+            metarObj.station_id = metar.station_id[0];
+            metarObj.metar = metar.raw_text[0];
+            metarObj.altim_in_hg = metar.altim_in_hg;
+            this.baroResponseMetar.push(metarObj);
+        });
+        return this.baroResponseMetar;
     }
 }
 
