@@ -5,19 +5,10 @@ const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
 const { generateGeneralATIS } = require("../../utils/ATIS/generateFaaAndVatsimATIS");
-const AwcWeather = require("../../utils/AWC_Weather/AwcWeather");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
-    const awcWeather = new AwcWeather();
-    await awcWeather.getWeatherForCountry("gb");
-    const windSpeedMetar = awcWeather.sortTheMetarByWindSpeed(-1);
-    const visMetar = awcWeather.sortTheMetarByVisibility(1);
-    const gustMetar = awcWeather.sortTheMetarByWindGust(-1);
-    const tempMetar = awcWeather.sortTheMetarByTemp(-1);
-    const baroMetar = awcWeather.sortTheMetarByBaro(1);
-    console.log(baroMetar);
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
         req.query

@@ -3,7 +3,9 @@ const xml2js = require("xml2js");
 const { AWC_METAR_BASE_URL } = require("../../config");
 const { globalICAO } = require("./airportsICAO");
 
-//FIXME: NEED REFACTOR!!!
+//TODO: NEED REFACTOR!!!
+// Need delete the duplicates METAR
+// Global data, not limited to country specific
 
 class AwcWeather {
     constructor() {
@@ -12,7 +14,6 @@ class AwcWeather {
         this.responseMetar = [];
         this.windReponseMetar = [];
         this.gustResponseMetar = [];
-        this.tempReponseMetar = [];
         this.highestTempMetar = [];
         this.lowestTempMetar = [];
         this.baroResponseMetar = [];
@@ -30,7 +31,63 @@ class AwcWeather {
         });
     }
 
-    //!FIXME: conner case
+    getTempMetarFromHighToLow() {
+        this.sortTheMetarByTemp(-1);
+        if (this.highestTempMetar.length !== 0) {
+            return this.highestTempMetar;
+        }
+    }
+
+    getTempMetarFromLowToHigh() {
+        this.sortTheMetarByTemp(1);
+        if (this.lowestTempMetar.length !== 0) {
+            return this.lowestTempMetar;
+        }
+    }
+
+    getGustMetarFromHighToLow() {
+        this.sortTheMetarByWindGust(-1);
+        if (this.gustResponseMetar.length !== 0) {
+            return this.gustResponseMetar;
+        }
+    }
+
+    getWindMetarFromHighToLow() {
+        this.sortTheMetarByWindSpeed(-1);
+        if (this.windReponseMetar.length !== 0) {
+            return this.windReponseMetar;
+        }
+    }
+
+    getBaroMetarFromHighToLow() {
+        this.sortTheMetarByBaro(1);
+        if (this.baroResponseMetar.length !== 0) {
+            return this.baroResponseMetar;
+        }
+    }
+
+    getBaroMetarFromLowToHigh() {
+        this.sortTheMetarByBaro(-1);
+        if (this.baroResponseMetar.length !== 0) {
+            return this.baroResponseMetar;
+        }
+    }
+
+    getVisibilityMetarFromHighToLow() {
+        this.sortTheMetarByVisibility(-1);
+        if (this.visibilityResponseMetar.length !== 0) {
+            return this.visibilityResponseMetar;
+        }
+    }
+
+    getVisibilityMetarFromLowToHigh() {
+        this.sortTheMetarByVisibility(1);
+        if (this.visibilityResponseMetar.length !== 0) {
+            return this.visibilityResponseMetar;
+        }
+    }
+
+    //!FIXME: perhaps conner case
     dynamicSort(propertyName, sortOrder) {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
@@ -193,6 +250,7 @@ class AwcWeather {
         return this.visibilityResponseMetar;
     }
 
+    //!FIXME: sometimes baro can be 0
     // -1: baro from lowest to highest
     // 1: baro from highest to lowest
     sortTheMetarByBaro(sortOrder) {
