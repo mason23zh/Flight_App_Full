@@ -23,12 +23,13 @@ class AwcWeather {
     }
 
     //Filter out the airports that does not exist in the database
+    //Filter out the duplcates airports
     airportsFilter() {
         this.filteredMetar = this.METAR.filter((metar) => {
             if (globalICAO.includes(metar.station_id[0])) {
                 return metar;
             }
-        });
+        }).filter((value, index, self) => index === self.findIndex((t) => t.station_id[0] === value.station_id[0]));
     }
 
     getTempMetarFromHighToLow() {
@@ -60,14 +61,14 @@ class AwcWeather {
     }
 
     getBaroMetarFromHighToLow() {
-        this.sortTheMetarByBaro(1);
+        this.sortTheMetarByBaro(-1);
         if (this.baroResponseMetar.length !== 0) {
             return this.baroResponseMetar;
         }
     }
 
     getBaroMetarFromLowToHigh() {
-        this.sortTheMetarByBaro(-1);
+        this.sortTheMetarByBaro(1);
         if (this.baroResponseMetar.length !== 0) {
             return this.baroResponseMetar;
         }
