@@ -2,6 +2,7 @@ const axios = require("axios");
 const xml2js = require("xml2js");
 const { AWC_METAR_BASE_URL } = require("../../config");
 const { globalICAO } = require("./airportsICAO");
+const { countryCode } = require("./country_code");
 
 //TODO: NEED REFACTOR!!!
 // Need delete the duplicates METAR
@@ -161,8 +162,25 @@ class AwcWeather {
         }
     }
 
-    async getWeatherForCountry(countryCode) {
-        this.stationString = `&stationString=~${countryCode}`;
+    getCountryCode(country) {
+        let countryName = country.toLowerCase();
+        countryName = countryName.split("");
+        countryName[0] = countryName[0].toUpperCase();
+        countryName = countryName.join("");
+        const result = countryCode.find((target) => {
+            if (target.name === countryName) {
+                return target;
+            }
+        });
+        if (!result) {
+            return "ca";
+        }
+        return result.code.toLowerCase();
+    }
+
+    async getWeatherForCountry(countryName) {
+        const code = countryName.length === 2 ? countryName : this.getCountryCode(countryName);
+        this.stationString = `&stationString=~${code}`;
         this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
         const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
 
@@ -183,7 +201,7 @@ class AwcWeather {
     // 1: gust from low to high
     sortTheMetarByWindGust(sortOrder) {
         const metarSortedByGust = this.dynamicSort("wind_gust_kt", sortOrder);
-
+        this.gustResponseMetar = [];
         metarSortedByGust.forEach((metar) => {
             const metarObj = {};
             metarObj.station_id = metar.station_id[0];
@@ -199,6 +217,7 @@ class AwcWeather {
     sortTheMetarByWindSpeed(sortOrder) {
         const metarSortedByWind = this.dynamicSort("wind_speed_kt", sortOrder);
 
+        this.windReponseMetar = [];
         metarSortedByWind.forEach((metar) => {
             const metarObj = {};
             metarObj.station_id = metar.station_id[0];
@@ -215,6 +234,7 @@ class AwcWeather {
         const metarSortedByTemp = this.dynamicSort("temp_c", sortOrder);
         //console.log(metarSortedByTemp);
         if (sortOrder === 1) {
+            this.lowestTempMetar = [];
             metarSortedByTemp.forEach((metar) => {
                 const metarObj = {};
                 metarObj.station_id = metar.station_id[0];
@@ -225,6 +245,7 @@ class AwcWeather {
             return this.lowestTempMetar;
         }
         if (sortOrder === -1) {
+            this.highestTempMetar = [];
             metarSortedByTemp.forEach((metar) => {
                 const metarObj = {};
                 metarObj.station_id = metar.station_id[0];
@@ -240,6 +261,7 @@ class AwcWeather {
     //1: Visibility from worst to best
     sortTheMetarByVisibility(sortOrder) {
         const metarSortedByVisibility = this.dynamicSort("visibility_statute_mi", sortOrder);
+        this.visibilityResponseMetar = [];
 
         metarSortedByVisibility.forEach((metar) => {
             const metarObj = {};
@@ -257,6 +279,7 @@ class AwcWeather {
     sortTheMetarByBaro(sortOrder) {
         const metarSortedByBaro = this.dynamicSort("altim_in_hg", sortOrder);
 
+        this.baroResponseMetar = [];
         metarSortedByBaro.forEach((metar) => {
             const metarObj = {};
             metarObj.station_id = metar.station_id[0];
