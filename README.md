@@ -44,6 +44,27 @@ Example: ***/api/v1/airports/all-airports?page=1&limit=3***
 
 ---
 
+### Bad Weathers:  */api/v1/weather/country-weather*
+
+**End Points**:
+
+Sort METARs by temperature from lowest to highest:\
+Example: ***/api/v1/airports/country-weather/temperature/ca?sort=1&limit=10***
+
+Sort METARs by visibility from worst to best:\
+Example: ***/api/v1/airports/country-weather/visibility/ca?sort=1&limit=10***
+
+Sort METARs by barometers from lowest to highest:\
+Example: ***/api/v1/airports/country-weather/baro/ca?sort=1&limit=10***
+
+Sort METARs by wind speed from highest to lowest:\
+Example: ***/api/v1/airports/country-weather/wind-speed/ca?limit=10***
+
+Sort METARs by wind gust speed from highest to lowest:\
+Example: ***/api/v1/airports/country-weather/wind-gust-speed/ca?limit=10***
+
+---
+
 ### Users: */api/v1/users*
 
 **End Points**:
@@ -62,6 +83,8 @@ METAR: Decoded + Raw METAR
 
 ATIS: FAA published and Vatsim (if they are available)
 
+Weather: List worst weather for selected country.
+
 ---
 
 ### ToDo List:
@@ -73,7 +96,7 @@ ATIS: FAA published and Vatsim (if they are available)
 * ~~ATIS~~
 * NOTAM
 
-* Get Airports by Weather filter
+* ~~Get Airports by Weather filter~~
 
 * Geo data:
     * ~~Nearby airports from selected airport~~
