@@ -194,7 +194,9 @@ class AwcWeather {
             this.METAR = result.response.data[0].METAR;
         });
 
-        return this.airportsFilter();
+        this.airportsFilter();
+
+        return this.filteredMetar;
     }
 
     // -1: gust from high to low
