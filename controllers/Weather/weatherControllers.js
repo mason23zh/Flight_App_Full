@@ -12,8 +12,8 @@ module.exports.getWeatherForCountry = async (req, res, next) => {
     try {
         const tempMetars = await awcWeather.getWeatherForCountry(country);
         if (tempMetars.length > 0) {
-            if (tempMetars.length > limit) {
-                for (let i = 0; i < limit; i++) {
+            if (tempMetars.length > Number(limit)) {
+                for (let i = 0; i < Number(limit); i++) {
                     resultMetar.push(tempMetars[i]);
                 }
             } else {
@@ -236,5 +236,16 @@ module.exports.getTempMetarForCountry = async (req, res, next) => {
         data: {
             METAR: resultMetar,
         },
+    });
+};
+
+//continent
+module.exports.getMetarForContinent = async (req, res, next) => {
+    const result = await awcWeather.getWeatherForContinent();
+
+    console.log(result.length);
+
+    res.status(200).json({
+        status: "success",
     });
 };

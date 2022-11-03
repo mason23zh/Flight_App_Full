@@ -6,6 +6,7 @@ const {
     getWindMetarForCountry,
     getWindGustForCountry,
     getWeatherForCountry,
+    getMetarForContinent,
 } = require("../controllers/Weather/weatherControllers");
 
 const router = express.Router();
@@ -16,4 +17,6 @@ router.route("/country-weather/visibility/:country").get(getVisibilityMetarForCo
 router.route("/country-weather/baro/:country").get(getBaroMetarForCountry);
 router.route("/country-weather/wind-speed/:country").get(getWindMetarForCountry);
 router.route("/country-weather/wind-gust-speed/:country").get(getWindGustForCountry);
+
+router.route("/continent-weather").get(getMetarForContinent);
 module.exports = router;

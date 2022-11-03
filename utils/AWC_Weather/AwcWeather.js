@@ -3,6 +3,7 @@ const xml2js = require("xml2js");
 const { AWC_METAR_BASE_URL } = require("../../config");
 const { globalICAO } = require("./airportsICAO");
 const { countryCode } = require("./country_code");
+const { asiaCountries } = require("./asiaCountries");
 
 //TODO: NEED REFACTOR!!!
 // Need delete the duplicates METAR
@@ -176,6 +177,40 @@ class AwcWeather {
             return "ca";
         }
         return result.code.toLowerCase();
+    }
+
+    // The continentMetars is a 2d array
+    async getWeatherForContinent() {
+        let continentMetars = [];
+        const promiseArray = asiaCountries.map(async (code) => {
+            this.stationString = `&stationString=~${code}`;
+            this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
+            const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
+            const res = await axios.get(`${countryMetarURL}`);
+            return res.data;
+        });
+
+        await Promise.allSettled(promiseArray).then((results) => {
+            continentMetars = [];
+            results.forEach((result) => {
+                const parser = new xml2js.Parser();
+
+                parser.parseString(result.value, (err, r) => {
+                    if (r.response.data[0].METAR !== undefined) {
+                        continentMetars.push(r.response.data[0].METAR);
+                    }
+                });
+            });
+        });
+
+        for (let i = 0; i < continentMetars.length; i++) {
+            for (let t = 0; t < continentMetars[i].length; t++) {
+                this.METAR.push(continentMetars[i][t]);
+            }
+        }
+
+        this.airportsFilter();
+        return this.filteredMetar;
     }
 
     async getWeatherForCountry(countryName) {
