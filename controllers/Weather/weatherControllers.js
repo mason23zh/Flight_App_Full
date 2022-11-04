@@ -241,7 +241,7 @@ module.exports.getTempMetarForCountry = async (req, res, next) => {
 
 //continent
 module.exports.getMetarForContinent = async (req, res, next) => {
-    const result = await awcWeather.getWeatherForContinent();
+    const result = await awcWeather.getWeatherForContinent("SA");
 
     console.log(result.length);
 

@@ -1,0 +1,16 @@
+module.exports.southAmericaCountries = [
+    "ar",
+    "bo",
+    "br",
+    "cl",
+    "co",
+    "ec",
+    "fk",
+    "gf",
+    "gy",
+    "py",
+    "pe",
+    "sr",
+    "uy",
+    "ve",
+];

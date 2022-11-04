@@ -4,6 +4,12 @@ const { AWC_METAR_BASE_URL } = require("../../config");
 const { globalICAO } = require("./airportsICAO");
 const { countryCode } = require("./country_code");
 const { asiaCountries } = require("./asiaCountries");
+const { northAmericaCountries } = require("./northAmericaCountries");
+const { africaCountries } = require("./africaCountries");
+const { antarticaCountries } = require("./antarticaCountries");
+const { oceaniaCountries } = require("./oceaniaCountries");
+const { europeCountreis } = require("./europeCountries");
+const { southAmericaCountries } = require("./southAmericaCountires");
 
 //TODO: NEED REFACTOR!!!
 // Need delete the duplicates METAR
@@ -25,73 +31,19 @@ class AwcWeather {
     }
 
     //Filter out the airports that does not exist in the database
-    //Filter out the duplcates airports
-    airportsFilter() {
+    //Filter out the duplicates airports
+    #airportsFilter() {
         this.filteredMetar = this.METAR.filter((metar) => {
             if (globalICAO.includes(metar.station_id[0])) {
                 return metar;
             }
         }).filter((value, index, self) => index === self.findIndex((t) => t.station_id[0] === value.station_id[0]));
-    }
 
-    getTempMetarFromHighToLow() {
-        this.sortTheMetarByTemp(-1);
-        if (this.highestTempMetar.length !== 0) {
-            return this.highestTempMetar;
-        }
-    }
-
-    getTempMetarFromLowToHigh() {
-        this.sortTheMetarByTemp(1);
-        if (this.lowestTempMetar.length !== 0) {
-            return this.lowestTempMetar;
-        }
-    }
-
-    getGustMetarFromHighToLow() {
-        this.sortTheMetarByWindGust(-1);
-        if (this.gustResponseMetar.length !== 0) {
-            return this.gustResponseMetar;
-        }
-    }
-
-    getWindMetarFromHighToLow() {
-        this.sortTheMetarByWindSpeed(-1);
-        if (this.windReponseMetar.length !== 0) {
-            return this.windReponseMetar;
-        }
-    }
-
-    getBaroMetarFromHighToLow() {
-        this.sortTheMetarByBaro(-1);
-        if (this.baroResponseMetar.length !== 0) {
-            return this.baroResponseMetar;
-        }
-    }
-
-    getBaroMetarFromLowToHigh() {
-        this.sortTheMetarByBaro(1);
-        if (this.baroResponseMetar.length !== 0) {
-            return this.baroResponseMetar;
-        }
-    }
-
-    getVisibilityMetarFromHighToLow() {
-        this.sortTheMetarByVisibility(-1);
-        if (this.visibilityResponseMetar.length !== 0) {
-            return this.visibilityResponseMetar;
-        }
-    }
-
-    getVisibilityMetarFromLowToHigh() {
-        this.sortTheMetarByVisibility(1);
-        if (this.visibilityResponseMetar.length !== 0) {
-            return this.visibilityResponseMetar;
-        }
+        return this.filteredMetar;
     }
 
     //!FIXME: perhaps conner case
-    dynamicSort(propertyName, sortOrder) {
+    #dynamicSort(propertyName, sortOrder) {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
             this.filteredMetar.sort((a, b) => {
@@ -163,7 +115,7 @@ class AwcWeather {
         }
     }
 
-    getCountryCode(country) {
+    #getCountryCode(country) {
         let countryName = country.toLowerCase();
         countryName = countryName.split("");
         countryName[0] = countryName[0].toUpperCase();
@@ -179,10 +131,26 @@ class AwcWeather {
         return result.code.toLowerCase();
     }
 
-    // The continentMetars is a 2d array
-    async getWeatherForContinent() {
+    // AF, AN, AS, OC, EU, NA, SA
+    async getWeatherForContinent(continentCode) {
+        let countries = [];
+        if (continentCode.toUpperCase() === "AF") {
+            countries = [...africaCountries];
+        } else if (continentCode.toUpperCase() === "AN") {
+            countries = [...antarticaCountries];
+        } else if (continentCode.toUpperCase() === "AS") {
+            countries = [...asiaCountries];
+        } else if (continentCode.toUpperCase() === "OC") {
+            countries = [...oceaniaCountries];
+        } else if (continentCode.toUpperCase() === "EU") {
+            countries = [...europeCountreis];
+        } else if (continentCode.toUpperCase() === "NA") {
+            countries = [...northAmericaCountries];
+        } else if (continentCode.toUpperCase() === "SA") {
+            countries = [...southAmericaCountries];
+        }
         let continentMetars = [];
-        const promiseArray = asiaCountries.map(async (code) => {
+        const promiseArray = countries.map(async (code) => {
             this.stationString = `&stationString=~${code}`;
             this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
             const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
@@ -209,12 +177,11 @@ class AwcWeather {
             }
         }
 
-        this.airportsFilter();
-        return this.filteredMetar;
+        return this.#airportsFilter();
     }
 
     async getWeatherForCountry(countryName) {
-        const code = countryName.length === 2 ? countryName : this.getCountryCode(countryName);
+        const code = countryName.length === 2 ? countryName : this.#getCountryCode(countryName);
         this.stationString = `&stationString=~${code}`;
         this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
         const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
@@ -229,15 +196,13 @@ class AwcWeather {
             this.METAR = result.response.data[0].METAR;
         });
 
-        this.airportsFilter();
-
-        return this.filteredMetar;
+        return this.#airportsFilter();
     }
 
     // -1: gust from high to low
     // 1: gust from low to high
     sortTheMetarByWindGust(sortOrder) {
-        const metarSortedByGust = this.dynamicSort("wind_gust_kt", sortOrder);
+        const metarSortedByGust = this.#dynamicSort("wind_gust_kt", sortOrder);
         this.gustResponseMetar = [];
         metarSortedByGust.forEach((metar) => {
             const metarObj = {};
@@ -252,7 +217,7 @@ class AwcWeather {
     // -1: wind speed from high to low
     // 1: wind speed from low to high
     sortTheMetarByWindSpeed(sortOrder) {
-        const metarSortedByWind = this.dynamicSort("wind_speed_kt", sortOrder);
+        const metarSortedByWind = this.#dynamicSort("wind_speed_kt", sortOrder);
 
         this.windReponseMetar = [];
         metarSortedByWind.forEach((metar) => {
@@ -268,7 +233,7 @@ class AwcWeather {
     // -1: temp from highest to lowest
     // 1: temp from lowest to highest
     sortTheMetarByTemp(sortOrder) {
-        const metarSortedByTemp = this.dynamicSort("temp_c", sortOrder);
+        const metarSortedByTemp = this.#dynamicSort("temp_c", sortOrder);
         //console.log(metarSortedByTemp);
         if (sortOrder === 1) {
             this.lowestTempMetar = [];
@@ -297,7 +262,7 @@ class AwcWeather {
     //-1: Visibility from best to worst
     //1: Visibility from worst to best
     sortTheMetarByVisibility(sortOrder) {
-        const metarSortedByVisibility = this.dynamicSort("visibility_statute_mi", sortOrder);
+        const metarSortedByVisibility = this.#dynamicSort("visibility_statute_mi", sortOrder);
         this.visibilityResponseMetar = [];
 
         metarSortedByVisibility.forEach((metar) => {
@@ -314,7 +279,7 @@ class AwcWeather {
     // -1: baro from lowest to highest
     // 1: baro from highest to lowest
     sortTheMetarByBaro(sortOrder) {
-        const metarSortedByBaro = this.dynamicSort("altim_in_hg", sortOrder);
+        const metarSortedByBaro = this.#dynamicSort("altim_in_hg", sortOrder);
 
         this.baroResponseMetar = [];
         metarSortedByBaro.forEach((metar) => {
@@ -325,6 +290,63 @@ class AwcWeather {
             this.baroResponseMetar.push(metarObj);
         });
         return this.baroResponseMetar;
+    }
+
+    //Getters
+    getTempMetarFromHighToLow() {
+        this.sortTheMetarByTemp(-1);
+        if (this.highestTempMetar.length !== 0) {
+            return this.highestTempMetar;
+        }
+    }
+
+    getTempMetarFromLowToHigh() {
+        this.sortTheMetarByTemp(1);
+        if (this.lowestTempMetar.length !== 0) {
+            return this.lowestTempMetar;
+        }
+    }
+
+    getGustMetarFromHighToLow() {
+        this.sortTheMetarByWindGust(-1);
+        if (this.gustResponseMetar.length !== 0) {
+            return this.gustResponseMetar;
+        }
+    }
+
+    getWindMetarFromHighToLow() {
+        this.sortTheMetarByWindSpeed(-1);
+        if (this.windReponseMetar.length !== 0) {
+            return this.windReponseMetar;
+        }
+    }
+
+    getBaroMetarFromHighToLow() {
+        this.sortTheMetarByBaro(-1);
+        if (this.baroResponseMetar.length !== 0) {
+            return this.baroResponseMetar;
+        }
+    }
+
+    getBaroMetarFromLowToHigh() {
+        this.sortTheMetarByBaro(1);
+        if (this.baroResponseMetar.length !== 0) {
+            return this.baroResponseMetar;
+        }
+    }
+
+    getVisibilityMetarFromHighToLow() {
+        this.sortTheMetarByVisibility(-1);
+        if (this.visibilityResponseMetar.length !== 0) {
+            return this.visibilityResponseMetar;
+        }
+    }
+
+    getVisibilityMetarFromLowToHigh() {
+        this.sortTheMetarByVisibility(1);
+        if (this.visibilityResponseMetar.length !== 0) {
+            return this.visibilityResponseMetar;
+        }
     }
 }
 
