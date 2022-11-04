@@ -171,6 +171,7 @@ class AwcWeather {
             });
         });
 
+        this.METAR = [];
         for (let i = 0; i < continentMetars.length; i++) {
             for (let t = 0; t < continentMetars[i].length; t++) {
                 this.METAR.push(continentMetars[i][t]);
