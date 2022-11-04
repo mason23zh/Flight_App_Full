@@ -10,6 +10,7 @@ const { antarticaCountries } = require("./antarticaCountries");
 const { oceaniaCountries } = require("./oceaniaCountries");
 const { europeCountreis } = require("./europeCountries");
 const { southAmericaCountries } = require("./southAmericaCountires");
+const { continentCode } = require("./continentCode");
 
 //TODO: NEED REFACTOR!!!
 // Need delete the duplicates METAR
@@ -132,22 +133,36 @@ class AwcWeather {
     }
 
     // AF, AN, AS, OC, EU, NA, SA
-    async getWeatherForContinent(continentCode) {
+    async getWeatherForContinent(codes) {
         let countries = [];
-        if (continentCode.toUpperCase() === "AF") {
+
+        if (codes.toUpperCase() === continentCode.AFRICA) {
             countries = [...africaCountries];
-        } else if (continentCode.toUpperCase() === "AN") {
+        } else if (codes.toUpperCase() === continentCode.ANTARTICA) {
             countries = [...antarticaCountries];
-        } else if (continentCode.toUpperCase() === "AS") {
+        } else if (codes.toUpperCase() === continentCode.ASIA) {
             countries = [...asiaCountries];
-        } else if (continentCode.toUpperCase() === "OC") {
+        } else if (codes.toUpperCase() === continentCode.OCEANIA) {
             countries = [...oceaniaCountries];
-        } else if (continentCode.toUpperCase() === "EU") {
+        } else if (codes.toUpperCase() === continentCode.EUROPE) {
             countries = [...europeCountreis];
-        } else if (continentCode.toUpperCase() === "NA") {
+        } else if (codes.toUpperCase() === continentCode.NORTH_AMERICA) {
             countries = [...northAmericaCountries];
-        } else if (continentCode.toUpperCase() === "SA") {
+        } else if (codes.toUpperCase() === continentCode.SOUTH_AMERICA) {
             countries = [...southAmericaCountries];
+        } else if (codes.toUpperCase() === continentCode.GLOBAL) {
+            countries = [
+                ...africaCountries,
+                ...antarticaCountries,
+                ...asiaCountries,
+                ...oceaniaCountries,
+                ...europeCountreis,
+                ...northAmericaCountries,
+                ...southAmericaCountries,
+            ];
+        } else {
+            countries = [];
+            return countries;
         }
         let continentMetars = [];
         const promiseArray = countries.map(async (code) => {
@@ -177,6 +192,7 @@ class AwcWeather {
                 this.METAR.push(continentMetars[i][t]);
             }
         }
+        console.log("Continent/Global total number of METARs: ", this.METAR.length);
 
         return this.#airportsFilter();
     }

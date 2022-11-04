@@ -268,7 +268,11 @@ module.exports.getWindGustForContinent = async (req, res, next) => {
             return resultMetar;
         }
     } catch (err) {
-        throw new NotFoundError(`Cannot find weather for ${continent.toUpperCase()}`);
+        throw new NotFoundError(
+            `Cannot find continent/global weather for continent/global code: ${continent.toUpperCase()}\n
+             Please use code: AF, AN, AS, OC, EU, NA, SA, or GLOBAL
+            `
+        );
     }
 
     res.status(200).json({
@@ -299,7 +303,11 @@ module.exports.getWindMetarForContinent = async (req, res, next) => {
             return resultMetar;
         }
     } catch (err) {
-        throw new NotFoundError(`Cannot find weather for ${continent.toUpperCase()}`);
+        throw new NotFoundError(
+            `Cannot find continent/global weather for continent/global code: ${continent.toUpperCase()}\n
+             Please use code: AF, AN, AS, OC, EU, NA, SA, or GLOBAL
+            `
+        );
     }
 
     res.status(200).json({
@@ -347,7 +355,11 @@ module.exports.getBaroMetarForContinent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        throw new NotFoundError(`Cannot find weather for ${continent.toUpperCase()}`);
+        throw new NotFoundError(
+            `Cannot find continent/global weather for continent/global code: ${continent.toUpperCase()}\n
+             Please use code: AF, AN, AS, OC, EU, NA, SA, or GLOBAL
+            `
+        );
     }
 
     res.status(200).json({
@@ -395,7 +407,11 @@ module.exports.getVisibilityMetarForContinent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        throw new NotFoundError(`Cannot find weather for ${continent.toUpperCase()}`);
+        throw new NotFoundError(
+            `Cannot find continent/global weather for continent/global code: ${continent.toUpperCase()}\n
+             Please use code: AF, AN, AS, OC, EU, NA, SA, or GLOBAL
+            `
+        );
     }
 
     res.status(200).json({
@@ -443,7 +459,11 @@ module.exports.getTempMetarForContinent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        throw new NotFoundError(`Cannot find weather for ${continent.toUpperCase()}`);
+        throw new NotFoundError(
+            `Cannot find continent/global weather for continent/global code: ${continent.toUpperCase()}\n
+             Please use code: AF, AN, AS, OC, EU, NA, SA, or GLOBAL
+            `
+        );
     }
 
     res.status(200).json({
