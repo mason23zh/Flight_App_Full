@@ -187,6 +187,7 @@ class AwcWeather {
         this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
         const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
 
+        this.METAR = [];
         const res = await axios.get(`${countryMetarURL}`);
         if (!res) {
             return this.METAR;
