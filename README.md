@@ -44,7 +44,26 @@ Example: ***/api/v1/airports/all-airports?page=1&limit=3***
 
 ---
 
-### Bad Weathers:  */api/v1/weather/country-weather*
+### Bad Weathers For Continent:  */api/v1/weather/continent-weather*
+
+**End Points**:
+
+Sort METARs by temperature from lowest to highest:\
+Example: ***/api/v1/airports/continent-weather/temperature/as?sort=1&limit=10***
+
+Sort METARs by visibility from worst to best:\
+Example: ***/api/v1/airports/continent-weather/visibility/na?sort=1&limit=10***
+
+Sort METARs by barometers from lowest to highest:\
+Example: ***/api/v1/airports/continent-weather/baro/sa?sort=1&limit=10***
+
+Sort METARs by wind speed from highest to lowest:\
+Example: ***/api/v1/airports/continent-weather/wind-speed/oc?limit=10***
+
+Sort METARs by wind gust speed from highest to lowest:\
+Example: ***/api/v1/airports/country-weather/wind-gust-speed/na?limit=10***
+
+### Bad Weathers For Country:  */api/v1/weather/country-weather*
 
 **End Points**:
 

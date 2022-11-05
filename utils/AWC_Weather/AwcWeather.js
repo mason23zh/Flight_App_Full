@@ -132,6 +132,50 @@ class AwcWeather {
         return result.code.toLowerCase();
     }
 
+    async getWeatherForGlobal() {
+        let countries = [
+            ...africaCountries,
+            ...antarticaCountries,
+            ...asiaCountries,
+            ...oceaniaCountries,
+            ...europeCountreis,
+            ...northAmericaCountries,
+            ...southAmericaCountries,
+        ];
+
+        let globalMetars = [];
+        const promiseArray = countries.map(async (code) => {
+            this.stationString = `&stationString=~${code}`;
+            this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
+            const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
+            const res = await axios.get(`${countryMetarURL}`);
+            return res.data;
+        });
+
+        await Promise.allSettled(promiseArray).then((results) => {
+            globalMetars = [];
+            results.forEach((result) => {
+                const parser = new xml2js.Parser();
+
+                parser.parseString(result.value, (err, r) => {
+                    if (r.response.data[0].METAR !== undefined) {
+                        globalMetars.push(r.response.data[0].METAR);
+                    }
+                });
+            });
+        });
+
+        this.METAR = [];
+        for (let i = 0; i < globalMetars.length; i++) {
+            for (let t = 0; t < globalMetars[i].length; t++) {
+                this.METAR.push(globalMetars[i][t]);
+            }
+        }
+        //console.log("Total number of global METARs: ", this.METAR.length);
+
+        return this.#airportsFilter();
+    }
+
     // AF, AN, AS, OC, EU, NA, SA
     async getWeatherForContinent(codes) {
         let countries = [];
@@ -150,16 +194,6 @@ class AwcWeather {
             countries = [...northAmericaCountries];
         } else if (codes.toUpperCase() === continentCode.SOUTH_AMERICA) {
             countries = [...southAmericaCountries];
-        } else if (codes.toUpperCase() === continentCode.GLOBAL) {
-            countries = [
-                ...africaCountries,
-                ...antarticaCountries,
-                ...asiaCountries,
-                ...oceaniaCountries,
-                ...europeCountreis,
-                ...northAmericaCountries,
-                ...southAmericaCountries,
-            ];
         } else {
             countries = [];
             return countries;
@@ -192,7 +226,7 @@ class AwcWeather {
                 this.METAR.push(continentMetars[i][t]);
             }
         }
-        console.log("Continent/Global total number of METARs: ", this.METAR.length);
+        //console.log(`Continent: ${codes.toUpperCase()} | Total number of continent METARs: ${this.METAR.length}`);
 
         return this.#airportsFilter();
     }
@@ -365,6 +399,13 @@ class AwcWeather {
         if (this.visibilityResponseMetar.length !== 0) {
             return this.visibilityResponseMetar;
         }
+    }
+
+    getNumberOfMetars() {
+        if (this.METAR.length !== 0) {
+            return this.METAR.length;
+        }
+        return 0;
     }
 }
 
