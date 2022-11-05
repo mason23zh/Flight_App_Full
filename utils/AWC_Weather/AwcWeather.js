@@ -12,10 +12,6 @@ const { europeCountreis } = require("./europeCountries");
 const { southAmericaCountries } = require("./southAmericaCountires");
 const { continentCode } = require("./continentCode");
 
-//TODO: NEED REFACTOR!!!
-// Need delete the duplicates METAR
-// Global data, not limited to country specific
-
 class AwcWeather {
     constructor() {
         this.METAR = [];
@@ -43,7 +39,7 @@ class AwcWeather {
         return this.filteredMetar;
     }
 
-    //!FIXME: perhaps conner case
+    //!FIXME: perhaps conner case, need to remove METAR when Baro is 0.0
     #dynamicSort(propertyName, sortOrder) {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
@@ -100,7 +96,7 @@ class AwcWeather {
                 }
                 return 0;
             });
-            //TO filter out the undefined properties and re-shape the array.
+            //To filter out the undefined properties and re-shape the array.
             const newMetar = this.filteredMetar.map((metar) => {
                 if (metar[propertyName] === undefined && propertyName === "visibility_statute_mi") {
                     metar[propertyName] = Number(999);
@@ -231,9 +227,9 @@ class AwcWeather {
         return this.#airportsFilter();
     }
 
-    async getWeatherForCountry(countryName) {
-        const code = countryName.length === 2 ? countryName : this.#getCountryCode(countryName);
-        this.stationString = `&stationString=~${code}`;
+    async getWeatherForCountry(code) {
+        //const code = countryName.length === 2 ? countryName : this.#getCountryCode(countryName);
+        this.stationString = `&stationString=~${code.toLowerCase()}`;
         this.hoursBeforeNow = `&hoursBeforeNow=${1}`;
         const countryMetarURL = `${AWC_METAR_BASE_URL}${this.stationString}${this.hoursBeforeNow}`;
 
@@ -335,11 +331,13 @@ class AwcWeather {
 
         this.baroResponseMetar = [];
         metarSortedByBaro.forEach((metar) => {
-            const metarObj = {};
-            metarObj.station_id = metar.station_id[0];
-            metarObj.metar = metar.raw_text[0];
-            metarObj.altim_in_hg = metar.altim_in_hg;
-            this.baroResponseMetar.push(metarObj);
+            if (Number(metar.altim_in_hg) !== 0) {
+                const metarObj = {};
+                metarObj.station_id = metar.station_id[0];
+                metarObj.metar = metar.raw_text[0];
+                metarObj.altim_in_hg = metar.altim_in_hg;
+                this.baroResponseMetar.push(metarObj);
+            }
         });
         return this.baroResponseMetar;
     }
