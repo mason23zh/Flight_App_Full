@@ -8,7 +8,7 @@ const { northAmericaCountries } = require("./northAmericaCountries");
 const { africaCountries } = require("./africaCountries");
 const { antarticaCountries } = require("./antarticaCountries");
 const { oceaniaCountries } = require("./oceaniaCountries");
-const { europeCountreis } = require("./europeCountries");
+const { europeCountries } = require("./europeCountries");
 const { southAmericaCountries } = require("./southAmericaCountires");
 const { continentCode } = require("./continentCode");
 
@@ -39,7 +39,7 @@ class AwcWeather {
         return this.filteredMetar;
     }
 
-    //!FIXME: perhaps conner case, need to remove METAR when Baro is 0.0
+    //!FIXME: perhaps conner case
     #dynamicSort(propertyName, sortOrder) {
         //1 for ascend -1 or descend
         if (sortOrder === 1) {
@@ -134,7 +134,7 @@ class AwcWeather {
             ...antarticaCountries,
             ...asiaCountries,
             ...oceaniaCountries,
-            ...europeCountreis,
+            ...europeCountries,
             ...northAmericaCountries,
             ...southAmericaCountries,
         ];
@@ -185,7 +185,7 @@ class AwcWeather {
         } else if (codes.toUpperCase() === continentCode.OCEANIA) {
             countries = [...oceaniaCountries];
         } else if (codes.toUpperCase() === continentCode.EUROPE) {
-            countries = [...europeCountreis];
+            countries = [...europeCountries];
         } else if (codes.toUpperCase() === continentCode.NORTH_AMERICA) {
             countries = [...northAmericaCountries];
         } else if (codes.toUpperCase() === continentCode.SOUTH_AMERICA) {
@@ -256,7 +256,8 @@ class AwcWeather {
             const metarObj = {};
             metarObj.station_id = metar.station_id[0];
             metarObj.metar = metar.raw_text[0];
-            metarObj.wind_gust = metar.wind_gust_kt;
+            metarObj.wind_speed_kt = metar.wind_speed_kt ? metar.wind_speed_kt[0] : "Not Available";
+            metarObj.wind_gust_kt = metar.wind_gust_kt;
             this.gustResponseMetar.push(metarObj);
         });
         return this.gustResponseMetar;
@@ -273,6 +274,7 @@ class AwcWeather {
             metarObj.station_id = metar.station_id[0];
             metarObj.metar = metar.raw_text[0];
             metarObj.wind_speed_kt = metar.wind_speed_kt;
+            metarObj.wind_gust_kt = metar.wind_gust_kt ? metar.wind_gust_kt[0] : "0";
             this.windReponseMetar.push(metarObj);
         });
         return this.windReponseMetar;
@@ -318,12 +320,12 @@ class AwcWeather {
             metarObj.station_id = metar.station_id[0];
             metarObj.metar = metar.raw_text[0];
             metarObj.visibility_statute_mi = metar.visibility_statute_mi;
+            metarObj.visibility_meter = (Number(metar.visibility_statute_mi) * 1609.34).toFixed(1);
             this.visibilityResponseMetar.push(metarObj);
         });
         return this.visibilityResponseMetar;
     }
 
-    //!FIXME: sometimes baro can be 0
     // -1: baro from lowest to highest
     // 1: baro from highest to lowest
     sortTheMetarByBaro(sortOrder) {
@@ -336,6 +338,7 @@ class AwcWeather {
                 metarObj.station_id = metar.station_id[0];
                 metarObj.metar = metar.raw_text[0];
                 metarObj.altim_in_hg = metar.altim_in_hg;
+                metarObj.altim_hpa = (Number(metar.altim_in_hg) * 33.865).toFixed(2);
                 this.baroResponseMetar.push(metarObj);
             }
         });

@@ -133,7 +133,7 @@ METAR: Decoded + Raw METAR
 
 ATIS: FAA published and Vatsim (if they are available)
 
-Weather: List worst weather for selected country.
+Weather: List worst weather for selected country, continent for global.
 
 ---
 

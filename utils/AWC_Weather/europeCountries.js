@@ -1,4 +1,4 @@
-module.exports.europeCountreis = [
+module.exports.europeCountries = [
     "ax",
     "al",
     "ad",
