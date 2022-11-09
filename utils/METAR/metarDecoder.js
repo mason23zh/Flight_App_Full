@@ -13,6 +13,7 @@ const metarDecoder = (metar) => {
             visibility: {},
         },
     };
+    console.log("metar::::::::", metar);
 
     if (!metar) {
         return;
@@ -30,7 +31,7 @@ const metarDecoder = (metar) => {
     decodedMetar.decoded.wind.windDirection = metar.wind ? metar.wind.degrees : 0;
     decodedMetar.decoded.wind.windGust = metar.wind ? metar.wind.gust_kts : 0;
     //cloud
-    if (metar.clouds && (metar.clouds[0].code === "CAVOK" || metar.clouds[0].code === "SKC")) {
+    if (metar.clouds.length > 0 && (metar.clouds[0].code === "CAVOK" || metar.clouds[0].code === "SKC")) {
         decodedMetar.decoded.clouds.push(metar.clouds[0].text);
     } else {
         metar.clouds.forEach((cloud) => {
