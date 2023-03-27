@@ -12,10 +12,11 @@ const weatherRoutes = require("./routes/weatherRoutes");
 const errorHandler = require("./common/middlewares/error-handler");
 const NotFoundError = require("./common/errors/NotFoundError");
 const AccessNumberExceedError = require("./common/errors/AccessNumberExceedError");
+const cors = require("cors");
 
 const app = express();
 
-app.use(helmet());
+//app.use(helmet());
 
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "development") {
@@ -42,6 +43,8 @@ app.use(xss());
 
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
+
+app.use(cors());
 
 app.use("/api/v1/airports", airportsRoutes);
 app.use("/api/v1/users", userRoutes);
