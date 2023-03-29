@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import axios from "axios";
-import {Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./component/Home";
 import About from "./component/About";
 import NoMatch from "./component/NoMatch";
@@ -9,10 +9,9 @@ import Airports from "./component/Airports";
 import Weather from "./component/Weather";
 import ExtremeWeather from "./component/ExtremeWeather";
 
-
 const App = () => {
-     const connectTest = useCallback(async () => {
-        const response =  await axios.get('http://localhost:8001/api/v1/airports/all-airports')
+    const connectTest = useCallback(async () => {
+        const response = await axios.get("http://localhost:8001/api/v1/airports/all-airports");
         console.log(response.data.data.data);
         console.log(response.data.data.data.length);
         const airports = response.data.data.data;
@@ -21,10 +20,9 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        connectTest()
-            .catch(e => console.error(e))
-    }, [connectTest])
-    
+        connectTest().catch((e) => console.error(e));
+    }, [connectTest]);
+
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -36,7 +34,7 @@ const App = () => {
                 <Route path="*" element={<NoMatch />} />
             </Route>
         </Routes>
-    )
-}
+    );
+};
 
 export default App;
