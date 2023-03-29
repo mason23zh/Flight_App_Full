@@ -1,8 +1,8 @@
+import backgroundImage from '../images/pascal-meier-UYiesSO4FiM-unsplash.jpg'
+import HomeHeroSection from "./HomeHeroSection";
 const Home = () => {
     return (
-        <div>
-            Home
-        </div>
+       <HomeHeroSection backgroundImage={backgroundImage} message="METAR airports"/>
     );
 };
 

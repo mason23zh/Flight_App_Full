@@ -74,7 +74,34 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
     });
 };
 
+module.exports.getAirportsByCity_GNS430 = async (req, res) => {
+    const airportsQueryObj = Airports.find({
+        municipality: {$regex: `${req.params.name}`, $options: "i"}
+    });
+    
+    const featuresQuery = new APIFeatures(airportsQueryObj, req.query).filter().limitFields().limitResults().paginate();
+    
+    const airports = await featuresQuery.query;
+    
+    const filteredAirports = [];
+     await Promise.all(airports.map(async (airport) => {
+        const filteredAirport = await GNS430Airport.find({ICAO: airport.ident});
+        if(filteredAirport.length !== 0){
+            filteredAirports.push(filteredAirport[0]);
+        }
+    }));
+    
+    res.status(200).json({
+        status: 'success',
+        results: filteredAirports.length,
+        data: {
+            airport: filteredAirports,
+        }
+    })
+}
+
 module.exports.getAirportByName_GNS430 = async (req, res) => {
+    console.log(req.params);
     const airportQueryObj = GNS430Airport.find({
         name: { $regex: `${req.params.name}`, $options: "i" },
     });

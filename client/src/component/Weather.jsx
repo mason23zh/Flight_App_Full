@@ -1,8 +1,10 @@
+import backgroundImage from '../images/clearsky.jpg';
+import HeroSection from "./HeroSection";
+
 const Weather = () => {
+const message = "Current weather"
     return (
-        <div>
-            Weather
-        </div>
+        <HeroSection backgroundImage={backgroundImage} message={message}/>
     );
 };
 

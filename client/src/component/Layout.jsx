@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 
 const Layout = () => {
+    const backgroundImage = '/maddison-mcmurrin-GDumtPpJsT4-unsplash.jpg';
     const [searchInput, setSearchInput] = useState("");
     
     const handleInputChange = (e) => {
