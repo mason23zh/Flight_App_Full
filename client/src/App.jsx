@@ -15,7 +15,7 @@ const App = () => {
         console.log(response.data.data.data);
         console.log(response.data.data.data.length);
         const airports = response.data.data.data;
-
+        console.log(airports);
         return response;
     }, []);
 

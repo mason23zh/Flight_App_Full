@@ -1,4 +1,16 @@
+import { useState } from "react";
+
 const HomeHeroSection = ({ backgroundImage }) => {
+    const [input, setInput] = useState("");
+
+    const handleInputChange = (e) => {
+        setInput(e.target.value);
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div className="relative">
             <div
@@ -11,12 +23,14 @@ const HomeHeroSection = ({ backgroundImage }) => {
                     width: "auto",
                 }}
             ></div>
-            <form className="absolute top-[38%] left-[38%]">
+            <form onSubmit={handleFormSubmit} className="absolute top-[38%] left-[38%]">
                 <div className="flex flex-col items-center justify-center gap-7">
                     <h2 className="text-white text-4xl">Get METARs, airports and more</h2>
                     <input
+                        onChange={handleInputChange}
+                        value={input}
                         className="rounded-xl border-2 w-full h-10"
-                        placeholder="Search ICAO code, airport name, city..."
+                        placeholder="   Search ICAO code, airport name, city..."
                     />
                     <button className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl">Get Data</button>
                 </div>
