@@ -5,9 +5,11 @@ const APIFeatures = require("../../utils/Data_Convert/apiFeatures");
 const { Airports } = require("../../models/airports/airportsModel");
 const { generateResponseMetar } = require("../../utils/METAR/generateResponseMETAR");
 const { generateGeneralATIS } = require("../../utils/ATIS/generateFaaAndVatsimATIS");
+const { checkICAO } = require("../../utils/checkICAO");
 
 const earthRadiusInNauticalMile = 3443.92;
 const earthRadiusInKM = 6378.1;
+
 module.exports.getAirportByICAO_GNS430 = async (req, res, next) => {
     const airportFeatures = new APIFeatures(
         GNS430Airport.findOne({ ICAO: `${req.params.icao.toUpperCase()}` }),
@@ -76,32 +78,33 @@ module.exports.getAirportByIATA_GNS430 = async (req, res, next) => {
 
 module.exports.getAirportsByCity_GNS430 = async (req, res) => {
     const airportsQueryObj = Airports.find({
-        municipality: {$regex: `${req.params.name}`, $options: "i"}
+        municipality: { $regex: `${req.params.name}`, $options: "i" },
     });
-    
+
     const featuresQuery = new APIFeatures(airportsQueryObj, req.query).filter().limitFields().limitResults().paginate();
-    
+
     const airports = await featuresQuery.query;
-    
+
     const filteredAirports = [];
-     await Promise.all(airports.map(async (airport) => {
-        const filteredAirport = await GNS430Airport.find({ICAO: airport.ident});
-        if(filteredAirport.length !== 0){
-            filteredAirports.push(filteredAirport[0]);
-        }
-    }));
-    
+    await Promise.all(
+        airports.map(async (airport) => {
+            const filteredAirport = await GNS430Airport.find({ ICAO: airport.ident });
+            if (filteredAirport.length !== 0) {
+                filteredAirports.push(filteredAirport[0]);
+            }
+        })
+    );
+
     res.status(200).json({
-        status: 'success',
+        status: "success",
         results: filteredAirports.length,
         data: {
             airport: filteredAirports,
-        }
-    })
-}
+        },
+    });
+};
 
 module.exports.getAirportByName_GNS430 = async (req, res) => {
-    console.log(req.params);
     const airportQueryObj = GNS430Airport.find({
         name: { $regex: `${req.params.name}`, $options: "i" },
     });
@@ -116,6 +119,45 @@ module.exports.getAirportByName_GNS430 = async (req, res) => {
         data: {
             airport: airports,
         },
+    });
+};
+
+module.exports.getAirportByGenericInput_GNS430 = async (req, res) => {
+    // If checkICAO return true, check ICAO first
+    const userInput = req.params.data;
+    let airports = [];
+
+    if (checkICAO(userInput)) {
+        const airportsWithICAO = await GNS430Airport.findOne({
+            ICAO: `${userInput.toUpperCase}`,
+        });
+        airports = [...airportsWithICAO];
+    } else {
+        const airportsWithGNS430 = await GNS430Airport.find({
+            $or: [{ ICAO: `${userInput.toUpperCase()}` }, { name: { $regex: `${userInput}`, $options: "i" } }],
+        });
+
+        const airportWithCity = await Airports.find({
+            municipality: { $regex: `${userInput}`, $options: "i" },
+        });
+
+        let filteredAirports = [];
+        await Promise.all(
+            airportWithCity.map(async (airport) => {
+                const matchedAirport = await GNS430Airport.findOne({ ICAO: `${airport.ident}` });
+                if (matchedAirport) {
+                    filteredAirports.push(matchedAirport);
+                }
+            })
+        );
+
+        airports = [...filteredAirports, ...airportsWithGNS430];
+    }
+
+    res.status(200).json({
+        status: "success",
+        result: airports.length,
+        data: airports,
     });
 };
 
