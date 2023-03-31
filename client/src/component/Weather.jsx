@@ -3,7 +3,8 @@ import HeroSection from "./HeroSection";
 
 const Weather = () => {
     const message = "Current weather";
-    return <HeroSection backgroundImage={backgroundImage} message={message} />;
+    const placeHolderMessage = "Search ICAO or airport name";
+    return <HeroSection backgroundImage={backgroundImage} message={message} placedHoldMessage={placeHolderMessage} />;
 };
 
 export default Weather;

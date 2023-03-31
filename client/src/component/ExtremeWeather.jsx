@@ -3,7 +3,8 @@ import HeroSection from "./HeroSection";
 
 const ExtremeWeather = () => {
     const message = "Extreme weather";
-    return <HeroSection backgroundImage={backgroundImage} message={message} />;
+    const placeHolderMessage = "Search country or area";
+    return <HeroSection backgroundImage={backgroundImage} message={message} placedHoldMessage={placeHolderMessage} />;
 };
 
 export default ExtremeWeather;
