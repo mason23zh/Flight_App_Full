@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
@@ -16,6 +16,7 @@ const Airports = () => {
             return airport;
         });
         setFetchedData(airports);
+        console.log(airports);
         return response.data;
     };
 
