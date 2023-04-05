@@ -1,15 +1,36 @@
+import { useEffect, useState, useRef } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
-import { useState } from "react";
 import Panel from "./Panel";
 
 const Dropdown = ({ options, onChange, value }) => {
     const [isOpen, setIsOpen] = useState(false);
+    // get reference to root element of Dropdown
+    const divElement = useRef();
+
+    useEffect(() => {
+        const handler = (event) => {
+            // if not reference to divElement, return;
+            if (!divElement.current) {
+                return;
+            }
+            // if user NOT clicked inside the dropdown, close the dropdown
+            if (!divElement.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        // run click during the capture phase
+        document.addEventListener("click", handler, true);
+        return () => document.removeEventListener("click", handler);
+    }, []);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
 
+    // performance test
+    window.timeTwo = performance.now();
     const handleOptionClick = (option) => {
+        window.timeOne = performance.now();
         setIsOpen(false);
         onChange(option);
     };
@@ -25,14 +46,13 @@ const Dropdown = ({ options, onChange, value }) => {
             </div>
         );
     });
-
     return (
-        <div className="w-48 flex flex-col">
+        <div ref={divElement} className="w-48 flex flex-col">
             <Panel className="flex justify-between items-center cursor-pointer " onClick={handleClick}>
                 {value?.name || "Select..."}
                 {isOpen ? <GoChevronDown className="text-lg" /> : <GoChevronLeft className="text-lg" />}
             </Panel>
-            {isOpen && <Panel className="max-h-80 overflow-scroll ">{renderedOptions}</Panel>}
+            <div className="overflow-auto max-h-80">{isOpen && <Panel>{renderedOptions}</Panel>}</div>
         </div>
     );
 };

@@ -19,7 +19,10 @@ const ExtremeWeather = () => {
         <div>
             <HeroSection backgroundImage={backgroundImage} message={message} placedHoldMessage={placeHolderMessage} />
             <ExtremeWeatherHeroSection />
-            <Dropdown options={COUNTRY_CODE} onChange={handleSelect} value={selection} />
+            <div className="flex">
+                <Dropdown options={COUNTRY_CODE} onChange={handleSelect} value={selection} />
+                <Dropdown options={COUNTRY_CODE} onChange={handleSelect} value={selection} />
+            </div>
         </div>
     );
 };
