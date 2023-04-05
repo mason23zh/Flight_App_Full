@@ -1,16 +1,22 @@
-import { COUNTRY_CODE } from "../util/country_code";
-import { useState } from "react";
-import DropDownMenu from "./DropDownMenu";
+import backgroundImage from "../images/thunderstorm.jpg";
 
 const ExtremeWeatherHeroSection = () => {
     return (
-        <div>
-            <form>
-                <label>Country</label>
-                <div>
-                    <DropDownMenu options={COUNTRY_CODE} />
-                </div>
-            </form>
+        <div className="relative">
+            <div
+                style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    height: "200px",
+                    width: "auto",
+                }}
+            ></div>
+            <div className="absolute left-[34%] top-[37%] text-cyan-50 flex flex-col justify-center items-center">
+                <h1 className="text-4xl">Global Extreme Weather</h1>
+                <h2 className="text-2xl">Search for global extreme weather by using the filter</h2>
+            </div>
         </div>
     );
 };
