@@ -47,8 +47,8 @@ const Dropdown = ({ options, onChange, value }) => {
         );
     });
     return (
-        <div ref={divElement} className="w-48 flex flex-col">
-            <Panel className="flex justify-between items-center cursor-pointer " onClick={handleClick}>
+        <div ref={divElement} className="w-48 flex flex-col absolute top-[5%]">
+            <Panel className="flex justify-between items-center cursor-pointer" onClick={handleClick}>
                 {value?.name || "Select..."}
                 {isOpen ? <GoChevronDown className="text-lg" /> : <GoChevronLeft className="text-lg" />}
             </Panel>
