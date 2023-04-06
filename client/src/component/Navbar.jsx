@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
+    const option = [
+        { name: "Global", code: "GB" },
+        { name: "Continents", code: "CT" },
+        { name: "Country", code: "CY" },
+    ];
+
     const [searchInput, setSearchInput] = useState("");
 
     const handleInputChange = (e) => {
@@ -37,6 +44,9 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link to="/about">About</Link>
+                </li>
+                <li>
+                    <Dropdown options={option} />
                 </li>
             </ul>
             <form onSubmit={handleSearchSubmit} className="flex gap-3">
