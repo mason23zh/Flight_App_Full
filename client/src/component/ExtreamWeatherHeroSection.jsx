@@ -1,6 +1,8 @@
 import backgroundImage from "../images/thunderstorm.jpg";
 
-const ExtremeWeatherHeroSection = () => {
+const ExtremeWeatherHeroSection = ({ keyword }) => {
+    const tempScopeName = keyword?.length > 0 ? keyword.toLowerCase() : "Global";
+    const scopeName = tempScopeName.charAt(0).toUpperCase() + tempScopeName.slice(1);
     return (
         <div className="relative">
             <div
@@ -13,9 +15,9 @@ const ExtremeWeatherHeroSection = () => {
                     width: "auto",
                 }}
             ></div>
-            <div className="absolute left-[35%] top-[37%] text-cyan-50 flex flex-col justify-center items-center">
-                <h1 className="text-4xl">Global Extreme Weather</h1>
-                <h2 className="text-2xl">Search for global extreme weather by using the filter</h2>
+            <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] text-cyan-50 flex flex-col justify-center items-center">
+                <h1 className="text-4xl">{scopeName} Extreme Weather</h1>
+                <h2 className="text-2xl">Search for {tempScopeName} extreme weather</h2>
             </div>
         </div>
     );

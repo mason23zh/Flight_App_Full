@@ -30,7 +30,7 @@ const Dropdown = ({ options, onChange, value, className, placeHolderMsg }) => {
         setIsOpen(!isOpen);
     };
 
-    // performance test
+    // DEV ONLY: performance test
     window.timeTwo = performance.now();
     const handleOptionClick = (option) => {
         window.timeOne = performance.now();

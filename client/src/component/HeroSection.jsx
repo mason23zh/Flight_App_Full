@@ -24,7 +24,10 @@ const HeroSection = ({ backgroundImage, message, placedHoldMessage, onSubmit }) 
                     width: "auto",
                 }}
             ></div>
-            <form onSubmit={handleFormSubmit} className="absolute top-[19%] left-[45%]">
+            <form
+                onSubmit={handleFormSubmit}
+                className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]"
+            >
                 <div className="flex flex-col items-center justify-center gap-3">
                     <h2 className="text-white text-4xl">{message}</h2>
                     <input
