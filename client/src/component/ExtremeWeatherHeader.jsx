@@ -1,3 +1,5 @@
+import { COUNTRY_CODE } from "../util/country_code";
+import { CONTINENT_CODE } from "../util/contient_code";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
 
@@ -10,13 +12,7 @@ const GLOBAL = "GLOBAL";
 const COUNTRY = "COUNTRY";
 const CONTINENT = "CONTINENT";
 const ExtremeWeatherHeader = ({ onSelection }) => {
-    const option = [
-        { name: "Global", code: "GB" },
-        { name: "Continent", code: "CT" },
-        { name: "Country", code: "CY" },
-    ];
-
-    const [userSelection, setUserSelection] = useState({ weather: WIND_SPEED, scope: GLOBAL });
+    const [userSelection, setUserSelection] = useState({ weather: WIND_SPEED, scope: GLOBAL, option: "" });
     const [weatherActive, setWeatherActive] = useState({
         WIND_SPEED: true,
         WIND_GUST: false,
@@ -41,6 +37,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {
             ...userSelection,
+            option: "",
             weather: arg,
         };
 
@@ -62,6 +59,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     const handleScopeButtonClick = (arg) => {
         const updatedSelection = {
             ...userSelection,
+            option: "",
             scope: arg,
         };
 
@@ -83,6 +81,35 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
         setScopeActive(updatedScopeActive);
         setUserSelection(updatedSelection);
     };
+
+    const handleDropDownChange = (arg) => {
+        const updatedSelection = {
+            ...userSelection,
+            option: arg.code,
+        };
+        setUserSelection(updatedSelection);
+    };
+
+    let renderedDropDown;
+    if (showDropDown && userSelection.scope === COUNTRY) {
+        renderedDropDown = (
+            <Dropdown
+                options={COUNTRY_CODE}
+                onChange={handleDropDownChange}
+                placeHolderMsg="Select country..."
+                className="absolute top-[5%]"
+            />
+        );
+    } else if (showDropDown && userSelection.scope === CONTINENT) {
+        renderedDropDown = (
+            <Dropdown
+                options={CONTINENT_CODE}
+                onChange={handleDropDownChange}
+                placeHolderMsg="Select continent..."
+                className="absolute top-[5%]"
+            />
+        );
+    }
 
     return (
         <div className="flex items-center justify-center gap-10 p-3 mt-1 relative">
@@ -135,7 +162,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
                 >
                     Continent
                 </button>
-                <div>{showDropDown && <Dropdown options={option} className="absolute top-[5%]" />}</div>
+                <div>{renderedDropDown}</div>
             </div>
         </div>
     );

@@ -2,8 +2,9 @@ import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 
 const ExtremeWeather = () => {
+    // userSelection {weather: ..., scope: ..., option:...}
     const onUserSelection = (userSelection) => {
-        console.log(userSelection.weather);
+        console.log(userSelection);
     };
     return (
         <>

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import Panel from "./Panel";
 
-const Dropdown = ({ options, onChange, value, className }) => {
+const Dropdown = ({ options, onChange, value, className, placeHolderMsg }) => {
     const dropDownFinalClassName = classNames("w-48 flex flex-col", className);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +52,7 @@ const Dropdown = ({ options, onChange, value, className }) => {
     return (
         <div ref={divElement} className={dropDownFinalClassName}>
             <Panel className="flex justify-between items-center cursor-pointer " onClick={handleClick}>
-                {value?.name || "Select..."}
+                {value?.name || placeHolderMsg?.length !== 0 ? placeHolderMsg : "Select..."}
                 {isOpen ? <GoChevronDown className="text-lg" /> : <GoChevronLeft className="text-lg" />}
             </Panel>
             <div className="overflow-auto max-h-80">{isOpen && <Panel>{renderedOptions}</Panel>}</div>
