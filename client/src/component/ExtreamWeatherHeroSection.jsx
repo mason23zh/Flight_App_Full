@@ -1,7 +1,11 @@
 import backgroundImage from "../images/thunderstorm.jpg";
+import { useSelector } from "react-redux";
 
-const ExtremeWeatherHeroSection = ({ keyword }) => {
-    const tempScopeName = keyword?.length > 0 ? keyword.toLowerCase() : "Global";
+const ExtremeWeatherHeroSection = () => {
+    const { scope } = useSelector((state) => {
+        return state.extremeWeather.userSelection;
+    });
+    const tempScopeName = scope?.length > 0 ? scope.toLowerCase() : "Global";
     const scopeName = tempScopeName.charAt(0).toUpperCase() + tempScopeName.slice(1);
     return (
         <div className="relative">

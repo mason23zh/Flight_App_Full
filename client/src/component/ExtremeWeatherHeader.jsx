@@ -1,17 +1,22 @@
 import { COUNTRY_CODE } from "../util/country_code";
 import { CONTINENT_CODE } from "../util/contient_code";
+import {
+    WIND_SPEED,
+    WIND_GUST,
+    VISIBILITY,
+    BARO,
+    TEMPERATURE,
+    GLOBAL,
+    COUNTRY,
+    CONTINENT,
+} from "../util/selection_names";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeUserSelection } from "../store";
 
-const WIND_SPEED = "WIND_SPEED";
-const WIND_GUST = "WIND_GUST";
-const VISIBILITY = "VISIBILITY";
-const BARO = "BARO";
-const TEMPERATURE = "TEMPERATURE";
-const GLOBAL = "GLOBAL";
-const COUNTRY = "COUNTRY";
-const CONTINENT = "CONTINENT";
-const ExtremeWeatherHeader = ({ onSelection }) => {
+const ExtremeWeatherHeader = () => {
+    const dispatch = useDispatch();
     const [userSelection, setUserSelection] = useState({ weather: WIND_SPEED, scope: GLOBAL, option: "" });
     const [weatherActive, setWeatherActive] = useState({
         WIND_SPEED: true,
@@ -24,15 +29,15 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     const [showDropDown, setShowDropDown] = useState(false);
 
     useEffect(() => {
-        onSelection(userSelection);
+        dispatch(changeUserSelection(userSelection));
     }, [userSelection]);
 
     const buttonClasses = "p-1 rounded text-blue-500 text-lg hover:text-white hover:bg-blue-500 duration-100";
-    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg";
+    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg shadow-md";
 
     const scopeButtonClass =
         "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
-    const activeScopeButtonClass = "p-1 text-lg bg-green-600 text-white rounded";
+    const activeScopeButtonClass = "p-1 text-lg bg-green-600 text-white rounded shadow-md";
 
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {
@@ -85,7 +90,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     const handleDropDownChange = (arg) => {
         const updatedSelection = {
             ...userSelection,
-            option: arg.code,
+            option: { ...arg },
         };
         setUserSelection(updatedSelection);
     };
@@ -94,6 +99,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     if (showDropDown && userSelection.scope === COUNTRY) {
         renderedDropDown = (
             <Dropdown
+                value={userSelection.option}
                 options={COUNTRY_CODE}
                 onChange={handleDropDownChange}
                 placeHolderMsg="Select country..."
@@ -103,6 +109,7 @@ const ExtremeWeatherHeader = ({ onSelection }) => {
     } else if (showDropDown && userSelection.scope === CONTINENT) {
         renderedDropDown = (
             <Dropdown
+                value={userSelection.option}
                 options={CONTINENT_CODE}
                 onChange={handleDropDownChange}
                 placeHolderMsg="Select continent..."

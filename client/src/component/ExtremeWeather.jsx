@@ -1,22 +1,18 @@
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useFetchMetarsForCountryQuery } from "../store";
 
 const ExtremeWeather = () => {
-    const [userSelection, setUserSelection] = useState({});
-    // userSelection {weather: ..., scope: ..., option:...}
-    const onUserSelection = (arg) => {
-        const updatedState = {
-            ...userSelection,
-            ...arg,
-        };
-        setUserSelection(updatedState);
-    };
+    const userSelection = useSelector((state) => {
+        return state.extremeWeather.userSelection;
+    });
+    console.log(userSelection);
     return (
         <>
             <div className="bg-gray-200 ">
-                <ExtremeWeatherHeroSection keyword={userSelection?.scope} />
-                <ExtremeWeatherHeader onSelection={onUserSelection} />
+                <ExtremeWeatherHeroSection />
+                <ExtremeWeatherHeader />
             </div>
         </>
     );
