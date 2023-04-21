@@ -1,14 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-    WIND_GUST,
-    WIND_SPEED,
-    VISIBILITY,
-    BARO,
-    TEMPERATURE,
-    GLOBAL,
-    CONTINENT,
-    COUNTRY,
-} from "../../util/selection_names";
+import { WIND_SPEED, GLOBAL } from "../../util/selection_names";
 
 const extremeWeatherSlice = createSlice({
     name: "extremeWeather",
@@ -16,7 +7,7 @@ const extremeWeatherSlice = createSlice({
         userSelection: {
             weather: WIND_SPEED,
             scope: GLOBAL,
-            option: "",
+            code: "",
         },
     },
     reducers: {

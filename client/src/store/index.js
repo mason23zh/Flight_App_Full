@@ -18,5 +18,5 @@ export const store = configureStore({
 setupListeners(store.dispatch);
 
 export { useFetchAirportsWithGenericInputQuery } from "./apis/airportsApi";
-export { useFetchMetarsForCountryQuery } from "./apis/extremeWeatherApi";
+export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { changeUserSelection };
