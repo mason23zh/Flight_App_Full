@@ -1,6 +1,7 @@
 import { useFetchWeatherMetarsQuery } from "../store";
-import MetarListItem from "./MetarListItem";
 import { useSelector } from "react-redux";
+import MetarListItem from "./MetarListItem";
+import Skeleton from "./Skeleton";
 
 const MetarDisplayList = () => {
     const { weather, scope, code } = useSelector((state) => {
@@ -11,9 +12,10 @@ const MetarDisplayList = () => {
         error,
         isFetching,
     } = useFetchWeatherMetarsQuery({ scope, weather, code }, { refetchOnMountOrArgChange: true });
+
     let content;
     if (isFetching) {
-        content = <div>Loading...</div>;
+        content = <Skeleton className="h-8 w-auto" times={8} />;
     } else if (error) {
         content = <div>ERROR</div>;
     } else {
