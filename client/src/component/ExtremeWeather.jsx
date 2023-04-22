@@ -1,6 +1,7 @@
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import MetarDisplayList from "./MetarDisplayList";
+import Table from "./Table";
 
 const ExtremeWeather = () => {
     return (
