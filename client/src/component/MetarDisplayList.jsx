@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import { useFetchWeatherMetarsQuery } from "../store";
 import { useSelector } from "react-redux";
 import Skeleton from "./Skeleton";
@@ -33,8 +35,11 @@ const MetarDisplayList = () => {
         };
 
         let tempTwo = {
-            label: "Wind Gust",
-            render: (metar) => metar.wind_gust_kt,
+            label: "Wind Data",
+            render: (metar) => {
+                let windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
+                return `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${windGust}`;
+            },
         };
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
@@ -45,15 +50,19 @@ const MetarDisplayList = () => {
         };
 
         let tempTwo = {
-            label: "Wind Speed",
-            render: (metar) => metar.wind_speed_kt,
+            label: "Wind Data",
+            render: (metar) => {
+                let windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
+                return `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${windGust}`;
+            },
         };
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
     } else if (weather === VISIBILITY) {
         let tempOne = {
             label: "Visibility",
-            render: (metar) => metar.visibility_statute_mi,
+            render: (metar) =>
+                `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`,
         };
         tempConfig.push(tempOne);
         config = [...config, ...tempConfig];
@@ -67,12 +76,12 @@ const MetarDisplayList = () => {
     } else if (weather === TEMPERATURE) {
         let tempOne = {
             label: "Temperature",
-            render: (metar) => metar.temp_c,
+            render: (metar) => `${metar.temp_c}°C`,
         };
 
         let tempTwo = {
             label: "Dewpoint",
-            render: (metar) => metar.dewpoint_c,
+            render: (metar) => `${metar.dewpoint_c}°C`,
         };
 
         tempConfig.push(tempOne, tempTwo);
