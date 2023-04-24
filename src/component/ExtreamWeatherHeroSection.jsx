@@ -1,10 +1,9 @@
-import backgroundImage from "../images/thunderstorm.jpg";
+import React from "react";
 import { useSelector } from "react-redux";
+import backgroundImage from "../images/thunderstorm.jpg";
 
-const ExtremeWeatherHeroSection = () => {
-    const { scope } = useSelector((state) => {
-        return state.extremeWeather.userSelection;
-    });
+function ExtremeWeatherHeroSection() {
+    const { scope } = useSelector((state) => state.extremeWeather.userSelection);
     const tempScopeName = scope?.length > 0 ? scope.toLowerCase() : "Global";
     const scopeName = tempScopeName.charAt(0).toUpperCase() + tempScopeName.slice(1);
     return (
@@ -18,13 +17,24 @@ const ExtremeWeatherHeroSection = () => {
                     height: "200px",
                     width: "auto",
                 }}
-            ></div>
-            <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] text-cyan-50 flex flex-col justify-center items-center">
-                <h1 className="text-4xl">{scopeName} Extreme Weather</h1>
-                <h2 className="text-2xl">Search for {tempScopeName} extreme weather</h2>
+            />
+            <div
+                className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] text-cyan-50 flex flex-col justify-center items-center"
+            >
+                <h1 className="text-4xl">
+                    {scopeName}
+                    {" "}
+                    Extreme Weather
+                </h1>
+                <h2 className="text-2xl">
+                    Search for
+                    {tempScopeName}
+                    {" "}
+                    extreme weather
+                </h2>
             </div>
         </div>
     );
-};
+}
 
 export default ExtremeWeatherHeroSection;

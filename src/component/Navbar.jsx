@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Navbar = () => {
+function Navbar() {
     const [searchInput, setSearchInput] = useState("");
 
     const handleInputChange = (e) => {
@@ -51,6 +51,6 @@ const Navbar = () => {
             </form>
         </nav>
     );
-};
+}
 
 export default Navbar;

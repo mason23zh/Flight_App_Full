@@ -8,12 +8,10 @@ export const airportsApi = createApi({
     endpoints(build) {
         return {
             fetchAirportsWithGenericInput: build.query({
-                query: (searchTerm) => {
-                    return {
-                        url: `/generic/${searchTerm}`,
-                        method: "GET",
-                    };
-                },
+                query: (searchTerm) => ({
+                    url: `/generic/${searchTerm}`,
+                    method: "GET",
+                }),
             }),
         };
     },

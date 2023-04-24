@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const HeroSection = ({ backgroundImage, message, placedHoldMessage, onSubmit }) => {
+function HeroSection({
+    backgroundImage, message, placedHoldMessage, onSubmit,
+}) {
     const [input, setInput] = useState("");
 
     const handleFormSubmit = (e) => {
@@ -23,7 +25,7 @@ const HeroSection = ({ backgroundImage, message, placedHoldMessage, onSubmit }) 
                     height: "200px",
                     width: "auto",
                 }}
-            ></div>
+            />
             <form
                 onSubmit={handleFormSubmit}
                 className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]"
@@ -41,6 +43,6 @@ const HeroSection = ({ backgroundImage, message, placedHoldMessage, onSubmit }) 
             </form>
         </div>
     );
-};
+}
 
 export default HeroSection;

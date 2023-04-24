@@ -1,8 +1,9 @@
+import React, { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 
-const ExpandablePanel = ({ metar, weather, weatherData, children }) => {
+function ExpandablePanel({
+    metar, weather, weatherData, children,
+}) {
     const [expanded, setExpanded] = useState(false);
 
     const handleClick = () => {
@@ -24,13 +25,13 @@ const ExpandablePanel = ({ metar, weather, weatherData, children }) => {
                         <div>{weatherData}</div>
                     </div>
                 </div>
-                <div className="cursor-pointer" onClick={handleClick}>
+                <div role="presentation" className="cursor-pointer" onClick={handleClick}>
                     {expanded ? <GoChevronDown /> : <GoChevronLeft />}
                 </div>
             </div>
             {expanded && <div className="p-2 border-r">{children}</div>}
         </div>
     );
-};
+}
 
 export default ExpandablePanel;

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const HomeHeroSection = ({ backgroundImage }) => {
+function HomeHeroSection({ backgroundImage }) {
     const [input, setInput] = useState("");
 
     const handleInputChange = (e) => {
@@ -22,7 +22,7 @@ const HomeHeroSection = ({ backgroundImage }) => {
                     height: "960px",
                     width: "auto",
                 }}
-            ></div>
+            />
             <form onSubmit={handleFormSubmit} className="absolute top-[38%] left-[38%]">
                 <div className="flex flex-col items-center justify-center gap-7">
                     <h2 className="text-white text-4xl">Get METARs, airports and more</h2>
@@ -37,6 +37,6 @@ const HomeHeroSection = ({ backgroundImage }) => {
             </form>
         </div>
     );
-};
+}
 
 export default HomeHeroSection;

@@ -1,22 +1,22 @@
 // noinspection JSUnresolvedVariable
-
-import { useFetchWeatherMetarsQuery } from "../store";
+import React from "react";
 import { useSelector } from "react-redux";
+import { useFetchWeatherMetarsQuery } from "../store";
 import Skeleton from "./Skeleton";
 import Table from "./Table";
-import { BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED } from "../util/selection_names";
+import {
+    BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
+} from "../util/selection_names";
 
-const MetarDisplayList = () => {
-    const { weather, scope, code } = useSelector((state) => {
-        return state.extremeWeather.userSelection;
-    });
+function MetarDisplayList() {
+    const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
     const {
         data: metars,
         error,
         isFetching,
     } = useFetchWeatherMetarsQuery({ scope, weather, code }, { refetchOnMountOrArgChange: true });
 
-    let tempConfig = [];
+    const tempConfig = [];
     let config = [
         {
             label: "ICAO",
@@ -29,57 +29,56 @@ const MetarDisplayList = () => {
     ];
 
     if (weather === WIND_SPEED) {
-        let tempOne = {
+        const tempOne = {
             label: "Wind Speed",
             render: (metar) => metar.wind_speed_kt,
         };
 
-        let tempTwo = {
+        const tempTwo = {
             label: "Wind Data",
             render: (metar) => {
-                let windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
+                const windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
                 return `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${windGust}`;
             },
         };
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
     } else if (weather === WIND_GUST) {
-        let tempOne = {
+        const tempOne = {
             label: "Wind Gust",
             render: (metar) => metar.wind_gust_kt,
         };
 
-        let tempTwo = {
+        const tempTwo = {
             label: "Wind Data",
             render: (metar) => {
-                let windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
+                const windGust = Number(metar.wind_gust_kt) !== 0 ? `G${metar.wind_gust_kt}` : "";
                 return `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${windGust}`;
             },
         };
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
     } else if (weather === VISIBILITY) {
-        let tempOne = {
+        const tempOne = {
             label: "Visibility",
-            render: (metar) =>
-                `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`,
+            render: (metar) => `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`,
         };
         tempConfig.push(tempOne);
         config = [...config, ...tempConfig];
     } else if (weather === BARO) {
-        let tempOne = {
+        const tempOne = {
             label: "Baro",
             render: (metar) => metar.altim_in_hg,
         };
         tempConfig.push(tempOne);
         config = [...config, ...tempConfig];
     } else if (weather === TEMPERATURE) {
-        let tempOne = {
+        const tempOne = {
             label: "Temperature",
             render: (metar) => `${metar.temp_c}°C`,
         };
 
-        let tempTwo = {
+        const tempTwo = {
             label: "Dewpoint",
             render: (metar) => `${metar.dewpoint_c}°C`,
         };
@@ -101,6 +100,6 @@ const MetarDisplayList = () => {
     }
 
     return <div className="p-5 flex flex-col items-center gap-3 justify-center ">{content}</div>;
-};
+}
 
 export default MetarDisplayList;

@@ -1,9 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import Panel from "./Panel";
 
-const Dropdown = ({ options, onChange, value, className, placeHolderMsg }) => {
+function Dropdown({
+    options, onChange, value, className, placeHolderMsg,
+}) {
     const dropDownFinalClassName = classNames("w-48 flex flex-col", className);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -38,17 +40,16 @@ const Dropdown = ({ options, onChange, value, className, placeHolderMsg }) => {
         onChange(option);
     };
 
-    const renderedOptions = options.map((option) => {
-        return (
-            <div
-                className="hover:bg-sky-200 rounded cursor-pointer p-1 duration-50"
-                onClick={() => handleOptionClick(option)}
-                key={option.code}
-            >
-                {option.name}
-            </div>
-        );
-    });
+    const renderedOptions = options.map((option) => (
+        <div
+            role="presentation"
+            className="hover:bg-sky-200 rounded cursor-pointer p-1 duration-50"
+            onClick={() => handleOptionClick(option)}
+            key={option.code}
+        >
+            {option.name}
+        </div>
+    ));
     return (
         <div ref={divElement} className={dropDownFinalClassName}>
             <Panel className="flex justify-between items-center cursor-pointer " onClick={handleClick}>
@@ -58,6 +59,6 @@ const Dropdown = ({ options, onChange, value, className, placeHolderMsg }) => {
             <div className="overflow-auto max-h-80">{isOpen && <Panel>{renderedOptions}</Panel>}</div>
         </div>
     );
-};
+}
 
 export default Dropdown;

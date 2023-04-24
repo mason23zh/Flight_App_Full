@@ -1,17 +1,14 @@
-import ExpandablePanel from "./ExpandablePanel";
-const Table = ({ config, data }) => {
-    const renderedHeaders = config.map((column) => {
-        return <th key={column.label}>{column.label}</th>;
-    });
+import React from "react";
+
+function Table({ config, data }) {
+    const renderedHeaders = config.map((column) => <th key={column.label}>{column.label}</th>);
 
     const renderedRows = data.map((rowData) => {
-        const renderedCells = config.map((column) => {
-            return (
-                <td className="p-2" key={column.label}>
-                    {column.render(rowData)}
-                </td>
-            );
-        });
+        const renderedCells = config.map((column) => (
+            <td className="p-2" key={column.label}>
+                {column.render(rowData)}
+            </td>
+        ));
 
         return <tr className="border-b">{renderedCells}</tr>;
     });
@@ -24,6 +21,6 @@ const Table = ({ config, data }) => {
             <tbody>{renderedRows}</tbody>
         </table>
     );
-};
+}
 
 export default Table;

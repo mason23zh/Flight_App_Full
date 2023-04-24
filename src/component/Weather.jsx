@@ -1,9 +1,9 @@
+import React, { useState } from "react";
+import axios from "axios";
 import backgroundImage from "../images/clearsky.jpg";
 import HeroSection from "./HeroSection";
-import { useState } from "react";
-import axios from "axios";
 
-const Weather = () => {
+function Weather() {
     const [fetchedData, setFetchedData] = useState([]);
 
     const fetchData = async (userInput) => {
@@ -13,6 +13,7 @@ const Weather = () => {
         setFetchedData(response.data.data.METAR);
         return response.data.data;
     };
+    console.log(fetchedData);
 
     const handleFormSubmit = (input) => {
         fetchData(input).catch((err) => console.error(err));
@@ -32,9 +33,9 @@ const Weather = () => {
                 placedHoldMessage={placeHolderMessage}
                 onSubmit={handleFormSubmit}
             />
-            {/*{renderedAirports}*/}
+            {/* {renderedAirports} */}
         </div>
     );
-};
+}
 
 export default Weather;

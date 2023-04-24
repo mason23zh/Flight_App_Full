@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const DropDownMenu = ({ options, selected, option }) => {
+function DropDownMenu({ options, selected, option }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState("");
 
@@ -8,19 +8,17 @@ const DropDownMenu = ({ options, selected, option }) => {
         setIsOpen(false);
     };
 
-    const renderedOptions = options.map((item) => {
-        return (
-            <option onClick={() => handleOptionClick(option)} key={item.code} value={item.code}>
-                {item.name}
-            </option>
-        );
-    });
+    const renderedOptions = options.map((item) => (
+        <option onClick={() => handleOptionClick(option)} key={item.code} value={item.code}>
+            {item.name}
+        </option>
+    ));
 
     return (
         <div>
             <select>{renderedOptions}</select>
         </div>
     );
-};
+}
 
 export default DropDownMenu;

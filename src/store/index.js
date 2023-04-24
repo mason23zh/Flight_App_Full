@@ -10,9 +10,9 @@ export const store = configureStore({
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
     },
-    middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat(airportsApi.middleware).concat(extremeWeatherApi.middleware);
-    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+        .concat(airportsApi.middleware)
+        .concat(extremeWeatherApi.middleware),
 });
 
 setupListeners(store.dispatch);

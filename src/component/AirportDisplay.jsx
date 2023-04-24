@@ -1,30 +1,45 @@
-const AirportDisplay = ({ airport }) => {
-    const { ICAO, elevation, location, name, runways, transitionAltitude } = airport;
-    const renderedRunways = runways.map((runway) => {
-        return (
-            <div key={runway._id}>
-                {runway.runway_id}
-                <br />
-                {runway.ilsFreq === 0 ? "No ILS" : `ILS Freq: ${runway.ilsFreq}`}
-            </div>
-        );
-    });
+import React from "react";
+
+/*eslint-disable*/
+function AirportDisplay({ airport }) {
+    const {
+        ICAO, elevation, location, name, runways, transitionAltitude
+    } = airport;
+    const renderedRunways = runways.map((runway) => (
+        <div key={runway._id}>
+            {runway.runway_id}
+            <br />
+            {runway.ilsFreq === 0 ? "No ILS" : `ILS Freq: ${runway.ilsFreq}`}
+        </div>
+    ));
     return (
         <div>
-            ICAO: {ICAO}
+            ICAO:
+            {" "}
+            {ICAO}
             <br />
-            Elevation: {elevation}
+            Elevation:
+            {" "}
+            {elevation}
             <br />
-            Name: {name}
+            Name:
+            {" "}
+            {name}
             <br />
-            Location: {location.coordinates[0]},{location.coordinates[1]}
+            Location:
+            {" "}
+            {location.coordinates[0]}
+            ,
+            {location.coordinates[1]}
             <br />
             {renderedRunways}
             <br />
-            TransitionAltitude: {transitionAltitude}
+            TransitionAltitude:
+            {" "}
+            {transitionAltitude}
             <hr />
         </div>
     );
-};
+}
 
 export default AirportDisplay;

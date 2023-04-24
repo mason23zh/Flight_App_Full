@@ -1,9 +1,9 @@
+import React from "react";
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import MetarDisplayList from "./MetarDisplayList";
-import Table from "./Table";
 
-const ExtremeWeather = () => {
+function ExtremeWeather() {
     return (
         <>
             <div className="bg-gray-200 ">
@@ -13,6 +13,6 @@ const ExtremeWeather = () => {
             <MetarDisplayList />
         </>
     );
-};
+}
 
 export default ExtremeWeather;

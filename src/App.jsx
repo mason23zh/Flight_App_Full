@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import React from "react";
 import Home from "./component/Home";
 import About from "./component/About";
 import NoMatch from "./component/NoMatch";
@@ -7,7 +8,7 @@ import Airports from "./component/Airports";
 import Weather from "./component/Weather";
 import ExtremeWeather from "./component/ExtremeWeather";
 
-const App = () => {
+function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -20,6 +21,6 @@ const App = () => {
             </Route>
         </Routes>
     );
-};
+}
 
 export default App;

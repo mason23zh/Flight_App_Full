@@ -1,7 +1,8 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const Layout = () => {
+function Layout() {
     return (
         <div className="font-Rubik">
             <Navbar />
@@ -10,6 +11,6 @@ const Layout = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Layout;

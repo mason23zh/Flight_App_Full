@@ -1,12 +1,12 @@
-import Panel from "./Panel";
-import ExpandablePanel from "./ExpandablePanel";
-import { BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED } from "../util/selection_names";
+import React from "react";
 import { useSelector } from "react-redux";
+import ExpandablePanel from "./ExpandablePanel";
+import {
+    BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
+} from "../util/selection_names";
 
-const MetarListItem = ({ metar }) => {
-    const { weather } = useSelector((state) => {
-        return state.extremeWeather.userSelection;
-    });
+function MetarListItem({ metar }) {
+    const { weather } = useSelector((state) => state.extremeWeather.userSelection);
 
     let weatherSelection;
     if (weather === WIND_GUST) {
@@ -28,6 +28,6 @@ const MetarListItem = ({ metar }) => {
             </ExpandablePanel>
         </div>
     );
-};
+}
 
 export default MetarListItem;

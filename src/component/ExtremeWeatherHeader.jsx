@@ -1,21 +1,22 @@
+/* eslint-disable react/button-has-type */
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { COUNTRY_CODE } from "../util/country_code";
 import { CONTINENT_CODE } from "../util/contient_code";
 import {
-    WIND_SPEED,
-    WIND_GUST,
-    VISIBILITY,
     BARO,
-    TEMPERATURE,
-    GLOBAL,
-    COUNTRY,
     CONTINENT,
+    COUNTRY,
+    GLOBAL,
+    TEMPERATURE,
+    VISIBILITY,
+    WIND_GUST,
+    WIND_SPEED,
 } from "../util/selection_names";
 import Dropdown from "./Dropdown";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { changeUserSelection } from "../store";
 
-const ExtremeWeatherHeader = () => {
+function ExtremeWeatherHeader() {
     const dispatch = useDispatch();
     const [userSelection, setUserSelection] = useState({
         weather: WIND_SPEED,
@@ -29,19 +30,20 @@ const ExtremeWeatherHeader = () => {
         BARO: false,
         TEMPERATURE: false,
     });
+    // eslint-disable-next-line max-len
     const [scopeActive, setScopeActive] = useState({ GLOBAL: true, COUNTRY: false, CONTINENT: false });
     const [showDropDown, setShowDropDown] = useState(false);
 
     useEffect(() => {
         // setup default country/continent code when switching between 'Country' or 'Continent'
         if (userSelection.scope === COUNTRY && userSelection.code.length === 0) {
-            let updatedState = {
+            const updatedState = {
                 ...userSelection,
                 code: { code: "ca" },
             };
             setUserSelection(updatedState);
         } else if (userSelection.scope === CONTINENT && userSelection.code.length === 0) {
-            let updatedState = {
+            const updatedState = {
                 ...userSelection,
                 code: { code: "na" },
             };
@@ -53,8 +55,7 @@ const ExtremeWeatherHeader = () => {
     const buttonClasses = "p-1 rounded text-blue-500 text-lg hover:text-white hover:bg-blue-500 duration-100";
     const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg shadow-md";
 
-    const scopeButtonClass =
-        "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
+    const scopeButtonClass = "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
     const activeScopeButtonClass = "p-1 text-lg bg-green-600 text-white rounded shadow-md";
 
     const handleWeatherButtonClick = (arg) => {
@@ -64,8 +65,9 @@ const ExtremeWeatherHeader = () => {
         };
 
         // set everything to false and set selected button to active
-        const newObj = Object.assign({}, weatherActive);
-        for (let key in newObj) {
+        const newObj = { ...weatherActive };
+        // eslint-disable-next-line guard-for-in
+        for (const key in newObj) {
             newObj[key] = false;
         }
         newObj[arg] = true;
@@ -85,8 +87,9 @@ const ExtremeWeatherHeader = () => {
             scope: arg,
         };
 
-        const newObj = Object.assign({}, scopeActive);
-        for (let key in newObj) {
+        const newObj = { ...scopeActive };
+        // eslint-disable-next-line guard-for-in
+        for (const key in newObj) {
             newObj[key] = false;
         }
         newObj[arg] = true;
@@ -190,6 +193,6 @@ const ExtremeWeatherHeader = () => {
             </div>
         </div>
     );
-};
+}
 
 export default ExtremeWeatherHeader;

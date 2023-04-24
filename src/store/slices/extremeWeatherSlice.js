@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { WIND_SPEED, GLOBAL } from "../../util/selection_names";
+import { GLOBAL, WIND_SPEED } from "../../util/selection_names";
 
 const extremeWeatherSlice = createSlice({
     name: "extremeWeather",
