@@ -12,7 +12,7 @@ function ExtremeWeather() {
                 <ExtremeWeatherHeader />
             </div>
             {/* <MetarDisplayList /> */}
-            <div className="flex justify-center p-5">
+            <div className="flex justify-center items-center p-5 w-full">
                 <WeatherTable />
             </div>
         </>

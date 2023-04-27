@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {
+    CgChevronDoubleDown, CgChevronDoubleUp,
+} from "react-icons/cg";
 import { useTable } from "react-table";
 import { useSelector } from "react-redux";
 import { logDOM } from "@testing-library/react";
@@ -131,14 +134,12 @@ function WeatherTable() {
     }
     
     const handleSortClick = () => {
-        console.log("click");
         setSortOrder(Number(sortOrder) * -1);
     };
     
     return (
         <table
             {...getTableProps()}
-            className="border rounded-xl w-[960px] p-5"
         >
             <thead>
                 {headerGroups.map((headerGroup) => (
@@ -151,7 +152,10 @@ function WeatherTable() {
                                         className="text-xl p-2 border-5 bg-red-300"
                                         onClick={handleSortClick}
                                     >
-                                        {column.render("Header")}
+                                        <div className="flex items-center justify-center hover:cursor-pointer">
+                                            {column.render("Header")}
+                                            {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
+                                        </div>
                                     </th>
                                 );
                             }
@@ -163,7 +167,10 @@ function WeatherTable() {
                                         className="text-xl p-2 border-5 bg-red-300"
                                         onClick={handleSortClick}
                                     >
-                                        {column.render("Header")}
+                                        <div className="flex items-center justify-center hover:cursor-pointer">
+                                            {column.render("Header")}
+                                            {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
+                                        </div>
                                     </th>
                                 );
                             }
