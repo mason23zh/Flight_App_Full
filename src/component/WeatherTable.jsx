@@ -67,7 +67,7 @@ function WeatherTable() {
                 });
                 return tempWeatherRow;
             }
-            
+            // add meters to visibility field
             if (weather === VISIBILITY) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
@@ -77,7 +77,7 @@ function WeatherTable() {
                 });
                 return tempWeatherRow;
             }
-            
+            // add inHg and QNH to baro field
             if (weather === BARO) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
@@ -87,7 +87,7 @@ function WeatherTable() {
                 });
                 return tempWeatherRow;
             }
-            
+            // add celsius symbol to temperature field
             if (weather === TEMPERATURE) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
@@ -120,19 +120,17 @@ function WeatherTable() {
     
     
     return (
-        <table {...getTableProps()} style={{ border: "solid 1px blue" }}>
+        <table
+            {...getTableProps()}
+            className="border rounded-xl w-[960px] p-5"
+        >
             <thead>
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map((column) => (
                             <th
                                 {...column.getHeaderProps()}
-                                style={{
-                                    borderBottom: "solid 3px red",
-                                    background: "aliceblue",
-                                    color: "black",
-                                    fontWeight: "bold",
-                                }}
+                                className="text-xl p-2 border-5 bg-red-300"
                             >
                                 {column.render("Header")}
                             </th>
@@ -140,19 +138,21 @@ function WeatherTable() {
                     </tr>
                 ))}
             </thead>
-            <tbody {...getTableBodyProps()}>
+            <tbody
+                {...getTableBodyProps()}
+                className="[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200"
+            >
                 {rows.map((row) => {
                     prepareRow(row);
                     return (
-                        <tr {...row.getRowProps()}>
+                        <tr
+                            {...row.getRowProps()}
+                            className="rounded border-2 text-xl text-center hover:bg-gray-200"
+                        >
                             {row.cells.map((cell) => (
                                 <td
                                     {...cell.getCellProps()}
-                                    style={{
-                                        padding: "10px",
-                                        border: "solid 1px gray",
-                                        background: "papayawhip",
-                                    }}
+                                    className="p-5"
                                 >
                                     {cell.render("Cell")}
                                 </td>

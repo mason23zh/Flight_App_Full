@@ -60,6 +60,7 @@ export const extremeWeatherApi = createApi({
                     const taggedUrl = generateURL(weather, scope, code);
                     return {
                         url: taggedUrl,
+                        params: { limit: 20 },
                         method: "GET",
                     };
                 },
