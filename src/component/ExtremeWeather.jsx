@@ -2,6 +2,7 @@ import React from "react";
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import MetarDisplayList from "./MetarDisplayList";
+import WeatherTable from "./WeatherTable";
 
 function ExtremeWeather() {
     return (
@@ -10,7 +11,8 @@ function ExtremeWeather() {
                 <ExtremeWeatherHeroSection />
                 <ExtremeWeatherHeader />
             </div>
-            <MetarDisplayList />
+            {/* <MetarDisplayList /> */}
+            <WeatherTable />
         </>
     );
 }

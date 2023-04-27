@@ -3,16 +3,16 @@ import React, { useState } from "react";
 
 function Navbar() {
     const [searchInput, setSearchInput] = useState("");
-
+    
     const handleInputChange = (e) => {
         setSearchInput(e.target.value);
     };
-
+    
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         console.log(searchInput);
     };
-
+    
     return (
         <nav className="flex justify-between py-1 px-5 mb-1">
             <ul className="list-none flex items-center gap-3 text-lg">
@@ -47,7 +47,7 @@ function Navbar() {
                     type="text"
                     className="border-2 rounded-lg py-1 px-3"
                 />
-                <button className="rounded-lg bg-green-400 py-1 px-3">Get Result</button>
+                <button type="submit" className="rounded-lg bg-green-400 py-1 px-3">Get Result</button>
             </form>
         </nav>
     );

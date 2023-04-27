@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherTable from "./WeatherTable";
 
 function About() {
     return (

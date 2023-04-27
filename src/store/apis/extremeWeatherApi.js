@@ -25,7 +25,7 @@ const generateURL = (weather, scope, code) => {
         url_scope = "continent-weather";
         url_code_flag = true;
     }
-
+    
     if (!code.code) {
         if (scope === COUNTRY && !code.code) {
             tempCode = "ca";
@@ -33,7 +33,7 @@ const generateURL = (weather, scope, code) => {
             tempCode = "na";
         }
     }
-
+    
     if (weather === WIND_GUST) {
         url_weather_selection = url_code_flag === true ? `wind-gust-speed/${code.code || tempCode}` : "wind-gust-speed";
     } else if (weather === WIND_SPEED) {

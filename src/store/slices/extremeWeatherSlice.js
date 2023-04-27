@@ -12,6 +12,7 @@ const extremeWeatherSlice = createSlice({
     },
     reducers: {
         changeUserSelection(state, action) {
+            // eslint-disable-next-line no-param-reassign
             state.userSelection = action.payload;
         },
     },

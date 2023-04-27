@@ -17,6 +17,7 @@ function Skeleton({ times, className }) {
     const boxes = Array(times)
         .fill(0)
         .map((_, i) => (
+            // eslint-disable-next-line react/no-array-index-key
             <div key={i} className={outerClassNames}>
                 <div className={innerClassNames} />
             </div>

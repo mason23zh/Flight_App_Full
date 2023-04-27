@@ -38,7 +38,7 @@ function HeroSection({
                         className="rounded-xl border-2 w-full h-10"
                         placeholder={`  ${placedHoldMessage}`}
                     />
-                    <button className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl">Get Data</button>
+                    <button type="submit" className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl">Get Data</button>
                 </div>
             </form>
         </div>
