@@ -8,6 +8,8 @@ import {
 import { useFetchWeatherMetarsQuery } from "../store";
 import Skeleton from "./Skeleton";
 
+const INHG_TO_HPA = 33.863886666667;
+
 function WeatherTable() {
     let columnsToRender;
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
@@ -30,8 +32,10 @@ function WeatherTable() {
     
     if (weather === WIND_SPEED) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Speed" || header.Header === "ICAO" || header.Header === "Airport Name"));
+        columnsToRender.push({ Header: "Wind Data", accessor: "wind_data" });
     } else if (weather === WIND_GUST) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Gust" || header.Header === "ICAO" || header.Header === "Airport Name"));
+        columnsToRender.push({ Header: "Wind Data", accessor: "wind_data" });
     } else if (weather === VISIBILITY) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Visibility" || header.Header === "ICAO" || header.Header === "Airport Name"));
     } else if (weather === BARO) {
@@ -43,6 +47,56 @@ function WeatherTable() {
     const columns = React.useMemo(() => columnsToRender, [weather]);
     const weatherRow = React.useMemo(() => {
         if (isFetching === false && metars) {
+            // add wind data if weather selection is either wind speed or wind gust
+            if (weather === WIND_SPEED || weather === WIND_GUST) {
+                const tempWeatherRow = metars.data.map((metar) => {
+                    let updatedMetar = {};
+                    let gust = "";
+                    if (metar.wind_gust_kt !== 0) {
+                        gust = `G${metar.wind_gust_kt}`;
+                    }
+                    
+                    const windData = `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${gust.length !== 0 ? gust : gust}`;
+                    updatedMetar = {
+                        ...metar,
+                        wind_data: windData,
+                        wind_gust_kt: `${metar.wind_gust_kt} Kt`,
+                        wind_speed_kt: `${metar.wind_speed_kt} Kt`,
+                    };
+                    return updatedMetar;
+                });
+                return tempWeatherRow;
+            }
+            
+            if (weather === VISIBILITY) {
+                const tempWeatherRow = metars.data.map((metar) => {
+                    let updatedMetar = {};
+                    const updatedVisibility = `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`;
+                    updatedMetar = { ...metar, visibility_statute_mi: updatedVisibility };
+                    return updatedMetar;
+                });
+                return tempWeatherRow;
+            }
+            
+            if (weather === BARO) {
+                const tempWeatherRow = metars.data.map((metar) => {
+                    let updatedMetar = {};
+                    const updatedBaro = `${metar.altim_in_hg.toFixed(2)} inHg / ${Math.round(metar.altim_in_hg * INHG_TO_HPA)} QNH`;
+                    updatedMetar = { ...metar, altim_in_hg: updatedBaro };
+                    return updatedMetar;
+                });
+                return tempWeatherRow;
+            }
+            
+            if (weather === TEMPERATURE) {
+                const tempWeatherRow = metars.data.map((metar) => {
+                    let updatedMetar = {};
+                    const updatedTemp = `${metar.temp_c} ${"\u00b0"}C`;
+                    updatedMetar = { ...metar, temp_c: updatedTemp };
+                    return updatedMetar;
+                });
+                return tempWeatherRow;
+            }
             return metars.data;
         }
         return [];
@@ -56,6 +110,7 @@ function WeatherTable() {
         rows,
         prepareRow,
     } = tableInstance;
+    
     if (isFetching) {
         return <Skeleton className="h-8 w-auto" times={10} />;
     }
