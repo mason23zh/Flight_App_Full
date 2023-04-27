@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useTable } from "react-table";
 import { useSelector } from "react-redux";
 import {
@@ -6,10 +6,10 @@ import {
     TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
 } from "../util/selection_names";
 import { useFetchWeatherMetarsQuery } from "../store";
+import Skeleton from "./Skeleton";
 
 function WeatherTable() {
     let columnsToRender;
-    const [fetchedWeatherData, setFetchedWeatherData] = useState([]);
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
     const {
         data: metars,
@@ -57,7 +57,7 @@ function WeatherTable() {
         prepareRow,
     } = tableInstance;
     if (isFetching) {
-        return <div>Is Loading....</div>;
+        return <Skeleton className="h-8 w-auto" times={10} />;
     }
     if (error) {
         return <div>Error</div>;
