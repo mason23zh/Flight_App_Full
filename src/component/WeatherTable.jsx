@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTable } from "react-table";
 import { useSelector } from "react-redux";
+import { logDOM } from "@testing-library/react";
 import {
     BARO,
     TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
@@ -12,12 +13,23 @@ const INHG_TO_HPA = 33.863886666667;
 
 function WeatherTable() {
     let columnsToRender;
+    let requestParams = { limit: 10 };
+    const [sortOrder, setSortOrder] = useState(1);
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
+    if (weather === TEMPERATURE || weather === BARO) {
+        requestParams = { ...requestParams, sort: sortOrder };
+    }
+    
     const {
         data: metars,
         error,
         isFetching,
-    } = useFetchWeatherMetarsQuery({ scope, weather, code }, { refetchOnMountOrArgChange: true });
+    } = useFetchWeatherMetarsQuery({
+        scope,
+        weather,
+        code,
+        params: requestParams,
+    }, { refetchOnMountOrArgChange: true });
     
     const weatherColumn = [
         { Header: "ICAO", accessor: "station_id" },
@@ -118,6 +130,10 @@ function WeatherTable() {
         return <div>Error</div>;
     }
     
+    const handleSortClick = () => {
+        console.log("click");
+        setSortOrder(Number(sortOrder) * -1);
+    };
     
     return (
         <table
@@ -127,14 +143,41 @@ function WeatherTable() {
             <thead>
                 {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map((column) => (
-                            <th
-                                {...column.getHeaderProps()}
-                                className="text-xl p-2 border-5 bg-red-300"
-                            >
-                                {column.render("Header")}
-                            </th>
-                        ))}
+                        {headerGroup.headers.map((column) => {
+                            if (column.Header === "Baro") {
+                                return (
+                                    <th
+                                        {...column.getHeaderProps()}
+                                        className="text-xl p-2 border-5 bg-red-300"
+                                        onClick={handleSortClick}
+                                    >
+                                        {column.render("Header")}
+                                    </th>
+                                );
+                            }
+                        
+                            if (column.Header === "Temperature") {
+                                return (
+                                    <th
+                                        {...column.getHeaderProps()}
+                                        className="text-xl p-2 border-5 bg-red-300"
+                                        onClick={handleSortClick}
+                                    >
+                                        {column.render("Header")}
+                                    </th>
+                                );
+                            }
+                        
+                            return (
+                                <th
+                                    {...column.getHeaderProps()}
+                                    className="text-xl p-2 border-5 bg-red-300"
+                                >
+                                    {column.render("Header")}
+                                </th>
+                            );
+                        })}
+                        )
                     </tr>
                 ))}
             </thead>

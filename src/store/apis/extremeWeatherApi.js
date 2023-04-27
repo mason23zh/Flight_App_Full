@@ -56,11 +56,13 @@ export const extremeWeatherApi = createApi({
     endpoints(build) {
         return {
             fetchWeatherMetars: build.query({
-                query: ({ scope, weather, code }) => {
+                query: ({
+                    scope, weather, code, params,
+                }) => {
                     const taggedUrl = generateURL(weather, scope, code);
                     return {
                         url: taggedUrl,
-                        params: { limit: 20 },
+                        params,
                         method: "GET",
                     };
                 },
