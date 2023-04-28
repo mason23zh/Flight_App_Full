@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import {
     CgChevronDoubleDown, CgChevronDoubleUp,
 } from "react-icons/cg";
-import { useTable } from "react-table";
+import { useTable, useExpanded } from "react-table";
 import { useSelector } from "react-redux";
-import { logDOM } from "@testing-library/react";
 import {
     BARO,
     TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
@@ -34,6 +33,16 @@ function WeatherTable() {
         params: requestParams,
     }, { refetchOnMountOrArgChange: true });
     
+    const renderExpandColumn = () => ({
+        Header: () => null, // No header
+        id: "expander", // It needs an ID
+        Cell: ({ row }) => (
+            <span {...row.getToggleRowExpandedProps()}>
+                {row.isExpanded ? "Hide" : "Details"}
+            </span>
+        ),
+    });
+    
     const weatherColumn = [
         { Header: "ICAO", accessor: "station_id" },
         { Header: "Airport Name", accessor: "name" },
@@ -48,15 +57,20 @@ function WeatherTable() {
     if (weather === WIND_SPEED) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Speed" || header.Header === "ICAO" || header.Header === "Airport Name"));
         columnsToRender.push({ Header: "Wind Data", accessor: "wind_data" });
+        columnsToRender.push(renderExpandColumn());
     } else if (weather === WIND_GUST) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Gust" || header.Header === "ICAO" || header.Header === "Airport Name"));
         columnsToRender.push({ Header: "Wind Data", accessor: "wind_data" });
+        columnsToRender.push(renderExpandColumn());
     } else if (weather === VISIBILITY) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Visibility" || header.Header === "ICAO" || header.Header === "Airport Name"));
+        columnsToRender.push(renderExpandColumn());
     } else if (weather === BARO) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Baro" || header.Header === "ICAO" || header.Header === "Airport Name"));
+        columnsToRender.push(renderExpandColumn());
     } else if (weather === TEMPERATURE) {
         columnsToRender = weatherColumn.filter((header) => (header.Header === "Temperature" || header.Header === "ICAO" || header.Header === "Airport Name"));
+        columnsToRender.push(renderExpandColumn());
     }
     
     const columns = React.useMemo(() => columnsToRender, [weather]);
@@ -116,14 +130,15 @@ function WeatherTable() {
         }
         return [];
     }, [metars, isFetching, error]);
-    
-    const tableInstance = useTable({ columns, data: weatherRow });
+    const tableInstance = useTable({ columns, data: weatherRow }, useExpanded);
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         rows,
         prepareRow,
+        visibleColumns,
+        state: { expanded },
     } = tableInstance;
     
     if (isFetching) {
@@ -136,6 +151,28 @@ function WeatherTable() {
     const handleSortClick = () => {
         setSortOrder(Number(sortOrder) * -1);
     };
+    
+    
+    const expandedContent = (row) => (
+        <p className="text-center ">
+            Raw Metar:
+            {row.raw_text}
+        </p>
+    );
+    
+    const sortableColumn = (column) => (
+        <th
+            {...column.getHeaderProps()}
+            className="text-xl p-2 border-5 bg-red-300"
+            onClick={handleSortClick}
+        >
+            <div className="flex items-center justify-center hover:cursor-pointer">
+                {column.render("Header")}
+                {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
+            </div>
+        </th>
+    );
+    
     
     return (
         <table
@@ -178,7 +215,7 @@ function WeatherTable() {
                             return (
                                 <th
                                     {...column.getHeaderProps()}
-                                    className="text-xl p-2 border-5 bg-red-300"
+                                    className="text-xl p-2 bg-red-300"
                                 >
                                     {column.render("Header")}
                                 </th>
@@ -194,20 +231,30 @@ function WeatherTable() {
             >
                 {rows.map((row) => {
                     prepareRow(row);
+                    const rowProps = row.getRowProps();
+                    delete rowProps.role;
                     return (
-                        <tr
-                            {...row.getRowProps()}
-                            className="rounded border-2 text-xl text-center hover:bg-gray-200"
-                        >
-                            {row.cells.map((cell) => (
-                                <td
-                                    {...cell.getCellProps()}
-                                    className="p-5"
-                                >
-                                    {cell.render("Cell")}
-                                </td>
-                            ))}
-                        </tr>
+                        <React.Fragment key={rowProps.key} {...rowProps}>
+                            <tr
+                                className=" text-xl text-center"
+                            >
+                                {row.cells.map((cell) => (
+                                    <td
+                                        {...cell.getCellProps()}
+                                        className="p-5"
+                                    >
+                                        {cell.render("Cell")}
+                                    </td>
+                                ))}
+                            </tr>
+                            {row.isExpanded ? (
+                                <tr>
+                                    <td colSpan={visibleColumns.length}>
+                                        {expandedContent(row.original)}
+                                    </td>
+                                </tr>
+                            ) : null}
+                        </React.Fragment>
                     );
                 })}
             </tbody>

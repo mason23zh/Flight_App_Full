@@ -1,7 +1,6 @@
 import React from "react";
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
-import MetarDisplayList from "./MetarDisplayList";
 import WeatherTable from "./WeatherTable";
 
 function ExtremeWeather() {
@@ -11,9 +10,10 @@ function ExtremeWeather() {
                 <ExtremeWeatherHeroSection />
                 <ExtremeWeatherHeader />
             </div>
-            {/* <MetarDisplayList /> */}
-            <div className="flex justify-center items-center p-5 w-full">
-                <WeatherTable />
+            <div className="flex justify-center items-center p-5">
+                <div className="table-auto w-auto">
+                    <WeatherTable />
+                </div>
             </div>
         </>
     );
