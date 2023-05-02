@@ -1,9 +1,9 @@
 import React from "react";
+import ExpandableContentAirportInfo from "./ExpandableContentAirportInfo";
 
 function ExpandableContent({
-    airportData, error, loaded, row, 
+    airportData, error, loaded, row,
 }) {
-    console.log("DATA from expandable content com:", airportData, error, loaded);
     if (error) {
         return (
             <div>Error</div>
@@ -17,14 +17,7 @@ function ExpandableContent({
     }
     
     return (
-        <div>
-            Raw Metar: 
-            {" "}
-            {row.original.raw_text}
-            Airport Data:
-            {" "}
-            {airportData.ICAO}
-        </div>
+        <ExpandableContentAirportInfo row={row} airportData={airportData} />
     );
 }
 
