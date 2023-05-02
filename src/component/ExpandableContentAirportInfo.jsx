@@ -7,8 +7,6 @@ import { type } from "@testing-library/user-event/dist/type";
 
 function ExpandableContentAirportInfo({ row, airportData }) {
     const { wind_dir_degrees, wind_speed_kt } = row.original;
-    console.log(row.original);
-    console.log(typeof wind_speed_kt);
     
     const renderWindComponentButtons = (windDegrees, windSpeed, runwayHdg) => {
         let crossWindButton;
@@ -16,7 +14,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
         const filteredWindSpeed = typeof windSpeed === "number" ? windSpeed : Number(windSpeed.replace(/[^0-9]/g, ""));
         const crossWind = Math.round(Math.sin(((Number(runwayHdg) - Number(windDegrees)) * (Math.PI / 180))) * filteredWindSpeed);
         const headWind = Math.round(Math.cos(((Number(runwayHdg) - Number(windDegrees)) * (Math.PI / 180))) * filteredWindSpeed);
-        console.log(crossWind, headWind);
+        
         if (crossWind <= 0) {
             crossWindButton = (
                 <div className="flex justify-center items-center p-1 bg-green-400 rounded-xl">
@@ -93,6 +91,15 @@ function ExpandableContentAirportInfo({ row, airportData }) {
             <div>
                 {runway.runway_ils_avl === 0 ? "" : `ILS Course: ${runway.ilsHdg}`}
             </div>
+            <div>
+                {runway.gsAngle ? `GS Angle: ${runway.gsAngle}${"\u00b0"}` : ""}
+            </div>
+            <div>
+                {runway.thresholdOverflyAlt ? `TCH: ${runway.thresholdOverflyAlt} ft` : ""}
+            </div>
+            <div>
+                {runway.thresholdElevation ? `Elevation: ${runway.thresholdElevation} ft` : ""}
+            </div>
             {renderWindComponentButtons(wind_dir_degrees, wind_speed_kt, runway.runwayHdg)}
         </div>
     ));
@@ -101,7 +108,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
         <div className="p-3 text-lg">
             <div className="flex flex-col justify-center items-center">
                 <div>
-                    Raw Metar: {row.original.raw_text}
+                    {row.original.raw_text}
                 </div>
                 <div>
                     Elevation: {airportData.elevation} ft
