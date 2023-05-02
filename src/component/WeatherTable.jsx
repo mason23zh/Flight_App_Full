@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import React, { useEffect, useState } from "react";
 import {
     CgChevronDoubleDown, CgChevronDoubleUp,
 } from "react-icons/cg";
 import { useTable, useExpanded } from "react-table";
 import { useSelector } from "react-redux";
+import axios from "axios";
 import {
     BARO,
     TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
@@ -13,15 +16,28 @@ import Skeleton from "./Skeleton";
 
 const INHG_TO_HPA = 33.863886666667;
 
-function WeatherTable() {
+function WeatherTable({ expandedContent }) {
     let columnsToRender;
     let requestParams = { limit: 10 };
     const [sortOrder, setSortOrder] = useState(1);
+    const [airportData, setAirportData] = useState(null);
+    const [rowData, setRowData] = useState(null);
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
     if (weather === TEMPERATURE || weather === BARO) {
         requestParams = { ...requestParams, sort: sortOrder };
     }
-    
+    useEffect(() => {
+        const fetchAirport = async () => {
+            if (rowData && rowData.original.station_id) {
+                const data = await axios.get(`http://localhost:8000/api/v1/airports/icao/basic/${rowData.original.station_id}`);
+                if (data.status === 200) {
+                    return data.data;
+                }
+            }
+            return null;
+        };
+        fetchAirport().then((data) => setAirportData(data.data));
+    }, [rowData]);
     const {
         data: metars,
         error,
@@ -33,12 +49,20 @@ function WeatherTable() {
         params: requestParams,
     }, { refetchOnMountOrArgChange: true });
     
+    const handleDetailClick = (row) => {
+        const updatedRowData = { ...rowData, ...row };
+        setRowData(updatedRowData);
+    };
+    console.log("row data", rowData);
+    console.log("Airport data:", airportData);
+    
     const renderExpandColumn = () => ({
         Header: () => null, // No header
         id: "expander", // It needs an ID
         Cell: ({ row }) => (
             <span {...row.getToggleRowExpandedProps()}>
-                {row.isExpanded ? "Hide" : "Details"}
+                {row.isExpanded ? <button>Hide</button>
+                    : <button onClick={() => handleDetailClick(row)}>Details</button>}
             </span>
         ),
     });
@@ -152,14 +176,6 @@ function WeatherTable() {
         setSortOrder(Number(sortOrder) * -1);
     };
     
-    
-    const expandedContent = (row) => (
-        <p className="text-center ">
-            Raw Metar:
-            {row.raw_text}
-        </p>
-    );
-    
     const sortableColumn = (column) => (
         <th
             {...column.getHeaderProps()}
@@ -221,7 +237,6 @@ function WeatherTable() {
                                 </th>
                             );
                         })}
-                        )
                     </tr>
                 ))}
             </thead>
@@ -250,7 +265,7 @@ function WeatherTable() {
                             {row.isExpanded ? (
                                 <tr>
                                     <td colSpan={visibleColumns.length}>
-                                        {expandedContent(row.original)}
+                                        {expandedContent({ row, airportData })}
                                     </td>
                                 </tr>
                             ) : null}
