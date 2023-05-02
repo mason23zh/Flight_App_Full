@@ -20,24 +20,12 @@ function WeatherTable({ expandedContent }) {
     let columnsToRender;
     let requestParams = { limit: 10 };
     const [sortOrder, setSortOrder] = useState(1);
-    const [airportData, setAirportData] = useState(null);
     const [rowData, setRowData] = useState(null);
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
     if (weather === TEMPERATURE || weather === BARO) {
         requestParams = { ...requestParams, sort: sortOrder };
     }
-    useEffect(() => {
-        const fetchAirport = async () => {
-            if (rowData && rowData.original.station_id) {
-                const data = await axios.get(`http://localhost:8000/api/v1/airports/icao/basic/${rowData.original.station_id}`);
-                if (data.status === 200) {
-                    return data.data;
-                }
-            }
-            return null;
-        };
-        fetchAirport().then((data) => setAirportData(data.data));
-    }, [rowData]);
+    
     const {
         data: metars,
         error,
@@ -53,8 +41,6 @@ function WeatherTable({ expandedContent }) {
         const updatedRowData = { ...rowData, ...row };
         setRowData(updatedRowData);
     };
-    console.log("row data", rowData);
-    console.log("Airport data:", airportData);
     
     const renderExpandColumn = () => ({
         Header: () => null, // No header
@@ -265,7 +251,7 @@ function WeatherTable({ expandedContent }) {
                             {row.isExpanded ? (
                                 <tr>
                                     <td colSpan={visibleColumns.length}>
-                                        {expandedContent({ row, airportData })}
+                                        {expandedContent({ row })}
                                     </td>
                                 </tr>
                             ) : null}
