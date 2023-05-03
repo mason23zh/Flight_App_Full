@@ -8,12 +8,14 @@ import { type } from "@testing-library/user-event/dist/type";
 function ExpandableContentAirportInfo({ row, airportData }) {
     const { wind_dir_degrees, wind_speed_kt } = row.original;
     
+    const toRadians = (angle) => angle * (Math.PI / 180);
+    
     const renderWindComponentButtons = (windDegrees, windSpeed, runwayHdg) => {
         let crossWindButton;
         let headWindButton;
         const filteredWindSpeed = typeof windSpeed === "number" ? windSpeed : Number(windSpeed.replace(/[^0-9]/g, ""));
-        const crossWind = Math.round(Math.sin(((Number(runwayHdg) - Number(windDegrees)) * (Math.PI / 180))) * filteredWindSpeed);
-        const headWind = Math.round(Math.cos(((Number(runwayHdg) - Number(windDegrees)) * (Math.PI / 180))) * filteredWindSpeed);
+        const crossWind = Math.round(Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * filteredWindSpeed);
+        const headWind = Math.round(Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * filteredWindSpeed);
         
         if (crossWind <= 0) {
             crossWindButton = (
@@ -58,7 +60,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
         
         
         return (
-            <div className="flex gap-1">
+            <div className="flex gap-2">
                 <div>
                     {crossWindButton}
                 </div>
