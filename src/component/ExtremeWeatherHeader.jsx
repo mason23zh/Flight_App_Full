@@ -125,7 +125,7 @@ function ExtremeWeatherHeader() {
     const handleSelectChange = (e) => {
         const updatedSelection = {
             ...userSelection,
-            code: e.value,
+            code: { code: e.value },
         };
         setUserSelection(updatedSelection);
     };
