@@ -27,7 +27,7 @@ const generateURL = (weather, scope, code) => {
     }
     
     if (!code.code) {
-        if (scope === COUNTRY && !code.code) {
+        if (scope === COUNTRY && !code.value) {
             tempCode = "ca";
         } else if (scope === CONTINENT && !code.code) {
             tempCode = "na";
@@ -35,15 +35,15 @@ const generateURL = (weather, scope, code) => {
     }
     
     if (weather === WIND_GUST) {
-        url_weather_selection = url_code_flag === true ? `wind-gust-speed/${code.code || tempCode}` : "wind-gust-speed";
+        url_weather_selection = url_code_flag === true ? `wind-gust-speed/${code.value || tempCode}` : "wind-gust-speed";
     } else if (weather === WIND_SPEED) {
-        url_weather_selection = url_code_flag === true ? `wind-speed/${code.code || tempCode}` : "wind-speed";
+        url_weather_selection = url_code_flag === true ? `wind-speed/${code.value || tempCode}` : "wind-speed";
     } else if (weather === VISIBILITY) {
-        url_weather_selection = url_code_flag === true ? `visibility/${code.code || tempCode}` : "visibility";
+        url_weather_selection = url_code_flag === true ? `visibility/${code.value || tempCode}` : "visibility";
     } else if (weather === BARO) {
-        url_weather_selection = url_code_flag === true ? `baro/${code.code || tempCode}` : "baro";
+        url_weather_selection = url_code_flag === true ? `baro/${code.value || tempCode}` : "baro";
     } else if (weather === TEMPERATURE) {
-        url_weather_selection = url_code_flag === true ? `temperature/${code.code || tempCode}` : "temperature";
+        url_weather_selection = url_code_flag === true ? `temperature/${code.value || tempCode}` : "temperature";
     }
     return `/${url_scope}/${url_weather_selection}`;
 };

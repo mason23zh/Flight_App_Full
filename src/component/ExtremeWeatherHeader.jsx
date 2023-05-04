@@ -14,16 +14,9 @@ import {
     WIND_GUST,
     WIND_SPEED,
 } from "../util/selection_names";
-import Dropdown from "./Dropdown";
 import { changeUserSelection } from "../store";
 
 function ExtremeWeatherHeader() {
-    const testOption = [
-        { value: "chocolate", label: "Chocolate" },
-        { value: "strawberry", label: "Strawberry" },
-        { value: "vanilla", label: "Vanilla" },
-    ];
-    
     const dispatch = useDispatch();
     const [userSelection, setUserSelection] = useState({
         weather: WIND_SPEED,
@@ -46,13 +39,13 @@ function ExtremeWeatherHeader() {
         if (userSelection.scope === COUNTRY && userSelection.code.length === 0) {
             const updatedState = {
                 ...userSelection,
-                code: { code: "ca" },
+                code: { value: "ca" },
             };
             setUserSelection(updatedState);
         } else if (userSelection.scope === CONTINENT && userSelection.code.length === 0) {
             const updatedState = {
                 ...userSelection,
-                code: { code: "na" },
+                code: { value: "na" },
             };
             setUserSelection(updatedState);
         }
@@ -114,18 +107,10 @@ function ExtremeWeatherHeader() {
         setUserSelection(updatedSelection);
     };
     
-    const handleDropDownChange = (arg) => {
+    const handleSelectChange = (arg) => {
         const updatedSelection = {
             ...userSelection,
             code: { ...arg },
-        };
-        setUserSelection(updatedSelection);
-    };
-    
-    const handleSelectChange = (e) => {
-        const updatedSelection = {
-            ...userSelection,
-            code: { code: e.value },
         };
         setUserSelection(updatedSelection);
     };

@@ -1,12 +1,14 @@
 import React from "react";
+import ReactCountryFlag from "react-country-flag";
 import { useSelector } from "react-redux";
+import ExtremeWeatherHeroSectionScope from "./ExtremeWeatherHeroSectionScope";
 import backgroundImage from "../images/thunderstorm.jpg";
 
 function ExtremeWeatherHeroSection() {
     const { weather, scope, code } = useSelector((state) => state.extremeWeather.userSelection);
     const tempScopeName = scope?.length > 0 ? scope.toLowerCase() : "Global";
     const scopeName = tempScopeName.charAt(0).toUpperCase() + tempScopeName.slice(1);
-    console.log(weather, scope, code);
+    
     return (
         <div className="relative">
             <div
@@ -28,11 +30,7 @@ function ExtremeWeatherHeroSection() {
                     Extreme Weather
                 </h1>
                 <h2 className="text-2xl">
-                    Search
-                    {" "}
-                    {weather.includes("_") ? weather.replace("_", " ").toLowerCase() : weather.toLowerCase()}
-                    {" for "}
-                    {code.name ? code.name : "Global"}
+                    <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope} />
                 </h2>
             </div>
         </div>
