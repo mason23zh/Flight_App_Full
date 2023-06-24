@@ -13,7 +13,6 @@ import {
 import { useFetchWeatherMetarsQuery } from "../store";
 import Skeleton from "./Skeleton";
 
-const INHG_TO_HPA = 33.863886666667;
 
 function WeatherTable({ expandedContent }) {
     let columnsToRender;
@@ -37,6 +36,8 @@ function WeatherTable({ expandedContent }) {
         params: requestParams,
     }, { refetchOnMountOrArgChange: true });
     
+    console.log(metars);
+    
     const handleDetailClick = (row) => {
         const updatedRowData = { ...rowData, ...row };
         setRowData(updatedRowData);
@@ -54,7 +55,7 @@ function WeatherTable({ expandedContent }) {
     });
     
     const weatherColumn = [
-        { Header: "ICAO", accessor: "station_id" },
+        { Header: "ICAO", accessor: "icao" },
         { Header: "Airport Name", accessor: "name" },
         { Header: "Temperature", accessor: "temp_c" },
         { Header: "Wind Speed", accessor: "wind_speed_kt" },
@@ -91,16 +92,19 @@ function WeatherTable({ expandedContent }) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
                     let gust = "";
-                    if (metar.wind_gust_kt !== 0) {
-                        gust = `G${metar.wind_gust_kt}`;
+                    if (!metar.wind.gust_kts) {
+                        gust = 0;
+                    } else {
+                        gust = `${metar.wind.gust_kts}`;
                     }
                     
-                    const windData = `${metar.wind_dir_degrees}/${metar.wind_speed_kt}${gust.length !== 0 ? gust : gust}`;
+                    const windData = `${metar.wind.degrees}/${metar.wind.speed_kts}${gust !== 0 ? `${gust}G` : ""}`;
                     updatedMetar = {
                         ...metar,
+                        name: metar.station.location.name,
                         wind_data: windData,
-                        wind_gust_kt: `${metar.wind_gust_kt} Kt`,
-                        wind_speed_kt: `${metar.wind_speed_kt} Kt`,
+                        wind_gust_kt: `${gust} Kt`,
+                        wind_speed_kt: `${metar.wind.speed_kts} Kt`,
                     };
                     return updatedMetar;
                 });
@@ -110,8 +114,12 @@ function WeatherTable({ expandedContent }) {
             if (weather === VISIBILITY) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
-                    const updatedVisibility = `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`;
-                    updatedMetar = { ...metar, visibility_statute_mi: updatedVisibility };
+                    const updatedVisibility = `${metar.visibility.miles_float} mi / ${metar.visibility.meters_float} m`;
+                    updatedMetar = {
+                        ...metar,
+                        visibility_statute_mi: updatedVisibility,
+                        name: metar.station.location.name,
+                    };
                     return updatedMetar;
                 });
                 return tempWeatherRow;
@@ -120,8 +128,8 @@ function WeatherTable({ expandedContent }) {
             if (weather === BARO) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
-                    const updatedBaro = `${metar.altim_in_hg.toFixed(2)} inHg / ${Math.round(metar.altim_in_hg * INHG_TO_HPA)} QNH`;
-                    updatedMetar = { ...metar, altim_in_hg: updatedBaro };
+                    const updatedBaro = `${metar.barometer.hg} inHg / ${metar.barometer.hpa} QNH`;
+                    updatedMetar = { ...metar, altim_in_hg: updatedBaro, name: metar.station.location.name };
                     return updatedMetar;
                 });
                 return tempWeatherRow;
@@ -131,7 +139,7 @@ function WeatherTable({ expandedContent }) {
                 const tempWeatherRow = metars.data.map((metar) => {
                     let updatedMetar = {};
                     const updatedTemp = `${metar.temp_c} ${"\u00b0"}C`;
-                    updatedMetar = { ...metar, temp_c: updatedTemp };
+                    updatedMetar = { ...metar, temp_c: metar.temperature.celsius, name: metar.station.location.name };
                     return updatedMetar;
                 });
                 return tempWeatherRow;
@@ -202,12 +210,13 @@ function WeatherTable({ expandedContent }) {
                                         >
                                             <div className="flex items-center justify-center hover:cursor-pointer">
                                                 {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
+                                                {sortOrder === -1 ? <CgChevronDoubleDown />
+                                                    : <CgChevronDoubleUp />}
                                             </div>
                                         </th>
                                     );
                                 }
-                            
+                                    
                                 if (column.Header === "Temperature") {
                                     return (
                                         <th
@@ -217,12 +226,13 @@ function WeatherTable({ expandedContent }) {
                                         >
                                             <div className="flex items-center justify-center hover:cursor-pointer">
                                                 {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
+                                                {sortOrder === -1 ? <CgChevronDoubleDown />
+                                                    : <CgChevronDoubleUp />}
                                             </div>
                                         </th>
                                     );
                                 }
-                            
+                                    
                                 return (
                                     <th
                                         {...column.getHeaderProps()}

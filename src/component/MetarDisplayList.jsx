@@ -15,7 +15,7 @@ function MetarDisplayList() {
         error,
         isFetching,
     } = useFetchWeatherMetarsQuery({ scope, weather, code }, { refetchOnMountOrArgChange: true });
-
+    
     const tempConfig = [];
     let config = [
         {
@@ -27,13 +27,13 @@ function MetarDisplayList() {
             render: (metar) => metar.name,
         },
     ];
-
+    
     if (weather === WIND_SPEED) {
         const tempOne = {
             label: "Wind Speed",
             render: (metar) => metar.wind_speed_kt,
         };
-
+        
         const tempTwo = {
             label: "Wind Data",
             render: (metar) => {
@@ -48,7 +48,7 @@ function MetarDisplayList() {
             label: "Wind Gust",
             render: (metar) => metar.wind_gust_kt,
         };
-
+        
         const tempTwo = {
             label: "Wind Data",
             render: (metar) => {
@@ -77,16 +77,16 @@ function MetarDisplayList() {
             label: "Temperature",
             render: (metar) => `${metar.temp_c}°C`,
         };
-
+        
         const tempTwo = {
             label: "Dewpoint",
             render: (metar) => `${metar.dewpoint_c}°C`,
         };
-
+        
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
     }
-
+    
     let content;
     if (isFetching) {
         content = <Skeleton className="h-8 w-auto" times={8} />;
@@ -98,7 +98,7 @@ function MetarDisplayList() {
         //     return <MetarListItem key={metar.station_id} metar={metar} />;
         // });
     }
-
+    
     return <div className="p-5 flex flex-col items-center gap-3 justify-center ">{content}</div>;
 }
 

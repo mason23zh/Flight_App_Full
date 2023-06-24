@@ -6,7 +6,10 @@ import { type } from "@testing-library/user-event/dist/type";
 
 
 function ExpandableContentAirportInfo({ row, airportData }) {
-    const { wind_dir_degrees, wind_speed_kt } = row.original;
+    const { degrees, speed_kts } = row.original.wind;
+    console.log("ORIGINAL ROW:", row.original);
+    // console.log("WIND_DIR", wind_dir_degrees, wind_speed_kt);
+    console.log(degrees, speed_kts);
     
     const toRadians = (angle) => angle * (Math.PI / 180);
     
@@ -70,39 +73,40 @@ function ExpandableContentAirportInfo({ row, airportData }) {
             </div>
         );
     };
+    console.log("Airport data:::::", airportData);
     
-    const renderedRunways = airportData.runways.map((runway) => (
-        <div key={runway._id} className="p-3 flex flex-col ">
+    const renderedRunways = airportData[0].runways.map((runways) => (
+        <div key={runways.id} className="p-3 flex flex-col ">
             <div>
-                Runway {runway.runway_id}
+                Runway {runways.runway_id}
             </div>
             <div>
-                Heading: {runway.runwayHdg}
+                Heading: {runways.runwayHdg}
             </div>
             <div>
-                Length: {runway.runwayLength} ft
+                Length: {runways.runwayLength} ft
             </div>
             <div>
-                Width: {runway.runwayWidth} ft
+                Width: {runways.runwayWidth} ft
             </div>
             <div>
                 ILS:
                 {" "}
-                {runway.runway_ils_avl === 0 ? "Not Available" : runway.ilsFreq}
+                {runways.runway_ils_avl === 0 ? "Not Available" : runways.ilsFreq}
             </div>
             <div>
-                {runway.runway_ils_avl === 0 ? "" : `ILS Course: ${runway.ilsHdg}`}
+                {runways.runway_ils_avl === 0 ? "" : `ILS Course: ${runways.ilsHdg}`}
             </div>
             <div>
-                {runway.gsAngle ? `GS Angle: ${runway.gsAngle}${"\u00b0"}` : ""}
+                {runways.gsAngle ? `GS Angle: ${runways.gsAngle}${"\u00b0"}` : ""}
             </div>
             <div>
-                {runway.thresholdOverflyAlt ? `TCH: ${runway.thresholdOverflyAlt} ft` : ""}
+                {runways.thresholdOverflyAlt ? `TCH: ${runways.thresholdOverflyAlt} ft` : ""}
             </div>
             <div>
-                {runway.thresholdElevation ? `Elevation: ${runway.thresholdElevation} ft` : ""}
+                {runways.thresholdElevation ? `Elevation: ${runways.thresholdElevation} ft` : ""}
             </div>
-            {renderWindComponentButtons(wind_dir_degrees, wind_speed_kt, runway.runwayHdg)}
+            {renderWindComponentButtons(degrees, speed_kts, runways.runwayHdg)}
         </div>
     ));
     

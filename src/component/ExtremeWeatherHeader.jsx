@@ -121,7 +121,7 @@ function ExtremeWeatherHeader() {
             <Select
                 options={COUNTRY_CODE}
                 placeholder="Select country..."
-                className="absolute top-[5%]"
+                className="absolute top-[5%] w-[200px]"
                 onChange={handleSelectChange}
             />
         );
@@ -130,7 +130,7 @@ function ExtremeWeatherHeader() {
             <Select
                 options={CONTINENT_CODE}
                 placeholder="Select continent..."
-                className="absolute top-[5%]"
+                className="absolute top-[5%] w-[200px]"
                 onChange={handleSelectChange}
             />
         );

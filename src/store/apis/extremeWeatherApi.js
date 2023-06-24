@@ -45,13 +45,15 @@ const generateURL = (weather, scope, code) => {
     } else if (weather === TEMPERATURE) {
         url_weather_selection = url_code_flag === true ? `temperature/${code.value || tempCode}` : "temperature";
     }
-    return `/${url_scope}/${url_weather_selection}`;
+    
+    console.log(`/${url_scope}/${url_weather_selection}?decode=true`);
+    return `/${url_scope}/${url_weather_selection}?decode=true`;
 };
 
 export const extremeWeatherApi = createApi({
     reducerPath: "extremeWeatherApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8000/api/v1/weather",
+        baseUrl: "https://flight-data.herokuapp.com/api/v1/weather",
     }),
     endpoints(build) {
         return {

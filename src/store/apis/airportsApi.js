@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const airportsApi = createApi({
     reducerPath: "airports",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8001/api/v1/airports",
+        baseUrl: "https://flight-data.herokuapp.com/api/v1/airports",
     }),
     endpoints(build) {
         return {

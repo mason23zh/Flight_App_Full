@@ -8,20 +8,20 @@ function Airports() {
     const [fetchedData, setFetchedData] = useState([]);
     const message = "Airport information";
     const placeHolderMessage = "Search ICAO or airport name";
-
+    
     const fetchData = async (userInput) => {
-        const response = await axios.get(`http://localhost:8001/api/v1/airports/generic/${userInput}`);
+        const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/airports/generic/${userInput}`);
         setFetchedData([]);
         const airports = response.data.data.map((airport) => airport);
         setFetchedData(airports);
         console.log(airports);
         return response.data;
     };
-
+    
     const handleOnSubmit = (input) => {
         fetchData(input).catch((e) => console.error(e));
     };
-
+    
     return (
         <div>
             <HeroSection
