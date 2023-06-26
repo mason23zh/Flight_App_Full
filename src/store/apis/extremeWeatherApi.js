@@ -46,7 +46,6 @@ const generateURL = (weather, scope, code) => {
         url_weather_selection = url_code_flag === true ? `temperature/${code.value || tempCode}` : "temperature";
     }
     
-    console.log(`/${url_scope}/${url_weather_selection}?decode=true`);
     return `/${url_scope}/${url_weather_selection}?decode=true`;
 };
 

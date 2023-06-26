@@ -36,8 +36,6 @@ function WeatherTable({ expandedContent }) {
         params: requestParams,
     }, { refetchOnMountOrArgChange: true });
     
-    console.log(metars);
-    
     const handleDetailClick = (row) => {
         const updatedRowData = { ...rowData, ...row };
         setRowData(updatedRowData);
@@ -98,7 +96,7 @@ function WeatherTable({ expandedContent }) {
                         gust = `${metar.wind.gust_kts}`;
                     }
                     
-                    const windData = `${metar.wind.degrees}/${metar.wind.speed_kts}${gust !== 0 ? `${gust}G` : ""}`;
+                    const windData = `${metar.wind.degrees}/${metar.wind.speed_kts}${gust !== 0 ? `G${gust}` : ""}`;
                     updatedMetar = {
                         ...metar,
                         name: metar.station.location.name,

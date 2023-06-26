@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import ExpandableContent from "./ExpandableContent";
+import React from "react";
+import { useFetchBasicAirportWithICAOQuery } from "../store";
+import ExpandableContentAirportInfo from "./ExpandableContentAirportInfo";
 
 function SubRowAsync({ row }) {
-    const [airportData, setAirportData] = useState(null);
-    const [error, setError] = useState("");
-    const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-        axios
-            .get(`https://flight-data.herokuapp.com/api/v1/airports/icao/basic/${row.original.icao}`)
-            .then((response) => setAirportData(response.data))
-            .catch((err) => setError(err.messsage))
-            .finally(() => setLoaded(true));
-    }, [row]);
+    const {
+        data: airport,
+        error,
+        isFetching,
+    } = useFetchBasicAirportWithICAOQuery(
+        row.original.icao,
+        { refetchOnMountOrArgChange: true },
+    );
     
-    if (airportData) {
-        console.log("Airport:::::", airportData.data.airport);
-    }
     
-    if (airportData) {
+    if (airport) {
         return (
-            <ExpandableContent airportData={airportData.data.airport} error={error} loaded={loaded} row={row} />
+            <ExpandableContentAirportInfo row={row} airportData={airport.data.airport[0]} />
+        );
+    }
+    if (isFetching) {
+        return (
+            <div>Loading...</div>
+        );
+    }
+    if (error) {
+        return (
+            <div>Something went wrong</div>
         );
     }
 }

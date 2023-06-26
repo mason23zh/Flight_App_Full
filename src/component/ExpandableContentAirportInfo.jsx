@@ -2,14 +2,10 @@ import React from "react";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
-import { type } from "@testing-library/user-event/dist/type";
 
 
 function ExpandableContentAirportInfo({ row, airportData }) {
     const { degrees, speed_kts } = row.original.wind;
-    console.log("ORIGINAL ROW:", row.original);
-    // console.log("WIND_DIR", wind_dir_degrees, wind_speed_kt);
-    console.log(degrees, speed_kts);
     
     const toRadians = (angle) => angle * (Math.PI / 180);
     
@@ -73,9 +69,10 @@ function ExpandableContentAirportInfo({ row, airportData }) {
             </div>
         );
     };
-    console.log("Airport data:::::", airportData);
+    const airportElevation = airportData.elevation;
+    const airportTransAltitude = airportData.transitionAltitude;
     
-    const renderedRunways = airportData[0].runways.map((runways) => (
+    const renderedRunways = airportData.runways.map((runways) => (
         <div key={runways.id} className="p-3 flex flex-col ">
             <div>
                 Runway {runways.runway_id}
@@ -117,10 +114,10 @@ function ExpandableContentAirportInfo({ row, airportData }) {
                     {row.original.raw_text}
                 </div>
                 <div>
-                    Elevation: {airportData.elevation} ft
+                    {airportElevation ? `Elevation: ${airportElevation} ft` : ""}
                 </div>
                 <div>
-                    Transition Altitude: {airportData.transitionAltitude} ft
+                    {airportTransAltitude ? `Transition Altitude: ${airportTransAltitude} ft` : ""}
                 </div>
             </div>
             <div className="grid grid-cols-2 justify-center justify-items-center ">

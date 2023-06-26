@@ -7,6 +7,12 @@ export const airportsApi = createApi({
     }),
     endpoints(build) {
         return {
+            fetchBasicAirportWithICAO: build.query({
+                query: (icao) => ({
+                    url: `/icao/basic/${icao}`,
+                    method: "GET",
+                }),
+            }),
             fetchAirportsWithGenericInput: build.query({
                 query: (searchTerm) => ({
                     url: `/generic/${searchTerm}`,
@@ -17,4 +23,4 @@ export const airportsApi = createApi({
     },
 });
 
-export const { useFetchAirportsWithGenericInputQuery } = airportsApi;
+export const { useFetchAirportsWithGenericInputQuery, useFetchBasicAirportWithICAOQuery } = airportsApi;
