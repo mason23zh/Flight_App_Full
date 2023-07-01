@@ -9,13 +9,13 @@ function SubRowAsync({ row }) {
         isFetching,
     } = useFetchBasicAirportWithICAOQuery(
         row.original.icao,
-        { refetchOnMountOrArgChange: true },
     );
     
     
     if (airport) {
+        const airportData = airport.data[0];
         return (
-            <ExpandableContentAirportInfo row={row} airportData={airport.data.airport[0]} />
+            <ExpandableContentAirportInfo row={row} airportData={airportData} />
         );
     }
     if (isFetching) {
