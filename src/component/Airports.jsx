@@ -6,9 +6,9 @@ import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
 
 function Airports() {
-    const [fetchedData, setFetchedData] = useState([]);
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
+    const [page, setPage] = useState(1);
     const message = "Airport information";
     const placeHolderMessage = "Search ICAO or airport name";
     
@@ -16,7 +16,7 @@ function Airports() {
         data,
         error,
         isFetching,
-    } = useFetchAirportsWithGenericInputQuery(userInput, { skip: skipRender });
+    } = useFetchAirportsWithGenericInputQuery({ searchTerm: userInput, page, limit: 10 }, { skip: skipRender });
     
     const handleOnSubmit = (input) => {
         setUserInput(input);

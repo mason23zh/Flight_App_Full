@@ -14,8 +14,8 @@ export const airportsApi = createApi({
                 }),
             }),
             fetchAirportsWithGenericInput: build.query({
-                query: (searchTerm) => ({
-                    url: `/generic/${searchTerm}`,
+                query: ({ searchTerm, page, limit }) => ({
+                    url: `/generic/paginate/${searchTerm}?page=${page}&limit=${limit}`,
                     method: "GET",
                 }),
             }),
