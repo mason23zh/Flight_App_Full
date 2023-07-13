@@ -1,0 +1,8 @@
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+@import "tailwindcss/base";
+@import "../node_modules/rsuite/dist/rsuite.css";
+
+/*#root {*/
+/*    padding: 10px;*/
+/*}*/

@@ -1,11 +1,10 @@
 import React from "react";
+import "../styles.css";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 import { Pagination } from "rsuite";
 import AirportDisplay from "./AirportDisplay";
 import AirportAccordion from "./AirportAccordion";
-import PaginationCustom from "./PaginationCustom";
-import PaginationButtons from "./PaginationButton";
 
 
 function AirportsList({ airports }) {
@@ -38,29 +37,11 @@ function AirportsList({ airports }) {
     return (
         <div className="flex flex-col items-center">
             <div className="flex flex-col gap-4 p-10 items-center ">{renderedAirports}</div>
-            {/* <Pagination */}
-            {/*    layout={layout} */}
-            {/*    size={size} */}
-            {/*    prev={prev} */}
-            {/*    next={next} */}
-            {/*    first={first} */}
-            {/*    last={last} */}
-            {/*    ellipsis={ellipsis} */}
-            {/*    boundaryLinks={boundaryLinks} */}
-            {/*    total={total} */}
-            {/*    limit={limit} */}
-            {/*    limitOptions={[30, 40]} */}
-            {/*    maxButtons={maxButtons} */}
-            {/*    activePage={activePage} */}
-            {/*    onChangePage={setActivePage} */}
-            {/*    onChangeLimit={setLimit} */}
-            {/* /> */}
             <Pagination
                 // layout={["total", "|", "", "page", "skip"]}
                 total={data.totalAirports}
-                ellipsis={5 >= 1}
                 activePage={3}
-                limit={data.limit}
+                limit={10}
                 next={data.nextPage !== null}
                 prev={data.prevPage !== null}
                 first={5 > 1}
