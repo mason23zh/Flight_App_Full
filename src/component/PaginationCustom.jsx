@@ -1,6 +1,8 @@
 import React from "react";
 import classnames from "classnames";
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
 import { usePagination, DOTS } from "../hooks/usePagination";
+
 
 function Pagination(props) {
     const {
@@ -18,6 +20,8 @@ function Pagination(props) {
         siblingCount,
         pageSize,
     });
+    console.log(currentPage);
+    
     
     // If there are less than 2 times in pagination range we shall not render the component
     if (currentPage === 0 || paginationRange.length < 2) {
@@ -37,13 +41,12 @@ function Pagination(props) {
         <ul
             className="flex list-none"
         >
-            {/* Left navigation arrow */}
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                
             <button
-                className={currentPage === 1 ? "" : "h-8 text-center text-[rgba(0,0,0,0.87)] flex box-border items-center tracking-[0.01071em] leading-[1.43] text-[13px] min-w-[32px] mx-1 my-auto px-3 py-0 rounded-2xl hover:bg-[rgba(0,0,0,0.04)] hover:cursor-pointer"}
+                className={currentPage === 1 ? "" : "caret-blue-500 hover:bg-red-500"}
                 onClick={onPrevious}
             >
-                <div className="rotate-[-135deg] -translate-x-2/4" />
+                <HiArrowNarrowLeft />
             </button>
             {paginationRange.map((pageNumber) => {
                 // If the pageItem is a DOT, render the DOTS unicode character
@@ -64,16 +67,13 @@ function Pagination(props) {
                     </li>
                 );
             })}
-            {/*  Right Navigation arrow */}
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-            <li
-                className={classnames("pagination-item", {
-                    disabled: currentPage === lastPage,
-                })}
+                
+            <button
+                className={currentPage === lastPage ? "" : ""}
                 onClick={onNext}
             >
-                <div className="arrow right" />
-            </li>
+                <HiArrowNarrowRight />
+            </button>
         </ul>
     );
 }
