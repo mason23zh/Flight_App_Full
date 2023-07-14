@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
@@ -27,11 +26,11 @@ function Airports() {
     if (data) {
         renderedAirport = <AirportsList airports={data} />;
     } else if (isFetching) {
-        renderedAirport = <h1>Loading....</h1>;
+        renderedAirport = <h3>Loading....</h3>;
     } else if (error) {
-        renderedAirport = <h1>Error</h1>;
+        renderedAirport = <h3>Error</h3>;
     } else {
-        renderedAirport = <div className="text-center text-xl"><h1>Enter search query</h1></div>;
+        renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
     
     return (
