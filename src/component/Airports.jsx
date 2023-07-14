@@ -15,16 +15,23 @@ function Airports() {
         data,
         error,
         isFetching,
-    } = useFetchAirportsWithGenericInputQuery({ searchTerm: userInput, page, limit: 10 }, { skip: skipRender });
+    } = useFetchAirportsWithGenericInputQuery({ searchTerm: userInput, page, limit: 10 }, {
+        skip: skipRender,
+        refetchOnMountOrArgChange: true,
+    });
     
     const handleOnSubmit = (input) => {
         setUserInput(input);
         setSkipRender(false);
     };
     
+    const onGoToPage = (inputPage) => {
+        setPage(inputPage);
+    };
+    
     let renderedAirport;
     if (data) {
-        renderedAirport = <AirportsList airports={data} />;
+        renderedAirport = <AirportsList airports={data} goToPage={onGoToPage} />;
     } else if (isFetching) {
         renderedAirport = <h3>Loading....</h3>;
     } else if (error) {
@@ -32,6 +39,7 @@ function Airports() {
     } else {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
+    
     
     return (
         <div>

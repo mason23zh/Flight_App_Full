@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import { Pagination } from "rsuite";
 import AirportDisplay from "./AirportDisplay";
 import AirportAccordion from "./AirportAccordion";
 
 
-function AirportsList({ airports }) {
-    const [layout, setLayout] = React.useState(["total", "-", "limit", "|", "pager", "skip"]);
+function AirportsList({ airports, goToPage }) {
+    const [layout, setLayout] = useState(["total", "-", "|", "pager", "skip"]);
+    const [pageNumber, setPageNumber] = useState(1);
     
     const { data } = airports;
-    // console.log(data);
     const renderedAirports = data.airports.map((airport) => (
         <div key={airport.ICAO}>
             <AirportAccordion airport={airport} />
         </div>
     ));
     
-    const showGoToPage = (page) => {
-        // console.log("GO TO PAGE", page);
+    const handleGoToPage = (page) => {
+        goToPage(page);
     };
     
     return (
         <div className="flex flex-col items-center">
             <div className="flex flex-col gap-4 p-10 items-center ">{renderedAirports}</div>
             <Pagination
-                // layout={["total", "|", "", "page", "skip"]}
+                size="lg"
+                layout={layout}
                 total={data.totalAirports}
-                activePage={1}
+                activePage={data.page}
                 limit={10}
                 next={data.nextPage !== null}
                 prev={data.prevPage !== null}
@@ -34,6 +35,7 @@ function AirportsList({ airports }) {
                 last
                 boundaryLinks
                 maxButtons={5}
+                onChangePage={handleGoToPage}
             />
         </div>
     );
