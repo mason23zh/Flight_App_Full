@@ -1,5 +1,4 @@
 // noinspection JSUnusedGlobalSymbols
-
 import React, { useState } from "react";
 import {
     CgChevronDoubleDown, CgChevronDoubleUp,

@@ -1,13 +1,10 @@
-import React, { useState } from "react";
 import "../styles.css";
+import React, { useState } from "react";
 import { Pagination } from "rsuite";
-import AirportDisplay from "./AirportDisplay";
 import AirportAccordion from "./AirportAccordion";
-
 
 function AirportsList({ airports, goToPage }) {
     const [layout, setLayout] = useState(["total", "-", "|", "pager", "skip"]);
-    const [pageNumber, setPageNumber] = useState(1);
     
     const { data } = airports;
     const renderedAirports = data.airports.map((airport) => (

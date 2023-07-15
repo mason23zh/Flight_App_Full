@@ -13,7 +13,6 @@ function Weather() {
         setFetchedData(response.data.data.METAR);
         return response.data.data;
     };
-    console.log(fetchedData);
     
     const handleFormSubmit = (input) => {
         fetchData(input).catch((err) => console.error(err));

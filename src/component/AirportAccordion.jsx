@@ -1,9 +1,11 @@
 // This accordion will display basic information of airport
 import React from "react";
+import { Link } from "react-router-dom";
+import AirportDetail from "./AirportDetail";
 
 function AirportAccordion({ airport }) {
     const {
-        ICAO, iata, elevation, station,
+        ICAO, iata, station,
     } = airport;
     
     const icaoAndIata = iata.length === 0 ? <div>{ICAO}</div> : <div>{ICAO} / {iata}</div>;
@@ -23,7 +25,13 @@ function AirportAccordion({ airport }) {
                 <div>{station.city}, {station.region.region_name}, {station.country.country_name}</div>
             </div>
             <div className="text-center">
-                <button type="submit" className="rounded-lg bg-green-400 py-1 px-3">Go to airport</button>
+                <Link
+                    to="/airport/detail"
+                    state={{ airportData: airport }}
+                    className="rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline "
+                >Go to
+                    Airport
+                </Link>
             </div>
         </div>
     );

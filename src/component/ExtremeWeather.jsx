@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import WeatherTable from "./WeatherTable";
