@@ -1,14 +1,22 @@
 // This accordion will display basic information of airport
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import AirportDetail from "./AirportDetail";
 
 function AirportAccordion({ airport }) {
     const {
         ICAO, iata, station,
     } = airport;
+    console.log("airport in airport accordion", airport);
     
     const icaoAndIata = iata.length === 0 ? <div>{ICAO}</div> : <div>{ICAO} / {iata}</div>;
+    
+    useEffect(() => {
+        localStorage.removeItem("airportData");
+    }, []);
+    
+    const handleLinkClick = () => {
+        localStorage.setItem("airportData", JSON.stringify(airport));
+    };
     
     return (
         <div className="grid grid-cols-4 w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl items-center justify-between bg-gray-100 drop-shadow-md">
@@ -26,8 +34,8 @@ function AirportAccordion({ airport }) {
             </div>
             <div className="text-center">
                 <Link
+                    onMouseOver={handleLinkClick}
                     to="/airport/detail"
-                    state={{ airportData: airport }}
                     className="rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline "
                 >Go to
                     Airport

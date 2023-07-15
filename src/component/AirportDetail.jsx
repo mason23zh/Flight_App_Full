@@ -2,18 +2,28 @@
  Detailed airport information triggered by clicking "Go to Airport" button
  in AirportAccordion
  * */
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 function AirportDetail() {
-    const location = useLocation();
-    const { airportData } = location.state;
-    console.log(airportData);
-    return (
-        <div>
-            This is a Airport Detail page
-        </div>
-    );
+    const [airport, setAirport] = useState();
+    
+    // get localStorage airport data
+    useEffect(() => {
+        const airportData = JSON.parse(localStorage.getItem("airportData"));
+        if (airportData) {
+            setAirport(airportData);
+        }
+    }, []);
+    
+    if (airport) {
+        return (
+            <div>
+                Name: {airport.station.name}
+                ICAO: {airport.ICAO}
+            </div>
+        );
+    }
 }
 
 export default AirportDetail;
