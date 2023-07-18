@@ -34,31 +34,38 @@ function AirportDetail() {
         } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
         return (
-            <div className="flex flex-col items-center gap-3">
-                <div>
-                    <AirportDetailNameSection
-                        name={name}
-                        icao={ICAO}
-                        countryCode={country_code}
-                    />
+            <div className="bg-gray-50">
+                <div className="flex flex-col items-center gap-3">
+                    <div className="mt-3">
+                        <AirportDetailNameSection
+                            name={name}
+                            icao={ICAO}
+                            countryCode={country_code}
+                        />
+                    </div>
+                        
+                    <div className="xl:grid grid-rows-2 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
+                        <div className="p-5 ml-3">
+                            <AirportDetailTable
+                                ICAO={ICAO}
+                                iata={iata}
+                                region={region_name}
+                                country={country_name}
+                                runwayCount={airport.runways.length}
+                                airportType={type}
+                                elevation={elevation}
+                                transitionAltitude={transitionAltitude}
+                                lng={lng}
+                                lat={lat}
+                                homeLink={home_link}
+                                wikiLink={wikipedia_link}
+                            />
+                        </div>
+                        <div className="xl:w-[960px] h-[350px] p-5 fs:w-[654px] h-[654px] p-5">
+                            <AirportMap lat={lat} lng={lng} name={name} />
+                        </div>
+                    </div>
                 </div>
-                <div className="w-[600px] h-[600px]">
-                    <AirportMap lat={lat} lng={lng} name={name} />
-                </div>
-                <AirportDetailTable
-                    ICAO={ICAO}
-                    iata={iata}
-                    region={region_name}
-                    country={country_name}
-                    runwayCount={airport.runways.length}
-                    airportType={type}
-                    elevation={elevation}
-                    transitionAltitude={transitionAltitude}
-                    lng={lng}
-                    lat={lat}
-                    homeLink={home_link}
-                    wikiLink={wikipedia_link}
-                />
             </div>
         );
     }
