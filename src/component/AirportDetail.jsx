@@ -10,6 +10,7 @@ import {
 import L from "leaflet";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
+import AirportDetailTable from "./AirportDetailTable";
 
 
 function AirportDetail() {
@@ -24,9 +25,13 @@ function AirportDetail() {
     }, []);
     
     if (airport) {
-        const { country_code } = airport.station.country;
+        const { country_code, country_name } = airport.station.country;
+        const { region_name } = airport.station.region;
         const { name } = airport.station;
-        const { ICAO } = airport;
+        const { type, home_link, wikipedia_link } = airport.additional;
+        const {
+            ICAO, iata, elevation, transitionAltitude,
+        } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
         return (
             <div className="flex flex-col items-center gap-3">
@@ -37,9 +42,23 @@ function AirportDetail() {
                         countryCode={country_code}
                     />
                 </div>
-                <div>
+                <div className="w-[600px] h-[600px]">
                     <AirportMap lat={lat} lng={lng} name={name} />
                 </div>
+                <AirportDetailTable
+                    ICAO={ICAO}
+                    iata={iata}
+                    region={region_name}
+                    country={country_name}
+                    runwayCount={airport.runways.length}
+                    airportType={type}
+                    elevation={elevation}
+                    transitionAltitude={transitionAltitude}
+                    lng={lng}
+                    lat={lat}
+                    homeLink={home_link}
+                    wikiLink={wikipedia_link}
+                />
             </div>
         );
     }

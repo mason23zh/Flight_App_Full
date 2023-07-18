@@ -18,7 +18,7 @@ function AirportMap({ lat, lng, name }) {
         <>
             <MapContainer
                 center={[lat, lng]}
-                zoom={12}
+                zoom={13}
                 scrollWheelZoom={false}
             >
                 <TileLayer

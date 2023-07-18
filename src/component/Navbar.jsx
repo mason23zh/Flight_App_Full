@@ -39,7 +39,7 @@ function Navbar() {
                     <Link to="/about">About</Link>
                 </li>
             </ul>
-            <form onSubmit={handleSearchSubmit} className="flex gap-3">
+            <form onSubmit={handleSearchSubmit} className="hidden md:flex gap-3">
                 <input
                     value={searchInput}
                     placeholder="Search Something!"
