@@ -7,6 +7,9 @@ import { useLocation, useParams } from "react-router-dom";
 import {
     MapContainer, Marker, Popup, TileLayer, useMap,
 } from "react-leaflet";
+import L from "leaflet";
+import AirportMap from "./AirportMap";
+import AirportDetailNameSection from "./AirportDetailNameSection";
 
 
 function AirportDetail() {
@@ -21,25 +24,21 @@ function AirportDetail() {
     }, []);
     
     if (airport) {
-        console.log(airport);
+        const { country_code } = airport.station.country;
+        const { name } = airport.station;
+        const { ICAO } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
         return (
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center gap-3">
                 <div>
-                    Name: {airport.station.name}
-                    ICAO: {airport.ICAO}
+                    <AirportDetailNameSection
+                        name={name}
+                        icao={ICAO}
+                        countryCode={country_code}
+                    />
                 </div>
                 <div>
-                    <MapContainer
-                        center={[lat, lng]}
-                        zoom={13}
-                        scrollWheelZoom={false}
-                    >
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                    </MapContainer>
+                    <AirportMap lat={lat} lng={lng} name={name} />
                 </div>
             </div>
         );
