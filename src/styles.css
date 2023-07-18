@@ -1,8 +1,14 @@
 @import "../node_modules/rsuite/dist/rsuite.css";
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+@import 'leaflet/dist/leaflet.css';
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.leaflet-container {
+    width: 1080px;
+    height: 300px;
+}
 
 /*#root {*/
 /*    padding: 10px;*/
