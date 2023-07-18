@@ -16,6 +16,8 @@ function Navbar() {
             setSearchPlaceHolder("Something !== nothing :)");
         } else {
             setSearchInput(searchInput);
+            setSearchInput("");
+            setSearchPlaceHolder("Search Something!");
             navigate("/airport", { state: { userInput: searchInput } });
         }
     };

@@ -1,16 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function HomeHeroSection({ backgroundImage }) {
+    const navigate = useNavigate();
     const [input, setInput] = useState("");
-
+    
     const handleInputChange = (e) => {
         setInput(e.target.value);
     };
-
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        if (input.length !== 0) {
+            setInput(input);
+            navigate("/airport", { state: { userInput: input } });
+        }
     };
-
+    
     return (
         <div className="relative">
             <div
@@ -32,7 +38,11 @@ function HomeHeroSection({ backgroundImage }) {
                         className="rounded-xl border-2 w-full h-10"
                         placeholder="   Search ICAO code, airport name, city..."
                     />
-                    <button type="submit" className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl">Get Data</button>
+                    <button
+                        type="submit"
+                        className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl"
+                    >Get Data
+                    </button>
                 </div>
             </form>
         </div>

@@ -19,7 +19,7 @@ function Airports() {
             setUserInput(state.userInput);
             setSkipRender(false);
         }
-    }, []);
+    }, [state?.userInput]);
     
     const {
         data,
