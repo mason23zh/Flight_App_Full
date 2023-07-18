@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
 function Navbar() {
+    const navigate = useNavigate();
+    const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
     const [searchInput, setSearchInput] = useState("");
     
     const handleInputChange = (e) => {
@@ -10,7 +12,12 @@ function Navbar() {
     
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        console.log(searchInput);
+        if (searchInput.length === 0) {
+            setSearchPlaceHolder("Something !== nothing :)");
+        } else {
+            setSearchInput(searchInput);
+            navigate("/airport", { state: { userInput: searchInput } });
+        }
     };
     
     return (
@@ -42,7 +49,7 @@ function Navbar() {
             <form onSubmit={handleSearchSubmit} className="hidden md:flex gap-3">
                 <input
                     value={searchInput}
-                    placeholder="Search Something!"
+                    placeholder={searchPlaceHolder}
                     onChange={handleInputChange}
                     type="text"
                     className="border-2 rounded-lg py-1 px-3"
