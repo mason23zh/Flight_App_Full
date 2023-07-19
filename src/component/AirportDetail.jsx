@@ -62,7 +62,7 @@ function AirportDetail() {
                             <AirportMap lat={lat} lng={lng} name={name} />
                         </div>
                     </div>
-                    <div className="p-5">
+                    <div className="p-5 ml-5 mr-5">
                         <AirportDetailRunwayTable runways={airport.runways} />
                     </div>
                 </div>
