@@ -1,16 +1,13 @@
+/* eslint-disable react/style-prop-object */
 /*
  Detailed airport information triggered by clicking "Go to Airport" button
  in AirportAccordion
  * */
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import {
-    MapContainer, Marker, Popup, TileLayer, useMap,
-} from "react-leaflet";
-import L from "leaflet";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
+import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 
 
 function AirportDetail() {
@@ -34,7 +31,7 @@ function AirportDetail() {
         } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
         return (
-            <div className="bg-gray-50">
+            <div className="bg-gray-50 flex flex-col">
                 <div className="flex flex-col items-center gap-3">
                     <div className="mt-3">
                         <AirportDetailNameSection
@@ -44,7 +41,7 @@ function AirportDetail() {
                         />
                     </div>
                         
-                    <div className="xl:grid grid-rows-2 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
+                    <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
                         <div className="p-5 ml-3">
                             <AirportDetailTable
                                 ICAO={ICAO}
@@ -65,7 +62,11 @@ function AirportDetail() {
                             <AirportMap lat={lat} lng={lng} name={name} />
                         </div>
                     </div>
+                    <div className="p-5">
+                        <AirportDetailRunwayTable runways={airport.runways} />
+                    </div>
                 </div>
+                
             </div>
         );
     }
