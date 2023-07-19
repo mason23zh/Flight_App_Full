@@ -2,9 +2,11 @@ import React from "react";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 
 function ExpandableContentAirportInfo({ row, airportData }) {
+    const navigate = useNavigate();
     const { degrees, speed_kts } = row.original.wind;
     
     const toRadians = (angle) => angle * (Math.PI / 180);
@@ -107,6 +109,11 @@ function ExpandableContentAirportInfo({ row, airportData }) {
         </div>
     ));
     
+    const handleClick = () => {
+        localStorage.setItem("airportData", JSON.stringify(airportData));
+        navigate("/airport/detail");
+    };
+    
     return (
         <div className="p-3 text-lg">
             <div className="flex flex-col justify-center items-center">
@@ -118,6 +125,14 @@ function ExpandableContentAirportInfo({ row, airportData }) {
                 </div>
                 <div>
                     {airportTransAltitude ? `Transition Altitude: ${airportTransAltitude} ft` : ""}
+                </div>
+                <div>
+                    <button
+                        onClick={handleClick}
+                        className="text-white rounded-xl bg-green-600 p-2 hover:bg-amber-400 hover:text-gray-600"
+                    >Go
+                        to airport
+                    </button>
                 </div>
             </div>
             <div className="grid grid-cols-2 justify-center justify-items-center ">

@@ -48,7 +48,7 @@ function AirportDetailRunwayTable({ runways }) {
                     <Cell dataKey="runway_id" />
                 </Column>
                     
-                <Column width={130} align="center" resizable sortable>
+                <Column width={130} align="center" sortable>
                     <HeaderCell>Runway Length</HeaderCell>
                     <Cell dataKey="runwayLength" />
                 </Column>
