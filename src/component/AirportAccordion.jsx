@@ -6,7 +6,6 @@ function AirportAccordion({ airport }) {
     const {
         ICAO, iata, station,
     } = airport;
-    console.log("airport in airport accordion", airport);
     
     const icaoAndIata = iata.length === 0 ? <div>{ICAO}</div> : <div>{ICAO} / {iata}</div>;
     

@@ -8,6 +8,7 @@ import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
+import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 
 
 function AirportDetail() {
@@ -65,8 +66,10 @@ function AirportDetail() {
                     <div className="p-5 ml-5 mr-5">
                         <AirportDetailRunwayTable runways={airport.runways} />
                     </div>
+                    <div>
+                        <AirportDetailWeatherSection icao={ICAO} />
+                    </div>
                 </div>
-                
             </div>
         );
     }
