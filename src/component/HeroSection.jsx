@@ -4,13 +4,15 @@ function HeroSection({
     backgroundImage, message, placedHoldMessage, onSubmit,
 }) {
     const [input, setInput] = useState("");
-
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        onSubmit(input);
-        setInput("");
+        if (input.length !== 0) {
+            onSubmit(input);
+            setInput("");
+        }
     };
-
+    
     const handleInputChange = (e) => {
         setInput(e.target.value);
     };
@@ -38,7 +40,11 @@ function HeroSection({
                         className="rounded-xl border-2 w-full h-10"
                         placeholder={`  ${placedHoldMessage}`}
                     />
-                    <button type="submit" className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl">Get Data</button>
+                    <button
+                        type="submit"
+                        className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl"
+                    >Get Data
+                    </button>
                 </div>
             </form>
         </div>

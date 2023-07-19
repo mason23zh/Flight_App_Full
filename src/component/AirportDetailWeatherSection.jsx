@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFetchMetarByICAOQuery } from "../store";
+import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
 
 function AirportDetailWeatherSection({ icao }) {
     const [skipRender, setSkipRender] = useState(true);
@@ -20,7 +21,7 @@ function AirportDetailWeatherSection({ icao }) {
     if (error) {
         return (
             <div>
-                Unable to fetch weather for ${icao.toUpperCase()}
+                Unable to fetch weather for {icao.toUpperCase()}
             </div>
         );
     }
@@ -28,7 +29,7 @@ function AirportDetailWeatherSection({ icao }) {
     if (isFetching) {
         return (
             <div>
-                Fetching weather for ${icao.toUpperCase()}
+                Fetching weather for {icao.toUpperCase()}
             </div>
         );
     }
@@ -36,13 +37,37 @@ function AirportDetailWeatherSection({ icao }) {
     if (metar) {
         if (metar.data && metar.results !== 0) {
             const { data } = metar;
-            console.log(data);
+            const {
+                conditions = [],
+                clouds,
+                flight_category,
+                raw_text,
+                temperature,
+                dewpoint,
+                icao: MetarICAO,
+                humidity,
+                wind,
+                visibility,
+                barometer,
+                
+            } = data[0];
+            return (
+                <div>
+                    <AirportDetailWeatherPanel
+                        raw_text={raw_text}
+                        flightCategory={flight_category}
+                        temperature={temperature}
+                        dewpoint={dewpoint}
+                        barometer={barometer}
+                        clouds={clouds}
+                        conditions={conditions}
+                        humidity={humidity}
+                        wind={wind}
+                        visibility={visibility}
+                    />
+                </div>
+            );
         }
-        return (
-            <div>
-                data
-            </div>
-        );
     }
 }
 

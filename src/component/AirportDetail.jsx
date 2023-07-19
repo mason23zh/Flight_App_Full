@@ -9,6 +9,7 @@ import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
+import Skeleton from "./Skeleton";
 
 
 function AirportDetail() {
@@ -66,7 +67,7 @@ function AirportDetail() {
                     <div className="p-5 ml-5 mr-5">
                         <AirportDetailRunwayTable runways={airport.runways} />
                     </div>
-                    <div>
+                    <div className="p-5 mb-5">
                         <AirportDetailWeatherSection icao={ICAO} />
                     </div>
                 </div>
@@ -75,7 +76,7 @@ function AirportDetail() {
     }
     return (
         <div>
-            Loading...
+            <Skeleton className="h-8 w-auto" times={10} />;
         </div>
     );
 }

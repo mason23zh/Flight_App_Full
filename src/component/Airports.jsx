@@ -4,6 +4,7 @@ import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg"
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
+import Skeleton from "./Skeleton";
 
 function Airports() {
     const { pathname, state } = useLocation();
@@ -44,13 +45,12 @@ function Airports() {
     if (data) {
         renderedAirport = <AirportsList airports={data} goToPage={onGoToPage} />;
     } else if (isFetching) {
-        renderedAirport = <h3>Loading....</h3>;
+        renderedAirport = <Skeleton className="h-8 w-auto" times={10} />;
     } else if (error) {
         renderedAirport = <h3>Error</h3>;
     } else {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
-    
     
     return (
         <div>

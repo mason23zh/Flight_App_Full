@@ -44,7 +44,7 @@ function AirportDetailTable({
                     </tr>
                     <tr className="border-2 text-left">
                         <td className="border-2 p-3">Transition Altitude</td>
-                        <td className="p-3">{transitionAltitude} ft</td>
+                        <td className="p-3">{transitionAltitude === 0 ? "Not Available" : `${transitionAltitude} ft`}</td>
                     </tr>
                     <tr className="border-2 text-left">
                         <td className="border-2 p-3">Type</td>
@@ -69,3 +69,4 @@ function AirportDetailTable({
 }
 
 export default AirportDetailTable;
+ 
