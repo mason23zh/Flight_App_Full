@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles.css";
-import { Panel, Placeholder } from "rsuite";
+import { Panel } from "rsuite";
 
 function AirportDetailWeatherPanel({
     raw_text,

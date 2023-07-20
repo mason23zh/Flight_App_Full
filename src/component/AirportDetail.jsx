@@ -11,17 +11,19 @@ import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import Skeleton from "./Skeleton";
 
-
 function AirportDetail() {
     const [airport, setAirport] = useState();
+    const [metar, setMetar] = useState([]);
     
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
         if (airportData) {
+            console.log("airport data", airportData);
             setAirport(airportData);
         }
     }, []);
+    
     
     if (airport) {
         const { country_code, country_name } = airport.station.country;
@@ -32,8 +34,13 @@ function AirportDetail() {
             ICAO, iata, elevation, transitionAltitude,
         } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
+        
+        const handleReceiveMetar = (receivedMetar) => {
+            setMetar(receivedMetar);
+        };
+        
         return (
-            <div className="bg-gray-50 flex flex-col">
+            <div className="bg-gray-50 flex flex-col p-5 mb-10">
                 <div className="flex flex-col items-center gap-3">
                     <div className="mt-3">
                         <AirportDetailNameSection
@@ -44,7 +51,7 @@ function AirportDetail() {
                     </div>
                         
                     <div className="p-3">
-                        <AirportDetailWeatherSection icao={ICAO} />
+                        <AirportDetailWeatherSection icao={ICAO} onReceiveMetar={handleReceiveMetar} />
                     </div>
                         
                     <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
@@ -69,7 +76,7 @@ function AirportDetail() {
                         </div>
                     </div>
                     <div className="p-5 ml-5 mr-5">
-                        <AirportDetailRunwayTable runways={airport.runways} />
+                        <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                     </div>
                     
                 </div>
