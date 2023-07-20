@@ -33,7 +33,7 @@ function AirportDetailWeatherPanel({
         renderWeather = "";
     } else {
         renderWeather = (
-            <div className="flex gap-3">
+            <div className="grid grid-cols-2 justify-items-center">
                 <div>Weather:</div>
                 <div>{renderWeatherCondition}</div>
             </div>
@@ -62,43 +62,61 @@ function AirportDetailWeatherPanel({
     
     return (
         <div>
-            <Panel header={raw_text} collapsible>
+            <Panel header={raw_text} collapsible bordered>
                 <div className="flex flex-col">
-                    <div className="flex gap-3">
-                        <div>Temperature:</div>
-                        <div>{temperature.celsius}{"\u00b0"}C ({temperature.fahrenheit}{"\u00b0"}F)</div>
-                    </div>
-                    <div className="flex gap-3">
-                        <div>Dewpoint:</div>
-                        <div>{dewpoint.celsius}{"\u00b0"}C ({dewpoint.fahrenheit}{"\u00b0"}F)</div>
-                    </div>
-                    <div className="flex gap-3">
-                        <div>Humidity:</div>
-                        <div>{humidity.percent} %</div>
-                    </div>
-                    <div className="flex gap-3">
-                        <div>Pressure (altimeter):</div>
-                        <div>{barometer.hg} inches Hg ({barometer.mb} mb)</div>
-                    </div>
-                    <div className="flex gap-3">
-                        <div>Wind:</div>
-                        <div>From
-                            the {wind.degrees} degrees
-                            at {wind.speed_kts} kts {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center ">
+                            <div>Temperature:</div>
+                            <div>{temperature.celsius}{"\u00b0"}C ({temperature.fahrenheit}{"\u00b0"}F)</div>
                         </div>
                     </div>
-                    <div className="flex gap-3">
-                        <div>Visibility:</div>
-                        <div>{visibility.miles_float} miles ({visibility.meters_float} meters)</div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Dewpoint:</div>
+                            <div>{dewpoint.celsius}{"\u00b0"}C ({dewpoint.fahrenheit}{"\u00b0"}F)</div>
+                        </div>
                     </div>
-                    <div className="flex gap-3">
-                        <div>Cloud:</div>
-                        <div>{renderCloudsLayers}</div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Humidity:</div>
+                            <div>{humidity.percent} %</div>
+                        </div>
                     </div>
-                    {renderWeather}
-                    <div className="flex gap-3">
-                        <div>Flight Category:</div>
-                        <div>{flightCategory}</div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Pressure (altimeter):</div>
+                            <div>{barometer.hg} inches Hg ({barometer.mb} mb)</div>
+                        </div>
+                    </div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Wind:</div>
+                            <div>From
+                                the {wind.degrees} degrees
+                                at {wind.speed_kts} kts {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Visibility:</div>
+                            <div>{visibility.miles_float} miles ({visibility.meters_float} meters)</div>
+                        </div>
+                    </div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Cloud:</div>
+                            <div>{renderCloudsLayers}</div>
+                        </div>
+                    </div>
+                    <div className="hover:border-2 rounded-xl">
+                        {renderWeather}
+                    </div>
+                    <div className="hover:border-2 rounded-xl">
+                        <div className="grid grid-cols-2 justify-items-center">
+                            <div>Flight Category:</div>
+                            <div>{flightCategory}</div>
+                        </div>
                     </div>
                 </div>
             </Panel>

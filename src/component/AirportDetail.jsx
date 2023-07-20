@@ -43,6 +43,10 @@ function AirportDetail() {
                         />
                     </div>
                         
+                    <div className="p-3">
+                        <AirportDetailWeatherSection icao={ICAO} />
+                    </div>
+                        
                     <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
                         <div className="p-5 ml-3">
                             <AirportDetailTable
@@ -67,9 +71,7 @@ function AirportDetail() {
                     <div className="p-5 ml-5 mr-5">
                         <AirportDetailRunwayTable runways={airport.runways} />
                     </div>
-                    <div className="p-5 mb-5">
-                        <AirportDetailWeatherSection icao={ICAO} />
-                    </div>
+                    
                 </div>
             </div>
         );
