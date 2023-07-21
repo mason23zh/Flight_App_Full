@@ -71,18 +71,16 @@ function AirportDetailRunwayTable({ runways, metar }) {
             <Table
                 virtualized
                 height={600}
-                width={1200}
                 data={sortData()}
                 bordered
                 cellBordered
                 autoHeight
-                affixHeader
                 affixHorizontalScrollbar
                 onSortColumn={handleColumnSort}
                 sortType={sortType}
                 sortColumn={sortColumn}
             >
-                <Column width={130} align="center">
+                <Column width={90} align="center">
                     <HeaderCell>Runway ID</HeaderCell>
                     <Cell dataKey="runway_id" />
                 </Column>
@@ -92,36 +90,37 @@ function AirportDetailRunwayTable({ runways, metar }) {
                     <Cell dataKey="runwayLength" />
                 </Column>
                     
-                <Column width={130} align="center" resizable sortable>
+                <Column width={130} align="center" sortable>
                     <HeaderCell>Runway Width</HeaderCell>
                     <Cell dataKey="runwayWidth" />
                 </Column>
                     
-                <Column width={130} align="center" resizable>
+                <Column width={130} align="center">
                     <HeaderCell>Runway Heading</HeaderCell>
                     <Cell dataKey="runwayHdg" />
                 </Column>
                     
-                <Column width={100} align="center" resizable>
+                <Column width={100} align="center">
                     <HeaderCell>ILS Frequency</HeaderCell>
                     <Cell dataKey="ilsFreq" />
                 </Column>
                     
-                <Column width={200} align="center" resizable>
+                <Column width={130} align="center">
                     <HeaderCell>Glide Slope Angle</HeaderCell>
                     <Cell dataKey="gsAngle" />
                 </Column>
                     
-                <Column width={200} align="center" resizable sortable>
+                <Column width={170} align="center" sortable>
                     <HeaderCell>Threshold Elevation</HeaderCell>
                     <Cell dataKey="thresholdElevation" />
                 </Column>
                     
-                <Column width={200} align="center" resizable sortable>
+                <Column width={170} align="center" sortable>
                     <HeaderCell>Threshold Over fly Alt</HeaderCell>
                     <Cell dataKey="thresholdOverflyAlt" />
                 </Column>
-                <Column>
+                    
+                <Column width={170} align="center">
                     <HeaderCell>Wind Component</HeaderCell>
                     <Cell>
                         {(rowData) => renderWindComponent(rowData.runwayHdg)}
