@@ -10,8 +10,11 @@ import AirportDetailTable from "./AirportDetailTable";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import Skeleton from "./Skeleton";
+import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
 
 function AirportDetail() {
+    const [departuresUrl, setDeparturesUrl] = useState("");
+    const [arrivalsUrl, setArrivalUrl] = useState("");
     const [airport, setAirport] = useState();
     const [metar, setMetar] = useState([]);
     
@@ -24,6 +27,15 @@ function AirportDetail() {
         }
     }, []);
     
+    const renderWidget = () => {
+        if (airport && airport.iata) {
+            return (
+                <div className="mt-5 w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px]">
+                    <AirportDetailTrafficWidget iata={airport.iata} airportName={airport.station.name} />
+                </div>
+            );
+        }
+    };
     
     if (airport) {
         const { country_code, country_name } = airport.station.country;
@@ -79,9 +91,9 @@ function AirportDetail() {
                     </div>
                 </div>
                 <div className="w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px] ">
-                    <div>Weather</div>
                     <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                 </div>
+                {renderWidget()}
             </div>
         );
     }
