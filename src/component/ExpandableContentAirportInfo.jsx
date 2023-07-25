@@ -109,6 +109,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
         </div>
     ));
     
+    
     const handleClick = () => {
         localStorage.setItem("airportData", JSON.stringify(airportData));
         navigate("/airport/detail");

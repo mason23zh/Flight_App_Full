@@ -19,6 +19,12 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
             }),
+            fetchDetailAirportWithICAO_Widget: build.query({
+                query: ({ icao, decode }) => ({
+                    url: `icao/widget/${icao}?decode=${decode}`,
+                    method: "GET",
+                }),
+            }),
             fetchAirportsWithGenericInput: build.query({
                 query: ({ searchTerm, page, limit }) => ({
                     url: `/generic/paginate/${searchTerm}?page=${page}&limit=${limit}`,
@@ -32,5 +38,6 @@ export const airportsApi = createApi({
 export const {
     useFetchAirportsWithGenericInputQuery,
     useFetchBasicAirportWithICAOQuery,
+    useFetchDetailAirportWithICAO_WidgetQuery,
     useFetchDetailAirportWithICAO,
 } = airportsApi;

@@ -11,24 +11,57 @@ import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import Skeleton from "./Skeleton";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
+import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 
 function AirportDetail() {
-    const [departuresUrl, setDeparturesUrl] = useState("");
-    const [arrivalsUrl, setArrivalUrl] = useState("");
     const [airport, setAirport] = useState();
-    const [metar, setMetar] = useState([]);
+    const [metar, setMetar] = useState({});
+    const [skipRender, setSkipRender] = useState(true);
+    const [widgetAvailable, setWidgetAvailable] = useState(false);
+    
     
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
         if (airportData) {
-            console.log("airport data", airportData);
             setAirport(airportData);
+            setSkipRender(false);
         }
     }, []);
     
+    // !this is a redundant request, but needed to be here because we need to check the widget availability
+    // !from the server, and passing wind data to Runway Table
+    // !code refactor required
+    const {
+        data: widgetData,
+        error: widgetError,
+        isFetching: widgetFetching,
+    } = useFetchDetailAirportWithICAO_WidgetQuery({ icao: airport?.ICAO, decode: true }, {
+        skip: skipRender,
+        refetchOnMountOrArgChange: true,
+    });
+    
+    useEffect(() => {
+        if (widgetData) {
+            if (widgetData.results > 0) {
+                // check widget
+                if (!widgetData.data[0].widget || widgetData.data[0].widget === false) {
+                    setWidgetAvailable(false);
+                } else {
+                    setWidgetAvailable(true);
+                }
+                
+                // check METAR
+                if (widgetData.data[0].METAR) {
+                    setMetar(widgetData.data[0].METAR);
+                }
+            }
+        }
+    }, [widgetData]);
+    
+    
     const renderWidget = () => {
-        if (airport && airport.iata) {
+        if (widgetAvailable) {
             return (
                 <div className="mt-5 w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px]">
                     <AirportDetailTrafficWidget iata={airport.iata} airportName={airport.station.name} />
@@ -47,10 +80,6 @@ function AirportDetail() {
         } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
         
-        const handleReceiveMetar = (receivedMetar) => {
-            setMetar(receivedMetar);
-        };
-        
         return (
             <div className="flex flex-col items-center bg-gray-50">
                 <div className="bg-gray-50 flex flex-col p-5 mb-10 items-center">
@@ -64,7 +93,7 @@ function AirportDetail() {
                         </div>
                             
                         <div className="p-3">
-                            <AirportDetailWeatherSection icao={ICAO} onReceiveMetar={handleReceiveMetar} />
+                            <AirportDetailWeatherSection icao={ICAO} />
                         </div>
                             
                         <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">

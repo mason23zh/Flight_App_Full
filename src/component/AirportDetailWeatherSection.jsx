@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useFetchMetarByICAOQuery } from "../store";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
 
-function AirportDetailWeatherSection({ icao, onReceiveMetar }) {
+function AirportDetailWeatherSection({ icao }) {
     const [skipRender, setSkipRender] = useState(true);
     const [ICAO, setICAO] = useState("");
     useEffect(() => {
@@ -36,7 +36,6 @@ function AirportDetailWeatherSection({ icao, onReceiveMetar }) {
     
     if (metar) {
         if (metar.data && metar.results !== 0) {
-            onReceiveMetar(metar.data);
             const { data } = metar;
             const {
                 conditions = [],

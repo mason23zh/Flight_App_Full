@@ -67,19 +67,19 @@ function AirportDetailWeatherPanel({
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center ">
                             <div>Temperature:</div>
-                            <div>{temperature.celsius}{"\u00b0"}C ({temperature.fahrenheit}{"\u00b0"}F)</div>
+                            <div>{temperature?.celsius}{"\u00b0"}C ({temperature?.fahrenheit}{"\u00b0"}F)</div>
                         </div>
                     </div>
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center">
                             <div>Dewpoint:</div>
-                            <div>{dewpoint.celsius}{"\u00b0"}C ({dewpoint.fahrenheit}{"\u00b0"}F)</div>
+                            <div>{dewpoint?.celsius}{"\u00b0"}C ({dewpoint?.fahrenheit}{"\u00b0"}F)</div>
                         </div>
                     </div>
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center">
                             <div>Humidity:</div>
-                            <div>{humidity.percent} %</div>
+                            <div>{humidity?.percent} %</div>
                         </div>
                     </div>
                     <div className="hover:border-2 rounded-xl">

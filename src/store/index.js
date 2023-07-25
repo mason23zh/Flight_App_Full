@@ -24,7 +24,10 @@ export const store = configureStore({
 setupListeners(store.dispatch);
 
 export {
-    useFetchAirportsWithGenericInputQuery, useFetchBasicAirportWithICAOQuery, useFetchDetailAirportWithICAO,
+    useFetchAirportsWithGenericInputQuery,
+    useFetchBasicAirportWithICAOQuery,
+    useFetchDetailAirportWithICAO,
+    useFetchDetailAirportWithICAO_WidgetQuery,
 } from "./apis/airportsApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";

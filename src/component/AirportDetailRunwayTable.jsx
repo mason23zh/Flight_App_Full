@@ -7,12 +7,12 @@ const { Column, HeaderCell, Cell } = Table;
 function AirportDetailRunwayTable({ runways, metar }) {
     const [sortColumn, setSortColumn] = useState();
     const [sortType, setSortType] = useState();
-    const [weather, setWeather] = useState([]);
+    const [weather, setWeather] = useState();
     
     const toRadians = (angle) => angle * (Math.PI / 180);
     
     useEffect(() => {
-        if (metar.length !== 0) {
+        if (metar) {
             setWeather(metar);
         }
     }, [metar]);
@@ -20,9 +20,9 @@ function AirportDetailRunwayTable({ runways, metar }) {
     const renderWindComponent = (runwayHdg) => {
         let headWindComponent;
         let crossWindComponent;
-        if (weather.length !== 0) {
-            const windDegrees = weather[0].wind.degrees;
-            const windSpeed = weather[0].wind.speed_kts;
+        if (weather) {
+            const windDegrees = weather?.wind?.degrees;
+            const windSpeed = weather?.wind?.speed_kts;
             const crossWind = Math.round(Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             const headWind = Math.round(Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             if (crossWind <= 0) {

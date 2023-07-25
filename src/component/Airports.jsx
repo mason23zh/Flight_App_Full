@@ -12,7 +12,7 @@ function Airports() {
     const [skipRender, setSkipRender] = useState(true);
     const [page, setPage] = useState(1);
     const message = "Airport information";
-    const placeHolderMessage = "Search ICAO or airport name";
+    const placeHolderMessage = "Search ICAO, IATA, Airport Name, City ... ";
     
     // take input results from the Navbar and make the search
     useEffect(() => {
