@@ -41,7 +41,7 @@ function AirportDetailWeatherPanel({
     }
     
     const renderCloudsLayers = clouds.map((cloud) => {
-        if (cloud.code === "CAVOK") {
+        if (cloud.code === "CAVOK" || cloud.code === "NCD") {
             return (
                 <div className="flex flex-col" key={`${cloud.code}${cloud.text}`}>
                     <div>
@@ -91,8 +91,8 @@ function AirportDetailWeatherPanel({
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center">
                             <div>Wind:</div>
-                            <div>From
-                                the {wind.degrees} degrees
+                            <div>
+                                {wind.degrees} degrees
                                 at {wind.speed_kts} kts {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
                             </div>
                         </div>

@@ -31,6 +31,12 @@ function Airports() {
         refetchOnMountOrArgChange: true,
     });
     
+    useEffect(() => {
+        if (data) {
+            localStorage.setItem("airportListData", JSON.stringify(data));
+        }
+    }, [data]);
+    
     
     const handleOnSubmit = (input) => {
         setUserInput(input);
@@ -48,6 +54,9 @@ function Airports() {
         renderedAirport = <Skeleton className="h-8 w-auto" times={10} />;
     } else if (error) {
         renderedAirport = <h3>Error</h3>;
+    } else if (localStorage.getItem("airportListData") !== null) {
+        const localData = JSON.parse(localStorage.getItem("airportListData"));
+        renderedAirport = <AirportsList airports={localData} goToPage={onGoToPage} />;
     } else {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
