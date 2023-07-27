@@ -13,8 +13,14 @@ export const metarApi = createApi({
                     method: "GET",
                 }),
             }),
+            fetchMetarByGenericInput: build.query({
+                query: ({ data }) => ({
+                    url: `/get-metar/generic/${data}?decode=true`,
+                    method: "GET",
+                }),
+            }),
         };
     },
 });
 
-export const { useFetchMetarByICAOQuery } = metarApi;
+export const { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } = metarApi;

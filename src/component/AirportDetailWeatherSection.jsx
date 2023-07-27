@@ -52,7 +52,7 @@ function AirportDetailWeatherSection({ icao }) {
                 
             } = data[0];
             return (
-                <div>
+                <div className="w-[calc(100%+2rem)]">
                     <AirportDetailWeatherPanel
                         raw_text={raw_text}
                         flightCategory={flight_category}

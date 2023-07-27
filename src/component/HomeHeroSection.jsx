@@ -36,7 +36,7 @@ function HomeHeroSection({ backgroundImage }) {
                         onChange={handleInputChange}
                         value={input}
                         className="rounded-xl border-2 w-full h-10"
-                        placeholder="   Search ICAO code, airport name, city..."
+                        placeholder="   Search ICAO code, IATA code, airport name, city..."
                     />
                     <button
                         type="submit"

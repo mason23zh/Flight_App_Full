@@ -8,7 +8,7 @@ export const weatherApi = createApi({
     endpoints(build) {
         return {
             fetchGenericWeather: build.query({
-                query: (data) => ({
+                query: ({ data }) => ({
                     url: `/search-weather/generic/${data}`,
                     method: "GET",
                 }),

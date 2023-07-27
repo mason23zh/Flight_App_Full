@@ -12,12 +12,14 @@ export const store = configureStore({
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
+        [weatherApi.reducerPath]: weatherApi.reducer,
         
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
         .concat(airportsApi.middleware)
         .concat(extremeWeatherApi.middleware)
-        .concat(metarApi.middleware),
+        .concat(metarApi.middleware)
+        .concat(weatherApi.middleware),
     
 });
 
@@ -31,5 +33,5 @@ export {
 } from "./apis/airportsApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
-export { useFetchMetarByICAOQuery } from "./apis/metarApi";
+export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
 export { changeUserSelection };

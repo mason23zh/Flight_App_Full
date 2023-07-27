@@ -96,8 +96,8 @@ function AirportDetail() {
                             <AirportDetailWeatherSection icao={ICAO} />
                         </div>
                             
-                        <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center p-3 mr-5">
-                            <div className="p-5 ml-3">
+                        <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center mr-5">
+                            <div className="p-3 ml-3">
                                 <AirportDetailTable
                                     ICAO={ICAO}
                                     iata={iata}
@@ -113,7 +113,7 @@ function AirportDetail() {
                                     wikiLink={wikipedia_link}
                                 />
                             </div>
-                            <div className="xl:w-[960px] h-[350px] p-5 fs:w-[654px] h-[654px] p-5">
+                            <div className="xl:w-[960px] h-[350px] p-3 fs:w-[654px] h-[654px] p-5">
                                 <AirportMap lat={lat} lng={lng} name={name} />
                             </div>
                         </div>

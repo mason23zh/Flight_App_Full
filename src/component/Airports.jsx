@@ -7,6 +7,10 @@ import { useFetchAirportsWithGenericInputQuery } from "../store";
 import Skeleton from "./Skeleton";
 
 function Airports() {
+    window.onbeforeunload = function () {
+        localStorage.clear();
+    };
+    
     const { pathname, state } = useLocation();
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
@@ -41,6 +45,7 @@ function Airports() {
     const handleOnSubmit = (input) => {
         setUserInput(input);
         setSkipRender(false);
+        setPage(1);
     };
     
     const onGoToPage = (inputPage) => {
