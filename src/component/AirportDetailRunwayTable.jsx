@@ -67,7 +67,7 @@ function AirportDetailRunwayTable({ runways, metar }) {
                         <div>
                             <div>
                                 <AirportDetailRunwayTableIconContext
-                                    icon={<HiArrowNarrowDown />}
+                                    icon={<HiArrowNarrowUp />}
                                     color={{ color: "#ef5350" }}
                                 />
                             </div>
