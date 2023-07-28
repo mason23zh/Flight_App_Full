@@ -18,6 +18,7 @@ export const metarApi = createApi({
                     url: `/get-metar/generic/${data}?decode=true`,
                     method: "GET",
                 }),
+                extraOptions: { maxRetries: 3 },
             }),
         };
     },

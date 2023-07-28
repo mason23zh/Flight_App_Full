@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Table } from "rsuite";
+import {
+    HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
+} from "react-icons/hi";
+import AirportDetailRunwayTableIconContext from "./AirportDetailRunwayTable_IconContext";
 
 const { Column, HeaderCell, Cell } = Table;
 
@@ -17,6 +21,7 @@ function AirportDetailRunwayTable({ runways, metar }) {
         }
     }, [metar]);
     
+    
     const renderWindComponent = (runwayHdg) => {
         let headWindComponent;
         let crossWindComponent;
@@ -26,19 +31,71 @@ function AirportDetailRunwayTable({ runways, metar }) {
             const crossWind = Math.round(Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             const headWind = Math.round(Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             if (crossWind <= 0) {
-                crossWindComponent = `L${-crossWind}`;
+                crossWindComponent = (
+                    <div className="rounded-lg p-1 flex items-center gap-1">
+                        <div>
+                            <div>
+                                <AirportDetailRunwayTableIconContext
+                                    icon={<HiArrowNarrowLeft />}
+                                    color={{ color: "#4caf50" }}
+                                />
+                            </div>
+                        </div>
+                        <div>{-crossWind} kts</div>
+                    </div>
+                );
             } else if (crossWind > 0) {
-                crossWindComponent = `R${crossWind}`;
+                crossWindComponent = (
+                    <div className="rounded-lg p-1 flex items-center gap-1">
+                        <div>
+                            <div>
+                                <AirportDetailRunwayTableIconContext
+                                    icon={<HiArrowNarrowRight />}
+                                    color={{ color: "#4caf50" }}
+                                />
+                            </div>
+                        </div>
+                        <div>{crossWind} kts</div>
+                    </div>
+                );
             }
             
+            
             if (headWind <= 0) {
-                headWindComponent = `T${-headWind}`;
+                headWindComponent = (
+                    <div className="rounded-lg p-1 flex items-center gap-1">
+                        <div>
+                            <div>
+                                <AirportDetailRunwayTableIconContext
+                                    icon={<HiArrowNarrowDown />}
+                                    color={{ color: "#ef5350" }}
+                                />
+                            </div>
+                        </div>
+                        <div>{-headWind} kts</div>
+                    </div>
+                );
             } else if (headWind > 0) {
-                headWindComponent = `H${headWind}`;
+                headWindComponent = (
+                    <div className="rounded-lg p-1 flex items-center gap-1">
+                        <div>
+                            <div>
+                                <AirportDetailRunwayTableIconContext
+                                    icon={<HiArrowNarrowDown />}
+                                    color={{ color: "#4caf50" }}
+                                />
+                            </div>
+                        </div>
+                        <div>{headWind} kts</div>
+                    </div>
+                );
             }
             
             return (
-                <div>{headWindComponent}/{crossWindComponent}</div>
+                <div className="flex gap-4 items-center justify-center">
+                    <div className="w-[45%]">{headWindComponent}</div>
+                    <div className="w-[45%]">{crossWindComponent}</div>
+                </div>
             );
         }
         return (
