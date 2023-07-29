@@ -20,22 +20,19 @@ function Weather() {
         skip: !userInput,
     });
     
-    
     const handleFormSubmit = (input) => {
         setUserInput(input);
         setSkipRender(false);
     };
     
-    if (data) {
-        console.log("data", data);
-        renderedWeather = <WeatherList weather={data} />;
+    
+    if (error) {
+        renderedWeather = <div className="text-xl text-center">No Results</div>;
     } else if (isFetching) {
         renderedWeather = <div className="text-cl text-center">Loading..</div>;
-    } else if (error) {
-        console.log("ERROR", error);
-        renderedWeather = <div className="text-xl text-center">No Results</div>;
+    } else if (data) {
+        renderedWeather = <WeatherList weather={data} />;
     }
-    
     
     return (
         <div>
