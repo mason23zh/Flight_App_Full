@@ -13,9 +13,10 @@ function AirportDetailWeatherPanel({
     humidity,
     wind,
     visibility,
+    expand = false,
 }) {
     let renderWeatherCondition;
-    if (conditions.length > 0) {
+    if (conditions && conditions.length > 0) {
         renderWeatherCondition = conditions.map((condition) => (
             <div className="flex flex-col" key={condition.code}>
                 <div>
@@ -29,7 +30,7 @@ function AirportDetailWeatherPanel({
     }
     
     let renderWeather;
-    if (conditions.length === 0) {
+    if (!conditions || conditions?.length === 0) {
         renderWeather = "";
     } else {
         renderWeather = (
@@ -41,7 +42,7 @@ function AirportDetailWeatherPanel({
     }
     
     const renderCloudsLayers = clouds.map((cloud) => {
-        if (cloud.code === "CAVOK" || cloud.code === "NCD") {
+        if (cloud.code === "CAVOK" || cloud.code === "NCD" || cloud.code === "SKC") {
             return (
                 <div className="flex flex-col" key={`${cloud.code}${cloud.text}`}>
                     <div>
@@ -62,7 +63,7 @@ function AirportDetailWeatherPanel({
     
     return (
         <div>
-            <Panel header={raw_text} collapsible bordered>
+            <Panel header={raw_text} collapsible bordered defaultExpanded={expand}>
                 <div className="flex flex-col">
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center ">
@@ -109,9 +110,12 @@ function AirportDetailWeatherPanel({
                             <div>{renderCloudsLayers}</div>
                         </div>
                     </div>
-                    <div className="hover:border-2 rounded-xl">
-                        {renderWeather}
-                    </div>
+                    {renderWeather.length !== 0
+                        ? (
+                            <div className="hover:border-2 rounded-xl">
+                                {renderWeather}
+                            </div>
+                        ) : <></>}
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 justify-items-center">
                             <div>Flight Category:</div>
@@ -125,3 +129,4 @@ function AirportDetailWeatherPanel({
 }
 
 export default AirportDetailWeatherPanel;
+ 

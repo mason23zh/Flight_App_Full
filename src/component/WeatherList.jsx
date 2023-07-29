@@ -2,7 +2,6 @@ import React from "react";
 import WeatherAccordion from "./WeatherAccordion";
 
 function WeatherList({ weather }) {
-    console.log("Weather in weatherList", weather);
     let renderedWeather;
     
     const { data } = weather;

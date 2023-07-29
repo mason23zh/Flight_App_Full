@@ -1,12 +1,24 @@
 // This accordion will display basic information of airport
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
 
 function WeatherAccordion({ weather }) {
     const [expand, setExpand] = useState(false);
     
     const {
-        icao, station, raw_text,
+        icao,
+        station,
+        raw_text,
+        flight_category,
+        temperature,
+        dewpoint,
+        barometer,
+        clouds,
+        conditions,
+        humidity,
+        wind,
+        visibility,
     } = weather;
     
     const handleExpand = () => {
@@ -15,7 +27,22 @@ function WeatherAccordion({ weather }) {
     
     const expandedContent = () => (
         <div>
-            {raw_text}
+            <div className="w-[calc(100%+2rem)]">
+                <AirportDetailWeatherPanel
+                    raw_text={raw_text}
+                    flightCategory={flight_category}
+                    temperature={temperature}
+                    dewpoint={dewpoint}
+                    barometer={barometer}
+                    clouds={clouds}
+                    conditions={conditions}
+                    humidity={humidity}
+                    wind={wind}
+                    visibility={visibility}
+                    expand
+                />
+            </div>
+            
         </div>
     );
     
