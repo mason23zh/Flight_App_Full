@@ -4,11 +4,11 @@ import WeatherAccordion from "./WeatherAccordion";
 function WeatherList({ weather }) {
     let renderedWeather;
     
-    const { data } = weather;
-    if (data.length === 0) {
+    if (!weather?.data || weather.data.length === 0) {
+        localStorage.clear();
         renderedWeather = <div className="text-lg">No Results</div>;
     } else {
-        renderedWeather = data.map((w) => (
+        renderedWeather = weather?.data.map((w) => (
             <div key={w.icao}>
                 <WeatherAccordion weather={w} />
             </div>
