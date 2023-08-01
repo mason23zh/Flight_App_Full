@@ -14,7 +14,6 @@ function SubRowAsync({ row }) {
     
     if (airport) {
         const airportData = airport.data[0];
-        console.log(airportData);
         return (
             <ExpandableContentAirportInfo row={row} airportData={airportData} />
         );
