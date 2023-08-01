@@ -1,9 +1,9 @@
-/* eslint-disable react/style-prop-object */
 /*
  Detailed airport information triggered by clicking "Go to Airport" button
  in AirportAccordion
  * */
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
@@ -23,9 +23,25 @@ function AirportDetail() {
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
-        if (airportData) {
+        if (airportData && !airportData?.flag) {
             setAirport(airportData);
             setSkipRender(false);
+            localStorage.removeItem("airportData");
+        } else if (airportData && airportData.flag === true) {
+            const requestAirport = async (storageICAO) => {
+                try {
+                    const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${storageICAO}?decode=true`);
+                    if (response) {
+                        setAirport(response.data.data[0].airport);
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+            };
+            
+            requestAirport(airportData.ICAO).catch(console.error);
+            setSkipRender(false);
+            localStorage.removeItem("airportData");
         }
     }, []);
     

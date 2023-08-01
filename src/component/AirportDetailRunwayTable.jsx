@@ -91,16 +91,18 @@ function AirportDetailRunwayTable({ runways, metar }) {
                 );
             }
             
+            if (headWindComponent && crossWindComponent) {
+                return (
+                    <div className="flex gap-4 items-center justify-center">
+                        <div className="w-[45%]">{headWindComponent}</div>
+                        <div className="w-[45%]">{crossWindComponent}</div>
+                    </div>
+                );
+            }
             return (
-                <div className="flex gap-4 items-center justify-center">
-                    <div className="w-[45%]">{headWindComponent}</div>
-                    <div className="w-[45%]">{crossWindComponent}</div>
-                </div>
+                <div>N/A</div>
             );
         }
-        return (
-            <div>N/A</div>
-        );
     };
     
     

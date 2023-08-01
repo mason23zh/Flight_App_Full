@@ -21,8 +21,17 @@ function WeatherAccordion({ weather }) {
         visibility,
     } = weather;
     
+    useEffect(() => {
+        localStorage.removeItem("airportData");
+    });
+    
     const handleExpand = () => {
         setExpand(!expand);
+    };
+    
+    const handleLinkClick = () => {
+        const airport = { ICAO: icao, flag: true };
+        localStorage.setItem("airportData", JSON.stringify(airport));
     };
     
     const expandedContent = () => (
@@ -42,7 +51,15 @@ function WeatherAccordion({ weather }) {
                     expand
                 />
             </div>
-            
+            <div className="text-center mt-3">
+                <Link
+                    to="/airport/detail"
+                    className="rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline "
+                    onMouseOver={handleLinkClick}
+                >Go to
+                    Airport
+                </Link>
+            </div>
         </div>
     );
     
@@ -69,6 +86,7 @@ function WeatherAccordion({ weather }) {
                 </div>
             </div>
             {expand ? expandedContent() : ""}
+            
         </div>
     );
 }

@@ -24,9 +24,9 @@ function Weather() {
         skip: !userInput,
     });
     
+    // store data to localStorage to save the previous search results
     useEffect(() => {
         if (data) {
-            console.log("Store to index", data);
             localStorage.setItem("weatherListData", JSON.stringify(data));
         }
     }, [data]);
@@ -35,7 +35,6 @@ function Weather() {
         setUserInput(input);
         setSkipRender(false);
     };
-    
     
     if (error) {
         renderedWeather = <div className="text-xl text-center">No Results</div>;
