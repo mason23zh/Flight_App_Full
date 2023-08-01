@@ -26,8 +26,8 @@ function Navbar() {
         <nav className="flex justify-between py-1 px-5 mb-1">
             <ul className="list-none flex items-center gap-3 text-lg">
                 <li>
-                    <Link className="m-0" to="/">
-                        PlaceHolderName
+                    <Link className="m-0 text-red-500" to="/">
+                        BETA
                     </Link>
                 </li>
                 <li>
