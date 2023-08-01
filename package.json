@@ -2,7 +2,9 @@
     "name": "client",
     "version": "0.1.0",
     "private": true,
-    "proxy": "https://www.avionio.com",
+    "engines": {
+        "node": "16.x"
+    },
     "dependencies": {
         "-": "^0.0.1",
         "@reduxjs/toolkit": "^1.9.3",
