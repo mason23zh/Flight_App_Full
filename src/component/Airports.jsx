@@ -5,8 +5,11 @@ import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
 import Skeleton from "./Skeleton";
+import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
+    const darkmode = useTheme();
+    console.log(darkmode);
     window.onbeforeunload = function () {
         localStorage.clear();
     };
