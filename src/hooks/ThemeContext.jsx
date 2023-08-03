@@ -17,6 +17,11 @@ export function ThemeProvider({ children }) {
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     function toggleTheme() {
         setDarkTheme((prevDarkTheme) => !prevDarkTheme);
+        if (darkTheme) {
+            localStorage.setItem("theme", "light");
+        } else {
+            localStorage.setItem("theme", "dark");
+        }
     }
     
     return (

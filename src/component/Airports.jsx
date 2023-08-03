@@ -69,8 +69,10 @@ function Airports() {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
     
+    const themeClassName = darkmode ? "h-screen bg-[#121212] text-gray-300" : "h-screen bg-gray-100";
+    
     return (
-        <div>
+        <div className={themeClassName}>
             <HeroSection
                 backgroundImage={backgroundImage}
                 message={message}
