@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
@@ -70,17 +71,19 @@ function Airports() {
     }
     
     const themeClassName = darkmode ? "h-screen bg-[#121212] text-gray-300" : "h-screen bg-gray-100";
-    
+    const themeMode = darkmode ? "dark" : "light";
     return (
-        <div className={themeClassName}>
-            <HeroSection
-                backgroundImage={backgroundImage}
-                message={message}
-                placedHoldMessage={placeHolderMessage}
-                onSubmit={handleOnSubmit}
-            />
-            {renderedAirport}
-        </div>
+        <CustomProvider theme={themeMode}>
+            <div>
+                <HeroSection
+                    backgroundImage={backgroundImage}
+                    message={message}
+                    placedHoldMessage={placeHolderMessage}
+                    onSubmit={handleOnSubmit}
+                />
+                {renderedAirport}
+            </div>
+        </CustomProvider>
     );
 }
 

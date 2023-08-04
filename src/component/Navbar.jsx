@@ -78,7 +78,7 @@ function Navbar() {
                     placeholder={searchPlaceHolder}
                     onChange={handleInputChange}
                     type="text"
-                    className="border-2 rounded-lg py-1 px-3"
+                    className="border-2 rounded-lg py-1 px-3 text-black"
                 />
                 <button type="submit" className="rounded-lg bg-green-400 py-1 px-3">Get Result</button>
             </form>

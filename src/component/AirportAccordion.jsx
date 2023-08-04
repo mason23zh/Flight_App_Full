@@ -5,7 +5,6 @@ import { useTheme } from "../hooks/ThemeContext";
 
 function AirportAccordion({ airport }) {
     const darkMode = useTheme();
-    console.log("darkmode in airport accordion", darkMode);
     const themeClass = !darkMode
         ? "grid grid-cols-4 w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl items-center justify-between bg-gray-100 drop-shadow-md"
         : "grid grid-cols-4 w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl items-center justify-between bg-gray-500 drop-shadow-md";
@@ -32,17 +31,19 @@ function AirportAccordion({ airport }) {
             </div>
             <div className="text-center">
                 <div className={darkMode ? "text-gray-100 font-bold" : "text-gray-500 font-bold"}>Name</div>
-                <div>{station.name}</div>
+                <div className={darkMode ? "text-gray-100" : "text-gray-500"}>{station.name}</div>
             </div>
             <div className="text-center">
                 <div className={darkMode ? "text-gray-100 font-bold" : "text-gray-500 font-bold"}>Location</div>
-                <div>{station.city}, {station.region.region_name}, {station.country.country_name}</div>
+                <div className={darkMode ? "text-gray-100" : "text-gray-500"}>{station.city}, {station.region.region_name}, {station.country.country_name}</div>
             </div>
             <div className="text-center">
                 <Link
                     onMouseOver={handleLinkClick}
                     to="/airport/detail"
-                    className="rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline "
+                    className={darkMode
+                        ? "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-300 hover:no-underline text-gray-100"
+                        : "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline"}
                 >Go to
                     Airport
                 </Link>

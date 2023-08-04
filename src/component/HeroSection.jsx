@@ -37,7 +37,7 @@ function HeroSection({
                     <input
                         onChange={handleInputChange}
                         value={input}
-                        className="rounded-xl border-2 w-full h-10"
+                        className="rounded-xl border-2 w-full h-10 text-black"
                         placeholder={`  ${placedHoldMessage}`}
                     />
                     <button

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import backgroundImage from "../images/clearsky.jpg";
+import backGroundImageDarkMode from "../images/nightSky.jpg";
 import HeroSection from "./HeroSection";
 import { useFetchMetarByGenericInputQuery } from "../store";
 import WeatherList from "./WeatherList";
+import { useTheme } from "../hooks/ThemeContext";
 
 function Weather() {
+    const darkMode = useTheme();
+    const bgImg = darkMode ? backGroundImageDarkMode : backgroundImage;
     window.onbeforeunload = function () {
         localStorage.clear();
     };
@@ -52,7 +56,7 @@ function Weather() {
     return (
         <div>
             <HeroSection
-                backgroundImage={backgroundImage}
+                backgroundImage={bgImg}
                 message={message}
                 placedHoldMessage={placeHolderMessage}
                 onSubmit={handleFormSubmit}

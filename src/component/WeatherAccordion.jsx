@@ -1,7 +1,9 @@
 // This accordion will display basic information of airport
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CustomProvider } from "rsuite";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
+import { useTheme } from "../hooks/ThemeContext";
 
 function WeatherAccordion({ weather }) {
     const [expand, setExpand] = useState(false);
@@ -35,6 +37,7 @@ function WeatherAccordion({ weather }) {
     };
     
     const expandedContent = () => (
+            
         <div>
             <div className="w-[calc(100%+2rem)]">
                 <AirportDetailWeatherPanel
@@ -61,33 +64,39 @@ function WeatherAccordion({ weather }) {
                 </Link>
             </div>
         </div>
+    
     );
     
-    
+    const darkMode = useTheme();
+    const darkTheme = darkMode ? "dark" : "light";
+    const darkModeClass = darkMode
+        ? "flex flex-col items-center justify-center w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl bg-gray-500 drop-shadow-md"
+        : "flex flex-col items-center justify-center w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl bg-gray-100 drop-shadow-md";
     return (
-        <div className="flex flex-col items-center justify-center w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl bg-gray-100 drop-shadow-md">
-            <div className="grid grid-cols-3 w-[1080px] h-full justify-between items-center">
-                <div className="text-center">
-                    <div className="text-gray-500 font-bold">ICAO</div>
-                    <div className="contrast-500">{icao}</div>
-                </div>
-                <div className="text-center">
-                    <div className="text-gray-500 font-bold">Name</div>
-                    <div>{station.location.name}</div>
-                </div>
-                <div className="text-center">
-                    <div className="flex flex-col items-center">
-                        <div
-                            className="cursor-pointer w-[35%] text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
-                            onClick={handleExpand}
-                        >{expand ? "Hide" : "Detail"}
+        <CustomProvider theme={darkTheme}>
+            <div className={darkModeClass}>
+                <div className="grid grid-cols-3 w-[1080px] h-full justify-between items-center">
+                    <div className="text-center">
+                        <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>ICAO</div>
+                        <div className="contrast-500">{icao}</div>
+                    </div>
+                    <div className="text-center">
+                        <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>Name</div>
+                        <div>{station.location.name}</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="flex flex-col items-center">
+                            <div
+                                className="cursor-pointer w-[35%] text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
+                                onClick={handleExpand}
+                            >{expand ? "Hide" : "Detail"}
+                            </div>
                         </div>
                     </div>
                 </div>
+                {expand ? expandedContent() : ""}
             </div>
-            {expand ? expandedContent() : ""}
-            
-        </div>
+        </CustomProvider>
     );
 }
 

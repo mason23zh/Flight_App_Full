@@ -4,6 +4,7 @@
  * */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { CustomProvider } from "rsuite";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
@@ -12,8 +13,10 @@ import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import Skeleton from "./Skeleton";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
 import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
+import { useTheme } from "../hooks/ThemeContext";
 
 function AirportDetail() {
+    const darkMode = useTheme();
     const [airport, setAirport] = useState();
     const [metar, setMetar] = useState({});
     const [skipRender, setSkipRender] = useState(true);
@@ -86,6 +89,8 @@ function AirportDetail() {
         }
     };
     
+    const themeClassName = darkMode ? "h-full bg-[#121212] text-gray-300" : "h-full bg-gray-100";
+    const themeMode = darkMode ? "dark" : "light";
     if (airport) {
         const { country_code, country_name } = airport.station.country;
         const { region_name } = airport.station.region;
@@ -97,49 +102,51 @@ function AirportDetail() {
         const [lng, lat] = airport.station.geometry.coordinates;
         
         return (
-            <div className="flex flex-col items-center bg-gray-50">
-                <div className="bg-gray-50 flex flex-col p-5 mb-10 items-center">
-                    <div className="flex flex-col items-center gap-3">
-                        <div className="mt-3">
-                            <AirportDetailNameSection
-                                name={name}
-                                icao={ICAO}
-                                countryCode={country_code}
-                            />
-                        </div>
-                            
-                        <div className="p-3">
-                            <AirportDetailWeatherSection icao={ICAO} />
-                        </div>
-                            
-                        <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center mr-5">
-                            <div className="p-3 ml-3">
-                                <AirportDetailTable
-                                    ICAO={ICAO}
-                                    iata={iata}
-                                    region={region_name}
-                                    country={country_name}
-                                    runwayCount={airport.runways.length}
-                                    airportType={type}
-                                    elevation={elevation}
-                                    transitionAltitude={transitionAltitude}
-                                    lng={lng}
-                                    lat={lat}
-                                    homeLink={home_link}
-                                    wikiLink={wikipedia_link}
+            <CustomProvider theme={themeMode}>
+                <div className="flex flex-col items-center">
+                    <div className="flex flex-col p-5 mb-10 items-center">
+                        <div className="flex flex-col items-center gap-3">
+                            <div className="mt-3">
+                                <AirportDetailNameSection
+                                    name={name}
+                                    icao={ICAO}
+                                    countryCode={country_code}
                                 />
                             </div>
-                            <div className="xl:w-[960px] h-[350px] p-3 fs:w-[654px] h-[654px] p-5">
-                                <AirportMap lat={lat} lng={lng} name={name} />
+                                
+                            <div className="p-3">
+                                <AirportDetailWeatherSection icao={ICAO} />
+                            </div>
+                                
+                            <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center mr-5">
+                                <div className="p-3 ml-3">
+                                    <AirportDetailTable
+                                        ICAO={ICAO}
+                                        iata={iata}
+                                        region={region_name}
+                                        country={country_name}
+                                        runwayCount={airport.runways.length}
+                                        airportType={type}
+                                        elevation={elevation}
+                                        transitionAltitude={transitionAltitude}
+                                        lng={lng}
+                                        lat={lat}
+                                        homeLink={home_link}
+                                        wikiLink={wikipedia_link}
+                                    />
+                                </div>
+                                <div className="xl:w-[960px] h-[350px] p-3 fs:w-[654px] h-[654px] p-5">
+                                    <AirportMap lat={lat} lng={lng} name={name} />
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px] ">
+                        <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
+                    </div>
+                    {renderWidget()}
                 </div>
-                <div className="w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px] ">
-                    <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
-                </div>
-                {renderWidget()}
-            </div>
+            </CustomProvider>
         );
     }
     return (

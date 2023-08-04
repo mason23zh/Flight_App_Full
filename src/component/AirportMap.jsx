@@ -4,6 +4,7 @@ import {
     MapContainer, Marker, Popup, TileLayer,
 } from "react-leaflet";
 import L from "leaflet";
+import { CustomProvider } from "rsuite";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -22,6 +23,7 @@ function AirportMap({ lat, lng, name }) {
                 scrollWheelZoom={false}
             >
                 <TileLayer
+                    id="mapbox/dark-v10"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
