@@ -18,12 +18,10 @@ function HomeHeroSection({ backgroundImage }) {
             navigate("/airport", { state: { userInput: input } });
         }
     };
-    const darkmode = useTheme();
-    const themeMode = darkmode ? "dark" : "light";
-    
+    const darkMode = useTheme();
     
     return (
-        <CustomProvider theme={themeMode}>
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div className="relative">
                 <div
                     style={{

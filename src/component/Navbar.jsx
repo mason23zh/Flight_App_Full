@@ -1,11 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { IoMoon, IoSunny, IoSunnyOutline } from "react-icons/io5";
+import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
 function Navbar() {
     const darkTheme = useTheme();
     const toggleTheme = useThemeUpdate();
+    const navBarSubmitButtonClass = darkTheme
+        ? "rounded-lg bg-green-500 text-white py-1 px-3"
+        : "rounded-lg bg-green-400 py-1 px-3";
+    const navBarBgTheme = darkTheme
+        ? "flex justify-between py-1 px-5"
+        : "flex justify-between py-1 px-5 bg-gray-100";
     
     const navigate = useNavigate();
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
@@ -33,17 +39,22 @@ function Navbar() {
     };
     
     const nightModeToggleSwitch = (
-        <div
-            onClick={toggleTheme}
-            className="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300 "
-        >
-            {nightMode ? <IoSunnyOutline /> : <IoMoon />}
+        <div className="flex flex-row gap-1 justify-center items-center">
+            <div>|</div>
+            <div
+                onClick={toggleTheme}
+                className=" cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300 "
+            >
+                    
+                {nightMode ? <IoSunnyOutline /> : <IoMoon />}
+                
+            </div>
         </div>
     );
     
     
     return (
-        <nav className="flex justify-between py-1 px-5 mb-1">
+        <nav className={navBarBgTheme}>
             <ul className="list-none flex items-center gap-3 text-lg">
                 <li>
                     <Link className="m-0 text-red-500" to="/">
@@ -80,7 +91,7 @@ function Navbar() {
                     type="text"
                     className="border-2 rounded-lg py-1 px-3 text-black"
                 />
-                <button type="submit" className="rounded-lg bg-green-400 py-1 px-3">Get Result</button>
+                <button type="submit" className={navBarSubmitButtonClass}>Get Result</button>
             </form>
         </nav>
     );

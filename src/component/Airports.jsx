@@ -5,12 +5,10 @@ import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg"
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
-import Skeleton from "./Skeleton";
 import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
-    const darkmode = useTheme();
-    console.log(darkmode);
+    const darkMode = useTheme();
     window.onbeforeunload = function () {
         localStorage.clear();
     };
@@ -60,7 +58,7 @@ function Airports() {
     if (data) {
         renderedAirport = <AirportsList airports={data} goToPage={onGoToPage} />;
     } else if (isFetching) {
-        renderedAirport = <Skeleton className="h-8 w-auto" times={10} />;
+        renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
         renderedAirport = <h3>Error</h3>;
     } else if (localStorage.getItem("airportListData") !== null) {
@@ -70,10 +68,8 @@ function Airports() {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
     
-    const themeClassName = darkmode ? "h-screen bg-[#121212] text-gray-300" : "h-screen bg-gray-100";
-    const themeMode = darkmode ? "dark" : "light";
     return (
-        <CustomProvider theme={themeMode}>
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div>
                 <HeroSection
                     backgroundImage={backgroundImage}

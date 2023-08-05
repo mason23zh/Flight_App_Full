@@ -151,8 +151,8 @@ function AirportDetail() {
     }
     return (
     // 1250
-        <div>
-            <Skeleton className="h-8 w-auto" times={10} />;
+        <div className="text-lg text-center">
+            Loading...
         </div>
     );
 }

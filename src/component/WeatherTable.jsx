@@ -175,19 +175,6 @@ function WeatherTable({ expandedContent }) {
         setSortOrder(Number(sortOrder) * -1);
     };
     
-    // const sortableColumn = (column) => (
-    //     <th
-    //         {...column.getHeaderProps()}
-    //         className="text-xl p-2 border-5 bg-red-300"
-    //         onClick={handleSortClick}
-    //     >
-    //         <div className="flex items-center justify-center hover:cursor-pointer">
-    //             {column.render("Header")}
-    //             {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
-    //         </div>
-    //     </th>
-    // );
-    
     const handleLoadMoreData = () => {
         setRequestLimit(requestLimit + 10);
     };
@@ -287,7 +274,7 @@ function WeatherTable({ expandedContent }) {
             <div className="flex justify-center gap-3">
                 <button
                     onClick={handleLoadMoreData}
-                    className="px-2 py-1 bg-green-400 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
+                    className="px-2 py-1 bg-green-500 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
                 >
                     Load More...
                 </button>

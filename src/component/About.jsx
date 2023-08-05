@@ -1,6 +1,5 @@
 import React from "react";
 import { CustomProvider } from "rsuite";
-import WeatherTable from "./WeatherTable";
 import { useTheme } from "../hooks/ThemeContext";
 
 
