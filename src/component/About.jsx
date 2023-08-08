@@ -13,7 +13,7 @@ function About() {
                         DISCLAIMER: NOT FOR REAL NAVIGATION
                     </div>
                     <div>
-                        beta version 0.2
+                        beta version 0.1.1
                     </div>
                 </div>
             </div>
