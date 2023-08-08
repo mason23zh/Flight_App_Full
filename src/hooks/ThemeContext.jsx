@@ -18,9 +18,9 @@ export function ThemeProvider({ children }) {
     function toggleTheme() {
         setDarkTheme((prevDarkTheme) => !prevDarkTheme);
         if (darkTheme) {
-            localStorage.setItem("theme", "light");
+            localStorage.setItem("themeDark", false);
         } else {
-            localStorage.setItem("theme", "dark");
+            localStorage.setItem("themeDark", true);
         }
     }
     

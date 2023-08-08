@@ -5,10 +5,12 @@ import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg"
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
-import { useTheme } from "../hooks/ThemeContext";
+import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
+    
+    // const darkMode = useTheme();
     window.onbeforeunload = function () {
         localStorage.clear();
     };

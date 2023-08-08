@@ -3,24 +3,27 @@ import React, { useEffect, useState } from "react";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
+// logic fix
 function Navbar() {
-    const darkTheme = useTheme();
     const toggleTheme = useThemeUpdate();
-    const navBarSubmitButtonClass = darkTheme
+    const darkModeContext = useTheme();
+    const darkMode = darkModeContext;
+    
+    const navBarSubmitButtonClass = darkMode
         ? "rounded-lg bg-green-500 text-white py-1 px-3"
         : "rounded-lg bg-green-400 py-1 px-3";
-    const navBarBgTheme = darkTheme
+    const navBarBgTheme = darkMode
         ? "flex justify-between py-1 px-5"
         : "flex justify-between py-1 px-5 bg-gray-100";
     
     const navigate = useNavigate();
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
     const [searchInput, setSearchInput] = useState("");
-    const [nightMode, setNightMode] = useState(darkTheme);
+    const [nightMode, setNightMode] = useState(darkModeContext);
     
     useEffect(() => {
-        setNightMode(darkTheme);
-    }, [darkTheme]);
+        setNightMode(darkModeContext);
+    }, [darkModeContext]);
     
     const handleInputChange = (e) => {
         setSearchInput(e.target.value);

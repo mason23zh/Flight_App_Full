@@ -4,7 +4,6 @@ import {
     MapContainer, Marker, Popup, TileLayer,
 } from "react-leaflet";
 import L from "leaflet";
-import { CustomProvider } from "rsuite";
 
 delete L.Icon.Default.prototype._getIconUrl;
 

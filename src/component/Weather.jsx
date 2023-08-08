@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/clearsky.jpg";
 import backGroundImageDarkMode from "../images/nightSky.jpg";
 import HeroSection from "./HeroSection";
@@ -54,15 +55,17 @@ function Weather() {
     }
     
     return (
-        <div>
-            <HeroSection
-                backgroundImage={bgImg}
-                message={message}
-                placedHoldMessage={placeHolderMessage}
-                onSubmit={handleFormSubmit}
-            />
-            {renderedWeather}
-        </div>
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
+            <div>
+                <HeroSection
+                    backgroundImage={bgImg}
+                    message={message}
+                    placedHoldMessage={placeHolderMessage}
+                    onSubmit={handleFormSubmit}
+                />
+                {renderedWeather}
+            </div>
+        </CustomProvider>
     );
 }
 
