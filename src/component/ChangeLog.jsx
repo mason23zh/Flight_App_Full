@@ -34,9 +34,6 @@ function ChangeLog() {
                 <div>---</div>
                 <div className="flex flex-col gap-3">
                     <div>
-                        - Dark mode state not persistence when opening a new tab
-                    </div>
-                    <div>
                         - Mobile device support
                     </div>
                     <div>
