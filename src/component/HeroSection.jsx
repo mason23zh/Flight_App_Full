@@ -42,7 +42,10 @@ function HeroSection({
                     />
                     <button
                         type="submit"
-                        className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl"
+                        className="px-3 py-1 text-black border-white
+                        border-2 rounded-xl text-xl bg-white
+                        bg-opacity-60 text-opacity-80 hover:bg-opacity-80
+                        transition duration-200 ease-in-out"
                     >Get Data
                     </button>
                 </div>

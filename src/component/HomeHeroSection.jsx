@@ -44,7 +44,10 @@ function HomeHeroSection({ backgroundImage }) {
                         />
                         <button
                             type="submit"
-                            className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl"
+                            className="px-3 py-1 text-black border-white border-2
+                                    rounded-xl text-xl bg-white bg-opacity-50
+                                    text-opacity-80 hover:bg-opacity-90
+                                    transition duration-200 ease-in-out"
                         >Get Data
                         </button>
                     </div>
