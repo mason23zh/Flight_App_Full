@@ -9,8 +9,6 @@ import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
-    
-    // const darkMode = useTheme();
     window.onbeforeunload = function () {
         localStorage.clear();
     };

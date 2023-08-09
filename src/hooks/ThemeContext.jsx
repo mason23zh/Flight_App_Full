@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const ThemeContext = React.createContext();
 const ThemeUpdateContext = React.createContext();
@@ -18,11 +18,22 @@ export function ThemeProvider({ children }) {
     function toggleTheme() {
         setDarkTheme((prevDarkTheme) => !prevDarkTheme);
         if (darkTheme) {
-            localStorage.setItem("themeDark", false);
+            localStorage.setItem("themeDark", "false");
         } else {
-            localStorage.setItem("themeDark", true);
+            localStorage.setItem("themeDark", "true");
         }
     }
+    
+    // sync the localStorage with useContext state
+    useEffect(() => {
+        if (localStorage.themeDark) {
+            if (localStorage.themeDark === "true") {
+                setDarkTheme(true);
+            } else if (localStorage.themeDark === "false") {
+                setDarkTheme(false);
+            }
+        }
+    }, []);
     
     return (
         <ThemeContext.Provider value={darkTheme}>
