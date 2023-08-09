@@ -21,6 +21,12 @@ function ChangeLog() {
                         - Background images size compressed <br />
                         - Fix the dark mode incorrect behavior in Weather component <br />
                     </div>
+                    <div>
+                        Beta 0.1.2 <br />
+                        - Fix the dark mode persistence issue when opening the new browser tab <br />
+                        - Added dark mode to NoMatch Page <br />
+                        - Added disclaimer in footer <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
