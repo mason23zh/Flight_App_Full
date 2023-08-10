@@ -10,7 +10,6 @@ import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
-import Skeleton from "./Skeleton";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
 import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
@@ -89,7 +88,6 @@ function AirportDetail() {
         }
     };
     
-    const themeClassName = darkMode ? "h-full bg-[#121212] text-gray-300" : "h-full bg-gray-100";
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {
         const { country_code, country_name } = airport.station.country;
