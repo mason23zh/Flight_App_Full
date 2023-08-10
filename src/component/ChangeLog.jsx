@@ -26,6 +26,7 @@ function ChangeLog() {
                         - Fix the dark mode persistence issue when opening the new browser tab <br />
                         - Added dark mode to NoMatch Page <br />
                         - Added disclaimer in footer <br />
+                        - Improve the contrast for Get Data button <br />
                     </div>
                 </div>
             </div>
