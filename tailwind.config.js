@@ -23,6 +23,8 @@ module.exports = {
                 
                 lg: "1440px",
                 // => @media (min-width: 1440px) { ... }
+                // due to poor design, we need to set max-width instead of min-width to shrink the navbar
+                lgMd: { max: "960px" },
                 xl: "1775px",
                 fs: "1960px",
                 tableShrink: "1280px",

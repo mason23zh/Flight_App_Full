@@ -77,7 +77,6 @@ function NavbarElement() {
                 <div className="text-xl">
                     {nightModeToggleSwitch}
                 </div>
-                <NavbarDropDown />
             </ul>
                 
             <form onSubmit={handleSearchSubmit} className="hidden md:flex gap-3">

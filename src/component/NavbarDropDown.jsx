@@ -19,6 +19,7 @@ function NavbarDropDown() {
         <div>
             <Dropdown
                 title={<IoListOutline size={25} />}
+                placement="bottomEnd"
                 noCaret
             >
                 <Dropdown.Item as={NavLink} href="/airport">Airport</Dropdown.Item>
