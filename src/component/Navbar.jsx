@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
+import NavbarDropDown from "./NavbarDropDown";
 
 function Navbar() {
     const toggleTheme = useThemeUpdate();
@@ -77,6 +78,7 @@ function Navbar() {
                 <div className="text-xl">
                     {nightModeToggleSwitch}
                 </div>
+                <NavbarDropDown />
             </ul>
                 
             <form onSubmit={handleSearchSubmit} className="hidden md:flex gap-3">

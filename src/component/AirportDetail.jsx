@@ -149,9 +149,11 @@ function AirportDetail() {
     }
     return (
     // 1250
-        <div className="text-lg text-center">
-            Loading...
-        </div>
+        <CustomProvider theme={themeMode}>
+            <div className="text-lg text-center">
+                Loading...
+            </div>
+        </CustomProvider>
     );
 }
 
