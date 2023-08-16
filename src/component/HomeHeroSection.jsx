@@ -19,10 +19,10 @@ function HomeHeroSection({ backgroundImage }) {
         }
     };
     const darkMode = useTheme();
-    
+    // className="absolute top-[38%] left-[38%]
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className="relative">
+            <div>
                 <div
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
@@ -31,15 +31,23 @@ function HomeHeroSection({ backgroundImage }) {
                         backgroundPosition: "center",
                         height: "960px",
                         width: "auto",
+                        position: "relative",
                     }}
                 />
-                <form onSubmit={handleFormSubmit} className="absolute top-[38%] left-[38%]">
-                    <div className="flex flex-col items-center justify-center gap-7">
-                        <h2 className="text-white text-4xl">Get METARs, airports and more</h2>
+                <form
+                    onSubmit={handleFormSubmit}
+                    className="absolute top-[20%] md:top-[50%] left-[50%]
+                    transition-all ease-in-out duration-300
+                    mt-[-50px] ml-[-300px] w-[600px] h-[100px] "
+                >
+                    <div className="flex flex-col items-center justify-center gap-5">
+                        <h2 className="text-gray-600 text-2xl md:text-white md:text-4xl">Get METARs, airports and
+                            more
+                        </h2>
                         <input
                             onChange={handleInputChange}
                             value={input}
-                            className="rounded-xl border-2 w-full h-10 text-black"
+                            className="rounded-xl border-2 w-[300px] md:w-full h-10 text-black"
                             placeholder="   Search ICAO code, IATA code, airport name, city..."
                         />
                         <button
