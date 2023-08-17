@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
-import NavbarDropDown from "./NavbarDropDown";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
+import logo from "../images/logo.png";
 
 function NavbarElement() {
     const toggleTheme = useThemeUpdate();
@@ -54,7 +54,7 @@ function NavbarElement() {
             <ul className="list-none flex items-center gap-3 text-lg">
                 <li>
                     <Link className="m-0 text-red-500" style={{ textDecoration: "none" }} to="/">
-                        BETA
+                        <img src={logo} width={25} height={25} alt="logoIcon" />
                     </Link>
                 </li>
                 <li>

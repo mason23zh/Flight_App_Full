@@ -22,6 +22,10 @@ module.exports = {
                 // => @media (min-width: 960px) { ... }
                 
                 lg: "1440px",
+                airportAccordionMd: "1100px",
+                airportAccordionSm: "800px",
+                airportAccordionExSm: "530px",
+                airportAccordionSmMax: { max: "800px" },
                 // => @media (min-width: 1440px) { ... }
                 // due to poor design, we need to set max-width instead of min-width to shrink the navbar
                 lgMd: { max: "960px" },

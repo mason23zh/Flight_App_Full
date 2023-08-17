@@ -25,8 +25,8 @@ function AirportsList({ airports, goToPage }) {
     };
     
     return (
-        <div className="flex flex-col items-center">
-            <div className="flex flex-col gap-4 p-10 items-center ">{renderedAirports}</div>
+        <div className="flex flex-col items-center mr-auto">
+            <div className="flex flex-col gap-4 p-10 items-center">{renderedAirports}</div>
             {data.airports.length !== 0 ? (
                 <Pagination
                     size="lg"

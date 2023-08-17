@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavbarElement from "./NavbarElement";
 import NavbarDropDown from "./NavbarDropDown";
 import { useTheme } from "../hooks/ThemeContext";
+import logo from "../images/logo.png";
 
 function Navbar() {
     const darkMode = useTheme();
@@ -17,7 +19,9 @@ function Navbar() {
             </div>
             <div className={navDropDownTheme}>
                 <div>
-                    LOGO
+                    <Link to="/">
+                        <img src={logo} width={25} height={25} alt="logoIcon" />
+                    </Link>
                 </div>
                 <div>
                     <NavbarDropDown />
