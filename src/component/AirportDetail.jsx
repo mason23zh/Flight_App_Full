@@ -81,7 +81,7 @@ function AirportDetail() {
     const renderWidget = () => {
         if (widgetAvailable) {
             return (
-                <div className="mt-5 w-[700px] tableShrinkAgain:w-[960px] tableShrink:w-[1210px]">
+                <div className="mt-5 w-auto tableShrinkAgain:w-[960px] tableShrink:w-[1210px]">
                     <AirportDetailTrafficWidget iata={airport.iata} airportName={airport.station.name} />
                 </div>
             );
@@ -117,7 +117,7 @@ function AirportDetail() {
                             </div>
                                 
                             <div className="xl:grid grid-rows-1 items-start justify-items-center fs:grid grid-cols-2 items-center justify-items-center mr-5">
-                                <div className="p-3 ml-3">
+                                <div className="p-3 ml-3 w-auto">
                                     <AirportDetailTable
                                         ICAO={ICAO}
                                         iata={iata}
