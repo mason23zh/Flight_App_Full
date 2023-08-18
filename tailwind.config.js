@@ -15,24 +15,23 @@ module.exports = {
                 shimmer: "shimmer 1.5s infinite",
             },
             screens: {
+                airportAccordionExSm: "530px",
                 sm: "576px",
                 // => @media (min-width: 576px) { ... }
                 
+                airportAccordionSm: "800px",
                 md: "960px",
                 // => @media (min-width: 960px) { ... }
                 
-                lg: "1440px",
+                tableShrinkAgain: "990px",
                 airportAccordionMd: "1100px",
-                airportAccordionSm: "800px",
-                airportAccordionExSm: "530px",
-                airportAccordionSmMax: { max: "800px" },
+                tableShrink: "1280px",
+                lg: "1440px",
                 // => @media (min-width: 1440px) { ... }
-                // due to poor design, we need to set max-width instead of min-width to shrink the navbar
-                lgMd: { max: "960px" },
                 xl: "1775px",
                 fs: "1960px",
-                tableShrink: "1280px",
-                tableShrinkAgain: "990px",
+                airportAccordionSmMax: { max: "800px" },
+                lgMd: { max: "960px" },
             },
         },
     },
