@@ -28,6 +28,16 @@ function ChangeLog() {
                         - Added disclaimer in footer <br />
                         - Improve the contrast for Get Data button <br />
                     </div>
+                    <div>
+                        Beta 0.2 <br />
+                        - Added responsive
+                        - Rewrite the Weather List
+                        - Rewrite the Airport List
+                        - Rewrite the AirportAccordion
+                        - Rewrite the WeatherAccordion
+                        - Rewrite the Navbar
+                        - Rewrite the Airport Detail page
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
