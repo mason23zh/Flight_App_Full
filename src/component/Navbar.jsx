@@ -11,6 +11,11 @@ function Navbar() {
         ? "flex flex-row justify-between items-center pr-3 pl-3 md:hidden"
         : "flex flex-row justify-between items-center pr-3 pl-3 bg-gray-100 md:hidden";
     
+    const style = {
+        width: "200px",
+        padding: "5px",
+        display: "flex",
+    };
     
     return (
         <>

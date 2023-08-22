@@ -20,8 +20,8 @@ function WeatherTable({ expandedContent }) {
         ? "[&>*:nth-child(odd)]:bg-gray-500 [&>*:nth-child(even)]:bg-gray-700"
         : "[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200";
     const darkModeThClass = darkMode
-        ? "text-xl p-2 border-5 bg-red-400"
-        : "text-xl p-2 border-5 bg-red-300";
+        ? "text-sm p-2 border-5 bg-red-400 md:text-xl"
+        : "text-sm p-2 border-5 bg-red-300 md:text-xl";
     let columnsToRender;
     const [sortOrder, setSortOrder] = useState(1);
     const [rowData, setRowData] = useState(null);
@@ -248,7 +248,7 @@ function WeatherTable({ expandedContent }) {
                         return (
                             <React.Fragment key={rowProps.key} {...rowProps}>
                                 <tr
-                                    className=" text-xl text-center"
+                                    className="text-sm text-center md:text-xl"
                                 >
                                     {row.cells.map((cell) => (
                                         <td

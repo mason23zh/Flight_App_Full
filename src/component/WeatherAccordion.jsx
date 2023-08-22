@@ -90,12 +90,10 @@ function WeatherAccordion({ weather }) {
                     <div>{station.location.name}</div>
                 </div>
                 <div className="col-span-full flex justify-center py-7 md:col-span-1">
-                    <div className="">
-                        <div
-                            className="cursor-pointer w-[auto] text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
-                            onClick={handleExpand}
-                        >{expand ? "Hide" : "Detail"}
-                        </div>
+                    <div
+                        className="cursor-pointer text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
+                        onClick={handleExpand}
+                    >{expand ? "Hide" : "Detail"}
                     </div>
                 </div>
                 <div className="md:col-span-full">

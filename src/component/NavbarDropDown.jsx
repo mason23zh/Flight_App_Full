@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Dropdown from "rsuite/Dropdown";
 import { Link } from "react-router-dom";
 import { IoListOutline, IoMoon, IoSunnyOutline } from "react-icons/io5";
-import { Nav } from "rsuite";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
 function NavbarDropDown() {

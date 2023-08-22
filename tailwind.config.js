@@ -25,6 +25,7 @@ module.exports = {
                 
                 tableShrinkAgain: "990px",
                 airportAccordionMd: "1100px",
+                ExWeatherHeadMd: "1200px",
                 tableShrink: "1280px",
                 lg: "1440px",
                 // => @media (min-width: 1440px) { ... }

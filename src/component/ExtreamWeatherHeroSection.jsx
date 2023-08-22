@@ -22,16 +22,22 @@ function ExtremeWeatherHeroSection() {
                 }}
             />
             <div
-                className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] text-cyan-50 flex flex-col justify-center items-center"
+                className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%] text-cyan-50 "
             >
-                <h1 className="text-4xl">
-                    {scopeName}
-                    {" "}
-                    Extreme Weather
-                </h1>
-                <h2 className="text-2xl">
-                    <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope} />
-                </h2>
+                <div className="grid grid-cols-1 justify-center items-center">
+                    <h1 className="text-2xl text-center md:text-4xl
+                    transition-all ease-in-out duration-300 "
+                    >
+                        {scopeName}
+                        {" "}
+                        Extreme Weather
+                    </h1>
+                    <h2 className="text-xl text-center md:text-3xl
+                    transition-all ease-in-out duration-300"
+                    >
+                        <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope} />
+                    </h2>
+                </div>
             </div>
         </div>
     );
