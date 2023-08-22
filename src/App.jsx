@@ -9,6 +9,7 @@ import Weather from "./component/Weather";
 import ExtremeWeather from "./component/ExtremeWeather";
 import AirportDetail from "./component/AirportDetail";
 import ChangeLog from "./component/ChangeLog";
+import AirportDetailNew from "./component/AirportDetailNew";
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
                 <Route path="weather" element={<Weather />} />
                 <Route path="extreme-weather" element={<ExtremeWeather />} />
                 <Route path="airport" element={<Airports />} />
-                <Route path="airport/detail" element={<AirportDetail />} />
+                <Route path="airport/detail" element={<AirportDetailNew />} />
                 <Route path="changelog" element={<ChangeLog />} />
                 <Route path="*" element={<NoMatch />} />
             </Route>

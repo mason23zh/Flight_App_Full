@@ -3,12 +3,12 @@ import ReactCountryFlag from "react-country-flag";
 
 function AirportDetailNameSection({ name, icao, countryCode }) {
     return (
-        <div className="flex flex-row text-2xl gap-2 items-center">
+        <div className="text-xl gap-1 items-center grid grid-rows-2 md:flex md:flex-row md:gap-2 md:text-2xl ">
             <div>
                 <ReactCountryFlag
                     countryCode={countryCode.toUpperCase()}
                     style={{ fontSize: "1.5em", lineHeight: "1.5em" }}
-                    className="rounded-3xl"
+                    className="rounded-2xl md:rounded-3xl"
                     svg
                 />
             </div>

@@ -51,10 +51,16 @@ function AirportDetailWeatherSection({ icao }) {
                 barometer,
                 
             } = data[0];
+            const renderRawText = (
+                // Limit the width here to show the click chevron
+                <div className="w-[95%]">
+                    {raw_text}
+                </div>
+            );
             return (
-                <div className="w-[calc(100%+2rem)]">
+                <div className="w-auto">
                     <AirportDetailWeatherPanel
-                        raw_text={raw_text}
+                        raw_text={renderRawText}
                         flightCategory={flight_category}
                         temperature={temperature}
                         dewpoint={dewpoint}
