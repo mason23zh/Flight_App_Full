@@ -15,7 +15,7 @@ function AirportDetailTable({
     wikiLink,
 }) {
     return (
-        <div className="overflow-x-auto md:-mx-6 lg:-mx-8">
+        <div className="overflow-auto">
             <table className="text-sm w-full mt-2 mb-2">
                 <tbody>
                     <tr className="border-2 text-left">
@@ -60,7 +60,7 @@ function AirportDetailTable({
                     </tr>
                     <tr className="border-2 text-left">
                         <td className="border-2 p-3">Wikipedia Page</td>
-                        <td className="p-3 width-[0.1%] whitespace-nowrap"><a href={wikiLink}>{wikiLink}</a></td>
+                        <td className="p-3 border-2"><a href={wikiLink}>{wikiLink}</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -69,4 +69,4 @@ function AirportDetailTable({
 }
 
 export default AirportDetailTable;
- 
+
