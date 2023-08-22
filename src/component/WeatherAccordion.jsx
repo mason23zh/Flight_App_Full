@@ -7,6 +7,10 @@ import { useTheme } from "../hooks/ThemeContext";
 
 function WeatherAccordion({ weather }) {
     const [expand, setExpand] = useState(false);
+    const darkMode = useTheme();
+    const darkModeClass = darkMode
+        ? "text-lg p-3 items-center h-full bg-gray-500 drop-shadow-md mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3"
+        : "text-lg p-3 items-center h-full bg-gray-200 drop-shadow-md mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3";
     
     const {
         icao,
@@ -35,13 +39,18 @@ function WeatherAccordion({ weather }) {
         const airport = { ICAO: icao, flag: true };
         localStorage.setItem("airportData", JSON.stringify(airport));
     };
+    const renderRawText = (
+        // Limit the width here to show the click chevron
+        <div className="w-[95%] text-center">
+            {raw_text}
+        </div>
+    );
     
     const expandedContent = () => (
-            
         <div>
-            <div className="w-[calc(100%+2rem)]">
+            <div className="mt-3 w-auto p-2">
                 <AirportDetailWeatherPanel
-                    raw_text={raw_text}
+                    raw_text={renderRawText}
                     flightCategory={flight_category}
                     temperature={temperature}
                     dewpoint={dewpoint}
@@ -57,44 +66,41 @@ function WeatherAccordion({ weather }) {
             <div className="text-center mt-3">
                 <Link
                     to="/airport/detail"
-                    className="rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline "
+                    className={darkMode
+                        ? "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-300 hover:no-underline text-gray-100"
+                        : "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline"}
                     onMouseOver={handleLinkClick}
                 >Go to
                     Airport
                 </Link>
             </div>
         </div>
-    
     );
     
-    const darkMode = useTheme();
-    const darkTheme = darkMode ? "dark" : "light";
-    const darkModeClass = darkMode
-        ? "flex flex-col items-center justify-center w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl bg-gray-500 drop-shadow-md"
-        : "flex flex-col items-center justify-center w-[1080px] h-full text-lg p-3 mt-2.0 border-2 rounded-xl bg-gray-100 drop-shadow-md";
+    
     return (
-        <CustomProvider theme={darkTheme}>
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div className={darkModeClass}>
-                <div className="grid grid-cols-3 w-[1080px] h-full justify-between items-center">
-                    <div className="text-center">
-                        <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>ICAO</div>
-                        <div className="contrast-500">{icao}</div>
-                    </div>
-                    <div className="text-center">
-                        <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>Name</div>
-                        <div>{station.location.name}</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="flex flex-col items-center">
-                            <div
-                                className="cursor-pointer w-[35%] text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
-                                onClick={handleExpand}
-                            >{expand ? "Hide" : "Detail"}
-                            </div>
+                <div className="text-center p-2">
+                    <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>ICAO</div>
+                    <div className="contrast-500">{icao}</div>
+                </div>
+                <div className="text-center p-2">
+                    <div className={darkMode ? "text-gray-200 font-bold" : "text-gray-500 font-bold"}>Name</div>
+                    <div>{station.location.name}</div>
+                </div>
+                <div className="col-span-full flex justify-center py-7 md:col-span-1">
+                    <div className="">
+                        <div
+                            className="cursor-pointer w-[auto] text-gray-500 font-bold p-2 bg-green-400 rounded-xl hover:bg-green-500"
+                            onClick={handleExpand}
+                        >{expand ? "Hide" : "Detail"}
                         </div>
                     </div>
                 </div>
-                {expand ? expandedContent() : ""}
+                <div className="md:col-span-full">
+                    {expand ? expandedContent() : ""}
+                </div>
             </div>
         </CustomProvider>
     );

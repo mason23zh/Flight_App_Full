@@ -17,7 +17,7 @@ function WeatherList({ weather }) {
     
     return (
         <div className="flex flex-col items-center">
-            <div className="flex flex-col gap-4 p-10 items-center">
+            <div className="flex flex-col gap-4 p-10 items-center w-[80%] items-stretch">
                 {renderedWeather}
             </div>
         </div>
