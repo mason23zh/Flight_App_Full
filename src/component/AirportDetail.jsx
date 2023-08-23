@@ -111,8 +111,8 @@ function AirportDetail() {
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailWeatherSection icao={ICAO} />
                     </div>
-                    <div className="justify-self-center mt-3 p-2">
-                        <div className="ml-10 mr-10">
+                    <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
+                        <div className="">
                             <AirportMap lat={lat} lng={lng} name={name} />
                         </div>
                     </div>

@@ -15,7 +15,6 @@ function Layout() {
                     <Outlet />
                 </div>
                 <div className="h-10">
-                    {/* Stop showing Footer component in the Home page */}
                     {currentLocation.pathname !== "/" && <Footer />}
                 </div>
             </div>

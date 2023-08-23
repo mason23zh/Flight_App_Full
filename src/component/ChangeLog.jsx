@@ -41,6 +41,15 @@ function ChangeLog() {
                         - Added Navbar dropdown for responsive design <br />
                         - Rewrite the Airport Detail page <br />
                     </div>
+                    <div>
+                        Beta 0.2.1 <br />
+                        - Added margin on input bar <br />
+                        - Added Footer to display disclaimer <br />
+                        - Fix the Map size change in the Airport Detail page<br />
+                        - Fix the width issue when screen become too small <br />
+                        - Adjust the width for input search bar <br />
+                        - Make some texts first letter capital <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
