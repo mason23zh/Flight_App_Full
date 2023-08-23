@@ -9,7 +9,6 @@ function AirportsList({ airports, goToPage }) {
     const { data } = airports;
     let renderedAirports;
     if (data.airports.length === 0) {
-        localStorage.clear();
         renderedAirports = <div className="text-lg">No Results</div>;
     } else {
         renderedAirports = data.airports.map((airport) => (
@@ -29,7 +28,7 @@ function AirportsList({ airports, goToPage }) {
             <div className="flex flex-col items-stretch gap-4 p-10 items-center w-[80%]">{renderedAirports}</div>
             {data.airports.length !== 0 ? (
                 <Pagination
-                    size="lg"
+                    size="md"
                     layout={layout}
                     total={data.totalAirports}
                     activePage={data.page}

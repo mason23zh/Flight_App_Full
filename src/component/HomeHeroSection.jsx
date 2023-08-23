@@ -19,7 +19,6 @@ function HomeHeroSection({ backgroundImage }) {
         }
     };
     const darkMode = useTheme();
-    // className="absolute top-[38%] left-[38%]
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div>
@@ -36,19 +35,21 @@ function HomeHeroSection({ backgroundImage }) {
                 />
                 <form
                     onSubmit={handleFormSubmit}
-                    className="absolute top-[20%] md:top-[50%] left-[50%]
+                    className="absolute translate-x-[-50%] translate-y-[-130%] left-[50%] top-[50%]
                     transition-all ease-in-out duration-300
-                    mt-[-50px] ml-[-300px] w-[600px] h-[100px] "
+                    w-auto h-auto md:translate-y-[-50%] "
                 >
                     <div className="flex flex-col items-center justify-center gap-5">
-                        <h2 className="text-gray-600 text-2xl md:text-white md:text-4xl">Get METARs, airports and
-                            more
+                        <h2 className="text-center text-lg text-gray-700 sm:text-2xl md:text-white md:text-3xl">Get
+                            METARs,
+                            Airports and
+                            More
                         </h2>
                         <input
                             onChange={handleInputChange}
                             value={input}
-                            className="rounded-xl border-2 w-[300px] md:w-full h-10 text-black"
-                            placeholder="   Search ICAO code, IATA code, airport name, city..."
+                            className="rounded-xl border-2 w-full md:w-full h-10 text-black pl-3"
+                            placeholder="Search ICAO code, IATA code, airport name, city..."
                         />
                         <button
                             type="submit"

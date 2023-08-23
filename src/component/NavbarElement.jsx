@@ -13,7 +13,7 @@ function NavbarElement() {
         : "rounded-lg bg-green-400 py-1 px-3";
     const navBarBgTheme = darkMode
         ? "flex justify-between py-1 px-5"
-        : "flex justify-between py-1 px-5 bg-gray-100";
+        : "flex justify-between py-1 px-5 bg-gray-100 w-screen";
     
     const navigate = useNavigate();
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
@@ -68,7 +68,7 @@ function NavbarElement() {
                 </li>
                 <li>
                     <Link style={{ textDecoration: "none" }} to="/extreme-weather" className="text-red-400">
-                        Extreme weather
+                        Extreme Weather
                     </Link>
                 </li>
                 <li>

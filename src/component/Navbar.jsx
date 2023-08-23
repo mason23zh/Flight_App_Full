@@ -19,7 +19,7 @@ function Navbar() {
     
     return (
         <>
-            <div className="lgMd:hidden transition-all ease-in-out duration-1000">
+            <div className="hidden transition-all ease-in-out duration-1000 md:block">
                 <NavbarElement />
             </div>
             <div className={navDropDownTheme}>
