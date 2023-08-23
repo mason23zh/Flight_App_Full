@@ -12,6 +12,9 @@ function About() {
                     <div>
                         beta version 0.2
                     </div>
+                    <div>
+                        Logo designed by: Charlie Wang
+                    </div>
                 </div>
             </div>
         </CustomProvider>

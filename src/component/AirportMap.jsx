@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
     MapContainer, Marker, Popup, TileLayer,
 } from "react-leaflet";

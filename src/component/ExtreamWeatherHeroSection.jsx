@@ -1,5 +1,4 @@
 import React from "react";
-import ReactCountryFlag from "react-country-flag";
 import { useSelector } from "react-redux";
 import ExtremeWeatherHeroSectionScope from "./ExtremeWeatherHeroSectionScope";
 import backgroundImage from "../images/thunderstorm.jpg";

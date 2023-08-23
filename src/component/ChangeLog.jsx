@@ -30,13 +30,16 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.2 <br />
-                        - Added responsive
-                        - Rewrite the Weather List
-                        - Rewrite the Airport List
-                        - Rewrite the AirportAccordion
-                        - Rewrite the WeatherAccordion
-                        - Rewrite the Navbar
-                        - Rewrite the Airport Detail page
+                        - Added responsive <br />
+                        - Added logo (By Charlie Wang) <br />
+                        - Rewrite the Weather List (layout fix) <br />
+                        - Rewrite the Airport List (layout fix) <br />
+                        - Rewrite the AirportAccordion (layout fix) <br />
+                        - Rewrite the WeatherAccordion (layout fix) <br />
+                        _ Fix the Extreme Weather page layout issue <br />
+                        - Added Extreme Weather header dropdown for responsive design <br />
+                        - Added Navbar dropdown for responsive design <br />
+                        - Rewrite the Airport Detail page <br />
                     </div>
                 </div>
             </div>
@@ -45,7 +48,7 @@ function ChangeLog() {
                 <div>---</div>
                 <div className="flex flex-col gap-3">
                     <div>
-                        - Mobile device support
+                        - Mobile device support layout issue
                     </div>
                     <div>
                         - TAF support
