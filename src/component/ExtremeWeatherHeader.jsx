@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
@@ -16,7 +15,6 @@ import {
 } from "../util/selection_names";
 import { changeUserSelection } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
-import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
 
 function ExtremeWeatherHeader() {
     const darkMode = useTheme();
@@ -59,7 +57,6 @@ function ExtremeWeatherHeader() {
         dispatch(changeUserSelection(userSelection));
     }, [userSelection, dispatch]);
     
-    // const buttonClasses = "p-1 rounded text-blue-500 text-lg hover:text-white hover:bg-blue-500 duration-100";
     const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg shadow-md";
     
     const scopeButtonClass = "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
@@ -195,7 +192,6 @@ function ExtremeWeatherHeader() {
                     Continent
                 </button>
                 <div>{renderedDropDown}</div>
-                {/* <Select options={COUNTRY_CODE} defaultValue={COUNTRY_CODE[0]} className="bg-red-500" /> */}
             </div>
         </div>
     );
