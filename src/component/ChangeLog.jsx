@@ -47,6 +47,7 @@ function ChangeLog() {
                         - Added Footer to display disclaimer <br />
                         - Fix the Map size change in the Airport Detail page<br />
                         - Fix the width issue when screen become too small <br />
+                        - Adjust the Detail Weather panel when switching to a smaller screen <br />
                         - Adjust the width for input search bar <br />
                         - Make some texts first letter capital <br />
                     </div>
