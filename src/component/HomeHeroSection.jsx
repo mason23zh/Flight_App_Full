@@ -21,34 +21,17 @@ function HomeHeroSection({ backgroundImage }) {
     const darkMode = useTheme();
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className="h-full">
+            <div className="h-auto relative">
                 <div
-                    className="bg-cover h-full"
-                    style={{
-                        backgroundImage: `url(${backgroundImage})`,
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center center",
-                        // minHeight: "960px",
-                        minHeight: "1200px",
-                        width: "auto",
-                        // position: "relative",
-                        margin: "auto",
-                    }}
-                />
-                <div
-                    className="bg-cover bg-center bg-no-repeat w-auto"
+                    className="w-screen h-screen max-h-screen bg-cover bg-no-repeat bg-center"
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
                     }}
                 />
                     
-                {/* absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[40%]
+                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]
                      transition-all ease-in-out duration-300
-                     w-auto h-fit md:top-[50%] */}
-                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[20%]
-                     transition-all ease-in-out duration-300
-                     w-auto h-fit md:top-[20%]"
+                     w-auto h-fit"
                 >
                     <form
                         onSubmit={handleFormSubmit}
