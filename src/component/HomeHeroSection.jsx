@@ -21,46 +21,62 @@ function HomeHeroSection({ backgroundImage }) {
     const darkMode = useTheme();
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div>
+            <div className="h-full">
                 <div
+                    className="bg-cover h-full"
                     style={{
                         backgroundImage: `url(${backgroundImage})`,
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
-                        height: "960px",
+                        backgroundPosition: "center center",
+                        // minHeight: "960px",
+                        minHeight: "1200px",
                         width: "auto",
-                        position: "relative",
+                        // position: "relative",
+                        margin: "auto",
                     }}
                 />
-                <form
-                    onSubmit={handleFormSubmit}
-                    className="absolute translate-x-[-50%] translate-y-[-130%] left-[50%] top-[50%]
-                    transition-all ease-in-out duration-300
-                    w-auto h-auto md:translate-y-[-50%] "
+                <div
+                    className="bg-cover bg-center bg-no-repeat w-auto"
+                    style={{
+                        backgroundImage: `url(${backgroundImage})`,
+                    }}
+                />
+                    
+                {/* absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[40%]
+                     transition-all ease-in-out duration-300
+                     w-auto h-fit md:top-[50%] */}
+                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[20%]
+                     transition-all ease-in-out duration-300
+                     w-auto h-fit md:top-[20%]"
                 >
-                    <div className="flex flex-col items-center justify-center gap-5">
-                        <h2 className="text-center text-lg text-gray-700 sm:text-2xl md:text-white md:text-3xl">Get
-                            METARs,
-                            Airports and
-                            More
-                        </h2>
-                        <input
-                            onChange={handleInputChange}
-                            value={input}
-                            className="rounded-xl border-2 w-full md:w-full h-10 text-black pl-3"
-                            placeholder="Search ICAO code, IATA code, airport name, city..."
-                        />
-                        <button
-                            type="submit"
-                            className="px-3 py-1 text-black border-white border-2
+                    <form
+                        onSubmit={handleFormSubmit}
+                        className=""
+                    >
+                        <div className="flex flex-col items-center justify-center gap-5">
+                            <h2 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">Get
+                                METARs,
+                                Airports and
+                                More
+                            </h2>
+                            <input
+                                onChange={handleInputChange}
+                                value={input}
+                                className="rounded-xl border-2 w-full md:w-full h-10 text-black pl-3 text-[17px]"
+                                placeholder="Search ICAO, IATA, airport name, city..."
+                            />
+                            <button
+                                type="submit"
+                                className="px-3 py-1 text-black border-white border-2
                                     rounded-xl text-xl bg-white bg-opacity-50
                                     text-opacity-80 hover:bg-opacity-90
                                     transition duration-200 ease-in-out"
-                        >Get Data
-                        </button>
-                    </div>
-                </form>
+                            >Get Data
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </CustomProvider>
     );

@@ -33,16 +33,14 @@ function HeroSection({
                 className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]"
             >
                 <div className="flex flex-col items-center justify-center gap-3">
-                    <h2 className="w-auto text-center text-white text-2xl sm:text-3xl md:text-4xl
-                    transition-all ease-in-out duration-300"
-                    >{message}
+                    <h2 className="w-auto text-center text-white text-2xl sm:text-3xl md:text-4xl">{message}
                     </h2>
                     <input
                         onChange={handleInputChange}
                         value={input}
                         className="rounded-xl border-2 w-auto
                         sm:w-[400px] h-10 text-black
-                        transition-all ease-in-out duration-300 pl-3"
+                        transition-all ease-in-out duration-300 pl-3 text-[17px]"
                         placeholder={`${placedHoldMessage}`}
                     />
                     <button
