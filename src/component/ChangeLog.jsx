@@ -36,7 +36,7 @@ function ChangeLog() {
                         - Rewrite the Airport List (layout fix) <br />
                         - Rewrite the AirportAccordion (layout fix) <br />
                         - Rewrite the WeatherAccordion (layout fix) <br />
-                        _ Fix the Extreme Weather page layout issue <br />
+                        - Fix the Extreme Weather page layout issue <br />
                         - Added Extreme Weather header dropdown for responsive design <br />
                         - Added Navbar dropdown for responsive design <br />
                         - Rewrite the Airport Detail page <br />
@@ -50,6 +50,13 @@ function ChangeLog() {
                         - Adjust the Detail Weather panel when switching to a smaller screen <br />
                         - Adjust the width for input search bar <br />
                         - Make some texts first letter capital <br />
+                    </div>
+                    <div>
+                        Beta 0.2.2 <br />
+                        - Added popular airports in the Home page <br />
+                        - Fix the input bar zoom issue in IOS <br />
+                        - re-tune the Home page layout to fit smaller screen better <br />
+                        - Fix the Weather input bar not trimming the user input <br />
                     </div>
                 </div>
             </div>

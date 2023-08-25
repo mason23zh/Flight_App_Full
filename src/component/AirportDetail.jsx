@@ -4,7 +4,7 @@
  * */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, CustomProvider } from "rsuite";
+import { CustomProvider } from "rsuite";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
@@ -26,12 +26,20 @@ function AirportDetail() {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
         if (airportData && !airportData?.flag) {
             setAirport(airportData);
+            
+            const updateVisited = async (icao) => {
+                await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${icao}` });
+            };
+            
             setSkipRender(false);
+            
             localStorage.removeItem("airportData");
+            updateVisited(airportData.ICAO).catch((e) => console.error(e));
         } else if (airportData && airportData.flag === true) {
             const requestAirport = async (storageICAO) => {
                 try {
                     const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${storageICAO}?decode=true`);
+                    await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${storageICAO}` });
                     if (response) {
                         setAirport(response.data.data[0].airport);
                     }

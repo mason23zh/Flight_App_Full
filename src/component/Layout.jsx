@@ -14,8 +14,11 @@ function Layout() {
                 <div className="mb-auto">
                     <Outlet />
                 </div>
+                {/* <div className="h-10"> */}
+                {/*    {currentLocation.pathname !== "/" && <Footer />} */}
+                {/* </div> */}
                 <div className="h-10">
-                    {currentLocation.pathname !== "/" && <Footer />}
+                    <Footer />
                 </div>
             </div>
         </div>

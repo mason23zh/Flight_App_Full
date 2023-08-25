@@ -30,6 +30,7 @@ export {
     useFetchBasicAirportWithICAOQuery,
     useFetchDetailAirportWithICAO,
     useFetchDetailAirportWithICAO_WidgetQuery,
+    useFetchMostPopularAirportsQuery,
 } from "./apis/airportsApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";

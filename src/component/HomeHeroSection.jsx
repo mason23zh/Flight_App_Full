@@ -21,14 +21,12 @@ function HomeHeroSection({ backgroundImage }) {
     const darkMode = useTheme();
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className="h-auto relative">
-                <div
-                    className="w-screen h-screen max-h-screen bg-cover bg-no-repeat bg-center"
-                    style={{
-                        backgroundImage: `url(${backgroundImage})`,
-                    }}
-                />
-                    
+            <div
+                className=" w-screen h-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
+                style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                }}
+            >
                 <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]
                      transition-all ease-in-out duration-300
                      w-auto h-fit"

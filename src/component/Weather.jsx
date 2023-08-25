@@ -37,7 +37,7 @@ function Weather() {
     }, [data]);
     
     const handleFormSubmit = (input) => {
-        setUserInput(input);
+        setUserInput(input.trim());
         setSkipRender(false);
     };
     
