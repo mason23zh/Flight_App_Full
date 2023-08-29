@@ -13,6 +13,7 @@ import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
 import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
+import AtisSection from "./AtisSection";
 
 function AirportDetail() {
     const darkMode = useTheme();
@@ -20,6 +21,7 @@ function AirportDetail() {
     const [metar, setMetar] = useState({});
     const [skipRender, setSkipRender] = useState(true);
     const [widgetAvailable, setWidgetAvailable] = useState(false);
+    const [ATIS, setATIS] = useState();
     
     // get localStorage airport data
     useEffect(() => {
@@ -80,6 +82,11 @@ function AirportDetail() {
                 if (widgetData.data[0].METAR) {
                     setMetar(widgetData.data[0].METAR);
                 }
+                
+                // check ATIS
+                if (widgetData.data[0].ATIS) {
+                    setATIS(widgetData.data[0].ATIS);
+                }
             }
         }
     }, [widgetData]);
@@ -94,6 +101,7 @@ function AirportDetail() {
             );
         }
     };
+    
     
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {
@@ -118,6 +126,9 @@ function AirportDetail() {
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailWeatherSection icao={ICAO} />
+                    </div>
+                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <AtisSection ATIS={ATIS} />
                     </div>
                     <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
                         <div className="">

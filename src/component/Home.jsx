@@ -15,7 +15,7 @@ function Home() {
     
     let renderedAirport;
     if (data) {
-        renderedAirport = <div><HomeAirportList airports={data} /></div>;
+        renderedAirport = <HomeAirportList airports={data} />;
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {

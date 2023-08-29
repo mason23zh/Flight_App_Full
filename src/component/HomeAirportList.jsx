@@ -17,8 +17,8 @@ function HomeAirportList({ airports }) {
     
     return (
         <div className="max-w-6xl mt-3 ml-20 mr-20">
-            <div className=" text-center mt-3 p-3
-        grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3"
+            <div className="mt-3 p-3 grid grid-cols-1 gap-10
+            sm:grid-cols-2 md:grid-cols-3"
             >
                 {renderedAirports}
             </div>
