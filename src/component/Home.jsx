@@ -34,9 +34,6 @@ function Home() {
                     {renderedAirport}
                 </div>
             </CustomProvider>
-            {/* <div className="text-red-600 bottom-0 fixed opacity-80"> */}
-            {/*    DISCLAIMER: NOT FOR REAL NAVIGATION */}
-            {/* </div> */}
         </div>
     );
 }

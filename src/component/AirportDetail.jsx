@@ -14,6 +14,7 @@ import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
 import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
+import NoMatch from "./NoMatch";
 
 function AirportDetail() {
     const darkMode = useTheme();
@@ -35,7 +36,6 @@ function AirportDetail() {
             
             setSkipRender(false);
             
-            localStorage.removeItem("airportData");
             updateVisited(airportData.ICAO).catch((e) => console.error(e));
         } else if (airportData && airportData.flag === true) {
             const requestAirport = async (storageICAO) => {
@@ -52,7 +52,6 @@ function AirportDetail() {
             
             requestAirport(airportData.ICAO).catch(console.error);
             setSkipRender(false);
-            localStorage.removeItem("airportData");
         }
     }, []);
     
@@ -160,12 +159,9 @@ function AirportDetail() {
         );
     }
     return (
-    // 1250
-        <CustomProvider theme={themeMode}>
-            <div className="text-lg text-center">
-                Loading...
-            </div>
-        </CustomProvider>
+        <div>
+            <NoMatch />
+        </div>
     );
 }
 

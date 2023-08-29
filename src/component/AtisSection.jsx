@@ -10,7 +10,7 @@ function AtisSection({ ATIS }) {
     let renderATIS;
     
     if (!atis) {
-        renderATIS = "ATIS Not Available";
+        renderATIS = "Loading ATIS...";
     } else if (atis) {
         const faa = typeof atis.faa === "string" ? atis.faa : atis.faa[0].datis;
         const faaAtisCode = !atis.faa[0].code ? "-" : atis.faa[0].code;

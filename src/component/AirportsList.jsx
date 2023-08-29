@@ -1,5 +1,5 @@
 import "../styles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination } from "rsuite";
 import AirportAccordion from "./AirportAccordion";
 

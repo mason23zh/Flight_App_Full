@@ -10,14 +10,15 @@ import { useTheme } from "../hooks/ThemeContext";
 function Weather() {
     const darkMode = useTheme();
     const bgImg = darkMode ? backGroundImageDarkMode : backgroundImage;
-    window.onbeforeunload = function () {
-        localStorage.clear();
-    };
+    // window.onbeforeunload = function () {
+    //     localStorage.clear();
+    // };
     
     const message = "Current weather";
     const placeHolderMessage = "Search ICAO, airport name or city...";
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
+    const [weatherData, setWeatherData] = useState();
     
     let renderedWeather;
     
@@ -32,9 +33,14 @@ function Weather() {
     // store data to localStorage to save the previous search results
     useEffect(() => {
         if (data) {
-            localStorage.setItem("weatherListData", JSON.stringify(data));
+            setWeatherData(data);
+            // localStorage.setItem("weatherListData", JSON.stringify(data));
         }
     }, [data]);
+    
+    if (weatherData) {
+        localStorage.setItem("weatherListData", JSON.stringify(weatherData));
+    }
     
     const handleFormSubmit = (input) => {
         setUserInput(input.trim());

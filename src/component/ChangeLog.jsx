@@ -54,6 +54,11 @@ function ChangeLog() {
                     <div>
                         Beta 0.2.2 <br />
                         - Added popular airports in the Home page <br />
+                        - Added ATIS in Airport Detail page <br />
+                        - Fix the issue in localStorage so the theme and airport/weather list will be persistence
+                        after the refresh<br />
+                        - Fix the issue when loading up a page for the first time will stucked at loading page if no
+                        localStorage available <br />
                         - Fix the input bar zoom issue in IOS <br />
                         - re-tune the Home page layout to fit smaller screen better <br />
                         - Fix the Weather input bar not trimming the user input <br />

@@ -9,14 +9,15 @@ import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
-    window.onbeforeunload = function () {
-        localStorage.clear();
-    };
+    // window.onbeforeunload = function () {
+    //     localStorage.clear();
+    // };
     
     const { pathname, state } = useLocation();
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
     const [page, setPage] = useState(1);
+    const [airportData, setAirportData] = useState();
     const message = "Airport information";
     const placeHolderMessage = "Search ICAO, IATA, Airport Name, City ... ";
     
@@ -39,9 +40,13 @@ function Airports() {
     
     useEffect(() => {
         if (data) {
-            localStorage.setItem("airportListData", JSON.stringify(data));
+            setAirportData(data);
         }
     }, [data]);
+    
+    if (airportData) {
+        localStorage.setItem("airportListData", JSON.stringify(airportData));
+    }
     
     
     const handleOnSubmit = (input) => {
