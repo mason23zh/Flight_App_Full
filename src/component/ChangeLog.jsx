@@ -60,8 +60,9 @@ function ChangeLog() {
                         - Fix the issue when loading up a page for the first time will stucked at loading page if no
                         localStorage available <br />
                         - Fix the input bar zoom issue in IOS <br />
-                        - re-tune the Home page layout to fit smaller screen better <br />
+                        - Re-tune the Home page layout to fit smaller screen better <br />
                         - Fix the Weather input bar not trimming the user input <br />
+                        - Fix the `No Results` text not being centered <br />
                     </div>
                 </div>
             </div>

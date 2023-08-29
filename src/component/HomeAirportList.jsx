@@ -1,12 +1,11 @@
 import React from "react";
-import AirportAccordion from "./AirportAccordion";
 import HomeAirportAccordion from "./HomeAirportAccordion";
 
 function HomeAirportList({ airports }) {
     const { data } = airports;
     let renderedAirports;
     if (data.length === 0) {
-        renderedAirports = <div className="text-lg">No Results</div>;
+        renderedAirports = <div className="text-lg text-center">No Results</div>;
     } else {
         renderedAirports = data.slice(0, 6).map((airport) => (
             <div key={airport.ICAO}>

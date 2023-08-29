@@ -5,7 +5,7 @@ import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg"
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
-import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
+import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
@@ -65,7 +65,7 @@ function Airports() {
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
-        renderedAirport = <h3>Error</h3>;
+        renderedAirport = <div className="text-center"><h3>Error</h3></div>;
     } else if (localStorage.getItem("airportListData") !== null) {
         const localData = JSON.parse(localStorage.getItem("airportListData"));
         renderedAirport = <AirportsList airports={localData} goToPage={onGoToPage} />;

@@ -9,7 +9,7 @@ function AirportsList({ airports, goToPage }) {
     const { data } = airports;
     let renderedAirports;
     if (data.airports.length === 0) {
-        renderedAirports = <div className="text-lg">No Results</div>;
+        renderedAirports = <div className="text-lg text-center">No Results</div>;
     } else {
         renderedAirports = data.airports.map((airport) => (
             <div key={airport.ICAO}>

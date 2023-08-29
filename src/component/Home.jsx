@@ -22,7 +22,6 @@ function Home() {
         renderedAirport = <h3>Error</h3>;
     }
     
-    
     return (
         <div>
             <HomeHeroSection backgroundImage={backgroundImage} />
