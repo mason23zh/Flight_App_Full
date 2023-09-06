@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomProvider } from "rsuite";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { useTheme } from "../hooks/ThemeContext";
 
 function HomeHeroSection({ backgroundImage }) {
@@ -19,10 +20,11 @@ function HomeHeroSection({ backgroundImage }) {
         }
     };
     const darkMode = useTheme();
+    // w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
-                className=" w-screen h-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
+                className="w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
                 }}
@@ -57,6 +59,9 @@ function HomeHeroSection({ backgroundImage }) {
                             </button>
                         </div>
                     </form>
+                </div>
+                <div className="absolute bottom-0 right-1/2 translate-x-1/2">
+                    <MdKeyboardDoubleArrowDown size={30} color="#ffffff8f" />
                 </div>
             </div>
         </CustomProvider>

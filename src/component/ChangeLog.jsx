@@ -67,6 +67,7 @@ function ChangeLog() {
                     <div>
                         Beta 0.3 <br />
                         - Added popular Vatsim airports <br />
+                        - Added visual guidance in the Home page to indicate the page could be scrolled down <br />
                         - Change display layout for popular airport in Home page <br />
                         - Fix the visited airport been counted twice issue <br />
                         - Fix the issue when page is rendering from the bottom <br />

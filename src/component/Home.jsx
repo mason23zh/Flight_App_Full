@@ -51,7 +51,7 @@ function Home() {
                 <div className={darkTheme}>
                     <div className="text-2xl md:text-3xl">Popular Vatsim Airports</div>
                 </div>
-                <div className="">
+                <div>
                     {renderVatsimAirports}
                 </div>
             </CustomProvider>

@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 function Layout() {
-    const currentLocation = useLocation();
     return (
         <div>
             <div className="font-Rubik flex flex-col h-screen justify-between">
@@ -14,9 +13,6 @@ function Layout() {
                 <div className="mb-auto">
                     <Outlet />
                 </div>
-                {/* <div className="h-10"> */}
-                {/*    {currentLocation.pathname !== "/" && <Footer />} */}
-                {/* </div> */}
                 <div className="h-10">
                     <Footer />
                 </div>
