@@ -74,6 +74,12 @@ function ChangeLog() {
                         - Fix the issue NotFound page might render if Airport Detail page is taking too long to
                         retrieve data <br />
                     </div>
+                    <div>
+                        Beta 0.3.1 <br />
+                        - Added responsive to Pagination component in airport search list <br />
+                        - Change airport search list to new display layout <br />
+                        - Fix UI issue in Home page popular airport tab (location render twice) <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

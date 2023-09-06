@@ -76,7 +76,7 @@ function AirportListInfoTab({ airport, counter }) {
     
     return (
         <div className={themeClass}>
-            <div className="justify-self-start p-2 ml-2">
+            <div className="justify-self-start p-2 ml-3">
                 {icaoSection}
             </div>
             <div className="p-2 justify-self-center hidden md:block">
