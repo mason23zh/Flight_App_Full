@@ -11,9 +11,6 @@ function About() {
             <div className="h-screen">
                 <div className="flex flex-col items-center mt-10">
                     <div>
-                        beta version 0.3
-                    </div>
-                    <div>
                         Logo designed by: Charlie Wang
                     </div>
                     <div>
