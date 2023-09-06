@@ -68,6 +68,10 @@ function ChangeLog() {
                         Beta 0.3 <br />
                         - Added popular Vatsim airports <br />
                         - Change display layout for popular airport in Home page <br />
+                        - Fix the visited airport been counted twice issue <br />
+                        - Fix the issue when page is rendering from the bottom <br />
+                        - Fix the issue NotFound page might render if Airport Detail page is taking too long to
+                        retrieve data <br />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
-import { FaArrowCircleRight } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
