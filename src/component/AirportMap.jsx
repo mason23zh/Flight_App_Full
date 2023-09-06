@@ -13,15 +13,19 @@ L.Icon.Default.mergeOptions({
     shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
-function AirportMap({ lat, lng, name }) {
+function AirportMap({
+    lat, lng, name,
+}) {
     return (
-        <>
+        <div className="h-[300px] w-[1200px] max-w-[1200px]">
             <MapContainer
+                style={{ height: "100%", minHeight: "100%" }}
                 center={[lat, lng]}
                 zoom={13}
                 scrollWheelZoom={false}
             >
                 <TileLayer
+                    id="mapbox/dark-v10"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
@@ -31,7 +35,7 @@ function AirportMap({ lat, lng, name }) {
                     </Popup>
                 </Marker>
             </MapContainer>
-        </>
+        </div>
     );
 }
 

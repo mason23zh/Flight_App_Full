@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import { Dropdown } from "rsuite";
 import { useDispatch } from "react-redux";
-import { COUNTRY_CODE } from "../util/country_code";
-import { CONTINENT_CODE } from "../util/contient_code";
+import Select from "react-select";
 import {
     BARO,
     CONTINENT,
@@ -14,14 +13,10 @@ import {
     WIND_SPEED,
 } from "../util/selection_names";
 import { changeUserSelection } from "../store";
-import { useTheme } from "../hooks/ThemeContext";
+import { COUNTRY_CODE } from "../util/country_code";
+import { CONTINENT_CODE } from "../util/contient_code";
 
-function ExtremeWeatherHeader() {
-    const darkMode = useTheme();
-    const buttonClasses = darkMode
-        ? "p-1 rounded text-gray-100 text-lg hover:text-white hover:bg-blue-500 duration-100"
-        : "p-1 rounded text-blue-500 text-lg hover:text-white hover:bg-blue-500 duration-100";
-    
+function ExtremeWeatherHeaderDropDown() {
     const dispatch = useDispatch();
     const [userSelection, setUserSelection] = useState({
         weather: WIND_SPEED,
@@ -57,10 +52,6 @@ function ExtremeWeatherHeader() {
         dispatch(changeUserSelection(userSelection));
     }, [userSelection, dispatch]);
     
-    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg shadow-md";
-    
-    const scopeButtonClass = "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
-    const activeScopeButtonClass = "p-1 text-lg bg-green-600 text-white rounded shadow-md";
     
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {
@@ -125,7 +116,7 @@ function ExtremeWeatherHeader() {
             <Select
                 options={COUNTRY_CODE}
                 placeholder="Select country..."
-                className="absolute top-[5%] w-[200px] text-black"
+                className="absolute top-[5%] w-auto text-black"
                 onChange={handleSelectChange}
             />
         );
@@ -134,67 +125,73 @@ function ExtremeWeatherHeader() {
             <Select
                 options={CONTINENT_CODE}
                 placeholder="Select continent..."
-                className="absolute top-[5%] w-[200px] text-black"
+                className="text-sm absolute top-[5%] w-full text-black md:text-lg"
                 onChange={handleSelectChange}
             />
         );
     }
     
+    
     return (
-        <div className="flex items-center justify-center gap-10 p-3 mt-1 relative">
-            <button
-                onClick={() => handleWeatherButtonClick(WIND_SPEED)}
-                className={weatherActive.WIND_SPEED ? activeButtonClass : buttonClasses}
-            >
-                Wind Speed
-            </button>
-            <button
-                onClick={() => handleWeatherButtonClick(WIND_GUST)}
-                className={weatherActive.WIND_GUST ? activeButtonClass : buttonClasses}
-            >
-                Wind Gust
-            </button>
-            <button
-                onClick={() => handleWeatherButtonClick(VISIBILITY)}
-                className={weatherActive.VISIBILITY ? activeButtonClass : buttonClasses}
-            >
-                Visibility
-            </button>
-            <button
-                onClick={() => handleWeatherButtonClick(BARO)}
-                className={weatherActive.BARO ? activeButtonClass : buttonClasses}
-            >
-                Baro
-            </button>
-            <button
-                onClick={() => handleWeatherButtonClick(TEMPERATURE)}
-                className={weatherActive.TEMPERATURE ? activeButtonClass : buttonClasses}
-            >
-                Temperature
-            </button>
-            <div className="flex items-center justify-center gap-5">
-                <button
-                    onClick={() => handleScopeButtonClick(GLOBAL)}
-                    className={scopeActive.GLOBAL ? activeScopeButtonClass : scopeButtonClass}
+        <div className="text-sm flex items-center justify-center p-3 md:text-lg">
+            <Dropdown title={userSelection.weather.replace("_", " ")}>
+                <Dropdown.Item
+                    onSelect={() => handleWeatherButtonClick(WIND_SPEED)}
+                    active={weatherActive.WIND_SPEED}
+                >
+                    Wind Speed
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleWeatherButtonClick(WIND_GUST)}
+                    active={weatherActive.WIND_GUST}
+                >
+                    Wind Gust
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleWeatherButtonClick(VISIBILITY)}
+                    active={weatherActive.VISIBILITY}
+                >
+                    Visibility
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleWeatherButtonClick(BARO)}
+                    active={weatherActive.BARO}
+                >
+                    Baro
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleWeatherButtonClick(TEMPERATURE)}
+                    active={weatherActive.TEMPERATURE}
+                >
+                    Temperature
+                </Dropdown.Item>
+            </Dropdown>
+                
+            <Dropdown title={userSelection.scope}>
+                <Dropdown.Item
+                    onSelect={() => handleScopeButtonClick(GLOBAL)}
+                    active={scopeActive.GLOBAL}
                 >
                     Global
-                </button>
-                <button
-                    onClick={() => handleScopeButtonClick(COUNTRY)}
-                    className={scopeActive.COUNTRY ? activeScopeButtonClass : scopeButtonClass}
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleScopeButtonClick(COUNTRY)}
+                    active={scopeActive.COUNTRY}
                 >
                     Country
-                </button>
-                <button
-                    onClick={() => handleScopeButtonClick(CONTINENT)}
-                    className={scopeActive.CONTINENT ? activeScopeButtonClass : scopeButtonClass}
+                </Dropdown.Item>
+                <Dropdown.Item
+                    onSelect={() => handleScopeButtonClick(CONTINENT)}
+                    active={scopeActive.CONTINENT}
                 >
                     Continent
-                </button>
-                <div>{renderedDropDown}</div>
+                </Dropdown.Item>
+            </Dropdown>
+            <div>
+                {renderedDropDown}
             </div>
         </div>
     );
 }
 
-export default ExtremeWeatherHeader;
+export default ExtremeWeatherHeaderDropDown;

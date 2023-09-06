@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CustomProvider } from "rsuite";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { useTheme } from "../hooks/ThemeContext";
 
 function HomeHeroSection({ backgroundImage }) {
     const navigate = useNavigate();
@@ -16,36 +19,52 @@ function HomeHeroSection({ backgroundImage }) {
             navigate("/airport", { state: { userInput: input } });
         }
     };
-    
+    const darkMode = useTheme();
+    // w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed
     return (
-        <div className="relative">
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
+                className="w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    height: "960px",
-                    width: "auto",
                 }}
-            />
-            <form onSubmit={handleFormSubmit} className="absolute top-[38%] left-[38%]">
-                <div className="flex flex-col items-center justify-center gap-7">
-                    <h2 className="text-white text-4xl">Get METARs, airports and more</h2>
-                    <input
-                        onChange={handleInputChange}
-                        value={input}
-                        className="rounded-xl border-2 w-full h-10"
-                        placeholder="   Search ICAO code, IATA code, airport name, city..."
-                    />
-                    <button
-                        type="submit"
-                        className="px-3 py-1 text-white border-white border-2 rounded-xl text-xl"
-                    >Get Data
-                    </button>
+            >
+                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]
+                     transition-all ease-in-out duration-300
+                     w-auto h-fit"
+                >
+                    <form
+                        onSubmit={handleFormSubmit}
+                        className=""
+                    >
+                        <div className="flex flex-col items-center justify-center gap-5">
+                            <h2 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">Get
+                                METARs,
+                                Airports and
+                                More
+                            </h2>
+                            <input
+                                onChange={handleInputChange}
+                                value={input}
+                                className="rounded-xl border-2 w-full md:w-full h-10 text-black pl-3 text-[17px]"
+                                placeholder="Search ICAO, IATA, airport name, city..."
+                            />
+                            <button
+                                type="submit"
+                                className="px-3 py-1 text-black border-white border-2
+                                    rounded-xl text-xl bg-white bg-opacity-50
+                                    text-opacity-80 hover:bg-opacity-90
+                                    transition duration-200 ease-in-out"
+                            >Get Data
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
+                <div className="absolute bottom-0 right-1/2 translate-x-1/2">
+                    <MdKeyboardDoubleArrowDown size={30} color="#ffffff8f" />
+                </div>
+            </div>
+        </CustomProvider>
     );
 }
 

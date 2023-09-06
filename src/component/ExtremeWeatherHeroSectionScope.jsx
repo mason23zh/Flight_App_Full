@@ -1,7 +1,6 @@
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import { CONTINENT, COUNTRY, GLOBAL } from "../util/selection_names";
-import ContinentSvg from "./ContinentSVG";
 
 function ExtremeWeatherHeroSectionScope({ code, weather, scope }) {
     if (code.label) {

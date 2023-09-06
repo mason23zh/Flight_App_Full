@@ -1,16 +1,31 @@
 import React from "react";
-import WeatherTable from "./WeatherTable";
+import { CustomProvider } from "rsuite";
+import { Link } from "react-router-dom";
+import { useTheme } from "../hooks/ThemeContext";
+
 
 function About() {
+    const darkMode = useTheme();
     return (
-        <div className="flex flex-col items-center">
-            <div className="text-red-500">
-                DISCLAIMER: NOT FOR REAL NAVIGATION
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
+            <div className="h-screen">
+                <div className="flex flex-col items-center mt-10">
+                    <div>
+                        beta version 0.3
+                    </div>
+                    <div>
+                        Logo designed by: Charlie Wang
+                    </div>
+                    <div>
+                        <Link
+                            to="/changelog"
+                        >
+                            Change Log
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <div>
-                beta version 0.1
-            </div>
-        </div>
+        </CustomProvider>
     );
 }
 

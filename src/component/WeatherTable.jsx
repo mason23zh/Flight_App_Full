@@ -11,9 +11,17 @@ import {
 } from "../util/selection_names";
 import { useFetchWeatherMetarsQuery } from "../store";
 import Skeleton from "./Skeleton";
+import { useTheme } from "../hooks/ThemeContext";
 
 
 function WeatherTable({ expandedContent }) {
+    const darkMode = useTheme();
+    const darkModeClass = darkMode
+        ? "[&>*:nth-child(odd)]:bg-gray-500 [&>*:nth-child(even)]:bg-gray-700"
+        : "[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200";
+    const darkModeThClass = darkMode
+        ? "text-sm p-2 border-5 bg-red-400 md:text-xl"
+        : "text-sm p-2 border-5 bg-red-300 md:text-xl";
     let columnsToRender;
     const [sortOrder, setSortOrder] = useState(1);
     const [rowData, setRowData] = useState(null);
@@ -167,19 +175,6 @@ function WeatherTable({ expandedContent }) {
         setSortOrder(Number(sortOrder) * -1);
     };
     
-    const sortableColumn = (column) => (
-        <th
-            {...column.getHeaderProps()}
-            className="text-xl p-2 border-5 bg-red-300"
-            onClick={handleSortClick}
-        >
-            <div className="flex items-center justify-center hover:cursor-pointer">
-                {column.render("Header")}
-                {sortOrder === -1 ? <CgChevronDoubleDown /> : <CgChevronDoubleUp />}
-            </div>
-        </th>
-    );
-    
     const handleLoadMoreData = () => {
         setRequestLimit(requestLimit + 10);
     };
@@ -202,7 +197,7 @@ function WeatherTable({ expandedContent }) {
                                     return (
                                         <th
                                             {...column.getHeaderProps()}
-                                            className="text-xl p-2 border-5 bg-red-300"
+                                            className={darkModeThClass}
                                             onClick={handleSortClick}
                                         >
                                             <div className="flex items-center justify-center hover:cursor-pointer">
@@ -218,7 +213,7 @@ function WeatherTable({ expandedContent }) {
                                     return (
                                         <th
                                             {...column.getHeaderProps()}
-                                            className="text-xl p-2 border-5 bg-red-300"
+                                            className={darkModeThClass}
                                             onClick={handleSortClick}
                                         >
                                             <div className="flex items-center justify-center hover:cursor-pointer">
@@ -233,7 +228,7 @@ function WeatherTable({ expandedContent }) {
                                 return (
                                     <th
                                         {...column.getHeaderProps()}
-                                        className="text-xl p-2 bg-red-300"
+                                        className={darkModeThClass}
                                     >
                                         {column.render("Header")}
                                     </th>
@@ -244,7 +239,7 @@ function WeatherTable({ expandedContent }) {
                 </thead>
                 <tbody
                     {...getTableBodyProps()}
-                    className="[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200"
+                    className={darkModeClass}
                 >
                     {rows.map((row) => {
                         prepareRow(row);
@@ -253,7 +248,7 @@ function WeatherTable({ expandedContent }) {
                         return (
                             <React.Fragment key={rowProps.key} {...rowProps}>
                                 <tr
-                                    className=" text-xl text-center"
+                                    className="text-sm text-center md:text-xl"
                                 >
                                     {row.cells.map((cell) => (
                                         <td
@@ -279,7 +274,7 @@ function WeatherTable({ expandedContent }) {
             <div className="flex justify-center gap-3">
                 <button
                     onClick={handleLoadMoreData}
-                    className="px-2 py-1 bg-green-400 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
+                    className="px-2 py-1 bg-green-500 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
                 >
                     Load More...
                 </button>

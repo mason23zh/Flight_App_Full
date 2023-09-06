@@ -1,3 +1,4 @@
+// Expand information when click 'detail' button on Extreme weather table
 import React from "react";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
@@ -116,7 +117,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
     };
     
     return (
-        <div className="p-3 text-lg">
+        <div className="text-sm p-3 md:text-lg">
             <div className="flex flex-col justify-center items-center">
                 <div>
                     {row.original.raw_text}
