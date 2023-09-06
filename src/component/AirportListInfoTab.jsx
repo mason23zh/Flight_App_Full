@@ -3,7 +3,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
 
-function AirportListInfoTab({ airport, counter }) {
+function AirportListInfoTab({ airport }) {
     const {
         ICAO, iata, station,
     } = airport;
