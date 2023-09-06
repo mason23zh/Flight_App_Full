@@ -64,6 +64,11 @@ function ChangeLog() {
                         - Fix the Weather input bar not trimming the user input <br />
                         - Fix the `No Results` text not being centered <br />
                     </div>
+                    <div>
+                        Beta 0.3 <br />
+                        - Added popular Vatsim airports <br />
+                        - Change display layout for popular airport in Home page <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

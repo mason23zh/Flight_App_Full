@@ -7,6 +7,12 @@ export const airportsApi = createApi({
     }),
     endpoints(build) {
         return {
+            fetchVatsimPopularAirports: build.query({
+                query: ({ limit }) => ({
+                    url: `/vatsim-popular-airports?limit=${limit}`,
+                    method: "GET",
+                }),
+            }),
             fetchMostPopularAirports: build.query({
                 query: () => ({
                     url: "/get-most-popular-airports",
@@ -47,4 +53,5 @@ export const {
     useFetchDetailAirportWithICAO_WidgetQuery,
     useFetchDetailAirportWithICAO,
     useFetchMostPopularAirportsQuery,
+    useFetchVatsimPopularAirportsQuery,
 } = airportsApi;

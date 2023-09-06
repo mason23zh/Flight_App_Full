@@ -1,15 +1,16 @@
 import React from "react";
-import HomePopularAirportInfoTab from "./HomePopularAirportInfoTab";
+import VatsimAirportInfoTab from "./VatsimAirportInfoTab";
 
-function HomeAirportList({ airports }) {
+function HomeVatsimAirportsList({ airports }) {
     const { data } = airports;
     let renderedAirports;
-    if (data.length === 0) {
+    
+    if (data.airports.length === 0) {
         renderedAirports = <div className="text-lg text-center">No Results</div>;
     } else {
-        renderedAirports = data.map((airport, i) => (
+        renderedAirports = data.airports.map((airport, i) => (
             <div key={airport.ICAO}>
-                <HomePopularAirportInfoTab airport={airport} counter={i} />
+                <VatsimAirportInfoTab airport={airport} counter={i} />
             </div>
         ));
     }
@@ -23,4 +24,4 @@ function HomeAirportList({ airports }) {
     );
 }
 
-export default HomeAirportList;
+export default HomeVatsimAirportsList;

@@ -1,16 +1,19 @@
 // This accordion will display basic information of airport for home page
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+// import { PiAirplaneLandingBold, PiAirplaneTakeoffBold } from "react-icons/pi";
+import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { useTheme } from "../hooks/ThemeContext";
 
-function HomeAirportAccordion({ airport }) {
+
+function PopularVatsimAirportsAccordion({ airport }) {
     const darkMode = useTheme();
     const themeClass = !darkMode
         ? "text-lg p-3 items-center auto-rows-fr bg-gray-200 drop-shadow-md border-2 rounded-xl grid grid-cols-1"
         : "text-lg p-3 items-center auto-rows-fr bg-gray-500 drop-shadow-md border-2 rounded-xl grid grid-cols-1";
     
     const {
-        ICAO, iata, station,
+        ICAO, iata, station, arrivalNumber, departureNumber,
     } = airport;
     
     const icaoAndIata = iata.length === 0 ? <div>{ICAO}</div> : <div>{ICAO} / {iata}</div>;
@@ -38,7 +41,27 @@ function HomeAirportAccordion({ airport }) {
                 <div className={darkMode ? "text-gray-100 font-bold" : "text-gray-500 font-bold"}>Location</div>
                 <div className={darkMode ? "text-gray-100" : "text-gray-500"}>{station.city}, {station.region.region_name}, {station.country.country_name}</div>
             </div>
-            <div className="col-span-full flex justify-center py-7">
+            <div className="p-2 text-center">
+                <div className="flex items-center justify-center gap-10">
+                    <div className="flex items-center gap-3">
+                        <div>
+                            <GiAirplaneDeparture />
+                        </div>
+                        <div>
+                            {departureNumber}
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div>
+                            <GiAirplaneArrival />
+                        </div>
+                        <div>
+                            {arrivalNumber}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="col-span-full flex justify-center py-3">
                 <Link
                     onMouseOver={handleLinkClick}
                     to="/airport/detail"
@@ -52,4 +75,4 @@ function HomeAirportAccordion({ airport }) {
     );
 }
 
-export default HomeAirportAccordion;
+export default PopularVatsimAirportsAccordion;
