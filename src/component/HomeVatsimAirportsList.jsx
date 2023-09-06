@@ -16,8 +16,8 @@ function HomeVatsimAirportsList({ airports }) {
     }
     
     return (
-        <div className="mt-3 ml-10 mr-10 sm:ml-20 sm:mr-20">
-            <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 ml-30 mr-30">
+        <div className="flex flex-col items-center">
+            <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 w-[80%] mt-3 mb-3">
                 {renderedAirports}
             </div>
         </div>

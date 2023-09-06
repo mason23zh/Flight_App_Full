@@ -1,7 +1,7 @@
 import "../styles.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Pagination } from "rsuite";
-import AirportAccordion from "./AirportAccordion";
+import AirportListInfoTab from "./AirportListInfoTab";
 
 function AirportsList({ airports, goToPage }) {
     const [layout, setLayout] = useState(["total", "-", "|", "pager", "skip"]);
@@ -13,19 +13,20 @@ function AirportsList({ airports, goToPage }) {
     } else {
         renderedAirports = data.airports.map((airport) => (
             <div key={airport.ICAO}>
-                <AirportAccordion airport={airport} />
+                <AirportListInfoTab airport={airport} />
             </div>
         ));
     }
-    
     
     const handleGoToPage = (page) => {
         goToPage(page);
     };
     
     return (
-        <div className="flex flex-col items-center">
-            <div className="flex flex-col items-stretch gap-4 p-10 items-center w-[80%]">{renderedAirports}</div>
+        <div className="flex flex-col items-center ">
+            <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 w-[75%] mt-3 mb-3">
+                {renderedAirports}
+            </div>
             {data.airports.length !== 0 ? (
                 <Pagination
                     size="md"

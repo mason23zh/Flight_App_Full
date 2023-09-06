@@ -22,10 +22,10 @@ function VatsimAirportInfoTab({ airport, counter }) {
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
             + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-500 ml-0 mr-0 md:ml-5 md:mr-5 lg:ml-35 lg:mr-35"
+            + "h-full bg-gray-500"
         : "border-2 rounded-3xl grid grid-cols-3 "
             + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-300 ml-0 mr-0 md:ml-5 md:mr-5 lg:ml-35 lg:mr-35";
+            + "h-full bg-gray-300";
     
     
     const handleClick = () => {

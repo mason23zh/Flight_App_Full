@@ -45,7 +45,7 @@ function Home() {
                 <div className={darkTheme}>
                     <div className="text-2xl md:text-3xl">Popular Airports</div>
                 </div>
-                <div className="mb-3">
+                <div>
                     {renderedAirport}
                 </div>
                 <div className={darkTheme}>
