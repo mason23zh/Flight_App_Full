@@ -37,6 +37,7 @@ function Home() {
         renderedAirport = <h3 className="text-lg text-center">Error Loading Vatsim Traffic</h3>;
     }
     
+    
     return (
         <div>
             <HomeHeroSection backgroundImage={backgroundImage} />

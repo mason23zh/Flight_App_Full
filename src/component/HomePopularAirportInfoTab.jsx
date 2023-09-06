@@ -45,8 +45,11 @@ function HomePopularAirportInfoTab({ airport, counter }) {
             <div className="hidden lg:block">
                 {station.city}, {station.region.region_name}, {station.country.country_name}
             </div>
-            <div className="block lg:hidden">
+            <div className="hidden md:block">
                 {station.city}, {station.country.country_name}
+            </div>
+            <div className="block md:hidden">
+                {station.city}
             </div>
         </div>
     );
@@ -60,7 +63,7 @@ function HomePopularAirportInfoTab({ airport, counter }) {
     const goToAirportIcon = (
         <Link
             to="airport/detail"
-            onClick={handleClick}
+            onMouseOver={handleClick}
         >
             <IoIosArrowRoundForward size={40} />
         </Link>

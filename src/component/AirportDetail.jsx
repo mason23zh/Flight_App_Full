@@ -23,25 +23,29 @@ function AirportDetail() {
     const [skipRender, setSkipRender] = useState(true);
     const [widgetAvailable, setWidgetAvailable] = useState(false);
     const [ATIS, setATIS] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    setTimeout(() => setIsLoading(false), 5000);
+    
+    // Update airport visited count
+    useEffect(() => {
+        if (airport && airport.ICAO?.length !== 0) {
+            const updateVisited = async (icao) => {
+                await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${icao}` });
+            };
+            updateVisited(airport.ICAO);
+        }
+    }, [airport]);
     
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
         if (airportData && !airportData?.flag) {
             setAirport(airportData);
-            
-            const updateVisited = async (icao) => {
-                await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${icao}` });
-            };
-            
             setSkipRender(false);
-            
-            updateVisited(airportData.ICAO).catch((e) => console.error(e));
         } else if (airportData && airportData.flag === true) {
             const requestAirport = async (storageICAO) => {
                 try {
                     const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${storageICAO}?decode=true`);
-                    await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${storageICAO}` });
                     if (response) {
                         setAirport(response.data.data[0].airport);
                     }
@@ -49,7 +53,6 @@ function AirportDetail() {
                     console.log(e);
                 }
             };
-            
             requestAirport(airportData.ICAO).catch(console.error);
             setSkipRender(false);
         }
@@ -160,7 +163,7 @@ function AirportDetail() {
     }
     return (
         <div>
-            <NoMatch />
+            {!isLoading ? <NoMatch /> : <div className="text-center">Loading...</div>}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -27,6 +27,7 @@ function VatsimAirportInfoTab({ airport, counter }) {
         : "border-2 rounded-3xl grid grid-cols-3 "
             + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
             + "h-full bg-gray-300 ml-0 mr-0 md:ml-5 md:mr-5 lg:ml-35 lg:mr-35";
+    
     
     const handleClick = () => {
         localStorage.setItem("airportData", JSON.stringify(airport));
@@ -103,7 +104,7 @@ function VatsimAirportInfoTab({ airport, counter }) {
     const goToAirportIcon = (
         <Link
             to="airport/detail"
-            onClick={handleClick}
+            onMouseOver={handleClick}
         >
             <IoIosArrowRoundForward size={40} />
         </Link>

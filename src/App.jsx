@@ -9,21 +9,24 @@ import Weather from "./component/Weather";
 import ExtremeWeather from "./component/ExtremeWeather";
 import ChangeLog from "./component/ChangeLog";
 import AirportDetail from "./component/AirportDetail";
+import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="about" element={<About />} />
-                <Route path="weather" element={<Weather />} />
-                <Route path="extreme-weather" element={<ExtremeWeather />} />
-                <Route path="airport" element={<Airports />} />
-                <Route path="airport/detail" element={<AirportDetail />} />
-                <Route path="changelog" element={<ChangeLog />} />
-                <Route path="*" element={<NoMatch />} />
-            </Route>
-        </Routes>
+        <ScrollToTop>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="weather" element={<Weather />} />
+                    <Route path="extreme-weather" element={<ExtremeWeather />} />
+                    <Route path="airport" element={<Airports />} />
+                    <Route path="airport/detail" element={<AirportDetail />} />
+                    <Route path="changelog" element={<ChangeLog />} />
+                    <Route path="*" element={<NoMatch />} />
+                </Route>
+            </Routes>
+        </ScrollToTop>
     );
 }
 
