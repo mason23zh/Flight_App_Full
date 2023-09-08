@@ -5,7 +5,7 @@ function WeatherList({ weather }) {
     let renderedWeather;
     
     if (!weather?.data || weather.data.length === 0) {
-        renderedWeather = <div className="text-lg">No Results</div>;
+        renderedWeather = <div className="text-lg text-center">No Results</div>;
     } else {
         renderedWeather = weather?.data.map((w) => (
             <div key={w.icao}>

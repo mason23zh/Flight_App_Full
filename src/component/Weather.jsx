@@ -48,9 +48,9 @@ function Weather() {
     };
     
     if (error) {
-        renderedWeather = <div className="text-xl text-center">No Results</div>;
+        renderedWeather = <div className="text-xl text-center"><h3>Error</h3></div>;
     } else if (isFetching) {
-        renderedWeather = <div className="text-cl text-center">Loading..</div>;
+        renderedWeather = <div className="text-xl text-center">Loading..</div>;
     } else if (localStorage.getItem("weatherListData") !== null && !data) {
         const localData = JSON.parse(localStorage.getItem("weatherListData"));
         renderedWeather = <WeatherList weather={localData} />;
