@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import ReactAudioPlayer from "react-audio-player";
 import { CustomProvider } from "rsuite";
-import morseCode from "../assets/morseCode.wav";
+import AudioPlayer from "react-h5-audio-player";
+import morseCode from "../assets/morseCode.mp3";
 import { useTheme } from "../hooks/ThemeContext";
+import "react-h5-audio-player/lib/styles.css";
 
 function Puzzles() {
     const [input, setInput] = useState("");
@@ -29,10 +30,12 @@ function Puzzles() {
             <div>
                 <div className="grid grid-cols-1 gap-4 justify-items-center">
                     <div className="text-2xl md:text-4xl">Finding Orion</div>
-                    <ReactAudioPlayer
-                        src={morseCode}
-                        controls
-                    />
+                    <div>
+                        <AudioPlayer
+                            src={morseCode}
+                            
+                        />
+                    </div>
                     <div className="flex items-center gap-2">
                         <input
                             className="border-2 w-full text-[16px] text-black"

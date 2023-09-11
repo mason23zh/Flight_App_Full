@@ -8,10 +8,10 @@ import IMG_0202 from "../images/Orion/IMG_0202.jpeg";
 import IMG_0212 from "../images/Orion/IMG_0212.jpeg";
 import IMG_0223 from "../images/Orion/IMG_0223.jpeg";
 import IMG_0233 from "../images/Orion/IMG_0233.jpeg";
-import IMG_0776 from "../images/Orion/IMG_0776.JPG";
+import IMG_0776 from "../images/Orion/IMG_0776.jpeg";
 import IMG_0896 from "../images/Orion/IMG_0896.jpeg";
 import IMG_0968 from "../images/Orion/IMG_0968.jpeg";
-import IMG_1145 from "../images/Orion/IMG_1145.JPG";
+import IMG_1145 from "../images/Orion/IMG_1145.jpeg";
 import IMG_1231 from "../images/Orion/IMG_1231.jpeg";
 import IMG_1388 from "../images/Orion/IMG_1388.jpeg";
 import IMG_1438 from "../images/Orion/IMG_1438.jpeg";
@@ -23,18 +23,17 @@ import IMG_1833 from "../images/Orion/IMG_1833.jpeg";
 import IMG_1907 from "../images/Orion/IMG_1907.jpeg";
 import IMG_1985 from "../images/Orion/IMG_1985.jpeg";
 import IMG_2022 from "../images/Orion/IMG_2022.jpeg";
-import IMG_2181 from "../images/Orion/IMG_2181.JPG";
+import IMG_2181 from "../images/Orion/IMG_2181.jpeg";
 import IMG_2200 from "../images/Orion/IMG_2200.jpeg";
 import IMG_2226 from "../images/Orion/IMG_2226.jpeg";
 import IMG_2262 from "../images/Orion/IMG_2262.jpeg";
-import IMG_2384 from "../images/Orion/IMG_2384.JPG";
+import IMG_2384 from "../images/Orion/IMG_2384.jpeg";
 import IMG_2469 from "../images/Orion/IMG_2469.jpeg";
 import IMG_2481 from "../images/Orion/IMG_2481.jpeg";
-import IMG_2535 from "../images/Orion/IMG_2535.JPG";
+import IMG_2535 from "../images/Orion/IMG_2535.jpeg";
 import IMG_2559 from "../images/Orion/IMG_2559.jpeg";
 import IMG_2571 from "../images/Orion/IMG_2571.jpeg";
 import IMG_2619 from "../images/Orion/IMG_2619.jpeg";
-import IMG_2789 from "../images/Orion/IMG_2789.PNG";
 import IMG_2868 from "../images/Orion/IMG_2868.jpeg";
 import IMG_2913 from "../images/Orion/IMG_2913.jpeg";
 import IMG_2914 from "../images/Orion/IMG_2914.jpeg";
@@ -50,7 +49,7 @@ import IMG_3333 from "../images/Orion/IMG_3333.jpeg";
 import IMG_3401 from "../images/Orion/IMG_3401.jpeg";
 import IMG_3506 from "../images/Orion/IMG_3506.jpeg";
 import IMG_3521 from "../images/Orion/IMG_3521.jpeg";
-import IMG_3575 from "../images/Orion/IMG_3575.JPG";
+import IMG_3575 from "../images/Orion/IMG_3575.jpeg";
 import IMG_3595 from "../images/Orion/IMG_3595.jpeg";
 import IMG_3596 from "../images/Orion/IMG_3596.jpeg";
 import IMG_3638 from "../images/Orion/IMG_3638.jpeg";
@@ -58,14 +57,14 @@ import IMG_3670 from "../images/Orion/IMG_3670.jpeg";
 import IMG_3672 from "../images/Orion/IMG_3672.jpeg";
 import IMG_3676 from "../images/Orion/IMG_3676.jpeg";
 import IMG_3867 from "../images/Orion/IMG_3867.jpeg";
-import IMG_6758 from "../images/Orion/IMG_6758.JPG";
-import IMG_6888 from "../images/Orion/IMG_6888.JPG";
+import IMG_6758 from "../images/Orion/IMG_6758.jpeg";
+import IMG_6888 from "../images/Orion/IMG_6888.jpeg";
 import IMG_7319 from "../images/Orion/IMG_7319.jpeg";
 import IMG_7323 from "../images/Orion/IMG_7323.jpeg";
 import IMG_7335 from "../images/Orion/IMG_7335.jpeg";
 import IMG_7958 from "../images/Orion/IMG_7958.jpeg";
-import IMG_8084 from "../images/Orion/IMG_8084.JPG";
-import IMG_8189 from "../images/Orion/IMG_8189.JPG";
+import IMG_8084 from "../images/Orion/IMG_8084.jpeg";
+import IMG_8189 from "../images/Orion/IMG_8189.jpeg";
 import IMG_8197 from "../images/Orion/IMG_8197.jpeg";
 import IMG_8245 from "../images/Orion/IMG_8245.jpeg";
 import IMG_8281 from "../images/Orion/IMG_8281.jpeg";
@@ -125,7 +124,6 @@ const photos = [
     { src: IMG_2559, width: 600, height: 800 },
     { src: IMG_2571, width: 800, height: 600 },
     { src: IMG_2619, width: 600, height: 800 },
-    { src: IMG_2789, width: 828, height: 1792 },
     { src: IMG_2868, width: 800, height: 600 },
     { src: IMG_2913, width: 600, height: 800 },
     { src: IMG_2914, width: 600, height: 800 },
@@ -180,3 +178,5 @@ const photos = [
 ];
 
 export default photos;
+ 
+ 
