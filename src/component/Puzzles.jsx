@@ -10,6 +10,7 @@ function Puzzles() {
     const [result, setResult] = useState(false);
     const darkMode = useTheme();
     
+    
     const renderCodedImg = (
         <div className="border-2 p-5">
             <p className="break-words">
