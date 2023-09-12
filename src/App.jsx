@@ -10,6 +10,8 @@ import ExtremeWeather from "./component/ExtremeWeather";
 import ChangeLog from "./component/ChangeLog";
 import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
+import Orion from "./component/Orion";
+import Puzzles from "./component/Puzzles";
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                     <Route path="airport" element={<Airports />} />
                     <Route path="airport/detail" element={<AirportDetail />} />
                     <Route path="changelog" element={<ChangeLog />} />
+                    <Route path="Orion9600" element={<Orion />} />
+                    <Route path="puzzles" element={<Puzzles />} />
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>

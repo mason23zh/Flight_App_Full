@@ -80,6 +80,11 @@ function ChangeLog() {
                         - Change airport search list to new display layout <br />
                         - Fix UI issue in Home page popular airport tab (location render twice) <br />
                     </div>
+                    <div>
+                        Beta 0.3.2 <br />
+                        - Added Finding Orion puzzle <br />
+                        - Fix No Results not centered issue in Weather List <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
