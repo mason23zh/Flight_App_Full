@@ -7,11 +7,11 @@ function Dropdown({
     options, onChange, value, className, placeHolderMsg,
 }) {
     const dropDownFinalClassName = classNames("w-48 flex flex-col", className);
-
+    
     const [isOpen, setIsOpen] = useState(false);
     // get reference to root element of Dropdown
     const divElement = useRef();
-
+    
     useEffect(() => {
         const handler = (event) => {
             // if not reference to divElement, return;
@@ -27,19 +27,17 @@ function Dropdown({
         document.addEventListener("click", handler, true);
         return () => document.removeEventListener("click", handler);
     }, []);
-
+    
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
-
-    // DEV ONLY: performance test
-    window.timeTwo = performance.now();
+    
+    
     const handleOptionClick = (option) => {
-        window.timeOne = performance.now();
         setIsOpen(false);
         onChange(option);
     };
-
+    
     const renderedOptions = options.map((option) => (
         <div
             role="presentation"
