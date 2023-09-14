@@ -90,6 +90,7 @@ function ChangeLog() {
                         - Automatically detect system dark mode setting <br />
                         - Make URLs in Airport Detail page table shorter, results a smaller table <br />
                         - Lower the Home Page background image brightness in dark mode <br />
+                        - Change input field background color to match dark mode <br />
                     </div>
                 </div>
             </div>
