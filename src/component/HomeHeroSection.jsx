@@ -20,7 +20,10 @@ function HomeHeroSection({ backgroundImage }) {
         }
     };
     const darkMode = useTheme();
-    // w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed
+    const inputFiledTheme = darkMode
+        ? "rounded-xl border-2 w-full md:w-full h-10 text-gray-200 pl-3 text-[17px] bg-black border-gray-700"
+        : "rounded-xl border-2 w-full md:w-full h-10 text-black pl-3 text-[17px]";
+    
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
@@ -47,7 +50,7 @@ function HomeHeroSection({ backgroundImage }) {
                             <input
                                 onChange={handleInputChange}
                                 value={input}
-                                className="rounded-xl border-2 w-full md:w-full h-10 text-black pl-3 text-[17px]"
+                                className={inputFiledTheme}
                                 placeholder="Search ICAO, IATA, airport name, city..."
                             />
                             <button
@@ -61,7 +64,7 @@ function HomeHeroSection({ backgroundImage }) {
                         </div>
                     </form>
                 </div>
-                <div className="absolute bottom-0 right-1/2 translate-x-1/2">
+                <div className="absolute bottom-[8%] right-1/2 translate-x-1/2">
                     <MdKeyboardDoubleArrowDown size={30} color="#ffffff8f" />
                 </div>
             </div>

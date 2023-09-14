@@ -1,10 +1,19 @@
 import React, { useState } from "react";
+import { useTheme } from "../hooks/ThemeContext";
 
 function HeroSection({
     backgroundImage, message, placedHoldMessage, onSubmit,
 }) {
+    const darkMode = useTheme();
     const [input, setInput] = useState("");
     
+    const inputTheme = darkMode
+        ? "rounded-xl border-2 w-auto "
+            + "sm:w-[400px] h-10 text-black "
+            + "transition-all ease-in-out duration-300 pl-3 text-[17px] bg-gray-900 text-gray-200 border-gray-700"
+        : "rounded-xl border-2 w-auto "
+            + "sm:w-[400px] h-10 text-black "
+            + "transition-all ease-in-out duration-300 pl-3 text-[17px]";
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (input.length !== 0) {
@@ -38,9 +47,7 @@ function HeroSection({
                     <input
                         onChange={handleInputChange}
                         value={input}
-                        className="rounded-xl border-2 w-auto
-                        sm:w-[400px] h-10 text-black
-                        transition-all ease-in-out duration-300 pl-3 text-[17px]"
+                        className={inputTheme}
                         placeholder={`${placedHoldMessage}`}
                     />
                     <button

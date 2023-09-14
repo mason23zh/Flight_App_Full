@@ -10,9 +10,6 @@ import { useTheme } from "../hooks/ThemeContext";
 function Weather() {
     const darkMode = useTheme();
     const bgImg = darkMode ? backGroundImageDarkMode : backgroundImage;
-    // window.onbeforeunload = function () {
-    //     localStorage.clear();
-    // };
     
     const message = "Current weather";
     const placeHolderMessage = "Search ICAO, airport name or city...";

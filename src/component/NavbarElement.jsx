@@ -14,6 +14,9 @@ function NavbarElement() {
     const navBarBgTheme = darkMode
         ? "flex justify-between py-1 px-5"
         : "flex justify-between py-1 px-5 bg-gray-100 w-screen";
+    const navBarInputTheme = darkMode
+        ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"
+        : "border-2 rounded-lg py-1 px-3 text-black text-[17px]";
     
     const navigate = useNavigate();
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
@@ -85,7 +88,7 @@ function NavbarElement() {
                     placeholder={searchPlaceHolder}
                     onChange={handleInputChange}
                     type="text"
-                    className="border-2 rounded-lg py-1 px-3 text-black text-[17px]"
+                    className={navBarInputTheme}
                 />
                 <button type="submit" className={navBarSubmitButtonClass}>Get Result</button>
             </form>

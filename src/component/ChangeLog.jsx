@@ -87,7 +87,9 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.3.3 <br />
-                        - Make URLs in Airport Detail page shorter <br />
+                        - Automatically detect system dark mode setting <br />
+                        - Make URLs in Airport Detail page table shorter, results a smaller table <br />
+                        - Lower the Home Page background image brightness in dark mode <br />
                     </div>
                 </div>
             </div>
