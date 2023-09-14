@@ -29,11 +29,11 @@ function HomeHeroSection({ backgroundImage }) {
             <div
                 className="w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
                 style={{
-                    filter: darkMode ? "brightness(80%)" : "brightness(100%)",
-                    backgroundImage: `url(${backgroundImage})`,
+                    filter: darkMode ? "brightness(90%)" : "brightness(100%)",
+                    backgroundImage: `linear-gradient(rgba(184,182,169,0.2), rgba(5,16,2,0.8)), url(${backgroundImage})`,
                 }}
             >
-                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[50%]
+                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[40%]
                      transition-all ease-in-out duration-300
                      w-auto h-fit"
                 >
@@ -65,7 +65,7 @@ function HomeHeroSection({ backgroundImage }) {
                     </form>
                 </div>
                 <div className="absolute bottom-[8%] right-1/2 translate-x-1/2">
-                    <MdKeyboardDoubleArrowDown size={30} color="#ffffff8f" />
+                    <MdKeyboardDoubleArrowDown size={40} color="#ffffff8f" />
                 </div>
             </div>
         </CustomProvider>

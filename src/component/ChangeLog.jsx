@@ -87,6 +87,8 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.3.3 <br />
+                        - Added dark theme map tile in Airport Detail when switching to dark mode <br />
+                        - Added linear-gradient to home page background image <br />
                         - Automatically detect system dark mode setting <br />
                         - Make URLs in Airport Detail page table shorter, results a smaller table <br />
                         - Lower the Home Page background image brightness in dark mode <br />
