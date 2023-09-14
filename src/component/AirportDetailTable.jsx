@@ -56,11 +56,11 @@ function AirportDetailTable({
                     </tr>
                     <tr className="border-2 text-left">
                         <td className="border-2 p-3">Home Page</td>
-                        <td className="p-3"><a href={homeLink}>{ICAO} Home Page</a></td>
+                        <td className="p-3"><a href={homeLink} target="_blank" rel="noreferrer">{ICAO} Home Page</a></td>
                     </tr>
                     <tr className="border-2 text-left">
                         <td className="border-2 p-3">Wikipedia Page</td>
-                        <td className="p-3 border-2"><a href={wikiLink}>{ICAO} Wiki Page</a></td>
+                        <td className="p-3 border-2"><a href={wikiLink} target="_blank" rel="noreferrer">{ICAO} Wiki Page</a></td>
                     </tr>
                 </tbody>
             </table>
