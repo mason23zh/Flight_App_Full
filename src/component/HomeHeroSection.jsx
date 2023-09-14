@@ -26,6 +26,7 @@ function HomeHeroSection({ backgroundImage }) {
             <div
                 className="w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
                 style={{
+                    filter: darkMode ? "brightness(80%)" : "brightness(100%)",
                     backgroundImage: `url(${backgroundImage})`,
                 }}
             >

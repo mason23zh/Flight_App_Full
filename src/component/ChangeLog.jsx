@@ -85,6 +85,10 @@ function ChangeLog() {
                         - Added Finding Orion puzzle <br />
                         - Fix No Results not centered issue in Weather List <br />
                     </div>
+                    <div>
+                        Beta 0.3.3 <br />
+                        - Make URLs in Airport Detail page shorter <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
