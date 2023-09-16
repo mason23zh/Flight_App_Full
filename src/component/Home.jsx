@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/pascal-meier-UYiesSO4FiM-unsplash.jpg";
 import HomeHeroSection from "./HomeHeroSection";
@@ -6,9 +6,11 @@ import { useFetchMostPopularAirportsQuery, useFetchVatsimPopularAirportsQuery } 
 import HomeAirportList from "./HomeAirportList";
 import { useTheme } from "../hooks/ThemeContext";
 import HomeVatsimAirportsList from "./HomeVatsimAirportsList";
+import ScrollToHashElement from "./ScrollToHashElement";
 
 function Home() {
     const { data, error, isFetching } = useFetchMostPopularAirportsQuery();
+    
     const {
         data: vatsimAirports,
         error: vatsimAirportsError,
@@ -29,6 +31,7 @@ function Home() {
         renderedAirport = <h3>Error</h3>;
     }
     
+    
     if (vatsimAirports) {
         renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports} />;
     } else if (vatsimAirportsFetching) {
@@ -40,16 +43,29 @@ function Home() {
     
     return (
         <div>
-            <HomeHeroSection backgroundImage={backgroundImage} />
+            <ScrollToHashElement />
+            <HomeHeroSection
+                backgroundImage={backgroundImage}
+            />
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className={darkTheme}>
-                    <div className="text-2xl md:text-3xl">Popular Airports</div>
+                    <div
+                        className="text-2xl md:text-3xl"
+                        id="popular-airports"
+                    >
+                        Popular Airports
+                    </div>
                 </div>
                 <div>
                     {renderedAirport}
                 </div>
                 <div className={darkTheme}>
-                    <div className="text-2xl md:text-3xl">Popular Vatsim Airports</div>
+                    <div
+                        className="text-2xl md:text-3xl"
+                        id="popular-vatsim-airports"
+                    >
+                        Popular Vatsim Airports
+                    </div>
                 </div>
                 <div>
                     {renderVatsimAirports}

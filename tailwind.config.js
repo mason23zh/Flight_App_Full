@@ -13,6 +13,7 @@ module.exports = {
             },
             animation: {
                 shimmer: "shimmer 1.5s infinite",
+                bounce: "bounce 1s infinite",
             },
             screens: {
                 airportAccordionExSm: "530px",
