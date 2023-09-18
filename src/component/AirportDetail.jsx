@@ -16,6 +16,7 @@ import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
+import AirportDetailPanel from "./AirportDetailPanel";
 
 function AirportDetail() {
     const darkMode = useTheme();
@@ -161,6 +162,9 @@ function AirportDetail() {
                             wikiLink={wikipedia_link}
                         />
                     </div>
+                    {/* <div> */}
+                    {/*    <AirportDetailPanel ICAO={ICAO} /> */}
+                    {/* </div> */}
                     <div className="mt-3 p-2 max-w-[1230px] w-[84%] justify-self-center">
                         <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                     </div>
