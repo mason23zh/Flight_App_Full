@@ -12,7 +12,7 @@ function Weather() {
     const bgImg = darkMode ? backGroundImageDarkMode : backgroundImage;
     
     const message = "Current weather";
-    const placeHolderMessage = "Search ICAO, airport name or city...";
+    const placeHolderMessage = "ICAO, name or city...";
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
     const [weatherData, setWeatherData] = useState();

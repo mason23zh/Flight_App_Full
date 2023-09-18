@@ -1,36 +1,56 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CustomProvider, Input, InputGroup } from "rsuite";
+import axios from "axios";
 import { useTheme } from "../hooks/ThemeContext";
 import InputAndSearch from "./InputAndSearch";
+import globalAirportICAO from "../util/globalAirportICAO";
 
 
 function HomeHeroSection({
-    backgroundImage, onSectionSelect,
+    backgroundImage,
 }) {
     const navigate = useNavigate();
+    const [randAirport, setRandAirport] = useState(null);
     const [input, setInput] = useState("");
     
-    
     const darkMode = useTheme();
-    const inputFiledTheme = darkMode
-        ? "rounded-xl border-2 w-auto sm:w-full h-10 text-gray-200 px-4 text-[17px] bg-gray-800 border-gray-700"
-        : "rounded-xl border-2 w-auto sm:w-full h-10 text-black px-4 text-[17px]";
     
-    const submitButtonTheme = darkMode
-        ? "px-3 py-1 text-white border-gray-800 border-2"
-            + " rounded-xl text-xl bg-gray-900 "
-            + " bg-opacity-70 text-opacity-80 hover:bg-opacity-95"
-            + " transition duration-200 ease-in-out"
-        : "px-3 py-1 text-black border-white border-2"
-            + " rounded-xl text-xl bg-white bg-opacity-50"
-            + " text-opacity-80 hover:bg-opacity-90"
-            + " transition duration-200 ease-in-out";
+    const getRandomAirport = () => globalAirportICAO[Math.floor(Math.random() * globalAirportICAO.length)];
+    
+    
+    useEffect(() => {
+        const randomICAO = getRandomAirport();
+        
+        const fetchRandomAirport = async (airportICAO) => {
+            try {
+                const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${airportICAO}?decode=true`);
+                if (response) {
+                    setRandAirport(response.data.data[0].airport);
+                }
+                return response.data;
+            } catch (e) {
+                return -1;
+            }
+        };
+        
+        fetchRandomAirport(randomICAO).catch((e) => {
+            setRandAirport(-1);
+        });
+    }, []);
+    
     
     const handleSubmitNew = (data) => {
         if (data.length !== 0) {
             setInput(data);
             navigate("/airport", { state: { userInput: data } });
+        }
+    };
+    
+    const handleRandomAirportClick = () => {
+        if (randAirport !== -1) {
+            localStorage.setItem("airportData", JSON.stringify(randAirport));
+            navigate("/airport/detail");
         }
     };
     
@@ -64,29 +84,29 @@ function HomeHeroSection({
                                     onSubmit={handleSubmitNew}
                                 />
                             </div>
-                            {/* <div className="grid grid-cols-1 justify-center md:grid-cols-3 gap-5 text-center"> */}
-                            {/*    <div className="md:justify-self-start p-2 text-white text-[16px]"> */}
-                            {/*        <button className=""> */}
-                            {/*            Random Airport */}
-                            {/*        </button> */}
-                            {/*    </div> */}
-                            {/*    <div className="p-2 text-white text-[16px]"> */}
-                            {/*        <Link */}
-                            {/*            to="/#popular-vatsim-airports" */}
-                            {/*            className="hover:no-underline hover:text-white hover:italic hover:inline-block" */}
-                            {/*        > */}
-                            {/*            Popular Vatsim Airports */}
-                            {/*        </Link> */}
-                            {/*    </div> */}
-                            {/*    <div className="md:justify-self-end p-2 text-white text-[16px]"> */}
-                            {/*        <Link */}
-                            {/*            to="/#popular-airports" */}
-                            {/*            className="hover:no-underline hover:text-white hover:italic" */}
-                            {/*        > */}
-                            {/*            Popular Airports */}
-                            {/*        </Link> */}
-                            {/*    </div> */}
-                            {/* </div> */}
+                            <div className="grid grid-cols-1 items-center text-center justify-center md:grid-cols-3 md:gap-2">
+                                <div className="md:justify-self-start p-2 text-white text-[16px]">
+                                    <button className="hover:italic" onClick={handleRandomAirportClick}>
+                                        Random Airport
+                                    </button>
+                                </div>
+                                <div className="p-2 text-white text-[16px]">
+                                    <Link
+                                        to="/#popular-vatsim-airports"
+                                        className="hover:no-underline hover:text-white hover:italic hover:inline-block visited:text-white"
+                                    >
+                                        Popular Vatsim Airports
+                                    </Link>
+                                </div>
+                                <div className="md:justify-self-end p-2 text-white text-[16px]">
+                                    <Link
+                                        to="/#popular-airports"
+                                        className="hover:no-underline hover:text-white hover:italic visited:text-white"
+                                    >
+                                        Popular Airports
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -12,13 +12,11 @@ const el = document.getElementById("root");
 const root = createRoot(el);
 
 root.render(
-    <React.StrictMode>
-        <ThemeProvider>
-            <Provider store={store}>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
-            </Provider>
-        </ThemeProvider>
-    </React.StrictMode>,
-);
+    <ThemeProvider>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
+    </ThemeProvider>,
+); 

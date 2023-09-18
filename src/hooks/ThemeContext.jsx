@@ -25,10 +25,13 @@ export function ThemeProvider({ children }) {
     }
     
     const onSelectMode = (mode) => {
+        // Only change the theme by browsers theme if user have not selected any theme
         if (mode === "dark") {
-            setDarkTheme(true);
-            localStorage.setItem("themeDark", "true");
-        } else {
+            if (!localStorage.getItem("themeDark")) {
+                setDarkTheme(true);
+                localStorage.setItem("themeDark", "true");
+            }
+        } else if (!localStorage.getItem("themeDark")) {
             setDarkTheme(false);
             localStorage.setItem("themeDark", "false");
         }

@@ -93,6 +93,9 @@ function ChangeLog() {
                         - Make URLs in Airport Detail page table shorter, results a smaller table <br />
                         - Lower the Home Page background image brightness in dark mode <br />
                         - Change input field background color to match dark mode <br />
+                        - Change search bar layout for Home, Weather and Airport page <br />
+                        - Added Random Airport feature <br />
+                        - Fix the dark theme not sync issue <br />
                     </div>
                 </div>
             </div>

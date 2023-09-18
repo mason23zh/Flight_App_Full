@@ -9,9 +9,6 @@ import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
-    // window.onbeforeunload = function () {
-    //     localStorage.clear();
-    // };
     
     const { pathname, state } = useLocation();
     const [userInput, setUserInput] = useState("");
@@ -19,7 +16,7 @@ function Airports() {
     const [page, setPage] = useState(1);
     const [airportData, setAirportData] = useState();
     const message = "Airport information";
-    const placeHolderMessage = "Search ICAO, IATA, Airport Name, City ... ";
+    const placeHolderMessage = "ICAO, IATA, Name, City ... ";
     
     // take input results from the Navbar and make the search
     useEffect(() => {

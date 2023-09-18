@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CustomProvider } from "rsuite";
+import { useNavigate } from "react-router-dom";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailTable from "./AirportDetailTable";
@@ -18,6 +19,7 @@ import NoMatch from "./NoMatch";
 
 function AirportDetail() {
     const darkMode = useTheme();
+    const navigate = useNavigate();
     const [airport, setAirport] = useState();
     const [metar, setMetar] = useState({});
     const [skipRender, setSkipRender] = useState(true);
@@ -25,6 +27,12 @@ function AirportDetail() {
     const [ATIS, setATIS] = useState();
     const [isLoading, setIsLoading] = useState(true);
     setTimeout(() => setIsLoading(false), 5000);
+    
+    useEffect(() => {
+        if (!localStorage.getItem("airportData")) {
+            navigate("/");
+        }
+    });
     
     // Update airport visited count
     useEffect(() => {
