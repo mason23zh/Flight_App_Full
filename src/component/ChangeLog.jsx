@@ -85,6 +85,19 @@ function ChangeLog() {
                         - Added Finding Orion puzzle <br />
                         - Fix No Results not centered issue in Weather List <br />
                     </div>
+                    <div>
+                        Beta 0.3.3 <br />
+                        - Added dark theme map tile in Airport Detail when switching to dark mode <br />
+                        - Added linear-gradient to home page background image <br />
+                        - Automatically detect system dark mode setting <br />
+                        - Make URLs in Airport Detail page table shorter, results a smaller table <br />
+                        - Lower the Home Page background image brightness in dark mode <br />
+                        - Change input field background color to match dark mode <br />
+                        - Change search bar layout for Home, Weather and Airport page <br />
+                        - Added Random Airport feature <br />
+                        - Fix the dark theme not sync issue <br />
+                        - Replace Airport Detail Table with Airport Detail Panel <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

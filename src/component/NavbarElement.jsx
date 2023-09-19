@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 import logo from "../images/logo.png";
+import InputAndSearch from "./InputAndSearch";
 
 function NavbarElement() {
     const toggleTheme = useThemeUpdate();
@@ -14,24 +15,26 @@ function NavbarElement() {
     const navBarBgTheme = darkMode
         ? "flex justify-between py-1 px-5"
         : "flex justify-between py-1 px-5 bg-gray-100 w-screen";
+    const navBarInputTheme = darkMode
+        ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"
+        : "border-2 rounded-lg py-1 px-3 text-black text-[17px]";
     
     const navigate = useNavigate();
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
     const [searchInput, setSearchInput] = useState("");
     
-    const handleInputChange = (e) => {
-        setSearchInput(e.target.value);
-    };
-    
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        if (searchInput.length === 0) {
+    // const handleInputChange = (e) => {
+    //     setSearchInput(e.target.value);
+    // };
+    //
+    const handleSearchSubmit = (input) => {
+        if (input.length === 0) {
             setSearchPlaceHolder("Something !== nothing :)");
         } else {
-            setSearchInput(searchInput);
+            setSearchInput(input);
             setSearchInput("");
             setSearchPlaceHolder("Search Something!");
-            navigate("/airport", { state: { userInput: searchInput } });
+            navigate("/airport", { state: { userInput: input } });
         }
     };
     
@@ -78,17 +81,10 @@ function NavbarElement() {
                     {nightModeToggleSwitch}
                 </div>
             </ul>
-                
-            <form onSubmit={handleSearchSubmit} className="hidden md:flex gap-3">
-                <input
-                    value={searchInput}
-                    placeholder={searchPlaceHolder}
-                    onChange={handleInputChange}
-                    type="text"
-                    className="border-2 rounded-lg py-1 px-3 text-black text-[17px]"
-                />
-                <button type="submit" className={navBarSubmitButtonClass}>Get Result</button>
-            </form>
+            <InputAndSearch
+                onSubmit={handleSearchSubmit}
+                placeholder="Search Something!"
+            />
         </nav>
     );
 }
