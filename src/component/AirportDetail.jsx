@@ -146,23 +146,23 @@ function AirportDetail() {
                             <AirportMap lat={lat} lng={lng} name={name} />
                         </div>
                     </div>
-                    <div className="mt-3 p-2 w-[80%] justify-self-center">
-                        <AirportDetailTable
-                            ICAO={ICAO}
-                            iata={iata}
-                            region={region_name}
-                            country={country_name}
-                            runwayCount={airport.runways.length}
-                            airportType={type}
-                            elevation={elevation}
-                            transitionAltitude={transitionAltitude}
-                            lng={lng}
-                            lat={lat}
-                            homeLink={home_link}
-                            wikiLink={wikipedia_link}
-                        />
-                    </div>
-                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                    {/* <div className="mt-3 p-2 w-[80%] justify-self-center"> */}
+                    {/*    <AirportDetailTable */}
+                    {/*        ICAO={ICAO} */}
+                    {/*        iata={iata} */}
+                    {/*        region={region_name} */}
+                    {/*        country={country_name} */}
+                    {/*        runwayCount={airport.runways.length} */}
+                    {/*        airportType={type} */}
+                    {/*        elevation={elevation} */}
+                    {/*        transitionAltitude={transitionAltitude} */}
+                    {/*        lng={lng} */}
+                    {/*        lat={lat} */}
+                    {/*        homeLink={home_link} */}
+                    {/*        wikiLink={wikipedia_link} */}
+                    {/*    /> */}
+                    {/* </div> */}
+                    <div className="mt-3 w-[100%] md:w-[70%] ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <div className="w-auto">
                             <AirportDetailPanel
                                 ICAO={ICAO}
@@ -180,7 +180,7 @@ function AirportDetail() {
                             />
                         </div>
                     </div>
-                    <div className="mt-3 p-2 max-w-[1230px] w-[84%] justify-self-center">
+                    <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
                         <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                     </div>
                     <div className="ml-3 mr-3 p-2 justify-self-center">{renderWidget()}</div>
