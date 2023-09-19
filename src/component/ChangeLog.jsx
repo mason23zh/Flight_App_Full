@@ -96,6 +96,7 @@ function ChangeLog() {
                         - Change search bar layout for Home, Weather and Airport page <br />
                         - Added Random Airport feature <br />
                         - Fix the dark theme not sync issue <br />
+                        - Replace Airport Detail Table with Airport Detail Panel <br />
                     </div>
                 </div>
             </div>
