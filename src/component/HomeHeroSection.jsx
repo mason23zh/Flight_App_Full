@@ -84,8 +84,10 @@ function HomeHeroSection({
                                     onSubmit={handleSubmitNew}
                                 />
                             </div>
-                            <div className="grid grid-cols-1 items-center text-center justify-center md:grid-cols-3 md:gap-2">
-                                <div className="md:justify-self-start p-2 text-white text-[16px]">
+                            <div className="grid grid-cols-1 items-center text-center
+                            justify-center md:grid-cols-3 md:gap-4 w-full"
+                            >
+                                <div className="md:justify-self-end p-2 text-white text-[16px]">
                                     <button className="hover:italic" onClick={handleRandomAirportClick}>
                                         Random Airport
                                     </button>
@@ -98,7 +100,7 @@ function HomeHeroSection({
                                         Popular Vatsim Airports
                                     </Link>
                                 </div>
-                                <div className="md:justify-self-end p-2 text-white text-[16px]">
+                                <div className="md:justify-self-start p-2 text-white text-[16px]">
                                     <Link
                                         to="/#popular-airports"
                                         className="hover:no-underline hover:text-white hover:italic visited:text-white"
