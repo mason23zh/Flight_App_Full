@@ -58,14 +58,14 @@ function HomeHeroSection({
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
-                className="w-screen h-screen bg-cover bg-no-repeat bg-center bg-fixed"
+                className="w-screen h-screen bg-cover bg-no-repeat bg-center"
                 style={{
-                    filter: darkMode ? "brightness(100%)" : "brightness(100%)",
+                    // filter: darkMode ? "brightness(100%)" : "brightness(100%)",
                     // backgroundImage: `linear-gradient(rgba(184,182,169,0.2), rgba(5,16,2,0.8)), url(${backgroundImage})`,
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
             >
-                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[45%]
+                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[55%]
                      transition-all ease-in-out duration-300
                      w-[90%] sm:w-[60%] md:w-[50%] h-fit"
                 >
