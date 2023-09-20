@@ -8,7 +8,6 @@ import { CustomProvider } from "rsuite";
 import { useNavigate } from "react-router-dom";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
-import AirportDetailTable from "./AirportDetailTable";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
@@ -146,22 +145,7 @@ function AirportDetail() {
                             <AirportMap lat={lat} lng={lng} name={name} />
                         </div>
                     </div>
-                    {/* <div className="mt-3 p-2 w-[80%] justify-self-center"> */}
-                    {/*    <AirportDetailTable */}
-                    {/*        ICAO={ICAO} */}
-                    {/*        iata={iata} */}
-                    {/*        region={region_name} */}
-                    {/*        country={country_name} */}
-                    {/*        runwayCount={airport.runways.length} */}
-                    {/*        airportType={type} */}
-                    {/*        elevation={elevation} */}
-                    {/*        transitionAltitude={transitionAltitude} */}
-                    {/*        lng={lng} */}
-                    {/*        lat={lat} */}
-                    {/*        homeLink={home_link} */}
-                    {/*        wikiLink={wikipedia_link} */}
-                    {/*    /> */}
-                    {/* </div> */}
+                        
                     <div className="mt-3 w-[100%] md:w-[70%] ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <div className="w-auto">
                             <AirportDetailPanel

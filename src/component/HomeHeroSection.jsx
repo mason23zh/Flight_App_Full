@@ -60,8 +60,6 @@ function HomeHeroSection({
             <div
                 className="w-screen h-screen bg-cover bg-no-repeat bg-center"
                 style={{
-                    // filter: darkMode ? "brightness(100%)" : "brightness(100%)",
-                    // backgroundImage: `linear-gradient(rgba(184,182,169,0.2), rgba(5,16,2,0.8)), url(${backgroundImage})`,
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
             >

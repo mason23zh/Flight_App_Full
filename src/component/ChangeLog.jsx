@@ -102,6 +102,7 @@ function ChangeLog() {
                         Beta 0.3.4 <br />
                         - Fix the Home page navigate section button style issue <br />
                         - Added image modal in Orion page <br />
+                        - Change background color for traffic table <br />
                     </div>
                 </div>
             </div>
