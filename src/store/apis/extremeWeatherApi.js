@@ -8,7 +8,7 @@ import {
     VISIBILITY,
     WIND_GUST,
     WIND_SPEED,
-} from "../../util/selection_names";
+} from "@/utils/selection_names";
 
 const generateURL = (weather, scope, code) => {
     let url_scope = "global-weather";
