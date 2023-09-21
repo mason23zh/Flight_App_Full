@@ -98,6 +98,14 @@ function ChangeLog() {
                         - Fix the dark theme not sync issue <br />
                         - Replace Airport Detail Table with Airport Detail Panel <br />
                     </div>
+                    <div>
+                        Beta 0.3.4 <br />
+                        - Fix the Home page navigate section button style issue <br />
+                        - Added image modal in Orion page <br />
+                        - Change background color for traffic table <br />
+                        - Added feature that if airport search only return 1 results, instead showing airport list,
+                        - direct render the airport detail page <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

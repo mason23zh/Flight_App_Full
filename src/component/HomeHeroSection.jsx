@@ -60,8 +60,6 @@ function HomeHeroSection({
             <div
                 className="w-screen h-screen bg-cover bg-no-repeat bg-center"
                 style={{
-                    // filter: darkMode ? "brightness(100%)" : "brightness(100%)",
-                    // backgroundImage: `linear-gradient(rgba(184,182,169,0.2), rgba(5,16,2,0.8)), url(${backgroundImage})`,
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
             >
@@ -84,8 +82,10 @@ function HomeHeroSection({
                                     onSubmit={handleSubmitNew}
                                 />
                             </div>
-                            <div className="grid grid-cols-1 items-center text-center justify-center md:grid-cols-3 md:gap-2">
-                                <div className="md:justify-self-start p-2 text-white text-[16px]">
+                            <div className="grid grid-cols-1 items-center text-center
+                            justify-center md:grid-cols-3 md:gap-4 w-full"
+                            >
+                                <div className="md:justify-self-end p-2 text-white text-[16px]">
                                     <button className="hover:italic" onClick={handleRandomAirportClick}>
                                         Random Airport
                                     </button>
@@ -98,7 +98,7 @@ function HomeHeroSection({
                                         Popular Vatsim Airports
                                     </Link>
                                 </div>
-                                <div className="md:justify-self-end p-2 text-white text-[16px]">
+                                <div className="md:justify-self-start p-2 text-white text-[16px]">
                                     <Link
                                         to="/#popular-airports"
                                         className="hover:no-underline hover:text-white hover:italic visited:text-white"
