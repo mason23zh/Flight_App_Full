@@ -183,7 +183,6 @@ function WeatherTable({ expandedContent }) {
         setRequestLimit(10);
     };
     
-    
     return (
         <div className="flex flex-col justify-center items-center gap-2">
             <table
@@ -191,11 +190,15 @@ function WeatherTable({ expandedContent }) {
             >
                 <thead>
                     {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
+                        <tr
+                            key={headerGroup.id}
+                            {...headerGroup.getHeaderGroupProps()}
+                        >
                             {headerGroup.headers.map((column) => {
                                 if (column.Header === "Baro") {
                                     return (
                                         <th
+                                            key={column.id}
                                             {...column.getHeaderProps()}
                                             className={darkModeThClass}
                                             onClick={handleSortClick}
@@ -212,6 +215,7 @@ function WeatherTable({ expandedContent }) {
                                 if (column.Header === "Temperature") {
                                     return (
                                         <th
+                                            key={column.id}
                                             {...column.getHeaderProps()}
                                             className={darkModeThClass}
                                             onClick={handleSortClick}
@@ -227,6 +231,7 @@ function WeatherTable({ expandedContent }) {
                                     
                                 return (
                                     <th
+                                        key={column.id}
                                         {...column.getHeaderProps()}
                                         className={darkModeThClass}
                                     >
@@ -248,10 +253,12 @@ function WeatherTable({ expandedContent }) {
                         return (
                             <React.Fragment key={rowProps.key} {...rowProps}>
                                 <tr
+                                    key={row.id}
                                     className="text-sm text-center md:text-xl"
                                 >
                                     {row.cells.map((cell) => (
                                         <td
+                                            key={cell.id}
                                             {...cell.getCellProps()}
                                             className="p-5"
                                         >
@@ -260,8 +267,12 @@ function WeatherTable({ expandedContent }) {
                                     ))}
                                 </tr>
                                 {row.isExpanded ? (
-                                    <tr>
-                                        <td colSpan={visibleColumns.length}>
+                                    <tr
+                                        key={row.id}
+                                    >
+                                        <td
+                                            colSpan={visibleColumns.length}
+                                        >
                                             {expandedContent({ row })}
                                         </td>
                                     </tr>
