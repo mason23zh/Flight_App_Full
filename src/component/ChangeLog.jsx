@@ -104,7 +104,7 @@ function ChangeLog() {
                         - Added image modal in Orion page <br />
                         - Change background color for traffic table <br />
                         - Added feature that if airport search only return 1 results, instead showing airport list,
-                        direct render the airport detail page <br />
+                        - direct render the airport detail page <br />
                     </div>
                 </div>
             </div>

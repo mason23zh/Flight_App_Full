@@ -1,83 +1,95 @@
-# Getting Started with Create React App
+# Beta 0.1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Initial Release
 
-## Available Scripts
+# Beta 0.1.1
 
-In the project directory, you can run:
+- Dark Mode initial support
+- Fix the routing bug
+- Background images size compressed
+- Fix the dark mode incorrect behavior in Weather component
 
-### `npm start`
+# Beta 0.1.2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fix the dark mode persistence issue when opening the new browser tab
+- Added dark mode to NoMatch Page
+- Added disclaimer in footer
+- Improve the contrast for Get Data button
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Beta 0.2
 
-### `npm test`
+- Added responsive
+- Added logo (By Charlie Wang)
+- Rewrite the Weather List (layout fix)
+- Rewrite the Airport List (layout fix)
+- Rewrite the AirportAccordion (layout fix)
+- Rewrite the WeatherAccordion (layout fix)
+- Fix the Extreme Weather page layout issue
+- Added Extreme Weather header dropdown for responsive design
+- Added Navbar dropdown for responsive design
+- Rewrite the Airport Detail page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more
-information.
+# Beta 0.2.1
 
-### `npm run build`
+- Added margin on input bar <br />
+- Added Footer to display disclaimer
+- Fix the Map size change in the Airport Detail page
+- Fix the width issue when screen become too small
+- Adjust the Detail Weather panel when switching to a smaller screen
+- Adjust the width for input search bar
+- Make some texts first letter capital
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Beta 0.2.2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Added popular airports in the Home page
+- Added ATIS in Airport Detail page
+- Fix the issue in localStorage so the theme and airport/weather list will be persistence
+  after the refresh
+- Fix the issue when loading up a page for the first time will stucked at loading page if no
+  localStorage available
+- Fix the input bar zoom issue in IOS
+- Re-tune the Home page layout to fit smaller screen better
+- Fix the Weather input bar not trimming the user input
+- Fix the `No Results` text not being centered
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Beta 0.3
 
-### `npm run eject`
+- Added popular Vatsim airports
+- Added visual guidance in the Home page to indicate the page could be scrolled down
+- Change display layout for popular airport in Home page
+- Fix the visited airport been counted twice issue
+- Fix the issue when page is rendering from the bottom
+- Fix the issue NotFound page might render if Airport Detail page is taking too long to
+  retrieve data
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Beta 0.3.1
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will
-remove the single build dependency from your project.
+- Added responsive to Pagination component in airport search list
+- Change airport search list to new display layout
+- Fix UI issue in Home page popular airport tab (location render twice)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right
-into your project so you have full control over them. All of the commands except `eject` will still work, but they will
-point to the copied scripts so you can tweak them. At this point you're on your own.
+# Beta 0.3.2
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you
-shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't
-customize it when you are ready for it.
+- Added Finding Orion puzzle
+- Fix No Results not centered issue in Weather List
 
-## Learn More
+# Beta 0.3.3
 
-You can learn more in
-the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Added dark theme map tile in Airport Detail when switching to dark mode
+- Added linear-gradient to home page background image
+- Automatically detect system dark mode setting
+- Make URLs in Airport Detail page table shorter, results a smaller table
+- Lower the Home Page background image brightness in dark mode
+- Change input field background color to match dark mode
+- Change search bar layout for Home, Weather and Airport page
+- Added Random Airport feature
+- Fix the dark theme not sync issue
+- Replace Airport Detail Table with Airport Detail Panel
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Beta 0.3.4
 
-### Code Splitting
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved
-here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Fix the Home page navigate section button style issue
+- Added image modal in Orion page
+- Change background color for traffic table
+- Added feature that if airport search only return 1 results, instead showing airport list,
+  direct render the airport detail page 
