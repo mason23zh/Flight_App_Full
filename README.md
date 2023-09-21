@@ -1,9 +1,9 @@
-## URL: https://www.aiprotweather.org
+## URL: https://www.airportweather.org
 
 # Beta 0.1
 
 - Initial Release
-
+ 
 # Beta 0.1.1
 
 - Dark Mode initial support
