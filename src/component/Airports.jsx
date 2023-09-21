@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
@@ -9,7 +9,7 @@ import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
     const darkMode = useTheme();
-    
+    const navigate = useNavigate();
     const { pathname, state } = useLocation();
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
@@ -58,6 +58,14 @@ function Airports() {
     
     let renderedAirport;
     if (data) {
+        // If only one result been returned, direct to airport detail page
+        if (data.data.airports.length === 1) {
+            // set localStorage for airport detail page
+            localStorage.setItem("airportData", JSON.stringify(data.data.airports[0]));
+            // set localStorage for airport list page
+            localStorage.setItem("airportListData", JSON.stringify(data));
+            navigate("/airport/detail");
+        }
         renderedAirport = <AirportsList airports={data} goToPage={onGoToPage} />;
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
