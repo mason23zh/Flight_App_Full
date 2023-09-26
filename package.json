@@ -36,6 +36,7 @@
         "rsuite": "^5.37.0",
         "save-dev": "^0.0.1-security",
         "styled-components": "^6.0.3",
+        "swr": "^2.2.4",
         "web-vitals": "^2.1.4"
     },
     "scripts": {

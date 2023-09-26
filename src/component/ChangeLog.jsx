@@ -111,6 +111,7 @@ function ChangeLog() {
                         - Display the ICAO in Airport Detail Page URL <br />
                         - Change the React-Router so user could change ICAO in URL directly <br />
                         - Render puzzle image directly instead base64 encoded string <br />
+                        - Check the puzzle answer in back-end <br />
                     </div>
                 </div>
             </div>

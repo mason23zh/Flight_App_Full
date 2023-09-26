@@ -50,7 +50,7 @@ function HomeHeroSection({
     const handleRandomAirportClick = () => {
         if (randAirport !== -1) {
             localStorage.setItem("airportData", JSON.stringify(randAirport));
-            navigate("/airport/detail");
+            navigate(`/airport/detail/${randAirport.ICAO}`);
         }
     };
     
