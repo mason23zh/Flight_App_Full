@@ -10,7 +10,6 @@ function Puzzles() {
     const [input, setInput] = useState("");
     const [result, setResult] = useState("");
     const [checkAnswer, setCheckAnswer] = useState();
-    const [checkTrigger, setCheckTrigger] = useState(false);
     
     const darkMode = useTheme();
     
