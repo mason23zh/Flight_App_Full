@@ -18,6 +18,7 @@ function Airports() {
     const message = "Airport information";
     const placeHolderMessage = "ICAO, IATA, Name, City ... ";
     
+    
     // take input results from the Navbar and make the search
     useEffect(() => {
         if (pathname === "/airport" && state?.userInput) {
@@ -64,7 +65,8 @@ function Airports() {
             localStorage.setItem("airportData", JSON.stringify(data.data.airports[0]));
             // set localStorage for airport list page
             localStorage.setItem("airportListData", JSON.stringify(data));
-            navigate("/airport/detail");
+            const { ICAO } = data.data.airports[0];
+            navigate(`/airport/detail/${ICAO}`);
         }
         renderedAirport = <AirportsList airports={data} goToPage={onGoToPage} />;
     } else if (isFetching) {
@@ -79,17 +81,15 @@ function Airports() {
     }
     
     return (
-        <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div>
-                <HeroSection
-                    backgroundImage={backgroundImage}
-                    message={message}
-                    placedHoldMessage={placeHolderMessage}
-                    onSubmit={handleOnSubmit}
-                />
-                {renderedAirport}
-            </div>
-        </CustomProvider>
+        <div>
+            <HeroSection
+                backgroundImage={backgroundImage}
+                message={message}
+                placedHoldMessage={placeHolderMessage}
+                onSubmit={handleOnSubmit}
+            />
+            {renderedAirport}
+        </div>
     );
 }
 

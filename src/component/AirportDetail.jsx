@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CustomProvider } from "rsuite";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
@@ -17,6 +17,7 @@ import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 
+
 function AirportDetail() {
     const darkMode = useTheme();
     const navigate = useNavigate();
@@ -26,7 +27,10 @@ function AirportDetail() {
     const [widgetAvailable, setWidgetAvailable] = useState(false);
     const [ATIS, setATIS] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    
     setTimeout(() => setIsLoading(false), 5000);
+    
+    const { icao: paramICAO } = useParams();
     
     useEffect(() => {
         if (!localStorage.getItem("airportData")) {
@@ -47,6 +51,23 @@ function AirportDetail() {
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
+        // if URLs ICAO not equal to localStorage's airport
+        if (airportData && airportData.ICAO !== paramICAO.toUpperCase()) {
+            const requestAirport = async (icao) => {
+                try {
+                    const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${icao}?decode=true`);
+                    if (response && response.data.data.length > 0) {
+                        setAirport(response.data.data[0].airport);
+                        localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
+                    }
+                } catch (e) {
+                    navigate("/airport");
+                }
+            };
+            requestAirport(paramICAO).catch();
+            setSkipRender(false);
+        }
+        
         if (airportData && !airportData?.flag) {
             setAirport(airportData);
             setSkipRender(false);
@@ -58,10 +79,10 @@ function AirportDetail() {
                         setAirport(response.data.data[0].airport);
                     }
                 } catch (e) {
-                    console.log(e);
+                    navigate("/airport");
                 }
             };
-            requestAirport(airportData.ICAO).catch(console.error);
+            requestAirport(airportData.ICAO).catch();
             setSkipRender(false);
         }
     }, []);
@@ -111,7 +132,6 @@ function AirportDetail() {
             );
         }
     };
-    
     
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {

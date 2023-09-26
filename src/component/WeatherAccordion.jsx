@@ -65,7 +65,7 @@ function WeatherAccordion({ weather }) {
             </div>
             <div className="text-center mt-3">
                 <Link
-                    to="/airport/detail"
+                    to={`/airport/detail/${icao}`}
                     className={darkMode
                         ? "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-300 hover:no-underline text-gray-100"
                         : "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline"}

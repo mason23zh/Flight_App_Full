@@ -106,6 +106,12 @@ function ChangeLog() {
                         - Added feature that if airport search only return 1 results, instead showing airport list,
                         - direct render the airport detail page <br />
                     </div>
+                    <div>
+                        Beta 0.3.5 <br />
+                        - Display the ICAO in Airport Detail Page URL <br />
+                        - Change the React-Router so user could change ICAO in URL directly <br />
+                        - Render puzzle image directly instead base64 encoded string <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

@@ -23,7 +23,8 @@ function App() {
                     <Route path="weather" element={<Weather />} />
                     <Route path="extreme-weather" element={<ExtremeWeather />} />
                     <Route path="airport" element={<Airports />} />
-                    <Route path="airport/detail" element={<AirportDetail />} />
+                    {/* <Route path="airport/detail" element={<AirportDetail />} /> */}
+                    <Route path="airport/detail/:icao" element={<AirportDetail />} />
                     <Route path="changelog" element={<ChangeLog />} />
                     <Route path="Orion9600" element={<Orion />} />
                     <Route path="puzzles" element={<Puzzles />} />

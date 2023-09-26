@@ -62,7 +62,7 @@ function HomePopularAirportInfoTab({ airport, counter }) {
     
     const goToAirportIcon = (
         <Link
-            to="airport/detail"
+            to={`/airport/detail/${ICAO}`}
             onMouseOver={handleClick}
         >
             <IoIosArrowRoundForward size={40} />

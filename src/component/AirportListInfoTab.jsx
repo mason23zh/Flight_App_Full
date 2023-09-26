@@ -66,7 +66,7 @@ function AirportListInfoTab({ airport }) {
     
     const goToAirportIcon = (
         <Link
-            to="/airport/detail"
+            to={`/airport/detail/${ICAO}`}
             onMouseOver={handleClick}
         >
             <IoIosArrowRoundForward size={40} />
@@ -96,3 +96,4 @@ function AirportListInfoTab({ airport }) {
 }
 
 export default AirportListInfoTab;
+ 
