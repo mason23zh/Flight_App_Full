@@ -24,7 +24,7 @@ function HomeHeroSection({
         
         const fetchRandomAirport = async (airportICAO) => {
             try {
-                const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${airportICAO}?decode=true`);
+                const response = await axios.get(`https://api.airportweather.org/api/v1/airports/icao/${airportICAO}?decode=true`);
                 if (response) {
                     setRandAirport(response.data.data[0].airport);
                 }

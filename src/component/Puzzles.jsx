@@ -24,7 +24,7 @@ function Puzzles() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://flight-data.herokuapp.com/api/v1/puzzle/check-answer", {
+        axios.post("https://api.airportweather.org/api/v1/puzzle/check-answer", {
             code: input,
         }).then((results) => {
             if (results.data.status === "fail") {
