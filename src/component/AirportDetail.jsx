@@ -42,7 +42,7 @@ function AirportDetail() {
     useEffect(() => {
         if (airport && airport.ICAO?.length !== 0) {
             const updateVisited = async (icao) => {
-                await axios.put("https://api.airportweather.org/api/v1/airports/update-visited", { icao: `${icao}` });
+                await axios.put("https://api.airportweather.org/v1/airports/update-visited", { icao: `${icao}` });
             };
             updateVisited(airport.ICAO);
         }
@@ -55,7 +55,7 @@ function AirportDetail() {
         if (airportData && airportData.ICAO !== paramICAO.toUpperCase()) {
             const requestAirport = async (icao) => {
                 try {
-                    const response = await axios.get(`https://api.airportweather.org/api/v1/airports/icao/${icao}?decode=true`);
+                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
                     if (response && response.data.data.length > 0) {
                         setAirport(response.data.data[0].airport);
                         localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
@@ -74,7 +74,7 @@ function AirportDetail() {
         } else if (airportData && airportData.flag === true) {
             const requestAirport = async (storageICAO) => {
                 try {
-                    const response = await axios.get(`https://api.airportweather.org/api/v1/airports/icao/${storageICAO}?decode=true`);
+                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
                     if (response) {
                         setAirport(response.data.data[0].airport);
                     }
