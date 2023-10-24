@@ -138,12 +138,38 @@ function AirportDetailTafPanel({
         console.log(f);
     });
     const renderForecast = forecast.map((f) => (
-        <div>
-            {renderTimeSection(f.from, f.to)}
-            {renderForecastType(!f.forecastType ? null : f.forecastType, f.from, f.to)}
-            {renderWind(f.wind)}
-            {renderClouds(f.skyCondition)}
-            {renderWeather(!f.weather ? null : f.weather)}
+        <div className="grid grid-cols-1 border rounded-lg">
+            <div className="flex gap-1 justify-center">
+                <div>Forecast period:</div>
+                {renderTimeSection(f.from, f.to)}
+            </div>
+            <div className="flex gap-1 justify-center">
+                <div>
+                    Forecast type:
+                </div>
+                {renderForecastType(!f.forecastType ? null : f.forecastType, f.from, f.to)}
+            </div>
+            <div className="flex gap-1 justify-center">
+                <div>
+                    Winds:
+                </div>
+                {renderWind(f.wind)}
+            </div>
+            <div className="flex gap-1 justify-center">
+                <div>Clouds:</div>
+                {renderClouds(f.skyCondition)}
+            </div>
+            {
+                f.weather !== null ? (
+                    <div className="flex gap-1 justify-center">
+                        <div>
+                            Conditions:
+                        </div>
+                        {renderWeather(!f.weather ? null : f.weather)}
+                    </div>
+                ) : ""
+            }
+            
         </div>
     ));
     
