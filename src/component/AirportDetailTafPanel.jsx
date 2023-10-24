@@ -112,7 +112,7 @@ function AirportDetailTafPanel({
         if (!weather || weather.length === 0) {
             renderedWeather = "";
         } else {
-            const renderWeatherCondition = weather.map((condition) => (
+            renderedWeather = weather.map((condition) => (
                 <div className="flex flex-col" key={condition.code}>
                     <div>
                         code: {condition.code}
@@ -122,13 +122,6 @@ function AirportDetailTafPanel({
                     </div>
                 </div>
             ));
-            
-            renderedWeather = (
-                <div className="grid grid-cols-2">
-                    {/* <div className="text-left sm:text-center">Weather:</div> */}
-                    <div className="text-right sm:text-center">{renderWeatherCondition}</div>
-                </div>
-            );
         }
         return renderedWeather;
     };
@@ -138,38 +131,53 @@ function AirportDetailTafPanel({
         console.log(f);
     });
     const renderForecast = forecast.map((f) => (
-        <div className="grid grid-cols-1 border rounded-lg">
-            <div className="flex gap-1 justify-center">
-                <div>Forecast period:</div>
+        <div className=" border rounded-lg">
+            <div className="text-center">
                 {renderTimeSection(f.from, f.to)}
             </div>
-            <div className="flex gap-1 justify-center">
-                <div>
+                
+            <div className="grid grid-cols-2">
+                <div className="text-left sm:text-center">
                     Forecast type:
                 </div>
-                {renderForecastType(!f.forecastType ? null : f.forecastType, f.from, f.to)}
+                <div className="text-right sm:text-center">
+                    {renderForecastType(f.forecastType, f.from, f.to)}
+                </div>
             </div>
-            <div className="flex gap-1 justify-center">
-                <div>
+                
+            <div className="grid grid-cols-2">
+                <div className="text-left sm:text-center">
                     Winds:
                 </div>
-                {renderWind(f.wind)}
+                <div className="text-right sm:text-center">
+                    {renderWind(f.wind)}
+                </div>
             </div>
-            <div className="flex gap-1 justify-center">
-                <div>Clouds:</div>
-                {renderClouds(f.skyCondition)}
+                
+            <div className="grid grid-cols-2">
+                <div className="text-left sm:text-center">
+                    Visibility:
+                </div>
+                <div className="text-right sm:text-center">
+                    {f.visibilityMile} sm
+                </div>
+            </div>
+                
+            <div className="grid grid-cols-2">
+                <div className="text-left sm:text-center">Cloud:</div>
+                <div className="text-right sm:text-center">{renderClouds(f.skyCondition)}</div>
             </div>
             {
-                f.weather !== null ? (
-                    <div className="flex gap-1 justify-center">
-                        <div>
-                            Conditions:
+                f.weather && f.weather.length > 0
+                    ? (
+                        <div className="grid grid-cols-2">
+                            <div className="text-left sm:text-center">
+                                Conditions:
+                            </div>
+                            {renderWeather(f.weather)}
                         </div>
-                        {renderWeather(!f.weather ? null : f.weather)}
-                    </div>
-                ) : ""
+                    ) : <></>
             }
-            
         </div>
     ));
     
