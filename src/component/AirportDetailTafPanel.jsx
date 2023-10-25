@@ -2,6 +2,7 @@ import React from "react";
 import "../styles.css";
 import { Panel } from "rsuite";
 import moment from "moment";
+import _ from "lodash";
 
 function AirportDetailTafPanel({
     forecast, icao, raw_text,
@@ -94,7 +95,15 @@ function AirportDetailTafPanel({
                         </div>
                     );
                 }
-                
+                if (cloud.cloudCode === "OVX") {
+                    return (
+                        <div className="flex flex-col" key={`${cloud.cloudCode}${cloud.cloudText}`}>
+                            <div>
+                                {cloud.cloudText}
+                            </div>
+                        </div>
+                    );
+                }
                 return (
                     <div className="flex flex-col" key={`${cloud.name}${cloud.cloudBaseAgl}`}>
                         <div>
@@ -113,12 +122,9 @@ function AirportDetailTafPanel({
             renderedWeather = "";
         } else {
             renderedWeather = weather.map((condition) => (
-                <div className="flex flex-col" key={condition.code}>
+                <div key={condition.code}>
                     <div>
-                        code: {condition.code}
-                    </div>
-                    <div>
-                        text: {condition.text}
+                        {condition.code} ({condition.text})
                     </div>
                 </div>
             ));
@@ -130,39 +136,45 @@ function AirportDetailTafPanel({
     forecast.forEach((f) => {
         console.log(f);
     });
+    // visibility might not be available
     const renderForecast = forecast.map((f) => (
         <div className=" border rounded-lg">
             <div className="text-center">
                 {renderTimeSection(f.from, f.to)}
             </div>
                 
-            <div className="grid grid-cols-2">
-                <div className="text-left sm:text-center">
-                    Forecast type:
+            {f.forecastType ? (
+                <div className="grid grid-cols-2">
+                    <div className="text-left sm:text-center">
+                        Forecast type:
+                    </div>
+                    <div className="text-right sm:text-center">
+                        {renderForecastType(f.forecastType, f.from, f.to)}
+                    </div>
                 </div>
-                <div className="text-right sm:text-center">
-                    {renderForecastType(f.forecastType, f.from, f.to)}
-                </div>
-            </div>
+            ) : <></>}
                 
-            <div className="grid grid-cols-2">
-                <div className="text-left sm:text-center">
-                    Winds:
+            {(f.wind && !_.isEmpty(f.wind)) ? (
+                <div className="grid grid-cols-2">
+                    <div className="text-left sm:text-center">
+                        Winds:
+                    </div>
+                    <div className="text-right sm:text-center">
+                        {renderWind(f.wind)}
+                    </div>
                 </div>
-                <div className="text-right sm:text-center">
-                    {renderWind(f.wind)}
-                </div>
-            </div>
+            ) : <></>}
                 
-            <div className="grid grid-cols-2">
-                <div className="text-left sm:text-center">
-                    Visibility:
+            {f.visibility ? (
+                <div className="grid grid-cols-2">
+                    <div className="text-left sm:text-center">
+                        Visibility:
+                    </div>
+                    <div className="text-right sm:text-center">
+                        {f.visibilityMile} sm
+                    </div>
                 </div>
-                <div className="text-right sm:text-center">
-                    {f.visibilityMile} sm
-                </div>
-            </div>
-                
+            ) : <></>}
             <div className="grid grid-cols-2">
                 <div className="text-left sm:text-center">Cloud:</div>
                 <div className="text-right sm:text-center">{renderClouds(f.skyCondition)}</div>
