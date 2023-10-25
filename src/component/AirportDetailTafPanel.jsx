@@ -132,19 +132,14 @@ function AirportDetailTafPanel({
         return renderedWeather;
     };
     
-    
-    forecast.forEach((f) => {
-        console.log(f);
-    });
-    // visibility might not be available
     const renderForecast = forecast.map((f) => (
-        <div className=" border rounded-lg">
+        <div className="border rounded-lg" key={Math.random(f.from)}>
             <div className="text-center">
                 {renderTimeSection(f.from, f.to)}
             </div>
                 
             {f.forecastType ? (
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-2 m-2">
                     <div className="text-left sm:text-center">
                         Forecast type:
                     </div>
@@ -155,7 +150,7 @@ function AirportDetailTafPanel({
             ) : <></>}
                 
             {(f.wind && !_.isEmpty(f.wind)) ? (
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-2 m-2">
                     <div className="text-left sm:text-center">
                         Winds:
                     </div>
@@ -166,7 +161,7 @@ function AirportDetailTafPanel({
             ) : <></>}
                 
             {f.visibility ? (
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-2 m-2">
                     <div className="text-left sm:text-center">
                         Visibility:
                     </div>
@@ -175,14 +170,14 @@ function AirportDetailTafPanel({
                     </div>
                 </div>
             ) : <></>}
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 m-2">
                 <div className="text-left sm:text-center">Cloud:</div>
                 <div className="text-right sm:text-center">{renderClouds(f.skyCondition)}</div>
             </div>
             {
                 f.weather && f.weather.length > 0
                     ? (
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 m-2">
                             <div className="text-left sm:text-center">
                                 Conditions:
                             </div>
