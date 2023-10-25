@@ -108,6 +108,7 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.3.5 <br />
+                        - Added TAF and TAF decoder <br />
                         - Display the ICAO in Airport Detail Page URL <br />
                         - Change the React-Router so user could change ICAO in URL directly <br />
                         - Render puzzle image directly instead base64 encoded string <br />
@@ -118,17 +119,7 @@ function ChangeLog() {
             <div className="flex flex-col items-center text-xl mt-5">
                 Known Issues
                 <div>---</div>
-                <div className="flex flex-col gap-3">
-                    <div>
-                        - Mobile device support layout issue
-                    </div>
-                    <div>
-                        - TAF support
-                    </div>
-                    <div>
-                        - Arrival/Departure widget not switching to dark mode
-                    </div>
-                </div>
+                <div className="flex flex-col gap-3" />
             </div>
         </CustomProvider>
     );
