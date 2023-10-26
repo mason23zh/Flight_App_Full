@@ -113,7 +113,7 @@ function ExpandableContentAirportInfo({ row, airportData }) {
     
     const handleClick = () => {
         localStorage.setItem("airportData", JSON.stringify(airportData));
-        navigate("/airport/detail");
+        navigate(`/airport/detail/${airportData.ICAO}`);
     };
     
     return (

@@ -24,7 +24,7 @@ function HomeHeroSection({
         
         const fetchRandomAirport = async (airportICAO) => {
             try {
-                const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${airportICAO}?decode=true`);
+                const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${airportICAO}?decode=true`);
                 if (response) {
                     setRandAirport(response.data.data[0].airport);
                 }
@@ -50,7 +50,7 @@ function HomeHeroSection({
     const handleRandomAirportClick = () => {
         if (randAirport !== -1) {
             localStorage.setItem("airportData", JSON.stringify(randAirport));
-            navigate("/airport/detail");
+            navigate(`/airport/detail/${randAirport.ICAO}`);
         }
     };
     

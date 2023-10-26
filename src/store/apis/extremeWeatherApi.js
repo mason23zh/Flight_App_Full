@@ -52,7 +52,7 @@ const generateURL = (weather, scope, code) => {
 export const extremeWeatherApi = createApi({
     reducerPath: "extremeWeatherApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://flight-data.herokuapp.com/api/v1/weather",
+        baseUrl: "https://api.airportweather.org/v1/weather",
     }),
     endpoints(build) {
         return {

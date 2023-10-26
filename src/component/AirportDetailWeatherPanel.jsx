@@ -18,12 +18,9 @@ function AirportDetailWeatherPanel({
     let renderWeatherCondition;
     if (conditions && conditions.length > 0) {
         renderWeatherCondition = conditions.map((condition) => (
-            <div className="flex flex-col" key={condition.code}>
+            <div className="flex flex-col" key={Math.random()}>
                 <div>
-                    code: {condition.code}
-                </div>
-                <div>
-                    text: {condition.text}
+                    {condition.code} ({condition.text} )
                 </div>
             </div>
         ));

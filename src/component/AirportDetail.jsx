@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CustomProvider } from "rsuite";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
@@ -16,6 +16,9 @@ import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
+import AirportDetailTafSection from "./AirportDetailTafSection";
+import TimeSection from "./TimeSection";
+
 
 function AirportDetail() {
     const darkMode = useTheme();
@@ -26,7 +29,10 @@ function AirportDetail() {
     const [widgetAvailable, setWidgetAvailable] = useState(false);
     const [ATIS, setATIS] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    
     setTimeout(() => setIsLoading(false), 5000);
+    
+    const { icao: paramICAO } = useParams();
     
     useEffect(() => {
         if (!localStorage.getItem("airportData")) {
@@ -38,7 +44,7 @@ function AirportDetail() {
     useEffect(() => {
         if (airport && airport.ICAO?.length !== 0) {
             const updateVisited = async (icao) => {
-                await axios.put("https://flight-data.herokuapp.com/api/v1/airports/update-visited", { icao: `${icao}` });
+                await axios.put("https://api.airportweather.org/v1/airports/update-visited", { icao: `${icao}` });
             };
             updateVisited(airport.ICAO);
         }
@@ -47,21 +53,38 @@ function AirportDetail() {
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
+        // if URLs ICAO not equal to localStorage's airport
+        if (airportData && airportData.ICAO !== paramICAO.toUpperCase()) {
+            const requestAirport = async (icao) => {
+                try {
+                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
+                    if (response && response.data.data.length > 0) {
+                        setAirport(response.data.data[0].airport);
+                        localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
+                    }
+                } catch (e) {
+                    navigate("/airport");
+                }
+            };
+            requestAirport(paramICAO).catch();
+            setSkipRender(false);
+        }
+        
         if (airportData && !airportData?.flag) {
             setAirport(airportData);
             setSkipRender(false);
         } else if (airportData && airportData.flag === true) {
             const requestAirport = async (storageICAO) => {
                 try {
-                    const response = await axios.get(`https://flight-data.herokuapp.com/api/v1/airports/icao/${storageICAO}?decode=true`);
+                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
                     if (response) {
                         setAirport(response.data.data[0].airport);
                     }
                 } catch (e) {
-                    console.log(e);
+                    navigate("/airport");
                 }
             };
-            requestAirport(airportData.ICAO).catch(console.error);
+            requestAirport(airportData.ICAO).catch();
             setSkipRender(false);
         }
     }, []);
@@ -112,7 +135,6 @@ function AirportDetail() {
         }
     };
     
-    
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {
         const { country_code, country_name } = airport.station.country;
@@ -127,6 +149,9 @@ function AirportDetail() {
         return (
             <CustomProvider theme={themeMode}>
                 <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">
+                    <div className="justify-self-end p-1 mt-3 md:mr-3">
+                        <TimeSection />
+                    </div>
                     <div className="mt-3 p-2 justify-self-center text-center ">
                         <AirportDetailNameSection
                             name={name}
@@ -136,6 +161,9 @@ function AirportDetail() {
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailWeatherSection icao={ICAO} />
+                    </div>
+                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <AirportDetailTafSection icao={ICAO} />
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AtisSection ATIS={ATIS} />

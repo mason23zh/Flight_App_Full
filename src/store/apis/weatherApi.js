@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const weatherApi = createApi({
     reducerPath: "weather",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://flight-data.herokuapp.com/api/v1/waether",
+        baseUrl: "https://api.airportweather.org/v1/waether",
     }),
     endpoints(build) {
         return {

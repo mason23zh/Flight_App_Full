@@ -17,6 +17,7 @@
         "framer-motion": "^10.12.18",
         "http-proxy-middleware": "^2.0.6",
         "leaflet": "^1.9.4",
+        "moment": "^2.29.4",
         "react": "^18.2.0",
         "react-audio-player": "^0.17.0",
         "react-awesome-lightbox": "^1.8.1",
@@ -36,6 +37,7 @@
         "rsuite": "^5.37.0",
         "save-dev": "^0.0.1-security",
         "styled-components": "^6.0.3",
+        "swr": "^2.2.4",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
