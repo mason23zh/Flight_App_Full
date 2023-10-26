@@ -16,7 +16,7 @@ function TimeSection() {
     });
     
     return (
-        <div className="grid grid-cols-1 text-xs">
+        <div className="grid grid-cols-1 text-xs md:text-sm">
             <div>
                 {moment(today).utc().format("D MMM HH:mm")} UTC
             </div>

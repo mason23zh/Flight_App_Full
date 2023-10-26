@@ -149,7 +149,7 @@ function AirportDetail() {
         return (
             <CustomProvider theme={themeMode}>
                 <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">
-                    <div className="justify-self-end p-1 mt-3">
+                    <div className="justify-self-end p-1 mt-3 md:mr-3">
                         <TimeSection />
                     </div>
                     <div className="mt-3 p-2 justify-self-center text-center ">
