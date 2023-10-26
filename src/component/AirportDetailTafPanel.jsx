@@ -181,7 +181,9 @@ function AirportDetailTafPanel({
                             <div className="text-left sm:text-center">
                                 Conditions:
                             </div>
-                            {renderWeather(f.weather)}
+                            <div>
+                                {renderWeather(f.weather)}
+                            </div>
                         </div>
                     ) : <></>
             }
