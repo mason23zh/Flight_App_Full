@@ -132,9 +132,20 @@ function AirportDetailTafPanel({
         return renderedWeather;
     };
     
-    for (const f of forecast) {
-        console.log(f);
-    }
+    const renderProbabilities = (probabilities) => (
+        <div>
+            {probabilities.probability}
+        </div>
+    );
+    
+    const renderWindshear = (windshear) => (
+        <div className="grid grid-cols-1">
+            <div>
+                {windshear.windshearDireaction} degrees at {windshear.windShearSpeed} kts
+                at {windshear.windshearHeight} ft AGL
+            </div>
+        </div>
+    );
     
     const renderForecast = forecast.map((f) => (
         <div className="border rounded-lg mb-3" key={Math.random(f.from)}>
@@ -153,6 +164,19 @@ function AirportDetailTafPanel({
                 </div>
             ) : <></>}
                 
+            {
+                f.probability ? (
+                    <div className="grid grid-cols-2 m-2">
+                        <div className="text-left sm:text-center">
+                            Probability:
+                        </div>
+                        <div className="text-right sm:text-center">
+                            {renderProbabilities(f.probability)}
+                        </div>
+                    </div>
+                ) : <></>
+            }
+                
             {(f.wind && !_.isEmpty(f.wind)) ? (
                 <div className="grid grid-cols-2 m-2">
                     <div className="text-left sm:text-center">
@@ -163,8 +187,20 @@ function AirportDetailTafPanel({
                     </div>
                 </div>
             ) : <></>}
+            {
+                (f.wind && !_.isEmpty(f.wind) && (f.wind.windshearDireaction || f.wind.windshearHeight)) ? (
+                    <div className="grid grid-cols-2 m-2">
+                        <div className="text-left sm:text-center">
+                            Wind shear:
+                        </div>
+                        <div className="text-right sm:text-center">
+                            {renderWindshear(f.wind)}
+                        </div>
+                    </div>
+                ) : <></>
+            }
                 
-            {f.visibility ? (
+            {f.visibilityMile ? (
                 <div className="grid grid-cols-2 m-2">
                     <div className="text-left sm:text-center">
                         Visibility:
