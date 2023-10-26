@@ -17,6 +17,7 @@ import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
+import TimeSection from "./TimeSection";
 
 
 function AirportDetail() {
@@ -148,6 +149,9 @@ function AirportDetail() {
         return (
             <CustomProvider theme={themeMode}>
                 <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">
+                    <div className="justify-self-end p-1 mt-3">
+                        <TimeSection />
+                    </div>
                     <div className="mt-3 p-2 justify-self-center text-center ">
                         <AirportDetailNameSection
                             name={name}
