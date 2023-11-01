@@ -3,9 +3,10 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { airportsApi } from "./apis/airportsApi";
 import { extremeWeatherApi } from "./apis/extremeWeatherApi";
 import { metarApi } from "./apis/metarApi";
-import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { weatherApi } from "./apis/weatherApi";
 import { tafApi } from "./apis/tafApi";
+import { vatsimApi } from "./apis/vatsimApi";
+import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
         [metarApi.reducerPath]: metarApi.reducer,
         [weatherApi.reducerPath]: weatherApi.reducer,
         [tafApi.reducerPath]: tafApi.reducer,
+        [vatsimApi.reducerPath]: vatsimApi.reducer,
         
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
@@ -22,7 +24,8 @@ export const store = configureStore({
         .concat(extremeWeatherApi.middleware)
         .concat(metarApi.middleware)
         .concat(weatherApi.middleware)
-        .concat(tafApi.middleware),
+        .concat(tafApi.middleware)
+        .concat(vatsimApi.middleware),
     
 });
 
@@ -40,4 +43,5 @@ export { useFetchTafByICAOQuery } from "./apis/tafApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
+export { useFetchCurrentVatsimEventsQuery } from "./apis/vatsimApi";
 export { changeUserSelection };

@@ -2,7 +2,11 @@ import React, { useRef } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/pascal-meier-UYiesSO4FiM-unsplash.jpg";
 import HomeHeroSection from "./HomeHeroSection";
-import { useFetchMostPopularAirportsQuery, useFetchVatsimPopularAirportsQuery } from "../store";
+import {
+    useFetchCurrentVatsimEventsQuery,
+    useFetchMostPopularAirportsQuery,
+    useFetchVatsimPopularAirportsQuery,
+} from "../store";
 import HomeAirportList from "./HomeAirportList";
 import { useTheme } from "../hooks/ThemeContext";
 import HomeVatsimAirportsList from "./HomeVatsimAirportsList";
@@ -10,7 +14,11 @@ import ScrollToHashElement from "./ScrollToHashElement";
 
 function Home() {
     const { data, error, isFetching } = useFetchMostPopularAirportsQuery();
-    
+    const {
+        data: vatsimEvents,
+        error: vatsimEventsError,
+        isFetching: vatsimEventsFetching,
+    } = useFetchCurrentVatsimEventsQuery();
     const {
         data: vatsimAirports,
         error: vatsimAirportsError,
@@ -38,6 +46,10 @@ function Home() {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (vatsimAirportsError) {
         renderedAirport = <h3 className="text-lg text-center">Error Loading Vatsim Traffic</h3>;
+    }
+    
+    if (vatsimEvents) {
+        console.log("vatsim events", vatsimEvents);
     }
     
     

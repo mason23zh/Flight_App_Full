@@ -18,6 +18,7 @@ import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
+import VatsimEventSection from "./VatsimEventSection";
 
 
 function AirportDetail() {
@@ -195,6 +196,7 @@ function AirportDetail() {
                     <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
                         <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                     </div>
+                    <VatsimEventSection />
                     <div className="ml-3 mr-3 p-2 justify-self-center">{renderWidget()}</div>
                 </div>
             </CustomProvider>
