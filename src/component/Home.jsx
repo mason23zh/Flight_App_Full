@@ -11,6 +11,7 @@ import HomeAirportList from "./HomeAirportList";
 import { useTheme } from "../hooks/ThemeContext";
 import HomeVatsimAirportsList from "./HomeVatsimAirportsList";
 import ScrollToHashElement from "./ScrollToHashElement";
+import HomeVatsimEvents from "./HomeVatsimEvents";
 
 function Home() {
     const { data, error, isFetching } = useFetchMostPopularAirportsQuery();
@@ -31,6 +32,7 @@ function Home() {
     
     let renderedAirport;
     let renderVatsimAirports;
+    let renderVatsimEvents;
     if (data) {
         renderedAirport = <HomeAirportList airports={data} />;
     } else if (isFetching) {
@@ -49,7 +51,11 @@ function Home() {
     }
     
     if (vatsimEvents) {
-        console.log("vatsim events", vatsimEvents);
+        renderVatsimEvents = <HomeVatsimEvents vatsimEvents={vatsimEvents} />;
+    } else if (vatsimEventsFetching) {
+        renderVatsimEvents = <div className="text-lg text-center">Loading...</div>;
+    } else if (vatsimEventsError) {
+        renderVatsimEvents = <h3 className="text-lg text-center">Error Loading Vatsim Events</h3>;
     }
     
     
@@ -81,6 +87,17 @@ function Home() {
                 </div>
                 <div>
                     {renderVatsimAirports}
+                </div>
+                <div className={darkTheme}>
+                    <div
+                        className="text-2xl md:text-3xl"
+                        id="popular-vatsim-airports"
+                    >
+                        Current Vatsim Events
+                    </div>
+                </div>
+                <div>
+                    {renderVatsimEvents}
                 </div>
             </CustomProvider>
         </div>

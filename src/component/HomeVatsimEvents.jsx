@@ -1,12 +1,28 @@
 import React, { useEffect, useState } from "react";
+import HomeVatsimEventInfoTab from "./HomeVatsimEventInfoTab";
 
-function HomeVatsimEvents() {
-    const [events, setEvents] = useState([]);
-    
-    
+function HomeVatsimEvents({ vatsimEvents }) {
+    const { events, results } = vatsimEvents;
+    let renderEvents;
+    console.log(events);
+    if (events.length === 0 || results === 0) {
+        renderEvents = (
+            <div className="text-lg text-center">
+                No On-going Vatsim Events
+            </div>
+        );
+    } else {
+        renderEvents = events.map((e, i) => (
+            <div key={e.id}>
+                <HomeVatsimEventInfoTab event={e} counter={i} />
+            </div>
+        ));
+    }
     return (
-        <div>
-            Vatsim EVENTS
+        <div className="flex flex-col items-center">
+            <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 w-[80%] mt-3 mb-3">
+                {renderEvents}
+            </div>
         </div>
     );
 }
