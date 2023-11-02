@@ -12,6 +12,7 @@ import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
 import Orion from "./component/Orion";
 import Puzzles from "./component/Puzzles";
+import VatsimEvent from "./component/VatsimEvent";
 
 function App() {
     return (
@@ -23,9 +24,9 @@ function App() {
                     <Route path="weather" element={<Weather />} />
                     <Route path="extreme-weather" element={<ExtremeWeather />} />
                     <Route path="airport" element={<Airports />} />
-                    {/* <Route path="airport/detail" element={<AirportDetail />} /> */}
                     <Route path="airport/detail/:icao" element={<AirportDetail />} />
                     <Route path="changelog" element={<ChangeLog />} />
+                    <Route path="vatsim/events/:name" element={<VatsimEvent />} />
                     <Route path="Orion9600" element={<Orion />} />
                     <Route path="puzzles" element={<Puzzles />} />
                     <Route path="*" element={<NoMatch />} />

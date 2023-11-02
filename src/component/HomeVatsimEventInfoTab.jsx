@@ -1,19 +1,15 @@
 import React from "react";
 import moment from "moment";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
 
 function HomeVatsimEventInfoTab({ event, counter }) {
     const {
-        airports,
-        banner,
-        description,
         end_time,
         start_time,
         link,
         name,
-        organisers,
-        short_description,
     } = event;
     
     const darkMode = useTheme();
@@ -25,16 +21,24 @@ function HomeVatsimEventInfoTab({ event, counter }) {
             + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
             + "h-full bg-gray-300";
     
+    
+    const handleClick = () => {
+        localStorage.setItem("vatsimEvent", JSON.stringify(event));
+    };
+    
     const nameSection = (
         <div className="items-center">
-            {name}
+            {name ? <div>{name}</div> : <></>}
         </div>
     );
     
     const timeSection = (
         <div>
-            {moment(start_time).utc().format("HH:mm")} to {moment(end_time).utc()
-                .format("HH:mm")} (UTC)
+            {(start_time && end_time) ? (
+                <div>{moment(start_time).utc().format("HH:mm")} to {moment(end_time).utc()
+                    .format("HH:mm")} (UTC)
+                </div>
+            ) : <></>}
         </div>
     );
     
@@ -46,16 +50,22 @@ function HomeVatsimEventInfoTab({ event, counter }) {
     
     const linkSection = (
         <div>
-            <a href={link} target="_blank" rel="noreferrer">
-                Event Link
-            </a>
+            {link ? (
+                <a href={link} target="_blank" rel="noreferrer">
+                    Event Link
+                </a>
+            ) : <></>}
         </div>
     );
     
+    
     const goToSection = (
-        <div>
+        <Link
+            to={`/vatsim/events/${name}`}
+            onMouseOver={handleClick}
+        >
             <IoIosArrowRoundForward size={40} />
-        </div>
+        </Link>
     );
     
     
