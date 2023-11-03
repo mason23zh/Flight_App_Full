@@ -36,7 +36,7 @@ function AirportDetail() {
     const { icao: paramICAO } = useParams();
     
     useEffect(() => {
-        if (!localStorage.getItem("airportData")) {
+        if (!localStorage.getItem("airportData") && !paramICAO) {
             navigate("/");
         }
     });
@@ -47,27 +47,34 @@ function AirportDetail() {
             const updateVisited = async (icao) => {
                 await axios.put("https://api.airportweather.org/v1/airports/update-visited", { icao: `${icao}` });
             };
-            updateVisited(airport.ICAO);
+            updateVisited(airport.ICAO).catch();
         }
     }, [airport]);
     
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
+        const requestAirportAndSetLocal = async (icao) => {
+            try {
+                const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
+                if (response && response.data.data.length > 0) {
+                    setAirport(response.data.data[0].airport);
+                    localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
+                }
+            } catch (e) {
+                navigate("/airport");
+            }
+        };
+        
         // if URLs ICAO not equal to localStorage's airport
         if (airportData && airportData.ICAO !== paramICAO.toUpperCase()) {
-            const requestAirport = async (icao) => {
-                try {
-                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
-                    if (response && response.data.data.length > 0) {
-                        setAirport(response.data.data[0].airport);
-                        localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
-                    }
-                } catch (e) {
-                    navigate("/airport");
-                }
-            };
-            requestAirport(paramICAO).catch();
+            requestAirportAndSetLocal(paramICAO).catch();
+            setSkipRender(false);
+        }
+        
+        // If no localStorage and ICAO in url is provided
+        if (!airportData && paramICAO) {
+            requestAirportAndSetLocal(paramICAO).catch();
             setSkipRender(false);
         }
         

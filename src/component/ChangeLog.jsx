@@ -115,6 +115,11 @@ function ChangeLog() {
                         - Render puzzle image directly instead base64 encoded string <br />
                         - Check the puzzle answer in back-end <br />
                     </div>
+                    <div>
+                        Beta 0.4 <br />
+                        - Fix the issue if no localStorage data enter new ICAO in airport detail page will direct
+                        back to home page <br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
