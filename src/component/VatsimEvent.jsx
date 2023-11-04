@@ -19,7 +19,7 @@ function VatsimEvent() {
         if (!_.isEmpty(vatsimEvent)) {
             setEvent((pre) => vatsimEvent);
         }
-    }, []);
+    }, [event]);
     
     const renderTime = (startTime, endTime, utcFlag) => {
         if (startTime && endTime && utcFlag) {
@@ -44,11 +44,10 @@ function VatsimEvent() {
     
     const renderImage = (
         <div>
-            <img src={event.banner} alt={event.name} width="810px" />
+            <img className="w-[810px] rounded-xl" src={event.banner} alt={event.name} />
         </div>
     );
     
-    console.log("vatsim event from vatsim event:", event);
     if (!_.isEmpty(event)) {
         renderAirportList = event.airports.map((airport) => (
             <div key={airport.icao}>
@@ -61,17 +60,16 @@ function VatsimEvent() {
         ));
     }
     
-    
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
             <div className="flex justify-center">
-                <div className="p-10 grid grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
+                <div className="p-10 grid grid-cols-1 md:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
                     <div className="col-span-3">
-                        <div className="grid grid-cols-1 gap-2">
-                            <div className="text-5xl justify-self-start">
+                        <div className="grid grid-cols-1 gap-3">
+                            <div className="text-3xl sm:text-5xl justify-self-start font-bold">
                                 {event.name}
                             </div>
-                            <div className="text-xl justify-self-start">
+                            <div className="text-md sm:text-xl justify-self-start">
                                 {renderTime(event.start_time, event.end_time, false)}
                             </div>
                             <div className="flex gap-1 justify-self-start">
@@ -84,10 +82,10 @@ function VatsimEvent() {
                     </div>
                     <div className="col-span-2">
                         <div className="grid grid-cols-1 gap-2">
-                            <div className="text-3xl justify-self-start">
-                                Description
+                            <div className="text-xl sm:text-2xl justify-self-start font-bold">
+                                DESCRIPTION
                             </div>
-                            <div className="text-xl overflow-hidden">
+                            <div className="text-md sm:text-xl overflow-hidden">
                                 <div dangerouslySetInnerHTML={{ __html: event.description }} />
                             </div>
                         </div>

@@ -43,5 +43,5 @@ export { useFetchTafByICAOQuery } from "./apis/tafApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
-export { useFetchCurrentVatsimEventsQuery } from "./apis/vatsimApi";
+export { useFetchCurrentVatsimEventsQuery, useFetchSortedVatsimEventsQuery } from "./apis/vatsimApi";
 export { changeUserSelection };

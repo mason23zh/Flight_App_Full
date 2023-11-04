@@ -13,6 +13,7 @@ import ScrollToTop from "./component/ScrollToTop";
 import Orion from "./component/Orion";
 import Puzzles from "./component/Puzzles";
 import VatsimEvent from "./component/VatsimEvent";
+import VatsimEventsAll from "./component/VatsimEventsAll";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path="airport" element={<Airports />} />
                     <Route path="airport/detail/:icao" element={<AirportDetail />} />
                     <Route path="changelog" element={<ChangeLog />} />
+                    <Route path="vatsim/events" element={<VatsimEventsAll />} />
                     <Route path="vatsim/events/:name" element={<VatsimEvent />} />
                     <Route path="Orion9600" element={<Orion />} />
                     <Route path="puzzles" element={<Puzzles />} />
