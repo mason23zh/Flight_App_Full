@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { CustomProvider } from "rsuite";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+// render side view of vatsim events
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import _ from "lodash";
-import moment from "moment";
+import moment from "moment/moment";
+import { CustomProvider } from "rsuite";
+import { useSelector } from "react-redux";
 import { useTheme } from "../hooks/ThemeContext";
 
-function VatsimEvent() {
+function VatsimEventDetail() {
+    const event = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
+    
     const darkTheme = useTheme();
     const navigate = useNavigate();
-    const [event, setEvent] = useState({});
     let renderAirportList;
-    
-    useEffect(() => {
-        if (!localStorage.getItem("vatsimEvent")) {
-            // navigate("/");
-        }
-        const vatsimEvent = JSON.parse(localStorage.getItem("vatsimEvent"));
-        if (!_.isEmpty(vatsimEvent)) {
-            setEvent(vatsimEvent);
-        }
-    }, [event]);
     
     const renderTime = (startTime, endTime, utcFlag) => {
         if (startTime && endTime && utcFlag) {
@@ -96,4 +89,4 @@ function VatsimEvent() {
     );
 }
 
-export default VatsimEvent;
+export default VatsimEventDetail;

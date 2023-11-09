@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CustomProvider } from "rsuite";
+import _ from "lodash";
 import { useFetchSortedVatsimEventsQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import VatsimEventsList from "./VatsimEventsList";
 import VatsimEvent from "./VatsimEvent";
+import VatsimEventDetail from "./VatsimEventDetail";
 
 function VatsimEventsAll() {
+    const [selectedEvents, setSelectedEvents] = useState();
+    useEffect(() => {
+        const events = JSON.parse(localStorage.getItem("vatsimEvent"));
+        if (!_.isEmpty(events)) {
+            setSelectedEvents(events);
+        }
+    }, []);
     const darkTheme = useTheme();
     let eventsList;
     const {
         data: vatsimEvents,
         error: vatsimEventsError,
         isFetching: vatsimEventsFetching,
-    } = useFetchSortedVatsimEventsQuery("start", 1);
+    } = useFetchSortedVatsimEventsQuery();
     if (vatsimEvents) {
         eventsList = <VatsimEventsList events={vatsimEvents} />;
     } else if (vatsimEventsFetching) {
-        eventsList = (<div>Loading Vatsim Events...</div>);
+        eventsList = <div>Loading Vatsim Events...</div>;
     } else if (vatsimEventsError) {
-        eventsList = (<div>Error Loading Vatsim Events</div>);
+        eventsList = <div>Error Loading Vatsim Events</div>;
     }
     
     
@@ -30,7 +39,7 @@ function VatsimEventsAll() {
                         {eventsList}
                     </div>
                     <div className="col-span-4">
-                        <VatsimEvent />
+                        <VatsimEventDetail />
                     </div>
                 </div>
             </div>

@@ -7,9 +7,11 @@ import { weatherApi } from "./apis/weatherApi";
 import { tafApi } from "./apis/tafApi";
 import { vatsimApi } from "./apis/vatsimApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
+import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
 
 export const store = configureStore({
     reducer: {
+        vatsimEvent: vatsimEventReducer,
         extremeWeather: extremeWeatherReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
@@ -44,4 +46,4 @@ export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
 export { useFetchCurrentVatsimEventsQuery, useFetchSortedVatsimEventsQuery } from "./apis/vatsimApi";
-export { changeUserSelection };
+export { changeUserSelection, changeUserSelectionVatsimEvent };

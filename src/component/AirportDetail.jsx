@@ -18,7 +18,7 @@ import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
-import VatsimEventSection from "./VatsimEventSection";
+import VatsimEventsAll from "./VatsimEventsAll";
 
 
 function AirportDetail() {
@@ -35,11 +35,12 @@ function AirportDetail() {
     
     const { icao: paramICAO } = useParams();
     
-    useEffect(() => {
-        if (!localStorage.getItem("airportData") && !paramICAO) {
-            navigate("/");
-        }
-    });
+    console.log("params", paramICAO);
+    // useEffect(() => {
+    //     if (!localStorage.getItem("airportData") && !paramICAO) {
+    //         navigate("/");
+    //     }
+    // }, []);
     
     // Update airport visited count
     useEffect(() => {
@@ -57,7 +58,8 @@ function AirportDetail() {
         const requestAirportAndSetLocal = async (icao) => {
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
-                if (response && response.data.data.length > 0) {
+                console.log(response.data.results);
+                if (response && response.data.results === 0) {
                     setAirport(response.data.data[0].airport);
                     localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
                 }
@@ -203,7 +205,6 @@ function AirportDetail() {
                     <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
                         <AirportDetailRunwayTable runways={airport.runways} metar={metar} />
                     </div>
-                    <VatsimEventSection />
                     <div className="ml-3 mr-3 p-2 justify-self-center">{renderWidget()}</div>
                 </div>
             </CustomProvider>

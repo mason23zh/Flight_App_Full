@@ -14,8 +14,8 @@ export const vatsimApi = createApi({
                 }),
             }),
             fetchSortedVatsimEvents: build.query({
-                query: ({ target, sort }) => ({
-                    url: `/getSortedEventsByDate?target=${target}&sort=${sort}`,
+                query: () => ({
+                    url: "/getSortedEventsByDate",
                     method: "GET",
                 }),
             }),

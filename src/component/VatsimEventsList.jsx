@@ -5,9 +5,10 @@ import VatsimEventsListItem from "./VatsimEventsListItem";
 function VatsimEventsList({ events }) {
     const [allEvents, setAllEvents] = useState({});
     let eventsList;
+    
     useEffect(() => {
         if (!_.isEmpty(events)) {
-            setAllEvents(events);
+            setAllEvents((pre) => events);
         }
     }, []);
     
@@ -19,7 +20,6 @@ function VatsimEventsList({ events }) {
         ));
     }
     
-    console.log(events);
     
     return (
         <div className="flex flex-col gap-2 overflow-y-auto h-screen p-3">

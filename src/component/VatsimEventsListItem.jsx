@@ -1,8 +1,10 @@
 import React from "react";
 import moment from "moment/moment";
-import _ from "lodash";
+import { useDispatch } from "react-redux";
+import { changeUserSelectionVatsimEvent } from "../store";
 
 function VatsimEventsListItem({ event }) {
+    const dispatch = useDispatch();
     const {
         name, start_time, end_time, airports,
     } = event;
@@ -30,7 +32,7 @@ function VatsimEventsListItem({ event }) {
     
     if (event.airports && event.airports.length !== 0) {
         renderAirportList = event.airports.map((airport) => (
-            <div key={airport.icao}>
+            <div key={Math.random(event.id)}>
                 <div className="rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1">
                     <a href={`airport/detail/${airport.icao}`}>
                         {airport.icao}
@@ -41,7 +43,7 @@ function VatsimEventsListItem({ event }) {
     }
     
     const handleClick = () => {
-        localStorage.setItem("vatsimEvent", JSON.stringify(event));
+        dispatch(changeUserSelectionVatsimEvent(event));
     };
     
     return (
@@ -53,7 +55,7 @@ function VatsimEventsListItem({ event }) {
                 {renderTime(start_time, end_time, true)}
             </div>
             <div className="justify-self-start">
-                <div className="flex flex-wrap">
+                <div className="flex gap-1 flex-wrap">
                     {renderAirportList}
                 </div>
             </div>
