@@ -8,7 +8,7 @@ function HomeVatsimEvents({ vatsimEvents }) {
     if (events.length === 0 || results === 0) {
         renderEvents = (
             <div className="text-lg text-center">
-                No On-going Vatsim Events
+                No In Progress Vatsim Events
             </div>
         );
     } else {

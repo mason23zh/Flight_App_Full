@@ -56,7 +56,7 @@ function VatsimEventDetail() {
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
             <div className="flex justify-center">
-                <div className="p-10 grid grid-cols-1 md:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
+                <div className="p-10 grid grid-cols-1 lg:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
                     <div className="col-span-3">
                         <div className="grid grid-cols-1 gap-3">
                             <div className="text-3xl sm:text-5xl justify-self-start font-bold">

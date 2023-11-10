@@ -20,9 +20,8 @@ function VatsimEventsList({ events }) {
         ));
     }
     
-    
     return (
-        <div className="flex flex-col gap-2 overflow-y-auto h-screen p-3">
+        <div className="flex flex-col gap-2 overflow-y-auto h-screen p-3 min-w-[350px]">
             {eventsList}
         </div>
     );
