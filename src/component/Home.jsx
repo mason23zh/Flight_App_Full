@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/pascal-meier-UYiesSO4FiM-unsplash.jpg";
 import HomeHeroSection from "./HomeHeroSection";
@@ -14,6 +14,7 @@ import ScrollToHashElement from "./ScrollToHashElement";
 import HomeVatsimEvents from "./HomeVatsimEvents";
 
 function Home() {
+    const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);
     const { data, error, isFetching } = useFetchMostPopularAirportsQuery();
     const {
         data: vatsimEvents,
@@ -58,12 +59,19 @@ function Home() {
         renderVatsimEvents = <h3 className="text-lg text-center">Error Loading Vatsim Events</h3>;
     }
     
+    useEffect(() => {
+        if (vatsimEvents) {
+            setVatsimEventsAvailable(true);
+        }
+    }, [vatsimEvents]);
+    
     
     return (
         <div>
             <ScrollToHashElement />
             <HomeHeroSection
                 backgroundImage={backgroundImage}
+                vatsimEvents
             />
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className={darkTheme}>
@@ -91,7 +99,7 @@ function Home() {
                 <div className={darkTheme}>
                     <div
                         className="text-2xl md:text-3xl"
-                        id="popular-vatsim-airports"
+                        id="current-vatsim-events"
                     >
                         Current Vatsim Events
                     </div>
