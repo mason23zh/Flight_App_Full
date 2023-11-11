@@ -1,5 +1,5 @@
 // render side view of vatsim events
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 import moment from "moment/moment";
@@ -9,11 +9,23 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { useTheme } from "../hooks/ThemeContext";
 
 function VatsimEventDetail({ onlyDetail }) {
-    const event = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
-    
     const darkTheme = useTheme();
     const navigate = useNavigate();
     let renderAirportList;
+    const [event, setEvent] = useState({});
+    const reduxEvent = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
+    // This useEffect will handle the case if user open a new tab on the Home page
+    // The localStorage will be stored if user click 'go-to' button in HomeVatsimEventInfoTab
+    useEffect(() => {
+        if (!reduxEvent.id && localStorage.getItem("vatsimEvent")) {
+            setEvent(JSON.parse(localStorage.getItem("vatsimEvent")));
+        } else if (reduxEvent) {
+            setEvent(reduxEvent);
+        } else {
+            navigate("/");
+        }
+    }, [reduxEvent]);
+    
     
     const handleClick = () => {
         navigate("/vatsim/events");

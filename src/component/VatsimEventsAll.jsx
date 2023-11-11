@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CustomProvider, Drawer, IconButton } from "rsuite";
 import MenuIcon from "@rsuite/icons/Menu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeUserSelectionVatsimEvent, useFetchSortedVatsimEventsQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import VatsimEventsList from "./VatsimEventsList";
@@ -9,6 +9,7 @@ import VatsimEventDetail from "./VatsimEventDetail";
 
 function VatsimEventsAll() {
     const dispatch = useDispatch();
+    const reduxEvent = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
     const darkTheme = useTheme();
     
     let eventsList;
@@ -28,7 +29,8 @@ function VatsimEventsAll() {
     useEffect(() => {
         // dispatch the change selection vatsim event to render the first event
         // when page got loaded first time.
-        if (vatsimEvents && vatsimEvents?.events.length > 0) {
+        // If redux store already has the event, do nothing
+        if (!reduxEvent.id && vatsimEvents && vatsimEvents?.events.length > 0) {
             dispatch(changeUserSelectionVatsimEvent(vatsimEvents.events[0]));
         }
     }, [vatsimEvents]);
