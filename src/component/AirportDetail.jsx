@@ -35,13 +35,6 @@ function AirportDetail() {
     
     const { icao: paramICAO } = useParams();
     
-    console.log("params", paramICAO);
-    // useEffect(() => {
-    //     if (!localStorage.getItem("airportData") && !paramICAO) {
-    //         navigate("/");
-    //     }
-    // }, []);
-    
     // Update airport visited count
     useEffect(() => {
         if (airport && airport.ICAO?.length !== 0) {
@@ -58,7 +51,7 @@ function AirportDetail() {
         const requestAirportAndSetLocal = async (icao) => {
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
-                console.log(response.data.results);
+                // console.log(response.data.results);
                 if (response && response.data.results === 0) {
                     setAirport(response.data.data[0].airport);
                     localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));

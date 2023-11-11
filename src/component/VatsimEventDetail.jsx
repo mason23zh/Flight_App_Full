@@ -5,14 +5,36 @@ import _ from "lodash";
 import moment from "moment/moment";
 import { CustomProvider } from "rsuite";
 import { useSelector } from "react-redux";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { useTheme } from "../hooks/ThemeContext";
 
-function VatsimEventDetail() {
+function VatsimEventDetail({ onlyDetail }) {
     const event = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
     
     const darkTheme = useTheme();
     const navigate = useNavigate();
     let renderAirportList;
+    
+    const handleClick = () => {
+        navigate("/vatsim/events");
+    };
+    
+    const renderEventJumpBackButton = () => {
+        if (onlyDetail) {
+            return (
+                <div
+                    onClick={handleClick}
+                    className="flex items-center gap-1 ml-5 p-1 mt-3 text-lg hover:text-cyan-600 hover:cursor-pointer"
+                >
+                    <div>
+                        <HiOutlineArrowNarrowLeft size={20} />
+                    </div>
+                    <div className="font-bold">Events</div>
+                </div>
+            );
+        }
+        return <></>;
+    };
     
     const renderTime = (startTime, endTime, utcFlag) => {
         if (startTime && endTime && utcFlag) {
@@ -55,6 +77,7 @@ function VatsimEventDetail() {
     
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
+            {renderEventJumpBackButton()}
             <div className="flex justify-center">
                 <div className="p-10 grid grid-cols-1 lg:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
                     <div className="col-span-3">

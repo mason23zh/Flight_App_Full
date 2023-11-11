@@ -5,9 +5,7 @@ import { useDispatch } from "react-redux";
 import { changeUserSelectionVatsimEvent, useFetchSortedVatsimEventsQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import VatsimEventsList from "./VatsimEventsList";
-import VatsimEvent from "./VatsimEvent";
 import VatsimEventDetail from "./VatsimEventDetail";
-
 
 function VatsimEventsAll() {
     const dispatch = useDispatch();
@@ -19,6 +17,13 @@ function VatsimEventsAll() {
         error: vatsimEventsError,
         isFetching: vatsimEventsFetching,
     } = useFetchSortedVatsimEventsQuery();
+    
+    // control drawer open or close
+    const [open, setOpen] = React.useState(false);
+    
+    const handleOpen = (key) => {
+        setOpen(true);
+    };
     
     useEffect(() => {
         // dispatch the change selection vatsim event to render the first event
@@ -35,12 +40,6 @@ function VatsimEventsAll() {
     } else if (vatsimEventsError) {
         eventsList = <div>Error Loading Vatsim Events</div>;
     }
-    
-    const [open, setOpen] = React.useState(false);
-    
-    const handleOpen = (key) => {
-        setOpen(true);
-    };
     
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
@@ -59,12 +58,11 @@ function VatsimEventsAll() {
             </div>
             <div className="flex justify-center p-4">
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
-                        
                     <div className="hidden md:block md:col-span-2">
                         {eventsList}
                     </div>
                     <div className="col-span-1 md:col-span-4">
-                        <VatsimEventDetail />
+                        <VatsimEventDetail onlyDetail={false} />
                     </div>
                 </div>
             </div>

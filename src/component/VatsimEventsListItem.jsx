@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import moment from "moment/moment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { changeUserSelectionVatsimEvent } from "../store";
+import { useTheme } from "../hooks/ThemeContext";
 
 function VatsimEventsListItem({ event }) {
+    const darkMode = useTheme();
     const dispatch = useDispatch();
+    
     const {
         name, start_time, end_time, airports,
     } = event;
+    
+    const itemTheme = darkMode
+        ? "grid grid-cols-1 p-3 border-2 bg-gray-400 rounded-xl relative "
+            + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+            + "hover:scale-100 hover:bg-indigo-500 duration-300"
+        : "grid grid-cols-1 p-3 border-2 bg-gray-200 rounded-xl relative "
+            + "transition ease-in-out delay-50 bg-blue-500 "
+            + "hover:-translate-y-1 hover:scale-100 hover:bg-indigo-300 duration-300";
+    
     let renderAirportList;
     
     // check if the event is in progress
@@ -74,7 +86,7 @@ function VatsimEventsListItem({ event }) {
     };
     
     return (
-        <div className="grid grid-cols-1 p-3 border-2 bg-gray-400 rounded-xl relative" onClick={handleClick}>
+        <div className={itemTheme} onClick={handleClick}>
             {renderInProgress(start_time, end_time)}
                 
             <div className="justify-self-start">

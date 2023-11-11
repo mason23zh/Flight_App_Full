@@ -4,7 +4,6 @@ import HomeVatsimEventInfoTab from "./HomeVatsimEventInfoTab";
 function HomeVatsimEvents({ vatsimEvents }) {
     const { events, results } = vatsimEvents;
     let renderEvents;
-    console.log(events);
     if (events.length === 0 || results === 0) {
         renderEvents = (
             <div className="text-lg text-center">
