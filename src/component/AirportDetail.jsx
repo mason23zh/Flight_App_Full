@@ -52,7 +52,8 @@ function AirportDetail() {
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
                 // console.log(response.data.results);
-                if (response && response.data.results === 0) {
+                console.log("Request response", response.data);
+                if (response && response.data.results !== 0) {
                     setAirport(response.data.data[0].airport);
                     localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
                 }
@@ -60,36 +61,34 @@ function AirportDetail() {
                 navigate("/airport");
             }
         };
-        
         // if URLs ICAO not equal to localStorage's airport
-        if (airportData && airportData.ICAO !== paramICAO.toUpperCase()) {
-            requestAirportAndSetLocal(paramICAO).catch();
-            setSkipRender(false);
-        }
-        
-        // If no localStorage and ICAO in url is provided
-        if (!airportData && paramICAO) {
-            requestAirportAndSetLocal(paramICAO).catch();
-            setSkipRender(false);
-        }
-        
-        if (airportData && !airportData?.flag) {
+        if (airportData && (airportData.ICAO !== paramICAO.toUpperCase())) {
+            requestAirportAndSetLocal(paramICAO.toUpperCase()).catch();
+        } else if (!airportData && paramICAO) {
+            requestAirportAndSetLocal(paramICAO.toUpperCase()).catch();
+        } else if (airportData && (airportData.ICAO === paramICAO.toUpperCase())) {
             setAirport(airportData);
-            setSkipRender(false);
-        } else if (airportData && airportData.flag === true) {
-            const requestAirport = async (storageICAO) => {
-                try {
-                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
-                    if (response) {
-                        setAirport(response.data.data[0].airport);
-                    }
-                } catch (e) {
-                    navigate("/airport");
-                }
-            };
-            requestAirport(airportData.ICAO).catch();
-            setSkipRender(false);
         }
+        
+        
+        // This is for airport departure and arrival information
+        // if (airportData && !airportData?.flag) {
+        //     setAirport(airportData);
+        //     setSkipRender(false);
+        // } else if (airportData && airportData.flag === true) {
+        //     const requestAirport = async (storageICAO) => {
+        //         try {
+        //             const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
+        //             if (response) {
+        //                 setAirport(response.data.data[0].airport);
+        //             }
+        //         } catch (e) {
+        //             navigate("/airport");
+        //         }
+        //     };
+        //     requestAirport(airportData.ICAO).catch();
+        //     setSkipRender(false);
+        // }
     }, []);
     
     // !this is a redundant request, but needed to be here because we need to check the widget availability
@@ -126,7 +125,6 @@ function AirportDetail() {
             }
         }
     }, [widgetData]);
-    
     
     const renderWidget = () => {
         if (widgetAvailable) {
@@ -211,3 +209,4 @@ function AirportDetail() {
 }
 
 export default AirportDetail;
+ 

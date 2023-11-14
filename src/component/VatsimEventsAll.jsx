@@ -26,6 +26,10 @@ function VatsimEventsAll() {
         setOpen(true);
     };
     
+    const handleClick = () => {
+        setOpen(false);
+    };
+    
     useEffect(() => {
         // dispatch the change selection vatsim event to render the first event
         // when page got loaded first time.
@@ -36,7 +40,7 @@ function VatsimEventsAll() {
     }, [vatsimEvents]);
     
     if (vatsimEvents) {
-        eventsList = <VatsimEventsList events={vatsimEvents} />;
+        eventsList = <VatsimEventsList events={vatsimEvents} onClick={handleClick} />;
     } else if (vatsimEventsFetching) {
         eventsList = <div>Loading Vatsim Events...</div>;
     } else if (vatsimEventsError) {
@@ -51,12 +55,20 @@ function VatsimEventsAll() {
                         Events List
                     </IconButton>
                 </div>
-                <Drawer size="xs" placement="left" open={open} onClose={() => setOpen(false)}>
-                    <Drawer.Header>
-                        <Drawer.Title>Event List</Drawer.Title>
+                <Drawer
+                    size="xs"
+                    placement="left"
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    enforceFocus={false}
+                    keyboard
+                    backdrop
+                >
+                    <Drawer.Body>
                         {eventsList}
-                    </Drawer.Header>
+                    </Drawer.Body>
                 </Drawer>
+                
             </div>
             <div className="flex justify-center p-4">
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-3">

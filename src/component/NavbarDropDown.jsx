@@ -30,6 +30,9 @@ function NavbarDropDown() {
                 <Dropdown.Item as={NavLink} href="/extreme-weather" className="text-red-400">Extreme
                     weather
                 </Dropdown.Item>
+                <Dropdown.Item as={NavLink} href="/vatsim/events">
+                    Events
+                </Dropdown.Item>
                 <Dropdown.Item as={NavLink} href="/about">About</Dropdown.Item>
                 <Dropdown.Item divider />
                 <Dropdown.Item>

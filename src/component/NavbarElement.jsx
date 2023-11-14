@@ -23,10 +23,6 @@ function NavbarElement() {
     const [searchPlaceHolder, setSearchPlaceHolder] = useState("Search Something!");
     const [searchInput, setSearchInput] = useState("");
     
-    // const handleInputChange = (e) => {
-    //     setSearchInput(e.target.value);
-    // };
-    //
     const handleSearchSubmit = (input) => {
         if (input.length === 0) {
             setSearchPlaceHolder("Something !== nothing :)");
@@ -72,6 +68,11 @@ function NavbarElement() {
                 <li>
                     <Link style={{ textDecoration: "none" }} to="/extreme-weather" className="text-red-400">
                         Extreme Weather
+                    </Link>
+                </li>
+                <li>
+                    <Link style={{ textDecoration: "none" }} to="/vatsim/events" className="">
+                        Events
                     </Link>
                 </li>
                 <li>
