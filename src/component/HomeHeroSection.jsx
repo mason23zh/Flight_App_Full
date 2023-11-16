@@ -67,7 +67,7 @@ function HomeHeroSection({
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
-                className="w-full h-screen bg-cover bg-no-repeat bg-center"
+                className="w-full h-[calc(100vh-56px)] bg-cover bg-no-repeat bg-center"
                 style={{
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}

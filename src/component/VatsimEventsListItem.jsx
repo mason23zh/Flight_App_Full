@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
@@ -10,25 +10,27 @@ function VatsimEventsListItem({ event, onClick }) {
     const darkMode = useTheme();
     const dispatch = useDispatch();
     const e = useSelector((state) => state.vatsimEvent.userSelectionVatsimEvent);
-    let testTheme;
-    //! optimization required
-    if (darkMode && (e.id === event.id)) {
-        testTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-500 rounded-xl relative "
-                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                + "hover:scale-100 hover:bg-indigo-300 duration-300";
-    } else if (darkMode && (e.id !== event.id)) {
-        testTheme = "grid grid-cols-1 p-3 border-2 bg-gray-400 rounded-xl relative "
-                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                + "hover:scale-100 hover:bg-indigo-500 duration-300";
-    } else if (!darkMode && (e.id === event.id)) {
-        testTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-400 rounded-xl relative "
-                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                + "hover:scale-100 hover:bg-indigo-400 duration-300";
-    } else if (!darkMode && (e.id !== event.id)) {
-        testTheme = "grid grid-cols-1 p-3 border-2 bg-gray-200 rounded-xl relative "
-                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                + "hover:scale-100 hover:bg-indigo-500 duration-300";
-    }
+    const generateTheme = (storeEvent, currentEvent) => {
+        let generatedTheme;
+        if (darkMode && (storeEvent.id === currentEvent.id)) {
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-500 rounded-xl relative "
+                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                    + "hover:scale-100 hover:bg-indigo-300 duration-300";
+        } else if (darkMode && (storeEvent.id !== currentEvent.id)) {
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-400 rounded-xl relative "
+                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                    + "hover:scale-100 hover:bg-indigo-500 duration-300";
+        } else if (!darkMode && (storeEvent.id === currentEvent.id)) {
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-400 rounded-xl relative "
+                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                    + "hover:scale-100 hover:bg-indigo-400 duration-300";
+        } else if (!darkMode && (storeEvent.id !== currentEvent.id)) {
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-200 rounded-xl relative "
+                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                    + "hover:scale-100 hover:bg-indigo-500 duration-300";
+        }
+        return generatedTheme;
+    };
     
     const {
         name, start_time, end_time, airports,
@@ -110,7 +112,7 @@ function VatsimEventsListItem({ event, onClick }) {
     };
     
     return (
-        <div className={testTheme} onClick={handleClick}>
+        <div className={generateTheme(e, event)} onClick={handleClick}>
             {renderInProgress(start_time, end_time)}
                 
             <div className="justify-self-start">

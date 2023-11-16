@@ -54,7 +54,15 @@ function AirportDetail() {
                 // console.log(response.data.results);
                 console.log("Request response", response.data);
                 if (response && response.data.results !== 0) {
-                    setAirport(response.data.data[0].airport);
+                    if (response.data.data[0].airport) {
+                        setAirport(response.data.data[0].airport);
+                    }
+                    if (response.data.data[0].METAR) {
+                        setMetar(response.data.data[0].METAR);
+                    }
+                    if (response.data.data[0].ATIS) {
+                        setATIS(response.data.data[0].ATIS);
+                    }
                     localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
                 }
             } catch (e) {
@@ -72,23 +80,23 @@ function AirportDetail() {
         
         
         // This is for airport departure and arrival information
-        // if (airportData && !airportData?.flag) {
-        //     setAirport(airportData);
-        //     setSkipRender(false);
-        // } else if (airportData && airportData.flag === true) {
-        //     const requestAirport = async (storageICAO) => {
-        //         try {
-        //             const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
-        //             if (response) {
-        //                 setAirport(response.data.data[0].airport);
-        //             }
-        //         } catch (e) {
-        //             navigate("/airport");
-        //         }
-        //     };
-        //     requestAirport(airportData.ICAO).catch();
-        //     setSkipRender(false);
-        // }
+        if (airportData && !airportData?.flag) {
+            setAirport(airportData);
+            setSkipRender(false);
+        } else if (airportData && airportData.flag === true) {
+            const requestAirport = async (storageICAO) => {
+                try {
+                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
+                    if (response) {
+                        setAirport(response.data.data[0].airport);
+                    }
+                } catch (e) {
+                    navigate("/airport");
+                }
+            };
+            requestAirport(airportData.ICAO).catch();
+            setSkipRender(false);
+        }
     }, []);
     
     // !this is a redundant request, but needed to be here because we need to check the widget availability
