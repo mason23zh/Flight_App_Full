@@ -11,7 +11,7 @@ import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
-import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
+// import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
