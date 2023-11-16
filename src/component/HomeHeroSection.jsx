@@ -9,10 +9,12 @@ import globalAirportICAO from "../util/globalAirportICAO";
 
 function HomeHeroSection({
     backgroundImage,
+    vatsimEvents,
 }) {
     const navigate = useNavigate();
     const [randAirport, setRandAirport] = useState(null);
     const [input, setInput] = useState("");
+    const [vatsimEventsStatus, setVatsimEventsStatus] = useState(false);
     
     const darkMode = useTheme();
     
@@ -21,6 +23,9 @@ function HomeHeroSection({
     
     useEffect(() => {
         const randomICAO = getRandomAirport();
+        if (vatsimEvents) {
+            setVatsimEventsStatus(vatsimEvents);
+        }
         
         const fetchRandomAirport = async (airportICAO) => {
             try {
@@ -54,11 +59,15 @@ function HomeHeroSection({
         }
     };
     
+    const featureListStyle = vatsimEventsStatus
+        ? "grid grid-cols-1 items-center text-center justify-center md:grid-cols-4 md:gap-4 w-full"
+        : "grid grid-cols-1 items-center text-center justify-center md:grid-cols-3 md:gap-4 w-full";
+    
     
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
-                className="w-screen h-screen bg-cover bg-no-repeat bg-center"
+                className="w-full h-[calc(100vh-56px)] bg-cover bg-no-repeat bg-center"
                 style={{
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
@@ -82,9 +91,7 @@ function HomeHeroSection({
                                     onSubmit={handleSubmitNew}
                                 />
                             </div>
-                            <div className="grid grid-cols-1 items-center text-center
-                            justify-center md:grid-cols-3 md:gap-4 w-full"
-                            >
+                            <div className={featureListStyle}>
                                 <div className="md:justify-self-end p-2 text-white text-[16px]">
                                     <button className="hover:italic" onClick={handleRandomAirportClick}>
                                         Random Airport
@@ -98,6 +105,16 @@ function HomeHeroSection({
                                         Popular Vatsim Airports
                                     </Link>
                                 </div>
+                                {vatsimEventsStatus ? (
+                                    <div className="p-2 text-white text-[16px]">
+                                        <Link
+                                            to="/#current-vatsim-events"
+                                            className="hover:no-underline hover:text-white hover:italic hover:inline-block visited:text-white"
+                                        >
+                                            Vatsim Events
+                                        </Link>
+                                    </div>
+                                ) : <></>}
                                 <div className="md:justify-self-start p-2 text-white text-[16px]">
                                     <Link
                                         to="/#popular-airports"

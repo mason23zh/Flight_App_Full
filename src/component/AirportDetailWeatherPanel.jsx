@@ -102,7 +102,7 @@ function AirportDetailWeatherPanel({
                         <div className="grid grid-cols-2">
                             <div className="text-left sm:text-center">Wind:</div>
                             <div className="text-right sm:text-center">
-                                {wind.degrees} degrees
+                                {wind.degrees === -1 ? "VRB" : `${wind.degrees} degrees`}
                                 at {wind.speed_kts} kts {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
                             </div>
                         </div>

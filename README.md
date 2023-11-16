@@ -3,7 +3,7 @@
 # Beta 0.1
 
 - Initial Release
- 
+
 # Beta 0.1.1
 
 - Dark Mode initial support
@@ -56,7 +56,7 @@
 
 # Beta 0.3
 
-- Added popular Vatsim airports
+- Added popular VatsimEvent airports
 - Added visual guidance in the Home page to indicate the page could be scrolled down
 - Change display layout for popular airport in Home page
 - Fix the visited airport been counted twice issue
