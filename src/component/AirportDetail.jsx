@@ -51,8 +51,6 @@ function AirportDetail() {
         const requestAirportAndSetLocal = async (icao) => {
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
-                // console.log(response.data.results);
-                console.log("Request response", response.data);
                 if (response && response.data.results !== 0) {
                     if (response.data.data[0].airport) {
                         setAirport(response.data.data[0].airport);
