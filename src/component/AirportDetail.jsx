@@ -18,15 +18,13 @@ import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
-import VatsimEventsAll from "./VatsimEventsAll";
-
 
 function AirportDetail() {
     const darkMode = useTheme();
     const navigate = useNavigate();
     const [airport, setAirport] = useState();
     const [metar, setMetar] = useState({});
-    const [skipRender, setSkipRender] = useState(true);
+    // const [skipRender, setSkipRender] = useState(true);
     const [widgetAvailable, setWidgetAvailable] = useState(false);
     const [ATIS, setATIS] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -48,11 +46,12 @@ function AirportDetail() {
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));
-        const requestAirportAndSetLocal = async (icao) => {
+        // infoOnly: only set METAR and ATIS from request, using localStorage to set airport data.
+        const requestAirportAndSetLocal = async (icao, infoOnly) => {
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`);
                 if (response && response.data.results !== 0) {
-                    if (response.data.data[0].airport) {
+                    if (response.data.data[0].airport && !infoOnly) {
                         setAirport(response.data.data[0].airport);
                     }
                     if (response.data.data[0].METAR) {
@@ -67,70 +66,73 @@ function AirportDetail() {
                 navigate("/airport");
             }
         };
+        
         // if URLs ICAO not equal to localStorage's airport
         if (airportData && (airportData.ICAO !== paramICAO.toUpperCase())) {
-            requestAirportAndSetLocal(paramICAO.toUpperCase()).catch();
+            requestAirportAndSetLocal(paramICAO.toUpperCase(), false).catch();
         } else if (!airportData && paramICAO) {
-            requestAirportAndSetLocal(paramICAO.toUpperCase()).catch();
+            requestAirportAndSetLocal(paramICAO.toUpperCase(), false).catch();
         } else if (airportData && (airportData.ICAO === paramICAO.toUpperCase())) {
             setAirport(airportData);
+            requestAirportAndSetLocal(paramICAO.toUpperCase(), true).catch();
         }
         
         
         // This is for airport departure and arrival information
-        if (airportData && !airportData?.flag) {
-            setAirport(airportData);
-            setSkipRender(false);
-        } else if (airportData && airportData.flag === true) {
-            const requestAirport = async (storageICAO) => {
-                try {
-                    const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
-                    if (response) {
-                        setAirport(response.data.data[0].airport);
-                    }
-                } catch (e) {
-                    navigate("/airport");
-                }
-            };
-            requestAirport(airportData.ICAO).catch();
-            setSkipRender(false);
-        }
+        // if (airportData && !airportData?.flag) {
+        //     setAirport(airportData);
+        //     setSkipRender(false);
+        // } else if (airportData && airportData.flag === true) {
+        //     const requestAirport = async (storageICAO) => {
+        //         try {
+        //             const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
+        //             if (response) {
+        //                 setAirport(response.data.data[0].airport);
+        //             }
+        //         } catch (e) {
+        //             navigate("/airport");
+        //         }
+        //     };
+        //     requestAirport(airportData.ICAO).catch();
+        //     setSkipRender(false);
+        // }
     }, []);
     
     // !this is a redundant request, but needed to be here because we need to check the widget availability
     // !from the server, and passing wind data to Runway Table
     // !code refactor required
-    const {
-        data: widgetData,
-        error: widgetError,
-        isFetching: widgetFetching,
-    } = useFetchDetailAirportWithICAO_WidgetQuery({ icao: airport?.ICAO, decode: true }, {
-        skip: skipRender,
-        refetchOnMountOrArgChange: true,
-    });
-    
-    useEffect(() => {
-        if (widgetData) {
-            if (widgetData.results > 0) {
-                // check widget
-                if (!widgetData.data[0].widget || widgetData.data[0].widget === false) {
-                    setWidgetAvailable(false);
-                } else {
-                    setWidgetAvailable(true);
-                }
-                
-                // check METAR
-                if (widgetData.data[0].METAR) {
-                    setMetar(widgetData.data[0].METAR);
-                }
-                
-                // check ATIS
-                if (widgetData.data[0].ATIS) {
-                    setATIS(widgetData.data[0].ATIS);
-                }
-            }
-        }
-    }, [widgetData]);
+    // const {
+    //     data: widgetData,
+    //     error: widgetError,
+    //     isFetching: widgetFetching,
+    // } = useFetchDetailAirportWithICAO_WidgetQuery({ icao: airport?.ICAO, decode: true }, {
+    //     skip: skipRender,
+    //     refetchOnMountOrArgChange: true,
+    // });
+    //
+    // useEffect(() => {
+    //     if (widgetData) {
+    //         if (widgetData.results > 0) {
+    //             // check widget
+    //             if (!widgetData.data[0].widget || widgetData.data[0].widget === false) {
+    //                 setWidgetAvailable(false);
+    //             } else {
+    //                 setWidgetAvailable(true);
+    //             }
+    //
+    //             // check METAR
+    //             if (widgetData.data[0].METAR) {
+    //                 setMetar(widgetData.data[0].METAR);
+    //             }
+    //
+    //             // check ATIS
+    //             if (widgetData.data[0].ATIS) {
+    //                 console.log(widgetData.data[0].ATIS);
+    //                 setATIS(widgetData.data[0].ATIS);
+    //             }
+    //         }
+    //     }
+    // }, [widgetData]);
     
     const renderWidget = () => {
         if (widgetAvailable) {
