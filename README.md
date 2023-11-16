@@ -94,4 +94,19 @@
 - Added image modal in Orion page
 - Change background color for traffic table
 - Added feature that if airport search only return 1 results, instead showing airport list,
-  direct render the airport detail page 
+  direct render the airport detail page
+
+# Beta 0.3.5
+
+- Fix the Home page navigate section button style issue
+- Added image modal in Orion page
+- Change background color for traffic table
+- Added feature that if airport search only return 1 results, instead showing airport list,
+  direct render the airport detail page
+
+# Beta 0.4
+
+- Added Vatsim event feature
+- Fix the issue if no localStorage data enter new ICAO in airport detail page will direct
+  back to home page
+- Fix container height issue when using 100% viewport in some components 
