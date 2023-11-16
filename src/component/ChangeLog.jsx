@@ -117,8 +117,10 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.4 <br />
+                        - Added Vatsim event feature <br />
                         - Fix the issue if no localStorage data enter new ICAO in airport detail page will direct
                         back to home page <br />
+                        - Fix container height issue when using 100% viewport in some components <br />
                     </div>
                 </div>
             </div>
