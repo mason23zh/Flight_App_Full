@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
+import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
@@ -18,6 +19,18 @@ export function Earth(props) {
     return (
         <>
             <ambientLight intensity={1.0} />
+            {/* Cloud Mesh */}
+            <mesh>
+                <sphereGeometry args={[1.004, 32, 32]} />
+                <meshPhongMaterial
+                    map={cloudsMap}
+                    opacity={0.4}
+                    depthWrite
+                    transparent
+                    side={THREE.DoubleSide}
+                />
+            </mesh>
+            {/* Earth Mesh */}
             <mesh>
                 <sphereGeometry args={[1, 32, 32]} />
                 <meshPhongMaterial specularMap={specularMap} />
