@@ -32,6 +32,7 @@ function App() {
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail />} />
                     <Route path="Orion9600" element={<Orion />} />
                     <Route path="puzzles" element={<Puzzles />} />
+                    <Route path="3d" element={<Ces />} />
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>

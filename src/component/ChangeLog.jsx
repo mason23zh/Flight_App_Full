@@ -122,6 +122,10 @@ function ChangeLog() {
                         back to home page <br />
                         - Fix container height issue when using 100% viewport in some components <br />
                     </div>
+                    <div>
+                        Beta 0.4.1 <br />
+                        - Vite migration &#9889;<br />
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
