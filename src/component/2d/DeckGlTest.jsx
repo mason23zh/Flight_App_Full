@@ -42,14 +42,9 @@ const DATA_INDEX = {
 };
 
 function getTooltip({ object }) {
+    console.log("pickale", object);
     return (
-        object
-            && `\
-    Call Sign: ${object.callsign || ""}
-    Departure: ${object.departure || ""}
-    Vertical Rate: ${object.track[0].groundSpeed || 0} m/s
-    Velocity: ${object.track[0].groundSpeed || 0} m/s
-    Direction: ${object.track[0].heading || 0}`
+        object && `${object.callsign}`
     );
 }
 
@@ -57,7 +52,12 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
     const [data, setData] = useState(null);
     const [trackData, setTrackData] = useState(null);
     const [selectTraffic, setSelectTraffic] = useState(null);
+    const [hoverInfo, setHoverInfo] = useState(null);
     const formatTrack = [];
+    
+    useEffect(() => {
+        console.log("hover info:", hoverInfo);
+    }, [hoverInfo]);
     
     useEffect(() => {
         const getTrackData = async () => {
@@ -100,19 +100,22 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                 tempObj.to.coordinates[2] = trackData.track[idx + 1].altitude;
                 formatTrack.push(tempObj);
             } else if (idx === trackData.track.length - 1) {
-                tempObj.to.coordinates[0] = selectTraffic.track[0].longitude;
-                tempObj.to.coordinates[1] = selectTraffic.track[0].latitude;
-                tempObj.to.coordinates[2] = selectTraffic.track[0].altitude;
-                tempObj.from.coordinates[0] = t.longitude;
-                tempObj.from.coordinates[1] = t.latitude;
-                tempObj.from.coordinates[2] = t.altitude;
-                formatTrack.push(tempObj);
+                // get the latest data and update the track
+                if (selectTraffic && data) {
+                    const selectedObj = data.find((o) => o.callsign === selectTraffic.callsign);
+                    tempObj.to.coordinates[0] = selectedObj.track[0].longitude;
+                    tempObj.to.coordinates[1] = selectedObj.track[0].latitude;
+                    tempObj.to.coordinates[2] = selectedObj.track[0].altitude;
+                    tempObj.from.coordinates[0] = t.longitude;
+                    tempObj.from.coordinates[1] = t.latitude;
+                    tempObj.from.coordinates[2] = t.altitude;
+                    formatTrack.push(tempObj);
+                }
             }
         });
     }
     
     const onClick = (info) => {
-        console.log("click info", info.object);
         setSelectTraffic(info.object);
     };
     
@@ -139,7 +142,7 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
         highlightColor: [0, 0, 128, 128],
         modelMatrix: null,
         opacity: 1,
-        pickable: true,
+        pickable: false,
         visible: true,
         wrapLongitude: false,
     });
@@ -152,7 +155,7 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                 sizeScale,
                 scenegraph: MODEL_URL,
                 _animations: ANIMATIONS,
-                sizeMinPixels: 0.3,
+                sizeMinPixels: 0.4,
                 sizeMaxPixels: 0.5,
                 getPosition: (d) => [
                     d.track[0].longitude || 0,
@@ -161,6 +164,7 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                 ],
                 getOrientation: (d) => [0, -d.track[0].heading || 0, 90],
                 onClick,
+                onHover: (info) => setHoverInfo(info),
             });
     
     return (
@@ -170,6 +174,19 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
             controller
             getToolTip={getTooltip}
         >
+            {hoverInfo.object && (
+                <div style={{
+                    position: "absolute",
+                    zIndex: 1,
+                    pointerEvents: "none",
+                    left: hoverInfo.x,
+                    top: hoverInfo.y,
+                    color: "green",
+                }}
+                >
+                    {hoverInfo.object.callsign}
+                </div>
+            )}
             <Map reuseMaps mapLib={maplibregl} mapStyle={mapStyle} preventStyleDiffing />
         </DeckGL>
     );
