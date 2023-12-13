@@ -13,4 +13,5 @@ export default defineConfig({
         commonjs(),
         cesium(),
     ],
+    assetsInclude: ["**/*.gltf", "**/*.glb"],
 });

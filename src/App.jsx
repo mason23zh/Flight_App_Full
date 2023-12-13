@@ -14,7 +14,8 @@ import Orion from "./component/Orion";
 import Puzzles from "./component/Puzzles";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
-import Ces from "./component/3d/Ces";
+import Earth from "./component/3d/Earth";
+import DeckGlTest from "./component/2d/DeckGlTest";
 
 function App() {
     return (
@@ -32,7 +33,13 @@ function App() {
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail />} />
                     <Route path="Orion9600" element={<Orion />} />
                     <Route path="puzzles" element={<Puzzles />} />
-                    <Route path="3d" element={<Ces />} />
+                    <Route path="3d" element={<Earth />} />
+                    <Route
+                        path="2d"
+                        element={(
+                            <DeckGlTest />
+                        )}
+                    />
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>
