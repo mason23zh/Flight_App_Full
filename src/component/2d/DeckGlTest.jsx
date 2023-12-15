@@ -13,7 +13,7 @@ import { Tile3DLayer } from "@deck.gl/geo-layers";
 import mapStyles from "../../assets/mapbox/style.json";
 
 
-const DATA_URL = "https://api.airportweather.org/v1/vatsim/getAllTraffics";
+const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
 const MODEL_URL = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb";
 const REFRESH_TIME = 30000;
 
@@ -92,8 +92,8 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
         const getTrafficData = async () => {
             const res = await axios.get(DATA_URL);
             if (res) {
-                console.log(res.data.data.results);
-                setData(res.data.data.traffics);
+                console.log(res.data.pilots);
+                setData(res.data.pilots);
             }
         };
         getTrafficData();
@@ -107,6 +107,9 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
         trackData.track.map(async (t, idx) => {
             // console.log("track data", t);
             const tempObj = { from: { coordinates: [] }, to: { coordinates: [] } };
+            if (!t.longitude) {
+                return;
+            }
             if (idx < trackData.track.length - 1) {
                 tempObj.from.coordinates[0] = t.longitude;
                 tempObj.from.coordinates[1] = t.latitude;
@@ -119,9 +122,9 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                 // get the latest data and update the track
                 if (selectTraffic && data) {
                     const selectedObj = data.find((o) => o.callsign === selectTraffic.callsign);
-                    tempObj.to.coordinates[0] = selectedObj.track[0].longitude;
-                    tempObj.to.coordinates[1] = selectedObj.track[0].latitude;
-                    tempObj.to.coordinates[2] = selectedObj.track[0].altitude;
+                    tempObj.to.coordinates[0] = selectedObj.longitude;
+                    tempObj.to.coordinates[1] = selectedObj.latitude;
+                    tempObj.to.coordinates[2] = selectedObj.altitude;
                     tempObj.from.coordinates[0] = t.longitude;
                     tempObj.from.coordinates[1] = t.latitude;
                     tempObj.from.coordinates[2] = t.altitude;
@@ -174,11 +177,11 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                 sizeMinPixels: 0.4,
                 sizeMaxPixels: 0.5,
                 getPosition: (d) => [
-                    d.track[0].longitude || 0,
-                    d.track[0].latitude || 0,
-                    d.track[0].altitude || 0,
+                    d.longitude || 0,
+                    d.latitude || 0,
+                    d.altitude || 0,
                 ],
-                getOrientation: (d) => [0, -d.track[0].heading || 0, 90],
+                getOrientation: (d) => [0, -d.heading || 0, 90],
                 onClick,
                 onHover: (info) => setHoverInfo(info),
             });
@@ -233,18 +236,18 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                         <div>
                             {hoverInfo.object?.callsign}
                         </div>
-                        <div>{hoverInfo.object.aircraft.faa}</div>
+                        <div>{hoverInfo.object.flight_plan.aircraft_faa || hoverInfo.object.flight_plan.aircraft_short || "N/A"}</div>
                         <div>
-                            {hoverInfo.object?.arrival || "N/A"}
+                            {hoverInfo.object?.flight_plan.arrival || "N/A"}
                         </div>
                         <div>
-                            {hoverInfo.object?.departure || "N/A"}
+                            {hoverInfo.object?.flight_plan.departure || "N/A"}
                         </div>
                         <div>
-                            {hoverInfo.object?.track[0].groundSpeed} kts
+                            {hoverInfo.object?.groundspeed} kts
                         </div>
                         <div>
-                            {hoverInfo.object?.track[0].altitude} feet
+                            {hoverInfo.object?.altitude} feet
                         </div>
                     </div>
                 </div>

@@ -146,7 +146,7 @@ function AirportDetail() {
     
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {
-        const { country_code, country_name } = airport.station.country;
+        const { country_code, country_name } = airport.station.country || {};
         const { region_name } = airport.station.region;
         const { name } = airport.station;
         const { type, home_link, wikipedia_link } = airport.additional;

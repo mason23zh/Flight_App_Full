@@ -23,6 +23,7 @@ function HomeHeroSection({
     
     useEffect(() => {
         const randomICAO = getRandomAirport();
+        console.log("random generated icao:", randomICAO);
         if (vatsimEvents) {
             setVatsimEventsStatus(vatsimEvents);
         }
@@ -31,6 +32,7 @@ function HomeHeroSection({
             try {
                 const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${airportICAO}?decode=true`);
                 if (response) {
+                    console.log("random icao:", response.data);
                     setRandAirport(response.data.data[0].airport);
                 }
                 return response.data;

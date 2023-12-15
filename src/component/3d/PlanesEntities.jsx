@@ -11,8 +11,8 @@ function PlanesEntities({ pilots }) {
     let generateEntity;
     if (pilots && pilots.length > 0) {
         generateEntity = pilots.map((p) => {
-            if (p.track[0].longitude && p.track[0].latitude && p.track[0].altitude) {
-                const position = Cartesian3.fromDegrees(p.track[0].longitude, p.track[0].latitude, Number(p.track[0].altitude) * 0.3048);
+            if (p.latitude && p.longitude && p.heading && p.altitude && p.heading) {
+                const position = Cartesian3.fromDegrees(p.longitude, p.latitude, Number(p.altitude) * 0.3048);
                 return (
                     <Entity position={position} name={p.callsign} key={p.callsign}>
                         {/* <ModelGraphics url="../../assets/models/b738.glb" scale={2} minimumPixelSize={128} show /> */}

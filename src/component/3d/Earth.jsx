@@ -15,9 +15,9 @@ function Earth() {
     const [pilots, setPilots] = useState([]);
     useEffect(() => {
         const getVatsimPilots = async () => {
-            const response = await axios.get("https://api.airportweather.org/v1/vatsim/getAllTraffics");
-            if (response && response.data.data.results > 0) {
-                setPilots(response.data.data.traffics);
+            const response = await axios.get("https://data.vatsim.net/v3/vatsim-data.json");
+            if (response && response.data.pilots > 0) {
+                setPilots(response.data.pilots);
             }
         };
         getVatsimPilots();
