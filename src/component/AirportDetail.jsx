@@ -11,6 +11,7 @@ import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
+import DeckGlTest from "./2d/DeckGlTest";
 // import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
@@ -179,7 +180,12 @@ function AirportDetail() {
                     </div>
                     <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
                         <div className="">
-                            <AirportMap lat={lat} lng={lng} name={name} />
+                            {/* <AirportMap lat={lat} lng={lng} name={name} /> */}
+                            {/* TEST for adding deck-gl to airport detail page */}
+                            <div style={{ height: "40vh", width: "70vw", position: "relative" }}>
+                                    
+                                <DeckGlTest />
+                            </div>
                         </div>
                     </div>
                         

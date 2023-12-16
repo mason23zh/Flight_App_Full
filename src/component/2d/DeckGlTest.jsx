@@ -236,12 +236,12 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
                         <div>
                             {hoverInfo.object?.callsign}
                         </div>
-                        <div>{hoverInfo.object.flight_plan.aircraft_faa || hoverInfo.object.flight_plan.aircraft_short || "N/A"}</div>
+                        <div>{hoverInfo.object.flight_plan?.aircraft_faa || hoverInfo.object.flight_plan?.aircraft_short || "N/A"}</div>
                         <div>
-                            {hoverInfo.object?.flight_plan.arrival || "N/A"}
+                            {hoverInfo.object.flight_plan?.arrival || "N/A"}
                         </div>
                         <div>
-                            {hoverInfo.object?.flight_plan.departure || "N/A"}
+                            {hoverInfo.object?.flight_plan?.departure || "N/A"}
                         </div>
                         <div>
                             {hoverInfo.object?.groundspeed} kts
