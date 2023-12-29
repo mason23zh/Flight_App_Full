@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-operators,prefer-destructuring,react/no-this-in-sfc,react/destructuring-assignment */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Map } from "react-map-gl";
 import maplibregl from "maplibre-gl";
@@ -10,7 +10,8 @@ import axios from "axios";
 import { TileLayer } from "react-leaflet";
 import { CesiumIonLoader } from "@loaders.gl/3d-tiles";
 import { Tile3DLayer } from "@deck.gl/geo-layers";
-import mapStyles from "../../assets/mapbox/style.json";
+import { MapboxLayer } from "@deck.gl/mapbox";
+import mapboxgl from "mapbox-gl";
 
 
 const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
@@ -30,32 +31,8 @@ const INITIAL_VIEW_STATE = {
     bearing: 0,
 };
 
-// const INITIAL_VIEW_STATE = {
-//     latitude: 51.47,
-//     longitude: 0.45,
-//     zoom: 4,
-//     bearing: 0,
-//     pitch: 30,
-// };
-
-const MAP_STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json";
-// const MAP_STYLE = "mapbox://styles/mason-zh/clq4prjet018v01qj2rkt4a6b";
-// const MAP_STYLE = "mapbox://styles/mason-zh/clq4q162t01al01pg0jo696fa";
-// const MAP_STYLE = "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json";
-
-const DATA_INDEX = {
-    UNIQUE_ID: 0,
-    CALL_SIGN: 1,
-    ORIGIN_COUNTRY: 2,
-    LONGITUDE: 5,
-    LATITUDE: 6,
-    BARO_ALTITUDE: 7,
-    VELOCITY: 9,
-    TRUE_TRACK: 10,
-    VERTICAL_RATE: 11,
-    GEO_ALTITUDE: 13,
-    POSITION_SOURCE: 16,
-};
+const MAP_STYLE = "mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h";
+const ACCESS_TOKEN = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 
 function getTooltip({ object }) {
     console.log("pickale", object);
@@ -64,12 +41,64 @@ function getTooltip({ object }) {
     );
 }
 
-export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }) {
+function DeckGlTest({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }) {
+    const [mapboxMap, setMapboxMap] = useState(null); // New state for Mapbox map
+    
     const [data, setData] = useState(null);
     const [trackData, setTrackData] = useState(null);
     const [selectTraffic, setSelectTraffic] = useState(null);
     const [hoverInfo, setHoverInfo] = useState(null);
+    const mapRef = useRef(null);
+    const deckRef = useRef(null);
+    const [viewState, setViewState] = useState(INITIAL_VIEW_STATE); // DeckGL view state
+    
     const formatTrack = [];
+    
+    const onViewStateChange = ({ viewState }) => {
+        setViewState(viewState);
+        if (mapboxMap) {
+            mapboxMap.jumpTo({
+                center: [viewState.longitude, viewState.latitude],
+                zoom: viewState.zoom,
+                bearing: viewState.bearing,
+                pitch: viewState.pitch,
+            });
+        }
+    };
+    
+    
+    useEffect(() => {
+        if (mapRef.current && !mapboxMap) {
+            const map = new mapboxgl.Map({
+                container: mapRef.current,
+                style: MAP_STYLE,
+                accessToken: ACCESS_TOKEN,
+                center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
+                zoom: INITIAL_VIEW_STATE.zoom,
+                pitch: INITIAL_VIEW_STATE.pitch,
+                bearing: INITIAL_VIEW_STATE.bearing,
+            });
+            
+            map.on("load", () => {
+                if (deckRef.current) {
+                    map.addLayer(new MapboxLayer({ id: "deck", deck: deckRef.current }));
+                }
+            });
+            
+            map.on("moveend", () => {
+                setViewState({
+                    longitude: map.getCenter().lng,
+                    latitude: map.getCenter().lat,
+                    zoom: map.getZoom(),
+                    pitch: map.getPitch(),
+                    bearing: map.getBearing(),
+                });
+            });
+            
+            return () => map && map.remove();
+        }
+    }, [mapRef, mapboxMap]);
+    
     
     useEffect(() => {
         console.log("hover info:", hoverInfo);
@@ -187,72 +216,52 @@ export default function App({ sizeScale = 25, onDataLoad, mapStyle = MAP_STYLE }
             });
     
     
-    const layer3D = new Tile3DLayer({
-        id: "tile-3d-layer",
-        // tileset json file url
-        data: "https://assets.cesium.com/43978/tileset.json",
-        loader: CesiumIonLoader,
-        // https://cesium.com/docs/rest-api/
-        loadOptions: {
-            "cesium-ion": { accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNzRjZjM2Zi1lYWRmLTRkZmYtYWMxZS1iYjUxN2E5NjYzNDQiLCJpZCI6MTc5MjQwLCJpYXQiOjE3MDAzMTYyMzh9.LGlQymatO0qSO1dVv1z-Xktr8CWZLd-CpQM9-KXqfRo" },
-        },
-        onTilesetLoad: (tileset) => {
-            // Recenter to cover the tileset
-            const { cartographicCenter, zoom } = tileset;
-            this.setState({
-                viewState: {
-                    ...this.state.viewState,
-                    longitude: cartographicCenter[0],
-                    latitude: cartographicCenter[1],
-                    zoom,
-                },
-            });
-        },
-        // override scenegraph subLayer prop
-        _subLayerProps: {
-            scenegraph: { _lighting: "flat" },
-        },
-    });
-    
-    
     return (
-        <DeckGL
-            layers={[flightPathLayer, trafficLayer, layer3D]}
-            initialViewState={INITIAL_VIEW_STATE}
-            controller
-            getToolTip={getTooltip}
-        >
-            {hoverInfo?.object && (
-                <div style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    pointerEvents: "none",
-                    left: hoverInfo.x + 10,
-                    top: hoverInfo.y + 10,
-                    color: "green",
-                }}
-                >
-                    <div className="grid grid-cols-2">
-                        <div>
-                            {hoverInfo.object?.callsign}
-                        </div>
-                        <div>{hoverInfo.object.flight_plan?.aircraft_faa || hoverInfo.object.flight_plan?.aircraft_short || "N/A"}</div>
-                        <div>
-                            {hoverInfo.object.flight_plan?.arrival || "N/A"}
-                        </div>
-                        <div>
-                            {hoverInfo.object?.flight_plan?.departure || "N/A"}
-                        </div>
-                        <div>
-                            {hoverInfo.object?.groundspeed} kts
-                        </div>
-                        <div>
-                            {hoverInfo.object?.altitude} feet
+        <div style={{ height: "100vh" }}>
+            <div ref={mapRef} style={{ height: "100%" }} />
+            <DeckGL
+                ref={deckRef}
+                layers={[flightPathLayer, trafficLayer]}
+                viewState={viewState}
+                controller
+                onViewStateChange={onViewStateChange}
+                getTooltip={getTooltip}
+            >
+                {hoverInfo?.object && (
+                    <div style={{
+                        position: "absolute",
+                        zIndex: 1,
+                        pointerEvents: "none",
+                        left: hoverInfo.x + 10,
+                        top: hoverInfo.y + 10,
+                        color: "green",
+                    }}
+                    >
+                        <div className="grid grid-cols-2">
+                            <div>
+                                {hoverInfo.object?.callsign}
+                            </div>
+                            <div>{hoverInfo.object.flight_plan?.aircraft_faa || hoverInfo.object.flight_plan?.aircraft_short || "N/A"}</div>
+                            <div>
+                                {hoverInfo.object.flight_plan?.arrival || "N/A"}
+                            </div>
+                            <div>
+                                {hoverInfo.object?.flight_plan?.departure || "N/A"}
+                            </div>
+                            <div>
+                                {hoverInfo.object?.groundspeed} kts
+                            </div>
+                            <div>
+                                {hoverInfo.object?.altitude} feet
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-            <Map reuseMaps mapLib={maplibregl} mapStyle={mapStyle} preventStyleDiffing />
-        </DeckGL>
+                )}
+                {/* <Map reuseMaps mapLib={maplibregl} mapStyle={mapStyle} preventStyleDiffing /> */}
+            </DeckGL>
+            
+        </div>
     );
 }
+
+export default DeckGlTest;

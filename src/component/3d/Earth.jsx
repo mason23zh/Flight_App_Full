@@ -43,7 +43,6 @@ function Earth() {
     }, []);
     
     const position = Cartesian3.fromDegrees(-18.68444, 21.32911, 10377);
-    
     return (
         <Viewer
             timeline={false}
@@ -53,10 +52,11 @@ function Earth() {
             creditDisplay={false}
         >
             <ImageryLayer show imageryProvider={mapProvider} />
-            <PlanesEntities pilots={pilots} />
+            {pilots.length > 0 ? <PlanesEntities pilots={pilots} /> : <></>}
         </Viewer>
     );
 }
 
 export default Earth;
+ 
  

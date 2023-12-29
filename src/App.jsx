@@ -16,6 +16,8 @@ import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
 import Earth from "./component/3d/Earth";
 import DeckGlTest from "./component/2d/DeckGlTest";
+import DeckGlTest2 from "./component/2d/DeckGlTest2";
+
 
 function App() {
     return (
@@ -37,7 +39,7 @@ function App() {
                     <Route
                         path="2d"
                         element={(
-                            <DeckGlTest />
+                            <DeckGlTest2 />
                         )}
                     />
                     <Route path="*" element={<NoMatch />} />
