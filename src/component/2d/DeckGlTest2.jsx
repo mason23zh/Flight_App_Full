@@ -3,11 +3,12 @@ import DeckGL from "@deck.gl/react";
 import mapboxgl from "mapbox-gl";
 import { MapboxLayer, MapboxOverlay } from "@deck.gl/mapbox";
 import {
-    Map, useControl, useMap, Layer,
+    Map, useControl, useMap, Layer, Source,
 } from "react-map-gl";
 import { LineLayer, ScatterplotLayer } from "@deck.gl/layers";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
+import { _GlobeView as GlobeView, Deck } from "@deck.gl/core";
 
 // mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
@@ -109,7 +110,7 @@ function DeckGlTest2() {
                 getPosition: (d) => [
                     d.longitude || 0,
                     d.latitude || 0,
-                    d.altitude || 0,
+                    d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
                 ],
                 getOrientation: (d) => [0, -d.heading || 0, 90],
                 onClick,
@@ -176,20 +177,38 @@ function DeckGlTest2() {
             controller
             layers={layers}
             onViewStateChange={({ viewState }) => setViewState(viewState)}
+            // views={new GlobeView({ id: "globe", controller: true })}
         >
             <Map
                 mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
                 initialViewState={viewState}
                 style={{ width: 600, height: 400 }}
-                mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
-                onMove={onMove}
+                mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
+                // onMove={onMove}
                 // projection="globe"
+                terrain={{ source: "mapbox-dem", exaggeration: 1.5 }}
             >
-                    
-                <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
-                    Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
-                </div>
+                <Source
+                    id="mapbox-dem"
+                    type="raster-dem"
+                    url="mapbox://mapbox.mapbox-terrain-dem-v1"
+                    tileSize={512}
+                    maxzoom={14}
+                />
             </Map>
+            {/* <Map */}
+            {/*    mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA" */}
+            {/*    initialViewState={viewState} */}
+            {/*    style={{ width: 600, height: 400 }} */}
+            {/*    mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h" */}
+            {/*    onMove={onMove} */}
+            {/*    projection="globe" */}
+            {/* > */}
+            {/*        */}
+            {/*    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md"> */}
+            {/*        Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom} */}
+            {/*    </div> */}
+            {/* </Map> */}
         </DeckGL>
     );
 }
