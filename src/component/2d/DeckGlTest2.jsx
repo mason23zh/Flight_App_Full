@@ -1,18 +1,20 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+    useRef, useEffect, useState, useCallback,
+} from "react";
 import DeckGL from "@deck.gl/react";
 import mapboxgl from "mapbox-gl";
 import { MapboxLayer, MapboxOverlay } from "@deck.gl/mapbox";
 import {
     Map, useControl, useMap, Layer, Source,
 } from "react-map-gl";
-import { LineLayer, ScatterplotLayer } from "@deck.gl/layers";
+import { ArcLayer, LineLayer, ScatterplotLayer } from "@deck.gl/layers";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
-import { _GlobeView as GlobeView, Deck } from "@deck.gl/core";
+import { COORDINATE_SYSTEM, FlyToInterpolator } from "@deck.gl/core";
+import cl60 from "../../assets/models/cl60.png";
 
 // mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
-
 
 const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
 const MODEL_URL = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb";
@@ -88,13 +90,13 @@ function DeckGlTest2() {
         
         // autoHighlight: false,
         // coordinateOrigin: [0, 0, 0],
-        // coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
+        coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
         highlightColor: [0, 0, 128, 128],
         modelMatrix: null,
         opacity: 1,
         pickable: false,
         visible: true,
-        wrapLongitude: false,
+        wrapLongitude: true,
     });
     
     const trafficLayer = data
@@ -170,46 +172,65 @@ function DeckGlTest2() {
         // Only update the view state if the center is inside the geofence
     }, []);
     
+    console.log("Hover info:", hoverInfo);
+    
+    const goToNYC = useCallback(() => {
+        console.log("CLICK");
+        setViewState({
+            longitude: -74.1,
+            latitude: 40.7,
+            zoom: 14,
+            pitch: 0,
+            bearing: 0,
+            transitionDuration: 8000,
+            transitionInterpolator: new FlyToInterpolator(),
+        });
+    }, []);
+    
     
     return (
-        <DeckGL
-            initialViewState={viewState}
-            controller
-            layers={layers}
-            onViewStateChange={({ viewState }) => setViewState(viewState)}
-            // views={new GlobeView({ id: "globe", controller: true })}
-        >
-            <Map
-                mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
+        <div>
+            <DeckGL
                 initialViewState={viewState}
-                style={{ width: 600, height: 400 }}
-                mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
-                // onMove={onMove}
-                // projection="globe"
-                terrain={{ source: "mapbox-dem", exaggeration: 1.5 }}
+                controller
+                layers={layers}
+                onViewStateChange={({ viewState }) => setViewState(viewState)}
+                // views={new GlobeView({ id: "globe", controller: true })}
+                style={{ height: "100vh", width: "100vw", position: "relative" }}
+                pickingRadius={10}
             >
-                <Source
-                    id="mapbox-dem"
-                    type="raster-dem"
-                    url="mapbox://mapbox.mapbox-terrain-dem-v1"
-                    tileSize={512}
-                    maxzoom={14}
-                />
-            </Map>
-            {/* <Map */}
-            {/*    mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA" */}
-            {/*    initialViewState={viewState} */}
-            {/*    style={{ width: 600, height: 400 }} */}
-            {/*    mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h" */}
-            {/*    onMove={onMove} */}
-            {/*    projection="globe" */}
-            {/* > */}
-            {/*        */}
-            {/*    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md"> */}
-            {/*        Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom} */}
-            {/*    </div> */}
-            {/* </Map> */}
-        </DeckGL>
+                <Map
+                    mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
+                    initialViewState={viewState}
+                    style={{ width: 600, height: 400 }}
+                    mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
+                    onMove={onMove}
+                    // projection="globe"
+                    terrain={{ source: "mapbox-dem", exaggeration: 1.5 }}
+                    dragPan={false}
+                >
+                    <Source
+                        id="mapbox-dem"
+                        type="raster-dem"
+                        url="mapbox://mapbox.mapbox-terrain-dem-v1"
+                        tileSize={512}
+                        maxzoom={14}
+                    />
+                    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
+                        Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
+                    </div>
+                    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
+                        {(hoverInfo && hoverInfo.object) ? hoverInfo.object.callsign : ""}
+                    </div>
+                </Map>
+                <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
+                    <button onClick={goToNYC}>NEW YORK</button>
+                </div>
+                <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md">
+                    Total Traffic: {data && data.length}
+                </div>
+            </DeckGL>
+        </div>
     );
 }
 
