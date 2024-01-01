@@ -7,11 +7,13 @@ import { MapboxLayer, MapboxOverlay } from "@deck.gl/mapbox";
 import {
     Map, useControl, useMap, Layer, Source,
 } from "react-map-gl";
-import { ArcLayer, LineLayer, ScatterplotLayer } from "@deck.gl/layers";
+import {
+    ArcLayer, IconLayer, LineLayer, ScatterplotLayer,
+} from "@deck.gl/layers";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
 import { COORDINATE_SYSTEM, FlyToInterpolator } from "@deck.gl/core";
-import cl60 from "../../assets/models/cl60.png";
+import SelectedTrafficDetail from "./SelectedTrafficDetail";
 
 // mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
@@ -31,7 +33,7 @@ function DeckGlTest2() {
     const [viewState, setViewState] = React.useState({
         longitude: -122.41669,
         latitude: 37.7853,
-        zoom: 14,
+        zoom: 6,
         pitch: 0,
         bearing: 0,
     });
@@ -99,6 +101,7 @@ function DeckGlTest2() {
         wrapLongitude: true,
     });
     
+    
     const trafficLayer = data
             && new ScenegraphLayer({
                 id: "traffics-layer",
@@ -153,13 +156,6 @@ function DeckGlTest2() {
     
     
     const layers = [
-        new ScatterplotLayer({
-            id: "my-scatterplot",
-            data: [{ position: [-122.41669, 37.7853], size: 500 }],
-            getPosition: (d) => d.position,
-            getRadius: (d) => d.size,
-            getColor: [255, 0, 0],
-        }),
         flightPathLayer,
         trafficLayer,
     ];
@@ -171,8 +167,6 @@ function DeckGlTest2() {
         setViewState({ longitude: viewState.longitude, latitude: viewState, ...viewState });
         // Only update the view state if the center is inside the geofence
     }, []);
-    
-    console.log("Hover info:", hoverInfo);
     
     const goToNYC = useCallback(() => {
         console.log("CLICK");
@@ -222,6 +216,7 @@ function DeckGlTest2() {
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo.object) ? hoverInfo.object.callsign : ""}
                     </div>
+                    {selectTraffic && <SelectedTrafficDetail traffic={selectTraffic} />}
                 </Map>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
                     <button onClick={goToNYC}>NEW YORK</button>
