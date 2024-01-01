@@ -18,6 +18,13 @@
         "react"
     ],
     "rules": {
+        "react/jsx-filename-extension": [1,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
+        ],
         //      "indent": [4, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }]
         "indent": [
             "error",
