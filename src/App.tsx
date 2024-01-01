@@ -1,0 +1,54 @@
+import { Route, Routes } from "react-router-dom";
+import React from "react";
+import Home from "./component/Home";
+import About from "./component/About";
+import NoMatch from "./component/NoMatch";
+import Layout from "./component/Layout";
+import Airports from "./component/Airports";
+import Weather from "./component/Weather";
+import ExtremeWeather from "./component/ExtremeWeather";
+import ChangeLog from "./component/ChangeLog";
+import AirportDetail from "./component/AirportDetail";
+import ScrollToTop from "./component/ScrollToTop";
+import Orion from "./component/Orion";
+import Puzzles from "./component/Puzzles";
+import VatsimEventsAll from "./component/VatsimEventsAll";
+import VatsimEventDetail from "./component/VatsimEventDetail";
+import Earth from "./component/3d/Earth";
+import DeckGlTest from "./component/2d/DeckGlTest";
+import DeckGlTest2 from "./component/2d/DeckGlTest2";
+import DeckGlTest3 from "./component/2d/DeckGlTest3";
+import DeckGlTest4 from "./component/2d/DeckGlTest4";
+
+ 
+function App() {
+    return (
+        <ScrollToTop>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path="about" element={<About/>}/>
+                    <Route path="weather" element={<Weather/>}/>
+                    <Route path="extreme-weather" element={<ExtremeWeather/>}/>
+                    <Route path="airport" element={<Airports/>}/>
+                    <Route path="airport/detail/:icao" element={<AirportDetail/>}/>
+                    <Route path="changelog" element={<ChangeLog/>}/>
+                    <Route path="vatsim/events" element={<VatsimEventsAll/>}/>
+                    <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail/>}/>
+                    <Route path="Orion9600" element={<Orion/>}/>
+                    <Route path="puzzles" element={<Puzzles/>}/>
+                    <Route path="3d" element={<Earth/>}/>
+                    <Route
+                        path="2d"
+                        element={(
+                            <DeckGlTest2/>
+                        )}
+                    />
+                    <Route path="*" element={<NoMatch/>}/>
+                </Route>
+            </Routes>
+        </ScrollToTop>
+    );
+}
+
+export default App;
