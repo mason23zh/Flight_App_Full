@@ -248,14 +248,46 @@ function DeckGlTest2() {
                             type="circle"
                             source="gns-430-source"
                             source-layer="gns_airport"
-                            id="small-gns-430-airport-layer"
-                            filter={["==", "type", "small_airport"]}
-                            minzoom={5}
+                            id="medium-gns-430-airport-layer"
+                            filter={["==", "type", "medium_airport"]}
+                            minzoom={4}
                             paint={{
                                 "circle-color": "#173EDA",
                                 "circle-radius": 3
                             }}
                         />
+
+                        <Layer
+                            type="circle"
+                            source="gns-430-source"
+                            source-layer="gns_airport"
+                            id="small-gns-430-airport-layer"
+                            filter={["==", "type", "small_airport"]}
+                            minzoom={6}
+                            paint={{
+                                "circle-color": "#173EDA",
+                                "circle-radius": 3
+                            }}
+                        />
+
+                        {/* <Layer */}
+                        {/*     id="gns-430-airport-labels" */}
+                        {/*     type="symbol" */}
+                        {/*     source="gns-430-source" */}
+                        {/*     source-layer="gns_airport" */}
+                        {/*     layout={{ */}
+                        {/*         "text-field": ["get", "ICAO"], */}
+                        {/*         "text-variable-anchor": ["top", "bottom", "left", "right"], */}
+                        {/*         "text-radial-offset": 0.5, */}
+                        {/*         "text-justify": "auto", */}
+                        {/*     }} */}
+                        {/*     paint={{ */}
+                        {/*         "text-color": "#000000", */}
+                        {/*         "text-halo-color": "#ffffff", */}
+                        {/*         "text-halo-width": 0.5, */}
+                        {/*     }} */}
+                        {/* /> */}
+
                     </Source>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
