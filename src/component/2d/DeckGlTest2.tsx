@@ -3,6 +3,7 @@ import React, {
 } from "react";
 import DeckGL from "@deck.gl/react";
 import mapboxgl from "mapbox-gl";
+import { VatsimFlight, VatsimTrackTraffic } from "../../types";
 
 import {
     Map, Source,
@@ -12,10 +13,9 @@ import {
 } from "@deck.gl/layers";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
-import { COORDINATE_SYSTEM, FlyToInterpolator } from "@deck.gl/core";
+import { COORDINATE_SYSTEM } from "@deck.gl/core";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 
-// mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 
 const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
@@ -26,8 +26,8 @@ const ANIMATIONS = {
 
 
 function DeckGlTest2() {
-    const [data, setData] = useState(null);
-    const [trackData, setTrackData] = useState(null);
+    const [data, setData] = useState<Array<VatsimFlight>>(null);
+    const [trackData, setTrackData] = useState<VatsimTrackTraffic>(null);
     const [selectTraffic, setSelectTraffic] = useState(null);
     const [hoverInfo, setHoverInfo] = useState(null);
     const [viewState, setViewState] = React.useState({
@@ -208,7 +208,7 @@ function DeckGlTest2() {
                         width: 600,
                         height: 400
                     }}
-                    mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
+                    mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
                     onMove={onMove}
                     // projection="globe"
                     terrain={{

@@ -103,5 +103,77 @@ interface Event {
     type: string
 }
 
+interface VatsimFlight {
+    altitude: number,
+    callsign: string,
+    cid: number,
+    groundspeed: number,
+    heading: number,
+    last_updated: string,
+    latitude: number,
+    logon_time: string,
+    longitude: number,
+    military_rating: number,
+    name: string,
+    pilot_rating: number,
+    qnh_i_hg: number,
+    qnh_mb: number,
+    server: string,
+    transponder: string,
+    flight_plan: {
+        flight_rules: string,
+        aircraft: string,
+        aircraft_faa: string,
+        aircraft_short: string
+        alternate: string,
+        altitude: string,
+        arrival: string,
+        assigned_transponder: string,
+        cruise_tas: string,
+        departure: string,
+        deptime: string,
+        enroute_time: string,
+        fuel_time: string,
+        remarks: string,
+        revision_id: number,
+        route: string
+    }
+}
 
-export type { Weather, Event };
+interface TrackObj {
+    latitude: number,
+    longitude: number,
+    altitude: number,
+    groundSpeed: number,
+    heading: number,
+    qnhIhg: number,
+    compensation: number
+}
+
+interface VatsimTrackTraffic {
+    cid: number,
+    name: string,
+    callsign: string,
+    server: string,
+    transponder: string,
+    flightRules: string,
+    aircraft: {
+        full: string,
+        faa: string,
+        short: string
+    },
+    arrival: string,
+    departure: string,
+    alternate: string,
+    depTime: string,
+    enrouteTime: string,
+    fuelTime: string,
+    remarks: string,
+    route: string,
+    logonTime: string,
+    lastUpdated: string,
+    track: [TrackObj]
+}
+
+
+export type { Weather, Event, VatsimFlight, VatsimTrackTraffic };
