@@ -6,6 +6,7 @@ import mapboxgl from "mapbox-gl";
 import { VatsimFlight, VatsimTrackTraffic } from "../../types";
 
 import {
+    Layer,
     Map, Source,
 } from "react-map-gl";
 import {
@@ -217,13 +218,26 @@ function DeckGlTest2() {
                     }}
                     dragPan={false}
                 >
+                    {/* <Source */}
+                    {/*     id="mapbox-dem" */}
+                    {/*     type="raster-dem" */}
+                    {/*     url="mapbox://mapbox.mapbox-terrain-dem-v1" */}
+                    {/*     tileSize={512} */}
+                    {/*     maxzoom={14} */}
+                    {/* /> */}
                     <Source
-                        id="mapbox-dem"
-                        type="raster-dem"
-                        url="mapbox://mapbox.mapbox-terrain-dem-v1"
-                        tileSize={512}
+                        id="gns-430-source"
+                        url="mapbox://mason-zh.clqwtv3cf6uko1mmpi3uooj4y-6emjw"
+                        type="vector"
                         maxzoom={14}
-                    />
+                    >
+                        <Layer
+                            type="circle"
+                            source="gns-430-source"
+                            source-layer="gns_airport"
+                            id="gns-430-airport-layer"
+                        />
+                    </Source>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
                     </div>
