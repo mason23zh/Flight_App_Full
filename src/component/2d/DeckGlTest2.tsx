@@ -231,11 +231,26 @@ function DeckGlTest2() {
                         type="vector"
                         maxzoom={14}
                     >
+
                         <Layer
                             type="circle"
                             source="gns-430-source"
                             source-layer="gns_airport"
-                            id="gns-430-airport-layer"
+                            id="big-gns-430-airport-layer"
+                            filter={["==", "type", "large_airport"]}
+                            paint={{
+                                "circle-color": "#173EDA",
+                                "circle-radius": 3
+                            }}
+                        />
+
+                        <Layer
+                            type="circle"
+                            source="gns-430-source"
+                            source-layer="gns_airport"
+                            id="small-gns-430-airport-layer"
+                            filter={["==", "type", "small_airport"]}
+                            minzoom={5}
                             paint={{
                                 "circle-color": "#173EDA",
                                 "circle-radius": 3
