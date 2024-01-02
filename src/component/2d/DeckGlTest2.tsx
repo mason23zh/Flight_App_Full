@@ -236,6 +236,10 @@ function DeckGlTest2() {
                             source="gns-430-source"
                             source-layer="gns_airport"
                             id="gns-430-airport-layer"
+                            paint={{
+                                "circle-color": "#173EDA",
+                                "circle-radius": 3
+                            }}
                         />
                     </Source>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
