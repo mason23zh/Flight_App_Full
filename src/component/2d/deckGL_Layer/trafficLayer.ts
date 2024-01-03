@@ -33,5 +33,5 @@ const trafficLayer = (
         onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover({})
     });
 };
-
+ 
 export default trafficLayer;

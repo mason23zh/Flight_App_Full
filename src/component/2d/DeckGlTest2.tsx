@@ -1,16 +1,21 @@
 import React, { useState, useCallback } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Layer, Map, Source, } from "react-map-gl";
+import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
-import flightPathLayer from "./layers/flightPathLayer";
-import trafficLayer from "./layers/trafficLayer";
+import flightPathLayer from "./deckGL_Layer/flightPathLayer";
+import trafficLayer from "./deckGL_Layer/trafficLayer";
 import useFetchVatsimPilots from "../../hooks/useFetchVatsimPilots";
 import useFetchTrafficTrackData from "../../hooks/useFetchTrafficTrackData";
+import MapboxSourceLayer from "./mapbox_Layer/MapboxSourceLayer";
+import SmallAirportLayer from "./mapbox_Layer/SmallAirportLayer";
+import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
+import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
 
 
 function DeckGlTest2() {
 
+    let layers = [];
     const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
     const [hoverInfo, setHoverInfo] = useState<Partial<VatsimFlight>>(null);
     const [viewState, setViewState] = React.useState({
@@ -38,7 +43,7 @@ function DeckGlTest2() {
     };
 
 
-    const layers = [
+    layers = [
         flightPathLayer(trackData, selectTraffic, vatsimData),
         trafficLayer(vatsimData, handleClick, handleHover)
     ];
@@ -99,77 +104,33 @@ function DeckGlTest2() {
                     dragPan={false}
 
                 >
-                    {/* <Source */}
-                    {/*     id="mapbox-dem" */}
-                    {/*     type="raster-dem" */}
-                    {/*     url="mapbox://mapbox.mapbox-terrain-dem-v1" */}
-                    {/*     tileSize={512} */}
-                    {/*     maxzoom={14} */}
+
+                    <MapboxSourceLayer>
+                        <SmallAirportLayer/>
+                        <MediumAirportLayer/>
+                        <LargeAirportLayer/>
+                    </MapboxSourceLayer>
+
+
+                    {/* <Layer */}
+                    {/*     id="gns-430-airport-labels" */}
+                    {/*     type="symbol" */}
+                    {/*     source="gns-430-source" */}
+                    {/*     source-layer="gns_airport" */}
+                    {/*     layout={{ */}
+                    {/*         "text-field": ["get", "ICAO"], */}
+                    {/*         "text-variable-anchor": ["top", "bottom", "left", "right"], */}
+                    {/*         "text-radial-offset": 0.5, */}
+                    {/*         "text-justify": "auto", */}
+                    {/*     }} */}
+                    {/*     paint={{ */}
+                    {/*         "text-color": "#000000", */}
+                    {/*         "text-halo-color": "#ffffff", */}
+                    {/*         "text-halo-width": 0.5, */}
+                    {/*     }} */}
                     {/* /> */}
-                    <Source
-                        id="gns-430-source"
-                        url="mapbox://mason-zh.clqwtv3cf6uko1mmpi3uooj4y-6emjw"
-                        type="vector"
-                        maxzoom={14}
-                    >
 
-                        <Layer
-                            type="circle"
-                            source="gns-430-source"
-                            source-layer="gns_airport"
-                            id="big-gns-430-airport-layer"
-                            filter={["==", "type", "large_airport"]}
-                            paint={{
-                                "circle-color": "#00FF00",
-                                "circle-radius": 3
-                            }}
-                        />
 
-                        <Layer
-                            type="circle"
-                            source="gns-430-source"
-                            source-layer="gns_airport"
-                            id="medium-gns-430-airport-layer"
-                            filter={["==", "type", "medium_airport"]}
-                            minzoom={5.5}
-                            paint={{
-                                "circle-color": "#00FF00",
-                                "circle-radius": 3
-                            }}
-                        />
-
-                        <Layer
-                            type="circle"
-                            source="gns-430-source"
-                            source-layer="gns_airport"
-                            id="small-gns-430-airport-layer"
-                            filter={["==", "type", "small_airport"]}
-                            minzoom={7}
-                            paint={{
-                                "circle-color": "#00FF00",
-                                "circle-radius": 3
-                            }}
-                        />
-
-                        {/* <Layer */}
-                        {/*     id="gns-430-airport-labels" */}
-                        {/*     type="symbol" */}
-                        {/*     source="gns-430-source" */}
-                        {/*     source-layer="gns_airport" */}
-                        {/*     layout={{ */}
-                        {/*         "text-field": ["get", "ICAO"], */}
-                        {/*         "text-variable-anchor": ["top", "bottom", "left", "right"], */}
-                        {/*         "text-radial-offset": 0.5, */}
-                        {/*         "text-justify": "auto", */}
-                        {/*     }} */}
-                        {/*     paint={{ */}
-                        {/*         "text-color": "#000000", */}
-                        {/*         "text-halo-color": "#ffffff", */}
-                        {/*         "text-halo-width": 0.5, */}
-                        {/*     }} */}
-                        {/* /> */}
-
-                    </Source>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
                     </div>

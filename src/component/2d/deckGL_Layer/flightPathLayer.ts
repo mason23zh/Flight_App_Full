@@ -9,8 +9,8 @@ const flightPathLayer = (
     trafficData: Array<VatsimFlight>) => {
     const formatTrack = [];
 
-    if (data) {
-        data.track.map(async (t, idx) => {
+    if (data && selectTraffic) {
+        data.track.map((t, idx) => {
             // console.log("track data", t);
             const tempObj = {
                 from: { coordinates: [] },
@@ -43,14 +43,9 @@ const flightPathLayer = (
         });
     }
 
-
-    console.log("PATH LAYER DATA:", data);
     return data && new LineLayer({
         id: "flight-path",
         data: formatTrack,
-
-        /* props from LineLayer class */
-
         getColor: () => [255, 140, 0],
         getSourcePosition: (d) => d.from.coordinates,
         getTargetPosition: (d) => d.to.coordinates,
@@ -59,9 +54,6 @@ const flightPathLayer = (
         widthMinPixels: 0,
         widthScale: 1,
         widthUnits: "pixels",
-
-        /* props inherited from Layer class */
-
         // autoHighlight: false,
         // coordinateOrigin: [0, 0, 0],
         coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
@@ -73,5 +65,5 @@ const flightPathLayer = (
         wrapLongitude: true,
     });
 };
-
+ 
 export default flightPathLayer;
