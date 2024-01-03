@@ -6,7 +6,8 @@ import { VatsimFlight, VatsimTrackTraffic } from "../../../types";
 const flightPathLayer = (
     data: VatsimTrackTraffic,
     selectTraffic: Partial<VatsimFlight>,
-    trafficData: Array<VatsimFlight>) => {
+    trafficData: Array<VatsimFlight>,
+    visiable: boolean) => {
     const formatTrack = [];
 
     if (data && selectTraffic) {
@@ -61,9 +62,9 @@ const flightPathLayer = (
         modelMatrix: null,
         opacity: 1,
         pickable: false,
-        visible: true,
+        visible: visiable,
         wrapLongitude: true,
     });
 };
- 
+
 export default flightPathLayer;

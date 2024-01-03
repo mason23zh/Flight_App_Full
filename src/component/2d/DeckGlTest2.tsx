@@ -11,11 +11,13 @@ import MapboxSourceLayer from "./mapbox_Layer/MapboxSourceLayer";
 import SmallAirportLayer from "./mapbox_Layer/SmallAirportLayer";
 import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
 import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
+import { PickingInfo } from "@deck.gl/core/typed";
 
 
 function DeckGlTest2() {
 
-    let layers = [];
+    const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
+    const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
     const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
     const [hoverInfo, setHoverInfo] = useState<Partial<VatsimFlight>>(null);
     const [viewState, setViewState] = React.useState({
@@ -42,10 +44,9 @@ function DeckGlTest2() {
         setHoverInfo(info);
     };
 
-
-    layers = [
-        flightPathLayer(trackData, selectTraffic, vatsimData),
-        trafficLayer(vatsimData, handleClick, handleHover)
+    const layers = [
+        flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
+        trafficLayer(vatsimData, handleClick, handleHover, trafficLayerVisible)
     ];
 
     const onMove = React.useCallback(({ viewState }) => {
@@ -70,11 +71,21 @@ function DeckGlTest2() {
         });
     }, []);
 
+    const deckOnLick = (event: PickingInfo) => {
+        console.log("click event:", event);
+        if (!event.layer) {
+            setSelectTraffic({});
+            setTrackLayerVisible(false);
+        } else if (event.layer && event.layer.id === "traffics-layer") {
+            setTrackLayerVisible(true);
+        }
+    };
+
 
     return (
         <div>
             <DeckGL
-                onClick={(event) => console.log("CLICK", event)}
+                onClick={(event) => deckOnLick(event)}
                 initialViewState={viewState}
                 controller
                 layers={layers}
