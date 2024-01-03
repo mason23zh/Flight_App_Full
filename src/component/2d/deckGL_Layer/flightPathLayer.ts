@@ -5,9 +5,9 @@ import { VatsimFlight, VatsimTrackTraffic } from "../../../types";
 
 const flightPathLayer = (
     data: VatsimTrackTraffic,
-    selectTraffic: Partial<VatsimFlight>,
+    selectTraffic: VatsimFlight,
     trafficData: Array<VatsimFlight>,
-    visiable: boolean) => {
+    visible: boolean) => {
     const formatTrack = [];
 
     if (data && selectTraffic) {
@@ -30,7 +30,7 @@ const flightPathLayer = (
                 formatTrack.push(tempObj);
             } else if (idx === data.track.length - 1) {
                 // get the latest data and update the track
-                if (Object.keys(selectTraffic).length !== 0 && trafficData) {
+                if (selectTraffic && trafficData) {
                     const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
                     tempObj.to.coordinates[0] = selectedObj.longitude;
                     tempObj.to.coordinates[1] = selectedObj.latitude;
@@ -62,7 +62,7 @@ const flightPathLayer = (
         modelMatrix: null,
         opacity: 1,
         pickable: false,
-        visible: visiable,
+        visible: visible,
         wrapLongitude: true,
     });
 };

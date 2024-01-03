@@ -9,9 +9,9 @@ const ANIMATIONS = {
 
 const trafficLayer = (
     data: Array<VatsimFlight>,
-    handleClick: (info: Partial<VatsimFlight>) => void,
-    handleHover: (info: Partial<VatsimFlight>) => void,
-    visiable: boolean) => {
+    handleClick: (info: VatsimFlight) => void,
+    handleHover: (info: VatsimFlight) => void,
+    visible: boolean) => {
 
 
     return data && new ScenegraphLayer({
@@ -23,7 +23,7 @@ const trafficLayer = (
         _animations: ANIMATIONS,
         sizeMinPixels: 0.4,
         sizeMaxPixels: 0.5,
-        visible: visiable,
+        visible: visible,
         getColor: () => [228, 235, 10],
         getPosition: (d) => [
             d.longitude || 0,
@@ -31,8 +31,8 @@ const trafficLayer = (
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
-        onClick: (info) => (info && info.object) ? handleClick(info.object) : handleClick({}),
-        onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover({})
+        onClick: (info) => (info && info.object) ? handleClick(info.object) : handleClick(null),
+        onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover(null)
     });
 };
 

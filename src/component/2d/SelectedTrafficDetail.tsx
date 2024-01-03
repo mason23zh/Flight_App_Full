@@ -1,7 +1,9 @@
 import React from "react";
- 
-function SelectedTrafficDetail({ traffic }) {
-    console.log(traffic);
+import { VatsimFlight } from "../../types";
+
+function SelectedTrafficDetail(props: { traffic: Partial<VatsimFlight> }) {
+    console.log("Selected Traffic", props);
+    const { traffic } = props;
     return (
         <div className="bg-amber-600 px-2 py-3 z-1 absolute top-40 left-0 m-[12px] rounded-md">
             <div className="grid grid-cols-1">

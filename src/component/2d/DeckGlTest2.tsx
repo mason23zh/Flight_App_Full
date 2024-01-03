@@ -18,8 +18,8 @@ function DeckGlTest2() {
 
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
-    const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
-    const [hoverInfo, setHoverInfo] = useState<Partial<VatsimFlight>>(null);
+    const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
+    const [hoverInfo, setHoverInfo] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
         longitude: -122.41669,
         latitude: 37.7853,
@@ -37,10 +37,10 @@ function DeckGlTest2() {
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
 
-    const handleClick = (info: Partial<VatsimFlight>) => {
+    const handleClick = (info: VatsimFlight) => {
         setSelectTraffic(info);
     };
-    const handleHover = (info: Partial<VatsimFlight>) => {
+    const handleHover = (info: VatsimFlight) => {
         setHoverInfo(info);
     };
 
@@ -74,7 +74,7 @@ function DeckGlTest2() {
     const deckOnLick = (event: PickingInfo) => {
         console.log("click event:", event);
         if (!event.layer) {
-            setSelectTraffic({});
+            setSelectTraffic(null);
             setTrackLayerVisible(false);
         } else if (event.layer && event.layer.id === "traffics-layer") {
             setTrackLayerVisible(true);
@@ -146,7 +146,7 @@ function DeckGlTest2() {
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
                     </div>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
-                        {(hoverInfo && Object.keys(hoverInfo).length !== 0) ? hoverInfo.callsign : ""}
+                        {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
                     </div>
                     {selectTraffic && <SelectedTrafficDetail traffic={selectTraffic}/>}
                 </Map>
