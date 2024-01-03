@@ -1,5 +1,5 @@
 import React from "react";
-
+ 
 function SelectedTrafficDetail({ traffic }) {
     console.log(traffic);
     return (

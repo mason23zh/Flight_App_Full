@@ -1,9 +1,12 @@
-import { COORDINATE_SYSTEM } from "@deck.gl/core";
-import { LineLayer } from "@deck.gl/layers";
+import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
+import { LineLayer } from "@deck.gl/layers/typed";
 import { VatsimFlight, VatsimTrackTraffic } from "../../../types";
 
 
-const flightPathLayer = (data: VatsimTrackTraffic, selectTraffic, trafficData: Array<VatsimFlight>) => {
+const flightPathLayer = (
+    data: VatsimTrackTraffic,
+    selectTraffic: Partial<VatsimFlight>,
+    trafficData: Array<VatsimFlight>) => {
     const formatTrack = [];
 
     if (data) {
@@ -26,7 +29,7 @@ const flightPathLayer = (data: VatsimTrackTraffic, selectTraffic, trafficData: A
                 formatTrack.push(tempObj);
             } else if (idx === data.track.length - 1) {
                 // get the latest data and update the track
-                if (selectTraffic && trafficData) {
+                if (Object.keys(selectTraffic).length !== 0 && trafficData) {
                     const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
                     tempObj.to.coordinates[0] = selectedObj.longitude;
                     tempObj.to.coordinates[1] = selectedObj.latitude;

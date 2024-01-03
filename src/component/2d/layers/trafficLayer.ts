@@ -1,4 +1,4 @@
-import { ScenegraphLayer } from "@deck.gl/mesh-layers";
+import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
 import { VatsimFlight } from "../../../types";
 
 
@@ -7,7 +7,10 @@ const ANIMATIONS = {
     "*": { speed: 1 },
 };
 
-const trafficLayer = (data: Array<VatsimFlight>, handleClick, handleHover) => {
+const trafficLayer = (
+    data: Array<VatsimFlight>,
+    handleClick: (info: Partial<VatsimFlight>) => void,
+    handleHover: (info: Partial<VatsimFlight>) => void) => {
 
 
     return data && new ScenegraphLayer({
@@ -19,6 +22,7 @@ const trafficLayer = (data: Array<VatsimFlight>, handleClick, handleHover) => {
         _animations: ANIMATIONS,
         sizeMinPixels: 0.4,
         sizeMaxPixels: 0.5,
+        getColor: () => [228, 235, 10],
         getPosition: (d) => [
             d.longitude || 0,
             d.latitude || 0,

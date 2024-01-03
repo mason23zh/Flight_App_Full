@@ -1,7 +1,7 @@
 import React, {
     useEffect, useState, useCallback,
 } from "react";
-import DeckGL from "@deck.gl/react";
+import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight, VatsimTrackTraffic } from "../../types";
 import {
     Layer,
@@ -17,6 +17,16 @@ const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
 
 
 function DeckGlTest2() {
+
+    interface VatsimTrackResponse {
+        data: VatsimTrackTraffic;
+    }
+
+    interface VatsimTrafficResponse {
+        pilots: Array<VatsimFlight>;
+    }
+
+
     const [data, setData] = useState<Array<VatsimFlight>>(null);
     const [trackData, setTrackData] = useState<VatsimTrackTraffic>(null);
     const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
@@ -42,7 +52,7 @@ function DeckGlTest2() {
         const getTrackData = async () => {
             if (selectTraffic && Object.keys(selectTraffic).length !== 0) {
                 try {
-                    const res = await axios.get(`https://api.airportweather.org/v1/vatsim/getTrafficByCallsign/track/${selectTraffic.callsign}`);
+                    const res = await axios.get<VatsimTrackResponse>(`https://api.airportweather.org/v1/vatsim/getTrafficByCallsign/track/${selectTraffic.callsign}`);
                     console.log("path:", res);
                     if (res) {
                         setTrackData(res.data.data);
@@ -58,7 +68,7 @@ function DeckGlTest2() {
     useEffect(() => {
         const getTrafficData = async () => {
             try {
-                const res = await axios.get(DATA_URL);
+                const res = await axios.get<VatsimTrafficResponse>(DATA_URL);
                 if (res) {
                     console.log(res.data.pilots);
                     setData(res.data.pilots);
@@ -107,7 +117,7 @@ function DeckGlTest2() {
                 initialViewState={viewState}
                 controller
                 layers={layers}
-                onViewStateChange={({ viewState }) => setViewState(viewState)}
+                onViewStateChange={() => setViewState(viewState)}
                 // views={new GlobeView({ id: "globe", controller: true })}
                 style={{
                     height: "100vh",
