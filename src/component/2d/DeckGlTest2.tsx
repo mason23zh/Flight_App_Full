@@ -1,34 +1,16 @@
-import React, {
-    useEffect, useState, useCallback,
-} from "react";
+import React, { useState, useCallback } from "react";
 import DeckGL from "@deck.gl/react/typed";
-import { VatsimFlight, VatsimTrackTraffic } from "../../types";
-import {
-    Layer,
-    Map, Source,
-} from "react-map-gl";
-import axios from "axios";
+import { VatsimFlight } from "../../types";
+import { Layer, Map, Source, } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./layers/flightPathLayer";
 import trafficLayer from "./layers/trafficLayer";
-
-
-const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
+import useFetchVatsimPilots from "../../hooks/useFetchVatsimPilots";
+import useFetchTrafficTrackData from "../../hooks/useFetchTrafficTrackData";
 
 
 function DeckGlTest2() {
 
-    interface VatsimTrackResponse {
-        data: VatsimTrackTraffic;
-    }
-
-    interface VatsimTrafficResponse {
-        pilots: Array<VatsimFlight>;
-    }
-
-
-    const [data, setData] = useState<Array<VatsimFlight>>(null);
-    const [trackData, setTrackData] = useState<VatsimTrackTraffic>(null);
     const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
     const [hoverInfo, setHoverInfo] = useState<Partial<VatsimFlight>>(null);
     const [viewState, setViewState] = React.useState({
@@ -39,6 +21,15 @@ function DeckGlTest2() {
         bearing: 0,
     });
 
+    const {
+        data: vatsimData,
+        error: vatsimError
+    } = useFetchVatsimPilots();
+    const {
+        data: trackData,
+        error: trackError
+    } = useFetchTrafficTrackData(selectTraffic);
+
     const handleClick = (info: Partial<VatsimFlight>) => {
         setSelectTraffic(info);
     };
@@ -46,47 +37,10 @@ function DeckGlTest2() {
         setHoverInfo(info);
     };
 
-    //trafficL = trafficLayer(data, handleClick, handleHover);
-
-    useEffect(() => {
-        const getTrackData = async () => {
-            if (selectTraffic && Object.keys(selectTraffic).length !== 0) {
-                try {
-                    const res = await axios.get<VatsimTrackResponse>(`https://api.airportweather.org/v1/vatsim/getTrafficByCallsign/track/${selectTraffic.callsign}`);
-                    console.log("path:", res);
-                    if (res) {
-                        setTrackData(res.data.data);
-                    }
-                } catch (e) {
-                    throw new Error("Can not get track data");
-                }
-            }
-        };
-        getTrackData();
-    }, [selectTraffic]);
-
-    useEffect(() => {
-        const getTrafficData = async () => {
-            try {
-                const res = await axios.get<VatsimTrafficResponse>(DATA_URL);
-                if (res) {
-                    console.log(res.data.pilots);
-                    setData(res.data.pilots);
-                }
-            } catch (e) {
-                throw new Error("Unable fetch Vatsim Traffic Data");
-            }
-        };
-        getTrafficData();
-        const interval = setInterval(() => getTrafficData(), 20000);
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
 
     const layers = [
-        flightPathLayer(trackData, selectTraffic, data),
-        trafficLayer(data, handleClick, handleHover)
+        flightPathLayer(trackData, selectTraffic, vatsimData),
+        trafficLayer(vatsimData, handleClick, handleHover)
     ];
 
     const onMove = React.useCallback(({ viewState }) => {
@@ -98,6 +52,7 @@ function DeckGlTest2() {
         });
         // Only update the view state if the center is inside the geofence
     }, []);
+
 
     const goToNYC = useCallback(() => {
         console.log("CLICK");
@@ -114,6 +69,7 @@ function DeckGlTest2() {
     return (
         <div>
             <DeckGL
+                onClick={(event) => console.log("CLICK", event)}
                 initialViewState={viewState}
                 controller
                 layers={layers}
@@ -141,6 +97,7 @@ function DeckGlTest2() {
                         exaggeration: 1.5
                     }}
                     dragPan={false}
+
                 >
                     {/* <Source */}
                     {/*     id="mapbox-dem" */}
@@ -225,7 +182,7 @@ function DeckGlTest2() {
                     <button onClick={goToNYC}>NEW YORK</button>
                 </div>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md">
-                    Total Traffic: {data && data.length}
+                    Total Traffic: {vatsimData && vatsimData.length}
                 </div>
             </DeckGL>
         </div>
