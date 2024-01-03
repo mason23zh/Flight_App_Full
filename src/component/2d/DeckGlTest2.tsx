@@ -9,13 +9,10 @@ import {
     Layer,
     Map, Source,
 } from "react-map-gl";
-import {
-    LineLayer
-} from "@deck.gl/layers";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
-import { COORDINATE_SYSTEM } from "@deck.gl/core";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
+import flightPathLayer from "./layers/flightPathLayer";
 
 mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 
@@ -38,8 +35,6 @@ function DeckGlTest2() {
         pitch: 0,
         bearing: 0,
     });
-
-    const formatTrack = [];
 
     useEffect(() => {
         const getTrackData = async () => {
@@ -69,38 +64,11 @@ function DeckGlTest2() {
         };
     }, []);
 
-
     const onClick = (info) => {
         setSelectTraffic(info.object);
     };
 
-    const flightPathLayer = new LineLayer({
-        id: "flight-path",
-        data: formatTrack,
-
-        /* props from LineLayer class */
-
-        getColor: () => [255, 140, 0],
-        getSourcePosition: (d) => d.from.coordinates,
-        getTargetPosition: (d) => d.to.coordinates,
-        getWidth: 5,
-        widthMaxPixels: Number.MAX_SAFE_INTEGER,
-        widthMinPixels: 0,
-        widthScale: 1,
-        widthUnits: "pixels",
-
-        /* props inherited from Layer class */
-
-        // autoHighlight: false,
-        // coordinateOrigin: [0, 0, 0],
-        coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
-        highlightColor: [0, 0, 128, 128],
-        modelMatrix: null,
-        opacity: 1,
-        pickable: false,
-        visible: true,
-        wrapLongitude: true,
-    });
+    let flightPath;
 
 
     const trafficLayer = data
@@ -124,43 +92,13 @@ function DeckGlTest2() {
             });
 
 
-    if (trackData) {
-        trackData.track.map(async (t, idx) => {
-            // console.log("track data", t);
-            const tempObj = {
-                from: { coordinates: [] },
-                to: { coordinates: [] }
-            };
-            if (!t.longitude) {
-                return;
-            }
-            if (idx < trackData.track.length - 1) {
-                tempObj.from.coordinates[0] = t.longitude;
-                tempObj.from.coordinates[1] = t.latitude;
-                tempObj.from.coordinates[2] = t.altitude;
-                tempObj.to.coordinates[0] = trackData.track[idx + 1].longitude;
-                tempObj.to.coordinates[1] = trackData.track[idx + 1].latitude;
-                tempObj.to.coordinates[2] = trackData.track[idx + 1].altitude;
-                formatTrack.push(tempObj);
-            } else if (idx === trackData.track.length - 1) {
-                // get the latest data and update the track
-                if (selectTraffic && data) {
-                    const selectedObj = data.find((o) => o.callsign === selectTraffic.callsign);
-                    tempObj.to.coordinates[0] = selectedObj.longitude;
-                    tempObj.to.coordinates[1] = selectedObj.latitude;
-                    tempObj.to.coordinates[2] = selectedObj.altitude;
-                    tempObj.from.coordinates[0] = t.longitude;
-                    tempObj.from.coordinates[1] = t.latitude;
-                    tempObj.from.coordinates[2] = t.altitude;
-                    formatTrack.push(tempObj);
-                }
-            }
-        });
+    if (trackData && selectTraffic && data) {
+        flightPath = flightPathLayer(trackData, selectTraffic, data);
     }
 
 
     const layers = [
-        flightPathLayer,
+        flightPath,
         trafficLayer,
     ];
 
@@ -250,7 +188,7 @@ function DeckGlTest2() {
                             source-layer="gns_airport"
                             id="medium-gns-430-airport-layer"
                             filter={["==", "type", "medium_airport"]}
-                            minzoom={4}
+                            minzoom={5.5}
                             paint={{
                                 "circle-color": "#173EDA",
                                 "circle-radius": 3
@@ -263,7 +201,7 @@ function DeckGlTest2() {
                             source-layer="gns_airport"
                             id="small-gns-430-airport-layer"
                             filter={["==", "type", "small_airport"]}
-                            minzoom={6}
+                            minzoom={7}
                             paint={{
                                 "circle-color": "#173EDA",
                                 "circle-radius": 3
