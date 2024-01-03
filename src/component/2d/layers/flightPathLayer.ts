@@ -2,6 +2,7 @@ import { COORDINATE_SYSTEM } from "@deck.gl/core";
 import { LineLayer } from "@deck.gl/layers";
 import { VatsimFlight, VatsimTrackTraffic } from "../../../types";
 
+
 const flightPathLayer = (data: VatsimTrackTraffic, selectTraffic, trafficData: Array<VatsimFlight>) => {
     const formatTrack = [];
 

@@ -1,11 +1,15 @@
 import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import { VatsimFlight } from "../../../types";
 
+
 const MODEL_URL = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb";
 const ANIMATIONS = {
     "*": { speed: 1 },
 };
-const trafficLayer = (data: VatsimFlight, onClick: () => void, setHoverInfo: (info: object) => void) => {
+
+const trafficLayer = (data: Array<VatsimFlight>, handleClick, handleHover) => {
+
+
     return data && new ScenegraphLayer({
         id: "traffics-layer",
         data,
@@ -21,8 +25,8 @@ const trafficLayer = (data: VatsimFlight, onClick: () => void, setHoverInfo: (in
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
-        onClick,
-        onHover: (info) => setHoverInfo(info),
+        onClick: (info) => (info && info.object) ? handleClick(info.object) : handleClick({}),
+        onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover({})
     });
 };
 

@@ -2,32 +2,25 @@ import React, {
     useEffect, useState, useCallback,
 } from "react";
 import DeckGL from "@deck.gl/react";
-import mapboxgl from "mapbox-gl";
 import { VatsimFlight, VatsimTrackTraffic } from "../../types";
-
 import {
     Layer,
     Map, Source,
 } from "react-map-gl";
-import { ScenegraphLayer } from "@deck.gl/mesh-layers";
 import axios from "axios";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./layers/flightPathLayer";
+import trafficLayer from "./layers/trafficLayer";
 
-mapboxgl.accessToken = "pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
 
 const DATA_URL = "https://data.vatsim.net/v3/vatsim-data.json";
-const MODEL_URL = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb";
-const ANIMATIONS = {
-    "*": { speed: 1 },
-};
 
 
 function DeckGlTest2() {
     const [data, setData] = useState<Array<VatsimFlight>>(null);
     const [trackData, setTrackData] = useState<VatsimTrackTraffic>(null);
-    const [selectTraffic, setSelectTraffic] = useState(null);
-    const [hoverInfo, setHoverInfo] = useState(null);
+    const [selectTraffic, setSelectTraffic] = useState<Partial<VatsimFlight>>(null);
+    const [hoverInfo, setHoverInfo] = useState<Partial<VatsimFlight>>(null);
     const [viewState, setViewState] = React.useState({
         longitude: -122.41669,
         latitude: 37.7853,
@@ -36,13 +29,26 @@ function DeckGlTest2() {
         bearing: 0,
     });
 
+    const handleClick = (info: Partial<VatsimFlight>) => {
+        setSelectTraffic(info);
+    };
+    const handleHover = (info: Partial<VatsimFlight>) => {
+        setHoverInfo(info);
+    };
+
+    //trafficL = trafficLayer(data, handleClick, handleHover);
+
     useEffect(() => {
         const getTrackData = async () => {
-            if (selectTraffic) {
-                const res = await axios.get(`https://api.airportweather.org/v1/vatsim/getTrafficByCallsign/track/${selectTraffic.callsign}`);
-                console.log("path:", res);
-                if (res) {
-                    setTrackData(res.data.data);
+            if (selectTraffic && Object.keys(selectTraffic).length !== 0) {
+                try {
+                    const res = await axios.get(`https://api.airportweather.org/v1/vatsim/getTrafficByCallsign/track/${selectTraffic.callsign}`);
+                    console.log("path:", res);
+                    if (res) {
+                        setTrackData(res.data.data);
+                    }
+                } catch (e) {
+                    throw new Error("Can not get track data");
                 }
             }
         };
@@ -51,10 +57,14 @@ function DeckGlTest2() {
 
     useEffect(() => {
         const getTrafficData = async () => {
-            const res = await axios.get(DATA_URL);
-            if (res) {
-                console.log(res.data.pilots);
-                setData(res.data.pilots);
+            try {
+                const res = await axios.get(DATA_URL);
+                if (res) {
+                    console.log(res.data.pilots);
+                    setData(res.data.pilots);
+                }
+            } catch (e) {
+                throw new Error("Unable fetch Vatsim Traffic Data");
             }
         };
         getTrafficData();
@@ -64,44 +74,10 @@ function DeckGlTest2() {
         };
     }, []);
 
-    const onClick = (info) => {
-        setSelectTraffic(info.object);
-    };
-
-    let flightPath;
-
-
-    const trafficLayer = data
-            && new ScenegraphLayer({
-                id: "traffics-layer",
-                data,
-                pickable: true,
-                sizeScale: 25,
-                scenegraph: MODEL_URL,
-                _animations: ANIMATIONS,
-                sizeMinPixels: 0.4,
-                sizeMaxPixels: 0.5,
-                getPosition: (d) => [
-                    d.longitude || 0,
-                    d.latitude || 0,
-                    d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
-                ],
-                getOrientation: (d) => [0, -d.heading || 0, 90],
-                onClick,
-                onHover: (info) => setHoverInfo(info),
-            });
-
-
-    if (trackData && selectTraffic && data) {
-        flightPath = flightPathLayer(trackData, selectTraffic, data);
-    }
-
-
     const layers = [
-        flightPath,
-        trafficLayer,
+        flightPathLayer(trackData, selectTraffic, data),
+        trafficLayer(data, handleClick, handleHover)
     ];
-
 
     const onMove = React.useCallback(({ viewState }) => {
         //const newCenter = [viewState.longitude, viewState.latitude];
@@ -177,7 +153,7 @@ function DeckGlTest2() {
                             id="big-gns-430-airport-layer"
                             filter={["==", "type", "large_airport"]}
                             paint={{
-                                "circle-color": "#173EDA",
+                                "circle-color": "#00FF00",
                                 "circle-radius": 3
                             }}
                         />
@@ -190,7 +166,7 @@ function DeckGlTest2() {
                             filter={["==", "type", "medium_airport"]}
                             minzoom={5.5}
                             paint={{
-                                "circle-color": "#173EDA",
+                                "circle-color": "#00FF00",
                                 "circle-radius": 3
                             }}
                         />
@@ -203,7 +179,7 @@ function DeckGlTest2() {
                             filter={["==", "type", "small_airport"]}
                             minzoom={7}
                             paint={{
-                                "circle-color": "#173EDA",
+                                "circle-color": "#00FF00",
                                 "circle-radius": 3
                             }}
                         />
@@ -231,7 +207,7 @@ function DeckGlTest2() {
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
                     </div>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
-                        {(hoverInfo && hoverInfo.object) ? hoverInfo.object.callsign : ""}
+                        {(hoverInfo && Object.keys(hoverInfo).length !== 0) ? hoverInfo.callsign : ""}
                     </div>
                     {selectTraffic && <SelectedTrafficDetail traffic={selectTraffic}/>}
                 </Map>
