@@ -9,7 +9,7 @@ const flightPathLayer = (
     trafficData: Array<VatsimFlight>,
     visible: boolean) => {
     const formatTrack = [];
-    
+
     if (data && selectTraffic) {
         data.track.map((t, idx) => {
             // console.log("track data", t);
@@ -30,16 +30,14 @@ const flightPathLayer = (
                 formatTrack.push(tempObj);
             } else if (idx === data.track.length - 1) {
                 // get the latest data and update the track
-                if (selectTraffic && trafficData) {
-                    const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
-                    tempObj.to.coordinates[0] = selectedObj.longitude;
-                    tempObj.to.coordinates[1] = selectedObj.latitude;
-                    tempObj.to.coordinates[2] = selectedObj.altitude;
-                    tempObj.from.coordinates[0] = t.longitude;
-                    tempObj.from.coordinates[1] = t.latitude;
-                    tempObj.from.coordinates[2] = t.altitude;
-                    formatTrack.push(tempObj);
-                }
+                const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
+                tempObj.to.coordinates[0] = selectedObj.longitude;
+                tempObj.to.coordinates[1] = selectedObj.latitude;
+                tempObj.to.coordinates[2] = selectedObj.altitude;
+                tempObj.from.coordinates[0] = t.longitude;
+                tempObj.from.coordinates[1] = t.latitude;
+                tempObj.from.coordinates[2] = t.altitude;
+                formatTrack.push(tempObj);
             }
         });
     }

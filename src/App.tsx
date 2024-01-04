@@ -15,9 +15,9 @@ import Puzzles from "./component/Puzzles";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
 import Earth from "./component/3d/Earth";
-import DeckGlTest2 from "./component/2d/DeckGlTest2";
+import VatsimMap from "./component/2d/VatsimMap";
 
- 
+
 function App() {
     return (
         <ScrollToTop>
@@ -38,7 +38,7 @@ function App() {
                     <Route
                         path="2d"
                         element={(
-                            <DeckGlTest2/>
+                            <VatsimMap/>
                         )}
                     />
                     <Route path="*" element={<NoMatch/>}/>

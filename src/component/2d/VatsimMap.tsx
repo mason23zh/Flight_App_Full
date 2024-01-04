@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
 import { Map } from "react-map-gl";
@@ -12,6 +12,7 @@ import SmallAirportLayer from "./mapbox_Layer/SmallAirportLayer";
 import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
 import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
+import LayerTogglePanel from "./LayerTogglePanel";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -19,7 +20,7 @@ interface PickedTraffic extends PickingInfo {
 
 //mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
 //mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
-function DeckGlTest2() {
+function VatsimMap() {
 
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
@@ -84,6 +85,12 @@ function DeckGlTest2() {
         }
     }, [hoverInfo]);
 
+    const detailTrafficSection = useCallback(() => {
+        if (selectTraffic) {
+            return <SelectedTrafficDetail traffic={selectTraffic}/>;
+        }
+        return null;
+    }, [selectTraffic]);
 
     const layers = [
         //flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
@@ -93,13 +100,6 @@ function DeckGlTest2() {
         ),
         trafficLayer(vatsimData, trafficLayerVisible)
     ];
-
-    const detailTrafficSection = useCallback(() => {
-        if (selectTraffic) {
-            return <SelectedTrafficDetail traffic={selectTraffic}/>;
-        }
-        return null;
-    }, [selectTraffic]);
 
     return (
         <div>
@@ -159,8 +159,12 @@ function DeckGlTest2() {
                 </div>
                 {detailTrafficSection()}
             </DeckGL>
+            <LayerTogglePanel onChange={(e: boolean) => {
+                setTrafficLayerVisible(e);
+                setTrackLayerVisible(e);
+            }}/>
         </div>
     );
 }
 
-export default DeckGlTest2;
+export default VatsimMap;
