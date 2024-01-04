@@ -1,8 +1,7 @@
 import React from "react";
 import { VatsimFlight } from "../../types";
 
-function SelectedTrafficDetail(props: { traffic: Partial<VatsimFlight> }) {
-    console.log("Selected Traffic", props);
+function SelectedTrafficDetail(props: { traffic: VatsimFlight }) {
     const { traffic } = props;
     return (
         <div className="bg-amber-600 px-2 py-3 z-1 absolute top-40 left-0 m-[12px] rounded-md">
@@ -38,7 +37,7 @@ function SelectedTrafficDetail(props: { traffic: Partial<VatsimFlight> }) {
                 </div>
                 <div className="flex gap-3">
                     <div>Alternate</div>
-                    <div>{traffic.flight?.alternate || "N/A"}</div>
+                    <div>{traffic.flight_plan?.alternate || "N/A"}</div>
                 </div>
                 <div className="flex gap-3">
                     <div>Aircraft</div>

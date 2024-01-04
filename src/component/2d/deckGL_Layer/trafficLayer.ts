@@ -9,10 +9,8 @@ const ANIMATIONS = {
 
 const trafficLayer = (
     data: Array<VatsimFlight>,
-    handleClick: (info: VatsimFlight) => void,
-    handleHover: (info: VatsimFlight) => void,
+    //handleHover: (info: VatsimFlight) => void,
     visible: boolean) => {
-
 
     return data && new ScenegraphLayer({
         id: "traffics-layer",
@@ -31,8 +29,9 @@ const trafficLayer = (
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
-        onClick: (info) => (info && info.object) ? handleClick(info.object) : handleClick(null),
-        onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover(null)
+        //onClick: (pickInfo, event) => (event && event.object) ? handleClick(pickInfo, event) : handleClick(null),
+        // onClick: (pickInfo, event) => handleClick(pickInfo, event),
+        //onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover(null)
     });
 };
 

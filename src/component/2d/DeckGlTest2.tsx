@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
 import { Map } from "react-map-gl";
@@ -13,6 +13,9 @@ import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
 import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
 
+interface PickedTraffic extends PickingInfo {
+    object?: VatsimFlight | null;
+}
 
 function DeckGlTest2() {
 
@@ -37,19 +40,8 @@ function DeckGlTest2() {
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
 
-    const handleClick = (info: VatsimFlight) => {
-        setSelectTraffic(info);
-    };
-    const handleHover = (info: VatsimFlight) => {
-        setHoverInfo(info);
-    };
 
-    const layers = [
-        flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
-        trafficLayer(vatsimData, handleClick, handleHover, trafficLayerVisible)
-    ];
-
-    const onMove = React.useCallback(({ viewState }) => {
+    const onMove = useCallback(({ viewState }) => {
         //const newCenter = [viewState.longitude, viewState.latitude];
         // map.setCenter(newCenter);
         setViewState({
@@ -61,7 +53,6 @@ function DeckGlTest2() {
 
 
     const goToNYC = useCallback(() => {
-        console.log("CLICK");
         setViewState({
             longitude: -74.1,
             latitude: 40.7,
@@ -71,21 +62,48 @@ function DeckGlTest2() {
         });
     }, []);
 
-    const deckOnLick = (event: PickingInfo) => {
-        console.log("click event:", event);
-        if (!event.layer) {
+    const deckOnClick = useCallback((info: PickedTraffic, event) => {
+        console.log("deck picking info:", info.object);
+        console.log("deck picking event:", event);
+        if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
+            setSelectTraffic(info.object);
+            setTrackLayerVisible(true);
+        } else if (!info.layer) {
             setSelectTraffic(null);
             setTrackLayerVisible(false);
-        } else if (event.layer && event.layer.id === "traffics-layer") {
-            setTrackLayerVisible(true);
         }
-    };
+    }, [selectTraffic]);
 
+    const deckOnHover = useCallback((info: PickedTraffic) => {
+        if (info.object && info.layer) {
+            setHoverInfo(info.object);
+        } else {
+            setHoverInfo(null);
+        }
+    }, [hoverInfo]);
+
+
+    const layers = [
+        //flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
+        useMemo(() =>
+            flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
+        [trackData, selectTraffic, vatsimData, trackLayerVisible]
+        ),
+        trafficLayer(vatsimData, trafficLayerVisible)
+    ];
+
+    const detailTrafficSection = useCallback(() => {
+        if (selectTraffic) {
+            return <SelectedTrafficDetail traffic={selectTraffic}/>;
+        }
+        return null;
+    }, [selectTraffic]);
 
     return (
         <div>
             <DeckGL
-                onClick={(event) => deckOnLick(event)}
+                onClick={(info: PickedTraffic, event) => deckOnClick(info, event)}
+                onHover={(info: PickedTraffic) => deckOnHover(info)}
                 initialViewState={viewState}
                 controller
                 layers={layers}
@@ -97,6 +115,7 @@ function DeckGlTest2() {
                     position: "relative"
                 }}
                 pickingRadius={10}
+
             >
                 <Map
                     mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
@@ -113,34 +132,12 @@ function DeckGlTest2() {
                         exaggeration: 1.5
                     }}
                     dragPan={false}
-
                 >
-
                     <MapboxSourceLayer>
                         <SmallAirportLayer/>
                         <MediumAirportLayer/>
                         <LargeAirportLayer/>
                     </MapboxSourceLayer>
-
-
-                    {/* <Layer */}
-                    {/*     id="gns-430-airport-labels" */}
-                    {/*     type="symbol" */}
-                    {/*     source="gns-430-source" */}
-                    {/*     source-layer="gns_airport" */}
-                    {/*     layout={{ */}
-                    {/*         "text-field": ["get", "ICAO"], */}
-                    {/*         "text-variable-anchor": ["top", "bottom", "left", "right"], */}
-                    {/*         "text-radial-offset": 0.5, */}
-                    {/*         "text-justify": "auto", */}
-                    {/*     }} */}
-                    {/*     paint={{ */}
-                    {/*         "text-color": "#000000", */}
-                    {/*         "text-halo-color": "#ffffff", */}
-                    {/*         "text-halo-width": 0.5, */}
-                    {/*     }} */}
-                    {/* /> */}
-
 
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
                         Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
@@ -148,7 +145,6 @@ function DeckGlTest2() {
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
                     </div>
-                    {selectTraffic && <SelectedTrafficDetail traffic={selectTraffic}/>}
                 </Map>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
                     <button onClick={goToNYC}>NEW YORK</button>
@@ -156,6 +152,7 @@ function DeckGlTest2() {
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md">
                     Total Traffic: {vatsimData && vatsimData.length}
                 </div>
+                {detailTrafficSection()}
             </DeckGL>
         </div>
     );

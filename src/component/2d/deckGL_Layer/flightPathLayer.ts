@@ -9,7 +9,7 @@ const flightPathLayer = (
     trafficData: Array<VatsimFlight>,
     visible: boolean) => {
     const formatTrack = [];
-
+    
     if (data && selectTraffic) {
         data.track.map((t, idx) => {
             // console.log("track data", t);
