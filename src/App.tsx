@@ -15,10 +15,7 @@ import Puzzles from "./component/Puzzles";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
 import Earth from "./component/3d/Earth";
-import DeckGlTest from "./component/2d/DeckGlTest";
 import DeckGlTest2 from "./component/2d/DeckGlTest2";
-import DeckGlTest3 from "./component/2d/DeckGlTest3";
-import DeckGlTest4 from "./component/2d/DeckGlTest4";
 
  
 function App() {

@@ -17,6 +17,8 @@ interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
+//mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
+//mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
 function DeckGlTest2() {
 
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
@@ -108,7 +110,10 @@ function DeckGlTest2() {
                 controller
                 layers={layers}
                 onViewStateChange={() => setViewState(viewState)}
-                // views={new GlobeView({ id: "globe", controller: true })}
+                // views={new GlobeView({
+                //     id: "globe",
+                //     controller: true
+                // })}
                 style={{
                     height: "100vh",
                     width: "100vw",
@@ -124,7 +129,7 @@ function DeckGlTest2() {
                         width: 600,
                         height: 400
                     }}
-                    mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
+                    mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
                     onMove={onMove}
                     // projection="globe"
                     terrain={{
