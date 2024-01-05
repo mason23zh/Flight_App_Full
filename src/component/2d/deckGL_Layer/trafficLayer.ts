@@ -1,23 +1,42 @@
 import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
+import { load } from "@loaders.gl/core";
+import { GLTFLoader } from "@loaders.gl/gltf";
 import { VatsimFlight } from "../../../types";
+import airport_model from "../../../assets/models/airplane.glb";
+import { useEffect, useState } from "react";
 
-
-const MODEL_URL = "https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb";
 const ANIMATIONS = {
     "*": { speed: 1 },
 };
 
 const trafficLayer = (
     data: Array<VatsimFlight>,
-    //handleHover: (info: VatsimFlight) => void,
     visible: boolean) => {
+    const [airportModel, setAirplaneModel] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const loadGLT = async () => {
+            try {
+                const airplane = await load(airport_model, GLTFLoader);
+                if (airplane) {
+                    setAirplaneModel(airplane);
+                }
+            } catch (e) {
+                throw new Error("Error loading 3d file:", e);
+            }
+        };
+        loadGLT()
+            .then()
+            .catch((e) => setError(e));
+    }, []);
 
     return data && new ScenegraphLayer({
         id: "traffics-layer",
         data,
         pickable: true,
         sizeScale: 20,
-        scenegraph: MODEL_URL,
+        scenegraph: airportModel && airportModel,
         _animations: ANIMATIONS,
         sizeMinPixels: 0.3,
         sizeMaxPixels: 0.4,
@@ -29,9 +48,6 @@ const trafficLayer = (
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
-        //onClick: (pickInfo, event) => (event && event.object) ? handleClick(pickInfo, event) : handleClick(null),
-        // onClick: (pickInfo, event) => handleClick(pickInfo, event),
-        //onHover: (info) => (info && info.object) ? handleHover(info.object) : handleHover(null)
     });
 };
 
