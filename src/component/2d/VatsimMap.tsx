@@ -76,8 +76,8 @@ function VatsimMap() {
     }, []);
 
     const deckOnClick = useCallback((info: PickedTraffic, event) => {
-        console.log("deck picking info:", info.object);
-        console.log("deck picking event:", event);
+        // console.log("deck picking info:", info.object);
+        // console.log("deck picking event:", event);
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
             setTrackLayerVisible(true);
@@ -110,10 +110,10 @@ function VatsimMap() {
         trafficLayer(vatsimData, trafficLayerVisible)
     ];
 
-    if (mapRef.current) {
-        const map = mapRef.current.getMap();
-        console.log(map);
-    }
+    // if (mapRef.current) {
+    //     const map = mapRef.current.getMap();
+    //     console.log(map);
+    // }
 
     //onContextMenu={evt => evt.preventDefault()}
     return (

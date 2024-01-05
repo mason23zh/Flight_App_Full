@@ -18,11 +18,12 @@ import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
+import { DbAirport } from "../types";
 
 function AirportDetail() {
     const darkMode = useTheme();
     const navigate = useNavigate();
-    const [airport, setAirport] = useState();
+    const [airport, setAirport] = useState<DbAirport>();
     const [metar, setMetar] = useState({});
     // const [skipRender, setSkipRender] = useState(true);
     const [widgetAvailable, setWidgetAvailable] = useState(false);
@@ -32,9 +33,10 @@ function AirportDetail() {
     setTimeout(() => setIsLoading(false), 5000);
 
     const { icao: paramICAO } = useParams();
-
+ 
     // Update airport visited count
     useEffect(() => {
+        console.log("update airport:", airport);
         if (airport && airport.ICAO?.length !== 0) {
             const updateVisited = async (icao) => {
                 await axios.put(

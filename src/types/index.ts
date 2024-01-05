@@ -175,5 +175,58 @@ interface VatsimTrackTraffic {
     track: [TrackObj]
 }
 
+interface Runway {
+    gsAngle: number,
+    ilsFreq: number,
+    ilsHdg: number,
+    runwayHdg: number,
+    runwayLength: number,
+    runwayLocation: {
+        type: string,
+        coordinates: number[]
+    },
+    runwayStatus: number,
+    runwayWidth: number,
+    runway_id: string,
+    runway_ils_avl: number,
+    thresholdElevation: number,
+    thresholdOverflyAlt: number
+}
 
-export type { Weather, Event, VatsimFlight, VatsimTrackTraffic };
+interface DbAriportStation {
+    city: string,
+    continent: string,
+    country: {
+        country_code: string,
+        country_name: string
+    },
+    geometry: {
+        type: string,
+        coordinates: number[]
+    },
+    name: string,
+    region: {
+        region_code: string,
+        local_code: string,
+        region_name: string
+    }
+
+}
+
+interface DbAirport {
+    ICAO: string,
+    additional: {
+        type: string,
+        home_link: string,
+        wikipedia_link: string,
+    },
+    elevation: number,
+    iata: string,
+    runways: Array<Runway>,
+    station: DbAriportStation,
+    transitionAltitude: number,
+    visited: number
+}
+
+
+export type { Weather, Event, VatsimFlight, VatsimTrackTraffic, DbAirport };

@@ -4,7 +4,7 @@ import { GLTFLoader } from "@loaders.gl/gltf";
 import { VatsimFlight } from "../../../types";
 import airport_model from "../../../assets/models/airplane.glb";
 import { useEffect, useState } from "react";
-
+  
 const ANIMATIONS = {
     "*": { speed: 1 },
 };
