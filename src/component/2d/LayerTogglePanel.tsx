@@ -3,9 +3,16 @@ import { IoAirplane } from "react-icons/io5";
 import { AiFillTags } from "react-icons/ai";
 import { Toggle } from "rsuite";
 
-const LayerTogglePanel = ({ onChange }) => {
-    const handleOnChange = (e: boolean) => {
-        onChange(e);
+const LayerTogglePanel = ({
+    onChangeTraffic,
+    onChangeLabel
+}) => {
+    const handleOnChangeTraffic = (e: boolean) => {
+        onChangeTraffic(e);
+    };
+
+    const handleOnChangeLabel = (e: boolean) => {
+        onChangeLabel(e);
     };
 
 
@@ -21,7 +28,7 @@ const LayerTogglePanel = ({ onChange }) => {
                         defaultChecked
                         checkedChildren={<IoAirplane/>}
                         unCheckedChildren={<IoAirplane/>}
-                        onChange={(checked) => handleOnChange(checked)}
+                        onChange={(checked) => handleOnChangeTraffic(checked)}
                     />
                 </div>
                 <div className="py-1 px-2">
@@ -30,6 +37,7 @@ const LayerTogglePanel = ({ onChange }) => {
                         defaultChecked
                         checkedChildren={<AiFillTags/>}
                         unCheckedChildren={<AiFillTags/>}
+                        onChange={(checked) => handleOnChangeLabel(checked)}
                     />
                 </div>
             </div>

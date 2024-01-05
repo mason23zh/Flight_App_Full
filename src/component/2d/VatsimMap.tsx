@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useMemo, useEffect } from "react";
+import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Map } from "react-map-gl";
+import { Map, Layer, useMap } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -13,6 +13,7 @@ import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
 import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
 import LayerTogglePanel from "./LayerTogglePanel";
+import switchMapLabels from "./switchMapLabels";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -21,9 +22,10 @@ interface PickedTraffic extends PickingInfo {
 //mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
 //mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
 function VatsimMap() {
-
+    const mapRef = useRef(null);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
+    const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const [hoverInfo, setHoverInfo] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
@@ -42,6 +44,10 @@ function VatsimMap() {
         data: trackData,
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
+
+    useEffect(() => {
+        switchMapLabels(mapRef, mapLabelVisible);
+    }, [mapLabelVisible]);
 
 
     const onMove = useCallback(({ viewState }) => {
@@ -93,7 +99,6 @@ function VatsimMap() {
     }, [selectTraffic]);
 
     const layers = [
-        //flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
         useMemo(() =>
             flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
         [trackData, selectTraffic, vatsimData, trackLayerVisible]
@@ -102,7 +107,7 @@ function VatsimMap() {
     ];
 
     return (
-        <div>
+        <div onContextMenu={evt => evt.preventDefault()}>
             <DeckGL
                 onClick={(info: PickedTraffic, event) => deckOnClick(info, event)}
                 onHover={(info: PickedTraffic) => deckOnHover(info)}
@@ -123,6 +128,7 @@ function VatsimMap() {
 
             >
                 <Map
+                    ref={mapRef}
                     mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
                     initialViewState={viewState}
                     style={{
@@ -138,6 +144,7 @@ function VatsimMap() {
                     }}
                     dragPan={false}
                 >
+
                     <MapboxSourceLayer>
                         <SmallAirportLayer/>
                         <MediumAirportLayer/>
@@ -159,10 +166,15 @@ function VatsimMap() {
                 </div>
                 {detailTrafficSection()}
             </DeckGL>
-            <LayerTogglePanel onChange={(e: boolean) => {
-                setTrafficLayerVisible(e);
-                setTrackLayerVisible(e);
-            }}/>
+            <LayerTogglePanel
+                onChangeTraffic={(e: boolean) => {
+                    setTrafficLayerVisible(e);
+                    setTrackLayerVisible(e);
+                }}
+                onChangeLabel={(e: boolean) => {
+                    setMapLabelVisible(e);
+                }}
+            />
         </div>
     );
 }
