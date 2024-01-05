@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Map, Layer, useMap } from "react-map-gl";
+import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -14,6 +14,7 @@ import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
 import LayerTogglePanel from "./LayerTogglePanel";
 import switchMapLabels from "./switchMapLabels";
+import switchSatelliteView from "./switchSatelliteView";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -26,6 +27,7 @@ function VatsimMap() {
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
+    const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const [hoverInfo, setHoverInfo] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
@@ -45,19 +47,21 @@ function VatsimMap() {
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
 
+
     useEffect(() => {
         switchMapLabels(mapRef, mapLabelVisible);
     }, [mapLabelVisible]);
 
+    useEffect(() => {
+        switchSatelliteView(mapRef, satelliteLayerVisible);
+    }, [satelliteLayerVisible]);
+
 
     const onMove = useCallback(({ viewState }) => {
-        //const newCenter = [viewState.longitude, viewState.latitude];
-        // map.setCenter(newCenter);
         setViewState({
             longitude: viewState.longitude,
             latitude: viewState, ...viewState
         });
-        // Only update the view state if the center is inside the geofence
     }, []);
 
 
@@ -105,6 +109,7 @@ function VatsimMap() {
         ),
         trafficLayer(vatsimData, trafficLayerVisible)
     ];
+
 
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
@@ -173,6 +178,9 @@ function VatsimMap() {
                 }}
                 onChangeLabel={(e: boolean) => {
                     setMapLabelVisible(e);
+                }}
+                onChangeSatellite={(e: boolean) => {
+                    setSatelliteLayerVisible(e);
                 }}
             />
         </div>
