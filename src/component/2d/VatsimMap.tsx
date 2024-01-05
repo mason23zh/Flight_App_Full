@@ -110,9 +110,14 @@ function VatsimMap() {
         trafficLayer(vatsimData, trafficLayerVisible)
     ];
 
+    if (mapRef.current) {
+        const map = mapRef.current.getMap();
+        console.log(map);
+    }
 
+    //onContextMenu={evt => evt.preventDefault()}
     return (
-        <div onContextMenu={evt => evt.preventDefault()}>
+        <div>
             <DeckGL
                 onClick={(info: PickedTraffic, event) => deckOnClick(info, event)}
                 onHover={(info: PickedTraffic) => deckOnHover(info)}
@@ -156,19 +161,24 @@ function VatsimMap() {
                         <LargeAirportLayer/>
                     </MapboxSourceLayer>
 
-                    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-0 left-0 m-[12px] rounded-md">
-                        Longitude: {viewState.longitude} | Latitude: {viewState.longitude} | Zoom: {viewState.zoom}
-                    </div>
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
                     </div>
                 </Map>
+
+                {/* <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-50 m-[12px] rounded-md"> */}
+                {/*     Longitude: {viewState.longitude} | Latitude: {viewState.latitude} | Zoom: {viewState.zoom} */}
+                {/* </div> */}
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
                     <button onClick={goToNYC}>NEW YORK</button>
                 </div>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md">
                     Total Traffic: {vatsimData && vatsimData.length}
                 </div>
+                <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-[50%] m-[12px] rounded-md">
+                    TEST ONLY
+                </div>
+
                 {detailTrafficSection()}
             </DeckGL>
             <LayerTogglePanel
