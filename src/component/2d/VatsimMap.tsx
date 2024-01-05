@@ -117,7 +117,7 @@ function VatsimMap() {
 
     //onContextMenu={evt => evt.preventDefault()}
     return (
-        <div>
+        <div onContextMenu={evt => evt.preventDefault()}>
             <DeckGL
                 onClick={(info: PickedTraffic, event) => deckOnClick(info, event)}
                 onHover={(info: PickedTraffic) => deckOnHover(info)}

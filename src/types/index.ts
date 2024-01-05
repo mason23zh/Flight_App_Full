@@ -193,7 +193,7 @@ interface Runway {
     thresholdOverflyAlt: number
 }
 
-interface DbAriportStation {
+interface DbAirportStation {
     city: string,
     continent: string,
     country: {
@@ -223,7 +223,7 @@ interface DbAirport {
     elevation: number,
     iata: string,
     runways: Array<Runway>,
-    station: DbAriportStation,
+    station: DbAirportStation,
     transitionAltitude: number,
     visited: number
 }
