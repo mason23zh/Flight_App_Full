@@ -15,6 +15,8 @@ import { PickingInfo } from "@deck.gl/core/typed";
 import LayerTogglePanel from "./LayerTogglePanel";
 import switchMapLabels from "./switchMapLabels";
 import switchSatelliteView from "./switchSatelliteView";
+import FirLayer from "./mapbox_Layer/FirLayer";
+import FirBoundarySourceLayer from "./mapbox_Layer/FirBoundarySourceLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -160,6 +162,9 @@ function VatsimMap() {
                         <MediumAirportLayer/>
                         <LargeAirportLayer/>
                     </MapboxSourceLayer>
+                    <FirBoundarySourceLayer>
+                        <FirLayer/>
+                    </FirBoundarySourceLayer>
 
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
