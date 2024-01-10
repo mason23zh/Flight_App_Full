@@ -228,5 +228,62 @@ interface DbAirport {
     visited: number
 }
 
+interface Fir {
+    fir: string,
+    name: string,
+    facility: number,
+    callsign: string,
+    frequency: string,
+    visual_range: number,
+    last_updated: string,
+    logon_time: string
+}
 
-export type { Weather, Event, VatsimFlight, VatsimTrackTraffic, DbAirport };
+interface Controller {
+    cid: number,
+    name: string,
+    callsign: string,
+    frequency: string,
+    facility: number,
+    rating: number,
+    server: string,
+    visual_range: number,
+    text_atis: string[],
+    last_updated: string,
+    logon_time: string,
+    airport: {
+        name: string,
+        icao: string
+    },
+    coordinates: string[]
+}
+
+interface Atis {
+    cid: number,
+    name: string,
+    callsign: string,
+    frequency: string,
+    facility: number,
+    rating: number,
+    server: string,
+    visual_range: number,
+    atis_code: string,
+    text_atis: string[],
+    last_updated: string,
+    logon_time: string,
+    airport: {
+        name: string,
+        icao: string
+    },
+    coordinates: string[]
+}
+
+interface VatsimControllers {
+    fir: Array<Fir>,
+    other: {
+        controllers: Array<Controller>,
+        atis: Array<Atis>
+    }
+}
+
+export type { Weather, Event, VatsimFlight, VatsimTrackTraffic, DbAirport, VatsimControllers };
