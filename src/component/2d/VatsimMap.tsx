@@ -17,6 +17,7 @@ import switchMapLabels from "./switchMapLabels";
 import switchSatelliteView from "./switchSatelliteView";
 import FirLayer from "./mapbox_Layer/FirLayer";
 import FirBoundarySourceLayer from "./mapbox_Layer/FirBoundarySourceLayer";
+import useFetchControllerData from "../../hooks/useFetchControllerData";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -48,6 +49,10 @@ function VatsimMap() {
         data: trackData,
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
+    const {
+        data: controllerData,
+        error: controllerError
+    } = useFetchControllerData();
 
 
     useEffect(() => {
@@ -103,6 +108,10 @@ function VatsimMap() {
         }
         return null;
     }, [selectTraffic]);
+
+    const firLayers = useMemo(() => {
+        return <FirLayer controllerInfo={controllerData}/>;
+    }, [controllerData]);
 
     const layers = [
         useMemo(() =>
@@ -163,7 +172,8 @@ function VatsimMap() {
                         <LargeAirportLayer/>
                     </MapboxSourceLayer>
                     <FirBoundarySourceLayer>
-                        <FirLayer/>
+                        {/* <FirLayer controllerInfo={controllerData}/> */}
+                        {firLayers}
                     </FirBoundarySourceLayer>
 
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
