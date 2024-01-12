@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Map } from "react-map-gl";
+import { Map, MapRef, Marker } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -18,6 +18,10 @@ import switchSatelliteView from "./switchSatelliteView";
 import FirLayer from "./mapbox_Layer/FirLayer";
 import FirBoundarySourceLayer from "./mapbox_Layer/FirBoundarySourceLayer";
 import useFetchControllerData from "../../hooks/useFetchControllerData";
+import FirTextLayer from "./mapbox_Layer/FirTextLayer";
+import MapboxTextSourceLayer from "./mapbox_Layer/MapboxTextSourceLayer";
+import ControllerMarker from "./mapbox_Layer/ControllerMarker";
+
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -82,7 +86,7 @@ function VatsimMap() {
         });
     }, []);
 
-    const deckOnClick = useCallback((info: PickedTraffic, event) => {
+    const deckOnClick = useCallback((info: PickedTraffic) => {
         // console.log("deck picking info:", info.object);
         // console.log("deck picking event:", event);
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
@@ -113,6 +117,10 @@ function VatsimMap() {
         return <FirLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
 
+    const firTextLayers = useMemo(() => {
+        return <FirTextLayer controllerInfo={controllerData}/>;
+    }, [controllerData]);
+
     const layers = [
         useMemo(() =>
             flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
@@ -130,7 +138,7 @@ function VatsimMap() {
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <DeckGL
-                onClick={(info: PickedTraffic, event) => deckOnClick(info, event)}
+                onClick={(info: PickedTraffic) => deckOnClick(info)}
                 onHover={(info: PickedTraffic) => deckOnHover(info)}
                 initialViewState={viewState}
                 controller
@@ -166,15 +174,24 @@ function VatsimMap() {
                     dragPan={false}
                 >
 
+                    <ControllerMarker controllerInfo={controllerData}/>
+                    {/* <Marker latitude={52.380001} longitude={13.5225} anchor="bottom"> */}
+                    {/*     <div className="flex items-center justify-center w-12 h-6 bg-blue-500 text-white text-sm font-bold rounded"> */}
+                    {/*         EGLL */}
+                    {/*     </div> */}
+                    {/* </Marker> */}
+
                     <MapboxSourceLayer>
                         <SmallAirportLayer/>
                         <MediumAirportLayer/>
                         <LargeAirportLayer/>
                     </MapboxSourceLayer>
                     <FirBoundarySourceLayer>
-                        {/* <FirLayer controllerInfo={controllerData}/> */}
                         {firLayers}
                     </FirBoundarySourceLayer>
+                    <MapboxTextSourceLayer>
+                        {firTextLayers}
+                    </MapboxTextSourceLayer>
 
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}

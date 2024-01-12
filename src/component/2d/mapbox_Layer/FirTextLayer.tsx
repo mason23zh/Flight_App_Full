@@ -6,8 +6,7 @@ interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-const FirLayer = ({ controllerInfo }: Controller) => {
-    console.log("Fir layer render");
+const FirTextLayer = ({ controllerInfo }: Controller) => {
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         console.log("Controller info:", controllerInfo);
@@ -19,28 +18,34 @@ const FirLayer = ({ controllerInfo }: Controller) => {
             // console.log("filter array", filter);
             // console.log("filter:", firArray);
             setFilter(firArray);
+            console.log("filter:", filter);
         }
     }, [controllerInfo]);
 
-
     if (filter.length > 2) {
-        // console.log("Filter:", filter);
         return (
             <Layer
-                type="fill"
-                source="fir-boundary-source"
-                source-layer="firboundaries"
-                id="fir-canada"
+                type="symbol"
+                source="fir_labels"
+                source-layer="fir_labels-9mxj66"
+                id="fir-text"
                 filter={filter}
-                // minzoom={1}
+                layout={{
+                    "text-max-width": 4,
+                    "text-size": 15,
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-field": ["get", "id"],
+                    "text-offset": [0, 0],
+                    "text-anchor": "top",
+                    "text-allow-overlap": false
+                }}
                 paint={{
-                    "fill-color": "rgba(230, 230, 211, 0.351)",
-                    "fill-opacity": 0.8
+                    "text-color": "#212224",
                 }}
             />
+
         );
     }
-
 };
 
-export default React.memo(FirLayer);
+export default React.memo(FirTextLayer);
