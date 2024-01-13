@@ -2,13 +2,16 @@ import React from "react";
 import { IoAirplane } from "react-icons/io5";
 import { AiFillTags } from "react-icons/ai";
 import { FaSatellite } from "react-icons/fa";
+import { GiControlTower } from "react-icons/gi";
+
 
 import { Toggle } from "rsuite";
 
 const LayerTogglePanel = ({
     onChangeTraffic,
     onChangeLabel,
-    onChangeSatellite
+    onChangeSatellite,
+    onChangeController
 }) => {
     const handleOnChangeTraffic = (e: boolean) => {
         onChangeTraffic(e);
@@ -20,6 +23,10 @@ const LayerTogglePanel = ({
 
     const handleOnChangeSatellite = (e: boolean) => {
         onChangeSatellite(e);
+    };
+
+    const handleOnChangeController = (e: boolean) => {
+        onChangeController(e);
     };
 
 
@@ -54,6 +61,15 @@ const LayerTogglePanel = ({
                         checkedChildren={<FaSatellite/>}
                         unCheckedChildren={<FaSatellite/>}
                         onChange={(checked) => handleOnChangeSatellite(checked)}
+                    />
+                </div>
+                <div className="py-1 px-2">
+                    <Toggle
+                        size="md"
+                        defaultChecked
+                        checkedChildren={<GiControlTower/>}
+                        unCheckedChildren={<GiControlTower/>}
+                        onChange={(checked) => handleOnChangeController(checked)}
                     />
                 </div>
             </div>

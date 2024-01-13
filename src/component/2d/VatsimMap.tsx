@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Map, MapRef, Marker } from "react-map-gl";
+import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -21,6 +21,10 @@ import useFetchControllerData from "../../hooks/useFetchControllerData";
 import FirTextLayer from "./mapbox_Layer/FirTextLayer";
 import MapboxTextSourceLayer from "./mapbox_Layer/MapboxTextSourceLayer";
 import ControllerMarker from "./mapbox_Layer/ControllerMarker";
+import "mapbox-gl/dist/mapbox-gl.css";
+import changeMarkerSize from "./mapbox_Layer/changeMarkerSize";
+import { MapEvent } from "react-map-gl/dist/es5/types";
+import switchControllerView from "./switchControllerView";
 
 
 interface PickedTraffic extends PickingInfo {
@@ -31,6 +35,8 @@ interface PickedTraffic extends PickingInfo {
 //mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
 function VatsimMap() {
     const mapRef = useRef(null);
+    // const [showMarker, setShowMarker] = useState<boolean>(true);
+    const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
@@ -67,8 +73,18 @@ function VatsimMap() {
         switchSatelliteView(mapRef, satelliteLayerVisible);
     }, [satelliteLayerVisible]);
 
+    useEffect(() => {
+        switchControllerView(mapRef, controllerLayerVisible);
+    }, [controllerLayerVisible]);
+
+
+    // useEffect(() => {
+    //     changeMarkerSize(mapRef);
+    // }, [map]);
+
 
     const onMove = useCallback(({ viewState }) => {
+        console.log("On move call");
         setViewState({
             longitude: viewState.longitude,
             latitude: viewState, ...viewState
@@ -129,12 +145,7 @@ function VatsimMap() {
         trafficLayer(vatsimData, trafficLayerVisible)
     ];
 
-    // if (mapRef.current) {
-    //     const map = mapRef.current.getMap();
-    //     console.log(map);
-    // }
 
-    //onContextMenu={evt => evt.preventDefault()}
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <DeckGL
@@ -157,6 +168,7 @@ function VatsimMap() {
 
             >
                 <Map
+                    // onLoad={(e) => onMapLoad(e)}
                     ref={mapRef}
                     mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
                     initialViewState={viewState}
@@ -164,17 +176,18 @@ function VatsimMap() {
                         width: 600,
                         height: 400
                     }}
-                    mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
                     onMove={onMove}
-                    // projection="globe"
+                    mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
+                    //onMouseOver={(e) => console.log("on mouse over:", e)}
                     terrain={{
                         source: "mapbox-dem",
                         exaggeration: 1.5
                     }}
                     dragPan={false}
                 >
-
-                    <ControllerMarker controllerInfo={controllerData}/>
+                    {controllerLayerVisible &&
+                        <ControllerMarker controllerInfo={controllerData}/>
+                    }
                     {/* <Marker latitude={52.380001} longitude={13.5225} anchor="bottom"> */}
                     {/*     <div className="flex items-center justify-center w-12 h-6 bg-blue-500 text-white text-sm font-bold rounded"> */}
                     {/*         EGLL */}
@@ -223,6 +236,9 @@ function VatsimMap() {
                 }}
                 onChangeSatellite={(e: boolean) => {
                     setSatelliteLayerVisible(e);
+                }}
+                onChangeController={(e: boolean) => {
+                    setControllerLayerVisible(e);
                 }}
             />
         </div>

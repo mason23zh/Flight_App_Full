@@ -4,6 +4,7 @@ import React from "react";
 const switchMapLabels = (mapRef: React.RefObject<MapRef>, visibility: boolean) => {
     const flag = visibility ? "visible" : "none";
     if (mapRef.current) {
+        console.log("switch map label's mapRef:", mapRef.current.getMap());
         const map = mapRef.current.getMap();
         console.log("map from ref", map);
         map.setLayoutProperty("continent-label", "visibility", flag);

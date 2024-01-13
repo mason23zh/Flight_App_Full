@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Marker } from "react-map-gl";
+import React, { useEffect, useMemo, useState } from "react";
+import { Marker, Popup } from "react-map-gl";
 import { VatsimControllers } from "../../../types";
+import mapboxgl from "mapbox-gl";
+
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -73,6 +75,7 @@ const facilities = [
 
 const ControllerMarker = ({ controllerInfo }: Controller) => {
     const [data, setData] = useState<Array<AirportService>>([]);
+    const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
             const facilityMap = facilities.reduce((map, f) => {
@@ -136,13 +139,13 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
                 if (s.atis_code || s.callsign.includes("ATIS")) {
                     atisIcon = (
                         <div className="bg-yellow-500 text-center" title="Atis">
-                            <div className="px-1 py-0">A</div>
+                            <div className="px-0.5 py-0">A</div>
                         </div>
                     );
                 }
                 if (!s.atis_code && s.facility === 2) {
                     delIcon = <div className="bg-blue-500 text-center " title="Delivery">
-                        <div className="px-1 py-0">D</div>
+                        <div className="px-0.5 py-0">D</div>
                     </div>;
                 }
                 if (!s.atis_code && s.facility === 3) {
@@ -150,13 +153,13 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
                         className="bg-green-500 text-center"
                         title="Ground"
                     >
-                        <div className="px-1 py-0">G</div>
+                        <div className="px-0.5 py-0">G</div>
                     </div>;
                 }
 
                 if (!s.atis_code && s.facility === 4) {
                     twrIcon = <div className="bg-red-500 text-center" title="Tower">
-                        <div className="px-1 py-0">T</div>
+                        <div className="px-0.5 py-0">T</div>
                     </div>;
                 }
             });
@@ -165,7 +168,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         const gridColsClass = `grid-cols-${iconNumbers.length}`;
 
         return (
-            <div className={`grid ${gridColsClass} p-1 text-xs`}>
+            <div className={`grid ${gridColsClass} text-[8px]`}>
                 {atisIcon}
                 {delIcon}
                 {gndIcon}
@@ -174,29 +177,47 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         );
     };
 
+    const handleOnClick = (e) => {
+        e.stopPropagation();
+        console.log("Event click:", e);
+    };
+
+
     const renderMarkers = () => {
         return data.map((a) => {
             const serviceIcons = generateServiceLabels(a.services);
-            const icao = <div>
+            const icao = <div className="font-semibold w-full bg-gray-500 opacity-80 text-gray-50"
+                onClick={(e) => handleOnClick(e)}>
                 {a.icao}
             </div>;
 
             return (
-                <Marker
-                    scale={0.5}
-                    longitude={Number(a.coordinates[0])}
-                    latitude={Number(a.coordinates[1])}
-                    key={a.icao}
-                    anchor="bottom">
-                    <div className="grid-cols-1 bg-amber-600 text-center max-w-[70px] text-xs">
-                        <div>
-                            {serviceIcons}
+                <div key={a.icao}>
+                    <Marker
+                        longitude={Number(a.coordinates[0])}
+                        latitude={Number(a.coordinates[1])}
+                        key={a.icao}
+                        anchor="bottom">
+                        <div className="grid-cols-1 text-center max-w-[70px] text-[9px] text-gray-50">
+                            <div>
+                                {icao}
+                            </div>
+                            <div>
+                                {serviceIcons}
+                            </div>
                         </div>
-                        <div>
-                            {icao}
-                        </div>
-                    </div>
-                </Marker>
+                    </Marker>
+                    {showPopup &&
+                        <Popup
+                            longitude={Number(a.coordinates[0])}
+                            latitude={Number(a.coordinates[1])}
+                            anchor="bottom-left"
+                            onClose={() => setShowPopup(false)}
+                        >
+                            {a.airportName}
+                        </Popup>
+                    }
+                </div>
             );
         });
     };
