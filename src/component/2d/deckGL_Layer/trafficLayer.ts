@@ -48,7 +48,6 @@ const trafficLayer = (
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
-        //getTooltip: ({ object }) => object && `${console.log("Get tooltip:", object)}`,
     });
 };
 

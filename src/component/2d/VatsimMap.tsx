@@ -34,8 +34,8 @@ interface PickedTraffic extends PickingInfo {
 //mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
 //mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
 function VatsimMap() {
+    let isHovering = false; //when mouse is hovering on a layer, the pointer will change
     const mapRef = useRef(null);
-    // const [showMarker, setShowMarker] = useState<boolean>(true);
     const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
@@ -121,15 +121,13 @@ function VatsimMap() {
         return <FirTextLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
 
-    // const onHoverTraffic = useMemo(() => {
-    //     console.log(hoverInfo);
-    //     if (hoverInfo.object) {
-    //         return `${hoverInfo.object.callsign}
-    //         ${hoverInfo.object.flight_plan.departure} - ${hoverInfo.object.flight_plan.arrival}
-    //     `;
-    //     }
-    //
-    // }, [hoverInfo]);
+    const controllerStatusIcons = useMemo(() => {
+        if (controllerLayerVisible) {
+            return <ControllerMarker controllerInfo={controllerData}/>;
+        }
+
+    }, [controllerData, controllerLayerVisible]);
+
 
     const layers = [
         useMemo(() =>
@@ -161,9 +159,7 @@ function VatsimMap() {
                 <NavigationControl/>
 
                 {/*Vatsim ATC Controller Icons*/}
-                {controllerLayerVisible &&
-                    <ControllerMarker controllerInfo={controllerData}/>
-                }
+                {controllerStatusIcons}
 
                 {/*Render different number of airports based on map's zoom level*/}
                 <MapboxSourceLayer>
@@ -184,10 +180,6 @@ function VatsimMap() {
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 <DeckGlOverlay
-                    // views={new GlobeView({
-                    //     id: "globe",
-                    //     controller: true
-                    // })}
                     interleaved={true}
                     onClick={(info: PickedTraffic) => deckOnClick(info)}
                     layers={layers}
@@ -206,6 +198,8 @@ function VatsimMap() {
                             };
                         }
                     }}
+                    onHover={({ object }) => (isHovering = Boolean(object))}
+                    getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
                 />
 
 

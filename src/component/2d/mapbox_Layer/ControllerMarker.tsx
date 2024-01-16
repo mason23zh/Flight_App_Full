@@ -73,6 +73,7 @@ const facilities = [
 
 
 const ControllerMarker = ({ controllerInfo }: Controller) => {
+    console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
     // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
