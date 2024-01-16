@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
-import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
 import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
@@ -25,6 +24,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
+import { _GlobeView as GlobeView } from "@deck.gl/core";
 
 
 interface PickedTraffic extends PickingInfo {
@@ -44,9 +44,9 @@ function VatsimMap() {
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const [hoverInfo, setHoverInfo] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
-        longitude: -122.41669,
-        latitude: 37.7853,
-        zoom: 6,
+        longitude: -93.59,
+        latitude: 42.57,
+        zoom: 3.5,
         pitch: 0,
         bearing: 0,
     });
@@ -78,16 +78,12 @@ function VatsimMap() {
     }, [controllerLayerVisible]);
 
 
-    // useEffect(() => {
-    //     changeMarkerSize(mapRef);
-    // }, [map]);
-
-
     const onMove = useCallback(({ viewState }) => {
         console.log("On move call");
         setViewState({
             longitude: viewState.longitude,
-            latitude: viewState, ...viewState
+            latitude: viewState,
+            ...viewState
         });
     }, []);
 
@@ -149,27 +145,26 @@ function VatsimMap() {
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
+                projection={{ name: "mercator" }}
                 id="mainMap"
-                // onLoad={(e) => onMapLoad(e)}
                 ref={mapRef}
                 mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
-                // initialViewState={viewState}
-                {...viewState}
+                mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
+                initialViewState={viewState}
                 style={{
                     height: "100vh",
                     width: "100vw",
                     position: "relative"
                 }}
-                onMove={evt => setViewState(evt.viewState)}
+                onMove={onMove}
+                dragPan={true}
                 //onDrag={evt => setViewState(evt.viewState)}
                 //onMoveStart={evt => setViewState(evt.viewState)}
-                mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
                 //onMouseOver={(e) => console.log("on mouse over:", e)}
-                terrain={{
-                    source: "mapbox-dem",
-                    exaggeration: 1.5
-                }}
-                dragPan={false}
+                // terrain={{
+                //     source: "mapbox-dem",
+                //     exaggeration: 1.5
+                // }}
             >
 
                 <NavigationControl/>
@@ -188,6 +183,10 @@ function VatsimMap() {
                     {firTextLayers}
                 </MapboxTextSourceLayer>
                 <DeckGlOverlay
+                    // views={new GlobeView({
+                    //     id: "globe",
+                    //     controller: true
+                    // })}
                     interleaved={true}
                     onClick={(info: PickedTraffic) => deckOnClick(info)}
                     onHover={(info: PickedTraffic) => deckOnHover(info)}
@@ -208,6 +207,12 @@ function VatsimMap() {
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-[50%] m-[12px] rounded-md">
                     TEST ONLY
                 </div>
+                <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-40 right-[50%] m-[12px] rounded-md">
+                    lat:{viewState.latitude}
+                    lon:{viewState.longitude}
+                    zoom:{viewState.zoom}
+                </div>
+
 
                 {detailTrafficSection()}
 
@@ -226,55 +231,6 @@ function VatsimMap() {
                         setControllerLayerVisible(e);
                     }}
                 />
-
-                {/* <DeckGL */}
-                {/*     onClick={(info: PickedTraffic) => deckOnClick(info)} */}
-                {/*     onHover={(info: PickedTraffic) => deckOnHover(info)} */}
-                {/*     initialViewState={viewState} */}
-                {/*     controller */}
-                {/*     layers={layers} */}
-                {/*     onViewStateChange={() => setViewState(viewState)} */}
-                {/*     style={{ */}
-                {/*         height: "100vh", */}
-                {/*         width: "100vw", */}
-                {/*         position: "relative" */}
-                {/*     }} */}
-                {/*     pickingRadius={10} */}
-
-                {/* > */}
-
-                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md"> */}
-                {/*         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""} */}
-                {/*     </div> */}
-                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md"> */}
-                {/*         <button onClick={goToNYC}>NEW YORK</button> */}
-                {/*     </div> */}
-                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md"> */}
-                {/*         Total Traffic: {vatsimData && vatsimData.length} */}
-                {/*     </div> */}
-                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-[50%] m-[12px] rounded-md"> */}
-                {/*         TEST ONLY */}
-                {/*     </div> */}
-
-                {/*     {detailTrafficSection()} */}
-
-                {/*     <LayerTogglePanel */}
-                {/*         onChangeTraffic={(e: boolean) => { */}
-                {/*             setTrafficLayerVisible(e); */}
-                {/*             setTrackLayerVisible(e); */}
-                {/*         }} */}
-                {/*         onChangeLabel={(e: boolean) => { */}
-                {/*             setMapLabelVisible(e); */}
-                {/*         }} */}
-                {/*         onChangeSatellite={(e: boolean) => { */}
-                {/*             setSatelliteLayerVisible(e); */}
-                {/*         }} */}
-                {/*         onChangeController={(e: boolean) => { */}
-                {/*             setControllerLayerVisible(e); */}
-                {/*         }} */}
-                {/*     /> */}
-
-                {/* </DeckGL> */}
             </Map>
 
         </div>

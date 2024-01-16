@@ -14,7 +14,7 @@ import Orion from "./component/Orion";
 import Puzzles from "./component/Puzzles";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
-import Earth from "./component/3d/Earth";
+// import Earth from "./component/3d/Earth";
 import VatsimMap from "./component/2d/VatsimMap";
 
 
@@ -34,7 +34,7 @@ function App() {
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail/>}/>
                     <Route path="Orion9600" element={<Orion/>}/>
                     <Route path="puzzles" element={<Puzzles/>}/>
-                    <Route path="3d" element={<Earth/>}/>
+                    {/* <Route path="3d" element={<Earth/>}/> */}
                     <Route
                         path="2d"
                         element={(

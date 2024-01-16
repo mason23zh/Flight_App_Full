@@ -1,8 +1,7 @@
-import React from "react";
 import { useControl } from "react-map-gl";
 import { MapboxOverlay, MapboxOverlayProps } from "@deck.gl/mapbox/typed";
 
-const DeckGlOverlay = (props: MapboxOverlayProps & {
+const DeckGLOverLay = (props: MapboxOverlayProps & {
     interleaved?: boolean;
 }) => {
     const overlay = useControl<MapboxOverlay>(() => new MapboxOverlay(props));
@@ -10,4 +9,4 @@ const DeckGlOverlay = (props: MapboxOverlayProps & {
     return null;
 };
 
-export default DeckGlOverlay;
+export default DeckGLOverLay;
