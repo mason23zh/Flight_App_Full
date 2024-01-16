@@ -42,11 +42,10 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    const [hoverInfo, setHoverInfo] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
-        longitude: -93.59,
-        latitude: 42.57,
-        zoom: 3.5,
+        longitude: -29.858598,
+        latitude: 36.15178,
+        zoom: 2.7,
         pitch: 0,
         bearing: 0,
     });
@@ -79,7 +78,6 @@ function VatsimMap() {
 
 
     const onMove = useCallback(({ viewState }) => {
-        console.log("On move call");
         setViewState({
             longitude: viewState.longitude,
             latitude: viewState,
@@ -99,8 +97,6 @@ function VatsimMap() {
     }, []);
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
-        // console.log("deck picking info:", info.object);
-        // console.log("deck picking event:", event);
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
             setTrackLayerVisible(true);
@@ -109,14 +105,6 @@ function VatsimMap() {
             setTrackLayerVisible(false);
         }
     }, [selectTraffic]);
-
-    const deckOnHover = useCallback((info: PickedTraffic) => {
-        if (info.object && info.layer) {
-            setHoverInfo(info.object);
-        } else {
-            setHoverInfo(null);
-        }
-    }, [hoverInfo]);
 
     const detailTrafficSection = useCallback(() => {
         if (selectTraffic) {
@@ -132,6 +120,16 @@ function VatsimMap() {
     const firTextLayers = useMemo(() => {
         return <FirTextLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
+
+    // const onHoverTraffic = useMemo(() => {
+    //     console.log(hoverInfo);
+    //     if (hoverInfo.object) {
+    //         return `${hoverInfo.object.callsign}
+    //         ${hoverInfo.object.flight_plan.departure} - ${hoverInfo.object.flight_plan.arrival}
+    //     `;
+    //     }
+    //
+    // }, [hoverInfo]);
 
     const layers = [
         useMemo(() =>
@@ -158,30 +156,33 @@ function VatsimMap() {
                 }}
                 onMove={onMove}
                 dragPan={true}
-                //onDrag={evt => setViewState(evt.viewState)}
-                //onMoveStart={evt => setViewState(evt.viewState)}
-                //onMouseOver={(e) => console.log("on mouse over:", e)}
-                // terrain={{
-                //     source: "mapbox-dem",
-                //     exaggeration: 1.5
-                // }}
             >
-
+                {/*Navigation Control Icons*/}
                 <NavigationControl/>
+
+                {/*Vatsim ATC Controller Icons*/}
                 {controllerLayerVisible &&
                     <ControllerMarker controllerInfo={controllerData}/>
                 }
+
+                {/*Render different number of airports based on map's zoom level*/}
                 <MapboxSourceLayer>
                     <SmallAirportLayer/>
                     <MediumAirportLayer/>
                     <LargeAirportLayer/>
                 </MapboxSourceLayer>
+
+                {/*Vatsim CTR Control FIR zone*/}
                 <FirBoundarySourceLayer>
                     {firLayers}
                 </FirBoundarySourceLayer>
+
+                {/*Vatsim CTR Control FIR Code*/}
                 <MapboxTextSourceLayer>
                     {firTextLayers}
                 </MapboxTextSourceLayer>
+
+                {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 <DeckGlOverlay
                     // views={new GlobeView({
                     //     id: "globe",
@@ -189,15 +190,25 @@ function VatsimMap() {
                     // })}
                     interleaved={true}
                     onClick={(info: PickedTraffic) => deckOnClick(info)}
-                    onHover={(info: PickedTraffic) => deckOnHover(info)}
                     layers={layers}
                     pickingRadius={10}
+
+                    getTooltip={({ object }) => {
+                        if (object) {
+                            const bgColor = "rgba(39, 40, 45, 0.13)";
+                            return {
+                                text: object && `${object.callsign}
+                                      ${object?.flight_plan?.departure} - ${object?.flight_plan?.arrival}`,
+                                style: {
+                                    backgroundColor: bgColor,
+                                    color: "white"
+                                }
+                            };
+                        }
+                    }}
                 />
 
 
-                <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
-                    {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
-                </div>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
                     <button onClick={goToNYC}>NEW YORK</button>
                 </div>
@@ -216,6 +227,7 @@ function VatsimMap() {
 
                 {detailTrafficSection()}
 
+                {/*Map symbol switch panel*/}
                 <LayerTogglePanel
                     onChangeTraffic={(e: boolean) => {
                         setTrafficLayerVisible(e);

@@ -4,7 +4,7 @@ import { GLTFLoader } from "@loaders.gl/gltf";
 import { VatsimFlight } from "../../../types";
 import airport_model from "../../../assets/models/airplane.glb";
 import { useEffect, useState } from "react";
-  
+
 const ANIMATIONS = {
     "*": { speed: 1 },
 };
@@ -48,6 +48,7 @@ const trafficLayer = (
             d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
+        //getTooltip: ({ object }) => object && `${console.log("Get tooltip:", object)}`,
     });
 };
 
