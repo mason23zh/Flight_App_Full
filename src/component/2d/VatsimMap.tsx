@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import { Map } from "react-map-gl";
+import InteractiveMap, { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -22,8 +22,6 @@ import FirTextLayer from "./mapbox_Layer/FirTextLayer";
 import MapboxTextSourceLayer from "./mapbox_Layer/MapboxTextSourceLayer";
 import ControllerMarker from "./mapbox_Layer/ControllerMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
-import changeMarkerSize from "./mapbox_Layer/changeMarkerSize";
-import { MapEvent } from "react-map-gl/dist/es5/types";
 import switchControllerView from "./switchControllerView";
 
 
@@ -167,7 +165,8 @@ function VatsimMap() {
                 pickingRadius={10}
 
             >
-                <Map
+                <InteractiveMap
+                    id="mainMap"
                     // onLoad={(e) => onMapLoad(e)}
                     ref={mapRef}
                     mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
@@ -209,7 +208,7 @@ function VatsimMap() {
                     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
                         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
                     </div>
-                </Map>
+                </InteractiveMap>
 
                 {/* <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-50 m-[12px] rounded-md"> */}
                 {/*     Longitude: {viewState.longitude} | Latitude: {viewState.latitude} | Zoom: {viewState.zoom} */}

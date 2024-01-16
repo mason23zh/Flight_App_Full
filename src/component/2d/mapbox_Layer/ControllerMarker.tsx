@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Marker, Popup } from "react-map-gl";
 import { VatsimControllers } from "../../../types";
-import mapboxgl from "mapbox-gl";
 
 
 interface Controller {
@@ -75,7 +74,7 @@ const facilities = [
 
 const ControllerMarker = ({ controllerInfo }: Controller) => {
     const [data, setData] = useState<Array<AirportService>>([]);
-    const [showPopup, setShowPopup] = useState<boolean>(false);
+    // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
             const facilityMap = facilities.reduce((map, f) => {
@@ -123,7 +122,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
 
         if (controllerInfo) {
             const temp = combineAirportServices(controllerInfo.other.controllers, controllerInfo.other.atis, facilities);
-            console.log(temp);
+            //console.log(temp);
             setData(temp);
         }
 
@@ -165,10 +164,10 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
             });
         }
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
-        const gridColsClass = `grid-cols-${iconNumbers.length}`;
-
+        // console.log(services[0].callsign, iconNumbers.length);
+        const iconClass = `grid grid-cols-${iconNumbers.length} text-[8px] w-full`;
         return (
-            <div className={`grid ${gridColsClass} text-[8px]`}>
+            <div className={iconClass}>
                 {atisIcon}
                 {delIcon}
                 {gndIcon}
@@ -177,47 +176,35 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         );
     };
 
-    const handleOnClick = (e) => {
-        e.stopPropagation();
+    const handleMarkerClick = (e) => {
+        //e.stopPropagation();
         console.log("Event click:", e);
     };
-
 
     const renderMarkers = () => {
         return data.map((a) => {
             const serviceIcons = generateServiceLabels(a.services);
-            const icao = <div className="font-semibold w-full bg-gray-500 opacity-80 text-gray-50"
-                onClick={(e) => handleOnClick(e)}>
+            const icao = <div className="font-semibold opacity-80 text-gray-50">
                 {a.icao}
             </div>;
 
             return (
-                <div key={a.icao}>
-                    <Marker
-                        longitude={Number(a.coordinates[0])}
-                        latitude={Number(a.coordinates[1])}
-                        key={a.icao}
-                        anchor="bottom">
-                        <div className="grid-cols-1 text-center max-w-[70px] text-[9px] text-gray-50">
-                            <div>
-                                {icao}
-                            </div>
-                            <div>
-                                {serviceIcons}
-                            </div>
-                        </div>
-                    </Marker>
-                    {showPopup &&
-                        <Popup
-                            longitude={Number(a.coordinates[0])}
-                            latitude={Number(a.coordinates[1])}
-                            anchor="bottom-left"
-                            onClose={() => setShowPopup(false)}
-                        >
-                            {a.airportName}
-                        </Popup>
-                    }
-                </div>
+                <Marker
+                    onClick={() => console.log("MAP ONCLICK")}
+                    style={{ zIndex: 10 }}
+                    longitude={Number(a.coordinates[0])}
+                    latitude={Number(a.coordinates[1])}
+                    scale={1.5}
+                    key={a.icao}
+                    anchor="bottom">
+                    <div
+                        className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5 z-10"
+                        onClick={(e) => handleMarkerClick(e)}
+                    >
+                        {icao}
+                        {serviceIcons}
+                    </div>
+                </Marker>
             );
         });
     };
