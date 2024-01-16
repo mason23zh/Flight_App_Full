@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { VatsimFlight } from "../../types";
-import InteractiveMap, { Map } from "react-map-gl";
+import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -23,6 +23,8 @@ import MapboxTextSourceLayer from "./mapbox_Layer/MapboxTextSourceLayer";
 import ControllerMarker from "./mapbox_Layer/ControllerMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
+import { NavigationControl } from "react-map-gl";
+import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 
 
 interface PickedTraffic extends PickingInfo {
@@ -146,73 +148,57 @@ function VatsimMap() {
 
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
-            <DeckGL
-                onClick={(info: PickedTraffic) => deckOnClick(info)}
-                onHover={(info: PickedTraffic) => deckOnHover(info)}
-                initialViewState={viewState}
-                controller
-                layers={layers}
-                onViewStateChange={() => setViewState(viewState)}
-                // views={new GlobeView({
-                //     id: "globe",
-                //     controller: true
-                // })}
+            <Map
+                id="mainMap"
+                // onLoad={(e) => onMapLoad(e)}
+                ref={mapRef}
+                mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
+                // initialViewState={viewState}
+                {...viewState}
                 style={{
                     height: "100vh",
                     width: "100vw",
                     position: "relative"
                 }}
-                pickingRadius={10}
-
+                onMove={evt => setViewState(evt.viewState)}
+                //onDrag={evt => setViewState(evt.viewState)}
+                //onMoveStart={evt => setViewState(evt.viewState)}
+                mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
+                //onMouseOver={(e) => console.log("on mouse over:", e)}
+                terrain={{
+                    source: "mapbox-dem",
+                    exaggeration: 1.5
+                }}
+                dragPan={false}
             >
-                <InteractiveMap
-                    id="mainMap"
-                    // onLoad={(e) => onMapLoad(e)}
-                    ref={mapRef}
-                    mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
-                    initialViewState={viewState}
-                    style={{
-                        width: 600,
-                        height: 400
-                    }}
-                    onMove={onMove}
-                    mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
-                    //onMouseOver={(e) => console.log("on mouse over:", e)}
-                    terrain={{
-                        source: "mapbox-dem",
-                        exaggeration: 1.5
-                    }}
-                    dragPan={false}
-                >
-                    {controllerLayerVisible &&
-                        <ControllerMarker controllerInfo={controllerData}/>
-                    }
-                    {/* <Marker latitude={52.380001} longitude={13.5225} anchor="bottom"> */}
-                    {/*     <div className="flex items-center justify-center w-12 h-6 bg-blue-500 text-white text-sm font-bold rounded"> */}
-                    {/*         EGLL */}
-                    {/*     </div> */}
-                    {/* </Marker> */}
 
-                    <MapboxSourceLayer>
-                        <SmallAirportLayer/>
-                        <MediumAirportLayer/>
-                        <LargeAirportLayer/>
-                    </MapboxSourceLayer>
-                    <FirBoundarySourceLayer>
-                        {firLayers}
-                    </FirBoundarySourceLayer>
-                    <MapboxTextSourceLayer>
-                        {firTextLayers}
-                    </MapboxTextSourceLayer>
+                <NavigationControl/>
+                {controllerLayerVisible &&
+                    <ControllerMarker controllerInfo={controllerData}/>
+                }
+                <MapboxSourceLayer>
+                    <SmallAirportLayer/>
+                    <MediumAirportLayer/>
+                    <LargeAirportLayer/>
+                </MapboxSourceLayer>
+                <FirBoundarySourceLayer>
+                    {firLayers}
+                </FirBoundarySourceLayer>
+                <MapboxTextSourceLayer>
+                    {firTextLayers}
+                </MapboxTextSourceLayer>
+                <DeckGlOverlay
+                    interleaved={true}
+                    onClick={(info: PickedTraffic) => deckOnClick(info)}
+                    onHover={(info: PickedTraffic) => deckOnHover(info)}
+                    layers={layers}
+                    pickingRadius={10}
+                />
 
-                    <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
-                        {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
-                    </div>
-                </InteractiveMap>
 
-                {/* <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-50 m-[12px] rounded-md"> */}
-                {/*     Longitude: {viewState.longitude} | Latitude: {viewState.latitude} | Zoom: {viewState.zoom} */}
-                {/* </div> */}
+                <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md">
+                    {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""}
+                </div>
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
                     <button onClick={goToNYC}>NEW YORK</button>
                 </div>
@@ -224,22 +210,73 @@ function VatsimMap() {
                 </div>
 
                 {detailTrafficSection()}
-            </DeckGL>
-            <LayerTogglePanel
-                onChangeTraffic={(e: boolean) => {
-                    setTrafficLayerVisible(e);
-                    setTrackLayerVisible(e);
-                }}
-                onChangeLabel={(e: boolean) => {
-                    setMapLabelVisible(e);
-                }}
-                onChangeSatellite={(e: boolean) => {
-                    setSatelliteLayerVisible(e);
-                }}
-                onChangeController={(e: boolean) => {
-                    setControllerLayerVisible(e);
-                }}
-            />
+
+                <LayerTogglePanel
+                    onChangeTraffic={(e: boolean) => {
+                        setTrafficLayerVisible(e);
+                        setTrackLayerVisible(e);
+                    }}
+                    onChangeLabel={(e: boolean) => {
+                        setMapLabelVisible(e);
+                    }}
+                    onChangeSatellite={(e: boolean) => {
+                        setSatelliteLayerVisible(e);
+                    }}
+                    onChangeController={(e: boolean) => {
+                        setControllerLayerVisible(e);
+                    }}
+                />
+
+                {/* <DeckGL */}
+                {/*     onClick={(info: PickedTraffic) => deckOnClick(info)} */}
+                {/*     onHover={(info: PickedTraffic) => deckOnHover(info)} */}
+                {/*     initialViewState={viewState} */}
+                {/*     controller */}
+                {/*     layers={layers} */}
+                {/*     onViewStateChange={() => setViewState(viewState)} */}
+                {/*     style={{ */}
+                {/*         height: "100vh", */}
+                {/*         width: "100vw", */}
+                {/*         position: "relative" */}
+                {/*     }} */}
+                {/*     pickingRadius={10} */}
+
+                {/* > */}
+
+                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-10 left-0 m-[12px] rounded-md"> */}
+                {/*         {(hoverInfo && hoverInfo) ? hoverInfo.callsign : ""} */}
+                {/*     </div> */}
+                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md"> */}
+                {/*         <button onClick={goToNYC}>NEW YORK</button> */}
+                {/*     </div> */}
+                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute top-30 left-0 m-[12px] rounded-md"> */}
+                {/*         Total Traffic: {vatsimData && vatsimData.length} */}
+                {/*     </div> */}
+                {/*     <div className="bg-amber-600 px-2 py-3 z-1 absolute bottom-50 right-[50%] m-[12px] rounded-md"> */}
+                {/*         TEST ONLY */}
+                {/*     </div> */}
+
+                {/*     {detailTrafficSection()} */}
+
+                {/*     <LayerTogglePanel */}
+                {/*         onChangeTraffic={(e: boolean) => { */}
+                {/*             setTrafficLayerVisible(e); */}
+                {/*             setTrackLayerVisible(e); */}
+                {/*         }} */}
+                {/*         onChangeLabel={(e: boolean) => { */}
+                {/*             setMapLabelVisible(e); */}
+                {/*         }} */}
+                {/*         onChangeSatellite={(e: boolean) => { */}
+                {/*             setSatelliteLayerVisible(e); */}
+                {/*         }} */}
+                {/*         onChangeController={(e: boolean) => { */}
+                {/*             setControllerLayerVisible(e); */}
+                {/*         }} */}
+                {/*     /> */}
+
+                {/* </DeckGL> */}
+            </Map>
+
         </div>
     );
 }
