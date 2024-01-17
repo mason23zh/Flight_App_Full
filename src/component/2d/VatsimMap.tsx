@@ -25,14 +25,15 @@ import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { _GlobeView as GlobeView } from "@deck.gl/core";
+import MapboxTraconSourceLayer from "./mapbox_Layer/MapboxTraconSourceLayer";
+import TraconLayer from "./mapbox_Layer/TraconLayer";
 
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
-//mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
-//mapStyle="mapbox://styles/mason-zh/clqq37e4c00k801p586732u2h"
+
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
     const mapRef = useRef(null);
@@ -42,6 +43,7 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
+    const [mapLayerHoverInfo, setMapLayerHoverInfo] = useState(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -83,6 +85,19 @@ function VatsimMap() {
             latitude: viewState,
             ...viewState
         });
+    }, []);
+
+    const onMapLayerHover = useCallback(event => {
+        //console.log(event);
+        if (event.feature) {
+            console.log("map layer hover:", event.feature);
+        }
+        // const county = event.features && event.features[0];
+        // setMapLayerHoverInfo({
+        //     longitude: event.lngLat.lng,
+        //     latitude: event.lngLat.lat,
+        //     countyName: county && county.properties.COUNTY
+        // });
     }, []);
 
 
@@ -144,16 +159,19 @@ function VatsimMap() {
                 projection={{ name: "mercator" }}
                 id="mainMap"
                 ref={mapRef}
-                mapboxAccessToken="pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"
-                mapStyle="mapbox://styles/mason-zh/clqxdtuh100of01qrcwtw8en1"
+                mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
+                mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                 initialViewState={viewState}
                 style={{
-                    height: "100vh",
+                    height: "94vh",
                     width: "100vw",
                     position: "relative"
                 }}
                 onMove={onMove}
+                // onMouseOver={onMapLayerHover}
+                onMouseMove={onMapLayerHover}
                 dragPan={true}
+                interactiveLayerIds={["firs"]}
             >
                 {/*Navigation Control Icons*/}
                 <NavigationControl/>
@@ -177,6 +195,11 @@ function VatsimMap() {
                 <MapboxTextSourceLayer>
                     {firTextLayers}
                 </MapboxTextSourceLayer>
+
+                {/*Vatsim Tracon (Dep and App) boundaries*/}
+                <MapboxTraconSourceLayer>
+                    <TraconLayer controllerInfo={controllerData}/>
+                </MapboxTraconSourceLayer>
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 <DeckGlOverlay

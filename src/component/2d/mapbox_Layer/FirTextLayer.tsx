@@ -18,7 +18,7 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
             // console.log("filter array", filter);
             // console.log("filter:", firArray);
             setFilter(firArray);
-            console.log("filter:", filter);
+            // console.log("filter:", filter);
         }
     }, [controllerInfo]);
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { Source } from "react-map-gl";
 
-const MapboxSourceLayer = ({ children }) => {
+const MapboxTraconSourceLayer = ({ children }) => {
     return (
         <Source
-            id="gns-430-source"
-            url={import.meta.env.VITE_MAPBOX_AIRPORT_LAYER_URL}
+            id="tracon-source-layer"
+            url={import.meta.env.VITE_MAPBOX_TRACON_LAYER_URL}
             type="vector"
             maxzoom={14}>
             {children}
@@ -13,4 +13,4 @@ const MapboxSourceLayer = ({ children }) => {
     );
 };
 
-export default MapboxSourceLayer;
+export default MapboxTraconSourceLayer;

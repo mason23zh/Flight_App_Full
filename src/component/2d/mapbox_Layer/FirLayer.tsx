@@ -30,9 +30,8 @@ const FirLayer = ({ controllerInfo }: Controller) => {
                 type="fill"
                 source="fir-boundary-source"
                 source-layer="firboundaries"
-                id="fir-canada"
+                id="firs"
                 filter={filter}
-                // minzoom={1}
                 paint={{
                     "fill-color": "rgba(230, 230, 211, 0.351)",
                     "fill-opacity": 0.8

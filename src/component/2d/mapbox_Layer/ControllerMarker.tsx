@@ -75,6 +75,8 @@ const facilities = [
 const ControllerMarker = ({ controllerInfo }: Controller) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
+    const [colsNumber, setColsNumber] = useState<number>(0);
+
     // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -165,8 +167,9 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
             });
         }
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
-        // console.log(services[0].callsign, iconNumbers.length);
-        const iconClass = `grid grid-cols-${iconNumbers.length} text-[8px] w-full`;
+
+        const iconClass = `grid grid-cols-${iconNumbers.length.toString()} text-[8px] w-full`;
+        console.log(services[0].callsign, iconNumbers.length, iconClass);
         return (
             <div className={iconClass}>
                 {atisIcon}
