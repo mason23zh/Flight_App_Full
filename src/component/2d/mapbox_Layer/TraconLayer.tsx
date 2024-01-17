@@ -6,7 +6,7 @@ interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-type FilterType = (string | number | boolean | FilterType)[]
+type FilterType = (string | boolean | FilterType)[]
 /*
 * [
     "any",
@@ -41,7 +41,8 @@ const TraconLayer = ({ controllerInfo }: Controller) => {
                 id="tracons"
                 filter={filter}
                 paint={{
-                    "fill-color": "rgba(39, 174, 245, 0.5)",
+                    "fill-outline-color": "rgb(12,91,231)",
+                    "fill-color": "rgba(39, 174, 245, 0.3)",
                     "fill-opacity": 0.8
                 }}
             />

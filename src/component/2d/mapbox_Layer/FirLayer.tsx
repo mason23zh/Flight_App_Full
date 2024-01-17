@@ -24,7 +24,6 @@ const FirLayer = ({ controllerInfo }: Controller) => {
 
 
     if (filter.length > 2) {
-        // console.log("Filter:", filter);
         return (
             <Layer
                 type="fill"
@@ -33,6 +32,7 @@ const FirLayer = ({ controllerInfo }: Controller) => {
                 id="firs"
                 filter={filter}
                 paint={{
+                    "fill-outline-color": "rgb(255,255,255)",
                     "fill-color": "rgba(230, 230, 211, 0.351)",
                     "fill-opacity": 0.8
                 }}

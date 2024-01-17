@@ -198,7 +198,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
                     style={{ zIndex: 10 }}
                     longitude={Number(a.coordinates[0])}
                     latitude={Number(a.coordinates[1])}
-                    scale={1.5}
+                    scale={0.5}
                     key={a.icao}
                     anchor="bottom">
                     <div

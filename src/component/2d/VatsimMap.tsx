@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { VatsimFlight } from "../../types";
-import { Map } from "react-map-gl";
+import { Map, MapLayerMouseEvent } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -43,7 +43,6 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    const [mapLayerHoverInfo, setMapLayerHoverInfo] = useState(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -87,11 +86,11 @@ function VatsimMap() {
         });
     }, []);
 
-    const onMapLayerHover = useCallback(event => {
+    const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
         //console.log(event);
-        if (event.feature) {
-            console.log("map layer hover:", event.feature);
-        }
+        // if (event.feature) {
+        //     console.log("map layer hover:", event.feature);
+        // }
         // const county = event.features && event.features[0];
         // setMapLayerHoverInfo({
         //     longitude: event.lngLat.lng,
@@ -136,6 +135,9 @@ function VatsimMap() {
         return <FirTextLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
 
+    const traconLayers = useMemo(() => {
+        return <TraconLayer controllerInfo={controllerData}/>;
+    }, [controllerData]);
     const controllerStatusIcons = useMemo(() => {
         if (controllerLayerVisible) {
             return <ControllerMarker controllerInfo={controllerData}/>;
@@ -146,7 +148,7 @@ function VatsimMap() {
 
     const layers = [
         useMemo(() =>
-            flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
+            !trackError && flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
         [trackData, selectTraffic, vatsimData, trackLayerVisible]
         ),
         trafficLayer(vatsimData, trafficLayerVisible)
@@ -176,9 +178,6 @@ function VatsimMap() {
                 {/*Navigation Control Icons*/}
                 <NavigationControl/>
 
-                {/*Vatsim ATC Controller Icons*/}
-                {controllerStatusIcons}
-
                 {/*Render different number of airports based on map's zoom level*/}
                 <MapboxSourceLayer>
                     <SmallAirportLayer/>
@@ -186,44 +185,56 @@ function VatsimMap() {
                     <LargeAirportLayer/>
                 </MapboxSourceLayer>
 
+
+                {/*Vatsim ATC Controller Icons*/}
+                {!controllerError && controllerStatusIcons}
+
                 {/*Vatsim CTR Control FIR zone*/}
-                <FirBoundarySourceLayer>
-                    {firLayers}
-                </FirBoundarySourceLayer>
+                {!controllerError &&
+                    <FirBoundarySourceLayer>
+                        {firLayers}
+                    </FirBoundarySourceLayer>
+                }
 
                 {/*Vatsim CTR Control FIR Code*/}
-                <MapboxTextSourceLayer>
-                    {firTextLayers}
-                </MapboxTextSourceLayer>
+                {!controllerError &&
+                    <MapboxTextSourceLayer>
+                        {firTextLayers}
+                    </MapboxTextSourceLayer>
+                }
 
                 {/*Vatsim Tracon (Dep and App) boundaries*/}
-                <MapboxTraconSourceLayer>
-                    <TraconLayer controllerInfo={controllerData}/>
-                </MapboxTraconSourceLayer>
+                {!controllerError &&
+                    <MapboxTraconSourceLayer>
+                        {traconLayers}
+                    </MapboxTraconSourceLayer>
+                }
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
-                <DeckGlOverlay
-                    interleaved={true}
-                    onClick={(info: PickedTraffic) => deckOnClick(info)}
-                    layers={layers}
-                    pickingRadius={10}
+                {!vatsimError &&
+                    <DeckGlOverlay
+                        interleaved={true}
+                        onClick={(info: PickedTraffic) => deckOnClick(info)}
+                        layers={layers}
+                        pickingRadius={10}
 
-                    getTooltip={({ object }) => {
-                        if (object) {
-                            const bgColor = "rgba(39, 40, 45, 0.13)";
-                            return {
-                                text: object && `${object.callsign}
+                        getTooltip={({ object }) => {
+                            if (object) {
+                                const bgColor = "rgba(39, 40, 45, 0.13)";
+                                return {
+                                    text: object && `${object.callsign}
                                       ${object?.flight_plan?.departure} - ${object?.flight_plan?.arrival}`,
-                                style: {
-                                    backgroundColor: bgColor,
-                                    color: "white"
-                                }
-                            };
-                        }
-                    }}
-                    onHover={({ object }) => (isHovering = Boolean(object))}
-                    getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
-                />
+                                    style: {
+                                        backgroundColor: bgColor,
+                                        color: "white"
+                                    }
+                                };
+                            }
+                        }}
+                        onHover={({ object }) => (isHovering = Boolean(object))}
+                        getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
+                    />
+                }
 
 
                 <div className="bg-amber-600 px-2 py-3 z-1 absolute top-20 left-0 m-[12px] rounded-md">
