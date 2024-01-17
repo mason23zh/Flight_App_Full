@@ -6,29 +6,29 @@ import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
 import useFetchVatsimPilots from "../../hooks/useFetchVatsimPilots";
 import useFetchTrafficTrackData from "../../hooks/useFetchTrafficTrackData";
-import MapboxSourceLayer from "./mapbox_Layer/MapboxSourceLayer";
-import SmallAirportLayer from "./mapbox_Layer/SmallAirportLayer";
-import MediumAirportLayer from "./mapbox_Layer/MediumAirportLayer";
-import LargeAirportLayer from "./mapbox_Layer/LargeAirportLayer";
+import MapboxSourceLayer from "./mapbox_Layer/Airport_Layers/MapboxSourceLayer";
+import SmallAirportLayer from "./mapbox_Layer/Airport_Layers/SmallAirportLayer";
+import MediumAirportLayer from "./mapbox_Layer/Airport_Layers/MediumAirportLayer";
+import LargeAirportLayer from "./mapbox_Layer/Airport_Layers/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
 import LayerTogglePanel from "./LayerTogglePanel";
 import switchMapLabels from "./switchMapLabels";
 import switchSatelliteView from "./switchSatelliteView";
-import FirLayer from "./mapbox_Layer/FirLayer";
-import FirBoundarySourceLayer from "./mapbox_Layer/FirBoundarySourceLayer";
+import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
+import FirBoundarySourceLayer from "./mapbox_Layer/FIR_Layers/FirBoundarySourceLayer";
 import useFetchControllerData from "../../hooks/useFetchControllerData";
-import FirTextLayer from "./mapbox_Layer/FirTextLayer";
-import MapboxTextSourceLayer from "./mapbox_Layer/MapboxTextSourceLayer";
+import FirTextLayer from "./mapbox_Layer/FIR_Layers/FirTextLayer";
+import MapboxTextSourceLayer from "./mapbox_Layer/FIR_Layers/MapboxTextSourceLayer";
 import ControllerMarker from "./mapbox_Layer/ControllerMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { _GlobeView as GlobeView } from "@deck.gl/core";
-import MapboxTraconSourceLayer from "./mapbox_Layer/MapboxTraconSourceLayer";
-import TraconLayer from "./mapbox_Layer/TraconLayer";
+import MapboxTraconSourceLayer from "./mapbox_Layer/Tracon_Layers/MapboxTraconSourceLayer";
+import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 
-
+ 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
@@ -145,10 +145,17 @@ function VatsimMap() {
 
     }, [controllerData, controllerLayerVisible]);
 
+    if (trackData) {
+        console.log(trackError);
+    }
+
 
     const layers = [
-        useMemo(() =>
-            !trackError && flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible),
+        useMemo(() => {
+            if (!trackError) {
+                return flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible);
+            }
+        },
         [trackData, selectTraffic, vatsimData, trackLayerVisible]
         ),
         trafficLayer(vatsimData, trafficLayerVisible)

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Layer } from "react-map-gl";
-import { VatsimControllers } from "../../../types";
+import { VatsimControllers } from "../../../../types";
 
 interface Controller {
     controllerInfo: VatsimControllers;

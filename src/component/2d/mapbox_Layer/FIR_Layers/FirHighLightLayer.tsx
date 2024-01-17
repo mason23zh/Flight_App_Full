@@ -1,27 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Layer } from "react-map-gl";
-import { VatsimControllers } from "../../../types";
+import { VatsimControllers } from "../../../../types";
 
 interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-const FirLayer = ({ controllerInfo }: Controller) => {
-    console.log("Fir layer render");
+const FirHighLightLayer = ({ controllerInfo }: Controller, selectedFir: string) => {
     const [filter, setFilter] = useState([]);
     useEffect(() => {
-        console.log("Controller info:", controllerInfo);
-        if (controllerInfo && controllerInfo.fir.length > 0) {
-            const firArray = ["in", "id", ...filter];
-            controllerInfo.fir.forEach((c) => {
-                firArray.push(c.fir);
-            });
-            // console.log("filter array", filter);
-            // console.log("filter:", firArray);
-            setFilter(firArray);
-        }
-    }, [controllerInfo]);
-
+        setFilter(["in", "id", selectedFir]);
+    }, [selectedFir]);
 
     if (filter.length > 2) {
         return (
@@ -39,7 +28,6 @@ const FirLayer = ({ controllerInfo }: Controller) => {
             />
         );
     }
-
 };
 
-export default React.memo(FirLayer);
+export default React.memo(FirHighLightLayer);

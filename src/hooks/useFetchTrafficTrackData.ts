@@ -18,10 +18,8 @@ const useFetchTrafficTrackData = (selectTraffic: Partial<VatsimFlight>) => {
                         setData(res.data.data);
                     }
                 } catch (e) {
-                    throw new Error("Can not get track data");
+                    throw new Error("Can not get track data inside");
                 }
-            } else {
-                throw new Error("Can not get track data");
             }
         };
         getTrackData()
