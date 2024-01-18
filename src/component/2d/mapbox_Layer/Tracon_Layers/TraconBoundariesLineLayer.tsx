@@ -10,7 +10,7 @@ type FilterType = (string | boolean | FilterType)[]
 
 
 const TraconBoundariesLineLayer = ({ controllerInfo }: Controller) => {
-    console.log(controllerInfo);
+    console.log("Tracon boundaries line layer render");
     const [filter, setFilter] = useState([]);
 
     useEffect(() => {
@@ -43,4 +43,4 @@ const TraconBoundariesLineLayer = ({ controllerInfo }: Controller) => {
     }
 };
 
-export default TraconBoundariesLineLayer;
+export default React.memo(TraconBoundariesLineLayer);

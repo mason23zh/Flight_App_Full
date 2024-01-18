@@ -16,7 +16,7 @@ type FilterType = (string | boolean | FilterType)[]
 * */
 
 const TraconLayer = ({ controllerInfo }: Controller) => {
-    console.log(controllerInfo);
+    console.log("Tracon layer render");
     const [filter, setFilter] = useState([]);
 
     useEffect(() => {
@@ -50,4 +50,4 @@ const TraconLayer = ({ controllerInfo }: Controller) => {
     }
 };
 
-export default TraconLayer;
+export default React.memo(TraconLayer);

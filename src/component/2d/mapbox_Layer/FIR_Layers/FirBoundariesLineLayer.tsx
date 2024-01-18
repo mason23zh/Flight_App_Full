@@ -7,6 +7,7 @@ interface Controller {
 }
 
 const FirBoundariesLineLayer = ({ controllerInfo }: Controller) => {
+    console.log("Fir boundaries line layer render");
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         if (controllerInfo && controllerInfo.fir.length > 0) {
@@ -44,4 +45,4 @@ const FirBoundariesLineLayer = ({ controllerInfo }: Controller) => {
     }
 };
 
-export default FirBoundariesLineLayer;
+export default React.memo(FirBoundariesLineLayer);

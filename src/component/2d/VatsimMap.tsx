@@ -30,6 +30,8 @@ import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 import FirHighLightLayer from "./mapbox_Layer/FIR_Layers/FirHighLightLayer";
 import FirBoundariesLineLayer from "./mapbox_Layer/FIR_Layers/FirBoundariesLineLayer";
 import TraconBoundariesLineLayer from "./mapbox_Layer/Tracon_Layers/TraconBoundariesLineLayer";
+import useFirLayers from "../../hooks/useFirLayers";
+import useTraconLayers from "../../hooks/useTraconLayers";
 
 
 interface PickedTraffic extends PickingInfo {
@@ -66,6 +68,15 @@ function VatsimMap() {
         data: controllerData,
         error: controllerError
     } = useFetchControllerData();
+
+    const {
+        firLayer: FirLayers,
+        firTextLayer: FirTextLayer
+    } = useFirLayers(controllerData, controllerError);
+
+    const {
+        traconLayers: TraconLayers,
+    } = useTraconLayers(controllerData, controllerError);
 
 
     useEffect(() => {
@@ -130,25 +141,6 @@ function VatsimMap() {
         return null;
     }, [selectTraffic]);
 
-    const firLayers = useMemo(() => {
-        return <FirLayer controllerInfo={controllerData}/>;
-    }, [controllerData]);
-
-    const firBoundariesLine = useMemo(() => {
-        return <FirBoundariesLineLayer controllerInfo={controllerData}/>;
-    }, [controllerData]);
-
-    const firTextLayers = useMemo(() => {
-        return <FirTextLayer controllerInfo={controllerData}/>;
-    }, [controllerData]);
-
-    const traconBoundariesLine = useMemo(() => {
-        return <TraconBoundariesLineLayer controllerInfo={controllerData}/>;
-    }, [controllerData]);
-
-    const traconLayers = useMemo(() => {
-        return <TraconLayer controllerInfo={controllerData}/>;
-    }, [controllerData]);
     const controllerStatusIcons = useMemo(() => {
         if (controllerLayerVisible) {
             return <ControllerMarker controllerInfo={controllerData}/>;
@@ -208,27 +200,13 @@ function VatsimMap() {
                 {!controllerError && controllerStatusIcons}
 
                 {/*Vatsim CTR Control FIR zone*/}
-                {!controllerError &&
-                    <FirBoundarySourceLayer>
-                        {firLayers}
-                        {firBoundariesLine}
-                    </FirBoundarySourceLayer>
-                }
+                {FirLayers}
 
                 {/*Vatsim CTR Control FIR Code*/}
-                {!controllerError &&
-                    <MapboxTextSourceLayer>
-                        {firTextLayers}
-                    </MapboxTextSourceLayer>
-                }
+                {FirTextLayer}
 
                 {/*Vatsim Tracon (Dep and App) boundaries*/}
-                {!controllerError &&
-                    <MapboxTraconSourceLayer>
-                        {traconLayers}
-                        {traconBoundariesLine}
-                    </MapboxTraconSourceLayer>
-                }
+                {TraconLayers}
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 {!vatsimError &&

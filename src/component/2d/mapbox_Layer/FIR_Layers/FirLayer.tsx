@@ -7,6 +7,7 @@ interface Controller {
 }
 
 const FirLayer = ({ controllerInfo }: Controller) => {
+    console.log("FIR layer render");
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         if (controllerInfo && controllerInfo.fir.length > 0) {
