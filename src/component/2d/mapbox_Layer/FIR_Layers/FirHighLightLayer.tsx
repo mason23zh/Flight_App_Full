@@ -8,9 +8,9 @@ interface Controller {
 
 const FirHighLightLayer = ({ controllerInfo }: Controller, selectedFir: string) => {
     const [filter, setFilter] = useState([]);
-    useEffect(() => {
-        setFilter(["in", "id", selectedFir]);
-    }, [selectedFir]);
+    // useEffect(() => {
+    //     setFilter(["in", "id", selectedFir]);
+    // }, [selectedFir]);
 
     if (filter.length > 2) {
         return (
@@ -18,11 +18,11 @@ const FirHighLightLayer = ({ controllerInfo }: Controller, selectedFir: string) 
                 type="fill"
                 source="fir-boundary-source"
                 source-layer="firboundaries"
-                id="firs"
-                filter={filter}
+                id="firs-highlight"
+                filter={["in", "in", "EGTT"]}
                 paint={{
                     "fill-outline-color": "rgb(255,255,255)",
-                    "fill-color": "rgba(230, 230, 211, 0.351)",
+                    "fill-color": "rgba(233,47,47, 0.351)",
                     "fill-opacity": 0.8
                 }}
             />

@@ -11,7 +11,7 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
     useEffect(() => {
         console.log("Controller info:", controllerInfo);
         if (controllerInfo && controllerInfo.fir.length > 0) {
-            const firArray = ["in", "id", ...filter];
+            const firArray = ["in", "id", "EGTT"];
             controllerInfo.fir.forEach((c) => {
                 firArray.push(c.fir);
             });

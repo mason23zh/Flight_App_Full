@@ -125,7 +125,6 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
 
         if (controllerInfo) {
             const temp = combineAirportServices(controllerInfo.other.controllers, controllerInfo.other.atis, facilities);
-            //console.log(temp);
             setData(temp);
         }
 
@@ -138,6 +137,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         let atisIcon = null;
         if (services.length > 0) {
             services.forEach((s) => {
+                if (s.facility === 5 || s.facility === 6) return;
                 if (s.atis_code || s.callsign.includes("ATIS")) {
                     atisIcon = (
                         <div className="bg-yellow-500 text-center" title="Atis">
@@ -169,7 +169,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
 
         const iconClass = `grid grid-cols-${iconNumbers.length.toString()} text-[8px] w-full`;
-        console.log(services[0].callsign, iconNumbers.length, iconClass);
+        //console.log(services[0].callsign, iconNumbers.length, iconClass);
         return (
             <div className={iconClass}>
                 {atisIcon}

@@ -20,9 +20,10 @@ const useFetchControllerData = () => {
         getControllerData()
             .then()
             .catch((e) => setError(e));
-        
+
         // Vatsim controllers data update every 30 seconds
         const intervalId = setInterval(() => {
+            console.log("fetch controller data");
             getControllerData()
                 .then()
                 .catch((e) => setError(e));

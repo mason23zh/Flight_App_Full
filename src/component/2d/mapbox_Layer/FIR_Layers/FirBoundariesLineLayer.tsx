@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Layer } from "react-map-gl";
 import { VatsimControllers } from "../../../../types";
+import { Layer } from "react-map-gl";
 
 interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-const FirLayer = ({ controllerInfo }: Controller) => {
+const FirBoundariesLineLayer = ({ controllerInfo }: Controller) => {
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         if (controllerInfo && controllerInfo.fir.length > 0) {
             const firArray = ["in", "id"];
             controllerInfo.fir.forEach((c) => {
                 let fir = c.fir;
-                //! EDDM FIR won't render
+
                 if (c.callsign.split("_").length === 3) {
                     const prefix = c.callsign.split("_")[1];
                     if (isNaN(+prefix)) {
@@ -22,7 +22,6 @@ const FirLayer = ({ controllerInfo }: Controller) => {
                 }
                 firArray.push(fir);
             });
-            console.log("fir array:", firArray);
             setFilter(firArray);
         }
     }, [controllerInfo]);
@@ -31,20 +30,18 @@ const FirLayer = ({ controllerInfo }: Controller) => {
     if (filter.length > 2) {
         return (
             <Layer
-                type="fill"
+                type="line"
                 source="fir-boundary-source"
                 source-layer="firboundaries"
-                id="firs"
+                id="firs-boundary-line"
                 filter={filter}
                 paint={{
-                    "fill-outline-color": "rgb(255,255,255)",
-                    "fill-color": "rgba(230, 230, 211, 0.351)",
-                    "fill-opacity": 0.8
+                    "line-color": "#FFFFFF",
+                    "line-width": 1.5
                 }}
             />
         );
     }
 };
 
-
-export default React.memo(FirLayer);
+export default FirBoundariesLineLayer;

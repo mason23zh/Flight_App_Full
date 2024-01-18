@@ -27,8 +27,11 @@ import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { _GlobeView as GlobeView } from "@deck.gl/core";
 import MapboxTraconSourceLayer from "./mapbox_Layer/Tracon_Layers/MapboxTraconSourceLayer";
 import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
+import FirHighLightLayer from "./mapbox_Layer/FIR_Layers/FirHighLightLayer";
+import FirBoundariesLineLayer from "./mapbox_Layer/FIR_Layers/FirBoundariesLineLayer";
+import TraconBoundariesLineLayer from "./mapbox_Layer/Tracon_Layers/TraconBoundariesLineLayer";
 
- 
+
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
@@ -131,8 +134,16 @@ function VatsimMap() {
         return <FirLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
 
+    const firBoundariesLine = useMemo(() => {
+        return <FirBoundariesLineLayer controllerInfo={controllerData}/>;
+    }, [controllerData]);
+
     const firTextLayers = useMemo(() => {
         return <FirTextLayer controllerInfo={controllerData}/>;
+    }, [controllerData]);
+
+    const traconBoundariesLine = useMemo(() => {
+        return <TraconBoundariesLineLayer controllerInfo={controllerData}/>;
     }, [controllerData]);
 
     const traconLayers = useMemo(() => {
@@ -200,6 +211,7 @@ function VatsimMap() {
                 {!controllerError &&
                     <FirBoundarySourceLayer>
                         {firLayers}
+                        {firBoundariesLine}
                     </FirBoundarySourceLayer>
                 }
 
@@ -214,6 +226,7 @@ function VatsimMap() {
                 {!controllerError &&
                     <MapboxTraconSourceLayer>
                         {traconLayers}
+                        {traconBoundariesLine}
                     </MapboxTraconSourceLayer>
                 }
 
