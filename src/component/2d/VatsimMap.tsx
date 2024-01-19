@@ -6,32 +6,20 @@ import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
 import useFetchVatsimPilots from "../../hooks/useFetchVatsimPilots";
 import useFetchTrafficTrackData from "../../hooks/useFetchTrafficTrackData";
-import MapboxSourceLayer from "./mapbox_Layer/Airport_Layers/MapboxSourceLayer";
-import SmallAirportLayer from "./mapbox_Layer/Airport_Layers/SmallAirportLayer";
-import MediumAirportLayer from "./mapbox_Layer/Airport_Layers/MediumAirportLayer";
-import LargeAirportLayer from "./mapbox_Layer/Airport_Layers/LargeAirportLayer";
 import { PickingInfo } from "@deck.gl/core/typed";
 import LayerTogglePanel from "./LayerTogglePanel";
 import switchMapLabels from "./switchMapLabels";
 import switchSatelliteView from "./switchSatelliteView";
-import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
-import FirBoundarySourceLayer from "./mapbox_Layer/FIR_Layers/FirBoundarySourceLayer";
 import useFetchControllerData from "../../hooks/useFetchControllerData";
-import FirTextLayer from "./mapbox_Layer/FIR_Layers/FirTextLayer";
-import MapboxTextSourceLayer from "./mapbox_Layer/FIR_Layers/MapboxTextSourceLayer";
 import ControllerMarker from "./mapbox_Layer/ControllerMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { _GlobeView as GlobeView } from "@deck.gl/core";
-import MapboxTraconSourceLayer from "./mapbox_Layer/Tracon_Layers/MapboxTraconSourceLayer";
-import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
-import FirHighLightLayer from "./mapbox_Layer/FIR_Layers/FirHighLightLayer";
-import FirBoundariesLineLayer from "./mapbox_Layer/FIR_Layers/FirBoundariesLineLayer";
-import TraconBoundariesLineLayer from "./mapbox_Layer/Tracon_Layers/TraconBoundariesLineLayer";
 import useFirLayers from "../../hooks/useFirLayers";
 import useTraconLayers from "../../hooks/useTraconLayers";
+import useAirportsLayers from "../../hooks/useAirportsLayers";
 
 
 interface PickedTraffic extends PickingInfo {
@@ -48,6 +36,7 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
+    const [hoverFir, setHoverFir] = useState(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -72,11 +61,13 @@ function VatsimMap() {
     const {
         firLayer: FirLayers,
         firTextLayer: FirTextLayer
-    } = useFirLayers(controllerData, controllerError);
+    } = useFirLayers(controllerData, controllerError, hoverFir);
 
     const {
         traconLayers: TraconLayers,
     } = useTraconLayers(controllerData, controllerError);
+
+    const { airportLayers: AirportLayers } = useAirportsLayers();
 
 
     useEffect(() => {
@@ -101,16 +92,15 @@ function VatsimMap() {
     }, []);
 
     const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
-        //console.log(event);
-        // if (event.feature) {
-        //     console.log("map layer hover:", event.feature);
-        // }
-        // const county = event.features && event.features[0];
-        // setMapLayerHoverInfo({
-        //     longitude: event.lngLat.lng,
-        //     latitude: event.lngLat.lat,
-        //     countyName: county && county.properties.COUNTY
-        // });
+        if (mapRef) {
+            const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
+            if (feature.length) {
+                console.log("on map hover feature:", feature);
+                setHoverFir(feature[0].properties.id);
+            } else {
+                setHoverFir(null);
+            }
+        }
     }, []);
 
 
@@ -180,7 +170,7 @@ function VatsimMap() {
                     position: "relative"
                 }}
                 onMove={onMove}
-                // onMouseOver={onMapLayerHover}
+                //onMouseOver={onMapLayerHover}
                 onMouseMove={onMapLayerHover}
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
@@ -189,12 +179,7 @@ function VatsimMap() {
                 <NavigationControl/>
 
                 {/*Render different number of airports based on map's zoom level*/}
-                <MapboxSourceLayer>
-                    <SmallAirportLayer/>
-                    <MediumAirportLayer/>
-                    <LargeAirportLayer/>
-                </MapboxSourceLayer>
-
+                {AirportLayers}
 
                 {/*Vatsim ATC Controller Icons*/}
                 {!controllerError && controllerStatusIcons}

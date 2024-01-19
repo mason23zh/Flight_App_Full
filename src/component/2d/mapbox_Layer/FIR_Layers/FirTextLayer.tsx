@@ -10,8 +10,9 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         console.log("Controller info:", controllerInfo);
+        
         if (controllerInfo && controllerInfo.fir.length > 0) {
-            const firArray = ["in", "id", "EGTT"];
+            const firArray = ["in", "id"];
             controllerInfo.fir.forEach((c) => {
                 firArray.push(c.fir);
             });

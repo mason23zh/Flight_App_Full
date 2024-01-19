@@ -7,9 +7,9 @@ import FirBoundarySourceLayer from "../component/2d/mapbox_Layer/FIR_Layers/FirB
 import MapboxTextSourceLayer from "../component/2d/mapbox_Layer/FIR_Layers/MapboxTextSourceLayer";
 
 
-const useFirLayers = (controllerData: VatsimControllers, controllerError: Partial<Error>) => {
+const useFirLayers = (controllerData: VatsimControllers, controllerError: Partial<Error>, hoverFir) => {
     const firLayers = useMemo(() =>
-        <FirLayer controllerInfo={controllerData}/>,
+        <FirLayer controllerInfo={controllerData} hoverFir={hoverFir}/>,
     [controllerData]);
 
     const firBoundariesLine = useMemo(() =>

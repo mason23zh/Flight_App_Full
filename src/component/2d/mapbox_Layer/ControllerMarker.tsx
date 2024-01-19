@@ -194,7 +194,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
 
             return (
                 <Marker
-                    onClick={() => console.log("MAP ONCLICK")}
+                    onClick={(e) => console.log("MAP ONCLICK event:", e)}
                     style={{ zIndex: 10 }}
                     longitude={Number(a.coordinates[0])}
                     latitude={Number(a.coordinates[1])}
