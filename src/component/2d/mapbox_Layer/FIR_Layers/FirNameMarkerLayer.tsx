@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { VatsimControllers } from "../../../../types";
 import { MapRef } from "react-map-gl";
 
+// import fir_labels from "../../../../assets/mapbox/fir_labels.json";
+
 interface Controller {
     controllerInfo: VatsimControllers;
 }
@@ -21,6 +23,12 @@ const FirNameMarkerLayer = ({ controllerInfo }: Controller, mapRef: React.RefObj
             // console.log("filter:", filter);
         }
 
+        //
+        // for (const item in JSON.parse(fir_labels)) {
+        //     console.log(item);
+        // }
+
+
         if (mapRef.current) {
             const map = mapRef.current.getMap();
 
@@ -30,7 +38,7 @@ const FirNameMarkerLayer = ({ controllerInfo }: Controller, mapRef: React.RefObj
             }
         }
 
-    }, [controllerInfo]);
+    }, [controllerInfo, mapRef]);
 
 
     return (

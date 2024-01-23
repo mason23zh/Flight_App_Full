@@ -4,7 +4,7 @@ import { VatsimControllers } from "../../../../types";
 
 interface Controller {
     controllerInfo: VatsimControllers;
-    hoverFir: any;
+    hoverFir: string;
 }
 
 const FirLayer = ({
@@ -12,14 +12,12 @@ const FirLayer = ({
     hoverFir
 }: Controller) => {
     console.log("FIR layer render");
+    console.log("Fir layer hover fir:", hoverFir);
     const [filter, setFilter] = useState([]);
+    const [hoverFilter, setHoverFilter] = useState([]);
 
-    const hoverFilter = ["==", ["get", "id"], hoverFir ? hoverFir : ""];
 
     useEffect(() => {
-        if (hoverFir) {
-            console.log("HOVER ID:", hoverFir);
-        }
         if (controllerInfo && controllerInfo.fir.length > 0) {
             const firArray = ["in", "id"];
             controllerInfo.fir.forEach((c) => {
@@ -36,7 +34,16 @@ const FirLayer = ({
             console.log("fir array:", firArray);
             setFilter(firArray);
         }
-    }, [controllerInfo, hoverFir]);
+    }, [controllerInfo]);
+
+    useEffect(() => {
+        if (hoverFir) {
+            console.log("Fir layer hover fir:", hoverFir);
+            setHoverFilter(["==", ["get", "id"], hoverFir]);
+        } else {
+            setHoverFilter(["==", ["get", "id"], ""]);
+        }
+    }, [hoverFir]);
 
 
     if (filter.length > 2) {

@@ -20,7 +20,9 @@ import { _GlobeView as GlobeView } from "@deck.gl/core";
 import useFirLayers from "../../hooks/useFirLayers";
 import useTraconLayers from "../../hooks/useTraconLayers";
 import useAirportsLayers from "../../hooks/useAirportsLayers";
-
+import FirNameMarkerLayer from "./mapbox_Layer/FIR_Layers/FirNameMarkerLayer";
+import { debounce } from "lodash";
+import TestFirLayer from "./mapbox_Layer/FIR_Layers/Test_FirLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -92,16 +94,23 @@ function VatsimMap() {
     }, []);
 
     const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
-        if (mapRef) {
-            const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
-            if (feature.length) {
-                console.log("on map hover feature:", feature);
-                setHoverFir(feature[0].properties.id);
-            } else {
-                setHoverFir(null);
+        if (mapRef.current) {
+            if (mapRef.current.getLayer("fir-text")) {
+                const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
+                if (feature.length > 0) {
+                    const newHoverFir = feature[0].properties.id;
+                    if (newHoverFir !== hoverFir) {
+                        console.log("set hover fir:", newHoverFir);
+                        setHoverFir(newHoverFir);
+                    }
+                } else {
+                    if (hoverFir !== null) {
+                        setHoverFir(null);
+                    }
+                }
             }
         }
-    }, []);
+    }, [mapRef, hoverFir, setHoverFir]);
 
 
     const goToNYC = useCallback(() => {
@@ -175,6 +184,10 @@ function VatsimMap() {
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
             >
+
+                <TestFirLayer controllerInfo={controllerData}/>
+
+
                 {/*Navigation Control Icons*/}
                 <NavigationControl/>
 

@@ -10,7 +10,7 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
     const [filter, setFilter] = useState([]);
     useEffect(() => {
         console.log("Controller info:", controllerInfo);
-        
+
         if (controllerInfo && controllerInfo.fir.length > 0) {
             const firArray = ["in", "id"];
             controllerInfo.fir.forEach((c) => {
@@ -33,7 +33,7 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
                 filter={filter}
                 layout={{
                     "text-max-width": 4,
-                    "text-size": 15,
+                    "text-size": 18,
                     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                     "text-field": ["get", "id"],
                     "text-offset": [0, 0],
@@ -41,7 +41,7 @@ const FirTextLayer = ({ controllerInfo }: Controller) => {
                     "text-allow-overlap": false
                 }}
                 paint={{
-                    "text-color": "#212224",
+                    "text-color": "white",
                 }}
             />
 
