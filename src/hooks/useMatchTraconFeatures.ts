@@ -9,7 +9,7 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: 
     });
     useMemo(() => {
         if (controllerInfo && geoJsonData) {
-            const matchedTracons = [];
+            const matchedTracons = new Set<GeoJson.Feature>();
             controllerInfo.other.controllers.forEach((controller) => {
                 // facility 5 is APP/DEP
                 if (controller.facility === 5) {
@@ -25,11 +25,11 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: 
                         //     console.log("tracon layer geojson feature::", feature.properties?.prefix[0]);
                         // });
 
-                        const matchedFeature =
+                        const matchedFeature: GeoJson.Feature =
                                 geoJsonData.features.find((feature) => feature.properties?.prefix[0] === potentialMatch);
                         // console.log("Matched Features:", matchedFeature);
                         if (matchedFeature) {
-                            matchedTracons.push(matchedFeature);
+                            matchedTracons.add(matchedFeature);
                             matchFound = true;
                         }
 
@@ -37,11 +37,12 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: 
                     }
                 }
             });
+            const matchedArray: Array<GeoJson.Feature> = Array.from(matchedTracons);
 
             // const newFeatures = [...geoJsonFeatures.features];
             setGeoJsonFeatures(prevState => ({
                 ...prevState,
-                features: [...prevState.features, ...matchedTracons]
+                features: [...prevState.features, ...matchedArray]
             }));
         }
     }, [controllerInfo, geoJsonData]);
