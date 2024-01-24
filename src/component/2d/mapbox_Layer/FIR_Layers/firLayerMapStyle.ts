@@ -29,7 +29,7 @@ export const boundariesLineStyle: LineLayer = {
     type: "line",
     paint: {
         "line-color": "#FFFFFF",
-        "line-width": 1.5
+        "line-width": 1.8
     }
 };
 

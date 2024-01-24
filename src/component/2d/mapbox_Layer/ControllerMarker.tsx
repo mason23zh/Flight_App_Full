@@ -76,7 +76,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
     const [colsNumber, setColsNumber] = useState<number>(0);
-
+ 
     // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {

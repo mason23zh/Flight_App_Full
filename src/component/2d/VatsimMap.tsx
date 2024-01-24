@@ -201,7 +201,7 @@ function VatsimMap() {
                 {/* {FirLayers} */}
 
                 {/*Vatsim CTR Control FIR Code*/}
-                {FirTextLayer}
+                {/* {FirTextLayer} */}
 
                 {/*Vatsim Tracon (Dep and App) boundaries*/}
                 {TraconLayers}
