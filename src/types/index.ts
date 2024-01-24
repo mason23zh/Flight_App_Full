@@ -1,3 +1,5 @@
+import type GeoJson from "geojson";
+
 interface Barometer {
     hg: string,
     hpa: string,
@@ -286,4 +288,59 @@ interface VatsimControllers {
     }
 }
 
-export type { Weather, Event, VatsimFlight, VatsimTrackTraffic, DbAirport, VatsimControllers };
+interface MultiPolygonGeometry {
+    type: "MultiPolygon",
+    coordinates: [[number[]]]
+}
+
+interface VatsimGeoJsonFirBoundariesProperties {
+    id: string,
+    oceanic: string,
+    label_lon: string,
+    label_lat: string,
+}
+
+interface VatsimGeoJsonFeature {
+    type: "Feature",
+    properties: VatsimGeoJsonFirBoundariesProperties,
+    geometry: MultiPolygonGeometry
+}
+
+interface VatsimFirBoundaries {
+    type: string,
+    name: string,
+    crs: {
+        type: string,
+        properties: {
+            name: string
+        }
+    },
+    features: Array<VatsimGeoJsonFeature>
+}
+
+interface VatsimFirs {
+    [key: string]: {
+        icao: string;
+        name: string;
+        prefix: string;
+        fir: string;
+    };
+}
+
+interface VatsimMatchedFirBoundariesGeoJson {
+    type: "FeatureCollection",
+    features: Array<VatsimGeoJsonFeature>
+}
+
+export type {
+    Weather,
+    Event,
+    VatsimFlight,
+    VatsimTrackTraffic,
+    DbAirport,
+    VatsimControllers,
+    VatsimGeoJsonFeature,
+    VatsimFirs,
+    VatsimFirBoundaries,
+    VatsimMatchedFirBoundariesGeoJson
+};

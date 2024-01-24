@@ -198,7 +198,7 @@ function VatsimMap() {
                 {!controllerError && controllerStatusIcons}
 
                 {/*Vatsim CTR Control FIR zone*/}
-                {FirLayers}
+                {/* {FirLayers} */}
 
                 {/*Vatsim CTR Control FIR Code*/}
                 {FirTextLayer}
