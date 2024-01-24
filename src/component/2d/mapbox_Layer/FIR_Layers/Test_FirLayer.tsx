@@ -1,6 +1,6 @@
 import React from "react";
 import { VatsimControllers } from "../../../../types";
-import { Layer, Marker, Source } from "react-map-gl";
+import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
 import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
 import { layerStyle, boundariesLineStyle } from "./firLayerMapStyle";

@@ -23,6 +23,7 @@ import useAirportsLayers from "../../hooks/useAirportsLayers";
 import FirNameMarkerLayer from "./mapbox_Layer/FIR_Layers/FirNameMarkerLayer";
 import { debounce } from "lodash";
 import TestFirLayer from "./mapbox_Layer/FIR_Layers/Test_FirLayer";
+import TestTraconLayer from "./mapbox_Layer/Tracon_Layers/Test_TraconLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -38,7 +39,7 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    const [hoverFir, setHoverFir] = useState(null);
+    // const [hoverFir, setHoverFir] = useState(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -60,10 +61,10 @@ function VatsimMap() {
         error: controllerError
     } = useFetchControllerData();
 
-    const {
-        firLayer: FirLayers,
-        firTextLayer: FirTextLayer
-    } = useFirLayers(controllerData, controllerError, hoverFir);
+    // const {
+    //     firLayer: FirLayers,
+    //     firTextLayer: FirTextLayer
+    // } = useFirLayers(controllerData, controllerError, hoverFir);
 
     const {
         traconLayers: TraconLayers,
@@ -93,24 +94,24 @@ function VatsimMap() {
         });
     }, []);
 
-    const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
-        if (mapRef.current) {
-            if (mapRef.current.getLayer("fir-text")) {
-                const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
-                if (feature.length > 0) {
-                    const newHoverFir = feature[0].properties.id;
-                    if (newHoverFir !== hoverFir) {
-                        console.log("set hover fir:", newHoverFir);
-                        setHoverFir(newHoverFir);
-                    }
-                } else {
-                    if (hoverFir !== null) {
-                        setHoverFir(null);
-                    }
-                }
-            }
-        }
-    }, [mapRef, hoverFir, setHoverFir]);
+    // const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
+    //     if (mapRef.current) {
+    //         if (mapRef.current.getLayer("fir-text")) {
+    //             const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
+    //             if (feature.length > 0) {
+    //                 const newHoverFir = feature[0].properties.id;
+    //                 if (newHoverFir !== hoverFir) {
+    //                     console.log("set hover fir:", newHoverFir);
+    //                     setHoverFir(newHoverFir);
+    //                 }
+    //             } else {
+    //                 if (hoverFir !== null) {
+    //                     setHoverFir(null);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }, [mapRef, hoverFir, setHoverFir]);
 
 
     const goToNYC = useCallback(() => {
@@ -180,12 +181,13 @@ function VatsimMap() {
                 }}
                 onMove={onMove}
                 //onMouseOver={onMapLayerHover}
-                onMouseMove={onMapLayerHover}
+                //onMouseMove={onMapLayerHover}
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
             >
 
                 <TestFirLayer controllerInfo={controllerData}/>
+                <TestTraconLayer controllerInfo={controllerData}/>
 
 
                 {/*Navigation Control Icons*/}
@@ -204,7 +206,7 @@ function VatsimMap() {
                 {/* {FirTextLayer} */}
 
                 {/*Vatsim Tracon (Dep and App) boundaries*/}
-                {TraconLayers}
+                {/* {TraconLayers} */}
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 {!vatsimError &&
