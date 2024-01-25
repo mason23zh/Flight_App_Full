@@ -8,11 +8,20 @@ import { tafApi } from "./apis/tafApi";
 import { vatsimApi } from "./apis/vatsimApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
+import {
+    onMouseHoverFirLabel,
+    onMouseLeaveFirLabel,
+    onMouseHoverTraconLabel,
+    onMouseLeaveTraconLabel,
+    onMouseHoverControllerLabel,
+    onMouseLeaveControllerLabel, vatsimMapEventReducer
+} from "./slices/vatsimMapMouseEventSlice";
 
 export const store = configureStore({
     reducer: {
         vatsimEvent: vatsimEventReducer,
         extremeWeather: extremeWeatherReducer,
+        vatsimMapEvent: vatsimMapEventReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -47,4 +56,12 @@ export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
 export { useFetchCurrentVatsimEventsQuery, useFetchSortedVatsimEventsQuery } from "./apis/vatsimApi";
 export { changeUserSelection, changeUserSelectionVatsimEvent };
+export {
+    onMouseHoverFirLabel,
+    onMouseLeaveFirLabel,
+    onMouseHoverTraconLabel,
+    onMouseLeaveTraconLabel,
+    onMouseHoverControllerLabel,
+    onMouseLeaveControllerLabel
+};
 export type RootState = ReturnType<typeof store.getState> 

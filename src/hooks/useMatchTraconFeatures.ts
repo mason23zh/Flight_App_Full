@@ -1,49 +1,48 @@
 import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []
     });
-    useMemo(() => {
+
+
+    useEffect(() => {
+        console.log("use match tracon useeffect run.");
         if (controllerInfo && geoJsonData) {
-            const matchedTracons = new Set<GeoJson.Feature>();
-            controllerInfo.other.controllers.forEach((controller) => {
-                // facility 5 is APP/DEP
+            const newFeaturesSet = new Set<string>(); // Store ids of new features
+            const newFeatures = []; // Array to store new GeoJson features
+
+            controllerInfo.other.controllers.forEach(controller => {
                 if (controller.facility === 5) {
                     const parts = controller.callsign.split("_");
-                    // since tracon callsign could be ended with APP or DEP, check both and remove
                     if (parts[parts.length - 1] === "APP" || parts[parts.length - 1] === "DEP") {
                         parts.pop();
                     }
                     let matchFound = false;
                     while (parts.length > 0 && !matchFound) {
                         const potentialMatch = parts.join("_");
-                        // geoJsonData.features.forEach((feature) => {
-                        //     console.log("tracon layer geojson feature::", feature.properties?.prefix[0]);
-                        // });
-
-                        const matchedFeature: GeoJson.Feature =
-                                geoJsonData.features.find((feature) => feature.properties?.prefix[0] === potentialMatch);
-                        // console.log("Matched Features:", matchedFeature);
-                        if (matchedFeature) {
-                            matchedTracons.add(matchedFeature);
+                        const matchedFeature = geoJsonData.features.find(feature => feature.properties?.prefix[0] === potentialMatch);
+                        if (matchedFeature && !newFeaturesSet.has(matchedFeature.properties.id)) {
+                            newFeaturesSet.add(matchedFeature.properties.id);
+                            newFeatures.push(matchedFeature);
+                            // console.log("Matched tracon id:", matchedFeature.properties.id);
                             matchFound = true;
                         }
-
                         parts.pop();
                     }
                 }
             });
-            const matchedArray: Array<GeoJson.Feature> = Array.from(matchedTracons);
 
-            // const newFeatures = [...geoJsonFeatures.features];
-            setGeoJsonFeatures(prevState => ({
-                ...prevState,
-                features: [...prevState.features, ...matchedArray]
-            }));
+            // Only update state if new features are different from existing features
+            if (newFeatures.length !== geoJsonFeatures.features.length || newFeatures.some((feature, idx) => feature !== geoJsonFeatures.features[idx])) {
+                setGeoJsonFeatures({
+                    "type": "FeatureCollection",
+                    "features": newFeatures
+                });
+            }
         }
     }, [controllerInfo, geoJsonData]);
 

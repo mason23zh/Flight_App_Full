@@ -1,7 +1,7 @@
 import { FillLayer, LineLayer } from "react-map-gl";
 
 export const traconBoundariesLayerStyle: FillLayer = {
-    id: "test-tracon-layer",
+    id: "tracon-boundaries-layer",
     type: "fill",
     paint: {
         "fill-color": "#27aef5",
@@ -10,7 +10,7 @@ export const traconBoundariesLayerStyle: FillLayer = {
 };
 
 export const traconBoundariesLineLayerStyle: LineLayer = {
-    id: "test-tracon-boundaries-line-layer",
+    id: "tracon-boundaries-line-layer",
     type: "line",
     paint: {
         "line-color": "#04BDFF",

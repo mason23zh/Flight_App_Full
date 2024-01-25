@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { VatsimFlight } from "../../types";
-import { Map, MapLayerMouseEvent } from "react-map-gl";
+import { Map } from "react-map-gl";
 import SelectedTrafficDetail from "./SelectedTrafficDetail";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
@@ -16,12 +16,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
-import { _GlobeView as GlobeView } from "@deck.gl/core";
-import useFirLayers from "../../hooks/useFirLayers";
-import useTraconLayers from "../../hooks/useTraconLayers";
+// import { _GlobeView as GlobeView } from "@deck.gl/core";
 import useAirportsLayers from "../../hooks/useAirportsLayers";
-import FirNameMarkerLayer from "./mapbox_Layer/FIR_Layers/FirNameMarkerLayer";
-import { debounce } from "lodash";
 import TestFirLayer from "./mapbox_Layer/FIR_Layers/Test_FirLayer";
 import TestTraconLayer from "./mapbox_Layer/Tracon_Layers/Test_TraconLayer";
 
@@ -60,15 +56,7 @@ function VatsimMap() {
         data: controllerData,
         error: controllerError
     } = useFetchControllerData();
-
-    // const {
-    //     firLayer: FirLayers,
-    //     firTextLayer: FirTextLayer
-    // } = useFirLayers(controllerData, controllerError, hoverFir);
-
-    const {
-        traconLayers: TraconLayers,
-    } = useTraconLayers(controllerData, controllerError);
+    
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
@@ -93,26 +81,6 @@ function VatsimMap() {
             ...viewState
         });
     }, []);
-
-    // const onMapLayerHover = useCallback((event: MapLayerMouseEvent) => {
-    //     if (mapRef.current) {
-    //         if (mapRef.current.getLayer("fir-text")) {
-    //             const feature = mapRef.current.queryRenderedFeatures(event.point, { layers: ["fir-text"] });
-    //             if (feature.length > 0) {
-    //                 const newHoverFir = feature[0].properties.id;
-    //                 if (newHoverFir !== hoverFir) {
-    //                     console.log("set hover fir:", newHoverFir);
-    //                     setHoverFir(newHoverFir);
-    //                 }
-    //             } else {
-    //                 if (hoverFir !== null) {
-    //                     setHoverFir(null);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }, [mapRef, hoverFir, setHoverFir]);
-
 
     const goToNYC = useCallback(() => {
         setViewState({

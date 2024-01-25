@@ -10,11 +10,13 @@ interface Controller {
     controllerInfo: VatsimControllers;
 }
 
+
 const TestTraconLayer = ({ controllerInfo }: Controller) => {
+    console.log("Test Tracon Layer render.");
     const [traconBoundariesData] = useFetchVatsimTraconData();
     const geoJsonFeatures = useMatchTraconFeatures(controllerInfo, traconBoundariesData);
     const { renderedMarkers } = useRenderTraconLabelMarker(geoJsonFeatures);
-    console.log("GeoJson features:", geoJsonFeatures);
+    // console.log("GeoJson features:", geoJsonFeatures);
 
 
     return (
@@ -26,4 +28,4 @@ const TestTraconLayer = ({ controllerInfo }: Controller) => {
     );
 };
 
-export default TestTraconLayer;
+export default React.memo(TestTraconLayer);

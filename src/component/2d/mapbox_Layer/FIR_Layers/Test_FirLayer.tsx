@@ -3,7 +3,7 @@ import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
 import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
-import { layerStyle, boundariesLineStyle } from "./firLayerMapStyle";
+import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 
 interface Controller {
@@ -13,7 +13,11 @@ interface Controller {
 const TestFirLayer = ({ controllerInfo }: Controller) => {
     const [firData, geoJsonData] = useFetchVatsimFirData();
     const geoJsonFeatures = useMatchedFirFeatures(controllerInfo, firData, geoJsonData);
-    const { renderedMarkers } = useRenderFirLabelMarker(geoJsonFeatures);
+    const {
+        renderedMarkers,
+        hoverFir
+    } = useRenderFirLabelMarker(geoJsonFeatures);
+
 
     if (geoJsonData && controllerInfo) {
         console.log("Controller Info:", controllerInfo.fir);
@@ -24,9 +28,14 @@ const TestFirLayer = ({ controllerInfo }: Controller) => {
         <Source type="geojson" data={geoJsonFeatures}>
             <Layer {...layerStyle} />
             <Layer {...boundariesLineStyle}/>
+            {hoverFir &&
+                <Source type="geojson" data={hoverFir}>
+                    <Layer {...highlightLayer}/>
+                </Source>
+            }
             {renderedMarkers}
         </Source>
     );
 };
 
-export default TestFirLayer;
+export default React.memo(TestFirLayer);

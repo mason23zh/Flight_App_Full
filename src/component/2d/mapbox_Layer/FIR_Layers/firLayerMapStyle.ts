@@ -15,8 +15,17 @@ import React from "react";
 // }}
 // />
 
+export const highlightLayer: FillLayer = {
+    id: "fir-highlight-boundaries-layer",
+    type: "fill",
+    paint: {
+        "fill-color": "#9499a8",
+        "fill-opacity": 1,
+    }
+};
+
 export const layerStyle: FillLayer = {
-    id: "test-fir-layer",
+    id: "fir-boundaries-layer",
     type: "fill",
     paint: {
         "fill-color": "#9499a8",
@@ -25,7 +34,7 @@ export const layerStyle: FillLayer = {
 };
 
 export const boundariesLineStyle: LineLayer = {
-    id: "test-fir-boundaries-line-layer",
+    id: "fir-boundaries-line-layer",
     type: "line",
     paint: {
         "line-color": "#FFFFFF",

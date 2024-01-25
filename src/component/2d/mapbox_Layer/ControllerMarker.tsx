@@ -75,8 +75,7 @@ const facilities = [
 const ControllerMarker = ({ controllerInfo }: Controller) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
-    const [colsNumber, setColsNumber] = useState<number>(0);
- 
+
     // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -169,6 +168,8 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
 
         const iconClass = `grid grid-cols-${iconNumbers.length.toString()} text-[8px] w-full`;
+        // const iconClass = "grid grid-cols-4 text-[8px] w-full";
+
         //console.log(services[0].callsign, iconNumbers.length, iconClass);
         return (
             <div className={iconClass}>
@@ -180,10 +181,10 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         );
     };
 
-    const handleMarkerClick = (e) => {
-        //e.stopPropagation();
-        console.log("Event click:", e);
-    };
+    // const handleMarkerClick = (e) => {
+    //     //e.stopPropagation();
+    //     console.log("Event click:", e);
+    // };
 
     const renderMarkers = () => {
         return data.map((a) => {
@@ -194,7 +195,6 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
 
             return (
                 <Marker
-                    onClick={(e) => console.log("MAP ONCLICK event:", e)}
                     style={{ zIndex: 10 }}
                     longitude={Number(a.coordinates[0])}
                     latitude={Number(a.coordinates[1])}
@@ -202,8 +202,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
-                        className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5 z-10"
-                        onClick={(e) => handleMarkerClick(e)}
+                        className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}
                         {serviceIcons}
