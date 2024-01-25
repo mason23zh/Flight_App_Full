@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Marker } from "react-map-gl";
 
 const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
-    const [hoverFir, setHoverFir] = useState(null);
+    const [hoverFir, setHoverFir] = useState<GeoJson.FeatureCollection>(null);
     let renderedMarkers;
 
     const handleOnMouseOver = (feature: GeoJson.Feature) => {
@@ -11,19 +11,11 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
         console.log("FirLabel geojson feature", feature);
         setHoverFir({
             type: "FeatureCollection",
-            name: "fix",
-            crs: {
-                type: "name",
-                properties: {
-                    name: "urn:ogc:def:crs:OGC:1.3:CRS84"
-                }
-            },
             features: [feature]
         });
     };
 
     const handleOnMouseLeave = () => {
-        console.log("Mouse leavel");
         setHoverFir(null);
     };
 

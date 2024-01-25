@@ -20,7 +20,7 @@ export const highlightLayer: FillLayer = {
     type: "fill",
     paint: {
         "fill-color": "#9499a8",
-        "fill-opacity": 1,
+        "fill-opacity": 0.4,
     }
 };
 
@@ -29,7 +29,7 @@ export const layerStyle: FillLayer = {
     type: "fill",
     paint: {
         "fill-color": "#9499a8",
-        "fill-opacity": 0.5,
+        "fill-opacity": 0.2,
     }
 };
 
