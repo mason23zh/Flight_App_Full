@@ -1,12 +1,11 @@
 import React from "react";
 import { VatsimControllers } from "../../../../types";
-import { Layer, Popup, Source } from "react-map-gl";
+import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
 import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
-import ControllerMarker from "../ControllerMarker";
 
 interface Controller {
     controllerInfo: VatsimControllers;

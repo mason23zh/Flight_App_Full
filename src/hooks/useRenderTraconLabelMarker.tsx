@@ -1,9 +1,21 @@
 import GeoJson from "geojson";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Marker } from "react-map-gl";
 
 const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
+    const [hoverTracon, setHoverTracon] = useState<GeoJson.FeatureCollection>(null);
     console.log("use render tracon label");
+
+    const handleOnMouseOver = (feature: GeoJson.Feature) => {
+        setHoverTracon({
+            type: "FeatureCollection",
+            features: [feature]
+        });
+    };
+
+    const handOnMouseLeave = () => {
+        setHoverTracon(null);
+    };
     const renderMarkers = (geoJsonFeatures: GeoJson.FeatureCollection) => {
         console.log("Render marker function run.");
         if (geoJsonFeatures) {
@@ -19,7 +31,11 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
                             longitude={Number(lon)}
                             latitude={Number(lat)}
                         >
-                            <div className="bg-blue-400 text-center rounded-md py-0 px-1 text-[11px] text-black">
+                            <div
+                                className="bg-blue-400 text-center rounded-md py-0 px-1 text-[11px] text-black"
+                                onMouseEnter={() => handleOnMouseOver(feature)}
+                                onMouseLeave={handOnMouseLeave}
+                            >
                                 {feature.properties.id}
                             </div>
                         </Marker>
@@ -34,7 +50,10 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
     }, [geoJsonFeatures]);
 
 
-    return { renderedMarkers };
+    return {
+        renderedMarkers,
+        hoverTracon
+    };
 };
 
 export default useRenderTraconLabelMarker;

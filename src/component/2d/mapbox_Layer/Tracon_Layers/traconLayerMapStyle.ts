@@ -1,11 +1,12 @@
 import { FillLayer, LineLayer } from "react-map-gl";
 
-export const traconBoundariesLayerStyle: FillLayer = {
-    id: "tracon-boundaries-layer",
+
+export const highlightTraconBoundariesLayerStyle: FillLayer = {
+    id: "highlight-tracon-boundaries-layer",
     type: "fill",
     paint: {
         "fill-color": "#27aef5",
-        "fill-opacity": 0.5,
+        "fill-opacity": 0.4,
     }
 };
 
