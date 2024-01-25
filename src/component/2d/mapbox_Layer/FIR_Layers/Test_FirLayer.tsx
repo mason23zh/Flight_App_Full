@@ -6,6 +6,7 @@ import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
+import ControllerMarker from "../ControllerMarker";
 
 interface Controller {
     controllerInfo: VatsimControllers;

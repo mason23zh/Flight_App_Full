@@ -23,6 +23,7 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
         renderedMarkers = geoJsonFeatures.features.map((feature) => {
             return (
                 <Marker
+                    style={{ zIndex: 50 }}
                     key={feature.properties.id}
                     longitude={Number(feature.properties.label_lon)}
                     latitude={Number(feature.properties.label_lat)}

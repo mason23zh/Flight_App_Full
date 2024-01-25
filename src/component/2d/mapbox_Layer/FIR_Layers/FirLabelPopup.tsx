@@ -28,6 +28,7 @@ const FirLabelPopup = ({
 
     return (
         <Popup
+            style={{ zIndex: 100 }}
             longitude={Number(hoverFir.features[0].properties.label_lon)}
             latitude={Number(hoverFir.features[0].properties.label_lat)}
             closeButton={false}

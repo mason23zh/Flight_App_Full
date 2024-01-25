@@ -56,7 +56,7 @@ function VatsimMap() {
         data: controllerData,
         error: controllerError
     } = useFetchControllerData();
-    
+
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
@@ -148,8 +148,6 @@ function VatsimMap() {
                     position: "relative"
                 }}
                 onMove={onMove}
-                //onMouseOver={onMapLayerHover}
-                //onMouseMove={onMapLayerHover}
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
             >
@@ -166,15 +164,6 @@ function VatsimMap() {
 
                 {/*Vatsim ATC Controller Icons*/}
                 {!controllerError && controllerStatusIcons}
-
-                {/*Vatsim CTR Control FIR zone*/}
-                {/* {FirLayers} */}
-
-                {/*Vatsim CTR Control FIR Code*/}
-                {/* {FirTextLayer} */}
-
-                {/*Vatsim Tracon (Dep and App) boundaries*/}
-                {/* {TraconLayers} */}
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 {!vatsimError &&

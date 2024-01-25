@@ -14,6 +14,7 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
                     console.log("Tracon label check pass.");
                     return (
                         <Marker
+                            style={{ zIndex: 30 }}
                             key={feature.properties.id + feature.properties.prefix[0]}
                             longitude={Number(lon)}
                             latitude={Number(lat)}
