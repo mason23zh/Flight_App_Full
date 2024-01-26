@@ -168,9 +168,7 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
 
         const iconClass = `grid grid-cols-${iconNumbers.length.toString()} text-[8px] w-full`;
-        // const iconClass = "grid grid-cols-4 text-[8px] w-full";
 
-        //console.log(services[0].callsign, iconNumbers.length, iconClass);
         return (
             <div className={iconClass}>
                 {atisIcon}
@@ -181,10 +179,6 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         );
     };
 
-    // const handleMarkerClick = (e) => {
-    //     //e.stopPropagation();
-    //     console.log("Event click:", e);
-    // };
 
     const renderMarkers = () => {
         return data.map((a) => {

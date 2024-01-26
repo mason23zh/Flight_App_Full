@@ -12,22 +12,26 @@ import TraconLabelPopup from "./TraconLabelPopup";
 
 interface Controller {
     controllerInfo: VatsimControllers;
+    labelVisible: boolean;
 }
 
 
-const TraconLayer = ({ controllerInfo }: Controller) => {
+const TraconLayer = ({
+    controllerInfo,
+    labelVisible
+}: Controller) => {
     console.log("Test Tracon Layer render.");
     const [traconBoundariesData] = useFetchVatsimTraconData();
     const geoJsonFeatures = useMatchTraconFeatures(controllerInfo, traconBoundariesData);
     const {
         renderedMarkers,
         hoverTracon
-    } = useRenderTraconLabelMarker(geoJsonFeatures);
-
+    } = useRenderTraconLabelMarker(geoJsonFeatures, labelVisible);
+ 
     return (
         <Source type="geojson" data={geoJsonFeatures}>
             <Layer {...traconBoundariesLineLayerStyle}/>
-            {hoverTracon &&
+            {(hoverTracon && labelVisible) &&
                 <Source type="geojson" data={hoverTracon}>
                     {console.log("Tracon hover geo json features:", geoJsonFeatures)}
                     {console.log("Tracon hover source data:", hoverTracon)}
@@ -35,7 +39,7 @@ const TraconLayer = ({ controllerInfo }: Controller) => {
                     <TraconLabelPopup hoverTracon={hoverTracon}/>
                 </Source>
             }
-            {renderedMarkers}
+            {labelVisible && renderedMarkers}
         </Source>
     );
 };

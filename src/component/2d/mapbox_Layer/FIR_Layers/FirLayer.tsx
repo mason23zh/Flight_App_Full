@@ -9,9 +9,13 @@ import FirLabelPopup from "./FirLabelPopup";
 
 interface Controller {
     controllerInfo: VatsimControllers;
+    labelVisible: boolean;
 }
 
-const FirLayer = ({ controllerInfo }: Controller) => {
+const FirLayer = ({
+    controllerInfo,
+    labelVisible
+}: Controller) => {
     const [firData, geoJsonData] = useFetchVatsimFirData();
     const geoJsonFeatures = useMatchedFirFeatures(controllerInfo, firData, geoJsonData);
     const {
@@ -29,7 +33,7 @@ const FirLayer = ({ controllerInfo }: Controller) => {
         <Source type="geojson" data={geoJsonFeatures}>
             <Layer {...layerStyle} />
             <Layer {...boundariesLineStyle}/>
-            {(hoverFir && firData) &&
+            {(hoverFir && firData && labelVisible) &&
                 <Source type="geojson" data={hoverFir}>
                     <Layer {...highlightLayer}/>
                     {console.log("Hover fir info feather:", hoverFir)}
@@ -37,9 +41,9 @@ const FirLayer = ({ controllerInfo }: Controller) => {
                     <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
                 </Source>
             }
-            {renderedMarkers}
+            {labelVisible && renderedMarkers}
         </Source>
     );
 };
- 
+
 export default React.memo(FirLayer);

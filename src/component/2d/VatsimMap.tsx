@@ -30,6 +30,8 @@ function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
     const mapRef = useRef(null);
     const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
+    const [traconLabelVisible, setTraconLabelVisible] = useState<boolean>(true);
+    const [firLabelVisible, setFirLabelVisible] = useState<boolean>(true);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
@@ -151,10 +153,10 @@ function VatsimMap() {
                 interactiveLayerIds={["firs"]}
             >
                 {/*Fir boundaries, Fir Label and Fir label popup when hover*/}
-                <FirLayer controllerInfo={controllerData}/>
+                <FirLayer controllerInfo={controllerData} labelVisible={firLabelVisible}/>
 
                 {/*Tracon boundaries, Tracon label and tracon label popup when hover*/}
-                <TraconLayer controllerInfo={controllerData}/>
+                <TraconLayer controllerInfo={controllerData} labelVisible={traconLabelVisible}/>
 
 
                 {/*Navigation Control Icons*/}
@@ -225,6 +227,8 @@ function VatsimMap() {
                     }}
                     onChangeController={(e: boolean) => {
                         setControllerLayerVisible(e);
+                        setFirLabelVisible(e);
+                        setTraconLabelVisible(e);
                     }}
                 />
             </Map>
