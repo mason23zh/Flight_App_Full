@@ -35,7 +35,6 @@ function VatsimMap() {
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    // const [hoverFir, setHoverFir] = useState(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -151,8 +150,10 @@ function VatsimMap() {
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
             >
-
+                {/*Fir boundaries, Fir Label and Fir label popup when hover*/}
                 <FirLayer controllerInfo={controllerData}/>
+
+                {/*Tracon boundaries, Tracon label and tracon label popup when hover*/}
                 <TraconLayer controllerInfo={controllerData}/>
 
 

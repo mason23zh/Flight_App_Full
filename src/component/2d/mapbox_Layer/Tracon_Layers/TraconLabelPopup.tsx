@@ -1,53 +1,55 @@
 import React from "react";
-import { Popup } from "react-map-gl";
 import GeoJson from "geojson";
-import { VatsimFirs } from "../../../../types";
-import moment from "moment/moment";
+import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 
 interface Props {
-    hoverFir: GeoJson.FeatureCollection,
-    firData: VatsimFirs
+    hoverTracon: GeoJson.FeatureCollection;
 }
 
-const FirLabelPopup = ({
-    hoverFir,
-    firData
-}: Props) => {
+const TraconLabelPopup = ({ hoverTracon }: Props) => {
+    let lon: number;
+    let lat: number;
+    if ("coordinates" in hoverTracon.features[0].geometry) {
+        lon = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][0]);
+        lat = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][1]);
+    }
+    const controllerName = hoverTracon.features[0].properties.controllerInfo.name;
+    const logon_time = hoverTracon.features[0].properties.controllerInfo.logon_time;
+    const freq = hoverTracon.features[0].properties.controllerInfo.frequency;
+    const controllerCallsign = hoverTracon.features[0].properties.controllerInfo.callsign;
+    const traconName = hoverTracon.features[0].properties.name;
+
     const {
         hour,
         minute
-    } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
+    } = returnOnlineTime(logon_time);
 
     return (
         <Popup
+            longitude={lon}
+            latitude={lat}
             style={{ zIndex: 100 }}
-            longitude={Number(hoverFir.features[0].properties.label_lon)}
-            latitude={Number(hoverFir.features[0].properties.label_lat)}
             closeButton={false}
             anchor="bottom"
         >
-
             <div className="w-full">
                 <div className="flex text-center gap-3 justify-self-start w-max">
                     <div className="text-lg font-bold text-gray-600">
-                        {hoverFir.features[0].properties.id}
-                    </div>
-                    <div className="text-lg text-black">
-                        {firData[hoverFir.features[0].properties.id].name}
+                        {traconName}
                     </div>
                 </div>
 
                 <div className="w-full">
                     <div className="flex items-center text-center gap-2 px-2 py-1 w-fit">
                         <div className="">
-                            {hoverFir.features[0].properties.callsign}
+                            {controllerCallsign}
                         </div>
                         <div className="">
-                            {hoverFir.features[0].properties.name}
+                            {controllerName}
                         </div>
                         <div className="text-blue-500 font-bold">
-                            {hoverFir.features[0].properties.frequency}
+                            {freq}
                         </div>
                         <div className="">
                             {hour}:{minute}
@@ -59,4 +61,4 @@ const FirLabelPopup = ({
     );
 };
 
-export default FirLabelPopup;
+export default TraconLabelPopup;

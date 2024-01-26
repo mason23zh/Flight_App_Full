@@ -8,6 +8,7 @@ import {
     traconBoundariesLineLayerStyle
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
+import TraconLabelPopup from "./TraconLabelPopup";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -22,15 +23,16 @@ const TraconLayer = ({ controllerInfo }: Controller) => {
         renderedMarkers,
         hoverTracon
     } = useRenderTraconLabelMarker(geoJsonFeatures);
-    // console.log("GeoJson features:", geoJsonFeatures);
-
 
     return (
         <Source type="geojson" data={geoJsonFeatures}>
             <Layer {...traconBoundariesLineLayerStyle}/>
             {hoverTracon &&
                 <Source type="geojson" data={hoverTracon}>
+                    {console.log("Tracon hover geo json features:", geoJsonFeatures)}
+                    {console.log("Tracon hover source data:", hoverTracon)}
                     <Layer {...highlightTraconBoundariesLayerStyle}/>
+                    <TraconLabelPopup hoverTracon={hoverTracon}/>
                 </Source>
             }
             {renderedMarkers}

@@ -26,9 +26,17 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: 
                         const potentialMatch = parts.join("_");
                         const matchedFeature = geoJsonData.features.find(feature => feature.properties?.prefix[0] === potentialMatch);
                         if (matchedFeature && !newFeaturesSet.has(matchedFeature.properties.id)) {
+                            // append the controller info into the GeoJson Feature
+                            const tempMatchedFeature = {
+                                ...matchedFeature,
+                                properties: {
+                                    controllerInfo: controller,
+                                    ...matchedFeature.properties
+                                }
+                            };
                             newFeaturesSet.add(matchedFeature.properties.id);
-                            newFeatures.push(matchedFeature);
-                            // console.log("Matched tracon id:", matchedFeature.properties.id);
+                            newFeatures.push(tempMatchedFeature);
+                            console.log("Matched tracon controller info:", controller);
                             matchFound = true;
                         }
                         parts.pop();
