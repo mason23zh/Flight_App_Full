@@ -71,12 +71,21 @@ const facilities = [
     }
 ];
 
+// use preset class here to avoid tailwind dynamic class names out of the box
+// issue when using Just-In-Time mode.
+const colClassMap = {
+    0: "grid grid-cols-0 text-[8px] w-full",
+    1: "grid grid-cols-1 text-[8px] w-full",
+    2: "grid grid-cols-2 text-[8px] w-full",
+    3: "grid grid-cols-3 text-[8px] w-full",
+    4: "grid grid-cols-4 text-[8px] w-full"
+};
+
 
 const ControllerMarker = ({ controllerInfo }: Controller) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
 
-    // const [showPopup, setShowPopup] = useState<boolean>(false);
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
             const facilityMap = facilities.reduce((map, f) => {
@@ -166,8 +175,9 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
             });
         }
         const iconNumbers = [atisIcon, delIcon, gndIcon, twrIcon].filter(Boolean);
+        const numIcons = iconNumbers.length;
 
-        const iconClass = `grid grid-cols-${iconNumbers.length.toString()} text-[8px] w-full`;
+        const iconClass = colClassMap[numIcons] || colClassMap[0];
 
         return (
             <div className={iconClass}>

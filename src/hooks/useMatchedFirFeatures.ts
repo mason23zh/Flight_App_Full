@@ -2,7 +2,10 @@ import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
 
-const useMatchedFirFeatures = (controllerInfo: VatsimControllers, firData: VatsimFirs, geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
+const useMatchedFirFeatures = (
+    controllerInfo: VatsimControllers,
+    firData: VatsimFirs,
+    geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []
@@ -20,9 +23,11 @@ const useMatchedFirFeatures = (controllerInfo: VatsimControllers, firData: Vatsi
                 while (parts.length > 0 && !matchFound) {
                     const potentialMatch = parts.join("_");
                     if (firData[potentialMatch]) {
+                        console.log("Matched Fir features fir data:", firData[potentialMatch]);
                         matchedFirs.push({
                             firKey: potentialMatch,
-                            controller
+                            controller,
+                            firInfo: firData[potentialMatch]
                         });
                         matchFound = true;
                     }
@@ -34,16 +39,20 @@ const useMatchedFirFeatures = (controllerInfo: VatsimControllers, firData: Vatsi
                 const newFeatures = [...geoJsonFeatures.features];
 
                 matchedFirs.forEach(mFir => {
-                    const geoJsonFeature = geoJsonData.features.find(feature => feature.properties.id === firData[mFir.firKey].fir);
+                    const geoJsonFeature = geoJsonData
+                        .features
+                        .find(feature => feature.properties.id === firData[mFir.firKey].fir);
                     if (geoJsonFeature) {
-                        const isDuplicate = newFeatures.some(existingFeature => existingFeature.properties.id === geoJsonFeature.properties.id);
+                        const isDuplicate = newFeatures
+                            .some(existingFeature => existingFeature.properties.id === geoJsonFeature.properties.id);
                         if (!isDuplicate) {
                             // Clone the feature and add extra properties
                             const updatedFeature = {
                                 ...geoJsonFeature,
                                 properties: {
                                     ...geoJsonFeature.properties,
-                                    ...mFir.controller // Add additional properties from controller
+                                    ...mFir.controller, // Add additional properties from controller
+                                    firInfo: firData[mFir.firKey]
                                 }
                             };
                             newFeatures.push(updatedFeature);

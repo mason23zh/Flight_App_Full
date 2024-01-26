@@ -1,8 +1,10 @@
 import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-const useMatchTraconFeatures = (controllerInfo: VatsimControllers, geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
+const useMatchTraconFeatures = (
+    controllerInfo: VatsimControllers,
+    geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []

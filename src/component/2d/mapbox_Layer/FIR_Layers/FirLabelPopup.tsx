@@ -2,7 +2,6 @@ import React from "react";
 import { Popup } from "react-map-gl";
 import GeoJson from "geojson";
 import { VatsimFirs } from "../../../../types";
-import moment from "moment/moment";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 
 interface Props {
@@ -19,6 +18,18 @@ const FirLabelPopup = ({
         minute
     } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
 
+    console.log("Hover Fir label geoJsonFeature", hoverFir);
+
+    const firName = hoverFir.features[0].properties.firInfo.name;
+    let tempFirName;
+    if (firName.includes("Central") || firName.includes("Radar") || firName.includes("ACC")) {
+        tempFirName = firName;
+    } else {
+        tempFirName = firName + " Center";
+    }
+
+    console.log("fir popup name:", firName);
+
     return (
         <Popup
             style={{ zIndex: 100 }}
@@ -29,12 +40,13 @@ const FirLabelPopup = ({
         >
 
             <div className="w-full">
-                <div className="flex text-center gap-3 justify-self-start w-max">
+                <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-lg font-bold text-gray-600">
                         {hoverFir.features[0].properties.id}
                     </div>
                     <div className="text-lg text-black">
-                        {firData[hoverFir.features[0].properties.id].name}
+                        {/* {firData[hoverFir.features[0].properties.id].name} */}
+                        {tempFirName}
                     </div>
                 </div>
 
