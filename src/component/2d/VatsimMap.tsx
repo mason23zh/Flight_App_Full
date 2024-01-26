@@ -19,7 +19,7 @@ import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 // import { _GlobeView as GlobeView } from "@deck.gl/core";
 import useAirportsLayers from "../../hooks/useAirportsLayers";
 import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
-import TestTraconLayer from "./mapbox_Layer/Tracon_Layers/Test_TraconLayer";
+import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -153,7 +153,7 @@ function VatsimMap() {
             >
 
                 <FirLayer controllerInfo={controllerData}/>
-                <TestTraconLayer controllerInfo={controllerData}/>
+                <TraconLayer controllerInfo={controllerData}/>
 
 
                 {/*Navigation Control Icons*/}
