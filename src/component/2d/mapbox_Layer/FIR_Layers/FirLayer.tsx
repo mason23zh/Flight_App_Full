@@ -1,142 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { Layer, MapRef } from "react-map-gl";
+import React from "react";
 import { VatsimControllers } from "../../../../types";
+import { Layer, Source } from "react-map-gl";
+import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
+import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
+import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
+import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
+import FirLabelPopup from "./FirLabelPopup";
 
 interface Controller {
     controllerInfo: VatsimControllers;
-    hoverFir: string;
 }
 
-const FirLayer = ({
-    controllerInfo,
-    hoverFir
-}: Controller) => {
-    console.log("FIR layer render");
-    console.log("Fir layer hover fir:", hoverFir);
-    const [filter, setFilter] = useState([]);
-    const [hoverFilter, setHoverFilter] = useState([]);
+const FirLayer = ({ controllerInfo }: Controller) => {
+    const [firData, geoJsonData] = useFetchVatsimFirData();
+    const geoJsonFeatures = useMatchedFirFeatures(controllerInfo, firData, geoJsonData);
+    const {
+        renderedMarkers,
+        hoverFir
+    } = useRenderFirLabelMarker(geoJsonFeatures);
 
 
-    useEffect(() => {
-        if (controllerInfo && controllerInfo.fir.length > 0) {
-            const firArray = ["in", "id"];
-            controllerInfo.fir.forEach((c) => {
-                const fir = c.fir;
-                //! EDDM FIR won't render
-                // if (c.callsign.split("_").length === 3) {
-                //     const prefix = c.callsign.split("_")[1];
-                //     if (isNaN(+prefix)) {
-                //         fir = c.fir + "-" + c.callsign.split("_")[1];
-                //     }
-                // }
-                firArray.push(fir);
-            });
-            console.log("fir array:", firArray);
-            setFilter(firArray);
-        }
-    }, [controllerInfo]);
-
-    useEffect(() => {
-        if (hoverFir) {
-            console.log("Fir layer hover fir:", hoverFir);
-            setHoverFilter(["==", ["get", "id"], hoverFir]);
-        } else {
-            setHoverFilter(["==", ["get", "id"], ""]);
-        }
-    }, [hoverFir]);
-
-
-    if (filter.length > 2) {
-        return (
-            <Layer
-                type="fill"
-                source="fir-boundary-source"
-                source-layer="firboundaries"
-                id="firs"
-                filter={filter}
-                paint={{
-                    "fill-outline-color": "rgb(255,255,255)",
-                    "fill-color": ["case",
-                        hoverFilter,
-                        "rgba(100, 100, 211, 0.351)", // Color when hovered
-                        "rgba(230, 230, 211, 0.351)"  // Default color
-                    ],
-                    "fill-opacity": 0.8
-                }}
-                // paint={{
-                //     "fill-outline-color": "rgb(255,255,255)",
-                //     "fill-color": "rgba(230, 230, 211, 0.351)",
-                //     "fill-opacity": 0.8
-                // }}
-                //paint={paintFill}
-            />
-        );
+    if (geoJsonData && controllerInfo) {
+        console.log("Controller Info:", controllerInfo.fir);
+        console.log("GeoJson Data:", geoJsonData);
     }
+
+    return (
+        <Source type="geojson" data={geoJsonFeatures}>
+            <Layer {...layerStyle} />
+            <Layer {...boundariesLineStyle}/>
+            {(hoverFir && firData) &&
+                <Source type="geojson" data={hoverFir}>
+                    <Layer {...highlightLayer}/>
+                    {console.log("Hover fir info feather:", hoverFir)}
+                    {console.log("hove firdata:", firData[hoverFir.features[0].properties.id])}
+                    <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
+                </Source>
+            }
+            {renderedMarkers}
+        </Source>
+    );
 };
-
-// const FirLayer = ({ controllerInfo }: Controller) => {
-//     const [filter, setFilter] = useState([]);
-//     const [hoveredFir, setHoveredFir] = useState(null);
-//
-//     useEffect(() => {
-//         if (controllerInfo && controllerInfo.fir.length > 0) {
-//             const firArray = ["in", "id"];
-//             controllerInfo.fir.forEach((c) => {
-//                 let fir = c.fir;
-//                 if (c.callsign.split("_").length === 3) {
-//                     const prefix = c.callsign.split("_")[1];
-//                     if (isNaN(+prefix)) {
-//                         fir = c.fir + "-" + c.callsign.split("_")[1];
-//                     }
-//                 }
-//                 firArray.push(fir);
-//             });
-//             setFilter(firArray);
-//         }
-//     }, [controllerInfo]);
-//
-//     const onHover = (e) => {
-//         const firId = e.features && e.features[0] && e.features[0].properties.id;
-//         setHoveredFir(firId);
-//     };
-//
-//     const paintFill = {
-//         "fill-outline-color": "rgb(255,255,255)",
-//         "fill-color": hoveredFir ? "rgba(100, 100, 211, 0.351)" : "rgba(230, 230, 211, 0.351)",
-//         "fill-opacity": 0.8
-//     };
-//
-//     if (filter.length > 2) {
-//         return (
-//             <>
-//                 <Layer
-//                     type="fill"
-//                     source="fir-boundary-source"
-//                     source-layer="firboundaries"
-//                     id="firs"
-//                     filter={filter}
-//                     paint={paintFill}
-//                 />
-//                 {/* Label Layer */}
-//                 <Layer
-//                     id="fir-labels"
-//                     type="symbol"
-//                     source="fir-boundary-source"
-//                     source-layer="firboundaries"
-//                     layout={{
-//                         "text-field": "{id}", // Assuming 'id' contains the FIR's callsign
-//                         "text-size": 12,
-//                     }}
-//                     paint={{
-//                         "text-color": "#FFFFFF",
-//                     }}
-//                     onHover={onHover}
-//                 />
-//             </>
-//         );
-//     } else {
-//         return null;
-//     }
-// };
-
+ 
 export default React.memo(FirLayer);

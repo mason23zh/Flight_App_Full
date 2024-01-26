@@ -18,7 +18,7 @@ import { NavigationControl } from "react-map-gl";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 // import { _GlobeView as GlobeView } from "@deck.gl/core";
 import useAirportsLayers from "../../hooks/useAirportsLayers";
-import TestFirLayer from "./mapbox_Layer/FIR_Layers/Test_FirLayer";
+import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
 import TestTraconLayer from "./mapbox_Layer/Tracon_Layers/Test_TraconLayer";
 
 interface PickedTraffic extends PickingInfo {
@@ -152,7 +152,7 @@ function VatsimMap() {
                 interactiveLayerIds={["firs"]}
             >
 
-                <TestFirLayer controllerInfo={controllerData}/>
+                <FirLayer controllerInfo={controllerData}/>
                 <TestTraconLayer controllerInfo={controllerData}/>
 
 
