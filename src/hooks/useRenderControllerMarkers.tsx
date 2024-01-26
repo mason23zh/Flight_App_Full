@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Marker, Popup } from "react-map-gl";
-import { VatsimControllers } from "../../../types";
+import { VatsimControllers } from "../types";
+import React, { useEffect, useMemo, useState } from "react";
+import { Marker } from "react-map-gl";
 
-
-interface Controller {
-    controllerInfo: VatsimControllers;
-}
 
 interface Service {
     airport: { name: string, icao: string },
@@ -31,7 +27,6 @@ interface AirportService {
     coordinates: string[],
     services: Array<Service>
 }
-
 
 const facilities = [
     {
@@ -71,8 +66,6 @@ const facilities = [
     }
 ];
 
-// use preset class here to avoid tailwind dynamic class names out of the box
-// issue when using Just-In-Time mode.
 const colClassMap = {
     0: "grid grid-cols-0 text-[8px] w-full",
     1: "grid grid-cols-1 text-[8px] w-full",
@@ -82,9 +75,10 @@ const colClassMap = {
 };
 
 
-const ControllerMarker = ({ controllerInfo }: Controller) => {
+const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
+    const [hoverInfo, setHoverInfo] = useState(null);
 
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -189,6 +183,14 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         );
     };
 
+    const handleOnMouseHover = (info: AirportService) => {
+        setHoverInfo(info);
+    };
+
+    const handleOnMouseLeave = () => {
+        setHoverInfo(null);
+    };
+
 
     const renderMarkers = () => {
         return data.map((a) => {
@@ -206,6 +208,10 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
+                        onMouseEnter={() => {
+                            handleOnMouseHover(a);
+                        }}
+                        onMouseLeave={handleOnMouseLeave}
                         className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}
@@ -216,12 +222,17 @@ const ControllerMarker = ({ controllerInfo }: Controller) => {
         });
     };
 
+    // const renderedMarkers = useMemo(() => {
+    //     return renderMarkers();
+    // }, [controllerInfo]);
 
-    return (
-        <div>
-            {renderMarkers()}
-        </div>
-    );
+    const renderedMarkers = renderMarkers();
+
+
+    return {
+        renderedMarkers,
+        hoverInfo
+    };
 };
 
-export default ControllerMarker;
+export default useRenderControllerMarkers;

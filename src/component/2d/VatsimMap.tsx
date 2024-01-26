@@ -11,7 +11,7 @@ import LayerTogglePanel from "./LayerTogglePanel";
 import switchMapLabels from "./switchMapLabels";
 import switchSatelliteView from "./switchSatelliteView";
 import useFetchControllerData from "../../hooks/useFetchControllerData";
-import ControllerMarker from "./mapbox_Layer/ControllerMarker";
+// import ControllerMarker from "./mapbox_Layer/ControllerMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import switchControllerView from "./switchControllerView";
 import { NavigationControl } from "react-map-gl";
@@ -20,6 +20,7 @@ import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import useAirportsLayers from "../../hooks/useAirportsLayers";
 import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
 import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
+import ControllerMarkerLayer from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -110,12 +111,12 @@ function VatsimMap() {
         return null;
     }, [selectTraffic]);
 
-    const controllerStatusIcons = useMemo(() => {
-        if (controllerLayerVisible) {
-            return <ControllerMarker controllerInfo={controllerData}/>;
-        }
-
-    }, [controllerData, controllerLayerVisible]);
+    // const controllerStatusIcons = useMemo(() => {
+    //     if (controllerLayerVisible) {
+    //         return <ControllerMarker controllerInfo={controllerData}/>;
+    //     }
+    //
+    // }, [controllerData, controllerLayerVisible]);
 
     if (trackData) {
         console.log(trackError);
@@ -166,7 +167,9 @@ function VatsimMap() {
                 {AirportLayers}
 
                 {/*Vatsim ATC Controller Icons*/}
-                {!controllerError && controllerStatusIcons}
+                {/* {!controllerError && controllerStatusIcons} */}
+
+                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 {!vatsimError &&
