@@ -1,6 +1,7 @@
 import React from "react";
 import { VatsimControllers } from "../../../../types";
 import useRenderControllerMarkers from "../../../../hooks/useRenderControllerMarkers";
+import ControllerMarkerPopup from "./ControllerMarkerPopup";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -17,9 +18,12 @@ const ControllerMarkerLayer = ({
     } = useRenderControllerMarkers(controllerInfo);
 
 
+    console.log("Controller Hover info:", hoverInfo);
+
     return (
         <>
             {renderedMarkers}
+            {hoverInfo && <ControllerMarkerPopup hoverInfo={hoverInfo}/>}
         </>
     );
 };
