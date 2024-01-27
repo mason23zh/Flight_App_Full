@@ -26,6 +26,8 @@ interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
+// TODO: add de-bounce on hover
+// TODO: Remove console
 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change

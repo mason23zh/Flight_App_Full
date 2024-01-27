@@ -103,7 +103,9 @@ const ControllerPopupContent = ({
                                 </div>
                             </div>
                             <div className="max-w-[300px] font-medium">
-                                {serviceData.text_atis.map((atis) => atis)}
+                                {serviceData.text_atis && serviceData.text_atis.length
+                                    ? serviceData.text_atis.map((atis) => atis) : ""
+                                }
                             </div>
                         </div>
                     </div>

@@ -61,7 +61,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                 padding: 0,
             }}
             closeButton={false}
-            anchor="bottom"
+            anchor="left"
             longitude={lon}
             latitude={lat}
         >
