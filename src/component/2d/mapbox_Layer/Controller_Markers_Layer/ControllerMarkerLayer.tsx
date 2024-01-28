@@ -22,7 +22,7 @@ const ControllerMarkerLayer = ({
 
     return (
         <>
-            {renderedMarkers}
+            {labelVisible && renderedMarkers}
             {hoverInfo && <ControllerMarkerPopup hoverInfo={hoverInfo}/>}
         </>
     );

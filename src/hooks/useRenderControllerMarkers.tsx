@@ -143,27 +143,26 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                 if (s.facility === 5 || s.facility === 6) return;
                 if (s.atis_code || s.callsign.includes("ATIS")) {
                     atisIcon = (
-                        <div className="bg-yellow-500 text-center" title="Atis">
+                        <div className="bg-yellow-500 text-center">
                             <div className="px-0.5 py-0">A</div>
                         </div>
                     );
                 }
                 if (!s.atis_code && s.facility === 2) {
-                    delIcon = <div className="bg-blue-500 text-center " title="Delivery">
+                    delIcon = <div className="bg-blue-500 text-center ">
                         <div className="px-0.5 py-0">D</div>
                     </div>;
                 }
                 if (!s.atis_code && s.facility === 3) {
                     gndIcon = <div
                         className="bg-green-500 text-center"
-                        title="Ground"
                     >
                         <div className="px-0.5 py-0">G</div>
                     </div>;
                 }
 
                 if (!s.atis_code && s.facility === 4) {
-                    twrIcon = <div className="bg-red-500 text-center" title="Tower">
+                    twrIcon = <div className="bg-red-500 text-center">
                         <div className="px-0.5 py-0">T</div>
                     </div>;
                 }

@@ -28,17 +28,18 @@ interface PickedTraffic extends PickingInfo {
 
 // TODO: add de-bounce on hover
 // TODO: Remove console
-// TODO: layer switch not working on Controller icons
 // TODO: layer switch style improvement
 // TODO: VatsimMap props to handle map initial view position
 // TODO: Hover on controller marker pop size off when zoom while hovering
-
-
+// TODO: Hover on Controller marker will cause popup blink if hover on edge
+// TODO: handle multiple controllers at the same area,
+ 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
     const mapRef = useRef(null);
     const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
     const [traconLabelVisible, setTraconLabelVisible] = useState<boolean>(true);
+    const [controllerMarkerVisible, setControllerMarkerVisible] = useState<boolean>(true);
     const [firLabelVisible, setFirLabelVisible] = useState<boolean>(true);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
@@ -118,17 +119,6 @@ function VatsimMap() {
         return null;
     }, [selectTraffic]);
 
-    // const controllerStatusIcons = useMemo(() => {
-    //     if (controllerLayerVisible) {
-    //         return <ControllerMarker controllerInfo={controllerData}/>;
-    //     }
-    //
-    // }, [controllerData, controllerLayerVisible]);
-
-    if (trackData) {
-        console.log(trackError);
-    }
-
 
     const layers = [
         useMemo(() => {
@@ -176,7 +166,7 @@ function VatsimMap() {
                 {/*Vatsim ATC Controller Icons*/}
                 {/* {!controllerError && controllerStatusIcons} */}
 
-                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
+                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={controllerMarkerVisible}/>
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
                 {!vatsimError &&
@@ -239,6 +229,7 @@ function VatsimMap() {
                         setControllerLayerVisible(e);
                         setFirLabelVisible(e);
                         setTraconLabelVisible(e);
+                        setControllerMarkerVisible(e);
                     }}
                 />
             </Map>

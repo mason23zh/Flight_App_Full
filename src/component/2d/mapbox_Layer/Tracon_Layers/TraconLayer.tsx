@@ -26,8 +26,8 @@ const TraconLayer = ({
     const {
         renderedMarkers,
         hoverTracon
-    } = useRenderTraconLabelMarker(geoJsonFeatures, labelVisible);
- 
+    } = useRenderTraconLabelMarker(geoJsonFeatures);
+
     return (
         <Source type="geojson" data={geoJsonFeatures}>
             <Layer {...traconBoundariesLineLayerStyle}/>
