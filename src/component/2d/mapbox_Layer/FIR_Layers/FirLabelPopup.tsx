@@ -32,7 +32,10 @@ const FirLabelPopup = ({
 
     return (
         <Popup
-            style={{ zIndex: 100 }}
+            style={{
+                zIndex: 100,
+            }}
+            maxWidth="500px"
             longitude={Number(hoverFir.features[0].properties.label_lon)}
             latitude={Number(hoverFir.features[0].properties.label_lat)}
             closeButton={false}
@@ -41,10 +44,10 @@ const FirLabelPopup = ({
 
             <div className="w-full">
                 <div className="flex text-center gap-3 justify-self-start w-full">
-                    <div className="text-lg font-bold text-gray-600">
+                    <div className="text-[17px] font-bold text-gray-600">
                         {hoverFir.features[0].properties.id}
                     </div>
-                    <div className="text-lg text-black">
+                    <div className="text-[17px] text-black">
                         {/* {firData[hoverFir.features[0].properties.id].name} */}
                         {tempFirName}
                     </div>

@@ -28,6 +28,11 @@ interface PickedTraffic extends PickingInfo {
 
 // TODO: add de-bounce on hover
 // TODO: Remove console
+// TODO: layer switch not working on Controller icons
+// TODO: layer switch style improvement
+// TODO: VatsimMap props to handle map initial view position
+// TODO: Hover on controller marker pop size off when zoom while hovering
+
 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change

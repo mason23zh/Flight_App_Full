@@ -102,7 +102,7 @@ const ControllerPopupContent = ({
                                     {hour}:{minute}
                                 </div>
                             </div>
-                            <div className="max-w-[300px] font-medium">
+                            <div className="w-full font-medium text-xs">
                                 {serviceData.text_atis && serviceData.text_atis.length
                                     ? serviceData.text_atis.map((atis) => atis) : ""
                                 }

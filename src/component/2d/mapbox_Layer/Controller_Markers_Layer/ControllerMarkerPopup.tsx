@@ -57,15 +57,14 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
         <Popup
             style={{
                 zIndex: 100,
-                maxWidth: 400,
-                padding: 0,
             }}
             closeButton={false}
             anchor="left"
             longitude={lon}
             latitude={lat}
+            maxWidth="500"
         >
-            <div className="grid grid-cols-1 justify-center items-center gap-1 p-1">
+            <div className="grid grid-cols-1 justify-center items-center gap-1 p-1 w-full">
                 <div className="justify-self-start font-extrabold">
                     {airportName}
                 </div>

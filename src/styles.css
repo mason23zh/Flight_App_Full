@@ -1,6 +1,7 @@
 @import "../node_modules/rsuite/dist/rsuite.css";
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 @import 'leaflet/dist/leaflet.css';
+@import "mapbox-gl/dist/mapbox-gl.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -19,18 +20,19 @@
 }
 
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/*@keyframes fadein {*/
+/*    from {*/
+/*        opacity: 0;*/
+/*    }*/
+/*    to {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 
 .mapboxgl-popup {
     animation: fadein 0.2s;
 }
+
 
 .mapboxgl-popup-content {
     max-width: 400px;
@@ -39,20 +41,21 @@
     padding: 1px 1px;
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     min-width: 300px;
+
 }
 
-.mapboxgl-popup-close-button {
-    font-size: 16px;
-    font-family: Tahoma, Verdana, sans-serif;
-    color: #c3c3c3;
-    font-weight: bold;
-}
+/*.mapboxgl-popup-close-button {*/
+/*    font-size: 16px;*/
+/*    font-family: Tahoma, Verdana, sans-serif;*/
+/*    color: #c3c3c3;*/
+/*    font-weight: bold;*/
+/*}*/
 
-.mapboxgl-popup-close-button:hover {
-    color: #999;
-    background-color: white;
-    border-top-right-radius: 12px;
-}
+/*.mapboxgl-popup-close-button:hover {*/
+/*    color: #999;*/
+/*    background-color: white;*/
+/*    border-top-right-radius: 12px;*/
+/*}*/
 
 
 /*html {*/

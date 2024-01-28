@@ -1,5 +1,5 @@
 import { VatsimControllers } from "../types";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Marker } from "react-map-gl";
 
 
@@ -79,6 +79,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, setHoverInfo] = useState(null);
+    const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
 
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -183,11 +184,15 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         );
     };
 
-    const handleOnMouseHover = (info: AirportService) => {
-        setHoverInfo(info);
-    };
+
+    const handleOnMouseHover = useCallback((info) => {
+        setHoverDelayHandler(setTimeout(() => {
+            setHoverInfo(info);
+        }, 200));
+    }, [hoverInfo]);
 
     const handleOnMouseLeave = () => {
+        clearTimeout(hoverDelayHandler);
         setHoverInfo(null);
     };
 

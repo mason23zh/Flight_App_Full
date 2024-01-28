@@ -17,6 +17,7 @@ import VatsimEventDetail from "./component/VatsimEventDetail";
 // import Earth from "./component/3d/Earth";
 import VatsimMap from "./component/2d/VatsimMap";
 
+// TODO: change all request using rtk query
 
 function App() {
     return (
