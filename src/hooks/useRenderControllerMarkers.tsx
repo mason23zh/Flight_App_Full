@@ -79,6 +79,14 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, setHoverInfo] = useState(null);
     const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
+    useEffect(() => {
+        return () => {
+            if (hoverDelayHandler) {
+                clearTimeout(hoverDelayHandler);
+            }
+        };
+    }, [hoverDelayHandler]);
+
 
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -183,40 +191,18 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     };
 
 
-    const handleOnMouseHover = useCallback((info) => {
+    const handleMouse = useCallback((info, entering) => {
         if (hoverDelayHandler) {
             clearTimeout(hoverDelayHandler);
         }
 
         const handler = setTimeout(() => {
-            setHoverInfo(info);
-        }, 200);
+            setHoverInfo(entering ? info : null);
+        }, entering ? 150 : 100);
 
         setHoverDelayHandler(handler);
     }, [hoverDelayHandler]);
-
-    const handleOnMouseLeave = useCallback(() => {
-        // Clear the timeout when the mouse leaves.
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverInfo(null);
-        }, 150);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-
-    // Effect to clear any timeouts when the component unmounts.
-    useEffect(() => {
-        return () => {
-            if (hoverDelayHandler) {
-                clearTimeout(hoverDelayHandler);
-            }
-        };
-    }, [hoverDelayHandler]);
-
+    
 
     const renderMarkers = () => {
         return data.map((a) => {
@@ -234,10 +220,8 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
-                        onMouseEnter={() => {
-                            handleOnMouseHover(a);
-                        }}
-                        onMouseLeave={handleOnMouseLeave}
+                        onMouseEnter={() => handleMouse(a, true)}
+                        onMouseLeave={() => handleMouse(null, false)}
                         className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}
