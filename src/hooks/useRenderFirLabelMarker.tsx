@@ -1,49 +1,11 @@
 import GeoJson from "geojson";
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import { Marker } from "react-map-gl";
+import useDelayHoverLabel from "./useDelayHoverLabel";
 
 const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
-    const [hoverFir, setHoverFir] = useState<GeoJson.FeatureCollection>(null);
-    const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
     let renderedMarkers;
-
-    const handleOnMouseOver = useCallback((feature: GeoJson.Feature) => {
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverFir({
-                type: "FeatureCollection",
-                features: [feature]
-            });
-        }, 150);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-
-    const handleOnMouseLeave = useCallback(() => {
-        // Clear the timeout when the mouse leaves.
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverFir(null);
-        }, 150);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-
-    // Effect to clear any timeouts when the component unmounts.
-    useEffect(() => {
-        return () => {
-            if (hoverDelayHandler) {
-                clearTimeout(hoverDelayHandler);
-            }
-        };
-    }, [hoverDelayHandler]);
-
+    const [hoverFir, handleMouse] = useDelayHoverLabel();
 
     if (geoJsonFeatures) {
         renderedMarkers = geoJsonFeatures.features.map((feature) => {
@@ -56,8 +18,11 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
 
                 >
                     <div
-                        onMouseEnter={() => handleOnMouseOver(feature)}
-                        onMouseLeave={handleOnMouseLeave}
+                        onMouseEnter={() => handleMouse({
+                            type: "FeatureCollection",
+                            features: [feature]
+                        }, true, 150, 100)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 100)}
                         className="bg-amber-50 text-center rounded-md py-0 px-1 text-[11px] font-bold text-black opacity-80">
                         {feature.properties.id}
                     </div>

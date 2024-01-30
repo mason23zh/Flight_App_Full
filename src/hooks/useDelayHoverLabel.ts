@@ -1,3 +1,5 @@
+// useDelayHoverLabel hook will return hover information and onHover/leave function
+// single function handleMouse will handle both hover and leave cases.
 import { useCallback, useEffect, useState } from "react";
 import GeoJson from "geojson";
 
@@ -47,7 +49,6 @@ const useDelayHoverLabel = () => {
         if (hoverDelayHandler) {
             clearTimeout(hoverDelayHandler);
         }
-
         const handler = setTimeout(() => {
             setHoverInfo(entering ? info : null);
         }, entering ? enterDelay : leaveDelay);

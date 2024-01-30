@@ -1,62 +1,11 @@
 import GeoJson from "geojson";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Marker } from "react-map-gl";
+import useDelayHoverLabel from "./useDelayHoverLabel";
 
 const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
-    const [hoverTracon, setHoverTracon] = useState<GeoJson.FeatureCollection>(null);
-    const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
-
+    const [hoverTracon, handleMouse] = useDelayHoverLabel();
     console.log("use render tracon label");
-
-    // const handleOnMouseOver = (feature: GeoJson.Feature) => {
-    //     setHoverTracon({
-    //         type: "FeatureCollection",
-    //         features: [feature]
-    //     });
-    // };
-    //
-    // const handOnMouseLeave = () => {
-    //     setHoverTracon(null);
-    // };
-
-
-    const handleOnMouseOver = useCallback((feature: GeoJson.Feature) => {
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverTracon({
-                type: "FeatureCollection",
-                features: [feature]
-            });
-        }, 150);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-
-    const handOnMouseLeave = useCallback(() => {
-        // Clear the timeout when the mouse leaves.
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverTracon(null);
-        }, 150);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-
-    // Effect to clear any timeouts when the component unmounts.
-    useEffect(() => {
-        return () => {
-            if (hoverDelayHandler) {
-                clearTimeout(hoverDelayHandler);
-            }
-        };
-    }, [hoverDelayHandler]);
-
 
     const renderMarkers = (geoJsonFeatures: GeoJson.FeatureCollection) => {
         console.log("Render marker function run.");
@@ -75,8 +24,11 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
                         >
                             <div
                                 className="bg-blue-400 text-center rounded-md py-0 px-1 text-[11px] text-black"
-                                onMouseEnter={() => handleOnMouseOver(feature)}
-                                onMouseLeave={handOnMouseLeave}
+                                onMouseEnter={() => handleMouse({
+                                    type: "FeatureCollection",
+                                    features: [feature]
+                                }, true, 150, 100)}
+                                onMouseLeave={() => handleMouse(null, false, 150, 100)}
                             >
                                 {feature.properties.id}
                             </div>
