@@ -139,6 +139,7 @@ function VatsimMap() {
                 projection={{ name: "mercator" }}
                 id="mainMap"
                 ref={mapRef}
+                cursor={"pointer"}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                 initialViewState={viewState}
@@ -188,7 +189,7 @@ function VatsimMap() {
                             }
                         }}
                         onHover={({ object }) => (isHovering = Boolean(object))}
-                        getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
+                        //getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
                     />
                 }
 

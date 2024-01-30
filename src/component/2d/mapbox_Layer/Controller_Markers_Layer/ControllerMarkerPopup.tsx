@@ -63,6 +63,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             longitude={lon}
             latitude={lat}
             maxWidth="500"
+            offset={15} // this offset will prevent popup displayed directly below the cursor, causing flickering
         >
             <div className="grid grid-cols-1 justify-center items-center gap-1 p-1 w-full">
                 <div className="justify-self-start font-extrabold">

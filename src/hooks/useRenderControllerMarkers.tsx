@@ -184,17 +184,38 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
 
 
     const handleOnMouseHover = useCallback((info) => {
-        setHoverDelayHandler(setTimeout(() => {
+        if (hoverDelayHandler) {
+            clearTimeout(hoverDelayHandler);
+        }
+
+        const handler = setTimeout(() => {
             setHoverInfo(info);
-        }, 200));
-    }, [hoverInfo]);
+        }, 200);
+
+        setHoverDelayHandler(handler);
+    }, [hoverDelayHandler]);
 
     const handleOnMouseLeave = useCallback(() => {
-        setHoverDelayHandler(setTimeout(() => {
+        // Clear the timeout when the mouse leaves.
+        if (hoverDelayHandler) {
+            clearTimeout(hoverDelayHandler);
+        }
+
+        const handler = setTimeout(() => {
             setHoverInfo(null);
-        }, 150));
-        clearTimeout(hoverDelayHandler);
-    }, [hoverInfo]);
+        }, 150);
+
+        setHoverDelayHandler(handler);
+    }, [hoverDelayHandler]);
+
+    // Effect to clear any timeouts when the component unmounts.
+    useEffect(() => {
+        return () => {
+            if (hoverDelayHandler) {
+                clearTimeout(hoverDelayHandler);
+            }
+        };
+    }, [hoverDelayHandler]);
 
 
     const renderMarkers = () => {
