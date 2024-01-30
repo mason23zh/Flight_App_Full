@@ -280,12 +280,27 @@ interface Atis {
     coordinates: string[]
 }
 
+interface Fss {
+    cid: number,
+    name: string,
+    callsign: string,
+    facility: number,
+    rating: number,
+    server: string,
+    visual_range: number,
+    text_atis: string[],
+    last_updated: string,
+    logon_time: string,
+    firInfo: {}
+}
+
 interface VatsimControllers {
     fir: Array<Fir>,
     other: {
         controllers: Array<Controller>,
         atis: Array<Atis>
-    }
+    },
+    fss: Array<Fss>
 }
 
 interface MultiPolygonGeometry {

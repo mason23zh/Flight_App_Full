@@ -35,6 +35,17 @@ const useMatchedFirFeatures = (
                 }
             });
 
+            // Handle the edge case where CZEG controller been displayed as FSS
+            controllerInfo.fss.forEach((controller) => {
+                if (controller.callsign === "CZEG_FSS") {
+                    matchedFirs.push({
+                        firKey: "CZEG",
+                        controller,
+                        firInfo: firData["CZEG"]
+                    });
+                }
+            });
+
             if (matchedFirs.length > 0) {
                 const newFeatures = [...geoJsonFeatures.features];
 

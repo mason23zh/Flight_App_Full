@@ -33,7 +33,8 @@ interface PickedTraffic extends PickingInfo {
 // TODO: Hover on controller marker pop size off when zoom while hovering
 // TODO: Hover on Controller marker will cause popup blink if hover on edge
 // TODO: handle multiple controllers at the same area,
- 
+// TODO: FSS not working
+
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
     const mapRef = useRef(null);
