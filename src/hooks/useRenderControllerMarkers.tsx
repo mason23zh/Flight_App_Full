@@ -1,7 +1,6 @@
 import { VatsimControllers } from "../types";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Marker } from "react-map-gl";
-
 
 interface Service {
     airport: { name: string, icao: string },
@@ -190,10 +189,12 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         }, 200));
     }, [hoverInfo]);
 
-    const handleOnMouseLeave = () => {
+    const handleOnMouseLeave = useCallback(() => {
+        setHoverDelayHandler(setTimeout(() => {
+            setHoverInfo(null);
+        }, 150));
         clearTimeout(hoverDelayHandler);
-        setHoverInfo(null);
-    };
+    }, [hoverInfo]);
 
 
     const renderMarkers = () => {
@@ -226,9 +227,6 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         });
     };
 
-    // const renderedMarkers = useMemo(() => {
-    //     return renderMarkers();
-    // }, [controllerInfo]);
 
     const renderedMarkers = renderMarkers();
 

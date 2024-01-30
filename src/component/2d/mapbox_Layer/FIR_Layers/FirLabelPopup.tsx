@@ -11,7 +11,6 @@ interface Props {
 
 const FirLabelPopup = ({
     hoverFir,
-    firData
 }: Props) => {
     const {
         hour,
@@ -28,7 +27,7 @@ const FirLabelPopup = ({
         tempFirName = firName + " Center";
     }
 
-    console.log("fir popup name:", firName);
+    // console.log("fir popup name:", firName);
 
     return (
         <Popup
@@ -48,7 +47,6 @@ const FirLabelPopup = ({
                         {hoverFir.features[0].properties.id}
                     </div>
                     <div className="text-[17px] text-black">
-                        {/* {firData[hoverFir.features[0].properties.id].name} */}
                         {tempFirName}
                     </div>
                 </div>

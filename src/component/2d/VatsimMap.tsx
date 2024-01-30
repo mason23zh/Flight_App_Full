@@ -157,16 +157,13 @@ function VatsimMap() {
                 {/*Tracon boundaries, Tracon label and tracon label popup when hover*/}
                 <TraconLayer controllerInfo={controllerData} labelVisible={traconLabelVisible}/>
 
-
                 {/*Navigation Control Icons*/}
                 <NavigationControl/>
 
                 {/*Render different number of airports based on map's zoom level*/}
                 {AirportLayers}
 
-                {/*Vatsim ATC Controller Icons*/}
-                {/* {!controllerError && controllerStatusIcons} */}
-
+                {/*Vatsim ATC Controller Icons and popup information*/}
                 <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={controllerMarkerVisible}/>
 
                 {/*Vatsim Traffic and Traffic's path will be render using DeckGL*/}
