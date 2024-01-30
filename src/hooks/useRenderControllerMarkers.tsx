@@ -1,6 +1,7 @@
 import { VatsimControllers } from "../types";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Marker } from "react-map-gl";
+import useDelayHoverLabel from "./useDelayHoverLabel";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -77,15 +78,7 @@ const colClassMap = {
 const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
-    const [hoverInfo, setHoverInfo] = useState(null);
-    const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
-    useEffect(() => {
-        return () => {
-            if (hoverDelayHandler) {
-                clearTimeout(hoverDelayHandler);
-            }
-        };
-    }, [hoverDelayHandler]);
+    const [hoverInfo, handleMouse] = useDelayHoverLabel();
 
 
     useEffect(() => {
@@ -191,19 +184,6 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     };
 
 
-    const handleMouse = useCallback((info, entering) => {
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-
-        const handler = setTimeout(() => {
-            setHoverInfo(entering ? info : null);
-        }, entering ? 150 : 100);
-
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
-    
-
     const renderMarkers = () => {
         return data.map((a) => {
             const serviceIcons = generateServiceLabels(a.services);
@@ -220,8 +200,8 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
-                        onMouseEnter={() => handleMouse(a, true)}
-                        onMouseLeave={() => handleMouse(null, false)}
+                        onMouseEnter={() => handleMouse(a, true, 150, 100)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 100)}
                         className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}
