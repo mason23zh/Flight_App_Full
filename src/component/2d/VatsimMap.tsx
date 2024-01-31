@@ -22,6 +22,7 @@ import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
 import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerLayer";
 import switchMapRoads from "./switchMapRoads";
+import NexradLayer from "./mapbox_Layer/Nexrad_Layer/NxradLayer";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -155,6 +156,9 @@ function VatsimMap() {
                 dragPan={true}
                 interactiveLayerIds={["firs"]}
             >
+
+                <NexradLayer/>
+
                 {/*Fir boundaries, Fir Label and Fir label popup when hover*/}
                 <FirLayer controllerInfo={controllerData} labelVisible={firLabelVisible}/>
 
