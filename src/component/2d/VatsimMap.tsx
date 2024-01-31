@@ -21,19 +21,17 @@ import useAirportsLayers from "../../hooks/useAirportsLayers";
 import FirLayer from "./mapbox_Layer/FIR_Layers/FirLayer";
 import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerLayer";
+import switchMapRoads from "./switchMapRoads";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
-// TODO: add de-bounce on hover
 // TODO: Remove console
 // TODO: layer switch style improvement
 // TODO: VatsimMap props to handle map initial view position
-// TODO: Hover on controller marker pop size off when zoom while hovering
-// TODO: Hover on Controller marker will cause popup blink if hover on edge
 // TODO: handle multiple controllers at the same area,
-// TODO: FSS not working
+// TODO: FSS not working 
 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
@@ -41,6 +39,7 @@ function VatsimMap() {
     const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
     const [traconLabelVisible, setTraconLabelVisible] = useState<boolean>(true);
     const [controllerMarkerVisible, setControllerMarkerVisible] = useState<boolean>(true);
+    const [mapRoadVisible, setMapRoadVisible] = useState<boolean>(false);
     const [firLabelVisible, setFirLabelVisible] = useState<boolean>(true);
     const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
@@ -83,6 +82,10 @@ function VatsimMap() {
     useEffect(() => {
         switchControllerView(mapRef, controllerLayerVisible);
     }, [controllerLayerVisible]);
+
+    useEffect(() => {
+        switchMapRoads(mapRef, mapRoadVisible);
+    }, [mapRoadVisible]);
 
 
     const onMove = useCallback(({ viewState }) => {
@@ -189,7 +192,7 @@ function VatsimMap() {
                             }
                         }}
                         onHover={({ object }) => (isHovering = Boolean(object))}
-                        //getCursor={({ isDragging }) => (isDragging ? "grabbing" : (isHovering ? "pointer" : "grab"))}
+                        getCursor={({ isDragging }) => (isDragging ? "pointer" : (isHovering ? "pointer" : "grab"))}
                     />
                 }
 
@@ -229,6 +232,9 @@ function VatsimMap() {
                         setFirLabelVisible(e);
                         setTraconLabelVisible(e);
                         setControllerMarkerVisible(e);
+                    }}
+                    onChangeRoad={(e: boolean) => {
+                        setMapRoadVisible(e);
                     }}
                 />
             </Map>

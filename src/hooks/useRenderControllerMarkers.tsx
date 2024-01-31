@@ -1,5 +1,5 @@
 import { VatsimControllers } from "../types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Marker } from "react-map-gl";
 import useDelayHoverLabel from "./useDelayHoverLabel";
 
@@ -200,8 +200,8 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
-                        onMouseEnter={() => handleMouse(a, true, 150, 100)}
-                        onMouseLeave={() => handleMouse(null, false, 150, 100)}
+                        onMouseEnter={() => handleMouse(a, true, 150, 50)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 50)}
                         className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}
@@ -213,7 +213,8 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     };
 
 
-    const renderedMarkers = renderMarkers();
+    // const renderedMarkers = renderMarkers();
+    const renderedMarkers = useMemo(() => renderMarkers(), [controllerInfo]);
 
 
     return {
