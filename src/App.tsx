@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Home from "./component/Home";
 import About from "./component/About";
 import NoMatch from "./component/NoMatch";
@@ -10,14 +10,15 @@ import ExtremeWeather from "./component/ExtremeWeather";
 import ChangeLog from "./component/ChangeLog";
 import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
-import Orion from "./component/Orion";
-import Puzzles from "./component/Puzzles";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
-// import Earth from "./component/3d/Earth";
-import VatsimMap from "./component/2d/VatsimMap";
 
 // TODO: change all request using rtk query
+
+const Orion = lazy(() => import("./component/Orion"));
+const Puzzles = lazy(() => import("./component/Puzzles"));
+const VatsimMap = lazy(() => import("./component/2d/VatsimMap"));
+
 
 function App() {
     return (
@@ -33,16 +34,33 @@ function App() {
                     <Route path="changelog" element={<ChangeLog/>}/>
                     <Route path="vatsim/events" element={<VatsimEventsAll/>}/>
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail/>}/>
-                    <Route path="Orion9600" element={<Orion/>}/>
-                    <Route path="puzzles" element={<Puzzles/>}/>
-                    {/* <Route path="3d" element={<Earth/>}/> */}
-                    <Route
-                        path="2d"
-                        element={(
-                            <VatsimMap/>
-                        )}
-                    />
                     <Route path="*" element={<NoMatch/>}/>
+
+                    {/*Lazy loaded routes*/}
+                    <Route
+                        path="Orion9600" element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <Orion/>
+                            </Suspense>
+                        }
+                    />
+
+                    <Route
+                        path="puzzles" element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <Puzzles/>
+                            </Suspense>
+                        }
+                    />
+
+                    <Route
+                        path="2d" element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <VatsimMap/>
+                            </Suspense>
+                        }
+                    />
+
                 </Route>
             </Routes>
         </ScrollToTop>

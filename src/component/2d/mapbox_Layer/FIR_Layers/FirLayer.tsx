@@ -39,6 +39,7 @@ const FirLayer = ({
         geoJsonError,
         firLoading,
         geoJsonLoading);
+
     const {
         renderedMarkers,
         hoverFir

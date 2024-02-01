@@ -21,8 +21,8 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
                         onMouseEnter={() => handleMouse({
                             type: "FeatureCollection",
                             features: [feature]
-                        }, true, 150, 100)}
-                        onMouseLeave={() => handleMouse(null, false, 150, 100)}
+                        }, true, 150, 50)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 50)}
                         className="bg-amber-50 text-center rounded-md py-0 px-1 text-[11px] font-bold text-black opacity-80">
                         {feature.properties.id}
                     </div>
