@@ -10,6 +10,7 @@ const useFetchControllerData = () => {
             try {
                 const res = await axios.get<VatsimControllers>("https://api.airportweather.org/v1/vatsim/getVatsimControllers");
                 if (res) {
+                    console.log("use fetch controller data get data.");
                     setData(res.data);
                 }
             } catch (e) {

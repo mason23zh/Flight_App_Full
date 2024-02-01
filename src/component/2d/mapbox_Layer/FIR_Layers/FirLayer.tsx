@@ -6,6 +6,7 @@ import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
+import { useFetchVatsimFirBoundariesQuery, useFetchVatsimFirQuery } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -16,8 +17,28 @@ const FirLayer = ({
     controllerInfo,
     labelVisible
 }: Controller) => {
-    const [firData, geoJsonData] = useFetchVatsimFirData();
-    const geoJsonFeatures = useMatchedFirFeatures(controllerInfo, firData, geoJsonData);
+    const {
+        data: geoJsonData,
+        error: geoJsonError,
+        isLoading: geoJsonLoading
+    } = useFetchVatsimFirBoundariesQuery({});
+
+    const {
+        data: firData,
+        error: firError,
+        isLoading: firLoading
+    } = useFetchVatsimFirQuery({});
+
+    // const [firData, geoJsonData] = useFetchVatsimFirData();
+
+    const geoJsonFeatures = useMatchedFirFeatures(
+        controllerInfo,
+        firData,
+        geoJsonData,
+        firError,
+        geoJsonError,
+        firLoading,
+        geoJsonLoading);
     const {
         renderedMarkers,
         hoverFir
@@ -29,21 +50,29 @@ const FirLayer = ({
         console.log("GeoJson Data:", geoJsonData);
     }
 
-    return (
-        <Source type="geojson" data={geoJsonFeatures}>
-            <Layer {...layerStyle} />
-            <Layer {...boundariesLineStyle}/>
-            {(hoverFir && firData && labelVisible) &&
-                <Source type="geojson" data={hoverFir}>
-                    <Layer {...highlightLayer}/>
-                    {console.log("Hover fir info feather:", hoverFir)}
-                    {console.log("hove firdata:", firData[hoverFir.features[0].properties.id])}
-                    <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
-                </Source>
-            }
-            {labelVisible && renderedMarkers}
-        </Source>
-    );
+    if (firLoading || geoJsonLoading) {
+        return (
+            <>
+                Loading...
+            </>
+        );
+    } else {
+        return (
+            <Source type="geojson" data={geoJsonFeatures}>
+                <Layer {...layerStyle} />
+                <Layer {...boundariesLineStyle}/>
+                {(hoverFir && firData && labelVisible) &&
+                    <Source type="geojson" data={hoverFir}>
+                        <Layer {...highlightLayer}/>
+                        {console.log("Hover fir info feather:", hoverFir)}
+                        {console.log("hove firdata:", firData[hoverFir.features[0].properties.id])}
+                        <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
+                    </Source>
+                }
+                {labelVisible && renderedMarkers}
+            </Source>
+        );
+    }
 };
 
 export default React.memo(FirLayer);

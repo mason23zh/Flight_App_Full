@@ -5,14 +5,28 @@ import GeoJson from "geojson";
 const useMatchedFirFeatures = (
     controllerInfo: VatsimControllers,
     firData: VatsimFirs,
-    geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
+    geoJsonData: GeoJson.FeatureCollection,
+    firError,
+    geoJsonError,
+    firLoading,
+    geoJsonLoading): GeoJson.FeatureCollection => {
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []
     });
 
     useMemo(() => {
-        if (firData && controllerInfo) {
+        if (firLoading || geoJsonLoading) {
+            setGeoJsonFeatures({
+                "type": "FeatureCollection",
+                "features": []
+            });
+        } else if (firError || geoJsonError) {
+            setGeoJsonFeatures({
+                "type": "FeatureCollection",
+                "features": []
+            });
+        } else if (firData && controllerInfo) {
             const matchedFirs = [];
             controllerInfo.fir.forEach(controller => {
                 const parts = controller.callsign.split("_");
@@ -77,7 +91,7 @@ const useMatchedFirFeatures = (
                 });
             }
         }
-    }, [controllerInfo, firData, geoJsonData]);
+    }, [controllerInfo, firData, geoJsonData, firError, geoJsonError, firLoading, geoJsonLoading]);
 
     return geoJsonFeatures;
 };

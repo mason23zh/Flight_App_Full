@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { airportsApi } from "./apis/airportsApi";
+import { vatsimDataApi } from "./apis/vatsimDataApi";
 import { extremeWeatherApi } from "./apis/extremeWeatherApi";
 import { metarApi } from "./apis/metarApi";
 import { weatherApi } from "./apis/weatherApi";
@@ -28,6 +29,7 @@ export const store = configureStore({
         [weatherApi.reducerPath]: weatherApi.reducer,
         [tafApi.reducerPath]: tafApi.reducer,
         [vatsimApi.reducerPath]: vatsimApi.reducer,
+        [vatsimDataApi.reducerPath]: vatsimDataApi.reducer,
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
@@ -36,7 +38,8 @@ export const store = configureStore({
         .concat(metarApi.middleware)
         .concat(weatherApi.middleware)
         .concat(tafApi.middleware)
-        .concat(vatsimApi.middleware),
+        .concat(vatsimApi.middleware)
+        .concat(vatsimDataApi.middleware)
 
 });
 
@@ -55,6 +58,12 @@ export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
 export { useFetchCurrentVatsimEventsQuery, useFetchSortedVatsimEventsQuery } from "./apis/vatsimApi";
+export {
+    useFetchVatsimFirBoundariesQuery,
+    useFetchVatsimFirQuery,
+    useFetchVatsimFssQuery,
+    useFetchVatsimTraconBoundariesQuery
+} from "./apis/vatsimDataApi";
 export { changeUserSelection, changeUserSelectionVatsimEvent };
 export {
     onMouseHoverFirLabel,
@@ -64,4 +73,5 @@ export {
     onMouseHoverControllerLabel,
     onMouseLeaveControllerLabel
 };
+
 export type RootState = ReturnType<typeof store.getState> 
