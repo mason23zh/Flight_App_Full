@@ -1,3 +1,7 @@
+// This hook will fetch geoJson for fir boundaries and fir data
+// after processing the data it will return formatted GeoJson Feature Collection
+// firData, and either loading state or error state.
+// The complexity of this hook is high, might be improved in the future.
 import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
@@ -35,6 +39,7 @@ const useMatchedFirFeatures = (
 
     useMemo(() => {
         if (firLoading || geoJsonLoading) {
+            // early return, the empty features list will be checked in useRenderFirLabelMarker hook
             setGeoJsonFeatures({
                 "type": "FeatureCollection",
                 "features": []

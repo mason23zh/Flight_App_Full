@@ -1,3 +1,5 @@
+// The source layer to render FIR data.
+
 import React from "react";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";

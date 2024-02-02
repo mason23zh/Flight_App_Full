@@ -1,10 +1,24 @@
 import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
 import { useEffect, useState } from "react";
+import { useFetchVatsimTraconBoundariesQuery } from "../store";
+
+interface UseMatchTraconFeaturesReturn {
+    geoJsonFeatures: GeoJson.FeatureCollection,
+    isLoading: boolean,
+    error: any
+}
 
 const useMatchTraconFeatures = (
-    controllerInfo: VatsimControllers,
-    geoJsonData: GeoJson.FeatureCollection): GeoJson.FeatureCollection => {
+    controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
+
+    const {
+        data: geoJsonData,
+        isLoading,
+        error
+    } = useFetchVatsimTraconBoundariesQuery({});
+
+
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []
@@ -13,6 +27,22 @@ const useMatchTraconFeatures = (
 
     useEffect(() => {
         console.log("use match tracon useeffect run.");
+        if (isLoading) {
+            setGeoJsonFeatures({
+                "type": "FeatureCollection",
+                "features": []
+            });
+            return;
+        }
+
+        if (error) {
+            setGeoJsonFeatures({
+                "type": "FeatureCollection",
+                "features": []
+            });
+            return;
+        }
+
         if (controllerInfo && geoJsonData) {
             const newFeaturesSet = new Set<string>(); // Store ids of new features
             const newFeatures = []; // Array to store new GeoJson features
@@ -54,9 +84,13 @@ const useMatchTraconFeatures = (
                 });
             }
         }
-    }, [controllerInfo, geoJsonData]);
+    }, [controllerInfo, geoJsonData, isLoading, error]);
 
-    return geoJsonFeatures;
+    return {
+        geoJsonFeatures: geoJsonFeatures,
+        isLoading: isLoading,
+        error: error
+    };
 };
 
 export default useMatchTraconFeatures;
