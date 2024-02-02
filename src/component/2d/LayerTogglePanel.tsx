@@ -3,6 +3,7 @@ import { IoAirplane } from "react-icons/io5";
 import { AiFillTags } from "react-icons/ai";
 import { FaSatellite, FaRoad } from "react-icons/fa";
 import { GiControlTower } from "react-icons/gi";
+import { TiWeatherDownpour } from "react-icons/ti";
 
 
 import { Toggle } from "rsuite";
@@ -12,7 +13,8 @@ const LayerTogglePanel = ({
     onChangeLabel,
     onChangeSatellite,
     onChangeController,
-    onChangeRoad
+    onChangeRoad,
+    onChangeWeather
 }) => {
     const handleOnChangeTraffic = (e: boolean) => {
         onChangeTraffic(e);
@@ -32,6 +34,10 @@ const LayerTogglePanel = ({
 
     const handleOnChangeRoad = (e: boolean) => {
         onChangeRoad(e);
+    };
+
+    const handleOnChangeWeather = (e: boolean) => {
+        onChangeWeather(e);
     };
 
 
@@ -85,6 +91,16 @@ const LayerTogglePanel = ({
                         onChange={(checked) => handleOnChangeRoad(checked)}
                     />
                 </div>
+
+                <div className="py-1 px-2">
+                    <Toggle
+                        size="md"
+                        checkedChildren={<TiWeatherDownpour/>}
+                        unCheckedChildren={<TiWeatherDownpour/>}
+                        onChange={(checked) => handleOnChangeWeather(checked)}
+                    />
+                </div>
+
             </div>
         </div>
     );

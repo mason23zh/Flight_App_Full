@@ -3,7 +3,7 @@ import axios from "axios";
 import { Layer, Source } from "react-map-gl";
 import { nexradLayerStyle } from "./nexradMapStyle";
 
-const NexradLayer = () => {
+const NexradLayer = ({ labelVisible }) => {
     const [rasterTimeStamp, setRasterTimeStamp] = useState();
     useEffect(() => {
         const fetchData = async () => {
@@ -18,7 +18,7 @@ const NexradLayer = () => {
             .catch();
     }, []);
 
-    if (rasterTimeStamp) {
+    if (rasterTimeStamp && labelVisible) {
         return (
             <Source
                 id={"nexrad-source"}

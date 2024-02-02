@@ -23,6 +23,7 @@ import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerLayer";
 import switchMapRoads from "./switchMapRoads";
 import NexradLayer from "./mapbox_Layer/Nexrad_Layer/NxradLayer";
+import weather from "../Weather";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
@@ -46,6 +47,7 @@ function VatsimMap() {
     const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
     const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
     const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
+    const [weatherRasterVisible, setWeatherRasterVisible] = useState<boolean>(false);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
@@ -157,7 +159,7 @@ function VatsimMap() {
                 interactiveLayerIds={["firs"]}
             >
 
-                <NexradLayer/>
+                <NexradLayer labelVisible={weatherRasterVisible}/>
 
                 {/*Fir boundaries, Fir Label and Fir label popup when hover*/}
                 <FirLayer controllerInfo={controllerData} labelVisible={firLabelVisible}/>
@@ -240,6 +242,10 @@ function VatsimMap() {
                     onChangeRoad={(e: boolean) => {
                         setMapRoadVisible(e);
                     }}
+                    onChangeWeather={(e: boolean) => {
+                        setWeatherRasterVisible(e);
+                    }}
+
                 />
             </Map>
 
