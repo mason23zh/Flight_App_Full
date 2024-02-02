@@ -1,19 +1,37 @@
 import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
+import { useFetchVatsimFirBoundariesQuery, useFetchVatsimFirQuery } from "../store";
+
+interface UseMatchedFirFeaturesReturn {
+    geoJsonFeatures: GeoJson.FeatureCollection,
+    firData: VatsimFirs,
+    isLoading: boolean,
+    error: Error
+}
 
 const useMatchedFirFeatures = (
     controllerInfo: VatsimControllers,
-    firData: VatsimFirs,
-    geoJsonData: GeoJson.FeatureCollection,
-    firError,
-    geoJsonError,
-    firLoading,
-    geoJsonLoading): GeoJson.FeatureCollection => {
+): UseMatchedFirFeaturesReturn => {
+
+
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
         "features": []
     });
+
+    const {
+        data: geoJsonData,
+        error: geoJsonError,
+        isLoading: geoJsonLoading
+    } = useFetchVatsimFirBoundariesQuery({});
+
+    const {
+        data: firData,
+        error: firError,
+        isLoading: firLoading
+    } = useFetchVatsimFirQuery({});
+
 
     useMemo(() => {
         if (firLoading || geoJsonLoading) {
@@ -21,11 +39,13 @@ const useMatchedFirFeatures = (
                 "type": "FeatureCollection",
                 "features": []
             });
+            return;
         } else if (firError || geoJsonError) {
             setGeoJsonFeatures({
                 "type": "FeatureCollection",
                 "features": []
             });
+            return;
         } else if (firData && controllerInfo) {
             const matchedFirs = [];
             controllerInfo.fir.forEach(controller => {
@@ -93,7 +113,12 @@ const useMatchedFirFeatures = (
         }
     }, [controllerInfo, firData, geoJsonData, firError, geoJsonError, firLoading, geoJsonLoading]);
 
-    return geoJsonFeatures;
+    return {
+        geoJsonFeatures,
+        firData,
+        isLoading: firLoading || geoJsonLoading,
+        error: firError || geoJsonError
+    };
 };
 
 export default useMatchedFirFeatures;

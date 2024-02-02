@@ -7,7 +7,7 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
     let renderedMarkers;
     const [hoverFir, handleMouse] = useDelayHoverLabel();
 
-    if (geoJsonFeatures) {
+    if (geoJsonFeatures && geoJsonFeatures.features.length > 0) {
         renderedMarkers = geoJsonFeatures.features.map((feature) => {
             return (
                 <Marker

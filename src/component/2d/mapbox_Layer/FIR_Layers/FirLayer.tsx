@@ -2,11 +2,9 @@ import React from "react";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
-import useFetchVatsimFirData from "../../../../hooks/useFetchVatsimFirData";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
-import { useFetchVatsimFirBoundariesQuery, useFetchVatsimFirQuery } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -18,27 +16,13 @@ const FirLayer = ({
     labelVisible
 }: Controller) => {
     const {
-        data: geoJsonData,
-        error: geoJsonError,
-        isLoading: geoJsonLoading
-    } = useFetchVatsimFirBoundariesQuery({});
-
-    const {
-        data: firData,
-        error: firError,
-        isLoading: firLoading
-    } = useFetchVatsimFirQuery({});
-
-    // const [firData, geoJsonData] = useFetchVatsimFirData();
-
-    const geoJsonFeatures = useMatchedFirFeatures(
-        controllerInfo,
+        geoJsonFeatures,
         firData,
-        geoJsonData,
-        firError,
-        geoJsonError,
-        firLoading,
-        geoJsonLoading);
+        isLoading,
+        error
+    } = useMatchedFirFeatures(
+        controllerInfo,
+    );
 
     const {
         renderedMarkers,
@@ -46,18 +30,23 @@ const FirLayer = ({
     } = useRenderFirLabelMarker(geoJsonFeatures);
 
 
-    if (geoJsonData && controllerInfo) {
-        console.log("Controller Info:", controllerInfo.fir);
-        console.log("GeoJson Data:", geoJsonData);
-    }
-
-    if (firLoading || geoJsonLoading) {
+    if (isLoading) {
         return (
             <>
                 Loading...
             </>
         );
-    } else {
+    }
+
+    if (error) {
+        return (
+            <>
+                Error
+            </>
+        );
+    }
+
+    if (geoJsonFeatures) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...layerStyle} />
@@ -65,8 +54,6 @@ const FirLayer = ({
                 {(hoverFir && firData && labelVisible) &&
                     <Source type="geojson" data={hoverFir}>
                         <Layer {...highlightLayer}/>
-                        {console.log("Hover fir info feather:", hoverFir)}
-                        {console.log("hove firdata:", firData[hoverFir.features[0].properties.id])}
                         <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
                     </Source>
                 }
