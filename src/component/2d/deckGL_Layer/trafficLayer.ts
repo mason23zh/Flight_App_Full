@@ -15,6 +15,8 @@ const trafficLayer = (
     const [airportModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
+    console.log("Data in trafficLayer", data);
+
     useEffect(() => {
         const loadGLT = async () => {
             try {
@@ -45,7 +47,7 @@ const trafficLayer = (
         getPosition: (d) => [
             d.longitude || 0,
             d.latitude || 0,
-            d.altitude = d.groundspeed < 50 ? 0 : d.altitude,
+            d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
     });

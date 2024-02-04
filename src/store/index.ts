@@ -17,12 +17,19 @@ import {
     onMouseHoverControllerLabel,
     onMouseLeaveControllerLabel, vatsimMapEventReducer
 } from "./slices/vatsimMapMouseEventSlice";
+import {
+    toggleControllerLayer,
+    toggleTraconLabel,
+    vatsimMapVisibleReducer,
+    toggleAtcLayer
+} from "./slices/vatsimMapVisibleSlice";
 
 export const store = configureStore({
     reducer: {
         vatsimEvent: vatsimEventReducer,
         extremeWeather: extremeWeatherReducer,
         vatsimMapEvent: vatsimMapEventReducer,
+        vatsimMapVisible: vatsimMapVisibleReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -30,6 +37,7 @@ export const store = configureStore({
         [tafApi.reducerPath]: tafApi.reducer,
         [vatsimApi.reducerPath]: vatsimApi.reducer,
         [vatsimDataApi.reducerPath]: vatsimDataApi.reducer,
+
 
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
@@ -57,7 +65,13 @@ export { useFetchTafByICAOQuery } from "./apis/tafApi";
 export { useFetchWeatherMetarsQuery } from "./apis/extremeWeatherApi";
 export { useFetchGenericWeatherQuery } from "./apis/weatherApi";
 export { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } from "./apis/metarApi";
-export { useFetchCurrentVatsimEventsQuery, useFetchSortedVatsimEventsQuery } from "./apis/vatsimApi";
+export {
+    useFetchCurrentVatsimEventsQuery,
+    useFetchSortedVatsimEventsQuery,
+    useFetchVatsimControllersDataQuery,
+    useFetchVatsimPilotsDataQuery,
+    useFetchTrafficTrackDataQuery
+} from "./apis/vatsimApi";
 export {
     useFetchVatsimFirBoundariesQuery,
     useFetchVatsimFirQuery,
@@ -72,6 +86,11 @@ export {
     onMouseLeaveTraconLabel,
     onMouseHoverControllerLabel,
     onMouseLeaveControllerLabel
+};
+export {
+    toggleTraconLabel,
+    toggleControllerLayer,
+    toggleAtcLayer
 };
 
 export type RootState = ReturnType<typeof store.getState> 

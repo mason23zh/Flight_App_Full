@@ -51,7 +51,7 @@ const useMatchedFirFeatures = (
                 "features": []
             });
             return;
-        } else if (firData && controllerInfo) {
+        } else if (firData && controllerInfo && controllerInfo.fir) {
             const matchedFirs = [];
             controllerInfo.fir.forEach(controller => {
                 const parts = controller.callsign.split("_");

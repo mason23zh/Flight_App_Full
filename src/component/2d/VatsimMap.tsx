@@ -23,17 +23,19 @@ import TraconLayer from "./mapbox_Layer/Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerLayer";
 import switchMapRoads from "./switchMapRoads";
 import NexradLayer from "./mapbox_Layer/Nexrad_Layer/NxradLayer";
-import weather from "../Weather";
+import { useFetchVatsimControllersDataQuery } from "../../store";
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
+// TODO: more style to display loading state for fir and tracon layer
 // TODO: Remove console
 // TODO: layer switch style improvement
 // TODO: VatsimMap props to handle map initial view position
 // TODO: handle multiple controllers at the same area,
-// TODO: FSS not working 
+// TODO: FSS not working
+// TODO: Typescript error in RTK Query
 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
@@ -58,17 +60,25 @@ function VatsimMap() {
     });
 
     const {
+        data: controllerData,
+        error: controllerError,
+        isLoading: controllerLoading
+    } = useFetchVatsimControllersDataQuery();
+
+    const {
         data: vatsimData,
         error: vatsimError
     } = useFetchVatsimPilots();
+
     const {
         data: trackData,
         error: trackError
     } = useFetchTrafficTrackData(selectTraffic);
-    const {
-        data: controllerData,
-        error: controllerError
-    } = useFetchControllerData();
+
+    // const {
+    //     data: controllerData,
+    //     error: controllerError
+    // } = useFetchControllerData();
 
 
     const { airportLayers: AirportLayers } = useAirportsLayers();

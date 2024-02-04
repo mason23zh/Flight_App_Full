@@ -1,11 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Event } from "../../types/";
+import { Event, VatsimControllers, VatsimFlight, VatsimTrackTraffic } from "../../types/";
 
 
 interface EventResponse {
     result: number,
     events: [Event]
 }
+
+interface VatsimTrackResponse {
+    data: VatsimTrackTraffic;
+}
+
+interface VatsimTrafficResponse {
+    data: { results: number, pilots: Array<VatsimFlight> };
+}
+
 
 export const vatsimApi = createApi({
     reducerPath: "vatsim",
@@ -26,10 +35,31 @@ export const vatsimApi = createApi({
                     method: "GET",
                 }),
             }),
+            fetchVatsimControllersData: build.query<VatsimControllers, void>({
+                query: () => ({
+                    url: "/getVatsimControllers",
+                    method: "GET",
+                })
+            }),
+            fetchVatsimPilotsData: build.query<VatsimTrafficResponse, void>({
+                query: () => ({
+                    url: "/getPilots",
+                    method: "GET",
+                })
+            }),
+            fetchTrafficTrackData: build.query<VatsimTrackResponse, string>({
+                query: (callsign) => ({
+                    url: `/getTrafficByCallsign/track/${callsign}`,
+                    method: "GET",
+                })
+            })
         };
     },
 });
 export const {
     useFetchCurrentVatsimEventsQuery,
     useFetchSortedVatsimEventsQuery,
+    useFetchVatsimControllersDataQuery,
+    useFetchVatsimPilotsDataQuery,
+    useFetchTrafficTrackDataQuery
 } = vatsimApi;

@@ -5,6 +5,7 @@ import { nexradLayerStyle } from "./nexradMapStyle";
 
 const NexradLayer = ({ labelVisible }) => {
     const [rasterTimeStamp, setRasterTimeStamp] = useState();
+    const [error, setError] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
             const tsData = await axios.get("https://tilecache.rainviewer.com/api/maps.json");
@@ -15,8 +16,16 @@ const NexradLayer = ({ labelVisible }) => {
         };
         fetchData()
             .then()
-            .catch();
+            .catch(() => setError("Can not fetch weather data"));
     }, []);
+
+    if (error) {
+        return (
+            <div>
+                Can not fetch weather data
+            </div>
+        );
+    }
 
     if (rasterTimeStamp && labelVisible) {
         return (

@@ -12,6 +12,7 @@ import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
+import MainMap from "./component/2d/mapbox_Layer/MainMap";
 
 // TODO: change all request using rtk query
 
@@ -53,10 +54,18 @@ function App() {
                         }
                     />
 
+                    {/* <Route */}
+                    {/*     path="2d" element={ */}
+                    {/*         <Suspense fallback={<div>Loading...</div>}> */}
+                    {/*             <VatsimMap/> */}
+                    {/*         </Suspense> */}
+                    {/*     } */}
+                    {/* /> */}
                     <Route
-                        path="2d" element={
+                        path="2d"
+                        element={
                             <Suspense fallback={<div>Loading...</div>}>
-                                <VatsimMap/>
+                                <MainMap/>
                             </Suspense>
                         }
                     />
