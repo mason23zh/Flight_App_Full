@@ -1,9 +1,19 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { Map, NavigationControl } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
+import switchMapLabels from "../switchMapLabels";
+import switchSatelliteView from "../switchSatelliteView";
 
 
 const BaseMap = ({ children }) => {
+    const {
+        mapLabelVisible,
+        satelliteLayerVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+
     const mapRef = useRef(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
@@ -12,6 +22,15 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
+
+    useEffect(() => {
+        switchMapLabels(mapRef, mapLabelVisible);
+    }, [mapLabelVisible]);
+
+    useEffect(() => {
+        switchSatelliteView(mapRef, satelliteLayerVisible);
+    }, [satelliteLayerVisible]);
+
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 

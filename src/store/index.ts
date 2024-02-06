@@ -24,7 +24,9 @@ import {
     vatsimMapVisibleReducer,
     toggleAtcLayer,
     toggleTrafficLayer,
-    toggleWeatherRasterLayer
+    toggleWeatherRasterLayer,
+    toggleMapLabel,
+    toggleSatelliteLayer
 } from "./slices/vatsimMapVisibleSlice";
 
 export const store = configureStore({
@@ -96,7 +98,9 @@ export {
     toggleControllerLayer,
     toggleAtcLayer,
     toggleTrafficLayer,
-    toggleWeatherRasterLayer
+    toggleWeatherRasterLayer,
+    toggleMapLabel,
+    toggleSatelliteLayer
 };
 
 export type RootState = ReturnType<typeof store.getState> 
