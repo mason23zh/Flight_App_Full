@@ -7,7 +7,7 @@ const BaseTrafficLayer = () => {
         data: vatsimPilots,
         error: vatsimPilotsError,
         isLoading: vatsimPilotsLoading
-    } = useFetchVatsimPilotsDataQuery();
+    } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
 
     if (vatsimPilotsError) {

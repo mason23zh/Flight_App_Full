@@ -1,24 +1,51 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
 import { VatsimFlight } from "../../types";
+import { PickingInfo } from "@deck.gl/core/typed";
+import { useFetchTrafficTrackDataQuery } from "../../store";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
 }
 
+interface PickedTraffic extends PickingInfo {
+    object?: VatsimFlight | null;
+}
+
 const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
+    const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
+
+    const {
+        data: trackData,
+        error: trackError,
+        isLoading: trackLoading
+    } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
+        skip: !selectTraffic
+    });
+
+    const trackLayer = useMemo(() => {
+        if (trackData && !trackLoading && !trackError) {
+            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true);
+        }
+    }, [trackData, trackLoading, trackError, selectTraffic]);
+
+    const deckOnClick = useCallback((info: PickedTraffic) => {
+        if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
+            setSelectTraffic(info.object);
+            // setTrackLayerVisible(true);
+        } else if (!info.layer) {
+            setSelectTraffic(null);
+            // setTrackLayerVisible(false);
+        }
+    }, [selectTraffic]);
+
+
     console.log("Main traffic layer pilots", vatsimPilots);
     let isHovering = false;
     const layers = [
-        // useMemo(() => {
-        //     if (!trackError) {
-        //         return flightPathLayer(trackData, selectTraffic, vatsimData, trackLayerVisible);
-        //     }
-        // },
-        // [trackData, selectTraffic, vatsimData, trackLayerVisible]
-        // ),
+        trackLayer,
         trafficLayer(vatsimPilots, true)
     ];
 
@@ -26,7 +53,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     return (
         <DeckGlOverlay
             interleaved={true}
-            //onClick={(info: PickedTraffic) => deckOnClick(info)}
+            onClick={(info: PickedTraffic) => deckOnClick(info)}
             layers={layers}
             pickingRadius={10}
 

@@ -36,6 +36,7 @@ interface PickedTraffic extends PickingInfo {
 // TODO: handle multiple controllers at the same area,
 // TODO: FSS not working
 // TODO: Typescript error in RTK Query
+//! BUG: popup not close properly
 
 function VatsimMap() {
     let isHovering = false; //when mouse is hovering on a layer, the pointer will change
