@@ -26,6 +26,12 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleAtcLayer(state, action) {
             state.allAtcLayerVisible = action.payload;
+        },
+        toggleTrafficLayer(state, action) {
+            state.trafficLayerVisible = action.payload;
+        },
+        toggleWeatherRasterLayer(state, action) {
+            state.weatherRasterVisible = action.payload;
         }
     }
 });
@@ -33,6 +39,8 @@ const vatsimMapVisibleSlice = createSlice({
 export const {
     toggleControllerLayer,
     toggleTraconLabel,
-    toggleAtcLayer
+    toggleAtcLayer,
+    toggleTrafficLayer,
+    toggleWeatherRasterLayer
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

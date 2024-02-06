@@ -1,38 +1,37 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Layer, Source } from "react-map-gl";
 import { nexradLayerStyle } from "./nexradMapStyle";
+import { RootState, useFetchRainviewerTimeStampsQuery } from "../../../../store";
+import ErrorLoadingMsg from "../../ErrorLoadingMsg";
+import { useSelector } from "react-redux";
 
 const NexradLayer = ({ labelVisible }) => {
-    const [rasterTimeStamp, setRasterTimeStamp] = useState();
-    const [error, setError] = useState(null);
-    useEffect(() => {
-        const fetchData = async () => {
-            const tsData = await axios.get("https://tilecache.rainviewer.com/api/maps.json");
-            if (tsData.data) {
-                setRasterTimeStamp(tsData.data[0]);
-            }
+    const {
+        weatherRasterVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-        };
-        fetchData()
-            .then()
-            .catch(() => setError("Can not fetch weather data"));
-    }, []);
 
-    if (error) {
-        return (
-            <div>
-                Can not fetch weather data
-            </div>
-        );
+    const {
+        data: rainViewTS,
+        error: rainViewError,
+        isLoading: rainViewLoading
+    } = useFetchRainviewerTimeStampsQuery();
+
+
+    if (rainViewError) {
+        return <ErrorLoadingMsg message="Error loading weather data"/>;
     }
 
-    if (rasterTimeStamp && labelVisible) {
+    if (rainViewLoading) {
+        return <ErrorLoadingMsg message="Loading weather data..."/>;
+    }
+
+    if (rainViewTS && weatherRasterVisible) {
         return (
             <Source
                 id={"nexrad-source"}
                 type="raster"
-                tiles={[`https://tilecache.rainviewer.com/v2/radar/${rasterTimeStamp}/512/{z}/{x}/{y}/6/0_1.png`]}
+                tiles={[`https://tilecache.rainviewer.com/v2/radar/${rainViewTS[0]}/512/{z}/{x}/{y}/6/0_1.png`]}
                 tileSize={256}
             >
                 <Layer {...nexradLayerStyle}/>

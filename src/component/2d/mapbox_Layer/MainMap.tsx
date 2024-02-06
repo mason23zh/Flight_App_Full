@@ -4,6 +4,7 @@ import AtcLayer from "./AtcLayer";
 import LayerTogglePanel from "../LayerTogglePanel";
 import LayerTogglePanel2 from "../LayerTogglePanel2";
 import BaseTrafficLayer from "../BaseTrafficLayer";
+import NexradLayer from "./Nexrad_Layer/NxradLayer";
 
 const MainMap = () => {
     return (
@@ -12,6 +13,7 @@ const MainMap = () => {
                 <AtcLayer/>
                 <LayerTogglePanel2/>
                 <BaseTrafficLayer/>
+                <NexradLayer labelVisible={true}/>
             </BaseMap>
         </div>
     );

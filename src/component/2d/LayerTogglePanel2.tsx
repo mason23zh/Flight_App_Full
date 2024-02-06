@@ -1,5 +1,11 @@
 import React from "react";
-import { toggleAtcLayer, toggleControllerLayer, toggleTraconLabel } from "../../store";
+import {
+    toggleAtcLayer,
+    toggleControllerLayer,
+    toggleTraconLabel,
+    toggleTrafficLayer,
+    toggleWeatherRasterLayer
+} from "../../store";
 import { useDispatch } from "react-redux";
 import { IoAirplane } from "react-icons/io5";
 import { AiFillTags } from "react-icons/ai";
@@ -13,7 +19,7 @@ import { Toggle } from "rsuite";
 const LayerTogglePanel = () => {
     const dispatch = useDispatch();
     const handleOnChangeTraffic = (e: boolean) => {
-        //onChangeTraffic(e);
+        dispatch(toggleTrafficLayer(e));
     };
 
     const handleOnChangeLabel = (e: boolean) => {
@@ -34,7 +40,7 @@ const LayerTogglePanel = () => {
     };
 
     const handleOnChangeWeather = (e: boolean) => {
-        //onChangeWeather(e);
+        dispatch(toggleWeatherRasterLayer(e));
     };
 
 

@@ -1,8 +1,10 @@
 import React from "react";
-import { useFetchVatsimPilotsDataQuery } from "../../store";
+import { RootState, useFetchVatsimPilotsDataQuery } from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
+import { useSelector } from "react-redux";
 
 const BaseTrafficLayer = () => {
+    const { trafficLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
         data: vatsimPilots,
         error: vatsimPilotsError,
@@ -24,7 +26,7 @@ const BaseTrafficLayer = () => {
         </div>;
     }
 
-    if (vatsimPilots) {
+    if (vatsimPilots && trafficLayerVisible) {
         return <MainTrafficLayer vatsimPilots={vatsimPilots.data.pilots}/>;
     }
 };

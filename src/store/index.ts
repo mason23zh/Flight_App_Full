@@ -7,6 +7,7 @@ import { metarApi } from "./apis/metarApi";
 import { weatherApi } from "./apis/weatherApi";
 import { tafApi } from "./apis/tafApi";
 import { vatsimApi } from "./apis/vatsimApi";
+import { rainviewerApi } from "./apis/rainviewerApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
 import {
@@ -21,7 +22,9 @@ import {
     toggleControllerLayer,
     toggleTraconLabel,
     vatsimMapVisibleReducer,
-    toggleAtcLayer
+    toggleAtcLayer,
+    toggleTrafficLayer,
+    toggleWeatherRasterLayer
 } from "./slices/vatsimMapVisibleSlice";
 
 export const store = configureStore({
@@ -37,8 +40,7 @@ export const store = configureStore({
         [tafApi.reducerPath]: tafApi.reducer,
         [vatsimApi.reducerPath]: vatsimApi.reducer,
         [vatsimDataApi.reducerPath]: vatsimDataApi.reducer,
-
-
+        [rainviewerApi.reducerPath]: rainviewerApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
         .concat(airportsApi.middleware)
@@ -48,6 +50,7 @@ export const store = configureStore({
         .concat(tafApi.middleware)
         .concat(vatsimApi.middleware)
         .concat(vatsimDataApi.middleware)
+        .concat(rainviewerApi.middleware)
 
 });
 
@@ -78,6 +81,7 @@ export {
     useFetchVatsimFssQuery,
     useFetchVatsimTraconBoundariesQuery
 } from "./apis/vatsimDataApi";
+export { useFetchRainviewerTimeStampsQuery } from "./apis/rainviewerApi";
 export { changeUserSelection, changeUserSelectionVatsimEvent };
 export {
     onMouseHoverFirLabel,
@@ -90,7 +94,9 @@ export {
 export {
     toggleTraconLabel,
     toggleControllerLayer,
-    toggleAtcLayer
+    toggleAtcLayer,
+    toggleTrafficLayer,
+    toggleWeatherRasterLayer
 };
 
 export type RootState = ReturnType<typeof store.getState> 
