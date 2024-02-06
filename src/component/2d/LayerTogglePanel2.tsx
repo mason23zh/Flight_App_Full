@@ -1,7 +1,7 @@
 import React from "react";
 import {
     toggleAtcLayer,
-    toggleControllerLayer, toggleMapLabel, toggleSatelliteLayer,
+    toggleControllerLayer, toggleMapLabel, toggleMapRoadLabel, toggleSatelliteLayer,
     toggleTraconLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
@@ -32,11 +32,10 @@ const LayerTogglePanel = () => {
 
     const handleOnChangeController = (e: boolean) => {
         dispatch(toggleAtcLayer(e));
-        //onChangeController(e);
     };
 
     const handleOnChangeRoad = (e: boolean) => {
-        //onChangeRoad(e);
+        dispatch(toggleMapRoadLabel(e));
     };
 
     const handleOnChangeWeather = (e: boolean) => {

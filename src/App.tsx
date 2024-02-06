@@ -18,7 +18,6 @@ import MainMap from "./component/2d/mapbox_Layer/MainMap";
 
 const Orion = lazy(() => import("./component/Orion"));
 const Puzzles = lazy(() => import("./component/Puzzles"));
-const VatsimMap = lazy(() => import("./component/2d/VatsimMap"));
 
 
 function App() {
@@ -54,13 +53,6 @@ function App() {
                         }
                     />
 
-                    {/* <Route */}
-                    {/*     path="2d" element={ */}
-                    {/*         <Suspense fallback={<div>Loading...</div>}> */}
-                    {/*             <VatsimMap/> */}
-                    {/*         </Suspense> */}
-                    {/*     } */}
-                    {/* /> */}
                     <Route
                         path="2d"
                         element={

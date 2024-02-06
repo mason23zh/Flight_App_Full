@@ -38,6 +38,9 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
+        },
+        toggleMapRoadLabel(state, action) {
+            state.mapRoadVisible = action.payload;
         }
     }
 });
@@ -49,6 +52,7 @@ export const {
     toggleTrafficLayer,
     toggleWeatherRasterLayer,
     toggleMapLabel,
-    toggleSatelliteLayer
+    toggleSatelliteLayer,
+    toggleMapRoadLabel
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

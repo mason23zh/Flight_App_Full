@@ -5,16 +5,18 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
+import switchMapRoads from "../switchMapRoads";
 
 
 const BaseMap = ({ children }) => {
+    const mapRef = useRef(null);
+
     const {
         mapLabelVisible,
-        satelliteLayerVisible
+        satelliteLayerVisible,
+        mapRoadVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-
-    const mapRef = useRef(null);
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
         latitude: 36.15178,
@@ -30,6 +32,10 @@ const BaseMap = ({ children }) => {
     useEffect(() => {
         switchSatelliteView(mapRef, satelliteLayerVisible);
     }, [satelliteLayerVisible]);
+
+    useEffect(() => {
+        switchMapRoads(mapRef, mapRoadVisible);
+    }, [mapRoadVisible]);
 
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
