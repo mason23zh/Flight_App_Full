@@ -200,8 +200,8 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                     key={a.icao}
                     anchor="bottom">
                     <div
-                        onMouseEnter={() => handleMouse(a, true, 150, 50)}
-                        onMouseLeave={() => handleMouse(null, false, 150, 50)}
+                        onMouseEnter={() => handleMouse(a, true, 150, 10)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 10)}
                         className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
                         {icao}

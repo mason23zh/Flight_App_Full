@@ -12,22 +12,19 @@ interface Props {
 const FirLabelPopup = ({
     hoverFir,
 }: Props) => {
+    let tempFirName: string;
+
     const {
         hour,
         minute
     } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
 
-    console.log("Hover Fir label geoJsonFeature", hoverFir);
-
     const firName = hoverFir.features[0].properties.firInfo.name;
-    let tempFirName;
     if (firName.includes("Central") || firName.includes("Radar") || firName.includes("ACC")) {
         tempFirName = firName;
     } else {
         tempFirName = firName + " Center";
     }
-
-    // console.log("fir popup name:", firName);
 
     return (
         <Popup
@@ -41,7 +38,7 @@ const FirLabelPopup = ({
             anchor="bottom"
         >
 
-            <div className="w-full">
+            <div className="w-full p-2">
                 <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-[17px] font-bold text-gray-600">
                         {hoverFir.features[0].properties.id}

@@ -28,13 +28,13 @@ const useMatchedFirFeatures = (
         data: geoJsonData,
         error: geoJsonError,
         isLoading: geoJsonLoading
-    } = useFetchVatsimFirBoundariesQuery({});
+    } = useFetchVatsimFirBoundariesQuery();
 
     const {
         data: firData,
         error: firError,
         isLoading: firLoading
-    } = useFetchVatsimFirQuery({});
+    } = useFetchVatsimFirQuery();
 
 
     useMemo(() => {

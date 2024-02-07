@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import GeoJson from "geojson";
+import { VatsimFirs } from "../../types";
 
 export const vatsimDataApi = createApi({
     reducerPath: "vatsimData",
@@ -7,19 +9,19 @@ export const vatsimDataApi = createApi({
     }),
     endpoints(build) {
         return {
-            fetchVatsimFirBoundaries: build.query({
+            fetchVatsimFirBoundaries: build.query<GeoJson.FeatureCollection, void>({
                 query: () => ({
                     url: "/vatsim-firboundaries.json",
                     method: "GET",
                 })
             }),
-            fetchVatsimFir: build.query({
+            fetchVatsimFir: build.query<VatsimFirs, void>({
                 query: () => ({
                     url: "/vatsim-firs.json",
                     method: "GET",
                 })
             }),
-            fetchVatsimTraconBoundaries: build.query({
+            fetchVatsimTraconBoundaries: build.query<GeoJson.FeatureCollection, void>({
                 query: () => ({
                     url: "/vatsim-traconboundaries.json",
                     method: "GET"

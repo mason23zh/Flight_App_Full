@@ -3,12 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const vatsimMapMouseEventSlice = createSlice({
     name: "vatsimMapEvent",
     initialState: {
-        userSelectionEvent: {}
+        userSelectionEvent: {
+            type: "FeatureCollection",
+            features: []
+        }
     },
 
     reducers: {
         onMouseHoverFirLabel(state, action) {
-            state.userSelectionEvent = action.payload;
+            state.userSelectionEvent.features[0] = action.payload;
         },
         onMouseLeaveFirLabel(state, action) {
             state.userSelectionEvent = action.payload;

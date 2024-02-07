@@ -34,15 +34,12 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
-            // setTrackLayerVisible(true);
         } else if (!info.layer) {
             setSelectTraffic(null);
-            // setTrackLayerVisible(false);
         }
     }, [selectTraffic]);
 
 
-    console.log("Main traffic layer pilots", vatsimPilots);
     let isHovering = false;
     const layers = [
         trackLayer,

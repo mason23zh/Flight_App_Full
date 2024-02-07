@@ -1,6 +1,6 @@
 // useDelayHoverLabel hook will return hover information and onHover/leave function
 // single function handleMouse will handle both hover and leave cases.
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import GeoJson from "geojson";
 
 interface Service {
@@ -33,31 +33,31 @@ interface AirportService {
 type Info = AirportService | GeoJson.Feature | GeoJson.FeatureCollection | null;
 
 const useDelayHoverLabel = () => {
-    const [hoverInfo, setHoverInfo] = useState(null);
-    const [hoverDelayHandler, setHoverDelayHandler] = useState(null);
+    const [hoverInfo, setHoverInfo] = useState<Info | null>(null);
+    const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
 
+    const clearHoverTimeout = useCallback(() => {
+        if (hoverDelayHandlerRef.current) {
+            clearTimeout(hoverDelayHandlerRef.current);
+            hoverDelayHandlerRef.current = null;
+        }
+    }, []);
 
     useEffect(() => {
-        return () => {
-            if (hoverDelayHandler) {
-                clearTimeout(hoverDelayHandler);
-            }
-        };
-    }, [hoverDelayHandler]);
+        // cleanup
+        return () => clearHoverTimeout();
+    }, [clearHoverTimeout]);
 
-    const handleMouse = useCallback((info: Info, entering: boolean, enterDelay: number, leaveDelay: number) => {
-        if (hoverDelayHandler) {
-            clearTimeout(hoverDelayHandler);
-        }
-        const handler = setTimeout(() => {
-            setHoverInfo(entering ? info : null);
-        }, entering ? enterDelay : leaveDelay);
+    const handleMouse = useCallback((info: Info | null, entering: boolean, enterDelay: number, leaveDelay: number) => {
+        clearHoverTimeout();
 
-        setHoverDelayHandler(handler);
-    }, [hoverDelayHandler]);
+        const delay = entering ? enterDelay : leaveDelay;
+        hoverDelayHandlerRef.current = setTimeout(() => {
+            setHoverInfo(info);
+        }, delay);
+    }, [clearHoverTimeout]);
 
-    return [hoverInfo, handleMouse];
-
+    return [hoverInfo, handleMouse] as const;
 };
 
 export default useDelayHoverLabel;

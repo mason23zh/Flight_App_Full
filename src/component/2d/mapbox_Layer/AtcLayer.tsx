@@ -1,29 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { RootState, useFetchVatsimControllersDataQuery } from "../../../store";
 import FirLayer from "./FIR_Layers/FirLayer";
 import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
-import { VatsimFlight } from "../../../types";
-import LayerTogglePanel from "../LayerTogglePanel";
 import { useSelector } from "react-redux";
 
 const AtcLayer = () => {
-    // const [controllerLayerVisible, setControllerLayerVisible] = useState<boolean>(true);
-    // const [traconLabelVisible, setTraconLabelVisible] = useState<boolean>(true);
-    // const [controllerMarkerVisible, setControllerMarkerVisible] = useState<boolean>(true);
-    // const [mapRoadVisible, setMapRoadVisible] = useState<boolean>(false);
-    // const [firLabelVisible, setFirLabelVisible] = useState<boolean>(true);
-    // const [trackLayerVisible, setTrackLayerVisible] = useState<boolean>(false);
-    // const [trafficLayerVisible, setTrafficLayerVisible] = useState<boolean>(true);
-    // const [mapLabelVisible, setMapLabelVisible] = useState<boolean>(true);
-    // const [satelliteLayerVisible, setSatelliteLayerVisible] = useState<boolean>(false);
-    // const [weatherRasterVisible, setWeatherRasterVisible] = useState<boolean>(false);
-    // const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
 
     const {
         allAtcLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-
 
     const {
         data: controllerData,

@@ -15,7 +15,6 @@ const trafficLayer = (
     const [airportModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
-    console.log("Data in trafficLayer", data);
 
     useEffect(() => {
         const loadGLT = async () => {
@@ -32,6 +31,7 @@ const trafficLayer = (
             .then()
             .catch((e) => setError(e));
     }, []);
+
 
     return data && new ScenegraphLayer({
         id: "traffics-layer",

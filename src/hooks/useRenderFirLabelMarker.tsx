@@ -5,7 +5,21 @@ import useDelayHoverLabel from "./useDelayHoverLabel";
 
 const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
     let renderedMarkers;
+    // const dispatch = useDispatch();
     const [hoverFir, handleMouse] = useDelayHoverLabel();
+
+    const handleMouseEnter = (feature) => {
+        // dispatch(onMouseHoverFirLabel(feature));
+        handleMouse({
+            type: "FeatureCollection",
+            features: [feature]
+        }, true, 150, 10);
+    };
+
+    const handleMouseLeave = () => {
+        // dispatch(onMouseLeaveFirLabel(null));
+        handleMouse(null);
+    };
 
     if (geoJsonFeatures && geoJsonFeatures.features.length > 0) {
         renderedMarkers = geoJsonFeatures.features.map((feature) => {
@@ -18,11 +32,8 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
 
                 >
                     <div
-                        onMouseEnter={() => handleMouse({
-                            type: "FeatureCollection",
-                            features: [feature]
-                        }, true, 150, 50)}
-                        onMouseLeave={() => handleMouse(null, false, 150, 50)}
+                        onMouseEnter={() => handleMouseEnter(feature)}
+                        onMouseLeave={handleMouseLeave}
                         className="bg-amber-50 text-center rounded-md py-0 px-1 text-[11px] font-bold text-black opacity-80">
                         {feature.properties.id}
                     </div>

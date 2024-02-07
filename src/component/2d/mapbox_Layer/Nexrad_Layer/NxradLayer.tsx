@@ -5,18 +5,16 @@ import { RootState, useFetchRainviewerTimeStampsQuery } from "../../../../store"
 import ErrorLoadingMsg from "../../ErrorLoadingMsg";
 import { useSelector } from "react-redux";
 
-const NexradLayer = ({ labelVisible }) => {
+const NexradLayer = () => {
     const {
         weatherRasterVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-
 
     const {
         data: rainViewTS,
         error: rainViewError,
         isLoading: rainViewLoading
     } = useFetchRainviewerTimeStampsQuery();
-
 
     if (rainViewError) {
         return <ErrorLoadingMsg message="Error loading weather data"/>;

@@ -1,4 +1,13 @@
 import React from "react";
+import {
+    toggleAtcLayer,
+    toggleMapLabel,
+    toggleMapRoadLabel,
+    toggleSatelliteLayer,
+    toggleTrafficLayer,
+    toggleWeatherRasterLayer
+} from "../../store";
+import { useDispatch } from "react-redux";
 import { IoAirplane } from "react-icons/io5";
 import { AiFillTags } from "react-icons/ai";
 import { FaSatellite, FaRoad } from "react-icons/fa";
@@ -8,36 +17,30 @@ import { TiWeatherDownpour } from "react-icons/ti";
 
 import { Toggle } from "rsuite";
 
-const LayerTogglePanel = ({
-    onChangeTraffic,
-    onChangeLabel,
-    onChangeSatellite,
-    onChangeController,
-    onChangeRoad,
-    onChangeWeather
-}) => {
+const LayerTogglePanel = () => {
+    const dispatch = useDispatch();
     const handleOnChangeTraffic = (e: boolean) => {
-        onChangeTraffic(e);
+        dispatch(toggleTrafficLayer(e));
     };
 
     const handleOnChangeLabel = (e: boolean) => {
-        onChangeLabel(e);
+        dispatch(toggleMapLabel(e));
     };
 
     const handleOnChangeSatellite = (e: boolean) => {
-        onChangeSatellite(e);
+        dispatch(toggleSatelliteLayer(e));
     };
 
     const handleOnChangeController = (e: boolean) => {
-        onChangeController(e);
+        dispatch(toggleAtcLayer(e));
     };
 
     const handleOnChangeRoad = (e: boolean) => {
-        onChangeRoad(e);
+        dispatch(toggleMapRoadLabel(e));
     };
 
     const handleOnChangeWeather = (e: boolean) => {
-        onChangeWeather(e);
+        dispatch(toggleWeatherRasterLayer(e));
     };
 
 

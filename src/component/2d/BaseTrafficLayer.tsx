@@ -2,6 +2,7 @@ import React from "react";
 import { RootState, useFetchVatsimPilotsDataQuery } from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useSelector } from "react-redux";
+import ErrorLoadingMsg from "./ErrorLoadingMsg";
 
 const BaseTrafficLayer = () => {
     const { trafficLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
@@ -13,17 +14,11 @@ const BaseTrafficLayer = () => {
 
 
     if (vatsimPilotsError) {
-        return <div
-            className="fixed top-50 left-50 z-50 w-auto h-auto flex items-center justify-center bg-opacity-50 bg-black text-white">Error
-            loading Vatsim Pilots data
-        </div>;
+        return <ErrorLoadingMsg message="Error loading Vatsim Pilots data"/>;
     }
 
     if (vatsimPilotsLoading) {
-        return <div
-            className="fixed top-50 left-50 z-50 w-auto h-auto flex items-center justify-center bg-opacity-50 bg-black text-white">
-            loading Vatsim Pilots data
-        </div>;
+        return <ErrorLoadingMsg message="loading Vatsim Pilots data"/>;
     }
 
     if (vatsimPilots && trafficLayerVisible) {

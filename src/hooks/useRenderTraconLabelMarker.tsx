@@ -27,8 +27,8 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
                                 onMouseEnter={() => handleMouse({
                                     type: "FeatureCollection",
                                     features: [feature]
-                                }, true, 150, 100)}
-                                onMouseLeave={() => handleMouse(null, false, 150, 100)}
+                                }, true, 150, 10)}
+                                onMouseLeave={() => handleMouse(null, false, 150, 10)}
                             >
                                 {feature.properties.id}
                             </div>
