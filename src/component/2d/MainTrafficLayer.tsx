@@ -15,6 +15,7 @@ interface PickedTraffic extends PickingInfo {
 }
 
 const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
+
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
 
     const {

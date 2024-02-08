@@ -22,18 +22,18 @@ interface Service {
 }
 
 
-interface AirportService {
-    airportName: string,
-    icao: string,
-    coordinates: string[],
-    services: Array<Service>
-}
+// interface AirportService {
+//     airportName: string,
+//     icao: string,
+//     coordinates: string[],
+//     services: Array<Service>
+// }
+ 
 
-
-type Info = AirportService | GeoJson.Feature | GeoJson.FeatureCollection | null;
+//type Info = AirportService | GeoJson.Feature | GeoJson.FeatureCollection | null;
 
 const useDelayHoverLabel = () => {
-    const [hoverInfo, setHoverInfo] = useState<Info | null>(null);
+    const [hoverInfo, setHoverInfo] = useState<GeoJson.FeatureCollection | null>(null);
     const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
 
     const clearHoverTimeout = useCallback(() => {
@@ -48,7 +48,7 @@ const useDelayHoverLabel = () => {
         return () => clearHoverTimeout();
     }, [clearHoverTimeout]);
 
-    const handleMouse = useCallback((info: Info | null, entering: boolean, enterDelay: number, leaveDelay: number) => {
+    const handleMouse = useCallback((info: GeoJson.FeatureCollection | null, entering: boolean, enterDelay: number, leaveDelay: number) => {
         clearHoverTimeout();
 
         const delay = entering ? enterDelay : leaveDelay;

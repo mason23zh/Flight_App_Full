@@ -4,11 +4,13 @@ import AtcLayer from "./AtcLayer";
 import LayerTogglePanel from "../LayerTogglePanel";
 import BaseTrafficLayer from "../BaseTrafficLayer";
 import NexradLayer from "./Nexrad_Layer/NxradLayer";
+import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
 
 const MainMap = () => {
     return (
         <div>
             <BaseMap>
+                <MapErrorMessageStack/>
                 <AtcLayer/>
                 <LayerTogglePanel/>
                 <BaseTrafficLayer/>

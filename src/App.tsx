@@ -12,12 +12,13 @@ import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
-import MainMap from "./component/2d/mapbox_Layer/MainMap";
+// import MainMap from "./component/2d/mapbox_Layer/MainMap";
 
 // TODO: change all request using rtk query
 
 const Orion = lazy(() => import("./component/Orion"));
 const Puzzles = lazy(() => import("./component/Puzzles"));
+const MainMap = lazy(() => import("./component/2d/mapbox_Layer/MainMap"));
 
 
 function App() {

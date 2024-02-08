@@ -6,6 +6,7 @@ import { RootState } from "../../../store";
 import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
 import switchMapRoads from "../switchMapRoads";
+import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
 
 
 const BaseMap = ({ children }) => {
@@ -47,7 +48,7 @@ const BaseMap = ({ children }) => {
             ...viewState
         });
     }, []);
-
+    // mercator
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map

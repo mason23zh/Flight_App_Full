@@ -1,14 +1,14 @@
 // The source layer to render FIR data.
 
-import React from "react";
+import React, { useEffect } from "react";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../store";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -20,8 +20,7 @@ const FirLayer = ({
     labelVisible
 }: Controller) => {
 
-    const { userSelectionEvent } = useSelector((state: RootState) => state.vatsimMapEvent);
-    console.log("Fir layer redux use hover selection event:", userSelectionEvent);
+    const dispatch = useDispatch();
 
 
     const {
@@ -32,28 +31,29 @@ const FirLayer = ({
     } = useMatchedFirFeatures(
         controllerInfo,
     );
+    useEffect(() => {
+        if (isLoading) {
+            dispatch(addMessage("Loading Fir layer..."));
+        }
+
+        if (error) {
+            dispatch(addMessage("Error loading Fir layer."));
+        }
+    }, [isLoading, error, geoJsonFeatures]);
 
     const {
         renderedMarkers,
         hoverFir
     } = useRenderFirLabelMarker(geoJsonFeatures);
-    console.log("Fir layer hook hover info:", hoverFir);
 
-    if (isLoading) {
-        return (
-            <>
-                Loading...
-            </>
-        );
-    }
-
-    if (error) {
-        return (
-            <>
-                Error
-            </>
-        );
-    }
+    // if (isLoading) {
+    //     dispatch(addMessage("Loading Fir layer..."));
+    //
+    // }
+    //
+    // if (error) {
+    //     dispatch(addMessage("Error loading Fir layer."));
+    // }
 
     if (geoJsonFeatures) {
         return (

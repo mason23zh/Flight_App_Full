@@ -4,7 +4,7 @@ import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 import logo from "../images/logo.png";
 import InputAndSearch from "./InputAndSearch";
- 
+
 function NavbarElement() {
     const toggleTheme = useThemeUpdate();
     const darkMode = useTheme();
@@ -73,6 +73,11 @@ function NavbarElement() {
                 <li>
                     <Link style={{ textDecoration: "none" }} to="/vatsim/events" className="">
                         Events
+                    </Link>
+                </li>
+                <li>
+                    <Link style={{ textDecoration: "none" }} to="/2d" className="">
+                        Map
                     </Link>
                 </li>
                 <li>

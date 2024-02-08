@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
@@ -8,6 +8,8 @@ import {
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -18,8 +20,8 @@ const TraconLayer = ({
     controllerInfo,
     labelVisible
 }: Controller) => {
-    console.log("Test Tracon Layer render.");
-    // const [traconBoundariesData] = useFetchVatsimTraconData();
+    const dispatch = useDispatch();
+
     const {
         geoJsonFeatures,
         isLoading,
@@ -30,21 +32,16 @@ const TraconLayer = ({
         hoverTracon
     } = useRenderTraconLabelMarker(geoJsonFeatures);
 
-    if (isLoading) {
-        return (
-            <>
-                Loading...
-            </>
-        );
-    }
+    useEffect(() => {
+        if (isLoading) {
+            dispatch(addMessage("Loading Tracon layer..."));
+        }
 
-    if (error) {
-        return (
-            <>
-                Error
-            </>
-        );
-    }
+        if (error) {
+            dispatch(addMessage("Error loading Tracon layer."));
+        }
+    }, [isLoading, error]);
+
 
     if (geoJsonFeatures) {
         return (

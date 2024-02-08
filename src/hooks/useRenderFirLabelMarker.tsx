@@ -8,7 +8,7 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
     // const dispatch = useDispatch();
     const [hoverFir, handleMouse] = useDelayHoverLabel();
 
-    const handleMouseEnter = (feature) => {
+    const handleMouseEnter = (feature: GeoJson.Feature) => {
         // dispatch(onMouseHoverFirLabel(feature));
         handleMouse({
             type: "FeatureCollection",
@@ -18,7 +18,7 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
 
     const handleMouseLeave = () => {
         // dispatch(onMouseLeaveFirLabel(null));
-        handleMouse(null);
+        handleMouse(null, false, 150, 10);
     };
 
     if (geoJsonFeatures && geoJsonFeatures.features.length > 0) {
