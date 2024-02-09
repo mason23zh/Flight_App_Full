@@ -9,6 +9,35 @@ export function isFeatureCollection(
     return "type" in feature && feature["type"] === "FeatureCollection";
 }
 
+export function isAirportService(
+    feature: GeoJson.FeatureCollection | AirportService
+): feature is AirportService {
+    return "services" in feature;
+}
+
+
+// The markerOffsetObject is used to offset the Popup,
+// without this the Popup will be positioned at the center.
+// This would result Popup overlay with the mouse cursor,
+// hence causing the flickering issues.
+// Should 'anchor' property been set, the dynamic positioning will be turned off,
+// and this will result Popup displayed out of the screen.
+// 'anchor' is reversed in the Popup, pay extra attention before changing
+// the offset value.
+const offsetTop = 10;
+const offsetBottom = -40;
+const offsetLeft = 25;
+export const markerOffsetObject = {
+    "top": [0, offsetTop],
+    "top-left": [offsetLeft, offsetTop],
+    "top-right": [-offsetLeft, offsetTop],
+    "bottom": [0, offsetBottom],
+    "bottom-left": [offsetLeft, offsetBottom],
+    "bottom-right": [-offsetLeft, offsetBottom],
+    "left": [offsetLeft, offsetBottom],
+    "right": [-offsetLeft, offsetBottom],
+};
+
 
 /**
  * Type predicate to narrow an unknown error to `FetchBaseQueryError`

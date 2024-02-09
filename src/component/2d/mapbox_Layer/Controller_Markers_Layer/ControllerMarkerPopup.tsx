@@ -1,6 +1,7 @@
 import React from "react";
 import { Popup } from "react-map-gl";
 import ControllerPopupContent from "./ControllerPopupContent";
+import { markerOffsetObject } from "../util/helpers";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -33,7 +34,7 @@ interface Props {
 
 
 const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
-    let renderServices;
+    let renderServices: JSX.Element[];
     const lon = Number(hoverInfo.coordinates[0]);
     const lat = Number(hoverInfo.coordinates[1]);
     const airportName = hoverInfo.airportName;
@@ -54,16 +55,16 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     }
 
     return (
+    //@ts-expect-error to avoid "Property 'offset' does not exist" in Popup
         <Popup
             style={{
                 zIndex: 100,
             }}
             closeButton={false}
-            anchor="left"
             longitude={lon}
             latitude={lat}
             maxWidth="500"
-            offset={15} // this offset will prevent popup displayed directly below the cursor, causing flickering
+            offset={markerOffsetObject}
         >
             <div className="grid grid-cols-1 justify-center items-center gap-1 p-1 w-full">
                 <div className="justify-self-start font-extrabold">

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React from "react";
- 
+
 function Skeleton({
     times,
     className
@@ -26,7 +26,7 @@ function Skeleton({
             </div>
         ));
 
-    return boxes;
+    return <>{boxes}</>;
 }
 
 export default Skeleton;

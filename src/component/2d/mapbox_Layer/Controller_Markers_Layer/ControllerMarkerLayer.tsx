@@ -2,6 +2,7 @@ import React from "react";
 import { VatsimControllers } from "../../../../types";
 import useRenderControllerMarkers from "../../../../hooks/useRenderControllerMarkers";
 import ControllerMarkerPopup from "./ControllerMarkerPopup";
+import { isAirportService } from "../util/helpers";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -18,10 +19,12 @@ const ControllerMarkerLayer = ({
     } = useRenderControllerMarkers(controllerInfo);
 
     return (
-            <>
-                {labelVisible && renderedMarkers}
-                {hoverInfo && <ControllerMarkerPopup hoverInfo={hoverInfo}/>}
-            </>
+        <>
+            {labelVisible && renderedMarkers}
+            {hoverInfo && isAirportService(hoverInfo) &&
+                <ControllerMarkerPopup hoverInfo={hoverInfo}/>
+            }
+        </>
     );
 };
 
