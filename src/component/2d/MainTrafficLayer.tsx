@@ -1,10 +1,11 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
 import { VatsimFlight } from "../../types";
 import { PickingInfo } from "@deck.gl/core/typed";
-import { useFetchTrafficTrackDataQuery } from "../../store";
+import { addMessage, removeMessageByLocation, useFetchTrafficTrackDataQuery } from "../../store";
+import { useDispatch } from "react-redux";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -16,6 +17,8 @@ interface PickedTraffic extends PickingInfo {
 
 const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
+    const dispatch = useDispatch();
+
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
 
     const {
@@ -25,6 +28,19 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
         skip: !selectTraffic
     });
+
+    useEffect(() => {
+        if (trackError) {
+            dispatch(addMessage({
+                location: "TRAFFIC_TRACK",
+                messageType: "ERROR",
+                content: "Error loading track data for selected traffic."
+            }));
+        }
+        if (trackData) {
+            dispatch(removeMessageByLocation({ location: "TRAFFIC_TRACK" }));
+        }
+    }, [trackData, trackError, trackLoading]);
 
     const trackLayer = useMemo(() => {
         if (trackData && !trackLoading && !trackError) {

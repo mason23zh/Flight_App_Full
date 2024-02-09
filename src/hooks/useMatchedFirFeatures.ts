@@ -6,12 +6,14 @@ import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
 import { useFetchVatsimFirBoundariesQuery, useFetchVatsimFirQuery } from "../store";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
 
 interface UseMatchedFirFeaturesReturn {
     geoJsonFeatures: GeoJson.FeatureCollection,
     firData: VatsimFirs,
     isLoading: boolean,
-    error: Error
+    error: FetchBaseQueryError | SerializedError
 }
 
 const useMatchedFirFeatures = (

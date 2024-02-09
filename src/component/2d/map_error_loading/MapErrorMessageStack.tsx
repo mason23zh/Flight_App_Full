@@ -1,10 +1,8 @@
 // To display error notification message in stack instead of overlapping
 
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { removeMessage } from "../../../store";
+import React from "react";
+import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-// import "../../../styles.css";
 
 const MapErrorMessageStack = () => {
     const { messages } = useSelector((state: RootState) => state.vatsimMapError);

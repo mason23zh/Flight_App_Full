@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
-import { AirportService, VatsimControllers } from "../../../../types";
+import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
     highlightTraconBoundariesLayerStyle,
@@ -10,7 +10,7 @@ import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMa
 import TraconLabelPopup from "./TraconLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
-import GeoJson from "geojson";
+import { isFeatureCollection } from "../util/helpers";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -34,10 +34,7 @@ const TraconLayer = ({
     } = useRenderTraconLabelMarker(geoJsonFeatures);
 
     useEffect(() => {
-        console.log("Error:", error);
-        console.log("isLoading:", isLoading);
         if (isLoading) {
-
             dispatch(addMessage({
                 location: "TRACON",
                 messageType: "LOADING",
@@ -58,11 +55,6 @@ const TraconLayer = ({
         }
     }, [isLoading, error, geoJsonFeatures]);
 
-    const isFeatureCollection = ( //type guard
-        feature: GeoJson.FeatureCollection | AirportService
-    ): feature is GeoJson.FeatureCollection => {
-        return "type" in feature && feature["type"] === "FeatureCollection";
-    };
 
     if (geoJsonFeatures) {
         return (

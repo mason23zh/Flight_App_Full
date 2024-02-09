@@ -1,7 +1,7 @@
 // The source layer to render FIR data.
 
 import React, { useEffect } from "react";
-import { AirportService, VatsimControllers } from "../../../../types";
+import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
@@ -9,7 +9,7 @@ import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
-import GeoJson from "geojson";
+import { isFeatureCollection } from "../util/helpers";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -59,12 +59,6 @@ const FirLayer = ({
         renderedMarkers,
         hoverFir
     } = useRenderFirLabelMarker(geoJsonFeatures);
-
-    const isFeatureCollection = ( //type guard
-        feature: GeoJson.FeatureCollection | AirportService
-    ): feature is GeoJson.FeatureCollection => {
-        return "type" in feature && feature["type"] === "FeatureCollection";
-    };
 
     if (geoJsonFeatures) {
         return (
