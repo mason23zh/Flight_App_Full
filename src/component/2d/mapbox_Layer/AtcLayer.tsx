@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { addMessage, RootState, useFetchVatsimControllersDataQuery } from "../../../store";
+import { addMessage, removeMessageByLocation, RootState, useFetchVatsimControllersDataQuery } from "../../../store";
 import FirLayer from "./FIR_Layers/FirLayer";
 import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
@@ -22,11 +22,23 @@ const AtcLayer = () => {
 
     useEffect(() => {
         if (controllerLoading) {
-            dispatch(addMessage("Loading controllers..."));
+            dispatch(addMessage({
+                location: "ATC",
+                messageType: "LOADING",
+                content: "Loading controllers..."
+            }));
         }
 
         if (controllerError) {
-            dispatch(addMessage("Error loading controllers."));
+            dispatch(addMessage({
+                location: "ATC",
+                messageType: "ERROR",
+                content: "Error loading controllers data."
+            }));
+        }
+
+        if (controllerData && !controllerLoading && !controllerError) {
+            dispatch(removeMessageByLocation({ location: "ATC" }));
         }
     }, [controllerError, controllerLoading, controllerData]);
 

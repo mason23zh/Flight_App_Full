@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { addMessage, RootState, useFetchVatsimPilotsDataQuery } from "../../store";
+import { addMessage, removeMessageByLocation, RootState, useFetchVatsimPilotsDataQuery } from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useDispatch, useSelector } from "react-redux";
-import ErrorLoadingMsg from "./map_error_loading/ErrorLoadingMsg";
 
 const BaseTrafficLayer = () => {
     const dispatch = useDispatch();
@@ -17,14 +16,26 @@ const BaseTrafficLayer = () => {
 
     useEffect(() => {
         if (vatsimPilotsError) {
-            dispatch(addMessage("Error loading Vatsim pilots data."));
+            dispatch(addMessage({
+                location: "BASE_TRAFFIC",
+                messageType: "ERROR",
+                content: "Error loading Vatsim pilots data."
+            }));
         }
 
         if (vatsimPilotsLoading) {
-            dispatch(addMessage("Loading Vatsim pilots data..."));
+            dispatch(addMessage({
+                location: "BASE_TRAFFIC",
+                messageType: "LOADING",
+                content: "Loading Vatsim pilots data..."
+            }));
         }
 
-    }, [vatsimPilotsLoading, vatsimPilotsError]);
+        if (vatsimPilots && !vatsimPilotsLoading && !vatsimPilotsError) {
+            dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
+        }
+
+    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots]);
 
     if (vatsimPilots && trafficLayerVisible) {
         return <MainTrafficLayer vatsimPilots={vatsimPilots.data.pilots}/>;

@@ -1,5 +1,5 @@
 /** @type {import("tailwindcss").Config} */
-module.exports = {
+export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {
@@ -10,8 +10,13 @@ module.exports = {
                 shimmer: {
                     "100%": { transform: "translateX(100%)" },
                 },
+                messageFadeOut: { //MapErrorMessageStack notification fade away effect
+                    "0%": { opacity: 0.9 },
+                    "100%": { opacity: 0.3 }
+                }
             },
             animation: {
+                fade: "messageFadeOut 4s ease forwards",
                 shimmer: "shimmer 1.5s infinite",
                 bounce: "bounce 1s infinite",
             },
@@ -19,11 +24,11 @@ module.exports = {
                 airportAccordionExSm: "530px",
                 sm: "576px",
                 // => @media (min-width: 576px) { ... }
-                
+
                 airportAccordionSm: "800px",
                 md: "960px",
                 // => @media (min-width: 960px) { ... }
-                
+
                 tableShrinkAgain: "990px",
                 airportAccordionMd: "1100px",
                 ExWeatherHeadMd: "1200px",

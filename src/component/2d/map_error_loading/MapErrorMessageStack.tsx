@@ -4,25 +4,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeMessage } from "../../../store";
 import { RootState } from "../../../store";
+// import "../../../styles.css";
 
 const MapErrorMessageStack = () => {
-    const dispatch = useDispatch();
     const { messages } = useSelector((state: RootState) => state.vatsimMapError);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            messages.forEach((_, index) => dispatch(removeMessage(index)));
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, [messages, dispatch]);
+    console.log("Map error message stack message:", messages);
 
     return (
         <div className="fixed top-50 left-50 z-50 w-auto">
             {messages.map((message, index) => (
                 <div key={index} className="m-1">
-                    <div className="bg-opacity-50 bg-black text-white p-4 rounded-md shadow-md">
-                        {message}
+                    <div className="bg-black text-white p-2 rounded-md animate-fade">
+                        {message.payload.content}
                     </div>
                 </div>
             ))}

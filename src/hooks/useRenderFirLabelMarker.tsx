@@ -40,7 +40,7 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
                 </Marker>);
         });
     }
-
+ 
     return {
         renderedMarkers,
         hoverFir

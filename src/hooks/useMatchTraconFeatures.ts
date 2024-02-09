@@ -16,8 +16,8 @@ const useMatchTraconFeatures = (
         data: geoJsonData,
         isLoading,
         error
-    } = useFetchVatsimTraconBoundariesQuery({});
-
+    } = useFetchVatsimTraconBoundariesQuery();
+ 
 
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",

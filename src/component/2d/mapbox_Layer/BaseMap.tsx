@@ -6,8 +6,6 @@ import { RootState } from "../../../store";
 import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
 import switchMapRoads from "../switchMapRoads";
-import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
-
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -48,7 +46,7 @@ const BaseMap = ({ children }) => {
             ...viewState
         });
     }, []);
-    // mercator
+    // default projection: mercator
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
@@ -66,7 +64,6 @@ const BaseMap = ({ children }) => {
                 }}
                 onMove={onMove}
                 dragPan={true}
-                interactiveLayerIds={["firs"]}
             >
                 <NavigationControl/>
                 {AirportLayers}

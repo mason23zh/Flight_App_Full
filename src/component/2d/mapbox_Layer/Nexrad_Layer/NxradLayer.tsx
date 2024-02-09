@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { Layer, Source } from "react-map-gl";
 import { nexradLayerStyle } from "./nexradMapStyle";
-import { addMessage, RootState, useFetchRainviewerTimeStampsQuery } from "../../../../store";
+import {
+    addMessage,
+    removeMessageByLocation,
+    RootState,
+    useFetchRainviewerTimeStampsQuery
+} from "../../../../store";
 import { useDispatch, useSelector } from "react-redux";
-import MapErrorMessageStack from "../../map_error_loading/MapErrorMessageStack";
 
 const NexradLayer = () => {
     const dispatch = useDispatch();
@@ -20,10 +24,21 @@ const NexradLayer = () => {
 
     useEffect(() => {
         if (rainViewError) {
-            dispatch(addMessage("Error loading weather radar data."));
+            dispatch(addMessage({
+                location: "NXRAD",
+                messageType: "ERROR",
+                content: "Error loading weather radar data."
+            }));
         }
         if (rainViewLoading) {
-            dispatch(addMessage("Loading weather radar data..."));
+            dispatch(addMessage({
+                location: "NXRAD",
+                messageType: "LOADING",
+                content: "Loading weather radar data..."
+            }));
+        }
+        if (rainViewTS && !rainViewLoading && !rainViewError) {
+            dispatch(removeMessageByLocation({ location: "NXRAD" }));
         }
     }, [rainViewLoading, rainViewError, rainViewTS]);
 

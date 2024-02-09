@@ -30,7 +30,13 @@ import {
     toggleMapRoadLabel
 } from "./slices/vatsimMapVisibleSlice";
 
-import { addMessage, removeMessage, vatsimMapErrorReducer } from "./slices/vatsimMapErrorSlice";
+import {
+    addMessage,
+    removeMessage,
+    removeMessageByContent,
+    removeMessageByLocation,
+    vatsimMapErrorReducer
+} from "./slices/vatsimMapErrorSlice";
 
 export const store = configureStore({
     reducer: {
@@ -110,7 +116,9 @@ export {
 
 export {
     addMessage,
-    removeMessage
+    removeMessage,
+    removeMessageByContent,
+    removeMessageByLocation,
 };
 
 export type RootState = ReturnType<typeof store.getState> 

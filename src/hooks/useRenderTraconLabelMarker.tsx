@@ -5,7 +5,6 @@ import useDelayHoverLabel from "./useDelayHoverLabel";
 
 const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
     const [hoverTracon, handleMouse] = useDelayHoverLabel();
-    console.log("use render tracon label");
 
     const renderMarkers = (geoJsonFeatures: GeoJson.FeatureCollection) => {
         console.log("Render marker function run.");

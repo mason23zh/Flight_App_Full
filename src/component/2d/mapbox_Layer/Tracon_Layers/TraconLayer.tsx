@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
-import { VatsimControllers } from "../../../../types";
+import { AirportService, VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
     highlightTraconBoundariesLayerStyle,
@@ -9,7 +9,8 @@ import {
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
 import { useDispatch } from "react-redux";
-import { addMessage } from "../../../../store";
+import { addMessage, removeMessageByLocation } from "../../../../store";
+import GeoJson from "geojson";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -33,17 +34,39 @@ const TraconLayer = ({
     } = useRenderTraconLabelMarker(geoJsonFeatures);
 
     useEffect(() => {
+        console.log("Error:", error);
+        console.log("isLoading:", isLoading);
         if (isLoading) {
-            dispatch(addMessage("Loading Tracon layer..."));
+
+            dispatch(addMessage({
+                location: "TRACON",
+                messageType: "LOADING",
+                content: "Loading Tracon layer..."
+            }));
         }
 
         if (error) {
-            dispatch(addMessage("Error loading Tracon layer."));
+            console.log("Tracon layer error", error);
+            dispatch(addMessage({
+                location: "TRACON",
+                messageType: "ERROR",
+                content: "Error loading Tracon layer."
+            }));
         }
-    }, [isLoading, error]);
+        if (geoJsonFeatures && !error && !isLoading) {
+            dispatch(removeMessageByLocation({ location: "TRACON" }));
+        }
+    }, [isLoading, error, geoJsonFeatures]);
+
+    // Type guard check
+    const isFeatureCollection = (
+        feature: GeoJson.FeatureCollection | AirportService
+    ): feature is GeoJson.FeatureCollection => {
+        return "type" in feature && feature["type"] === "FeatureCollection";
+    };
 
 
-    if (geoJsonFeatures) {
+    if (geoJsonFeatures && isFeatureCollection(hoverTracon)) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...traconBoundariesLineLayerStyle}/>

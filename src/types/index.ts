@@ -347,6 +347,33 @@ interface VatsimMatchedFirBoundariesGeoJson {
     features: Array<VatsimGeoJsonFeature>
 }
 
+interface Service {
+    airport: { name: string, icao: string },
+    callsign: string,
+    cid: string,
+    coordinates: string[],
+    facility: number,
+    frequency: string,
+    last_updated: string,
+    logon_time: string,
+    name: string,
+    rating: number,
+    server: string,
+    serviceType: string,
+    text_atis: string[],
+    visual_range: number,
+    atis_code?: string,
+}
+
+
+interface AirportService {
+    airportName: string,
+    icao: string,
+    coordinates: string[],
+    services: Array<Service>
+}
+
+
 export type {
     Weather,
     Event,
@@ -357,5 +384,6 @@ export type {
     VatsimGeoJsonFeature,
     VatsimFirs,
     VatsimFirBoundaries,
-    VatsimMatchedFirBoundariesGeoJson
+    VatsimMatchedFirBoundariesGeoJson,
+    AirportService
 };
