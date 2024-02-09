@@ -19,11 +19,11 @@ import { Weather } from "../types";
 function WeatherTable({ expandedContent }) {
     const darkMode = useTheme();
     const darkModeClass = darkMode
-        ? "[&>*:nth-child(odd)]:bg-gray-500 [&>*:nth-child(even)]:bg-gray-700"
-        : "[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200";
+            ? "[&>*:nth-child(odd)]:bg-gray-500 [&>*:nth-child(even)]:bg-gray-700"
+            : "[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200";
     const darkModeThClass = darkMode
-        ? "text-sm p-2 border-5 bg-red-400 md:text-xl"
-        : "text-sm p-2 border-5 bg-red-300 md:text-xl";
+            ? "text-sm p-2 border-5 bg-red-400 md:text-xl"
+            : "text-sm p-2 border-5 bg-red-300 md:text-xl";
     let columnsToRender;
     const [sortOrder, setSortOrder] = useState(1);
     const [rowData, setRowData] = useState(null);
@@ -61,9 +61,9 @@ function WeatherTable({ expandedContent }) {
         Header: () => null, // No header
         id: "expander", // It needs an ID
         Cell: ({ row }) => (
-            <span {...row.getToggleRowExpandedProps()}>
+                <span {...row.getToggleRowExpandedProps()}>
                 {row.isExpanded ? <button>Hide</button>
-                    : <button onClick={() => handleDetailClick(row)}>Details</button>}
+                        : <button onClick={() => handleDetailClick(row)}>Details</button>}
             </span>
         ),
     });
@@ -134,7 +134,6 @@ function WeatherTable({ expandedContent }) {
             // add wind data if weather selection is either wind speed or wind gust
             if (weather === WIND_SPEED || weather === WIND_GUST) {
                 const tempWeatherRow = metars.data.map((metar: Weather) => {
-                    console.log("METAR in weather table:", metar);
                     let updatedMetar = {};
                     let gust: number | string = "";
                     if (!metar.wind.gust_kts) {
@@ -234,119 +233,119 @@ function WeatherTable({ expandedContent }) {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center gap-2">
-            <table
-                {...getTableProps()}
-            >
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr
-                            key={headerGroup.id}
-                            {...headerGroup.getHeaderGroupProps()}
-                        >
-                            {headerGroup.headers.map((column) => {
-                                if (column.Header === "Baro") {
-                                    return (
-                                        <th
-                                            key={column.id}
-                                            {...column.getHeaderProps()}
-                                            className={darkModeThClass}
-                                            onClick={handleSortClick}
-                                        >
-                                            <div className="flex items-center justify-center hover:cursor-pointer">
-                                                {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown/>
-                                                    : <CgChevronDoubleUp/>}
-                                            </div>
-                                        </th>
-                                    );
-                                }
-
-                                if (column.Header === "Temperature") {
-                                    return (
-                                        <th
-                                            key={column.id}
-                                            {...column.getHeaderProps()}
-                                            className={darkModeThClass}
-                                            onClick={handleSortClick}
-                                        >
-                                            <div className="flex items-center justify-center hover:cursor-pointer">
-                                                {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown/>
-                                                    : <CgChevronDoubleUp/>}
-                                            </div>
-                                        </th>
-                                    );
-                                }
-
-                                return (
-                                    <th
-                                        key={column.id}
-                                        {...column.getHeaderProps()}
-                                        className={darkModeThClass}
-                                    >
-                                        {column.render("Header")}
-                                    </th>
-                                );
-                            })}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody
-                    {...getTableBodyProps()}
-                    className={darkModeClass}
+            <div className="flex flex-col justify-center items-center gap-2">
+                <table
+                        {...getTableProps()}
                 >
+                    <thead>
+                    {headerGroups.map((headerGroup) => (
+                            <tr
+                                    key={headerGroup.id}
+                                    {...headerGroup.getHeaderGroupProps()}
+                            >
+                                {headerGroup.headers.map((column) => {
+                                    if (column.Header === "Baro") {
+                                        return (
+                                                <th
+                                                        key={column.id}
+                                                        {...column.getHeaderProps()}
+                                                        className={darkModeThClass}
+                                                        onClick={handleSortClick}
+                                                >
+                                                    <div className="flex items-center justify-center hover:cursor-pointer">
+                                                        {column.render("Header")}
+                                                        {sortOrder === -1 ? <CgChevronDoubleDown/>
+                                                                : <CgChevronDoubleUp/>}
+                                                    </div>
+                                                </th>
+                                        );
+                                    }
+
+                                    if (column.Header === "Temperature") {
+                                        return (
+                                                <th
+                                                        key={column.id}
+                                                        {...column.getHeaderProps()}
+                                                        className={darkModeThClass}
+                                                        onClick={handleSortClick}
+                                                >
+                                                    <div className="flex items-center justify-center hover:cursor-pointer">
+                                                        {column.render("Header")}
+                                                        {sortOrder === -1 ? <CgChevronDoubleDown/>
+                                                                : <CgChevronDoubleUp/>}
+                                                    </div>
+                                                </th>
+                                        );
+                                    }
+
+                                    return (
+                                            <th
+                                                    key={column.id}
+                                                    {...column.getHeaderProps()}
+                                                    className={darkModeThClass}
+                                            >
+                                                {column.render("Header")}
+                                            </th>
+                                    );
+                                })}
+                            </tr>
+                    ))}
+                    </thead>
+                    <tbody
+                            {...getTableBodyProps()}
+                            className={darkModeClass}
+                    >
                     {rows.map((row) => {
                         prepareRow(row);
                         const rowProps = row.getRowProps();
                         delete rowProps.role;
                         return (
-                            <React.Fragment key={rowProps.key} {...rowProps}>
-                                <tr
-                                    key={row.id}
-                                    className="text-sm text-center md:text-xl"
-                                >
-                                    {row.cells.map((cell) => (
-                                        <td
-                                            key={cell.id}
-                                            {...cell.getCellProps()}
-                                            className="p-5"
-                                        >
-                                            {cell.render("Cell")}
-                                        </td>
-                                    ))}
-                                </tr>
-                                {row.isExpanded ? (
+                                <React.Fragment key={rowProps.key} {...rowProps}>
                                     <tr
-                                        key={row.id}
+                                            key={row.id}
+                                            className="text-sm text-center md:text-xl"
                                     >
-                                        <td
-                                            colSpan={visibleColumns.length}
-                                        >
-                                            {expandedContent({ row })}
-                                        </td>
+                                        {row.cells.map((cell) => (
+                                                <td
+                                                        key={cell.id}
+                                                        {...cell.getCellProps()}
+                                                        className="p-5"
+                                                >
+                                                    {cell.render("Cell")}
+                                                </td>
+                                        ))}
                                     </tr>
-                                ) : null}
-                            </React.Fragment>
+                                    {row.isExpanded ? (
+                                            <tr
+                                                    key={row.id}
+                                            >
+                                                <td
+                                                        colSpan={visibleColumns.length}
+                                                >
+                                                    {expandedContent({ row })}
+                                                </td>
+                                            </tr>
+                                    ) : null}
+                                </React.Fragment>
                         );
                     })}
-                </tbody>
-            </table>
-            <div className="flex justify-center gap-3">
-                <button
-                    onClick={handleLoadMoreData}
-                    className="px-2 py-1 bg-green-500 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
-                >
-                    Load More...
-                </button>
-                <button
-                    onClick={handleSetDataToDefault}
-                    className="px-2 py-1 bg-red-400 rounded-xl text-lg hover:bg-amber-400 shadow-2xl "
-                >
-                    Set Default
-                </button>
+                    </tbody>
+                </table>
+                <div className="flex justify-center gap-3">
+                    <button
+                            onClick={handleLoadMoreData}
+                            className="px-2 py-1 bg-green-500 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
+                    >
+                        Load More...
+                    </button>
+                    <button
+                            onClick={handleSetDataToDefault}
+                            className="px-2 py-1 bg-red-400 rounded-xl text-lg hover:bg-amber-400 shadow-2xl "
+                    >
+                        Set Default
+                    </button>
+                </div>
             </div>
-        </div>
     );
 }
 

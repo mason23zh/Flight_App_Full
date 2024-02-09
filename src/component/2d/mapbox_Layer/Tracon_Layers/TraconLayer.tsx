@@ -43,7 +43,6 @@ const TraconLayer = ({
         }
 
         if (error) {
-            console.log("Tracon layer error", error);
             dispatch(addMessage({
                 location: "TRACON",
                 messageType: "ERROR",
@@ -58,16 +57,16 @@ const TraconLayer = ({
 
     if (geoJsonFeatures) {
         return (
-            <Source type="geojson" data={geoJsonFeatures}>
-                <Layer {...traconBoundariesLineLayerStyle}/>
-                {(hoverTracon && labelVisible && isFeatureCollection(hoverTracon)) &&
-                    <Source type="geojson" data={hoverTracon}>
-                        <Layer {...highlightTraconBoundariesLayerStyle}/>
-                        <TraconLabelPopup hoverTracon={hoverTracon}/>
-                    </Source>
-                }
-                {labelVisible && renderedMarkers}
-            </Source>
+                <Source type="geojson" data={geoJsonFeatures}>
+                    <Layer {...traconBoundariesLineLayerStyle}/>
+                    {(hoverTracon && labelVisible && isFeatureCollection(hoverTracon)) &&
+                            <Source type="geojson" data={hoverTracon}>
+                                <Layer {...highlightTraconBoundariesLayerStyle}/>
+                                <TraconLabelPopup hoverTracon={hoverTracon}/>
+                            </Source>
+                    }
+                    {labelVisible && renderedMarkers}
+                </Source>
         );
     }
 };

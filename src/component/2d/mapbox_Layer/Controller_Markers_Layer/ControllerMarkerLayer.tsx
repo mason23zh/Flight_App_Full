@@ -17,14 +17,11 @@ const ControllerMarkerLayer = ({
         hoverInfo
     } = useRenderControllerMarkers(controllerInfo);
 
-
-    console.log("Controller Hover info:", hoverInfo);
-
     return (
-        <>
-            {labelVisible && renderedMarkers}
-            {hoverInfo && <ControllerMarkerPopup hoverInfo={hoverInfo}/>}
-        </>
+            <>
+                {labelVisible && renderedMarkers}
+                {hoverInfo && <ControllerMarkerPopup hoverInfo={hoverInfo}/>}
+            </>
     );
 };
 

@@ -17,7 +17,7 @@ interface UseMatchedFirFeaturesReturn {
 }
 
 const useMatchedFirFeatures = (
-    controllerInfo: VatsimControllers,
+        controllerInfo: VatsimControllers,
 ): UseMatchedFirFeaturesReturn => {
 
 
@@ -64,7 +64,6 @@ const useMatchedFirFeatures = (
                 while (parts.length > 0 && !matchFound) {
                     const potentialMatch = parts.join("_");
                     if (firData[potentialMatch]) {
-                        console.log("Matched Fir features fir data:", firData[potentialMatch]);
                         matchedFirs.push({
                             firKey: potentialMatch,
                             controller,
@@ -92,11 +91,11 @@ const useMatchedFirFeatures = (
 
                 matchedFirs.forEach(mFir => {
                     const geoJsonFeature = geoJsonData
-                        .features
-                        .find(feature => feature.properties.id === firData[mFir.firKey].fir);
+                            .features
+                            .find(feature => feature.properties.id === firData[mFir.firKey].fir);
                     if (geoJsonFeature) {
                         const isDuplicate = newFeatures
-                            .some(existingFeature => existingFeature.properties.id === geoJsonFeature.properties.id);
+                                .some(existingFeature => existingFeature.properties.id === geoJsonFeature.properties.id);
                         if (!isDuplicate) {
                             // Clone the feature and add extra properties
                             const updatedFeature = {

@@ -76,7 +76,6 @@ const colClassMap = {
 
 
 const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
-    console.log("Controller Marker render");
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
 
@@ -143,9 +142,9 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                 if (s.facility === 5 || s.facility === 6) return;
                 if (s.atis_code || s.callsign.includes("ATIS")) {
                     atisIcon = (
-                        <div className="bg-yellow-500 text-center">
-                            <div className="px-0.5 py-0">A</div>
-                        </div>
+                            <div className="bg-yellow-500 text-center">
+                                <div className="px-0.5 py-0">A</div>
+                            </div>
                     );
                 }
                 if (!s.atis_code && s.facility === 2) {
@@ -155,7 +154,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
                 }
                 if (!s.atis_code && s.facility === 3) {
                     gndIcon = <div
-                        className="bg-green-500 text-center"
+                            className="bg-green-500 text-center"
                     >
                         <div className="px-0.5 py-0">G</div>
                     </div>;
@@ -174,12 +173,12 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         const iconClass = colClassMap[numIcons] || colClassMap[0];
 
         return (
-            <div className={iconClass}>
-                {atisIcon}
-                {delIcon}
-                {gndIcon}
-                {twrIcon}
-            </div>
+                <div className={iconClass}>
+                    {atisIcon}
+                    {delIcon}
+                    {gndIcon}
+                    {twrIcon}
+                </div>
         );
     };
 
@@ -192,22 +191,22 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
             </div>;
 
             return (
-                <Marker
-                    style={{ zIndex: 10 }}
-                    longitude={Number(a.coordinates[0])}
-                    latitude={Number(a.coordinates[1])}
-                    scale={0.5}
-                    key={a.icao}
-                    anchor="bottom">
-                    <div
-                        onMouseEnter={() => handleMouse(a, true, 150, 10)}
-                        onMouseLeave={() => handleMouse(null, false, 150, 10)}
-                        className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
-                    >
-                        {icao}
-                        {serviceIcons}
-                    </div>
-                </Marker>
+                    <Marker
+                            style={{ zIndex: 10 }}
+                            longitude={Number(a.coordinates[0])}
+                            latitude={Number(a.coordinates[1])}
+                            scale={0.5}
+                            key={a.icao}
+                            anchor="bottom">
+                        <div
+                                onMouseEnter={() => handleMouse(a, true, 150, 10)}
+                                onMouseLeave={() => handleMouse(null, false, 150, 10)}
+                                className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
+                        >
+                            {icao}
+                            {serviceIcons}
+                        </div>
+                    </Marker>
             );
         });
     };

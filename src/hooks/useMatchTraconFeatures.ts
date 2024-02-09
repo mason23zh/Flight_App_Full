@@ -10,14 +10,14 @@ interface UseMatchTraconFeaturesReturn {
 }
 
 const useMatchTraconFeatures = (
-    controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
+        controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
 
     const {
         data: geoJsonData,
         isLoading,
         error
     } = useFetchVatsimTraconBoundariesQuery();
- 
+
 
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         "type": "FeatureCollection",
@@ -26,7 +26,6 @@ const useMatchTraconFeatures = (
 
 
     useEffect(() => {
-        console.log("use match tracon useeffect run.");
         if (isLoading) {
             setGeoJsonFeatures({
                 "type": "FeatureCollection",
@@ -68,7 +67,6 @@ const useMatchTraconFeatures = (
                             };
                             newFeaturesSet.add(matchedFeature.properties.id);
                             newFeatures.push(tempMatchedFeature);
-                            console.log("Matched tracon controller info:", controller);
                             matchFound = true;
                         }
                         parts.pop();

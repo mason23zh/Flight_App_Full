@@ -33,10 +33,9 @@ function AirportDetail() {
     setTimeout(() => setIsLoading(false), 5000);
 
     const { icao: paramICAO } = useParams();
- 
+
     // Update airport visited count
     useEffect(() => {
-        console.log("update airport:", airport);
         if (airport && airport.ICAO?.length !== 0) {
             const updateVisited = async (icao) => {
                 await axios.put(
@@ -58,7 +57,6 @@ function AirportDetail() {
                     `https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`
                 );
                 if (response && response.data.results !== 0) {
-                    console.log("AIRPORT IN DETAIL:", response.data.data[0]);
                     if (response.data.data[0].airport && !infoOnly) {
                         setAirport(response.data.data[0].airport);
                     }
