@@ -60,19 +60,18 @@ const FirLayer = ({
         hoverFir
     } = useRenderFirLabelMarker(geoJsonFeatures);
 
-    const isFeatureCollection = (
+    const isFeatureCollection = ( //type guard
         feature: GeoJson.FeatureCollection | AirportService
     ): feature is GeoJson.FeatureCollection => {
         return "type" in feature && feature["type"] === "FeatureCollection";
     };
 
-
-    if (geoJsonFeatures && isFeatureCollection(hoverFir)) {
+    if (geoJsonFeatures) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...layerStyle} />
                 <Layer {...boundariesLineStyle}/>
-                {(hoverFir && firData && labelVisible) &&
+                {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFir)) &&
                     <Source type="geojson" data={hoverFir}>
                         <Layer {...highlightLayer}/>
                         <FirLabelPopup hoverFir={hoverFir} firData={firData}/>

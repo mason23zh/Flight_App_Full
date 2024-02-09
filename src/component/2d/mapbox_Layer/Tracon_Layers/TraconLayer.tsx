@@ -58,19 +58,17 @@ const TraconLayer = ({
         }
     }, [isLoading, error, geoJsonFeatures]);
 
-    // Type guard check
-    const isFeatureCollection = (
+    const isFeatureCollection = ( //type guard
         feature: GeoJson.FeatureCollection | AirportService
     ): feature is GeoJson.FeatureCollection => {
         return "type" in feature && feature["type"] === "FeatureCollection";
     };
 
-
-    if (geoJsonFeatures && isFeatureCollection(hoverTracon)) {
+    if (geoJsonFeatures) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...traconBoundariesLineLayerStyle}/>
-                {(hoverTracon && labelVisible) &&
+                {(hoverTracon && labelVisible && isFeatureCollection(hoverTracon)) &&
                     <Source type="geojson" data={hoverTracon}>
                         <Layer {...highlightTraconBoundariesLayerStyle}/>
                         <TraconLabelPopup hoverTracon={hoverTracon}/>
