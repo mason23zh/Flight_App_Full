@@ -7,6 +7,7 @@ const switchMapLabels = (mapRef: React.RefObject<MapRef>, visibility: boolean) =
         const map = mapRef.current.getMap();
         map.setLayoutProperty("satellite", "visibility", flag);
         map.setLayoutProperty("background", "visibility", flag);
+        //map.setStyle("mapbox://styles/mason-zh/clsfcpiw5038w01qs0iigh5tn");
     }
 };
 
