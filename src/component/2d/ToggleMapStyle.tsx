@@ -36,8 +36,11 @@ const ToggleMapStyle = ({ mapRef }) => {
             <Button
                 active={toggleTraffics}
                 onClick={() => {
-                    setToggleTraffics(prev => !prev);
-                    dispatch(toggleTrafficLayer(toggleTraffics));
+                    setToggleTraffics(prev => {
+                        const newState = !prev;
+                        dispatch(toggleTrafficLayer(newState));
+                        return newState;
+                    });
                 }}
             >
                 <IoAirplane/>
@@ -47,8 +50,11 @@ const ToggleMapStyle = ({ mapRef }) => {
             <Button
                 active={toggleControllers}
                 onClick={() => {
-                    setToggleControllers(prev => !prev);
-                    dispatch(toggleAtcLayer(toggleControllers));
+                    setToggleControllers(prev => {
+                        const newState = !prev;
+                        dispatch(toggleAtcLayer(newState));
+                        return newState;
+                    });
                 }}
             >
                 <GiControlTower/>
@@ -58,8 +64,11 @@ const ToggleMapStyle = ({ mapRef }) => {
             <Button
                 active={toggleWeathers}
                 onClick={() => {
-                    setToggleWeathers(prev => !prev);
-                    dispatch(toggleWeatherRasterLayer(toggleWeathers));
+                    setToggleWeathers(prev => {
+                        const newState = !prev;
+                        dispatch(toggleWeatherRasterLayer(newState));
+                        return newState;
+                    });
                 }}
             >
                 <TiWeatherDownpour/>

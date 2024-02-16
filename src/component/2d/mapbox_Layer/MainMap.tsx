@@ -12,7 +12,7 @@ const MainMap = () => {
             <BaseMap>
                 <MapErrorMessageStack/>
                 <AtcLayer/>
-                <LayerTogglePanel/>
+                {/* <LayerTogglePanel/> */}
                 <BaseTrafficLayer/>
                 <NexradLayer/>
             </BaseMap>
