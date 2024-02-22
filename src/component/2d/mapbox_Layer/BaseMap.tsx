@@ -7,6 +7,7 @@ import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
 import switchMapRoads from "../switchMapRoads";
 import ToggleMapStyle from "../ToggleMapStyle";
+import TestTogglePanel from "../TestTogglePanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
