@@ -29,6 +29,10 @@ import {
     toggleSatelliteLayer,
     toggleMapRoadLabel
 } from "./slices/vatsimMapVisibleSlice";
+import {
+    switchMapStyle,
+    vatsimMapStyleReducer
+} from "./slices/vatsimMapStyleSlice";
 
 import {
     addMessage,
@@ -45,6 +49,7 @@ export const store = configureStore({
         vatsimMapEvent: vatsimMapEventReducer,
         vatsimMapVisible: vatsimMapVisibleReducer,
         vatsimMapError: vatsimMapErrorReducer,
+        vatsimMapStyle: vatsimMapStyleReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -120,5 +125,7 @@ export {
     removeMessageByContent,
     removeMessageByLocation,
 };
+
+export { switchMapStyle };
 
 export type RootState = ReturnType<typeof store.getState> 

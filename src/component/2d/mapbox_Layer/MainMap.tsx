@@ -11,10 +11,9 @@ const MainMap = () => {
     return (
         <div>
             <BaseMap>
-                <TestTogglePanel/>
+                {/* <TestTogglePanel/> */}
                 <MapErrorMessageStack/>
                 <AtcLayer/>
-                {/* <LayerTogglePanel/> */}
                 <BaseTrafficLayer/>
                 <NexradLayer/>
             </BaseMap>

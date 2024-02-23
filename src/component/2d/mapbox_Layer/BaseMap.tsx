@@ -69,6 +69,7 @@ const BaseMap = ({ children }) => {
                 onMove={onMove}
                 dragPan={true}
             >
+                <TestTogglePanel mapRef={mapRef}/>
                 <ToggleMapStyle mapRef={mapRef}/>
                 <NavigationControl/>
                 {AirportLayers}

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, ButtonGroup } from "rsuite";
 import { MapRef } from "react-map-gl";
+import { useDispatch } from "react-redux";
+import { switchMapStyle } from "../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -10,6 +12,8 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 
 const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
+    const [activeStyle, setActicveStyle] = useState<MapStyle>("DEFAULT");
+    const dispatch = useDispatch();
     const setMapStyle = (mapName: MapStyle) => {
         if (mapRef.current) {
             const map = mapRef.current.getMap();
@@ -37,14 +41,42 @@ const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
         }
     };
 
+    const activeButtonStyle = "p-1 bg-gray-400 hover:bg-gray-500 rounded-md";
+    const inactiveButtonStyle = "p-1 bg-gray-500 hover:bg-gray-400 rounded-md";
+
+    const handleOnClick = (mapStyle: MapStyle) => {
+        setMapStyle(mapStyle);
+        setActicveStyle(mapStyle);
+        dispatch(switchMapStyle({ mapStyle: mapStyle }));
+    };
+
 
     return (
-        <ButtonGroup block={true} vertical={true}>
-            <Button onClick={() => setMapStyle("DEFAULT")}>Normal</Button>
-            <Button onClick={() => setMapStyle("MONO_LIGHT")}>Mono light</Button>
-            <Button onClick={() => setMapStyle("MONO_DARK")}>MONO dark</Button>
-            <Button onClick={() => setMapStyle("SATELLITE")}>Sat</Button>
-        </ButtonGroup>
+        <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
+            <button
+                className={activeStyle == "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
+                onClick={() => handleOnClick("DEFAULT")}>
+                VFR
+            </button>
+
+            <button
+                className={activeStyle == "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
+                onClick={() => handleOnClick("MONO_LIGHT")}>
+                Light
+            </button>
+
+            <button
+                className={activeStyle == "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
+                onClick={() => handleOnClick("MONO_DARK")}>
+                Dark
+            </button>
+
+            <button
+                className={activeStyle == "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
+                onClick={() => handleOnClick("SATELLITE")}>
+                Satellite
+            </button>
+        </div>
     );
 };
 
