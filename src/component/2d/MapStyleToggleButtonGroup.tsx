@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button, ButtonGroup } from "rsuite";
 import { MapRef } from "react-map-gl";
 import { useDispatch } from "react-redux";
 import { switchMapStyle } from "../../store";
@@ -12,7 +11,7 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 
 const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
-    const [activeStyle, setActicveStyle] = useState<MapStyle>("DEFAULT");
+    const [activeStyle, setActiveStyle] = useState<MapStyle>("DEFAULT");
     const dispatch = useDispatch();
     const setMapStyle = (mapName: MapStyle) => {
         if (mapRef.current) {
@@ -41,12 +40,12 @@ const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
         }
     };
 
-    const activeButtonStyle = "p-1 bg-gray-400 hover:bg-gray-500 rounded-md";
-    const inactiveButtonStyle = "p-1 bg-gray-500 hover:bg-gray-400 rounded-md";
+    const activeButtonStyle = "p-1 bg-gray-400 hover:bg-gray-600 rounded-md";
+    const inactiveButtonStyle = "p-1 bg-gray-500 hover:bg-gray-600 rounded-md";
 
     const handleOnClick = (mapStyle: MapStyle) => {
         setMapStyle(mapStyle);
-        setActicveStyle(mapStyle);
+        setActiveStyle(mapStyle);
         dispatch(switchMapStyle({ mapStyle: mapStyle }));
     };
 
