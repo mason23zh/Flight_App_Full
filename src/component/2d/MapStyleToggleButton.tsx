@@ -11,7 +11,7 @@ const MapStyleToggleButton = ({ mapRef }) => {
 
     // close the popup when mapStyle changes
     useEffect(() => {
-        setIsOpen(prev => !prev);
+        setIsOpen(false);
     }, [mapStyle]);
 
     let mapStyleName: MapStyleName;
@@ -43,7 +43,7 @@ const MapStyleToggleButton = ({ mapRef }) => {
             </button>
 
             <div className={`absolute left-[110%] bottom-0.5 transform 
-            ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`
+            ${isOpen ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
             }
             >
                 {isOpen ?

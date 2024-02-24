@@ -30,31 +30,60 @@ const MapFeaturesToggleButtonGroup = ({ mapRef }: Props) => {
         }
     };
 
+    const handleOnClick = (mapFeature: Tag) => {
+        switch (mapFeature) {
+        case "LABEL":
+            setMapLabel(prev => !prev);
+            setMapFeatures(mapRef, mapLabel, mapFeature);
+            break;
+        case "ROAD":
+            setMapRoad(prev => !prev);
+            setMapFeatures(mapRef, mapRoad, mapFeature);
+        }
+    };
+
     return (
-        <ButtonGroup block={true} vertical={true}>
-            <Button
-                active={mapLabel}
-                onClick={() => {
-                    setMapLabel(prev => {
-                        const newState = !prev;
-                        setMapFeatures(mapRef, newState, "LABEL");
-                        return newState;
-                    });
-                }}>Label</Button>
+        <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
+            <button
+                onClick={() => handleOnClick("LABEL")}
+            >
+                Label
+            </button>
 
-            <Button
-                active={mapRoad}
-                onClick={() => {
-                    setMapRoad(prev => {
-                        const newState = !prev;
-                        setMapFeatures(mapRef, newState, "ROAD");
-                        return newState;
-                    });
-                }}>Road</Button>
-
-            <Button>Building</Button>
-        </ButtonGroup>
+            <button
+                onClick={() => handleOnClick("ROAD")}
+            >
+                Road
+            </button>
+        </div>
     );
+
+
+    // return (
+    //     <ButtonGroup block={true} vertical={true}>
+    //         <Button
+    //             active={mapLabel}
+    //             onClick={() => {
+    //                 setMapLabel(prev => {
+    //                     const newState = !prev;
+    //                     setMapFeatures(mapRef, newState, "LABEL");
+    //                     return newState;
+    //                 });
+    //             }}>Label</Button>
+    //
+    //         <Button
+    //             active={mapRoad}
+    //             onClick={() => {
+    //                 setMapRoad(prev => {
+    //                     const newState = !prev;
+    //                     setMapFeatures(mapRef, newState, "ROAD");
+    //                     return newState;
+    //                 });
+    //             }}>Road</Button>
+    //
+    //         <Button>Building</Button>
+    //     </ButtonGroup>
+    // );
 };
 
 export default MapFeaturesToggleButtonGroup;

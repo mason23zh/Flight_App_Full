@@ -11,6 +11,7 @@ import { FaLayerGroup } from "react-icons/fa";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { MapRef } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
+import MapFilterToggleButton from "./MapFilterToggleButton";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -41,18 +42,8 @@ const TestTogglePanel = ({ mapRef }: Props) => {
                 />
 
                 <MapStyleToggleButton mapRef={mapRef}/>
-                <Whisper
-                    placement="right"
-                    trigger="click"
-                    speaker={
-                        <Popover arrow={false}>
-                            <MapStyleToggleButtonGroup mapRef={mapRef}/>
-                        </Popover>
-                    }
-                >
-                    <button>VFR</button>
-                </Whisper>
 
+                <MapFilterToggleButton mapRef={mapRef}/>
 
             </div>
         </div>

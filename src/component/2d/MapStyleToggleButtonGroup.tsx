@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MapRef } from "react-map-gl";
-import { useDispatch } from "react-redux";
-import { switchMapStyle } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, switchMapStyle } from "../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -11,8 +11,14 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 
 const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
-    const [activeStyle, setActiveStyle] = useState<MapStyle>("DEFAULT");
+    const [activeStyle, setActiveStyle] = useState("DEFAULT");
     const dispatch = useDispatch();
+    const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);
+
+    // setActiveStyle here to avoid async behaviour in handleClick function
+    useEffect(() => {
+        setActiveStyle(mapStyle);
+    }, [mapStyle]);
     const setMapStyle = (mapName: MapStyle) => {
         if (mapRef.current) {
             const map = mapRef.current.getMap();
@@ -45,7 +51,7 @@ const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
 
     const handleOnClick = (mapStyle: MapStyle) => {
         setMapStyle(mapStyle);
-        setActiveStyle(mapStyle);
+        //setActiveStyle(mapStyle);
         dispatch(switchMapStyle({ mapStyle: mapStyle }));
     };
 
@@ -53,25 +59,25 @@ const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
     return (
         <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
             <button
-                className={activeStyle == "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
+                className={activeStyle === "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
                 onClick={() => handleOnClick("DEFAULT")}>
                 VFR
             </button>
 
             <button
-                className={activeStyle == "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
+                className={activeStyle === "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
                 onClick={() => handleOnClick("MONO_LIGHT")}>
                 Light
             </button>
 
             <button
-                className={activeStyle == "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
+                className={activeStyle === "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
                 onClick={() => handleOnClick("MONO_DARK")}>
                 Dark
             </button>
 
             <button
-                className={activeStyle == "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
+                className={activeStyle === "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
                 onClick={() => handleOnClick("SATELLITE")}>
                 Satellite
             </button>
