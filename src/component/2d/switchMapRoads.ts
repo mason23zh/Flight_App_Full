@@ -8,8 +8,6 @@ const switchMapRoads = (mapRef: React.RefObject<MapRef>, visibility: boolean) =>
     if (mapRef.current) {
         const map = mapRef.current.getMap();
         const currentMapStyle = map.getStyle().name as StyleName;
-        console.log("MAP LAYOUT:", map);
-        console.log("Map style name:", map.getStyle());
         if (currentMapStyle === "outdoor-base-v1") {
             map.setLayoutProperty("tunnel-major-link", "visibility", flag);
             map.setLayoutProperty("tunnel-street-case", "visibility", flag);
