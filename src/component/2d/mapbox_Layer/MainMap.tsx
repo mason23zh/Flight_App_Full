@@ -5,7 +5,7 @@ import LayerTogglePanel from "../LayerTogglePanel";
 import BaseTrafficLayer from "../BaseTrafficLayer";
 import NexradLayer from "./Nexrad_Layer/NxradLayer";
 import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
-import TestTogglePanel from "../TestTogglePanel";
+import TestTogglePanel from "../map_feature_toggle_button/TestTogglePanel";
 
 const MainMap = () => {
     return (

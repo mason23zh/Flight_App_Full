@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MapRef } from "react-map-gl";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, switchMapStyle } from "../../store";
+import { RootState, switchMapStyle } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;

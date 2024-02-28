@@ -11,7 +11,7 @@ import {
     toggleAtcLayer,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
-} from "../../store";
+} from "../../../store";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
 import MapFeaturesToggleButton from "./MapFeaturesToggleButton";

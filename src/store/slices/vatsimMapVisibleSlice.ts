@@ -14,6 +14,8 @@ const vatsimMapVisibleSlice = createSlice({
         mapLabelVisible: true,
         satelliteLayerVisible: false,
         weatherRasterVisible: false,
+        mapStyleButtonToggle: false,
+        mapFilterButtonToggle: false,
     },
 
     reducers: {
@@ -41,11 +43,19 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapRoadLabel(state, action) {
             state.mapRoadVisible = action.payload;
+        },
+        toggleMapStyleButton(state, action) {
+            state.mapStyleButtonToggle = action.payload;
+        },
+        toggleMapFilterButton(state, action) {
+            state.mapFilterButtonToggle = action.payload;
         }
     }
 });
 
 export const {
+    toggleMapStyleButton,
+    toggleMapFilterButton,
     toggleControllerLayer,
     toggleTraconLabel,
     toggleAtcLayer,

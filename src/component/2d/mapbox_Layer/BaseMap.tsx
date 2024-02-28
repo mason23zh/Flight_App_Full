@@ -6,8 +6,8 @@ import { RootState } from "../../../store";
 import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
 import switchMapRoads from "../switchMapRoads";
-import ToggleMapStyle from "../ToggleMapStyle";
-import TestTogglePanel from "../TestTogglePanel";
+import ToggleMapStyle from "../map_feature_toggle_button/ToggleMapStyle";
+import TestTogglePanel from "../map_feature_toggle_button/TestTogglePanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -58,8 +58,6 @@ const BaseMap = ({ children }) => {
                 cursor={"pointer"}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
-                // mapboxAccessToken={"pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA"}
-                // mapStyle={"mapbox://styles/mason-zh/clsfcpiw5038w01qs0iigh5tn"}
                 initialViewState={viewState}
                 style={{
                     height: "94vh",

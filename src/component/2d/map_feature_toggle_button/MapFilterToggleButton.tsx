@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MapRef } from "react-map-gl";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
 const MapFilterToggleButton = ({ mapRef }: Props) => {
+    const {
+        mapRoadVisible,
+        mapLabelVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const handleOnClick = () => {
         setIsOpen(prev => !prev);
     };
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, [mapRoadVisible, mapLabelVisible]);
+
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, []);
 
 
     return (

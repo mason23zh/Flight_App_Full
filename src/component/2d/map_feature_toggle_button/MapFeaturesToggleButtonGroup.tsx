@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { MapRef } from "react-map-gl";
-import switchMapLabels from "./switchMapLabels";
-import switchMapRoads from "./switchMapRoads";
+import switchMapLabels from "../switchMapLabels";
+import switchMapRoads from "../switchMapRoads";
+import { useDispatch } from "react-redux";
+import { toggleMapFilterButton, toggleMapLabel, toggleMapRoadLabel } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
 type Tag = "LABEL" | "ROAD" | "BUILDING";
-
-const MapFeaturesToggleButtonGroup = ({ mapRef }: Props) => {
-    const [activeStyle, setActiveStyle] = useState<Tag>("LABEL");
+//!BUG toggle behaviour incorrect
+const MapFeaturesToggleButtonGroup = ({
+    mapRef
+}: Props) => {
+    const dispatch = useDispatch();
     const [mapLabel, setMapLabel] = useState<boolean>(true);
     const [mapRoad, setMapRoad] = useState<boolean>(false);
-    const [mapBuilding, setMapBuilding] = useState<boolean>(true);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
         if (mapRef.current) {
@@ -28,15 +31,17 @@ const MapFeaturesToggleButtonGroup = ({ mapRef }: Props) => {
         }
     };
 
-    useEffect(() => {
-        if (mapRef.current) {
-            setMapFeatures(mapRef, mapLabel, "LABEL");
-        }
-    }, [mapLabel, mapRef]);
+    // useEffect(() => {
+    //     if (mapRef.current) {
+    //         setMapFeatures(mapRef, mapLabel, "LABEL");
+    //         dispatch(toggleMapLabel(mapLabel));
+    //     }
+    // }, [mapLabel, mapRef]);
 
     useEffect(() => {
         if (mapRef.current) {
             setMapFeatures(mapRef, mapRoad, "ROAD");
+            dispatch(toggleMapRoadLabel(mapRoad));
         }
     }, [mapRoad, mapRef]);
 
@@ -44,7 +49,10 @@ const MapFeaturesToggleButtonGroup = ({ mapRef }: Props) => {
     const handleOnClick = (mapFeature: Tag) => {
         switch (mapFeature) {
         case "LABEL":
-            setMapLabel(prev => !prev);
+            const newMapLabelState = !mapLabel;
+            setMapLabel(newMapLabelState);
+            setMapFeatures(mapRef, newMapLabelState, "LABEL");
+            dispatch(toggleMapLabel(newMapLabelState));
             break;
         case "ROAD":
             setMapRoad(prev => !prev);

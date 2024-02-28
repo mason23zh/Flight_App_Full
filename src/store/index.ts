@@ -27,7 +27,9 @@ import {
     toggleWeatherRasterLayer,
     toggleMapLabel,
     toggleSatelliteLayer,
-    toggleMapRoadLabel
+    toggleMapRoadLabel,
+    toggleMapStyleButton,
+    toggleMapFilterButton
 } from "./slices/vatsimMapVisibleSlice";
 import {
     switchMapStyle,
@@ -41,6 +43,7 @@ import {
     removeMessageByLocation,
     vatsimMapErrorReducer
 } from "./slices/vatsimMapErrorSlice";
+
 
 export const store = configureStore({
     reducer: {
@@ -116,7 +119,9 @@ export {
     toggleWeatherRasterLayer,
     toggleMapLabel,
     toggleSatelliteLayer,
-    toggleMapRoadLabel
+    toggleMapRoadLabel,
+    toggleMapFilterButton,
+    toggleMapStyleButton
 };
 
 export {

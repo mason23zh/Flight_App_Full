@@ -1,7 +1,7 @@
 import React from "react";
 import MapFeaturesToggleButton from "./MapFeaturesToggleButton";
 import { useDispatch } from "react-redux";
-import { toggleAtcLayer, toggleTrafficLayer, toggleWeatherRasterLayer } from "../../store";
+import { toggleAtcLayer, toggleTrafficLayer, toggleWeatherRasterLayer } from "../../../store";
 import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
