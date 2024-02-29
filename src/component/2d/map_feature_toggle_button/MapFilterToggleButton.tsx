@@ -11,23 +11,20 @@ interface Props {
 }
 
 const MapFilterToggleButton = ({ mapRef }: Props) => {
-    const {
-        mapRoadVisible,
-        mapLabelVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+ 
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const handleOnClick = () => {
         setIsOpen(prev => !prev);
     };
 
-    useEffect(() => {
-        setIsOpen(false);
-    }, [mapRoadVisible, mapLabelVisible]);
-
-
-    useEffect(() => {
-        setIsOpen(false);
-    }, []);
+    // useEffect(() => {
+    //     setIsOpen(false);
+    // }, [mapRoadVisible, mapLabelVisible]);
+    //
+    //
+    // useEffect(() => {
+    //     setIsOpen(false);
+    // }, []);
 
 
     return (
