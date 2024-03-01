@@ -51,36 +51,37 @@ const MapStyleToggleButtonGroup = ({ mapRef }: Props) => {
 
     const handleOnClick = (mapStyle: MapStyle) => {
         setMapStyle(mapStyle);
-        //setActiveStyle(mapStyle);
         dispatch(switchMapStyle({ mapStyle: mapStyle }));
     };
 
 
     return (
-        <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
-            <button
-                className={activeStyle === "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
-                onClick={() => handleOnClick("DEFAULT")}>
-                VFR
-            </button>
+        <div className="container min-w-[80px]">
+            <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
+                <button
+                    className={activeStyle === "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
+                    onClick={() => handleOnClick("DEFAULT")}>
+                    VFR
+                </button>
 
-            <button
-                className={activeStyle === "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
-                onClick={() => handleOnClick("MONO_LIGHT")}>
-                Light
-            </button>
+                <button
+                    className={activeStyle === "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
+                    onClick={() => handleOnClick("MONO_LIGHT")}>
+                    Light
+                </button>
 
-            <button
-                className={activeStyle === "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
-                onClick={() => handleOnClick("MONO_DARK")}>
-                Dark
-            </button>
+                <button
+                    className={activeStyle === "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
+                    onClick={() => handleOnClick("MONO_DARK")}>
+                    Dark
+                </button>
 
-            <button
-                className={activeStyle === "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
-                onClick={() => handleOnClick("SATELLITE")}>
-                Satellite
-            </button>
+                <button
+                    className={activeStyle === "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
+                    onClick={() => handleOnClick("SATELLITE")}>
+                    Satellite
+                </button>
+            </div>
         </div>
     );
 };

@@ -6,8 +6,7 @@ import { RootState } from "../../../store";
 import switchMapLabels from "../switchMapLabels";
 import switchSatelliteView from "../switchSatelliteView";
 import switchMapRoads from "../switchMapRoads";
-import ToggleMapStyle from "../map_feature_toggle_button/ToggleMapStyle";
-import TestTogglePanel from "../map_feature_toggle_button/TestTogglePanel";
+import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -67,8 +66,7 @@ const BaseMap = ({ children }) => {
                 onMove={onMove}
                 dragPan={true}
             >
-                <TestTogglePanel mapRef={mapRef}/>
-                {/* <ToggleMapStyle mapRef={mapRef}/> */}
+                <TogglePanel mapRef={mapRef}/>
                 <NavigationControl/>
                 {AirportLayers}
                 {children}
