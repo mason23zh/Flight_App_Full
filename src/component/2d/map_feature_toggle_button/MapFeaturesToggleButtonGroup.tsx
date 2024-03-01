@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MapRef } from "react-map-gl";
 import switchMapLabels from "../switchMapLabels";
 import switchMapRoads from "../switchMapRoads";
-import { useDispatch } from "react-redux";
 import { Toggle } from "rsuite";
-import { toggleMapFilterButton, toggleMapLabel, toggleMapRoadLabel } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, toggleMapLabel, toggleMapRoadLabel } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -15,9 +15,11 @@ type Tag = "LABEL" | "ROAD" | "BUILDING";
 const MapFeaturesToggleButtonGroup = ({
     mapRef
 }: Props) => {
+    const {
+        mapLabelVisible,
+        mapRoadVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const dispatch = useDispatch();
-    const [mapLabel, setMapLabel] = useState<boolean>(true);
-    const [mapRoad, setMapRoad] = useState<boolean>(false);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
         if (mapRef.current) {
@@ -32,38 +34,19 @@ const MapFeaturesToggleButtonGroup = ({
         }
     };
 
-    // useEffect(() => {
-    //     if (mapRef.current) {
-    //         setMapFeatures(mapRef, mapLabel, "LABEL");
-    //         dispatch(toggleMapLabel(mapLabel));
-    //     }
-    // }, [mapLabel, mapRef]);
-
-    useEffect(() => {
-        if (mapRef.current) {
-            setMapFeatures(mapRef, mapRoad, "ROAD");
-            dispatch(toggleMapRoadLabel(mapRoad));
-        }
-    }, [mapRoad, mapRef]);
-
-
-    const handleOnClick = (mapFeature: Tag) => {
+    const handleOnChange = (mapFeature: Tag, checked: boolean) => {
         switch (mapFeature) {
-        case "LABEL": {
-            const newMapLabelState = !mapLabel;
-            setMapLabel(newMapLabelState);
-            setMapFeatures(mapRef, newMapLabelState, "LABEL");
-            dispatch(toggleMapLabel(newMapLabelState));
+        case "LABEL":
+            dispatch(toggleMapLabel(checked));
+            setMapFeatures(mapRef, checked, "LABEL");
             break;
-        }
         case "ROAD":
-            setMapRoad(prev => !prev);
+            // setMapRoad(checked);
+            dispatch(toggleMapRoadLabel(checked));
+            setMapFeatures(mapRef, checked, "ROAD");
             break;
         }
     };
-
-    const activeButtonStyle = "p-1 bg-gray-400 hover:bg-gray-600 rounded-md";
-    const inactiveButtonStyle = "p-1 bg-gray-500 hover:bg-gray-600 rounded-md";
 
     return (
         <div className="min-w-[280px] bg-gray-500 rounded-lg p-1">
@@ -73,27 +56,17 @@ const MapFeaturesToggleButtonGroup = ({
             <div className="container grid-cols-1 gap-1 w-full font-bold text-sm text-white">
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b border-t">
                     <div>Label</div>
-                    <Toggle/>
+                    <Toggle
+                        checked={mapLabelVisible}
+                        onChange={(checked) => handleOnChange("LABEL", checked)}/>
                 </div>
                 <div className="flex justify-between p-1 ml-2 mr-2">
                     <div>Road</div>
-                    <Toggle/>
+                    <Toggle
+                        checked={mapRoadVisible}
+                        onChange={(checked) => handleOnChange("ROAD", checked)}
+                    />
                 </div>
-                {/* <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white"> */}
-                {/*     <button */}
-                {/*         className={mapLabel ? activeButtonStyle : inactiveButtonStyle} */}
-                {/*         onClick={() => handleOnClick("LABEL")} */}
-                {/*     > */}
-                {/*         Label */}
-                {/*     </button> */}
-
-                {/*     <button */}
-                {/*         className={mapRoad ? activeButtonStyle : inactiveButtonStyle} */}
-                {/*         onClick={() => handleOnClick("ROAD")} */}
-                {/*     > */}
-                {/*         Road */}
-                {/*     </button> */}
-                {/* </div> */}
             </div>
         </div>
     );
