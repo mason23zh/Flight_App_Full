@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { MapRef } from "react-map-gl";
-import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, toggleMapFilterButton, toggleMapStyleButton } from "../../../store";
+
+import mapStyleToggleButton from "./MapStyleToggleButton";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
 const MapFilterToggleButton = ({ mapRef }: Props) => {
- 
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const dispatch = useDispatch();
+    const {
+        mapFilterButtonToggle,
+        mapStyleButtonToggle
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const handleOnClick = () => {
-        setIsOpen(prev => !prev);
+        dispatch(toggleMapFilterButton(!mapFilterButtonToggle));
     };
 
-    // useEffect(() => {
-    //     setIsOpen(false);
-    // }, [mapRoadVisible, mapLabelVisible]);
-    //
-    //
-    // useEffect(() => {
-    //     setIsOpen(false);
-    // }, []);
-
+    useEffect(() => {
+        if (mapStyleButtonToggle) {
+            dispatch(toggleMapFilterButton(false));
+        }
+    }, [mapStyleToggleButton]);
 
     return (
         <div>
@@ -37,10 +37,10 @@ const MapFilterToggleButton = ({ mapRef }: Props) => {
             </button>
 
             <div className={`absolute left-[110%] bottom-0.5 transform 
-            ${isOpen ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
+            ${mapFilterButtonToggle ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
             }
             >
-                {isOpen ?
+                {mapFilterButtonToggle ?
                     <MapFeaturesToggleButtonGroup mapRef={mapRef}/>
                     : ""
                 }

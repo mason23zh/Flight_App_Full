@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, toggleMapStyleButton } from "../../../store";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 
 const MapStyleToggleButton = ({ mapRef }) => {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);
-
+    const {
+        mapFilterButtonToggle,
+        mapStyleButtonToggle
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     // close the popup when mapStyle changes
     useEffect(() => {
-        setIsOpen(false);
+        // setIsOpen(false);
+        dispatch(toggleMapStyleButton(false));
     }, [mapStyle]);
+
+    useEffect(() => {
+        if (mapFilterButtonToggle) {
+            // setIsOpen(false);
+            dispatch(toggleMapStyleButton(false));
+        }
+    }, [mapFilterButtonToggle]);
 
     let mapStyleName: MapStyleName;
     switch (mapStyle) {
@@ -30,7 +42,8 @@ const MapStyleToggleButton = ({ mapRef }) => {
         break;
     }
     const handleOnClick = () => {
-        setIsOpen(prev => !prev);
+        // setIsOpen(prev => !prev);
+        dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
     return (
@@ -43,10 +56,10 @@ const MapStyleToggleButton = ({ mapRef }) => {
             </button>
 
             <div className={`absolute left-[110%] bottom-0.5 transform 
-            ${isOpen ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
+            ${mapStyleButtonToggle ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
             }
             >
-                {isOpen ?
+                {mapStyleButtonToggle ?
                     <MapStyleToggleButtonGroup mapRef={mapRef}/>
                     : ""
                 }
