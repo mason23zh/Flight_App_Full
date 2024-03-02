@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
@@ -7,24 +7,14 @@ type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 
 const MapStyleToggleButton = ({ mapRef }) => {
     const dispatch = useDispatch();
-    const [isOpen, setIsOpen] = useState<boolean>(false);
     const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);
     const {
-        mapFilterButtonToggle,
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     // close the popup when mapStyle changes
     useEffect(() => {
-        // setIsOpen(false);
         dispatch(toggleMapStyleButton(false));
     }, [mapStyle]);
-
-    useEffect(() => {
-        if (mapFilterButtonToggle) {
-            // setIsOpen(false);
-            dispatch(toggleMapStyleButton(false));
-        }
-    }, [mapFilterButtonToggle]);
 
     let mapStyleName: MapStyleName;
     switch (mapStyle) {
@@ -42,7 +32,6 @@ const MapStyleToggleButton = ({ mapRef }) => {
         break;
     }
     const handleOnClick = () => {
-        // setIsOpen(prev => !prev);
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 

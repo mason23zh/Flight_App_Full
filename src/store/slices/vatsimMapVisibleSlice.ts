@@ -46,9 +46,15 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
+            if (action.payload && state.mapFilterButtonToggle) {
+                state.mapFilterButtonToggle = false;
+            }
         },
         toggleMapFilterButton(state, action) {
             state.mapFilterButtonToggle = action.payload;
+            if (action.payload && state.mapStyleButtonToggle) {
+                state.mapStyleButtonToggle = false;
+            }
         }
     }
 });

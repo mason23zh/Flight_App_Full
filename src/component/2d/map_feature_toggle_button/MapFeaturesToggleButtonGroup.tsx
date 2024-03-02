@@ -11,7 +11,6 @@ interface Props {
 }
 
 type Tag = "LABEL" | "ROAD" | "BUILDING";
-//!BUG toggle behaviour incorrect
 const MapFeaturesToggleButtonGroup = ({
     mapRef
 }: Props) => {

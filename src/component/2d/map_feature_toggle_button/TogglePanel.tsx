@@ -14,6 +14,8 @@ interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
+//!BUG map feature setting not sync when map style changes
+
 const TogglePanel = ({ mapRef }: Props) => {
     const dispatch = useDispatch();
 
