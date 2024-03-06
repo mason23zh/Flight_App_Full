@@ -5,6 +5,7 @@ import { RootState, toggleMapStyleButton } from "../../../store";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 
+
 const MapStyleToggleButton = ({ mapRef }) => {
     const dispatch = useDispatch();
     const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);

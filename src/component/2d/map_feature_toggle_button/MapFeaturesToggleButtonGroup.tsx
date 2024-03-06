@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MapRef } from "react-map-gl";
 import switchMapLabels from "../switchMapLabels";
 import switchMapRoads from "../switchMapRoads";
@@ -20,6 +20,27 @@ const MapFeaturesToggleButtonGroup = ({
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        const map = mapRef.current?.getMap();
+
+        if (!map) return;
+
+        const reapplyFeatureSettings = () => {
+            setMapFeatures(mapRef, mapLabelVisible, "LABEL");
+            setMapFeatures(mapRef, mapRoadVisible, "ROAD");
+        };
+
+        map.on("style.load", () => {
+            reapplyFeatureSettings();
+        });
+
+        return () => {
+            map.off("style.load", () => {
+                reapplyFeatureSettings();
+            });
+        };
+    }, [mapRef, mapLabelVisible, mapRoadVisible]);
+
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
         if (mapRef.current) {
             switch (tag) {
@@ -40,7 +61,6 @@ const MapFeaturesToggleButtonGroup = ({
             setMapFeatures(mapRef, checked, "LABEL");
             break;
         case "ROAD":
-            // setMapRoad(checked);
             dispatch(toggleMapRoadLabel(checked));
             setMapFeatures(mapRef, checked, "ROAD");
             break;
