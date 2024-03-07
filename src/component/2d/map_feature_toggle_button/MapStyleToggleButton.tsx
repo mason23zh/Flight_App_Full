@@ -9,6 +9,7 @@ type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 const MapStyleToggleButton = ({ mapRef }) => {
     const dispatch = useDispatch();
     const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);
+    console.log("MAP STYLE:", mapStyle);
     const {
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);

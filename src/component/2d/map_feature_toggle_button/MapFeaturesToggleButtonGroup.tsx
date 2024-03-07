@@ -20,6 +20,11 @@ const MapFeaturesToggleButtonGroup = ({
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const dispatch = useDispatch();
 
+    const preloadedState = localStorage.getItem("persist:mapSelection") ?
+        JSON.parse(localStorage.getItem("persist:mapSelection")) : undefined;
+
+    console.log("Preload state:", preloadedState);
+
     useEffect(() => {
         const map = mapRef.current?.getMap();
 

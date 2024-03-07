@@ -51,7 +51,6 @@ const persistConfig = {
     key: "mapSelection",
     version: 1,
     storage,
-    whitelist: ["vatsimMapVisible", "vatsimMapStyle"], // You can add any other slice names here you want to persist
 };
 
 const vatsimMapVisiblePersistedReducer = persistReducer(persistConfig, vatsimMapVisibleReducer);
@@ -89,6 +88,10 @@ export const store = configureStore({
         .concat(vatsimDataApi.middleware)
         .concat(rainviewerApi.middleware)
 
+});
+
+store.subscribe(() => {
+    console.log("Store state:", store.getState());
 });
 
 setupListeners(store.dispatch);
