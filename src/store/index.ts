@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import { airportsApi } from "./apis/airportsApi";
 import { vatsimDataApi } from "./apis/vatsimDataApi";
 import { extremeWeatherApi } from "./apis/extremeWeatherApi";
@@ -45,14 +47,25 @@ import {
 } from "./slices/vatsimMapErrorSlice";
 
 
+const persistConfig = {
+    key: "mapSelection",
+    version: 1,
+    storage,
+    whitelist: ["vatsimMapVisible", "vatsimMapStyle"], // You can add any other slice names here you want to persist
+};
+
+const vatsimMapVisiblePersistedReducer = persistReducer(persistConfig, vatsimMapVisibleReducer);
+const vatsimMapStylePersistedReducer = persistReducer(persistConfig, vatsimMapStyleReducer);
+
+
 export const store = configureStore({
     reducer: {
         vatsimEvent: vatsimEventReducer,
         extremeWeather: extremeWeatherReducer,
         vatsimMapEvent: vatsimMapEventReducer,
-        vatsimMapVisible: vatsimMapVisibleReducer,
+        vatsimMapVisible: vatsimMapVisiblePersistedReducer,
         vatsimMapError: vatsimMapErrorReducer,
-        vatsimMapStyle: vatsimMapStyleReducer,
+        vatsimMapStyle: vatsimMapStylePersistedReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -62,7 +75,11 @@ export const store = configureStore({
         [vatsimDataApi.reducerPath]: vatsimDataApi.reducer,
         [rainviewerApi.reducerPath]: rainviewerApi.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        }
+    })
         .concat(airportsApi.middleware)
         .concat(extremeWeatherApi.middleware)
         .concat(metarApi.middleware)
@@ -132,5 +149,7 @@ export {
 };
 
 export { switchMapStyle };
+
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState> 
