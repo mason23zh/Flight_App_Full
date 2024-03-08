@@ -1,7 +1,7 @@
 import React from "react";
 import MapFeaturesToggleButton from "./MapFeaturesToggleButton";
-import { useDispatch } from "react-redux";
-import { toggleAtcLayer, toggleTrafficLayer, toggleWeatherRasterLayer } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, toggleAtcLayer, toggleTrafficLayer, toggleWeatherRasterLayer } from "../../../store";
 import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
@@ -17,6 +17,11 @@ interface Props {
 //!BUG map feature setting not sync when map style changes
 
 const TogglePanel = ({ mapRef }: Props) => {
+    const {
+        allAtcLayerVisible,
+        trafficLayerVisible,
+        weatherRasterVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const dispatch = useDispatch();
 
     return (
@@ -25,19 +30,19 @@ const TogglePanel = ({ mapRef }: Props) => {
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
                     icon={<IoAirplane/>}
-                    initialActive={true}
+                    initialActive={trafficLayerVisible}
                 />
 
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleAtcLayer(activeFlag))}
                     icon={<GiControlTower/>}
-                    initialActive={true}
+                    initialActive={allAtcLayerVisible}
                 />
 
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))}
                     icon={<TiWeatherDownpour/>}
-                    initialActive={false}
+                    initialActive={weatherRasterVisible}
                 />
 
                 <MapStyleToggleButton mapRef={mapRef}/>

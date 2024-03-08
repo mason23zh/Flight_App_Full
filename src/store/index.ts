@@ -46,7 +46,10 @@ import {
     vatsimMapErrorReducer
 } from "./slices/vatsimMapErrorSlice";
 
-
+/*
+The persisConfig is used to store the map selection option in the localStorage
+This is the config for redux-persist lib
+* */
 const persistConfig = {
     key: "mapSelection",
     version: 1,
@@ -62,7 +65,7 @@ export const store = configureStore({
         vatsimEvent: vatsimEventReducer,
         extremeWeather: extremeWeatherReducer,
         vatsimMapEvent: vatsimMapEventReducer,
-        vatsimMapVisible: vatsimMapVisiblePersistedReducer,
+        vatsimMapVisible: vatsimMapVisiblePersistedReducer, // replace the original reducer with the persisted reducer
         vatsimMapError: vatsimMapErrorReducer,
         vatsimMapStyle: vatsimMapStylePersistedReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
