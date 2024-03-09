@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface MapStylePayloadAction {
+    payload: {
+        mapStyles: "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
+    };
+}
+
 const vatsimMapVisibleSlice = createSlice({
     name: "vatsimMapVisible",
     initialState: {
@@ -16,9 +22,13 @@ const vatsimMapVisibleSlice = createSlice({
         weatherRasterVisible: false,
         mapStyleButtonToggle: false,
         mapFilterButtonToggle: false,
+        mapStyles: "DEFAULT"
     },
 
     reducers: {
+        switchMapStyles(state, action: MapStylePayloadAction) {
+            state.mapStyles = action.payload.mapStyles;
+        },
         toggleSatelliteLayer(state, action) {
             state.satelliteLayerVisible = action.payload;
         },
@@ -69,6 +79,7 @@ export const {
     toggleWeatherRasterLayer,
     toggleMapLabel,
     toggleSatelliteLayer,
-    toggleMapRoadLabel
+    toggleMapRoadLabel,
+    switchMapStyles
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

@@ -31,7 +31,8 @@ import {
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     toggleMapStyleButton,
-    toggleMapFilterButton
+    toggleMapFilterButton,
+    switchMapStyles
 } from "./slices/vatsimMapVisibleSlice";
 import {
     switchMapStyle,
@@ -57,7 +58,7 @@ const persistConfig = {
 };
 
 const vatsimMapVisiblePersistedReducer = persistReducer(persistConfig, vatsimMapVisibleReducer);
-const vatsimMapStylePersistedReducer = persistReducer(persistConfig, vatsimMapStyleReducer);
+// const vatsimMapStylePersistedReducer = persistReducer(persistConfig, vatsimMapStyleReducer);
 
 
 export const store = configureStore({
@@ -67,7 +68,7 @@ export const store = configureStore({
         vatsimMapEvent: vatsimMapEventReducer,
         vatsimMapVisible: vatsimMapVisiblePersistedReducer, // replace the original reducer with the persisted reducer
         vatsimMapError: vatsimMapErrorReducer,
-        vatsimMapStyle: vatsimMapStylePersistedReducer,
+        // vatsimMapStyle: vatsimMapStylePersistedReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -144,7 +145,8 @@ export {
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     toggleMapFilterButton,
-    toggleMapStyleButton
+    toggleMapStyleButton,
+    switchMapStyles
 };
 
 export {
