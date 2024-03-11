@@ -1,30 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { VatsimMapVisibleState } from "../../types";
 
 interface MapStylePayloadAction {
     payload: {
         mapStyles: "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
     };
 }
+ 
+const initialState: VatsimMapVisibleState = {
+    allAtcLayerVisible: true,
+    controllerLayerVisible: true,
+    controllerMarkerVisible: true,
+    traconLabelVisible: true,
+    firLabelVisible: true,
+    mapRoadVisible: false,
+    trackLayerVisible: false,
+    trafficLayerVisible: true,
+    mapLabelVisible: true,
+    satelliteLayerVisible: false,
+    weatherRasterVisible: false,
+    mapStyleButtonToggle: false,
+    mapFilterButtonToggle: false,
+    mapStyles: "DEFAULT"
+};
 
 const vatsimMapVisibleSlice = createSlice({
     name: "vatsimMapVisible",
-    initialState: {
-        allAtcLayerVisible: true,
-        controllerLayerVisible: true,
-        controllerMarkerVisible: true,
-        traconLabelVisible: true,
-        firLabelVisible: true,
-        mapRoadVisible: false,
-        trackLayerVisible: false,
-        trafficLayerVisible: true,
-        mapLabelVisible: true,
-        satelliteLayerVisible: false,
-        weatherRasterVisible: false,
-        mapStyleButtonToggle: false,
-        mapFilterButtonToggle: false,
-        mapStyles: "DEFAULT"
-    },
-
+    initialState,
     reducers: {
         switchMapStyles(state, action: MapStylePayloadAction) {
             state.mapStyles = action.payload.mapStyles;

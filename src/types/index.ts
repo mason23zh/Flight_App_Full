@@ -373,8 +373,28 @@ interface AirportService {
     services: Array<Service>
 }
 
+type MapStyles = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
+
+interface VatsimMapVisibleState {
+    allAtcLayerVisible: boolean;
+    controllerLayerVisible: boolean;
+    controllerMarkerVisible: boolean;
+    traconLabelVisible: boolean;
+    firLabelVisible: boolean;
+    mapRoadVisible: boolean;
+    trackLayerVisible: boolean;
+    trafficLayerVisible: boolean;
+    mapLabelVisible: boolean;
+    satelliteLayerVisible: boolean;
+    weatherRasterVisible: boolean;
+    mapStyleButtonToggle: boolean;
+    mapFilterButtonToggle: boolean;
+    mapStyles: MapStyles;
+}
+
 
 export type {
+    VatsimMapVisibleState,
     Weather,
     Event,
     VatsimFlight,

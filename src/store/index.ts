@@ -34,10 +34,6 @@ import {
     toggleMapFilterButton,
     switchMapStyles
 } from "./slices/vatsimMapVisibleSlice";
-import {
-    switchMapStyle,
-    vatsimMapStyleReducer
-} from "./slices/vatsimMapStyleSlice";
 
 import {
     addMessage,
@@ -58,8 +54,6 @@ const persistConfig = {
 };
 
 const vatsimMapVisiblePersistedReducer = persistReducer(persistConfig, vatsimMapVisibleReducer);
-// const vatsimMapStylePersistedReducer = persistReducer(persistConfig, vatsimMapStyleReducer);
-
 
 export const store = configureStore({
     reducer: {
@@ -68,7 +62,6 @@ export const store = configureStore({
         vatsimMapEvent: vatsimMapEventReducer,
         vatsimMapVisible: vatsimMapVisiblePersistedReducer, // replace the original reducer with the persisted reducer
         vatsimMapError: vatsimMapErrorReducer,
-        // vatsimMapStyle: vatsimMapStylePersistedReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -91,7 +84,6 @@ export const store = configureStore({
         .concat(vatsimApi.middleware)
         .concat(vatsimDataApi.middleware)
         .concat(rainviewerApi.middleware)
-
 });
 
 store.subscribe(() => {
@@ -156,8 +148,6 @@ export {
     removeMessageByLocation,
 };
 
-export { switchMapStyle };
-
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState> 
+export type RootState = ReturnType<typeof store.getState>  
