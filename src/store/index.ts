@@ -42,6 +42,10 @@ import {
     removeMessageByLocation,
     vatsimMapErrorReducer
 } from "./slices/vatsimMapErrorSlice";
+import {
+    rehydrationCompleteReducer,
+    setRehydrationComplete
+} from "./slices/rehydrationCompleteSlice";
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -53,6 +57,9 @@ const persistConfig = {
     storage,
 };
 
+/*
+The persisted reducer to store all the state inside into the localStorage
+* */
 const vatsimMapVisiblePersistedReducer = persistReducer(persistConfig, vatsimMapVisibleReducer);
 
 export const store = configureStore({
@@ -62,6 +69,7 @@ export const store = configureStore({
         vatsimMapEvent: vatsimMapEventReducer,
         vatsimMapVisible: vatsimMapVisiblePersistedReducer, // replace the original reducer with the persisted reducer
         vatsimMapError: vatsimMapErrorReducer,
+        rehydrationComplete: rehydrationCompleteReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -84,10 +92,6 @@ export const store = configureStore({
         .concat(vatsimApi.middleware)
         .concat(vatsimDataApi.middleware)
         .concat(rainviewerApi.middleware)
-});
-
-store.subscribe(() => {
-    console.log("Store state:", store.getState());
 });
 
 setupListeners(store.dispatch);
@@ -146,6 +150,10 @@ export {
     removeMessage,
     removeMessageByContent,
     removeMessageByLocation,
+};
+
+export {
+    setRehydrationComplete
 };
 
 export const persistor = persistStore(store);

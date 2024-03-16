@@ -20,6 +20,7 @@ const MapFeaturesToggleButton = ({
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
 
+
     const handleClick = () => {
         const newActiveState = !isActive;
         setIsActive(newActiveState);

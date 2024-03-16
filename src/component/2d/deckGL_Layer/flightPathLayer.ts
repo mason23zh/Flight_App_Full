@@ -12,7 +12,6 @@ const flightPathLayer = (
 
     if (data && selectTraffic) {
         data.track.map((t, idx) => {
-            // console.log("track data", t);
             const tempObj = {
                 from: { coordinates: [] },
                 to: { coordinates: [] }

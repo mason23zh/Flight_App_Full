@@ -1,21 +1,11 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import { Map, NavigationControl } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
-import switchMapLabels from "../switchMapLabels";
-import switchSatelliteView from "../switchSatelliteView";
-import switchMapRoads from "../switchMapRoads";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
 
-    const {
-        mapLabelVisible,
-        satelliteLayerVisible,
-        mapRoadVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const [viewState, setViewState] = React.useState({
         longitude: -29.858598,
@@ -24,18 +14,6 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
-
-    useEffect(() => {
-        switchMapLabels(mapRef, mapLabelVisible);
-    }, [mapLabelVisible]);
-
-    useEffect(() => {
-        switchSatelliteView(mapRef, satelliteLayerVisible);
-    }, [satelliteLayerVisible]);
-
-    useEffect(() => {
-        switchMapRoads(mapRef, mapRoadVisible);
-    }, [mapRoadVisible]);
 
 
     const { airportLayers: AirportLayers } = useAirportsLayers();

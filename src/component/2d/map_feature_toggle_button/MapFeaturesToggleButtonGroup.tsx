@@ -11,35 +11,15 @@ interface Props {
 }
 
 type Tag = "LABEL" | "ROAD" | "BUILDING";
+
 const MapFeaturesToggleButtonGroup = ({
     mapRef
 }: Props) => {
+    const dispatch = useDispatch();
     const {
         mapLabelVisible,
-        mapRoadVisible
+        mapRoadVisible,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        const map = mapRef.current?.getMap();
-
-        if (!map) return;
-
-        const reapplyFeatureSettings = () => {
-            setMapFeatures(mapRef, mapLabelVisible, "LABEL");
-            setMapFeatures(mapRef, mapRoadVisible, "ROAD");
-        };
-
-        map.on("style.load", () => {
-            reapplyFeatureSettings();
-        });
-
-        return () => {
-            map.off("style.load", () => {
-                reapplyFeatureSettings();
-            });
-        };
-    }, [mapRef, mapLabelVisible, mapRoadVisible]);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
         if (mapRef.current) {
@@ -54,15 +34,44 @@ const MapFeaturesToggleButtonGroup = ({
         }
     };
 
+    useEffect(() => {
+        const mapInstance = mapRef.current?.getMap();
+
+        if (!mapInstance) return;
+
+        const applyVisibilitySettings = () => {
+            const currentMap = mapRef.current?.getMap();
+            if (currentMap) {
+                setMapFeatures(mapRef, mapLabelVisible, "LABEL");
+                setMapFeatures(mapRef, mapRoadVisible, "ROAD");
+            }
+        };
+
+        // listening the styledata event to apply current map settings
+        // if map style changes, hence this useEffect function does not
+        // require mapStyle as one of the dependencies.
+        mapInstance.on("styledata", applyVisibilitySettings);
+
+        //only change map settings without changing the map style
+        if (mapInstance && mapInstance.isStyleLoaded()) {
+            setMapFeatures(mapRef, mapLabelVisible, "LABEL");
+            setMapFeatures(mapRef, mapRoadVisible, "ROAD");
+        }
+
+        // Cleanup
+        return () => {
+            mapInstance.off("styledata", applyVisibilitySettings);
+        };
+    }, [mapRef, mapLabelVisible, mapRoadVisible]);
+
+
     const handleOnChange = (mapFeature: Tag, checked: boolean) => {
         switch (mapFeature) {
         case "LABEL":
             dispatch(toggleMapLabel(checked));
-            setMapFeatures(mapRef, checked, "LABEL");
             break;
         case "ROAD":
             dispatch(toggleMapRoadLabel(checked));
-            setMapFeatures(mapRef, checked, "ROAD");
             break;
         }
     };

@@ -8,10 +8,9 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 
 const MapStyleToggleButton = ({ mapRef }) => {
+    let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
-    // const { mapStyle } = useSelector((state: RootState) => state.vatsimMapStyle);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
-    // console.log("MAP STYLE:", mapStyle);
     const {
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);
@@ -20,7 +19,6 @@ const MapStyleToggleButton = ({ mapRef }) => {
         dispatch(toggleMapStyleButton(false));
     }, [mapStyles]);
 
-    let mapStyleName: MapStyleName;
     switch (mapStyles) {
     case "DEFAULT":
         mapStyleName = "VFR";
@@ -43,7 +41,6 @@ const MapStyleToggleButton = ({ mapRef }) => {
         if (mapRef.current) {
             const map = mapRef.current.getMap();
             let styleUrl: string;
-            console.log("MAP NAME:", mapName);
             switch (mapName) {
             case "DEFAULT":
                 styleUrl = import.meta.env.VITE_MAPBOX_MAIN_STYLE;
@@ -86,7 +83,7 @@ const MapStyleToggleButton = ({ mapRef }) => {
             }
             >
                 {mapStyleButtonToggle ?
-                    <MapStyleToggleButtonGroup mapRef={mapRef}/>
+                    <MapStyleToggleButtonGroup/>
                     : ""
                 }
             </div>

@@ -5,12 +5,11 @@ const switchMapLabels = (mapRef: React.RefObject<MapRef>, visibility: boolean) =
     const flag = visibility ? "visible" : "none";
     if (mapRef.current) {
         const map = mapRef.current.getMap();
-        const layers =
-                [
-                    "continent-label", "country-label",
-                    "state-label", "settlement-major-label",
-                    "settlement-minor-label", "settlement-subdivision-label"
-                ];
+        const layers = [
+            "continent-label", "country-label", "state-label",
+            "settlement-major-label", "settlement-minor-label",
+            "settlement-subdivision-label"
+        ];
 
         layers.forEach(layer => {
             try {
@@ -19,12 +18,6 @@ const switchMapLabels = (mapRef: React.RefObject<MapRef>, visibility: boolean) =
                 console.error(`Error setting visibility for ${layer}`, e);
             }
         });
-        // map.setLayoutProperty("continent-label", "visibility", flag);
-        // map.setLayoutProperty("country-label", "visibility", flag);
-        // map.setLayoutProperty("state-label", "visibility", flag);
-        // map.setLayoutProperty("settlement-major-label", "visibility", flag);
-        // map.setLayoutProperty("settlement-minor-label", "visibility", flag);
-        // map.setLayoutProperty("settlement-subdivision-label", "visibility", flag);
     }
 };
 

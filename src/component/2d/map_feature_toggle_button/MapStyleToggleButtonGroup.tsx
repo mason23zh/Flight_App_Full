@@ -46,4 +46,4 @@ const MapStyleToggleButtonGroup = () => {
     );
 };
 
-export default React.memo(MapStyleToggleButtonGroup); 
+export default MapStyleToggleButtonGroup;
