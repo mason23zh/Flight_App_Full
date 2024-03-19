@@ -46,6 +46,10 @@ import {
     rehydrationCompleteReducer,
     setRehydrationComplete
 } from "./slices/rehydrationCompleteSlice";
+import {
+    setSelectedTraffic,
+    vatsimMapTrafficReducer
+} from "./slices/vatsimMapTrafficSlice";
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -70,6 +74,7 @@ export const store = configureStore({
         vatsimMapVisible: vatsimMapVisiblePersistedReducer, // replace the original reducer with the persisted reducer
         vatsimMapError: vatsimMapErrorReducer,
         rehydrationComplete: rehydrationCompleteReducer,
+        vatsimMapTraffic: vatsimMapTrafficReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -155,6 +160,8 @@ export {
 export {
     setRehydrationComplete
 };
+
+export { setSelectedTraffic };
 
 export const persistor = persistStore(store);
 

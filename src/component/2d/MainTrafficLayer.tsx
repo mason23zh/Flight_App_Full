@@ -4,7 +4,12 @@ import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer from "./deckGL_Layer/trafficLayer";
 import { VatsimFlight } from "../../types";
 import { PickingInfo } from "@deck.gl/core/typed";
-import { addMessage, removeMessageByLocation, useFetchTrafficTrackDataQuery } from "../../store";
+import {
+    addMessage,
+    removeMessageByLocation,
+    useFetchTrafficTrackDataQuery,
+    setSelectedTraffic
+} from "../../store";
 import { useDispatch } from "react-redux";
 
 interface MainTrafficLayerProps {
@@ -51,6 +56,8 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
+            dispatch(setSelectedTraffic(info.object));
+            console.log("Selected traffic info:", info.object);
         } else if (!info.layer) {
             setSelectTraffic(null);
         }
