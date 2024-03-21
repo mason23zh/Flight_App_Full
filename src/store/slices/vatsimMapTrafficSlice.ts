@@ -1,7 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { VatsimFlight } from "../../types";
 
-const initialState = {
+interface InitialState {
+    selectedTraffic: VatsimFlight | null;
+}
+
+interface SetSelectedTrafficAction {
+    payload: VatsimFlight;
+}
+
+const initialState: InitialState = {
     selectedTraffic: {
         altitude: 0,
         callsign: "",
@@ -44,7 +52,7 @@ const vatsimMapTrafficSlice = createSlice({
     name: "vatsimMapTraffic",
     initialState,
     reducers: {
-        setSelectedTraffic(state, action) {
+        setSelectedTraffic(state, action: SetSelectedTrafficAction) {
             state.selectedTraffic = action.payload;
         }
     }
