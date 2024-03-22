@@ -1,4 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { DbAirport } from "../../types";
+
+interface AirportResponse {
+    result: number,
+    data: Array<DbAirport>
+}
+
 
 export const airportsApi = createApi({
     reducerPath: "airports",
@@ -19,7 +26,7 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
             }),
-            fetchBasicAirportWithICAO: build.query({
+            fetchBasicAirportWithICAO: build.query<AirportResponse, string>({
                 query: (icao) => ({
                     url: `/icao/basic/${icao}`,
                     method: "GET",

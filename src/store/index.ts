@@ -118,7 +118,8 @@ export {
     useFetchSortedVatsimEventsQuery,
     useFetchVatsimControllersDataQuery,
     useFetchVatsimPilotsDataQuery,
-    useFetchTrafficTrackDataQuery
+    useFetchTrafficTrackDataQuery,
+    useFetchVatsimTrafficByCallsignQuery
 } from "./apis/vatsimApi";
 export {
     useFetchVatsimFirBoundariesQuery,

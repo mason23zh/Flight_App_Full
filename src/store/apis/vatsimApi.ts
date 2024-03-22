@@ -52,6 +52,12 @@ export const vatsimApi = createApi({
                     url: `/getTrafficByCallsign/track/${callsign}`,
                     method: "GET",
                 })
+            }),
+            fetchVatsimTrafficByCallsign: build.query<VatsimTrafficResponse, string>({
+                query: (callsign) => ({
+                    url: `/getVatsimTrafficByCallsign/${callsign}`,
+                    method: "GET"
+                })
             })
         };
     },
@@ -61,5 +67,6 @@ export const {
     useFetchSortedVatsimEventsQuery,
     useFetchVatsimControllersDataQuery,
     useFetchVatsimPilotsDataQuery,
-    useFetchTrafficTrackDataQuery
+    useFetchTrafficTrackDataQuery,
+    useFetchVatsimTrafficByCallsignQuery
 } = vatsimApi;

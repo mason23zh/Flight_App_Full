@@ -1,12 +1,14 @@
 import React from "react";
 import FlightProgressBar from "./FlightProgressBar";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { RootState, useFetchBasicAirportWithICAOQuery } from "../../../store";
+import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
 
 const OverallDataBlock = ({
     callsign,
-    flight_plan
+    progress,
 }) => {
+
     return (
         <div className="container">
             <div className="grid-cols-1 bg-gray-300 gap-3 rounded-lg">
@@ -14,7 +16,7 @@ const OverallDataBlock = ({
                     {callsign}
                 </div>
                 <div>
-                    <FlightProgressBar/>
+                    <FlightProgressBar progress={progress}/>
                 </div>
             </div>
         </div>
