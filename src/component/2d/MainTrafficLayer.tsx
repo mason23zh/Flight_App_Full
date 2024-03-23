@@ -59,6 +59,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
             dispatch(setSelectedTraffic(info.object));
             console.log("Selected traffic info:", info.object);
         } else if (!info.layer) {
+            dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
             setSelectTraffic(null);
         }
     }, [selectTraffic]);
