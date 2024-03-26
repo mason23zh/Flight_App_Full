@@ -9,15 +9,30 @@ const LiveDataBlock = ({
 
 
     return (
-        <div className="flex gap-3 bg-gray-400">
-            <div>
-                {groundspeed}
+        <div className="grid grid-cols-3 bg-gray-400 text-lg">
+            <div className="flex flex-col items-center">
+                <div>
+                    Speed
+                </div>
+                <div>
+                    {groundspeed}
+                </div>
             </div>
-            <div>
-                {altitude}
+            <div className="flex flex-col items-center">
+                <div>
+                    Altitude
+                </div>
+                <div>
+                    {altitude}
+                </div>
             </div>
-            <div>
-                {toGoDistance}
+            <div className="flex flex-col items-center">
+                <div>
+                    To Go
+                </div>
+                <div>
+                    {toGoDistance}
+                </div>
             </div>
         </div>
     );

@@ -15,14 +15,6 @@ const FlightInfo = () => {
     console.log("Selected traffic:", traffic);
 
 
-    if (!traffic || traffic.callsign.length === 0) {
-        return <></>;
-    }
-
-    if (!traffic.flight_plan) {
-        return <></>;
-    }
-
     const {
         data: departureAirport,
         error: errorDepartureAirport,
@@ -35,6 +27,14 @@ const FlightInfo = () => {
         isLoading: loadingArrivalAirport
     } = useFetchBasicAirportWithICAOQuery(traffic.flight_plan?.arrival);
 
+    console.log("departureAirport:", departureAirport);
+
+
+    if (!traffic || traffic.callsign.length === 0) {
+        return <></>;
+    }
+
+
     if (errorArrivalAirport || errorDepartureAirport) {
         return <div>Error</div>;
     }
@@ -45,21 +45,29 @@ const FlightInfo = () => {
 
     if (departureAirport && arrivalAirport
             && departureAirport.data.length !== 0 && arrivalAirport.data.length !== 0) {
-        const depAirportCoord = departureAirport.data[0]?.station.geometry.coordinates;
-        const arrAirportCoord = arrivalAirport.data[0]?.station.geometry.coordinates;
-        const totalDistance = Math.round(distanceInKmBetweenEarthCoordinates(
-            depAirportCoord[1],
-            depAirportCoord[0],
-            arrAirportCoord[1],
-            arrAirportCoord[0]
-        ) * 0.539957);
-        const toGoDistance =
-                Math.round(
-                    distanceInKmBetweenEarthCoordinates(
-                        traffic.latitude, traffic.longitude, arrAirportCoord[1], arrAirportCoord[0]
-                    ) * 0.539957);
+        let toGoDistance = -1;
+        let progress = -1;
+        let depAirport = "";
+        let arrAirport = "";
+        if (departureAirport.data[0] && arrivalAirport.data[0]) {
+            const depAirportCoord = departureAirport.data[0]?.station.geometry.coordinates;
+            const arrAirportCoord = arrivalAirport.data[0]?.station.geometry.coordinates;
+            const totalDistance = Math.round(distanceInKmBetweenEarthCoordinates(
+                depAirportCoord[1],
+                depAirportCoord[0],
+                arrAirportCoord[1],
+                arrAirportCoord[0]
+            ) * 0.539957);
+            toGoDistance =
+                    Math.round(
+                        distanceInKmBetweenEarthCoordinates(
+                            traffic.latitude, traffic.longitude, arrAirportCoord[1], arrAirportCoord[0]
+                        ) * 0.539957);
 
-        const progress = Math.round((1 - toGoDistance / totalDistance) * 100);
+            progress = Math.round((1 - toGoDistance / totalDistance) * 100);
+            depAirport = traffic.flight_plan?.departure || "N/A";
+            arrAirport = traffic.flight_plan?.arrival || "N/A";
+        }
 
         return (
             <div className="z-[200] absolute max-w-[300px] min-w-[300px]">
@@ -67,6 +75,8 @@ const FlightInfo = () => {
                     <OverallDataBlock
                         callsign={traffic.callsign}
                         progress={progress}
+                        departure={depAirport}
+                        arrival={arrAirport}
                     />
 
                     <LiveDataBlock
