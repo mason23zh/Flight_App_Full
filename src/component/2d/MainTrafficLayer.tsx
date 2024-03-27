@@ -57,7 +57,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
-            console.log("Selected traffic info:", info.object);
+            // console.log("Selected traffic info:", info.object);
         } else if (!info.layer) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
             setSelectTraffic(null);
@@ -84,7 +84,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
                     const bgColor = "rgba(39, 40, 45, 0.13)";
                     return {
                         text: object && `${object.callsign}
-                                      ${object?.flight_plan?.departure} - ${object?.flight_plan?.arrival}`,
+                                      ${object?.flight_plan?.departure || "N/A"} - ${object?.flight_plan?.arrival || "N/A"}`,
                         style: {
                             backgroundColor: bgColor,
                             color: "white"

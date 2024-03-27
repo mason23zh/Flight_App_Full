@@ -10,7 +10,7 @@ const OverallDataBlock = ({
 
     return (
         <div className="container">
-            <div className="grid grid-cols-1 bg-gray-300 gap-2 rounded-lg p-3 relative">
+            <div className="grid grid-cols-1 bg-gray-300 gap-2 rounded-t-lg p-3 relative">
                 <div className="text-xl">
                     {callsign}
                 </div>

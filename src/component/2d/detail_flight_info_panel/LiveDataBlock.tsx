@@ -1,12 +1,10 @@
 import React from "react";
-import { useFetchVatsimTrafficByCallsignQuery } from "../../../store";
 
 const LiveDataBlock = ({
     altitude,
     groundspeed,
     toGoDistance,
 }) => {
-
 
     return (
         <div className="grid grid-cols-3 bg-gray-400 text-lg">
@@ -15,7 +13,7 @@ const LiveDataBlock = ({
                     Speed
                 </div>
                 <div>
-                    {groundspeed}
+                    {groundspeed} kt
                 </div>
             </div>
             <div className="flex flex-col items-center">
@@ -23,7 +21,7 @@ const LiveDataBlock = ({
                     Altitude
                 </div>
                 <div>
-                    {altitude}
+                    {altitude} ft
                 </div>
             </div>
             <div className="flex flex-col items-center">
@@ -31,7 +29,7 @@ const LiveDataBlock = ({
                     To Go
                 </div>
                 <div>
-                    {toGoDistance}
+                    {toGoDistance} nm
                 </div>
             </div>
         </div>
