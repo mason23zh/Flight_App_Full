@@ -1,6 +1,13 @@
 import React from "react";
 
-const OtherDataBlock = () => {
+const OtherDataBlock = ({ flight_plan }) => {
+    if (!flight_plan) {
+        return (
+            <div>No Flight Plan</div>
+        );
+    }
+
+
     return (
         <div>
             Other info block

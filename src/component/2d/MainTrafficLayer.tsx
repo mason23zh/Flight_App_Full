@@ -71,7 +71,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         trafficLayer(vatsimPilots, true)
     ];
 
-
     return (
         <DeckGlOverlay
             interleaved={true}

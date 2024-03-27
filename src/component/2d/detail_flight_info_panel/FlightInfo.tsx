@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState, useFetchBasicAirportWithICAOQuery } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
+import OverallDataBlock2 from "./OverallDataBlock2";
 
 //!TODO: Performance, error handling
 
@@ -72,12 +73,21 @@ const FlightInfo = () => {
         return (
             <div className="z-[200] absolute max-w-[300px] min-w-[300px]">
                 <div className="grid-cols-1">
-                    <OverallDataBlock
+                    <OverallDataBlock2
+                        aircraft={traffic.flight_plan?.aircraft_faa}
                         callsign={traffic.callsign}
+                        depAirport={departureAirport}
+                        arrAirport={arrivalAirport}
+                        etd={traffic.flight_plan?.deptime}
+                        enroute={traffic.flight_plan?.enroute_time}
                         progress={progress}
-                        departure={depAirport}
-                        arrival={arrAirport}
                     />
+                    {/* <OverallDataBlock */}
+                    {/*     callsign={traffic.callsign} */}
+                    {/*     progress={progress} */}
+                    {/*     departure={depAirport} */}
+                    {/*     arrival={arrAirport} */}
+                    {/* /> */}
 
                     <LiveDataBlock
                         altitude={traffic.altitude}
