@@ -68,7 +68,7 @@ const OverallDataBlock2 = ({
                             {depAirport.data[0]?.station.city || "N/A"}
                         </div>
                     </div>
-                    <div className="grid grid-rows-2 justify-items-center p-3 border-l bg-gray-300">
+                    <div className="grid grid-rows-2 justify-items-center p-3 bg-gray-300">
                         <div className="text-xl font-bold">
                             {arrAirport.data[0]?.ICAO || "N/A"}
                         </div>

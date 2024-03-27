@@ -7,7 +7,7 @@ const LiveDataBlock = ({
 }) => {
 
     return (
-        <div className="grid grid-cols-3 bg-gray-400 text-lg">
+        <div className="grid grid-cols-3 bg-gray-400 text-lg font-Rubik font-medium">
             <div className="flex flex-col items-center">
                 <div>
                     Speed
@@ -29,7 +29,7 @@ const LiveDataBlock = ({
                     To Go
                 </div>
                 <div>
-                    {toGoDistance} nm
+                    {toGoDistance !== -1 ? toGoDistance : "N/A"} nm
                 </div>
             </div>
         </div>
