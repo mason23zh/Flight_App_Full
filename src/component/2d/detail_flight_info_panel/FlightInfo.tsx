@@ -65,7 +65,10 @@ const FlightInfo = () => {
                             traffic.latitude, traffic.longitude, arrAirportCoord[1], arrAirportCoord[0]
                         ) * 0.539957);
 
-            progress = Math.round((1 - toGoDistance / totalDistance) * 100);
+            progress = Math.round((1 - (toGoDistance / totalDistance)) * 100);
+            console.log("Progress flight info:", progress);
+            console.log("Flight Info total Distance:", totalDistance);
+            console.log("Flight info to go distance:", toGoDistance);
             depAirport = traffic.flight_plan?.departure || "N/A";
             arrAirport = traffic.flight_plan?.arrival || "N/A";
         }
