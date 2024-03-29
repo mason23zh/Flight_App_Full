@@ -1,12 +1,11 @@
 import React from "react";
-import OverallDataBlock from "./OverallDataBlock";
 import LiveDataBlock from "./LiveDataBlock";
+import OverallDataBlock from "./OverallDataBlock";
 import OtherDataBlock from "./OtherDataBlock";
 import { useSelector } from "react-redux";
 import { RootState, useFetchBasicAirportWithICAOQuery } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
-import OverallDataBlock2 from "./OverallDataBlock2";
 
 //!TODO: Performance, error handling
 
@@ -76,7 +75,7 @@ const FlightInfo = () => {
         return (
             <div className="z-[200] absolute max-w-[300px] min-w-[300px]">
                 <div className="grid-cols-1">
-                    <OverallDataBlock2
+                    <OverallDataBlock
                         aircraft={traffic.flight_plan?.aircraft_faa}
                         callsign={traffic.callsign}
                         depAirport={departureAirport}
@@ -85,12 +84,6 @@ const FlightInfo = () => {
                         enroute={traffic.flight_plan?.enroute_time}
                         progress={progress}
                     />
-                    {/* <OverallDataBlock */}
-                    {/*     callsign={traffic.callsign} */}
-                    {/*     progress={progress} */}
-                    {/*     departure={depAirport} */}
-                    {/*     arrival={arrAirport} */}
-                    {/* /> */}
 
                     <LiveDataBlock
                         altitude={traffic.altitude}
@@ -98,7 +91,11 @@ const FlightInfo = () => {
                         toGoDistance={toGoDistance}
                     />
 
-                    <OtherDataBlock/>
+                    <OtherDataBlock
+                        flight_plan={traffic.flight_plan}
+                        depAirport={departureAirport}
+                        arrAirport={arrivalAirport}
+                    />
                 </div>
             </div>
         );
