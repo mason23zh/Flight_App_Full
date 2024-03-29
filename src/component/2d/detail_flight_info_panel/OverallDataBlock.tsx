@@ -39,7 +39,8 @@ const OverallDataBlock = ({
                     <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
                         <div className="text-xl font-bold">
                             {depAirport.data[0].ICAO
-                                ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`}>
+                                ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`} className="text-blue-600
+                                hover:text-blue-800 visited:text-purple-600 underline cursor-pointer">
                                     {depAirport.data[0].ICAO}
                                 </Link>
                                 : "N/A"
@@ -53,7 +54,9 @@ const OverallDataBlock = ({
                     <div className="flex flex-col justify-center items-center p-3 bg-gray-300">
                         <div className="text-xl font-bold">
                             {arrAirport.data[0].ICAO
-                                ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`}>
+                                ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`} className="text-blue-600
+                                hover:text-blue-800 visited:text-purple-600 underline cursor-pointer"
+                                >
                                     {arrAirport.data[0].ICAO}
                                 </Link>
                                 : "N/A"
