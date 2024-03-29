@@ -38,9 +38,9 @@ const OverallDataBlock = ({
                 <div className="grid grid-cols-2 bg-gray-200">
                     <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
                         <div className="text-xl font-bold">
-                            {depAirport.data[0].ICAO
+                            {depAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`} className="text-blue-600
-                                hover:text-blue-800 visited:text-purple-600 underline cursor-pointer">
+                                hover:text-blue-800 underline underline-offset-4 decoration-dashed cursor-pointer">
                                     {depAirport.data[0].ICAO}
                                 </Link>
                                 : "N/A"
@@ -53,9 +53,9 @@ const OverallDataBlock = ({
                     </div>
                     <div className="flex flex-col justify-center items-center p-3 bg-gray-300">
                         <div className="text-xl font-bold">
-                            {arrAirport.data[0].ICAO
+                            {arrAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`} className="text-blue-600
-                                hover:text-blue-800 visited:text-purple-600 underline cursor-pointer"
+                                hover:text-blue-800 decoration-dashed underline underline-offset-4 cursor-pointer"
                                 >
                                     {arrAirport.data[0].ICAO}
                                 </Link>
