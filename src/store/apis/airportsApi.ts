@@ -6,6 +6,10 @@ interface AirportResponse {
     data: Array<DbAirport>
 }
 
+interface PopularAirportResponse {
+    data: Array<DbAirport>;
+}
+
 
 export const airportsApi = createApi({
     reducerPath: "airports",
@@ -20,7 +24,7 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
             }),
-            fetchMostPopularAirports: build.query({
+            fetchMostPopularAirports: build.query<PopularAirportResponse, void>({
                 query: () => ({
                     url: "/get-most-popular-airports",
                     method: "GET",

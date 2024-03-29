@@ -23,7 +23,7 @@ export const vatsimApi = createApi({
     }),
     endpoints(build) {
         return {
-            fetchCurrentVatsimEvents: build.query({
+            fetchCurrentVatsimEvents: build.query<EventResponse, void>({
                 query: () => ({
                     url: "/getCurrentEvents",
                     method: "GET",

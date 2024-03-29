@@ -1,12 +1,11 @@
 import React from "react";
 import FlightPlanPanel from "./FlightPlanPanel";
-import { AirportResponse, VatsimFlight, VatsimFlightPlan } from "../../../types";
+import { AirportResponse, VatsimFlightPlan } from "../../../types";
 
 interface OtherDataBlockProps {
     flight_plan: VatsimFlightPlan;
     depAirport: AirportResponse;
     arrAirport: AirportResponse;
-
 }
 
 const OtherDataBlock = ({
@@ -24,7 +23,6 @@ const OtherDataBlock = ({
             </div>
         );
     }
-
 
     return (
         <FlightPlanPanel

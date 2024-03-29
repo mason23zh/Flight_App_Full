@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/pascal-meier-UYiesSO4FiM-unsplash.jpg";
 import HomeHeroSection from "./HomeHeroSection";
@@ -12,7 +12,7 @@ import { useTheme } from "../hooks/ThemeContext";
 import HomeVatsimAirportsList from "./HomeVatsimAirportsList";
 import ScrollToHashElement from "./ScrollToHashElement";
 import HomeVatsimEvents from "./HomeVatsimEvents";
-  
+
 function Home() {
     const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);
     const {
@@ -30,6 +30,7 @@ function Home() {
         error: vatsimAirportsError,
         isFetching: vatsimAirportsFetching,
     } = useFetchVatsimPopularAirportsQuery({ limit: 10 });
+
     const darkMode = useTheme();
     const darkTheme = darkMode
         ? "flex p-5 text-center justify-center bg-gray-400"
@@ -39,7 +40,7 @@ function Home() {
     let renderVatsimAirports;
     let renderVatsimEvents;
     if (data) {
-        renderedAirport = <HomeAirportList airports={data} />;
+        renderedAirport = <HomeAirportList airports={data}/>;
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
@@ -48,7 +49,7 @@ function Home() {
 
 
     if (vatsimAirports) {
-        renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports} />;
+        renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports}/>;
     } else if (vatsimAirportsFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (vatsimAirportsError) {
@@ -56,7 +57,7 @@ function Home() {
     }
 
     if (vatsimEvents) {
-        renderVatsimEvents = <HomeVatsimEvents vatsimEvents={vatsimEvents} />;
+        renderVatsimEvents = <HomeVatsimEvents vatsimEvents={vatsimEvents}/>;
     } else if (vatsimEventsFetching) {
         renderVatsimEvents = <div className="text-lg text-center">Loading...</div>;
     } else if (vatsimEventsError) {
@@ -72,7 +73,7 @@ function Home() {
 
     return (
         <div>
-            <ScrollToHashElement />
+            <ScrollToHashElement/>
             <HomeHeroSection
                 backgroundImage={backgroundImage}
                 vatsimEvents

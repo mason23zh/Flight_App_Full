@@ -2,6 +2,7 @@ import React from "react";
 import FlightProgressBar from "./FlightProgressBar";
 import FlightStatusFlag from "./FlightStatusFlag";
 import calculateArrivalTime from "../../../util/calculateArrivalTime";
+import { Link } from "react-router-dom";
 
 const OverallDataBlock = ({
     aircraft,
@@ -37,7 +38,12 @@ const OverallDataBlock = ({
                 <div className="grid grid-cols-2 bg-gray-200">
                     <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
                         <div className="text-xl font-bold">
-                            {depAirport.data[0]?.ICAO || "N/A"}
+                            {depAirport.data[0].ICAO
+                                ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`}>
+                                    {depAirport.data[0].ICAO}
+                                </Link>
+                                : "N/A"
+                            }
                         </div>
                         <div className="text-lg truncate w-full text-center"
                             title={depAirport.data[0]?.station.city || "N/A"}>
@@ -46,7 +52,12 @@ const OverallDataBlock = ({
                     </div>
                     <div className="flex flex-col justify-center items-center p-3 bg-gray-300">
                         <div className="text-xl font-bold">
-                            {arrAirport.data[0]?.ICAO || "N/A"}
+                            {arrAirport.data[0].ICAO
+                                ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`}>
+                                    {arrAirport.data[0].ICAO}
+                                </Link>
+                                : "N/A"
+                            }
                         </div>
                         <div className="text-lg truncate w-full text-center"
                             title={arrAirport.data[0]?.station.city || "N/A"}>
