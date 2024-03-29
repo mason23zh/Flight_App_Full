@@ -1,11 +1,19 @@
 import React from "react";
 import FlightPlanPanel from "./FlightPlanPanel";
+import { AirportResponse, VatsimFlight, VatsimFlightPlan } from "../../../types";
+
+interface OtherDataBlockProps {
+    flight_plan: VatsimFlightPlan;
+    depAirport: AirportResponse;
+    arrAirport: AirportResponse;
+
+}
 
 const OtherDataBlock = ({
     flight_plan,
     depAirport,
     arrAirport
-}) => {
+}: OtherDataBlockProps) => {
     if (!flight_plan) {
         return (
             <div className="bg-gray-500/30 p-3

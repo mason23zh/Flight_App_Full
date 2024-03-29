@@ -105,6 +105,25 @@ interface Event {
     type: string
 }
 
+interface VatsimFlightPlan {
+    flight_rules: string,
+    aircraft: string,
+    aircraft_faa: string,
+    aircraft_short: string
+    alternate: string,
+    altitude: string,
+    arrival: string,
+    assigned_transponder: string,
+    cruise_tas: string,
+    departure: string,
+    deptime: string,
+    enroute_time: string,
+    fuel_time: string,
+    remarks: string,
+    revision_id: number,
+    route: string
+}
+
 interface VatsimFlight {
     altitude: number,
     callsign: string,
@@ -122,24 +141,7 @@ interface VatsimFlight {
     qnh_mb: number,
     server: string,
     transponder: string,
-    flight_plan: {
-        flight_rules: string,
-        aircraft: string,
-        aircraft_faa: string,
-        aircraft_short: string
-        alternate: string,
-        altitude: string,
-        arrival: string,
-        assigned_transponder: string,
-        cruise_tas: string,
-        departure: string,
-        deptime: string,
-        enroute_time: string,
-        fuel_time: string,
-        remarks: string,
-        revision_id: number,
-        route: string
-    }
+    flight_plan: VatsimFlightPlan
 }
 
 interface TrackObj {
@@ -228,6 +230,11 @@ interface DbAirport {
     station: DbAirportStation,
     transitionAltitude: number,
     visited: number
+}
+
+interface AirportResponse {
+    result: number,
+    data: Array<DbAirport>
 }
 
 interface Fir {
@@ -398,6 +405,7 @@ export type {
     Weather,
     Event,
     VatsimFlight,
+    VatsimFlightPlan,
     VatsimTrackTraffic,
     DbAirport,
     VatsimControllers,
@@ -405,5 +413,6 @@ export type {
     VatsimFirs,
     VatsimFirBoundaries,
     VatsimMatchedFirBoundariesGeoJson,
-    AirportService
+    AirportService,
+    AirportResponse
 };
