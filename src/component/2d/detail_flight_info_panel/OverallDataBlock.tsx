@@ -19,7 +19,7 @@ const OverallDataBlock = ({
             <FlightStatusFlag progress={progress}/>
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
-                <div className="grid grid-rows-2 bg-gray-500 p-2">
+                <div className="grid grid-rows-2 bg-gray-600 p-2">
                     <div className="text-yellow-500 font-bold text-xl font-Rubik">
                         {callsign}
                     </div>
@@ -65,14 +65,14 @@ const OverallDataBlock = ({
                 </div>
 
 
-                <div className="grid grid-cols-2 bg-gray-200 border-t-2 font-bold font-Rubik">
-                    <div className="flex justify-between p-2 bg-gray-400 border-r">
+                <div className="grid grid-cols-2 font-bold font-Rubik">
+                    <div className="flex justify-between p-2 bg-gray-400 border-r text-gray-900">
                         <div>SCHEDULE</div>
                         <div>
                             {etd || "N/A"}
                         </div>
                     </div>
-                    <div className="flex justify-between bg-gray-400 p-2">
+                    <div className="flex justify-between bg-gray-400 p-2 text-gray-900">
                         <div>SCHEDULE</div>
                         <div>
                             {etd && enroute

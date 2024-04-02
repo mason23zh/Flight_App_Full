@@ -7,7 +7,7 @@ const LiveDataBlock = ({
 }) => {
 
     return (
-        <div className="grid grid-cols-3 bg-gray-400 text-lg font-Rubik font-medium">
+        <div className="grid grid-cols-3 bg-gray-400 text-lg font-Rubik font-medium text-gray-800">
             <div className="flex flex-col items-center">
                 <div>
                     Speed

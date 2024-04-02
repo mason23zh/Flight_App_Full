@@ -47,8 +47,8 @@ const FlightInfo = () => {
             && departureAirport.data.length !== 0 && arrivalAirport.data.length !== 0) {
         let toGoDistance = -1;
         let progress = -1;
-        let depAirport = "";
-        let arrAirport = "";
+        const depAirport = "";
+        const arrAirport = "";
         if (departureAirport.data[0] && arrivalAirport.data[0]) {
             const depAirportCoord = departureAirport.data[0]?.station.geometry.coordinates;
             const arrAirportCoord = arrivalAirport.data[0]?.station.geometry.coordinates;
@@ -68,12 +68,15 @@ const FlightInfo = () => {
             console.log("Progress flight info:", progress);
             console.log("Flight Info total Distance:", totalDistance);
             console.log("Flight info to go distance:", toGoDistance);
-            depAirport = traffic.flight_plan?.departure || "N/A";
-            arrAirport = traffic.flight_plan?.arrival || "N/A";
+            // depAirport = traffic.flight_plan?.departure || "N/A";
+            // arrAirport = traffic.flight_plan?.arrival || "N/A";
         }
 
         return (
-            <div className="z-[200] absolute max-w-[300px] min-w-[300px]">
+            <div
+                className="z-[200] absolute right-0 top-0
+                translate-x-[-15%] translate-y-[5%] max-w-[350px] min-w-[350px]"
+            >
                 <div className="grid-cols-1">
                     <OverallDataBlock
                         aircraft={traffic.flight_plan?.aircraft_faa}
