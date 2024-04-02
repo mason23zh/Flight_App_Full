@@ -13,15 +13,11 @@ const OverallDataBlock = ({
     enroute,
     progress
 }) => {
-    console.log("dep arr:", depAirport);
-    console.log("progress:", progress);
 
     return (
         <div className="container relative">
             <FlightStatusFlag progress={progress}/>
-            {/*
-                     Callsign and aircraft type
-                     */}
+            {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
                 <div className="grid grid-rows-2 bg-gray-500 p-2">
                     <div className="text-yellow-500 font-bold text-xl font-Rubik">
@@ -31,9 +27,8 @@ const OverallDataBlock = ({
                         {aircraft || "N/A"}
                     </div>
                 </div>
-                {/*
-                         Departure and Arrival Airport
-                         */}
+
+                {/*Departure and Arrival Airport*/}
 
                 <div className="grid grid-cols-2 bg-gray-200">
                     <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
@@ -110,6 +105,5 @@ const OverallDataBlock = ({
         </div>
     );
 };
-// };
 
 export default OverallDataBlock;
