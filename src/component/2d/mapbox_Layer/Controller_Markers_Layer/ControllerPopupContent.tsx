@@ -1,7 +1,6 @@
 import React from "react";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
-import { CustomProvider } from "rsuite";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -30,27 +29,29 @@ const ControllerPopupContent = ({
     serviceData,
     serviceType
 }: Props) => {
-    // const darkMode = useTheme();
-
-    // const themeClass = darkMode ? "bg-gray-600 text-gray-300" : "bg-gray-300 text-gray-700";
+    const darkMode = useTheme();
+    const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
     const renderedService = (serviceData: Service, serviceType: string) => {
         let serviceIcon;
         if (serviceType === "GND") {
             serviceIcon = (
-                <div className="bg-green-600 rounded-md text-white px-1 py-0 w-[40px] text-center text-xs">
+                <div className="bg-green-600 rounded-md text-white
+                px-1 py-0 w-[40px] h-auto text-xs text-center flex items-center justify-center">
                     GND
                 </div>
             );
         } else if (serviceType === "TWR") {
             serviceIcon = (
-                <div className="bg-red-600 rounded-md text-white px-1 py-0 w-[40px] text-center text-xs">
+                <div className="bg-red-600 rounded-md text-white
+                px-1 py-0 w-[40px] h-auto text-xs flex items-center justify-center">
                     TWR
                 </div>
             );
         } else if (serviceType === "DEL") {
             serviceIcon = (
-                <div className="bg-blue-500 rounded-md text-white px-1 py-0 w-[40px] text-center text-xs">
+                <div className="bg-blue-500 rounded-md text-white px-1 py-0
+                w-[40px] text-center text-xs flex items-center justify-center">
                     DEL
                 </div>
             );
@@ -81,7 +82,7 @@ const ControllerPopupContent = ({
                     <div className="justify-self-start">
                         {serviceData.callsign}
                     </div>
-                    <div className="justify-self-end text-blue-600">
+                    <div className={`justify-self-end ${freqThemeColor}`}>
                         {serviceData.frequency}
                     </div>
                     <div className="justify-self-end">
@@ -101,7 +102,7 @@ const ControllerPopupContent = ({
                                 <div className="justify-self-start text-center">
                                     {serviceData.callsign}
                                 </div>
-                                <div className="justify-self-end text-blue-600">
+                                <div className={`justify-self-end ${freqThemeColor}`}>
                                     {serviceData.frequency}
                                 </div>
                                 <div className="justify-self-end">

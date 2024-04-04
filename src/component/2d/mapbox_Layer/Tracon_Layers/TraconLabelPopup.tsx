@@ -2,12 +2,14 @@ import React from "react";
 import GeoJson from "geojson";
 import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
+import { useTheme } from "../../../../hooks/ThemeContext";
 
 interface Props {
     hoverTracon: GeoJson.FeatureCollection;
 }
 
 const TraconLabelPopup = ({ hoverTracon }: Props) => {
+    const darkMode = useTheme();
     let lon: number;
     let lat: number;
     if ("coordinates" in hoverTracon.features[0].geometry) {
@@ -19,6 +21,9 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const freq = hoverTracon.features[0].properties.controllerInfo.frequency;
     const controllerCallsign = hoverTracon.features[0].properties.controllerInfo.callsign;
     const traconName = hoverTracon.features[0].properties.name;
+    // const themeColor = darkMode ? "bg-gray-500 text-gray-300" : "bg-gray-300 text-gray-600";
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
+    const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
     const {
         hour,
@@ -33,9 +38,9 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
             closeButton={false}
             anchor="bottom"
         >
-            <div className="w-full p-2">
+            <div className={`w-full p-2 rounded-lg border-0 font-Rubik ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-max">
-                    <div className="text-lg font-bold text-gray-600">
+                    <div className="text-lg font-bold">
                         {traconName}
                     </div>
                 </div>
@@ -48,7 +53,7 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
                         <div className="">
                             {controllerName}
                         </div>
-                        <div className="text-blue-500 font-bold">
+                        <div className={`font-bold ${freqThemeColor}`}>
                             {freq}
                         </div>
                         <div className="">

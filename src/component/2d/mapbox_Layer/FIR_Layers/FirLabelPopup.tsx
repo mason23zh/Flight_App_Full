@@ -3,6 +3,7 @@ import { Popup } from "react-map-gl";
 import GeoJson from "geojson";
 import { VatsimFirs } from "../../../../types";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
+import { useTheme } from "../../../../hooks/ThemeContext";
 
 interface Props {
     hoverFir: GeoJson.FeatureCollection,
@@ -13,6 +14,7 @@ const FirLabelPopup = ({
     hoverFir,
 }: Props) => {
     let tempFirName: string;
+    const darkMode = useTheme();
 
     const {
         hour,
@@ -26,6 +28,9 @@ const FirLabelPopup = ({
         tempFirName = firName + " Center";
     }
 
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
+    const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
+
     return (
         <Popup
             style={{
@@ -38,12 +43,12 @@ const FirLabelPopup = ({
             anchor="bottom"
         >
 
-            <div className="w-full p-2">
+            <div className={`w-full p-2 font-Rubik ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
-                    <div className="text-[17px] font-bold text-gray-600">
+                    <div className="text-[17px] font-bold">
                         {hoverFir.features[0].properties.id}
                     </div>
-                    <div className="text-[17px] text-black">
+                    <div className="text-[17px]">
                         {tempFirName}
                     </div>
                 </div>
@@ -56,7 +61,7 @@ const FirLabelPopup = ({
                         <div className="">
                             {hoverFir.features[0].properties.name}
                         </div>
-                        <div className="text-blue-500 font-bold">
+                        <div className={`font-bold ${freqThemeColor}`}>
                             {hoverFir.features[0].properties.frequency}
                         </div>
                         <div className="">
