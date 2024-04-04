@@ -2,6 +2,7 @@ import React from "react";
 import { Popup } from "react-map-gl";
 import ControllerPopupContent from "./ControllerPopupContent";
 import { markerOffsetObject } from "../util/helpers";
+import { useTheme } from "../../../../hooks/ThemeContext";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -38,6 +39,9 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const lon = Number(hoverInfo.coordinates[0]);
     const lat = Number(hoverInfo.coordinates[1]);
     const airportName = hoverInfo.airportName;
+    const darkMode = useTheme();
+
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
 
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
@@ -66,7 +70,9 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             maxWidth="500"
             offset={markerOffsetObject}
         >
-            <div className="grid grid-cols-1 justify-center items-center gap-1 p-1 w-full">
+            <div className={`grid grid-cols-1 justify-center items-center
+            gap-1 p-2 w-full rounded-lg ${colorTheme}`}
+            >
                 <div className="justify-self-start font-extrabold">
                     {airportName}
                 </div>

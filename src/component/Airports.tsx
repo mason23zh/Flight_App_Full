@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
 import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
+import { CustomProvider } from "rsuite";
 import { useTheme } from "../hooks/ThemeContext";
 
 function Airports() {
-    const darkMode = useTheme();
+    //const darkMode = useTheme();
     const navigate = useNavigate();
+    const darkMode = useTheme();
     const {
         pathname,
         state
@@ -88,15 +89,17 @@ function Airports() {
     }
 
     return (
-        <div>
-            <HeroSection
-                backgroundImage={backgroundImage}
-                message={message}
-                placedHoldMessage={placeHolderMessage}
-                onSubmit={handleOnSubmit}
-            />
-            {renderedAirport}
-        </div>
+        <CustomProvider theme={darkMode ? "dark" : "light"}>
+            <div>
+                <HeroSection
+                    backgroundImage={backgroundImage}
+                    message={message}
+                    placedHoldMessage={placeHolderMessage}
+                    onSubmit={handleOnSubmit}
+                />
+                {renderedAirport}
+            </div>
+        </CustomProvider>
     );
 }
 

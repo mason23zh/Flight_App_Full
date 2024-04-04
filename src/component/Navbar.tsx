@@ -4,9 +4,10 @@ import NavbarElement from "./NavbarElement";
 import NavbarDropDown from "./NavbarDropDown";
 import { useTheme } from "../hooks/ThemeContext";
 import logo from "../images/logo.png";
- 
+
 function Navbar() {
     const darkMode = useTheme();
+    console.log("Navbar darkmode:", darkMode);
     const navDropDownTheme = darkMode
         ? "flex flex-row justify-between items-center pr-3 pl-3 md:hidden"
         : "flex flex-row justify-between items-center pr-3 pl-3 bg-gray-100 md:hidden";

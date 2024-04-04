@@ -1,5 +1,7 @@
 import React from "react";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
+import { useTheme } from "../../../../hooks/ThemeContext";
+import { CustomProvider } from "rsuite";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -28,6 +30,9 @@ const ControllerPopupContent = ({
     serviceData,
     serviceType
 }: Props) => {
+    // const darkMode = useTheme();
+
+    // const themeClass = darkMode ? "bg-gray-600 text-gray-300" : "bg-gray-300 text-gray-700";
 
     const renderedService = (serviceData: Service, serviceType: string) => {
         let serviceIcon;
@@ -68,6 +73,7 @@ const ControllerPopupContent = ({
             minute
         } = returnOnlineTime(serviceData.logon_time);
 
+        // const themeClass = darkMode ? "bg-gray-600 text-gray-300" : "bg-gray-300 text-gray-700";
         if (serviceType !== "ATIS") {
             return (
                 <div className="grid grid-cols-4 w-full font-bold p-2">

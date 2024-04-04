@@ -49,6 +49,9 @@ function NavbarDropDown() {
                 <Dropdown.Item as={NavLink} href="/vatsim/events">
                     Events
                 </Dropdown.Item>
+                <Dropdown.Item as={NavLink} href="/map">
+                    Map
+                </Dropdown.Item>
                 <Dropdown.Item as={NavLink} href="/about">About</Dropdown.Item>
                 <Dropdown.Item divider/>
                 <Dropdown.Item>

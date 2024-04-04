@@ -5,6 +5,7 @@ import OtherDataBlock from "./OtherDataBlock";
 import { useSelector } from "react-redux";
 import { RootState, useFetchBasicAirportWithICAOQuery } from "../../../store";
 import { VatsimFlight } from "../../../types";
+import { CustomProvider } from "rsuite";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
 
 //!TODO: Performance, error handling
@@ -47,8 +48,8 @@ const FlightInfo = () => {
             && departureAirport.data.length !== 0 && arrivalAirport.data.length !== 0) {
         let toGoDistance = -1;
         let progress = -1;
-        const depAirport = "";
-        const arrAirport = "";
+        // const depAirport = "";
+        // const arrAirport = "";
         if (departureAirport.data[0] && arrivalAirport.data[0]) {
             const depAirportCoord = departureAirport.data[0]?.station.geometry.coordinates;
             const arrAirportCoord = arrivalAirport.data[0]?.station.geometry.coordinates;
@@ -73,34 +74,36 @@ const FlightInfo = () => {
         }
 
         return (
-            <div
-                className="z-[200] absolute right-0 top-0
+            <CustomProvider theme={"light"}>
+                <div
+                    className="z-[200] absolute right-0 top-0
                 translate-x-[-15%] translate-y-[5%] max-w-[350px] min-w-[350px]"
-            >
-                <div className="grid-cols-1">
-                    <OverallDataBlock
-                        aircraft={traffic.flight_plan?.aircraft_faa}
-                        callsign={traffic.callsign}
-                        depAirport={departureAirport}
-                        arrAirport={arrivalAirport}
-                        etd={traffic.flight_plan?.deptime}
-                        enroute={traffic.flight_plan?.enroute_time}
-                        progress={progress}
-                    />
+                >
+                    <div className="grid-cols-1">
+                        <OverallDataBlock
+                            aircraft={traffic.flight_plan?.aircraft_faa}
+                            callsign={traffic.callsign}
+                            depAirport={departureAirport}
+                            arrAirport={arrivalAirport}
+                            etd={traffic.flight_plan?.deptime}
+                            enroute={traffic.flight_plan?.enroute_time}
+                            progress={progress}
+                        />
 
-                    <LiveDataBlock
-                        altitude={traffic.altitude}
-                        groundspeed={traffic.groundspeed}
-                        toGoDistance={toGoDistance}
-                    />
+                        <LiveDataBlock
+                            altitude={traffic.altitude}
+                            groundspeed={traffic.groundspeed}
+                            toGoDistance={toGoDistance}
+                        />
 
-                    <OtherDataBlock
-                        flight_plan={traffic.flight_plan}
-                        depAirport={departureAirport}
-                        arrAirport={arrivalAirport}
-                    />
+                        <OtherDataBlock
+                            flight_plan={traffic.flight_plan}
+                            depAirport={departureAirport}
+                            arrAirport={arrivalAirport}
+                        />
+                    </div>
                 </div>
-            </div>
+            </CustomProvider>
         );
     }
 };

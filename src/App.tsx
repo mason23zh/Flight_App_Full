@@ -13,7 +13,8 @@ import ScrollToTop from "./component/ScrollToTop";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
 import MainMap from "./component/2d/mapbox_Layer/MainMap";
-
+import { useTheme } from "./hooks/ThemeContext";
+import { CustomProvider } from "rsuite";
 // TODO: change all request using rtk query
 
 const Orion = lazy(() => import("./component/Orion"));
@@ -36,7 +37,7 @@ function App() {
                     <Route path="changelog" element={<ChangeLog/>}/>
                     <Route path="vatsim/events" element={<VatsimEventsAll/>}/>
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail/>}/>
-                    <Route path="2d" element={<MainMap/>}/>
+                    <Route path="map" element={<MainMap/>}/>
                     <Route path="*" element={<NoMatch/>}/>
 
                     {/*Lazy loaded routes*/}
