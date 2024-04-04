@@ -21,8 +21,8 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const freq = hoverTracon.features[0].properties.controllerInfo.frequency;
     const controllerCallsign = hoverTracon.features[0].properties.controllerInfo.callsign;
     const traconName = hoverTracon.features[0].properties.name;
-    // const themeColor = darkMode ? "bg-gray-500 text-gray-300" : "bg-gray-300 text-gray-600";
-    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
+
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
     const {

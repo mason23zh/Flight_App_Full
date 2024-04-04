@@ -28,7 +28,7 @@ const FirLabelPopup = ({
         tempFirName = firName + " Center";
     }
 
-    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
     return (
@@ -43,7 +43,7 @@ const FirLabelPopup = ({
             anchor="bottom"
         >
 
-            <div className={`w-full p-2 font-Rubik ${colorTheme}`}>
+            <div className={`w-full p-2 font-Rubik rounded-xl ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-[17px] font-bold">
                         {hoverFir.features[0].properties.id}

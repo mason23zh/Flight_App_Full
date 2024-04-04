@@ -41,7 +41,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const airportName = hoverInfo.airportName;
     const darkMode = useTheme();
 
-    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-300 text-gray-600";
+    const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
 
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
@@ -73,11 +73,11 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             <div className={`grid grid-cols-1 justify-center items-center
             gap-1 p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
             >
+                <div className="justify-self-start italic font-bold text-lg">
+                    {hoverInfo.icao}
+                </div>
                 <div className="justify-self-start font-extrabold">
                     {airportName}
-                </div>
-                <div className="justify-self-start font-medium italic">
-                    {hoverInfo.icao}
                 </div>
                 {renderServices}
             </div>
