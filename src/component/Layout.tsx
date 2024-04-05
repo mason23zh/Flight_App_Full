@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
@@ -8,13 +8,13 @@ function Layout() {
         <div>
             <div className="font-Rubik flex flex-col h-screen justify-between">
                 <div className="h-15">
-                    <Navbar />
+                    <Navbar/>
                 </div>
                 <div className="mb-auto">
-                    <Outlet />
+                    <Outlet/>
                 </div>
                 <div className="h-10">
-                    <Footer />
+                    <Footer/>
                 </div>
             </div>
         </div>

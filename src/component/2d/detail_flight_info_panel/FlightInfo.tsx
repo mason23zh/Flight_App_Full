@@ -79,22 +79,24 @@ const FlightInfo = () => {
                     className="z-[200] absolute right-0 top-0
                 translate-x-[-15%] translate-y-[5%] max-w-[350px] min-w-[350px]"
                 >
-                    <div className="grid-cols-1">
-                        <OverallDataBlock
-                            aircraft={traffic.flight_plan?.aircraft_faa}
-                            callsign={traffic.callsign}
-                            depAirport={departureAirport}
-                            arrAirport={arrivalAirport}
-                            etd={traffic.flight_plan?.deptime}
-                            enroute={traffic.flight_plan?.enroute_time}
-                            progress={progress}
-                        />
+                    <div className="grid-cols-1 bg-gray-500/30 backdrop-blur-lg">
+                        <div className="bg-gray-500">
+                            <OverallDataBlock
+                                aircraft={traffic.flight_plan?.aircraft_faa}
+                                callsign={traffic.callsign}
+                                depAirport={departureAirport}
+                                arrAirport={arrivalAirport}
+                                etd={traffic.flight_plan?.deptime}
+                                enroute={traffic.flight_plan?.enroute_time}
+                                progress={progress}
+                            />
 
-                        <LiveDataBlock
-                            altitude={traffic.altitude}
-                            groundspeed={traffic.groundspeed}
-                            toGoDistance={toGoDistance}
-                        />
+                            <LiveDataBlock
+                                altitude={traffic.altitude}
+                                groundspeed={traffic.groundspeed}
+                                toGoDistance={toGoDistance}
+                            />
+                        </div>
 
                         <OtherDataBlock
                             flight_plan={traffic.flight_plan}

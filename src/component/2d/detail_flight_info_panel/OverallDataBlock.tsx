@@ -15,7 +15,7 @@ const OverallDataBlock = ({
 }) => {
 
     return (
-        <div className="container relative">
+        <div className="relative">
             <FlightStatusFlag progress={progress}/>
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
@@ -46,7 +46,7 @@ const OverallDataBlock = ({
                             {depAirport.data[0]?.station.city || "N/A"}
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center p-3 bg-gray-300">
+                    <div className="flex flex-col justify-center items-center border-l p-3 bg-gray-300">
                         <div className="text-xl font-bold">
                             {arrAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`} className="text-blue-600
@@ -72,7 +72,7 @@ const OverallDataBlock = ({
                             {etd || "N/A"}
                         </div>
                     </div>
-                    <div className="flex justify-between bg-gray-400 p-2 text-gray-900">
+                    <div className="flex justify-between bg-gray-400 p-2 border-l text-gray-900">
                         <div>SCHEDULE</div>
                         <div>
                             {etd && enroute
