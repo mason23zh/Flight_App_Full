@@ -8,13 +8,9 @@ import { VatsimFlight } from "../../../types";
 import { CustomProvider } from "rsuite";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
 
-//!TODO: Performance, error handling
-
 const FlightInfo = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
-    console.log("Selected traffic:", traffic);
-
 
     const {
         data: departureAirport,
@@ -28,13 +24,9 @@ const FlightInfo = () => {
         isLoading: loadingArrivalAirport
     } = useFetchBasicAirportWithICAOQuery(traffic.flight_plan?.arrival);
 
-    console.log("departureAirport:", departureAirport);
-
-
     if (!traffic || traffic.callsign.length === 0) {
         return <></>;
     }
-
 
     if (errorArrivalAirport || errorDepartureAirport) {
         return <div>Error</div>;
@@ -66,11 +58,6 @@ const FlightInfo = () => {
                         ) * 0.539957);
 
             progress = Math.round((1 - (toGoDistance / totalDistance)) * 100);
-            console.log("Progress flight info:", progress);
-            console.log("Flight Info total Distance:", totalDistance);
-            console.log("Flight info to go distance:", toGoDistance);
-            // depAirport = traffic.flight_plan?.departure || "N/A";
-            // arrAirport = traffic.flight_plan?.arrival || "N/A";
         }
 
         return (

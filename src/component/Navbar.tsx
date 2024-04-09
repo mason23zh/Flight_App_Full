@@ -11,8 +11,6 @@ function Navbar() {
         ? "flex flex-row justify-between items-center pr-3 pl-3 bg-gray-900 md:hidden"
         : "flex flex-row justify-between items-center pr-3 pl-3 bg-gray-100 md:hidden";
 
-    console.log("Nav dropdown theme:", navDropDownTheme);
-
     return (
         <nav className="main-navbar">
             <div className="hidden transition-all ease-in-out duration-1000 md:block">
