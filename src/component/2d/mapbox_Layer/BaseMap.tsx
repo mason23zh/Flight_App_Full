@@ -1,13 +1,17 @@
-import React, { useCallback, useRef } from "react";
+import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { Map, NavigationControl } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
+    const [mapStyle, setMapStyle] = useState<CSSProperties>({
+        height: "100%", // Default style
+        width: "100%",
+        position: "absolute"
+    });
 
-
-    const [viewState, setViewState] = React.useState({
+    const [viewState, setViewState] = useState({
         longitude: -29.858598,
         latitude: 36.15178,
         zoom: 2.7,
@@ -15,8 +19,16 @@ const BaseMap = ({ children }) => {
         bearing: 0,
     });
 
-
     const { airportLayers: AirportLayers } = useAirportsLayers();
+
+    useEffect(() => {
+        const navbarHeight = document.querySelector(".main-navbar").clientHeight;
+        const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+        setMapStyle(prevStyle => ({
+            ...prevStyle,
+            height: mapHeight
+        }));
+    }, []);
 
     const onMove = useCallback(({ viewState }) => {
         setViewState({
@@ -25,6 +37,7 @@ const BaseMap = ({ children }) => {
             ...viewState
         });
     }, []);
+
     // default projection: mercator
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
@@ -36,11 +49,7 @@ const BaseMap = ({ children }) => {
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                 initialViewState={viewState}
-                style={{
-                    height: "94vh",
-                    width: "100vw",
-                    position: "relative"
-                }}
+                style={mapStyle}
                 onMove={onMove}
                 dragPan={true}
             >

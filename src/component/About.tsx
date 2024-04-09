@@ -3,7 +3,7 @@ import { CustomProvider } from "rsuite";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
 
- 
+
 function About() {
     function Mailto({
         email,
@@ -21,7 +21,7 @@ function About() {
     const darkMode = useTheme();
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className="h-screen">
+            <div className="h-auto">
                 <div className="flex flex-col items-center justify-center p-3 min-h-[70vh]">
                     <div className="text-xl grid grid-cols-1 gap-2 md:text-2xl lg:text-4xl">
                         <div>

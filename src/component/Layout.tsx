@@ -1,23 +1,28 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 function Layout() {
+    const location = useLocation();
+    const showFooter = location.pathname !== "/map";
+    // const showFooter = true;
+
     return (
-        <div>
-            <div className="font-Rubik flex flex-col h-screen justify-between">
-                <div className="h-15">
-                    <Navbar/>
-                </div>
-                <div className="mb-auto">
-                    <Outlet/>
-                </div>
-                <div className="h-10">
+        <div className="flex flex-col h-screen justify-between gap-0">
+            <header className="h-auto">
+                <Navbar/>
+            </header>
+            <main className="mb-auto">
+                <Outlet/>
+            </main>
+            {showFooter &&
+                <footer className="h-auto">
                     <Footer/>
-                </div>
-            </div>
+                </footer>
+            }
         </div>
+
     );
 }
 

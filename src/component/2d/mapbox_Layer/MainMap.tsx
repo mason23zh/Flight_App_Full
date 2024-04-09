@@ -14,7 +14,7 @@ const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
     return (
-        <div>
+        <div className="">
             <BaseMap>
                 <MapErrorMessageStack/>
                 <AtcLayer/>

@@ -6,6 +6,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html, body, #root {
+    height: 100%
+}
+
 .leaflet-container {
     /*height: 200px;*/
     /*max-width: 100%;*/
@@ -27,6 +31,7 @@
 /*        opacity: 1;*/
 /*    }*/
 /*}*/
+
 
 .mapboxgl-popup {
     animation: fadein 0.2s;
