@@ -7,6 +7,7 @@ import { RootState, useFetchBasicAirportWithICAOQuery } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import { CustomProvider } from "rsuite";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
+import TargetAirportsLayer from "../mapbox_Layer/ArrivalDestinationMarkerLayer/TargetAirportsLayer";
 
 const FlightInfo = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
@@ -90,6 +91,11 @@ const FlightInfo = () => {
                             depAirport={departureAirport}
                             arrAirport={arrivalAirport}
                         />
+                        <TargetAirportsLayer
+                            departureAirport={departureAirport}
+                            arrivalAirport={arrivalAirport}
+                        />
+
                     </div>
                 </div>
             </CustomProvider>

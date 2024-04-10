@@ -1,3 +1,6 @@
+/**
+ * Use to render the DeckGL overlay
+ * */
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
