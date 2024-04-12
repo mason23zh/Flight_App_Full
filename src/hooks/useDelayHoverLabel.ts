@@ -2,10 +2,15 @@
 // single function handleMouse will handle both hover and leave cases.
 import { useCallback, useEffect, useRef, useState } from "react";
 import GeoJson from "geojson";
-import { AirportService } from "../types";
+import { AirportService, AirportResponse } from "../types";
 
 const useDelayHoverLabel = () => {
-    const [hoverInfo, setHoverInfo] = useState<GeoJson.FeatureCollection | AirportService | null>(null);
+    const [hoverInfo, setHoverInfo] = useState<
+            GeoJson.FeatureCollection |
+            AirportService |
+            AirportResponse |
+            null
+    >(null);
     const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
 
     const clearHoverTimeout = useCallback(() => {
@@ -21,7 +26,7 @@ const useDelayHoverLabel = () => {
     }, [clearHoverTimeout]);
 
     const handleMouse = useCallback(
-        (info: GeoJson.FeatureCollection | AirportService | null,
+        (info: GeoJson.FeatureCollection | AirportService | AirportResponse | null,
             entering: boolean,
             enterDelay: number,
             leaveDelay: number) => {
