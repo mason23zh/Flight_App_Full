@@ -14,6 +14,11 @@ interface TargetAirportsLayerProps {
     arrivalAirport: AirportResponse;
 }
 
+interface AirportResponseWithDepartureOriginType {
+    type: "DEPARTURE" | "ARRIVAL";
+    airportInfo: AirportResponse;
+}
+
 
 const TargetAirportsLayer = ({
     departureAirport,
@@ -21,7 +26,7 @@ const TargetAirportsLayer = ({
 }: TargetAirportsLayerProps) => {
     // ReactGL marker can not be hovered, hence using custom hook here to handle hover
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
-    const hoverAirportInfo = hoverInfo as AirportResponse || null; //cast
+    const hoverAirportInfo = hoverInfo as AirportResponseWithDepartureOriginType || null; //cast
 
     console.log("Departure airport:", departureAirport);
     console.log("Arrival airport:", arrivalAirport);
@@ -38,7 +43,10 @@ const TargetAirportsLayer = ({
                 scale={0.5}
             >
                 <div
-                    onMouseEnter={() => handleMouse(departureAirport, true, 150, 10)}
+                    onMouseEnter={() => handleMouse({
+                        type: "DEPARTURE",
+                        airportInfo: departureAirport
+                    }, true, 150, 10)}
                     onMouseLeave={() => handleMouse(null, false, 150, 10)}
                 >
                     <Pin type="DEPARTURE" size={38}/>
@@ -53,7 +61,10 @@ const TargetAirportsLayer = ({
                 scale={0.5}
             >
                 <div
-                    onMouseEnter={() => handleMouse(arrivalAirport, true, 150, 10)}
+                    onMouseEnter={() => handleMouse({
+                        type: "ARRIVAL",
+                        airportInfo: arrivalAirport
+                    }, true, 150, 10)}
                     onMouseLeave={() => handleMouse(null, false, 150, 10)}
                 >
                     <Pin type="ARRIVAL" size={38}/>
@@ -72,7 +83,10 @@ const TargetAirportsLayer = ({
     return (
         <div>
             {pins}
-            {hoverInfo && <TargetAirportsHoverPopup airportInfo={hoverAirportInfo}/>}
+            {hoverInfo && <TargetAirportsHoverPopup
+                type={hoverAirportInfo.type}
+                airportInfo={hoverAirportInfo.airportInfo}
+            />}
         </div>
     );
 };

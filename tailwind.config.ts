@@ -3,6 +3,10 @@ export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {
+            colors: {
+                "arrival-green": "#09d654",
+                "departure-red": "#fc4f4f",
+            },
             fontFamily: {
                 Rubik: ["Rubik", "sans-serif"],
             },

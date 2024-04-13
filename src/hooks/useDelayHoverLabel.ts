@@ -4,11 +4,16 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import GeoJson from "geojson";
 import { AirportService, AirportResponse } from "../types";
 
+interface AirportResponseWithDepartureOriginType {
+    type: "DEPARTURE" | "ARRIVAL";
+    airportInfo: AirportResponse;
+}
+
 const useDelayHoverLabel = () => {
     const [hoverInfo, setHoverInfo] = useState<
             GeoJson.FeatureCollection |
             AirportService |
-            AirportResponse |
+            AirportResponseWithDepartureOriginType |
             null
     >(null);
     const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
@@ -26,7 +31,7 @@ const useDelayHoverLabel = () => {
     }, [clearHoverTimeout]);
 
     const handleMouse = useCallback(
-        (info: GeoJson.FeatureCollection | AirportService | AirportResponse | null,
+        (info: GeoJson.FeatureCollection | AirportService | AirportResponseWithDepartureOriginType | null,
             entering: boolean,
             enterDelay: number,
             leaveDelay: number) => {
