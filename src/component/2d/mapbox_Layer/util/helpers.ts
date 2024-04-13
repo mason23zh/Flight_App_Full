@@ -1,5 +1,5 @@
 import GeoJson from "geojson";
-import { AirportService } from "../../../../types";
+import { AirportResponse, AirportService } from "../../../../types";
 
 // import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
@@ -10,7 +10,7 @@ export function isFeatureCollection(
 }
 
 export function isAirportService(
-    feature: GeoJson.FeatureCollection | AirportService
+    feature: GeoJson.FeatureCollection | AirportService | AirportResponse
 ): feature is AirportService {
     return "services" in feature;
 }

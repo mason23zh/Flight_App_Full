@@ -10,6 +10,7 @@ import FirLabelPopup from "./FirLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
 import { isFeatureCollection } from "../util/helpers";
+import GeoJson from "geojson";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -60,15 +61,17 @@ const FirLayer = ({
         hoverFir
     } = useRenderFirLabelMarker(geoJsonFeatures);
 
+    const hoverFirCast = hoverFir as GeoJson.FeatureCollection;
+
     if (geoJsonFeatures) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...layerStyle} />
                 <Layer {...boundariesLineStyle}/>
-                {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFir)) &&
-                    <Source type="geojson" data={hoverFir}>
+                {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFirCast)) &&
+                    <Source type="geojson" data={hoverFirCast}>
                         <Layer {...highlightLayer}/>
-                        <FirLabelPopup hoverFir={hoverFir} firData={firData}/>
+                        <FirLabelPopup hoverFir={hoverFirCast} firData={firData}/>
                     </Source>
                 }
                 {labelVisible && renderedMarkers}

@@ -8,6 +8,7 @@ import Pin from "./Pin";
 import useDelayHoverLabel from "../../../../hooks/useDelayHoverLabel";
 import { AirportResponse } from "../../../../types";
 import TargetAirportsHoverPopup from "./TargetAirportsHoverPopup";
+import AirportConnectionPathLayer from "./AirportConnectionPathLayer";
 
 interface TargetAirportsLayerProps {
     departureAirport: AirportResponse;
@@ -70,6 +71,7 @@ const TargetAirportsLayer = ({
                     <Pin type="ARRIVAL" size={38}/>
                 </div>
             </Marker>
+
         </>
     ),
     [departureAirport.data[0]?.station.geometry.coordinates[0],
@@ -83,6 +85,11 @@ const TargetAirportsLayer = ({
     return (
         <div>
             {pins}
+            {(!departureAirport.data[0] || !arrivalAirport.data[0])
+                ? <></>
+                :
+                <AirportConnectionPathLayer departureAirport={departureAirport} arrivalAirport={arrivalAirport}
+                />}
             {hoverInfo && <TargetAirportsHoverPopup
                 type={hoverAirportInfo.type}
                 airportInfo={hoverAirportInfo.airportInfo}

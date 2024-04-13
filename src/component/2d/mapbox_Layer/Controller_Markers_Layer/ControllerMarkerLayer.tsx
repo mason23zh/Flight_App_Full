@@ -1,5 +1,5 @@
 import React from "react";
-import { VatsimControllers } from "../../../../types";
+import { AirportService, VatsimControllers } from "../../../../types";
 import useRenderControllerMarkers from "../../../../hooks/useRenderControllerMarkers";
 import ControllerMarkerPopup from "./ControllerMarkerPopup";
 import { isAirportService } from "../util/helpers";
@@ -18,11 +18,13 @@ const ControllerMarkerLayer = ({
         hoverInfo
     } = useRenderControllerMarkers(controllerInfo);
 
+    const hoverInfoCast = hoverInfo as AirportService; //cast
+
     return (
         <>
             {labelVisible && renderedMarkers}
-            {hoverInfo && isAirportService(hoverInfo) &&
-                <ControllerMarkerPopup hoverInfo={hoverInfo}/>
+            {hoverInfo && isAirportService(hoverInfoCast) &&
+                <ControllerMarkerPopup hoverInfo={hoverInfoCast}/>
             }
         </>
     );

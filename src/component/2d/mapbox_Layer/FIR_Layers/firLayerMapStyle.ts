@@ -1,19 +1,4 @@
-import { FillLayer, Layer, LineLayer } from "react-map-gl";
-import React from "react";
-// import { LineLayer } from "@deck.gl/layers/typed";
-
-
-// <Layer
-//         type="line"
-// source="fir-boundary-source"
-// source-layer="firboundaries"
-// id="firs-boundary-line"
-// filter={filter}
-// paint={{
-//     "line-color": "#FFFFFF",
-//             "line-width": 1.5
-// }}
-// />
+import { FillLayer, LineLayer } from "react-map-gl";
 
 export const highlightLayer: FillLayer = {
     id: "fir-highlight-boundaries-layer",
