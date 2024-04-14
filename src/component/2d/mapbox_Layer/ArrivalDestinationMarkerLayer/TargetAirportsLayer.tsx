@@ -77,19 +77,14 @@ const TargetAirportsLayer = ({
     [departureAirport.data[0]?.station.geometry.coordinates[0],
         arrivalAirport.data[0]?.station.geometry.coordinates[0]]);
 
-
-    if (hoverInfo) {
-        console.log("Hover info:", hoverInfo);
-    }
-
     return (
         <div>
             {pins}
-            {(!departureAirport.data[0] || !arrivalAirport.data[0])
-                ? <></>
-                :
-                <AirportConnectionPathLayer departureAirport={departureAirport} arrivalAirport={arrivalAirport}
-                />}
+            <AirportConnectionPathLayer
+                departureAirport={departureAirport}
+                arrivalAirport={arrivalAirport}
+            />
+
             {hoverInfo && <TargetAirportsHoverPopup
                 type={hoverAirportInfo.type}
                 airportInfo={hoverAirportInfo.airportInfo}

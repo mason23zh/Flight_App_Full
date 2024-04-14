@@ -14,6 +14,9 @@ const AirportConnectionPathLayer = ({
     departureAirport,
     arrivalAirport
 }: AirportConnectionPathLayerProps) => {
+    if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
+        return;
+    }
     const greatPathCoords = calculateGreatCirclePoints(
         departureAirport.data[0].station.geometry.coordinates,
         arrivalAirport.data[0].station.geometry.coordinates,
