@@ -23,7 +23,7 @@ interface Props {
 
 //!FIX The map will snap back to the default and return to normal
 // if the localStorage map is not
- 
+
 //!TODO: Performance improvement
 const TogglePanel = ({ mapRef }: Props) => {
     const {
@@ -59,14 +59,15 @@ const TogglePanel = ({ mapRef }: Props) => {
         };
     }, [mapRef]);
 
-    if (!isMapLoaded) {
-        dispatch(addMessage({
-            location: "BASE_MAP",
-            messageType: "LOADING",
-            content: "Loading map..."
-        }));
-        return;
-    }
+    useEffect(() => {
+        if (!isMapLoaded) {
+            dispatch(addMessage({
+                location: "BASE_MAP",
+                messageType: "LOADING",
+                content: "Loading map..."
+            }));
+        }
+    }, [isMapLoaded, dispatch]);
 
     return (
         <div className="z-[200] absolute">
