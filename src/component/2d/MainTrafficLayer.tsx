@@ -14,6 +14,7 @@ import {
     setSelectedTraffic
 } from "../../store";
 import { useDispatch } from "react-redux";
+import trafficLayerNew from "./deckGL_Layer/trafficLayerNew";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -71,7 +72,8 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     let isHovering = false;
     const layers = [
         trackLayer,
-        trafficLayer(vatsimPilots, true)
+        // trafficLayer(vatsimPilots, true),
+        trafficLayerNew(vatsimPilots, true)
     ];
 
     return (

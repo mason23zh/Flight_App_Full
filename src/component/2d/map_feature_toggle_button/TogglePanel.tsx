@@ -21,10 +21,6 @@ interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
-//!FIX The map will snap back to the default and return to normal
-// if the localStorage map is not
-
-//!TODO: Performance improvement
 const TogglePanel = ({ mapRef }: Props) => {
     const {
         allAtcLayerVisible,

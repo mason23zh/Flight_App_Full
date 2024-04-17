@@ -15,7 +15,6 @@ const trafficLayer = (
     const [airportModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
-
     useEffect(() => {
         const loadGLT = async () => {
             try {
