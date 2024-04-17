@@ -1,7 +1,7 @@
-/**
+/*
  * Use to render traffic arrival airport and departure airports marker
  * Use to render the path from arrival airport ato departure airport
- * **/
+ */
 import React, { useMemo } from "react";
 import { Marker } from "react-map-gl";
 import Pin from "./Pin";
@@ -29,51 +29,58 @@ const TargetAirportsLayer = ({
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
     const hoverAirportInfo = hoverInfo as AirportResponseWithDepartureOriginType || null; //cast
 
-    if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
-        return (<></>);
-    }
 
-    const pins = useMemo(() => (
-        <>
-            <Marker
-                style={{ zIndex: 10 }}
-                longitude={Number(departureAirport.data[0].station.geometry.coordinates[0])}
-                latitude={Number(departureAirport.data[0].station.geometry.coordinates[1])}
-                scale={0.5}
-            >
-                <div
-                    onMouseEnter={() => handleMouse({
-                        type: "DEPARTURE",
-                        airportInfo: departureAirport
-                    }, true, 150, 10)}
-                    onMouseLeave={() => handleMouse(null, false, 150, 10)}
+    const pins = useMemo(() => {
+        // always calculate the pin, but conditional render them
+        if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
+            return null;
+        }
+        return (
+            <>
+                <Marker
+                    style={{ zIndex: 10 }}
+                    longitude={Number(departureAirport.data[0].station.geometry.coordinates[0])}
+                    latitude={Number(departureAirport.data[0].station.geometry.coordinates[1])}
+                    scale={0.5}
                 >
-                    <Pin type="DEPARTURE" size={38}/>
-                </div>
+                    <div
+                        onMouseEnter={() => handleMouse({
+                            type: "DEPARTURE",
+                            airportInfo: departureAirport
+                        }, true, 150, 10)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 10)}
+                    >
+                        <Pin type="DEPARTURE" size={38}/>
+                    </div>
 
-            </Marker>
+                </Marker>
 
-            <Marker
-                style={{ zIndex: 10 }}
-                longitude={Number(arrivalAirport.data[0].station.geometry.coordinates[0])}
-                latitude={Number(arrivalAirport.data[0].station.geometry.coordinates[1])}
-                scale={0.5}
-            >
-                <div
-                    onMouseEnter={() => handleMouse({
-                        type: "ARRIVAL",
-                        airportInfo: arrivalAirport
-                    }, true, 150, 10)}
-                    onMouseLeave={() => handleMouse(null, false, 150, 10)}
+                <Marker
+                    style={{ zIndex: 10 }}
+                    longitude={Number(arrivalAirport.data[0].station.geometry.coordinates[0])}
+                    latitude={Number(arrivalAirport.data[0].station.geometry.coordinates[1])}
+                    scale={0.5}
                 >
-                    <Pin type="ARRIVAL" size={38}/>
-                </div>
-            </Marker>
+                    <div
+                        onMouseEnter={() => handleMouse({
+                            type: "ARRIVAL",
+                            airportInfo: arrivalAirport
+                        }, true, 150, 10)}
+                        onMouseLeave={() => handleMouse(null, false, 150, 10)}
+                    >
+                        <Pin type="ARRIVAL" size={38}/>
+                    </div>
+                </Marker>
 
-        </>
-    ),
+            </>
+        );
+    },
     [departureAirport.data[0]?.station.geometry.coordinates[0],
         arrivalAirport.data[0]?.station.geometry.coordinates[0]]);
+
+    if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
+        return null;
+    }
 
     return (
         <div>
