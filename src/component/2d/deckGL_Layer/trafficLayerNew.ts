@@ -1,8 +1,9 @@
 import { IconLayer } from "@deck.gl/layers";
 import { VatsimFlight } from "../../../types";
-import testSpriteMap from "../../../assets/testSprite2Mapbox.json";
-import testSpriteSheet from "../../../assets/testSprite2.png";
+import aircraftSpriteSheetMapping from "../../../assets/aircraft-sprite-sheet.json";
+import aircraftSpriteSheetPNG from "../../../assets/aircraft-sprite-sheet.png";
 
+//!fix: Scale issue, the narrow body aircraft is way too small
 
 const trafficLayerNew = (data: Array<VatsimFlight>, visible: boolean) => {
     console.log(data);
@@ -13,13 +14,12 @@ const trafficLayerNew = (data: Array<VatsimFlight>, visible: boolean) => {
         pickable: true,
         visible: visible,  // Ensure the visibility flag is actually used
         opacity: 1,
-        // getIcon: d => d.flight_plan?.aircraft_short || "B738",
-        getIcon: d => "A19N",
+        getIcon: d => d.flight_plan?.aircraft_short || "B738",
         autoHighlight: true,
-        iconAtlas: testSpriteSheet,
-        iconMapping: testSpriteMap,
+        iconAtlas: aircraftSpriteSheetPNG,
+        iconMapping: aircraftSpriteSheetMapping,
 
-        sizeScale: 15,
+        sizeScale: 5,
         getPosition: d => [d.longitude || 0, d.latitude || 0, d.groundspeed < 50 ? 0 : d.altitude],
         // getAngle: (d) => [0, -d.heading || 0, 90],
         getAngle: (d) => -d.heading,
