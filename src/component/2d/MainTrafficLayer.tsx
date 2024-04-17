@@ -4,7 +4,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
-import trafficLayer from "./deckGL_Layer/trafficLayer";
+import trafficLayer_3D from "./deckGL_Layer/trafficLayer_3D";
 import { VatsimFlight } from "../../types";
 import { PickingInfo } from "@deck.gl/core/typed";
 import {
@@ -14,7 +14,7 @@ import {
     setSelectedTraffic
 } from "../../store";
 import { useDispatch } from "react-redux";
-import trafficLayerNew from "./deckGL_Layer/trafficLayerNew";
+import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -73,7 +73,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const layers = [
         trackLayer,
         // trafficLayer(vatsimPilots, true),
-        trafficLayerNew(vatsimPilots, true)
+        trafficLayer_2D(vatsimPilots, true)
     ];
 
     return (

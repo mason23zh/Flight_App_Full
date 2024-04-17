@@ -29,8 +29,6 @@ const TargetAirportsLayer = ({
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
     const hoverAirportInfo = hoverInfo as AirportResponseWithDepartureOriginType || null; //cast
 
-    console.log("Departure airport:", departureAirport);
-    console.log("Arrival airport:", arrivalAirport);
     if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
         return (<></>);
     }
