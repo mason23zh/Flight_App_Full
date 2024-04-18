@@ -26,26 +26,26 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             "KC10", "KC135", "L101", "M28", "P3", "S3", "T6", "T38", "U2", "VC25", "V22"]
     };
 
-    let scale = 7; // Default scale if no category matches
+    let scale = 11; // Default scale if no category matches
 
     // Loop through each category
     for (const [category, codes] of Object.entries(aircraftCategories)) {
         if (codes.includes(aircraftCode)) {
             switch (category) {
             case "wideBody":
-                scale = 7.8;
+                scale = 7.3;
                 break;
             case "narrowBody":
                 scale = 11;
                 break;
             case "regional":
-                scale = 10;
+                scale = 11;
                 break;
             case "businessJet":
                 scale = 10;
                 break;
             case "generalAviation":
-                scale = 11;
+                scale = 12;
                 break;
             case "helicopter":
                 scale = 11;

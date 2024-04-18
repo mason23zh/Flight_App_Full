@@ -11,6 +11,7 @@ const BaseMap = ({ children }) => {
         position: "absolute"
     });
 
+    // Default view point
     const [viewState, setViewState] = useState({
         longitude: -29.858598,
         latitude: 36.15178,
