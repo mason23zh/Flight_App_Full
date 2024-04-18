@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
-import { Map, NavigationControl } from "react-map-gl";
+import { Map, NavigationControl, Source } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
@@ -61,19 +61,33 @@ const BaseMap = ({ children }) => {
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
-                dragRotate={terrainEnable}
-                projection={{ name: "mercator" }}
                 id="mainMap"
                 ref={mapRef}
+                projection={{ name: "mercator" }}
                 cursor={"pointer"}
+                {...viewState} // to reset the pitch and bearing
+                dragRotate={terrainEnable}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                 initialViewState={viewState}
-                {...viewState} // to reset the pitch and bearing 
+                maxPitch={70}
                 style={mapStyle}
                 onMove={onMove}
                 dragPan={true}
+                terrain={terrainEnable ? {
+                    source: "mapbox-dem",
+                    exaggeration: 1.5
+                } : undefined}
             >
+                {terrainEnable &&
+                    <Source
+                        id="mapbox-dem"
+                        type="raster-dem"
+                        url="mapbox://mapbox.mapbox-terrain-dem-v1"
+                        tileSize={512}
+                        maxzoom={14}
+                    />
+                }
                 <TogglePanel mapRef={mapRef}/>
                 <NavigationControl position="bottom-left"/>
                 {AirportLayers}
