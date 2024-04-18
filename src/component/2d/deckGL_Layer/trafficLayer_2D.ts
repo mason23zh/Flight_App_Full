@@ -16,15 +16,15 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
         pickable: true,
         visible: visible,  // Ensure the visibility flag is actually used
         opacity: 1,
-        getIcon: d => d.flight_plan?.aircraft_short || "B738",
+        getIcon: (d: VatsimFlight) => d.flight_plan?.aircraft_short || "B738",
         autoHighlight: true,
         iconAtlas: aircraftSpriteSheetPNG,
         iconMapping: aircraftSpriteSheetMapping,
         sizeScale: 5,
-        getPosition: d => [d.longitude || 0, d.latitude || 0, d.groundspeed < 50 ? 0 : d.altitude],
-        getAngle: (d) => -d.heading,
+        getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, d.groundspeed < 50 ? 0 : d.altitude],
+        getAngle: (d: VatsimFlight) => -d.heading,
         getColor: () => [228, 235, 10],
-        getSize: (d) => {
+        getSize: (d: VatsimFlight) => {
             return getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738");
         }
     });

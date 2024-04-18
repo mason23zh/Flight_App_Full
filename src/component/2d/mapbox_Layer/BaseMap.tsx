@@ -2,14 +2,12 @@ import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "
 import { Map, NavigationControl } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
-    const [mapStyle, setMapStyle] = useState<CSSProperties>({
-        height: "100%", // Default style
-        width: "100%",
-        position: "absolute"
-    });
+    const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     // Default view point
     const [viewState, setViewState] = useState({
@@ -19,6 +17,25 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
+
+    // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
+    useEffect(() => {
+        if (!terrainEnable) {
+            setViewState(currentState => ({
+                ...currentState,
+                pitch: 0,
+                bearing: 0
+            }));
+        }
+    }, [terrainEnable]);
+
+
+    const [mapStyle, setMapStyle] = useState<CSSProperties>({
+        height: "100%", // Default style
+        width: "100%",
+        position: "absolute"
+    });
+
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
@@ -30,6 +47,7 @@ const BaseMap = ({ children }) => {
             height: mapHeight
         }));
     }, []);
+
 
     const onMove = useCallback(({ viewState }) => {
         setViewState({
@@ -43,8 +61,7 @@ const BaseMap = ({ children }) => {
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
-                dragRotate={false}
-                pitchWithRotate={false}
+                dragRotate={terrainEnable}
                 projection={{ name: "mercator" }}
                 id="mainMap"
                 ref={mapRef}
@@ -52,6 +69,7 @@ const BaseMap = ({ children }) => {
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                 initialViewState={viewState}
+                {...viewState} // to reset the pitch and bearing 
                 style={mapStyle}
                 onMove={onMove}
                 dragPan={true}
