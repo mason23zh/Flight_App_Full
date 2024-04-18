@@ -34,7 +34,7 @@ const AirportConnectionPathLayer = ({
 
     return (
         <Source type="geojson" id="airport-connection-path" data={lineData}>
-            <Layer {...connectionPathStyle}/>
+            <Layer {...connectionPathStyle} />
         </Source>
     );
 };

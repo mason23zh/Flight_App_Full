@@ -1,3 +1,8 @@
+/*
+* To preform spherical interpolation to calculate points along the
+* great circle path between 2 geographic coordinates.
+*/
+
 export const calculateGreatCirclePoints = (start: number[], end: number[], numPoints = 100) => {
     const coordinates = [];
     const [lon1, lat1] = start.map(deg => deg * Math.PI / 180); // Convert degrees to radians
@@ -22,8 +27,19 @@ export const calculateGreatCirclePoints = (start: number[], end: number[], numPo
         const lat = Math.atan2(z, Math.sqrt(x * x + y * y));
         const lon = Math.atan2(y, x);
 
-        coordinates.push([lon * 180 / Math.PI, lat * 180 / Math.PI]); // Convert back to degrees
-    }
+        // Convert back to degrees and wrap longitude
+        const lonDegrees = lon * 180 / Math.PI;
+        const latDegrees = lat * 180 / Math.PI;
+        coordinates.push([wrapLongitude(lonDegrees), latDegrees]);
 
+    }
     return coordinates;
 };
+
+
+const wrapLongitude = (longitude: number) => {
+    while (longitude < -180) longitude += 360;
+    while (longitude > 180) longitude -= 360;
+    return longitude;
+};
+
