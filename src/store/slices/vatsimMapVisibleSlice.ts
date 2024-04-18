@@ -6,7 +6,7 @@ interface MapStylePayloadAction {
         mapStyles: "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
     };
 }
- 
+
 const initialState: VatsimMapVisibleState = {
     allAtcLayerVisible: true,
     controllerLayerVisible: true,
@@ -21,6 +21,7 @@ const initialState: VatsimMapVisibleState = {
     weatherRasterVisible: false,
     mapStyleButtonToggle: false,
     mapFilterButtonToggle: false,
+    terrainEnable: false,
     mapStyles: "DEFAULT"
 };
 
@@ -49,6 +50,9 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleWeatherRasterLayer(state, action) {
             state.weatherRasterVisible = action.payload;
+        },
+        toggleTerrainLabel(state, action) {
+            state.terrainEnable = action.payload;
         },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
@@ -82,6 +86,7 @@ export const {
     toggleMapLabel,
     toggleSatelliteLayer,
     toggleMapRoadLabel,
-    switchMapStyles
+    switchMapStyles,
+    toggleTerrainLabel
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

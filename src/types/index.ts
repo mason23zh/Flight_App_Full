@@ -396,6 +396,7 @@ interface VatsimMapVisibleState {
     weatherRasterVisible: boolean;
     mapStyleButtonToggle: boolean;
     mapFilterButtonToggle: boolean;
+    terrainEnable: boolean;
     mapStyles: MapStyles;
 }
 

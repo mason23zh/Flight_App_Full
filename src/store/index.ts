@@ -32,6 +32,7 @@ import {
     toggleMapRoadLabel,
     toggleMapStyleButton,
     toggleMapFilterButton,
+    toggleTerrainLabel,
     switchMapStyles
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -148,6 +149,7 @@ export {
     toggleMapRoadLabel,
     toggleMapFilterButton,
     toggleMapStyleButton,
+    toggleTerrainLabel,
     switchMapStyles
 };
 

@@ -42,6 +42,8 @@ const BaseMap = ({ children }) => {
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
+                dragRotate={false}
+                pitchWithRotate={false}
                 projection={{ name: "mercator" }}
                 id="mainMap"
                 ref={mapRef}

@@ -5,13 +5,15 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer,
+    toggleAtcLayer, toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
 } from "../../../store";
 import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
+import { CgTerrain } from "react-icons/cg";
+
 
 import { MapRef } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
@@ -25,7 +27,8 @@ const TogglePanel = ({ mapRef }: Props) => {
     const {
         allAtcLayerVisible,
         trafficLayerVisible,
-        weatherRasterVisible
+        weatherRasterVisible,
+        terrainEnable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -84,6 +87,12 @@ const TogglePanel = ({ mapRef }: Props) => {
                     onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))}
                     icon={<TiWeatherDownpour/>}
                     initialActive={weatherRasterVisible}
+                />
+
+                <MapFeaturesToggleButton
+                    onToggle={(activeFlag) => dispatch(toggleTerrainLabel(activeFlag))}
+                    icon={<CgTerrain/>}
+                    initialActive={terrainEnable}
                 />
 
                 <MapStyleToggleButton mapRef={mapRef}/>
