@@ -11,9 +11,9 @@ import {
     addMessage,
     removeMessageByLocation,
     useFetchTrafficTrackDataQuery,
-    setSelectedTraffic
+    setSelectedTraffic, RootState
 } from "../../store";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
 
 interface MainTrafficLayerProps {
@@ -27,8 +27,10 @@ interface PickedTraffic extends PickingInfo {
 const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
     const dispatch = useDispatch();
-
+    let isHovering = false;
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
+    const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
+
 
     const {
         data: trackData,
@@ -37,6 +39,24 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
         skip: !selectTraffic
     });
+    //
+    const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
+    // const trafficLayer2D = trafficLayer_2D(vatsimPilots, !terrainEnable);
+
+    const trafficLayer2D = useMemo(() => {
+        return trafficLayer_2D(vatsimPilots, !terrainEnable);
+    }, [terrainEnable, vatsimPilots]);
+    // const trafficLayer3D = useMemo(() => {
+    //     return trafficLayer_3D(vatsimPilots, terrainEnable);
+    // }, [terrainEnable, vatsimPilots]);
+
+    //
+    // const trafficLayer3D = useMemo(() => {
+    //     if (terrainEnable) {
+    //         return trafficLayer_3D(vatsimPilots, true);
+    //     }
+    // }, [vatsimPilots, terrainEnable]);
+
 
     useEffect(() => {
         if (trackError) {
@@ -57,11 +77,11 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         }
     }, [trackData, trackLoading, trackError, selectTraffic]);
 
+
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
-            // console.log("Selected traffic info:", info.object);
         } else if (!info.layer) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
             setSelectTraffic(null);
@@ -69,17 +89,16 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     }, [selectTraffic]);
 
 
-    let isHovering = false;
-    const layers = [
-        trackLayer,
-        // trafficLayer(vatsimPilots, true),
-        trafficLayer_2D(vatsimPilots, true)
-    ];
+    const layers = useMemo(() => [
+        trackLayer, // Always included, assuming it's a defined layer or null if no data
+        terrainEnable ? trafficLayer3D : trafficLayer2D
+    ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable]);
 
     return (
         <DeckGlOverlay
             interleaved={true}
             onClick={(info: PickedTraffic) => deckOnClick(info)}
+            // layers={terrainEnable ? [trackLayer, trafficLayer3D] : [trackLayer, trafficLayer2D]}
             layers={layers}
             pickingRadius={10}
 

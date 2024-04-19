@@ -1,7 +1,7 @@
 /*
 * Using IconLayer to render all vatsim traffic with png format
 */
-
+import React from "react";
 import { IconLayer } from "@deck.gl/layers";
 import { VatsimFlight } from "../../../types";
 import { getAircraftSizeCategory } from "../../../util/getAircraftCategory";
@@ -9,6 +9,9 @@ import aircraftSpriteSheetMapping from "../../../assets/aircraft-sprite-sheet.js
 import aircraftSpriteSheetPNG from "../../../assets/aircraft-sprite-sheet.png";
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
+    console.log("visible 2d:", visible);
+
+    if (!visible) return null;
 
     return new IconLayer({
         id: "aircraft-icon-layer",

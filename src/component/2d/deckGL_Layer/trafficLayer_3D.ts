@@ -16,27 +16,34 @@ const ANIMATIONS = {
 const trafficLayer_3D = (
     data: Array<VatsimFlight>,
     visible: boolean) => {
+    console.log("visible 3d:", visible);
     const [airportModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        console.log("airport model", airportModel);
         const loadGLT = async () => {
             try {
                 const airplane = await load(airport_model, GLTFLoader);
-                if (airplane) {
-                    setAirplaneModel(airplane);
-                }
+                setAirplaneModel(airplane);
             } catch (e) {
-                throw new Error("Error loading 3d file:", e);
+                setError(new Error("Error loading 3d file", e));
+                // throw new Error("Error loading 3d file:", e);
             }
         };
-        loadGLT()
-            .then()
-            .catch((e) => setError(e));
-    }, []);
+        loadGLT();
+    }, [visible]);
 
+    // Error reset
+    useEffect(() => {
+        if (airportModel) {
+            setError(null);
+        }
+    }, [airportModel]);
 
-    return (data && !error) && new ScenegraphLayer({
+    if (!airportModel || error || !visible) return null;
+
+    return new ScenegraphLayer({
         id: "traffics-layer",
         data,
         pickable: true,
@@ -54,6 +61,7 @@ const trafficLayer_3D = (
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
     });
+
 };
 
 export default trafficLayer_3D;
