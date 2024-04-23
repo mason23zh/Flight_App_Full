@@ -30,7 +30,7 @@ const TraconLayer = ({
     } = useMatchTraconFeatures(controllerInfo);
     const {
         renderedMarkers,
-        hoverTracon
+        hoverTraconCast,
     } = useRenderTraconLabelMarker(geoJsonFeatures);
 
     useEffect(() => {
@@ -54,15 +54,15 @@ const TraconLayer = ({
         }
     }, [isLoading, error, geoJsonFeatures]);
 
- 
+
     if (geoJsonFeatures) {
         return (
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...traconBoundariesLineLayerStyle}/>
-                {(hoverTracon && labelVisible && isFeatureCollection(hoverTracon)) &&
-                    <Source type="geojson" data={hoverTracon}>
+                {(hoverTraconCast && labelVisible && isFeatureCollection(hoverTraconCast)) &&
+                    <Source type="geojson" data={hoverTraconCast}>
                         <Layer {...highlightTraconBoundariesLayerStyle}/>
-                        <TraconLabelPopup hoverTracon={hoverTracon}/>
+                        <TraconLabelPopup hoverTracon={hoverTraconCast}/>
                     </Source>
                 }
                 {labelVisible && renderedMarkers}

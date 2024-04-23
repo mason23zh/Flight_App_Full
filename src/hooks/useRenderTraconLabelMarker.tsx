@@ -5,6 +5,7 @@ import useDelayHoverLabel from "./useDelayHoverLabel";
 
 const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
     const [hoverTracon, handleMouse] = useDelayHoverLabel();
+    const hoverTraconCast = hoverTracon as GeoJson.FeatureCollection;
 
     const renderMarkers = (geoJsonFeatures: GeoJson.FeatureCollection) => {
         if (geoJsonFeatures) {
@@ -43,7 +44,7 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
 
     return {
         renderedMarkers,
-        hoverTracon
+        hoverTraconCast
     };
 };
 
