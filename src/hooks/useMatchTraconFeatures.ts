@@ -10,7 +10,7 @@ interface UseMatchTraconFeaturesReturn {
 }
 
 const useMatchTraconFeatures = (
-        controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
+    controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
 
     const {
         data: geoJsonData,
@@ -42,7 +42,7 @@ const useMatchTraconFeatures = (
             return;
         }
 
-        if (controllerInfo && geoJsonData) {
+        if (controllerInfo && controllerInfo?.other?.controllers && geoJsonData) {
             const newFeaturesSet = new Set<string>(); // Store ids of new features
             const newFeatures = []; // Array to store new GeoJson features
 

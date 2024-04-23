@@ -43,6 +43,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
     // const trafficLayer2D = trafficLayer_2D(vatsimPilots, !terrainEnable);
 
+    // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
         return trafficLayer_2D(vatsimPilots, !terrainEnable);
     }, [terrainEnable, vatsimPilots]);
