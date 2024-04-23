@@ -9,8 +9,6 @@ import aircraftSpriteSheetMapping from "../../../assets/aircraft-sprite-sheet.js
 import aircraftSpriteSheetPNG from "../../../assets/aircraft-sprite-sheet.png";
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
-    console.log("visible 2d:", visible);
-
     if (!visible) return null;
 
     return new IconLayer({

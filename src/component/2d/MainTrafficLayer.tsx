@@ -93,7 +93,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const layers = useMemo(() => [
         trackLayer, // Always included, assuming it's a defined layer or null if no data
         terrainEnable ? trafficLayer3D : trafficLayer2D
-    ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable]);
+    ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic]);
 
     return (
         <DeckGlOverlay

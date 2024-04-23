@@ -16,12 +16,10 @@ const ANIMATIONS = {
 const trafficLayer_3D = (
     data: Array<VatsimFlight>,
     visible: boolean) => {
-    console.log("visible 3d:", visible);
     const [airportModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        console.log("airport model", airportModel);
         const loadGLT = async () => {
             try {
                 const airplane = await load(airport_model, GLTFLoader);
