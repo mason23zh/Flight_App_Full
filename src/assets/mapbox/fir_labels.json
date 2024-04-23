@@ -1,0 +1,7467 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ADR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.3,
+                    42.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ADR-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    20.8,
+                    42.55
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ADR-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.15,
+                    45.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "AGGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    160.9375,
+                    -9.416667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ANAU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    165.0,
+                    -4.15
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "AYPM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    148.5,
+                    -4.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BGGL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -30.0,
+                    75.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BIRD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -28.0,
+                    63.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BIRD-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.0,
+                    63.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BIRD-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -11.0,
+                    70.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BIRD-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -20.0,
+                    64.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BIRD-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -45.8,
+                    66.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZEG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -99.376111,
+                    69.499861
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZUL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -68.5,
+                    54.610695
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZWG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.000695,
+                    56.091111
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZVR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -125.56875,
+                    52.6125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZYZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.591805,
+                    47.575
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -62.366685,
+                    45.183334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -62.366685,
+                    45.183334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZZV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.25,
+                    50.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -56.166667,
+                    48.78
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -56.166667,
+                    48.78
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQO-GOTA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -59.0,
+                    61.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "CZQO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -42.5,
+                    53.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DAAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.666666,
+                    28.975
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DGAC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.666666,
+                    0.733333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DIII",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.2,
+                    4.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNKK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.66818,
+                    8.442681
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DRRR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.25,
+                    17.016667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DTTC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.508024,
+                    34.615961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EBBU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.544189,
+                    50.652284
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.8,
+                    52.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDWW-B",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.79,
+                    53.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDWW-A",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.48,
+                    52.98
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.25,
+                    50.28
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-P",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.4,
+                    51.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-R",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.2,
+                    49.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-K",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.54,
+                    49.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-D",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.9,
+                    49.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-G",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.96,
+                    50.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDGG-B",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.77,
+                    48.66
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.786666,
+                    49.711666
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDMM-G",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.63,
+                    50.92
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDMM-Z",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.85,
+                    48.36
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EDMM-R",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.72787,
+                    48.75036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EETT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.438055,
+                    58.709167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EFIN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.0,
+                    63.733333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -2.5,
+                    57.458333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.0,
+                    57.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX-D",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.64,
+                    55.161111
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.0,
+                    57.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX-WD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.2,
+                    55.58
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGPX-R",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.58,
+                    55.1
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5,
+                    51.916667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.0,
+                    53.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.0,
+                    51.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.2,
+                    50.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT-C",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.2,
+                    52.65
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTT-SC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.0,
+                    51.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -2.34,
+                    53.56
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGTL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.38,
+                    51.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGVV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.4,
+                    54.05
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EHAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.077517,
+                    52.932825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EISN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -11.0,
+                    53.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EIDW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.9,
+                    53.4
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGGX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -22.5,
+                    53.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EGYP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -61.5,
+                    -51.864636
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EKDK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.949445,
+                    56.472916
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENBD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.84846,
+                    69.38036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENBD-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.0,
+                    63.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENOR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.455475,
+                    62.525969
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENOS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.432621,
+                    59.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENSV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.75,
+                    60.758034
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENOB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.0,
+                    72.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    19.15,
+                    52.433334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    20.15,
+                    53.433334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.15,
+                    51.813334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    21.15,
+                    51.033334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW-NW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.15,
+                    52.133334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EPWW-SW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    17.15,
+                    50.933334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ESMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.45,
+                    57.31
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ESOS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.41,
+                    61.33
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ESOS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.41,
+                    61.33
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EVRR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.378195,
+                    57.046945
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "EYVL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.43743,
+                    55.168631
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FAJO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.5,
+                    -45.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FACA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.5,
+                    -33.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FACA-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    17.7,
+                    -34.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FACA-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.7,
+                    -33.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FAJA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.0,
+                    -27.566667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FBGR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.675,
+                    -22.172223
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FCCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.0,
+                    1.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FIMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    65.25,
+                    -25.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FLFI",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.853286,
+                    -13.091603
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FMMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.5,
+                    -20.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FNAN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.166666,
+                    -12.083334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FQBE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.607389,
+                    -20.209379
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FSSS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.0,
+                    0.183333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FTTT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.233334,
+                    15.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FVHF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.143667,
+                    -19.017743
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FWLL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.294567,
+                    -12.743854
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FYWH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    17.631199,
+                    -22.22541
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FZZA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.0,
+                    -3.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GCCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -17.5,
+                    25.890622
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GCCO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -21.0,
+                    24.942397
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GLRB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -12.124819,
+                    6.337707
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GMMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.390876,
+                    31.814217
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GMMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -12.0,
+                    33.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GMMO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -12.0,
+                    33.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GOOO",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -20.249722,
+                    2.500555
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GOOO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -11.933149,
+                    16.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "GVSC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -28.751528,
+                    18.481667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HAAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.500354,
+                    9.44375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HBBA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.916189,
+                    -3.391956
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HCSM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.499371,
+                    5.092196
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HECC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.081334,
+                    27.998667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HHAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.819237,
+                    16.180911
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HKNA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.950528,
+                    -0.351167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HLLL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    17.275245,
+                    26.916667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HRYR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.873917,
+                    -1.948361
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HSSS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.163157,
+                    13.000771
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HTDC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.425811,
+                    -6.368818
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "HUEC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.306,
+                    1.25369
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZAB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -107.0,
+                    33.208334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZTL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.045833,
+                    34.30625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZBW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.895834,
+                    43.80125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZAU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.141667,
+                    42.170834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZOB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.833334,
+                    41.541667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZJX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.163611,
+                    31.177778
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZMO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.0,
+                    23.8
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZMA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.0,
+                    27.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZNY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.7,
+                    41.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZNY",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -58.5,
+                    31.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZNY-BDA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.7,
+                    31.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "PHZH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.0,
+                    21.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZAK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -160.0,
+                    28.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZOA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.004167,
+                    37.916667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZDV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -105.339584,
+                    40.46875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZFW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.811111,
+                    33.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZKC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.322222,
+                    38.120833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZLA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.377084,
+                    34.383334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZMP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.676112,
+                    44.233334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZLC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.333334,
+                    43.20625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZHU",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.958334,
+                    26.125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZHU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.979167,
+                    29.0625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZID",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.358334,
+                    38.545833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZME",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.422917,
+                    34.620834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZSE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.333334,
+                    44.608334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "KZDC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.754167,
+                    36.45875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LBSR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.2,
+                    42.8
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LCCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.229451,
+                    33.9573
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LCCC-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.4,
+                    34.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LCCC-H",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.54,
+                    33.52
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LCCC-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.0,
+                    33.4
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LCCC-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.5,
+                    35.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.45,
+                    40.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.5,
+                    39.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.4,
+                    41.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.4,
+                    38.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.05,
+                    39.4
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LECS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.4,
+                    38.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.628889,
+                    44.775
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFEE-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.2,
+                    47.83
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFFF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.15,
+                    48.82
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.0125,
+                    42.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFRR-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.125,
+                    46.791667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFRR-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.95,
+                    48.73
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFEE-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.34,
+                    49.45
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFEE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.16,
+                    48.35
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LFRR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.6,
+                    48.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.55,
+                    36.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGMD-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.10577,
+                    39.105292
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGMD-K",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.514111,
+                    40.252662
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGMD-T",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    21.593955,
+                    40.192406
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    21.010782,
+                    39.24576
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.000707,
+                    36.264344
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-H",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.06295,
+                    34.250557
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.465394,
+                    36.024996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-K",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    19.533921,
+                    38.200081
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGGG-P",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    20.180581,
+                    36.563441
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LGMD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    23.114011,
+                    39.460402
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LHCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    19.50865,
+                    47.169264
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LIBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.041666,
+                    41.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LIRR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.5,
+                    40.108334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LIMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.65,
+                    45.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LIMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.55,
+                    45.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LIPP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.55,
+                    45.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LKAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.475,
+                    49.8
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LLLL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.74961,
+                    31.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LLPT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.934306,
+                    32.431889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LLSC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.87608,
+                    30.87044
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LMMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5,
+                    35.416667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LOVV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.15,
+                    47.3
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -9.0,
+                    40.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-D",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -12.0,
+                    41.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-V",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -11.840505,
+                    37.63952
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-I",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -14.854017,
+                    34.35871
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.85,
+                    36.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-C",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.0,
+                    38.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPC-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.0,
+                    40.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -28.0,
+                    33.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LPPO-TMA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -30.0,
+                    39.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LRBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.402153,
+                    45.949777
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LSAS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.216667,
+                    46.85
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LTAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.399954,
+                    39.2875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LTBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.3,
+                    39.433334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LJLA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.707096,
+                    46.028879
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LDZO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.5,
+                    43.97195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LQSB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    17.679715,
+                    43.915189
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LYBA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    20.65533,
+                    43.65597
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LWSS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    21.743602,
+                    41.585028
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LAAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    19.961987,
+                    41.153205
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LZBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    19.708333,
+                    48.666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MDCS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -69.999305,
+                    18.208334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MHCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.25,
+                    11.075
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MKJK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.625,
+                    17.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MPZL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.1125,
+                    9.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MTEG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.316667,
+                    18.708334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MUFH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.666666,
+                    21.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MYNN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.0,
+                    23.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NAT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -32.5,
+                    53.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NFFF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    175.0,
+                    -13.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NFFN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    179.828924,
+                    -19.035672
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NVVV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    168.5,
+                    -15.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NTTT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -138.5,
+                    -13.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NSFA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -167.0,
+                    -15.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NWWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    165.25,
+                    -18.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZZO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -170.0,
+                    -40.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    171.0,
+                    -65.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCM",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -160.5,
+                    -65.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZOH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    176.5,
+                    -40.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    172.75,
+                    -40.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    176.75,
+                    -38.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.897,
+                    -36.039
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    170.0,
+                    -45.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "NZCK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    173.5,
+                    -42.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OAKX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    67.683334,
+                    33.951253
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OBBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.333333,
+                    26.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OBBB-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    49.8,
+                    27.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OBBB-C",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.9,
+                    26.1
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OBBB-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.7,
+                    25.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OBBB-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.2,
+                    26.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OEJD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.095051,
+                    23.85857
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OERD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.543168,
+                    27.498221
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-1N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.812884,
+                    38.225913
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-1E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    49.611297,
+                    36.610343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-1W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.944948,
+                    36.862284
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-2E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.855803,
+                    34.248389
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-2W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.156989,
+                    34.681729
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-3N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    49.841167,
+                    32.156014
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-3S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.400997,
+                    29.53582
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-4E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    53.953448,
+                    28.408381
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-4W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.804016,
+                    27.356525
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-4S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.886361,
+                    26.205466
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-5E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    59.509878,
+                    26.325138
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-5W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    56.382753,
+                    28.712286
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-6E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    59.676467,
+                    29.628575
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-6W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    56.773148,
+                    32.234046
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TEH-7",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    56.735832,
+                    35.808468
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OIIX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    53.691667,
+                    32.225446
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OJAC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.35,
+                    31.285853
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OKAC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.111389,
+                    29.178334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OLBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.758643,
+                    33.852245
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OMAE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.183333,
+                    24.400824
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OOMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    58.25,
+                    21.175
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OPKR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    67.256735,
+                    26.749449
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OPLR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    71.686419,
+                    33.463532
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ORBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.761655,
+                    33.02789
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ORBB-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.700911,
+                    34.399765
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ORBB-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.231957,
+                    31.314367
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OSTT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.9125,
+                    34.779167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "OYSC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.83,
+                    15.775
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RCAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.39,
+                    23.67
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RJCG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    138.37,
+                    41.6141
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RJBG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.248056,
+                    25.504028
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RJDG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    128.0,
+                    31.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RJTG",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    150.208334,
+                    32.541667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RJTG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.6369,
+                    37.85
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKRR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    126.20162,
+                    34.31774
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKRR-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    125.72574,
+                    35.33565
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKRR-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    126.20287,
+                    32.94158
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKDA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    128.22325,
+                    36.41501
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKDA-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    125.77332,
+                    37.25639
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKDA-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    130.230707,
+                    37.313694
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RKDA-C",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    128.68895,
+                    35.84646
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "RPHI",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.501372,
+                    12.248708
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SACF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.925,
+                    -27.875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SACO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.2,
+                    -31.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAMF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.5,
+                    -35.35
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAME",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -68.9,
+                    -33.05
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SARR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -58.9,
+                    -29.4
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SARE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -59.1,
+                    -27.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAEF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -49.0,
+                    -42.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAEF-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -60.2,
+                    -33.1
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAEF-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -62.15,
+                    -37.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "BAIRES",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -58.56082,
+                    -35.4
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAVF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -49.0,
+                    -49.641667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SAVC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.4,
+                    -46.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SBAO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -30.375,
+                    -13.166666
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SBAZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -57.65525,
+                    -6.051
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SBBS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -48.416667,
+                    -16.050833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SBCW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -51.104167,
+                    -25.166834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SBRE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -40.277056,
+                    -8.736945
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SCFZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.0,
+                    -22.983334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SCTZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.0,
+                    -42.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SCCZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.85,
+                    -53.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SCEZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.0,
+                    -33.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SCIZ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -110.5,
+                    -37.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SEFG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.583334,
+                    -1.770833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SGFA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -58.458802,
+                    -23.479613
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SKEC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.208836,
+                    11.316331
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SKED",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.875487,
+                    2.210747
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SKED",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.208836,
+                    11.316331
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SLLF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -63.508809,
+                    -16.262908
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SMPM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -55.95,
+                    5.566667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SOOO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.775,
+                    7.816667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SPIM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.333334,
+                    -9.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SVZM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.600468,
+                    8.212349
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SYGC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -58.936083,
+                    5.033333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TJZS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.0,
+                    19.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TNCF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.533334,
+                    14.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TTZP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -60.064226,
+                    13.713303
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "TTZO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -47.593671,
+                    14.720326
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VCCF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    84.25,
+                    4.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VDPF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.948148,
+                    12.732899
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VGFR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    90.345546,
+                    23.801272
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VHHK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.5,
+                    20.166667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VLVT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    102.660161,
+                    19.870834
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VNSM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    84.134033,
+                    28.391824
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VRMF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    73.0,
+                    0.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VABF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    70.0,
+                    15.29
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VABX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    65.0758,
+                    11.572
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VAAH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.4328,
+                    23.1935
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VABB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    71.58858,
+                    18.34775
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VANP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.56858,
+                    21.3498
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VIDF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    76.556075,
+                    30.258011
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VIDP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    76.3419,
+                    27.5705
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VEGF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    92.131667,
+                    26.455
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOMF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    83.59,
+                    15.03
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOMX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    88.5744,
+                    10.472
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOBL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.3225,
+                    14.3909
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOCI",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    76.18,
+                    11.23
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOHS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    78.3251,
+                    17.542
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOML",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.3543,
+                    13.3312
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    81.151,
+                    13.3105
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VOTV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.3307,
+                    8.1346
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VECF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    89.4,
+                    20.1
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VECX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    88.5025,
+                    16.582
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VEBN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    82.3335,
+                    25.245
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VECC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    86.46,
+                    22.97
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VECC-B",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    84.1645,
+                    19.392
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VECC-R",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    82.3251,
+                    22.202
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VTBB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.083018,
+                    13.042771
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VVCL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.93746,
+                    14.118383
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VVHM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    108.831833,
+                    10.958542
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VVHM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    108.311622,
+                    16.277041
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VVHN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    106.276211,
+                    19.578677
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "VYYF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    96.592,
+                    19.29099
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WAAF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    125.1,
+                    -2.916667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WAAF-B",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    116.642222,
+                    -7.510833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WAAF-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    115.760278,
+                    -0.205556
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WAAF-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.424694,
+                    -2.282917
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WBFC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.25,
+                    4.625
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WBFC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.0,
+                    2.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WBGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.0,
+                    2.7
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WIIF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    102.277836,
+                    -2.902256
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WIIF-N",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    96.326111,
+                    2.408889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WIIF-W",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    102.339444,
+                    -3.861111
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WIIF-E",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    108.814833,
+                    -4.712417
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WMFC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    99.582158,
+                    5.607951
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "WSJC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    109.333334,
+                    4.833334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZBPE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.29524,
+                    40.09172
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZBAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    116.64389,
+                    39.02789
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZBHH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    112.43802,
+                    42.01505
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZBLA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    119.47633,
+                    48.75674
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZBYN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    112.606667,
+                    37.375556
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGZU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.341667,
+                    25.279167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSHA-AR22",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    115.01155,
+                    26.23955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    113.798889,
+                    23.8925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGHA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.520834,
+                    27.866667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGNN-AR08",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    109.3,
+                    25.366667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGNN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    108.0,
+                    23.366667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZGZJ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    109.9,
+                    21.71667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZHWH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    112.650833,
+                    32.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZHCC",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    112.650833,
+                    33.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZHHH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    112.650833,
+                    30.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZJSY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    109.57186,
+                    19.08253
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZJSA-OCA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.29363,
+                    17.28511
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZJSA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    110.40915,
+                    18.41011
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZLLL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    95.43824,
+                    37.12123
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZLHW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    101.62578,
+                    38.2979
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZLXY-H",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    104.9444,
+                    36.60685
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZLXY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    108.67186,
+                    34.65427
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZPPP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    102.06528,
+                    24.42727
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZPKM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    98.69726,
+                    29.91873
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZULS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    90.11675,
+                    30.75362
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZUGY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    107.28488,
+                    26.78015
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZUUU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    103.65367,
+                    29.83459
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSSS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.21437,
+                    30.89823
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSHA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    118.17084,
+                    29.37925
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSAM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    118.29305,
+                    25.44139
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSCN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    116.4842,
+                    28.0885
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSJN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    117.2,
+                    35.85
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSOF",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    117.0,
+                    31.17144
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZSQD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.89935,
+                    36.79607
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZWWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    88.53638,
+                    42.98516
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZWUQ",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    84.3564,
+                    39.77188
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZWAK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    81.1109,
+                    36.67571
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZYTX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.46231,
+                    42.59123
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZYSH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.03321,
+                    44.83988
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZYHB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.27081,
+                    46.74231
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZYTL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.73851,
+                    39.20652
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZYTL-AR03",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.49129,
+                    37.50938
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZKKP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    129.96421,
+                    40.319095
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "PAZA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -165.9,
+                    61.066666
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "PGZU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.795983,
+                    11.8
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SUEO",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -31.6,
+                    -37.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "SUEO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -55.036112,
+                    -33.4375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "LUUU",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.0,
+                    46.959166
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MMEX",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -100.78432,
+                    18.739215
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MMID",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.447442,
+                    18.965712
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MMTY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -102.75,
+                    27.39
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MMZT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -109.0,
+                    24.45
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "MMFO",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -114.0,
+                    17.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ZMUB",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    103.85,
+                    46.845
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UAAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.552778,
+                    47.037778
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UACN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    68.9,
+                    50.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UAII",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    66.0,
+                    44.008889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UATT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.5,
+                    48.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UBBA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.691666,
+                    40.266667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UBBA-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.44359,
+                    39.25523
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UCFM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    76.1,
+                    41.916667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UCFO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    73.3,
+                    40.770833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UDDD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.008334,
+                    40.058334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UEEE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    130.0,
+                    66.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UGGG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.441667,
+                    42.166667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UHHH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    139.0,
+                    51.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UHMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    166.0,
+                    65.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UHPP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    164.3,
+                    57.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UIII",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    111.558333,
+                    56.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKBV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.941667,
+                    50.0655
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKFV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.759167,
+                    45.233333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKDV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.516667,
+                    48.911666
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKLV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.987917,
+                    49.807958
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKOV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.6275,
+                    46.501667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UKR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.892367,
+                    48.060395
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.80017,
+                    64.01768
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULKK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.2777,
+                    61.20332
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULLL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.32006,
+                    60.32514
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULMM",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.56818,
+                    67.67634
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULMM",
+                "oceanic": "1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.74777,
+                    73.597663
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ULWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.71935,
+                    59.72579
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UMKK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    20.215527,
+                    55.205682
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UMMV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.958334,
+                    53.78
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UNKL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    95.66849,
+                    64.68202
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UNNT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    79.666667,
+                    56.75
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "URRV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.133334,
+                    46.583333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "USSV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    55.116667,
+                    58.791667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "USTV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.033334,
+                    64.425
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTAA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    59.6,
+                    38.6
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTAK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.558334,
+                    39.841667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTAT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    58.823281,
+                    41.239893
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTAV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    63.458334,
+                    38.5375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTDD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    71.333333,
+                    38.8
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTSD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    65.5,
+                    39.9
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UTTR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    64.291666,
+                    41.875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UUWV",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.841667,
+                    54.074167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UUYY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    54.966667,
+                    64.0
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "UWWW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.833333,
+                    53.578334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YARA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    139.202342,
+                    -12.397883
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YTRT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    131.70158,
+                    -13.796825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YASP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    133.65313,
+                    -22.45736
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YKIY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    125.608865,
+                    -17.77028
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YPOT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    118.8443,
+                    -19.46316
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YNEW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.06207,
+                    -23.0103
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YASW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    130.5439,
+                    -25.99314
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YWAR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    126.389564,
+                    -26.840631
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YAUG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    136.950344,
+                    -33.90348
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YWRA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    136.86043,
+                    -28.81072
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YISA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    140.388607,
+                    -19.225629
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YBUR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    152.573363,
+                    -26.274857
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YCOL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    154.31667,
+                    -15.477509
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YCVN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    149.004499,
+                    -25.095498
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YDOS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    151.82435,
+                    -28.32161
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YFLD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    157.87379,
+                    -21.856842
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YFOR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    130.542438,
+                    -34.87099
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YGEL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.263405,
+                    -28.73516
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YPIY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    117.10739,
+                    -32.066661
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YIND",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    93.067652,
+                    -23.902742
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YINE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    109.158525,
+                    -15.941451
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YINS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    139.999596,
+                    -50.365426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YOLW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.353878,
+                    -21.510109
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMEK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    115.95591,
+                    -26.20273
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YKAT",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    149.504314,
+                    -33.417685
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YBKE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.993866,
+                    -31.823119
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YBIK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    149.434312,
+                    -34.513566
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMLD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    152.413991,
+                    -32.079082
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YOCN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    153.415611,
+                    -33.734848
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YWOL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    151.303522,
+                    -35.756651
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YTSN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    157.389245,
+                    -38.158707
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YELW",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.14289,
+                    -37.42586
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YGTH",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.796663,
+                    -34.213083
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YYWE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    143.53974,
+                    -37.810595
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YOXL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.787212,
+                    -34.542036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YTAS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.469407,
+                    -42.079836
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMUN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    141.482768,
+                    -37.425228
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YTBD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    139.939612,
+                    -35.450637
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YARL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    151.263989,
+                    -31.612897
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMDE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    149.555574,
+                    -30.453293
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YWON",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.96719,
+                    -39.30079
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YSNO",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    148.40039,
+                    -37.08721
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YHWE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    158.714616,
+                    -30.116177
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YKPL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    151.86536,
+                    -23.801825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMTK",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.97259,
+                    -26.88682
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YPAR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    117.09607,
+                    -23.59304
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YINL",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    153.20574,
+                    -29.05514
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YSDY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    154.783212,
+                    -27.474185
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YSWY",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    148.2994,
+                    -21.723564
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YTBP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    148.500183,
+                    -18.36026
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YSTR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.889028,
+                    -18.694395
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YBAR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.812514,
+                    -15.627515
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YKEN",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.900158,
+                    -17.84658
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YBLA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.58715,
+                    -36.03181
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YESP",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.289883,
+                    -32.986496
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YJAR",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    116.93032,
+                    -34.549098
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YLEA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.106715,
+                    -31.245552
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YGVE",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    117.804804,
+                    -29.400174
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YMZI",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    122.5183,
+                    -29.9089
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YHYD",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    119.065568,
+                    -32.806879
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YCRS",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    118.888494,
+                    -30.938281
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "YWEG",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    143.189324,
+                    -26.482729
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "FASA",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.469167,
+                    -30.765751
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "ENOR-S",
+                "oceanic": "0"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.552371,
+                    61.948152
+                ]
+            }
+        }
+    ]
+}

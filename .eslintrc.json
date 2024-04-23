@@ -6,8 +6,9 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "plugin:@typescript-eslint/recommended"
     ],
+    "parser": "@typescript-eslint/parser",
     "overrides": [
     ],
     "parserOptions": {
@@ -15,9 +16,18 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
     "rules": {
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
+        ],
         //      "indent": [4, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }]
         "indent": [
             "error",
@@ -65,6 +75,16 @@
         "jsx-a11y/no-static-element-interactions": "off",
         "react/jsx-one-expression-per-line": "off",
         "no-underscore-dangle": "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "react/no-unknown-property": [
+            "error",
+            {
+                "ignore": [
+                    "args",
+                    "position",
+                    "intensity"
+                ]
+            }
+        ]
     }
 }
