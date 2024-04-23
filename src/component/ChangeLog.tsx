@@ -125,6 +125,8 @@ function ChangeLog() {
                     <div>
                         Beta 0.4.1 <br/>
                         - Vite migration &#9889;<br/>
+                        - Added interactive map <br/>
+                        - Fix theme not correctly apply issue <br/>
                     </div>
                 </div>
             </div>
