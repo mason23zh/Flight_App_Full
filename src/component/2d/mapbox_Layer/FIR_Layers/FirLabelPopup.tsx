@@ -16,12 +16,15 @@ const FirLabelPopup = ({
     let tempFirName: string;
     const darkMode = useTheme();
 
-    const {
-        hour,
-        minute
-    } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
+    // console.log("hoverFir:", hoverFir);
+
+    // const {
+    //     hour,
+    //     minute
+    // } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
 
     const firName = hoverFir.features[0].properties.firInfo.name;
+    // Normalize the En route controller to "Center"
     if (firName.includes("Central") || firName.includes("Radar") || firName.includes("ACC")) {
         tempFirName = firName;
     } else {
@@ -30,6 +33,31 @@ const FirLabelPopup = ({
 
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
+
+    // construct the controllers list
+    const renderControllersData = hoverFir.features[0].properties.controllers.map((c) => {
+        const {
+            hour,
+            minute
+        } = returnOnlineTime(c.logon_time);
+        const key = `${c.name}-${c.logon_time}`;
+        return (
+            <div key={key} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
+                <div className="">
+                    {c.callsign}
+                </div>
+                <div className="">
+                    {c.name}
+                </div>
+                <div className={`font-bold ${freqThemeColor}`}>
+                    {c.frequency}
+                </div>
+                <div className="">
+                    {hour}:{minute}
+                </div>
+            </div>
+        );
+    });
 
     return (
         <Popup
@@ -54,20 +82,21 @@ const FirLabelPopup = ({
                 </div>
 
                 <div className="w-full">
-                    <div className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                        <div className="">
-                            {hoverFir.features[0].properties.callsign}
-                        </div>
-                        <div className="">
-                            {hoverFir.features[0].properties.name}
-                        </div>
-                        <div className={`font-bold ${freqThemeColor}`}>
-                            {hoverFir.features[0].properties.frequency}
-                        </div>
-                        <div className="">
-                            {hour}:{minute}
-                        </div>
-                    </div>
+                    {renderControllersData}
+                    {/* <div className="flex items-center text-center gap-2 px-2 py-1 w-fit"> */}
+                    {/*     <div className=""> */}
+                    {/*         {hoverFir.features[0].properties.callsign} */}
+                    {/*     </div> */}
+                    {/*     <div className=""> */}
+                    {/*         {hoverFir.features[0].properties.name} */}
+                    {/*     </div> */}
+                    {/*     <div className={`font-bold ${freqThemeColor}`}> */}
+                    {/*         {hoverFir.features[0].properties.frequency} */}
+                    {/*     </div> */}
+                    {/*     <div className=""> */}
+                    {/*         {hour}:{minute} */}
+                    {/*     </div> */}
+                    {/* </div> */}
                 </div>
             </div>
         </Popup>

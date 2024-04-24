@@ -12,6 +12,69 @@ interface UseMatchTraconFeaturesReturn {
 const useMatchTraconFeatures = (
     controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
 
+    // const {
+    //     data: geoJsonData,
+    //     isLoading,
+    //     error
+    // } = useFetchVatsimTraconBoundariesQuery();
+    //
+    // const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
+    //     type: "FeatureCollection",
+    //     features: []
+    // });
+    //
+    // console.log("match tracon controller info:", controllerInfo);
+    //
+    // useEffect(() => {
+    //     if (isLoading || error) {
+    //         setGeoJsonFeatures({
+    //             type: "FeatureCollection",
+    //             features: []
+    //         });
+    //         return;
+    //     }
+    //
+    //     if (controllerInfo?.other?.controllers && geoJsonData) {
+    //         const traconMatches = geoJsonData.features.reduce((acc, feature) => {
+    //             controllerInfo.other.controllers.forEach(controller => {
+    //                 if (controller.facility === 5) {  // Assuming facility code 5 means TRACON
+    //                     const parts = controller.callsign.split("_")
+    //                         .filter(part => part === "APP" || part === "DEP");
+    //                     const potentialMatch = parts.join("_");
+    //                     if (feature.properties?.prefix[0] === potentialMatch) {
+    //                         if (!acc[feature.properties.id]) {
+    //                             acc[feature.properties.id] = {
+    //                                 ...feature,
+    //                                 properties: {
+    //                                     ...feature.properties,
+    //                                     controllers: []
+    //                                 }
+    //                             };
+    //                         }
+    //                         acc[feature.properties.id].properties.controllers.push(controller);
+    //                     }
+    //                 }
+    //             });
+    //             return acc;
+    //         }, {});
+    //
+    //         const newFeatures = Object.values(traconMatches);
+    //         console.log("Features match tracon:", newFeatures);
+    //
+    //         setGeoJsonFeatures({
+    //             type: "FeatureCollection",
+    //             features: newFeatures
+    //         });
+    //     }
+    // }, [controllerInfo, geoJsonData, isLoading, error]);
+    //
+    // return {
+    //     geoJsonFeatures,
+    //     isLoading,
+    //     error
+    // };
+
+
     const {
         data: geoJsonData,
         isLoading,
