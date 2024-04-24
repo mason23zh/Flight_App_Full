@@ -11,69 +11,7 @@ interface UseMatchTraconFeaturesReturn {
 
 const useMatchTraconFeatures = (
     controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
-
-    // const {
-    //     data: geoJsonData,
-    //     isLoading,
-    //     error
-    // } = useFetchVatsimTraconBoundariesQuery();
-    //
-    // const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
-    //     type: "FeatureCollection",
-    //     features: []
-    // });
-    //
-    // console.log("match tracon controller info:", controllerInfo);
-    //
-    // useEffect(() => {
-    //     if (isLoading || error) {
-    //         setGeoJsonFeatures({
-    //             type: "FeatureCollection",
-    //             features: []
-    //         });
-    //         return;
-    //     }
-    //
-    //     if (controllerInfo?.other?.controllers && geoJsonData) {
-    //         const traconMatches = geoJsonData.features.reduce((acc, feature) => {
-    //             controllerInfo.other.controllers.forEach(controller => {
-    //                 if (controller.facility === 5) {  // Assuming facility code 5 means TRACON
-    //                     const parts = controller.callsign.split("_")
-    //                         .filter(part => part === "APP" || part === "DEP");
-    //                     const potentialMatch = parts.join("_");
-    //                     if (feature.properties?.prefix[0] === potentialMatch) {
-    //                         if (!acc[feature.properties.id]) {
-    //                             acc[feature.properties.id] = {
-    //                                 ...feature,
-    //                                 properties: {
-    //                                     ...feature.properties,
-    //                                     controllers: []
-    //                                 }
-    //                             };
-    //                         }
-    //                         acc[feature.properties.id].properties.controllers.push(controller);
-    //                     }
-    //                 }
-    //             });
-    //             return acc;
-    //         }, {});
-    //
-    //         const newFeatures = Object.values(traconMatches);
-    //         console.log("Features match tracon:", newFeatures);
-    //
-    //         setGeoJsonFeatures({
-    //             type: "FeatureCollection",
-    //             features: newFeatures
-    //         });
-    //     }
-    // }, [controllerInfo, geoJsonData, isLoading, error]);
-    //
-    // return {
-    //     geoJsonFeatures,
-    //     isLoading,
-    //     error
-    // };
-
+    console.log("controller info:", controllerInfo.other.controllers);
 
     const {
         data: geoJsonData,
@@ -81,76 +19,73 @@ const useMatchTraconFeatures = (
         error
     } = useFetchVatsimTraconBoundariesQuery();
 
-
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
-        "type": "FeatureCollection",
-        "features": []
+        type: "FeatureCollection",
+        features: []
     });
 
-
     useEffect(() => {
-        if (isLoading) {
+        if (isLoading || error) {
             setGeoJsonFeatures({
-                "type": "FeatureCollection",
-                "features": []
+                type: "FeatureCollection",
+                features: []
             });
             return;
         }
 
-        if (error) {
-            setGeoJsonFeatures({
-                "type": "FeatureCollection",
-                "features": []
-            });
-            return;
-        }
-
-        if (controllerInfo && controllerInfo?.other?.controllers && geoJsonData) {
-            const newFeaturesSet = new Set<string>(); // Store ids of new features
-            const newFeatures = []; // Array to store new GeoJson features
+        if (controllerInfo?.other?.controllers && geoJsonData) {
+            const featuresMap = new Map();
 
             controllerInfo.other.controllers.forEach(controller => {
                 if (controller.facility === 5) {
                     const parts = controller.callsign.split("_");
                     if (parts[parts.length - 1] === "APP" || parts[parts.length - 1] === "DEP") {
-                        parts.pop();
+                        parts.pop();  // Remove the last part if it is "APP" or "DEP"
                     }
-                    let matchFound = false;
-                    while (parts.length > 0 && !matchFound) {
+
+                    while (parts.length > 0) {
                         const potentialMatch = parts.join("_");
-                        const matchedFeature = geoJsonData.features.find(feature => feature.properties?.prefix[0] === potentialMatch);
-                        if (matchedFeature && !newFeaturesSet.has(matchedFeature.properties.id)) {
-                            // append the controller info into the GeoJson Feature
-                            const tempMatchedFeature = {
-                                ...matchedFeature,
-                                properties: {
-                                    controllerInfo: controller,
-                                    ...matchedFeature.properties
-                                }
-                            };
-                            newFeaturesSet.add(matchedFeature.properties.id);
-                            newFeatures.push(tempMatchedFeature);
-                            matchFound = true;
+                        //const matchedFeature = geoJsonData.features.find(feature => feature.properties?.prefix && feature.properties.prefix.includes(potentialMatch));
+                        const matchedFeature = geoJsonData.features
+                            .find(feature => feature.properties?.prefix[0] === potentialMatch);
+
+                        if (matchedFeature) {
+                            if (!featuresMap.has(matchedFeature.properties.id)) {
+                                featuresMap.set(matchedFeature.properties.id, {
+                                    ...matchedFeature,
+                                    properties: {
+                                        ...matchedFeature.properties,
+                                        controllers: []
+                                    }
+                                });
+                            }
+
+                            const existingFeature = featuresMap.get(matchedFeature.properties.id);
+                            existingFeature.properties.controllers.push({
+                                name: controller.name,
+                                frequency: controller.frequency,
+                                logon_time: controller.logon_time,
+                                callsign: controller.callsign
+                            });
+
+                            break;
                         }
                         parts.pop();
                     }
                 }
             });
 
-            // Only update state if new features are different from existing features
-            if (newFeatures.length !== geoJsonFeatures.features.length || newFeatures.some((feature, idx) => feature !== geoJsonFeatures.features[idx])) {
-                setGeoJsonFeatures({
-                    "type": "FeatureCollection",
-                    "features": newFeatures
-                });
-            }
+            setGeoJsonFeatures({
+                type: "FeatureCollection",
+                features: Array.from(featuresMap.values())  // Convert the map values to an array
+            });
         }
     }, [controllerInfo, geoJsonData, isLoading, error]);
 
     return {
-        geoJsonFeatures: geoJsonFeatures,
-        isLoading: isLoading,
-        error: error
+        geoJsonFeatures,
+        isLoading,
+        error
     };
 };
 

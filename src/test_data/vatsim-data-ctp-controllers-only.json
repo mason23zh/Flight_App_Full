@@ -938,6 +938,27 @@
                 ]
             },
             {
+                "cid": 1163988,
+                "name": "Test A. B",
+                "callsign": "TUS_1_APP",
+                "frequency": "119.500",
+                "facility": 5,
+                "rating": 8,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:39.7518374Z",
+                "logon_time": "2024-04-24T03:50:35.4543393Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
                 "cid": 1368482,
                 "name": "Kevin Huang",
                 "callsign": "VOK_APP",

@@ -46,9 +46,9 @@ const AtcLayer = () => {
     return (
         <>
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={controllerData} labelVisible={true}/>
-                <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
-                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
+                <FirLayer controllerInfo={testData} labelVisible={true}/>
+                <TraconLayer controllerInfo={testData} labelVisible={true}/>
+                <ControllerMarkerLayer controllerInfo={testData} labelVisible={true}/>
             </>)
             }
         </>

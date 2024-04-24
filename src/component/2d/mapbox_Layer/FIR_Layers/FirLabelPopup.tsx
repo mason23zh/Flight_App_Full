@@ -16,12 +16,6 @@ const FirLabelPopup = ({
     let tempFirName: string;
     const darkMode = useTheme();
 
-    // console.log("hoverFir:", hoverFir);
-
-    // const {
-    //     hour,
-    //     minute
-    // } = returnOnlineTime(hoverFir.features[0].properties.logon_time);
 
     const firName = hoverFir.features[0].properties.firInfo.name;
     // Normalize the En route controller to "Center"
@@ -83,20 +77,6 @@ const FirLabelPopup = ({
 
                 <div className="w-full">
                     {renderControllersData}
-                    {/* <div className="flex items-center text-center gap-2 px-2 py-1 w-fit"> */}
-                    {/*     <div className=""> */}
-                    {/*         {hoverFir.features[0].properties.callsign} */}
-                    {/*     </div> */}
-                    {/*     <div className=""> */}
-                    {/*         {hoverFir.features[0].properties.name} */}
-                    {/*     </div> */}
-                    {/*     <div className={`font-bold ${freqThemeColor}`}> */}
-                    {/*         {hoverFir.features[0].properties.frequency} */}
-                    {/*     </div> */}
-                    {/*     <div className=""> */}
-                    {/*         {hour}:{minute} */}
-                    {/*     </div> */}
-                    {/* </div> */}
                 </div>
             </div>
         </Popup>
