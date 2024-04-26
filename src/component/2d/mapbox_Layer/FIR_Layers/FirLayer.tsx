@@ -24,6 +24,7 @@ const FirLayer = ({
 }: Controller) => {
 
     const dispatch = useDispatch();
+    console.log("Test data:", controllerInfo);
 
 
     const {

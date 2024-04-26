@@ -808,6 +808,48 @@
     "other": {
         "controllers": [
             {
+                "cid": 123456,
+                "name": "TEST TEST",
+                "callsign": "ISP_E_APP",
+                "frequency": "118.000",
+                "facility": 5,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7766616Z",
+                "logon_time": "2024-04-24T03:30:15.6167874Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KJFK"
+                },
+                "coordinates": [
+                    "-72.56",
+                    "41.1"
+                ]
+            },
+            {
+                "cid": 1123123,
+                "name": "TEST C",
+                "callsign": "LGA_E_APP",
+                "frequency": "118.000",
+                "facility": 5,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7766616Z",
+                "logon_time": "2024-04-24T03:30:15.6167874Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KLGA"
+                },
+                "coordinates": [
+                    "-73.87261",
+                    " 40.943916"
+                ]
+            },
+            {
                 "cid": 1418782,
                 "name": "Jack Karins",
                 "callsign": "MKE_E_APP",
