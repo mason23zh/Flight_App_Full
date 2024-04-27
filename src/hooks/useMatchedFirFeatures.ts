@@ -1,11 +1,11 @@
-// This hook will fetch geoJson for fir boundaries and fir data
+// This hook will fetch fir data
 // after processing the data it will return formatted GeoJson Feature Collection
 // firData, and either loading state or error state.
 // The complexity of this hook is high, might be improved in the future.
 import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
-import { useFetchVatsimFirBoundariesQuery, useFetchVatsimFirQuery } from "../store";
+import { useFetchVatsimFirQuery } from "../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 
@@ -18,6 +18,7 @@ interface UseMatchedFirFeaturesReturn {
 
 const useMatchedFirFeatures = (
     controllerInfo: VatsimControllers,
+    geoJsonData: GeoJson.FeatureCollection
 ): UseMatchedFirFeaturesReturn => {
 
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
@@ -25,11 +26,12 @@ const useMatchedFirFeatures = (
         features: []
     });
 
-    const {
-        data: geoJsonData,
-        error: geoJsonError,
-        isLoading: geoJsonLoading
-    } = useFetchVatsimFirBoundariesQuery();
+    // The fetch vatsim Fir Boundaries Request been moved to the AtcLayer
+    // const {
+    //     data: geoJsonData,
+    //     error: geoJsonError,
+    //     isLoading: geoJsonLoading
+    // } = useFetchVatsimFirBoundariesQuery();
     const {
         data: firData,
         error: firError,
@@ -37,7 +39,8 @@ const useMatchedFirFeatures = (
     } = useFetchVatsimFirQuery();
 
     useMemo(() => {
-        if (firLoading || geoJsonLoading || firError || geoJsonError) {
+        // if (firLoading || geoJsonLoading || firError || geoJsonError) {
+        if (firLoading || !geoJsonData) {
             setGeoJsonFeatures({
                 type: "FeatureCollection",
                 features: []
@@ -101,13 +104,13 @@ const useMatchedFirFeatures = (
                 features: newFeatures
             });
         }
-    }, [controllerInfo, firData, geoJsonData, firError, geoJsonError, firLoading, geoJsonLoading]);
+    }, [controllerInfo, firData, geoJsonData, firError, firLoading]);
 
     return {
         geoJsonFeatures,
         firData,
-        isLoading: firLoading || geoJsonLoading,
-        error: firError || geoJsonError
+        isLoading: firLoading,
+        error: firError
     };
 };
 

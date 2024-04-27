@@ -27,3 +27,12 @@ export const boundariesLineStyle: LineLayer = {
     }
 };
 
+export const underlineBoundariesLineStyle: LineLayer = {
+    id: "fir-underline-boundaries-line-layer",
+    type: "line",
+    paint: {
+        "line-color": "#9499a8",
+        "line-width": 0.5
+    }
+};
+
