@@ -128,11 +128,20 @@ function ChangeLog() {
                         - Added interactive map <br/>
                         - Fix theme not correctly apply issue <br/>
                     </div>
+                    <div>
+                        Beta 0.4.2 <br/>
+                        - Fix the issue that FIR and Tracon popup not display all controllers <br/>
+                        - Improve the matching logic to include some missing Tracons <br/>
+                        - Added display all FIRs boundaries on the map <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
                 Known Issues
                 <div>---</div>
+                <div>
+                    - Map Pitch not reset sometimes after switching terrain mode on to off.
+                </div>
                 <div className="flex flex-col gap-3"/>
             </div>
         </CustomProvider>
