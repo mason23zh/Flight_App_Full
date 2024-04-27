@@ -33,6 +33,7 @@ import {
     toggleMapStyleButton,
     toggleMapFilterButton,
     toggleTerrainLabel,
+    toggleUnderlineFirBoundaries,
     switchMapStyles
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -150,6 +151,7 @@ export {
     toggleMapFilterButton,
     toggleMapStyleButton,
     toggleTerrainLabel,
+    toggleUnderlineFirBoundaries,
     switchMapStyles
 };
 

@@ -13,6 +13,7 @@ const initialState: VatsimMapVisibleState = {
     controllerMarkerVisible: true,
     traconLabelVisible: true,
     firLabelVisible: true,
+    underlineFirBoundaries: true,
     mapRoadVisible: false,
     trackLayerVisible: false,
     trafficLayerVisible: true,
@@ -60,6 +61,9 @@ const vatsimMapVisibleSlice = createSlice({
         toggleMapRoadLabel(state, action) {
             state.mapRoadVisible = action.payload;
         },
+        toggleUnderlineFirBoundaries(state, action) {
+            state.underlineFirBoundaries = action.payload;
+        },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
             if (action.payload && state.mapFilterButtonToggle) {
@@ -87,6 +91,7 @@ export const {
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     switchMapStyles,
-    toggleTerrainLabel
+    toggleTerrainLabel,
+    toggleUnderlineFirBoundaries,
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

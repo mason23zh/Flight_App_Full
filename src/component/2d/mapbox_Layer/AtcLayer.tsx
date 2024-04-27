@@ -18,7 +18,8 @@ const AtcLayer = () => {
     const dispatch = useDispatch();
 
     const {
-        allAtcLayerVisible
+        allAtcLayerVisible,
+        underlineFirBoundaries
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     //update controller info every 60 seconds
@@ -64,7 +65,7 @@ const AtcLayer = () => {
 
     return (
         <>
-            <FirUnderlineLayer geoJsonData={geoJsonData}/>
+            {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
             {allAtcLayerVisible && (<>
                 <FirLayer geoJsonData={geoJsonData} controllerInfo={testData} labelVisible={true}/>
                 <TraconLayer controllerInfo={testData} labelVisible={true}/>

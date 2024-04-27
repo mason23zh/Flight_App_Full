@@ -388,6 +388,7 @@ interface VatsimMapVisibleState {
     controllerMarkerVisible: boolean;
     traconLabelVisible: boolean;
     firLabelVisible: boolean;
+    underlineFirBoundaries: boolean;
     mapRoadVisible: boolean;
     trackLayerVisible: boolean;
     trafficLayerVisible: boolean;

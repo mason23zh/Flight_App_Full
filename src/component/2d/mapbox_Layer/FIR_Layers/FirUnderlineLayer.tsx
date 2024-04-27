@@ -20,4 +20,4 @@ const FirUnderlineLayer = ({ geoJsonData }: FirUnderlineLayerProps) => {
     }
 };
 
-export default FirUnderlineLayer;
+export default React.memo(FirUnderlineLayer);

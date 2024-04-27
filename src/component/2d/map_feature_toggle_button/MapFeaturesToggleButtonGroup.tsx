@@ -4,13 +4,13 @@ import switchMapLabels from "../switchMapLabels";
 import switchMapRoads from "../switchMapRoads";
 import { Toggle } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, toggleMapLabel, toggleMapRoadLabel } from "../../../store";
+import { RootState, toggleMapLabel, toggleMapRoadLabel, toggleUnderlineFirBoundaries } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
-type Tag = "LABEL" | "ROAD" | "BUILDING";
+type Tag = "LABEL" | "ROAD" | "BUILDING" | "FIR";
 
 const MapFeaturesToggleButtonGroup = ({
     mapRef
@@ -19,6 +19,7 @@ const MapFeaturesToggleButtonGroup = ({
     const {
         mapLabelVisible,
         mapRoadVisible,
+        underlineFirBoundaries,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
@@ -73,6 +74,8 @@ const MapFeaturesToggleButtonGroup = ({
         case "ROAD":
             dispatch(toggleMapRoadLabel(checked));
             break;
+        case "FIR":
+            dispatch(toggleUnderlineFirBoundaries(checked));
         }
     };
 
@@ -88,11 +91,18 @@ const MapFeaturesToggleButtonGroup = ({
                         checked={mapLabelVisible}
                         onChange={(checked) => handleOnChange("LABEL", checked)}/>
                 </div>
-                <div className="flex justify-between p-1 ml-2 mr-2">
+                <div className="flex justify-between p-1 ml-2 mr-2 border-b">
                     <div>Road</div>
                     <Toggle
                         checked={mapRoadVisible}
                         onChange={(checked) => handleOnChange("ROAD", checked)}
+                    />
+                </div>
+                <div className="flex justify-between p-1 ml-2 mr-2">
+                    <div>Fir Boundaries</div>
+                    <Toggle
+                        checked={underlineFirBoundaries}
+                        onChange={(checked) => handleOnChange("FIR", checked)}
                     />
                 </div>
             </div>
