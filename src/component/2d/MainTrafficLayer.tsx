@@ -15,6 +15,7 @@ import {
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
+import { getDayNightTerminator } from "./mapbox_Layer/util/getDayNightTerminator";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -31,7 +32,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-
     const {
         data: trackData,
         error: trackError,
@@ -39,24 +39,13 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
         skip: !selectTraffic
     });
-    //
+
     const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
-    // const trafficLayer2D = trafficLayer_2D(vatsimPilots, !terrainEnable);
 
     // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
         return trafficLayer_2D(vatsimPilots, !terrainEnable);
     }, [terrainEnable, vatsimPilots]);
-    // const trafficLayer3D = useMemo(() => {
-    //     return trafficLayer_3D(vatsimPilots, terrainEnable);
-    // }, [terrainEnable, vatsimPilots]);
-
-    //
-    // const trafficLayer3D = useMemo(() => {
-    //     if (terrainEnable) {
-    //         return trafficLayer_3D(vatsimPilots, true);
-    //     }
-    // }, [vatsimPilots, terrainEnable]);
 
 
     useEffect(() => {
@@ -117,9 +106,9 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
                 }
             }}
             onHover={({ object }) => (isHovering = Boolean(object))}
-            getCursor={({ isDragging }) => (isDragging ? "pointer" : (isHovering ? "pointer" : "grab"))}
+            getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
         />
     );
 };
 
-export default MainTrafficLayer;
+export default React.memo(MainTrafficLayer);

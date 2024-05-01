@@ -8,6 +8,7 @@ import FlightInfo from "../detail_flight_info_panel/FlightInfo";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { VatsimFlight } from "../../../types";
+import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 
 
 const MainMap = () => {
@@ -20,6 +21,7 @@ const MainMap = () => {
                 <AtcLayer/>
                 <BaseTrafficLayer/>
                 <NexradLayer/>
+                {/* <DayNightLayer/> */}
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
             </BaseMap>
         </div>

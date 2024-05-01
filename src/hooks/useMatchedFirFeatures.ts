@@ -26,12 +26,6 @@ const useMatchedFirFeatures = (
         features: []
     });
 
-    // The fetch vatsim Fir Boundaries Request been moved to the AtcLayer
-    // const {
-    //     data: geoJsonData,
-    //     error: geoJsonError,
-    //     isLoading: geoJsonLoading
-    // } = useFetchVatsimFirBoundariesQuery();
     const {
         data: firData,
         error: firError,
@@ -83,7 +77,7 @@ const useMatchedFirFeatures = (
                 const firKey = Object.keys(matchedFirs)
                     .find(key => matchedFirs[key].firInfo.fir === feature.properties.id);
                 if (firKey) {
-                    const uniqueFeatureKey = `${feature.properties.id}-${firKey}`;
+                    const uniqueFeatureKey = `${feature.properties.id}-${firKey}`; // create an unique key
                     if (!features.some(f => f.key === uniqueFeatureKey)) { // Check for unique key
                         features.push({
                             ...feature,

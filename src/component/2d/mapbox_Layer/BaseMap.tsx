@@ -4,6 +4,7 @@ import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
+import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -17,6 +18,7 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
+
 
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
     useEffect(() => {
@@ -57,6 +59,7 @@ const BaseMap = ({ children }) => {
         });
     }, []);
 
+
     // default projection: mercator
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
@@ -64,7 +67,8 @@ const BaseMap = ({ children }) => {
                 id="mainMap"
                 ref={mapRef}
                 projection={{ name: "mercator" }}
-                cursor={"pointer"}
+                cursor={"auto"}
+
                 {...viewState} // to reset the pitch and bearing
                 dragRotate={terrainEnable}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
@@ -89,6 +93,7 @@ const BaseMap = ({ children }) => {
                     />
                 }
                 <TogglePanel mapRef={mapRef}/>
+                <DayNightLayer map={mapRef}/>
                 <NavigationControl position="bottom-left"/>
                 {AirportLayers}
                 {children}

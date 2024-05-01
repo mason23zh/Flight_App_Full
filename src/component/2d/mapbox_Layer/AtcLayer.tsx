@@ -67,8 +67,8 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
             {allAtcLayerVisible && (<>
-                <FirLayer geoJsonData={geoJsonData} controllerInfo={testData} labelVisible={true}/>
-                <TraconLayer controllerInfo={testData} labelVisible={true}/>
+                <FirLayer geoJsonData={geoJsonData} controllerInfo={controllerData} labelVisible={true}/>
+                <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
                 <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
             </>)
             }
