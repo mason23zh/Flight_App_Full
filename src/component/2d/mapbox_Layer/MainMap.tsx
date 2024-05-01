@@ -21,7 +21,7 @@ const MainMap = () => {
                 <AtcLayer/>
                 <BaseTrafficLayer/>
                 <NexradLayer/>
-                {/* <DayNightLayer/> */}
+                <DayNightLayer/>
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
             </BaseMap>
         </div>

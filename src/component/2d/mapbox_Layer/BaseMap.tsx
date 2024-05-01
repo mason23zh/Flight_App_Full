@@ -93,7 +93,6 @@ const BaseMap = ({ children }) => {
                     />
                 }
                 <TogglePanel mapRef={mapRef}/>
-                <DayNightLayer map={mapRef}/>
                 <NavigationControl position="bottom-left"/>
                 {AirportLayers}
                 {children}
