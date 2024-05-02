@@ -53,7 +53,8 @@ function NavbarDropDown() {
                     Map
                 </Dropdown.Item>
                 <Dropdown.Item as={NavLink} href="/about">About</Dropdown.Item>
-                <Dropdown.Item divider/>
+                {/* <Dropdown.Item divider/> */}
+                <Dropdown.Separator/>
                 <Dropdown.Item>
                     <div
                         className="flex flex-row justify-center items-center gap-4"
