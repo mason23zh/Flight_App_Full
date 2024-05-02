@@ -132,7 +132,8 @@ function ChangeLog() {
                         Beta 0.4.2 <br/>
                         - Fix the issue that FIR and Tracon popup not display all controllers <br/>
                         - Improve the matching logic to include some missing Tracons <br/>
-                        - Added display all FIRs boundaries on the map <br/>
+                        - Added a map layer to display all FIRs boundaries <br/>
+                        - Added a map layer to display global day-night terminator <br/>
                     </div>
                 </div>
             </div>

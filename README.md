@@ -121,4 +121,5 @@
 
 - Fix the issue that FIR and Tracon popup not display all controllers
 - Improve the matching logic to include some missing Tracons
-- Added display all FIRs boundaries on the map
+- Added a map layer to display all FIRs boundaries
+- Added a map layer to display global day-night terminator
