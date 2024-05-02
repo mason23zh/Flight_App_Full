@@ -398,6 +398,7 @@ interface VatsimMapVisibleState {
     mapStyleButtonToggle: boolean;
     mapFilterButtonToggle: boolean;
     terrainEnable: boolean;
+    dayNightTerminator: boolean;
     mapStyles: MapStyles;
 }
 

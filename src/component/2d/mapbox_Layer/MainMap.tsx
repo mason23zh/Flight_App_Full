@@ -14,6 +14,10 @@ import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
+
+    const { dayNightTerminator } =
+            useSelector((state: RootState) => state.vatsimMapVisible);
+
     return (
         <div className="">
             <BaseMap>
@@ -21,7 +25,7 @@ const MainMap = () => {
                 <AtcLayer/>
                 <BaseTrafficLayer/>
                 <NexradLayer/>
-                <DayNightLayer/>
+                {dayNightTerminator && <DayNightLayer/>}
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
             </BaseMap>
         </div>

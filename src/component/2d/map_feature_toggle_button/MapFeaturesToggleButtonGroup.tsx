@@ -4,13 +4,19 @@ import switchMapLabels from "../switchMapLabels";
 import switchMapRoads from "../switchMapRoads";
 import { Toggle } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, toggleMapLabel, toggleMapRoadLabel, toggleUnderlineFirBoundaries } from "../../../store";
+import {
+    RootState,
+    toggleDayNightTerminator,
+    toggleMapLabel,
+    toggleMapRoadLabel,
+    toggleUnderlineFirBoundaries
+} from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
-type Tag = "LABEL" | "ROAD" | "BUILDING" | "FIR";
+type Tag = "LABEL" | "ROAD" | "BUILDING" | "FIR" | "DAY_NIGHT_TERMINATOR";
 
 const MapFeaturesToggleButtonGroup = ({
     mapRef
@@ -20,6 +26,7 @@ const MapFeaturesToggleButtonGroup = ({
         mapLabelVisible,
         mapRoadVisible,
         underlineFirBoundaries,
+        dayNightTerminator
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
@@ -76,6 +83,10 @@ const MapFeaturesToggleButtonGroup = ({
             break;
         case "FIR":
             dispatch(toggleUnderlineFirBoundaries(checked));
+            break;
+        case "DAY_NIGHT_TERMINATOR":
+            dispatch(toggleDayNightTerminator(checked));
+            break;
         }
     };
 
@@ -98,11 +109,18 @@ const MapFeaturesToggleButtonGroup = ({
                         onChange={(checked) => handleOnChange("ROAD", checked)}
                     />
                 </div>
-                <div className="flex justify-between p-1 ml-2 mr-2">
+                <div className="flex justify-between p-1 ml-2 mr-2 border-b">
                     <div>Fir Boundaries</div>
                     <Toggle
                         checked={underlineFirBoundaries}
                         onChange={(checked) => handleOnChange("FIR", checked)}
+                    />
+                </div>
+                <div className="flex justify-between p-1 ml-2 mr-2">
+                    <div>Day Night Terminator</div>
+                    <Toggle
+                        checked={dayNightTerminator}
+                        onChange={(checked) => handleOnChange("DAY_NIGHT_TERMINATOR", checked)}
                     />
                 </div>
             </div>

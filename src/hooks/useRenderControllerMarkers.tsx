@@ -78,7 +78,7 @@ const colClassMap = {
 const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
-    console.log("controller info:", controllerInfo);
+    // console.log("controller info:", controllerInfo);
 
 
     useEffect(() => {
