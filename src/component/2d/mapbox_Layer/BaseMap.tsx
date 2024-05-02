@@ -4,7 +4,6 @@ import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -60,7 +59,10 @@ const BaseMap = ({ children }) => {
     }, []);
 
 
-    // default projection: mercator
+    /*
+    * Default Projection: mercator
+    * Unable to use globe as Projection due to mapbox api limitation
+    */
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map

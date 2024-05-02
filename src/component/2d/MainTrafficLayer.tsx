@@ -15,7 +15,6 @@ import {
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
-import { getDayNightTerminator } from "./mapbox_Layer/util/getDayNightTerminator";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -80,7 +79,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
 
     const layers = useMemo(() => [
-        trackLayer, // Always included, assuming it's a defined layer or null if no data
+        trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D
     ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic]);
 
@@ -88,7 +87,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         <DeckGlOverlay
             interleaved={true}
             onClick={(info: PickedTraffic) => deckOnClick(info)}
-            // layers={terrainEnable ? [trackLayer, trafficLayer3D] : [trackLayer, trafficLayer2D]}
             layers={layers}
             pickingRadius={10}
 

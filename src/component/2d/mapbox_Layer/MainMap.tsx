@@ -19,7 +19,7 @@ const MainMap = () => {
             useSelector((state: RootState) => state.vatsimMapVisible);
 
     return (
-        <div className="">
+        <div>
             <BaseMap>
                 <MapErrorMessageStack/>
                 <AtcLayer/>
