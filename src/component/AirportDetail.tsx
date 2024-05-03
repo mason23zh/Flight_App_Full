@@ -10,8 +10,6 @@ import AirportMap from "./AirportMap";
 import AirportDetailNameSection from "./AirportDetailNameSection";
 import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
-import AirportDetailTrafficWidget from "./AirportDetailTrafficWidget";
-// import { useFetchDetailAirportWithICAO_WidgetQuery } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
 import NoMatch from "./NoMatch";
@@ -26,8 +24,6 @@ function AirportDetail() {
     const navigate = useNavigate();
     const [airport, setAirport] = useState<DbAirport>();
     const [metar, setMetar] = useState({});
-    // const [skipRender, setSkipRender] = useState(true);
-    const [widgetAvailable, setWidgetAvailable] = useState(false);
     const [ATIS, setATIS] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -86,73 +82,7 @@ function AirportDetail() {
             requestAirportAndSetLocal(paramICAO.toUpperCase(), true)
                 .catch();
         }
-
-
-        // This is for airport departure and arrival information
-        // if (airportData && !airportData?.flag) {
-        //     setAirport(airportData);
-        //     setSkipRender(false);
-        // } else if (airportData && airportData.flag === true) {
-        //     const requestAirport = async (storageICAO) => {
-        //         try {
-        //             const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${storageICAO}?decode=true`);
-        //             if (response) {
-        //                 setAirport(response.data.data[0].airport);
-        //             }
-        //         } catch (e) {
-        //             navigate("/airport");
-        //         }
-        //     };
-        //     requestAirport(airportData.ICAO).catch();
-        //     setSkipRender(false);
-        // }
     }, []);
-
-    // !this is a redundant request, but needed to be here because we need to check the widget availability
-    // !from the server, and passing wind data to Runway Table
-    // !code refactor required
-    // const {
-    //     data: widgetData,
-    //     error: widgetError,
-    //     isFetching: widgetFetching,
-    // } = useFetchDetailAirportWithICAO_WidgetQuery({ icao: airport?.ICAO, decode: true }, {
-    //     skip: skipRender,
-    //     refetchOnMountOrArgChange: true,
-    // });
-    //
-    // useEffect(() => {
-    //     if (widgetData) {
-    //         if (widgetData.results > 0) {
-    //             // check widget
-    //             if (!widgetData.data[0].widget || widgetData.data[0].widget === false) {
-    //                 setWidgetAvailable(false);
-    //             } else {
-    //                 setWidgetAvailable(true);
-    //             }
-    //
-    //             // check METAR
-    //             if (widgetData.data[0].METAR) {
-    //                 setMetar(widgetData.data[0].METAR);
-    //             }
-    //
-    //             // check ATIS
-    //             if (widgetData.data[0].ATIS) {
-    //                 console.log(widgetData.data[0].ATIS);
-    //                 setATIS(widgetData.data[0].ATIS);
-    //             }
-    //         }
-    //     }
-    // }, [widgetData]);
-
-    const renderWidget = () => {
-        if (widgetAvailable) {
-            return (
-                <div className="mt-5 w-full tableShrinkAgain:w-[1000px] transform transition-all ease-in-out duration-300">
-                    <AirportDetailTrafficWidget iata={airport.iata} airportName={airport.station.name}/>
-                </div>
-            );
-        }
-    };
 
     const themeMode = darkMode ? "dark" : "light";
     if (airport) {
@@ -200,11 +130,6 @@ function AirportDetail() {
                     <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
                         <div className="">
                             <AirportMap lat={lat} lng={lng} name={name}/>
-                            {/* TEST for adding deck-gl to airport detail page */}
-                            {/* <div style={{ height: "40vh", width: "80vw", position: "relative" }}> */}
-                            {/*        */}
-                            {/*    <DeckGlTest /> */}
-                            {/* </div> */}
                         </div>
                     </div>
 
@@ -229,7 +154,6 @@ function AirportDetail() {
                     <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
                         <AirportDetailRunwayTable runways={airport.runways} metar={metar}/>
                     </div>
-                    <div className="ml-3 mr-3 p-2 justify-self-center">{renderWidget()}</div>
                 </div>
             </CustomProvider>
         );
