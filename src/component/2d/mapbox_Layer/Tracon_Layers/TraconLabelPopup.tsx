@@ -16,19 +16,34 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
         lon = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][0]);
         lat = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][1]);
     }
-    const controllerName = hoverTracon.features[0].properties.controllerInfo.name;
-    const logon_time = hoverTracon.features[0].properties.controllerInfo.logon_time;
-    const freq = hoverTracon.features[0].properties.controllerInfo.frequency;
-    const controllerCallsign = hoverTracon.features[0].properties.controllerInfo.callsign;
-    const traconName = hoverTracon.features[0].properties.name;
 
+    const traconName = hoverTracon.features[0].properties.name;
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
-    const {
-        hour,
-        minute
-    } = returnOnlineTime(logon_time);
+    const renderControllersData = hoverTracon.features[0].properties.controllers.map((c) => {
+        const {
+            hour,
+            minute
+        } = returnOnlineTime(c.logon_time);
+
+        return (
+            <div key={c.name} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
+                <div className="">
+                    {c.callsign}
+                </div>
+                <div className="">
+                    {c.name}
+                </div>
+                <div className={`font-bold ${freqThemeColor}`}>
+                    {c.frequency}
+                </div>
+                <div className="">
+                    {hour}:{minute}
+                </div>
+            </div>
+        );
+    });
 
     return (
         <Popup
@@ -46,20 +61,7 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
                 </div>
 
                 <div className="w-full">
-                    <div className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                        <div className="">
-                            {controllerCallsign}
-                        </div>
-                        <div className="">
-                            {controllerName}
-                        </div>
-                        <div className={`font-bold ${freqThemeColor}`}>
-                            {freq}
-                        </div>
-                        <div className="">
-                            {hour}:{minute}
-                        </div>
-                    </div>
+                    {renderControllersData}
                 </div>
             </div>
         </Popup>

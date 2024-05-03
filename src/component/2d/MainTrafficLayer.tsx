@@ -31,7 +31,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-
     const {
         data: trackData,
         error: trackError,
@@ -39,24 +38,13 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
         skip: !selectTraffic
     });
-    //
+
     const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
-    // const trafficLayer2D = trafficLayer_2D(vatsimPilots, !terrainEnable);
 
     // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
         return trafficLayer_2D(vatsimPilots, !terrainEnable);
     }, [terrainEnable, vatsimPilots]);
-    // const trafficLayer3D = useMemo(() => {
-    //     return trafficLayer_3D(vatsimPilots, terrainEnable);
-    // }, [terrainEnable, vatsimPilots]);
-
-    //
-    // const trafficLayer3D = useMemo(() => {
-    //     if (terrainEnable) {
-    //         return trafficLayer_3D(vatsimPilots, true);
-    //     }
-    // }, [vatsimPilots, terrainEnable]);
 
 
     useEffect(() => {
@@ -91,7 +79,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
 
     const layers = useMemo(() => [
-        trackLayer, // Always included, assuming it's a defined layer or null if no data
+        trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D
     ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic]);
 
@@ -99,7 +87,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         <DeckGlOverlay
             interleaved={true}
             onClick={(info: PickedTraffic) => deckOnClick(info)}
-            // layers={terrainEnable ? [trackLayer, trafficLayer3D] : [trackLayer, trafficLayer2D]}
             layers={layers}
             pickingRadius={10}
 
@@ -117,9 +104,9 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
                 }
             }}
             onHover={({ object }) => (isHovering = Boolean(object))}
-            getCursor={({ isDragging }) => (isDragging ? "pointer" : (isHovering ? "pointer" : "grab"))}
+            getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
         />
     );
 };
 
-export default MainTrafficLayer;
+export default React.memo(MainTrafficLayer);

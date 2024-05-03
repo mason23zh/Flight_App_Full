@@ -15,16 +15,17 @@ import GeoJson from "geojson";
 interface Controller {
     controllerInfo: VatsimControllers;
     labelVisible: boolean;
+    geoJsonData: GeoJson.FeatureCollection;
 }
 
 
 const FirLayer = ({
     controllerInfo,
-    labelVisible
+    labelVisible,
+    geoJsonData
 }: Controller) => {
 
     const dispatch = useDispatch();
-
 
     const {
         geoJsonFeatures,
@@ -33,6 +34,7 @@ const FirLayer = ({
         error
     } = useMatchedFirFeatures(
         controllerInfo,
+        geoJsonData
     );
     useEffect(() => {
         if (isLoading) {

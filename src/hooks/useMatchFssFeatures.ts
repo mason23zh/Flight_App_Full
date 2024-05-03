@@ -1,6 +1,7 @@
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
 import { useState } from "react";
+import { useFetchVatsimFssQuery } from "../store";
 
 const useMatchFssFeatures = (
     controllerInfo: VatsimControllers,

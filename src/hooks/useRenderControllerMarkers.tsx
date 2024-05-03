@@ -78,6 +78,7 @@ const colClassMap = {
 const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
+    // console.log("controller info:", controllerInfo);
 
 
     useEffect(() => {
@@ -189,7 +190,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
             const icao = <div className="font-semibold opacity-80 text-gray-50">
                 {a.icao}
             </div>;
- 
+
             return (
                 <Marker
                     style={{ zIndex: 10 }}

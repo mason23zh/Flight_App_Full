@@ -109,4 +109,17 @@
 - Added Vatsim event feature
 - Fix the issue if no localStorage data enter new ICAO in airport detail page will direct
   back to home page
-- Fix container height issue when using 100% viewport in some components 
+- Fix container height issue when using 100% viewport in some components
+
+# Beta 0.4.1
+
+- Vite migration
+- Added Interactive map
+- Fix theme not correctly apply issue
+
+# Beta 0.4.2
+
+- Fix the issue that FIR and Tracon popup not display all controllers
+- Improve the matching logic to include some missing Tracons
+- Added a map layer to display all FIRs boundaries
+- Added a map layer to display global day-night terminator

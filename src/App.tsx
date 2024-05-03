@@ -12,15 +12,10 @@ import AirportDetail from "./component/AirportDetail";
 import ScrollToTop from "./component/ScrollToTop";
 import VatsimEventsAll from "./component/VatsimEventsAll";
 import VatsimEventDetail from "./component/VatsimEventDetail";
-import MainMap from "./component/2d/mapbox_Layer/MainMap";
-import { useTheme } from "./hooks/ThemeContext";
-import { CustomProvider } from "rsuite";
-// TODO: change all request using rtk query
 
 const Orion = lazy(() => import("./component/Orion"));
 const Puzzles = lazy(() => import("./component/Puzzles"));
-
-// const MainMap = lazy(() => import("./component/2d/mapbox_Layer/MainMap"));
+const MainMap = lazy(() => import("./component/2d/mapbox_Layer/MainMap"));
 
 
 function App() {
@@ -37,7 +32,6 @@ function App() {
                     <Route path="changelog" element={<ChangeLog/>}/>
                     <Route path="vatsim/events" element={<VatsimEventsAll/>}/>
                     <Route path="vatsim/events/:name" element={<VatsimEventDetail onlyDetail/>}/>
-                    <Route path="map" element={<MainMap/>}/>
                     <Route path="*" element={<NoMatch/>}/>
 
                     {/*Lazy loaded routes*/}
@@ -57,15 +51,14 @@ function App() {
                         }
                     />
 
-
-                    {/* <Route */}
-                    {/*     path="2d" */}
-                    {/*     element={ */}
-                    {/*         <Suspense fallback={<div>Loading...</div>}> */}
-                    {/*             <MainMap/> */}
-                    {/*         </Suspense> */}
-                    {/*     } */}
-                    {/* /> */}
+                    <Route
+                        path="map"
+                        element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <MainMap/>
+                            </Suspense>
+                        }
+                    />
 
                 </Route>
             </Routes>

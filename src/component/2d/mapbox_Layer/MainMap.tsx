@@ -8,18 +8,24 @@ import FlightInfo from "../detail_flight_info_panel/FlightInfo";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { VatsimFlight } from "../../../types";
+import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 
 
 const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
+
+    const { dayNightTerminator } =
+            useSelector((state: RootState) => state.vatsimMapVisible);
+
     return (
-        <div className="">
+        <div>
             <BaseMap>
                 <MapErrorMessageStack/>
                 <AtcLayer/>
                 <BaseTrafficLayer/>
                 <NexradLayer/>
+                {dayNightTerminator && <DayNightLayer/>}
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
             </BaseMap>
         </div>

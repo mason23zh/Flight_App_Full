@@ -18,6 +18,7 @@ const BaseMap = ({ children }) => {
         bearing: 0,
     });
 
+
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
     useEffect(() => {
         if (!terrainEnable) {
@@ -57,14 +58,19 @@ const BaseMap = ({ children }) => {
         });
     }, []);
 
-    // default projection: mercator
+
+    /*
+    * Default Projection: mercator
+    * Unable to use globe as Projection due to mapbox api limitation
+    */
     return (
         <div onContextMenu={evt => evt.preventDefault()}>
             <Map
                 id="mainMap"
                 ref={mapRef}
                 projection={{ name: "mercator" }}
-                cursor={"pointer"}
+                cursor={"auto"}
+
                 {...viewState} // to reset the pitch and bearing
                 dragRotate={terrainEnable}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}

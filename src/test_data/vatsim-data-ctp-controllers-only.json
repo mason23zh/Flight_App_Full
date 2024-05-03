@@ -1,0 +1,1720 @@
+{
+    "fir": [
+        {
+            "fir": "CZUL",
+            "name": "Dominique Septembre",
+            "cid": 1112111,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "MTL_TH_CTR",
+            "frequency": "128.775",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.4557885Z",
+            "logon_time": "2024-04-20T13:58:30.0441209Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Michel Robichaud",
+            "cid": 1423228,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "MTL_LE_CTR",
+            "frequency": "123.925",
+            "visual_range": 151,
+            "last_updated": "2024-04-20T20:29:51.7818422Z",
+            "logon_time": "2024-04-20T14:25:43.8534911Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Michal Majerczuk",
+            "cid": 1091056,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "MTL_MC_CTR",
+            "frequency": "132.625",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:40.8462616Z",
+            "logon_time": "2024-04-20T14:42:36.506029Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Thomas",
+            "cid": 1505007,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "MTL_FG_CTR",
+            "frequency": "134.325",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:50.6385638Z",
+            "logon_time": "2024-04-20T15:47:36.1968604Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Guillaume Therien",
+            "cid": 1346608,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "MTL_GR_CTR",
+            "frequency": "132.350",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:39.6687136Z",
+            "logon_time": "2024-04-20T18:21:58.2624792Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "1458012",
+            "cid": 1458012,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "MTL_NR_CTR",
+            "frequency": "133.975",
+            "visual_range": 300,
+            "last_updated": "2024-04-20T20:29:48.8763654Z",
+            "logon_time": "2024-04-20T18:54:09.18115Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Cody Newman",
+            "cid": 1442820,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "MTL_BZ_CTR",
+            "frequency": "134.850",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:48.6693995Z",
+            "logon_time": "2024-04-20T19:50:08.5487488Z"
+        },
+        {
+            "fir": "CZUL",
+            "name": "Basile P",
+            "cid": 1583410,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "MTL_AY_CTR",
+            "frequency": "134.400",
+            "visual_range": 241,
+            "last_updated": "2024-04-20T20:29:47.7012684Z",
+            "logon_time": "2024-04-20T20:12:53.9524172Z"
+        },
+        {
+            "fir": "CZYZ",
+            "name": "Jesse Patchett",
+            "cid": 839743,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "TOR_XI_CTR",
+            "frequency": "121.225",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:47.2884351Z",
+            "logon_time": "2024-04-20T17:01:42.6407651Z"
+        },
+        {
+            "fir": "CZYZ",
+            "name": "Kyle Tam",
+            "cid": 1385156,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "TOR_GR_CTR",
+            "frequency": "133.300",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:45.0272563Z",
+            "logon_time": "2024-04-20T19:30:38.2489092Z"
+        },
+        {
+            "fir": "CZYZ",
+            "name": "875689",
+            "cid": 875689,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "TOR_PI1_CTR",
+            "frequency": "124.675",
+            "visual_range": 350,
+            "last_updated": "2024-04-20T20:29:46.8013105Z",
+            "logon_time": "2024-04-20T19:41:41.6881419Z"
+        },
+        {
+            "fir": "CZYZ",
+            "name": "bryan",
+            "cid": 1367113,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "TOR_SH1_CTR",
+            "frequency": "134.425",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:49.276948Z",
+            "logon_time": "2024-04-20T19:50:42.0073162Z"
+        },
+        {
+            "fir": "CZYZ",
+            "name": "Dustin Pasch",
+            "cid": 1352651,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "TOR_CE1_CTR",
+            "frequency": "125.775",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:45.6381538Z",
+            "logon_time": "2024-04-20T20:05:25.9782417Z"
+        },
+        {
+            "fir": "EDMM",
+            "name": "JD",
+            "cid": 1611428,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EDMM_HOF_CTR",
+            "frequency": "133.565",
+            "visual_range": 300,
+            "last_updated": "2024-04-20T20:29:40.89671Z",
+            "logon_time": "2024-04-20T18:17:19.8756133Z"
+        },
+        {
+            "fir": "EDMM",
+            "name": "Thorsten Zoerner",
+            "cid": 906808,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EDMM_GER_CTR",
+            "frequency": "133.230",
+            "visual_range": 103,
+            "last_updated": "2024-04-20T20:29:49.6000896Z",
+            "logon_time": "2024-04-20T19:57:35.1667936Z"
+        },
+        {
+            "fir": "EDWW",
+            "name": "Janus",
+            "cid": 1413802,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EDWW_B_CTR",
+            "frequency": "123.225",
+            "visual_range": 300,
+            "last_updated": "2024-04-20T20:29:47.0947309Z",
+            "logon_time": "2024-04-20T18:36:06.3708709Z"
+        },
+        {
+            "fir": "EKDK",
+            "name": "Krister Larsen",
+            "cid": 1340812,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "EKDK_CTR",
+            "frequency": "136.485",
+            "visual_range": 450,
+            "last_updated": "2024-04-20T20:29:58.5448833Z",
+            "logon_time": "2024-04-20T20:21:02.5348243Z"
+        },
+        {
+            "fir": "ENOR",
+            "name": "Jannik Huttenlocher",
+            "cid": 1456952,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ENOR_S_CTR",
+            "frequency": "121.550",
+            "visual_range": 316,
+            "last_updated": "2024-04-20T20:29:55.3261937Z",
+            "logon_time": "2024-04-20T20:06:08.204333Z"
+        },
+        {
+            "fir": "ESMM",
+            "name": "Thomas Ljung",
+            "cid": 1253198,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ESMM_2_CTR",
+            "frequency": "127.755",
+            "visual_range": 250,
+            "last_updated": "2024-04-20T20:29:47.9731645Z",
+            "logon_time": "2024-04-20T16:42:20.4684971Z"
+        },
+        {
+            "fir": "FACA",
+            "name": "Drikus Jansen Van Vuuren",
+            "cid": 1429343,
+            "facility": 6,
+            "rating": 4,
+            "callsign": "FACA_CTR",
+            "frequency": "125.100",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:45.8378585Z",
+            "logon_time": "2024-04-20T17:57:45.9385923Z"
+        },
+        {
+            "fir": "KZAB",
+            "name": "Connor Gibson",
+            "cid": 1377311,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "ABQ_16_CTR",
+            "frequency": "132.800",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5964075Z",
+            "logon_time": "2024-04-20T19:02:49.6805449Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "Dustin R",
+            "cid": 914093,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "CHI_64_CTR",
+            "frequency": "133.300",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5882936Z",
+            "logon_time": "2024-04-20T18:01:37.287712Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "John M",
+            "cid": 1399408,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "CHI_35_CTR",
+            "frequency": "134.875",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5878069Z",
+            "logon_time": "2024-04-20T18:07:46.9524527Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "Jawaun Magee",
+            "cid": 1165529,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "CHI_75_CTR",
+            "frequency": "127.775",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5960412Z",
+            "logon_time": "2024-04-20T18:09:58.5690281Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "Colton",
+            "cid": 1464080,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "CHI_89_CTR",
+            "frequency": "126.475",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5870216Z",
+            "logon_time": "2024-04-20T18:24:00.6712609Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "Vince A",
+            "cid": 1145296,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "CHI_44_CTR",
+            "frequency": "120.125",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5885976Z",
+            "logon_time": "2024-04-20T19:01:14.8548488Z"
+        },
+        {
+            "fir": "KZAU",
+            "name": "1290675",
+            "cid": 1290675,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "CHI_351_CTR",
+            "frequency": "134.875",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5893331Z",
+            "logon_time": "2024-04-20T20:19:01.4948017Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "1417899",
+            "cid": 1417899,
+            "facility": 6,
+            "rating": 10,
+            "callsign": "BOS_3_CTR",
+            "frequency": "134.950",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.58986Z",
+            "logon_time": "2024-04-20T16:13:56.7245927Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "David Roderick",
+            "cid": 1430265,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_5_CTR",
+            "frequency": "124.125",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5946427Z",
+            "logon_time": "2024-04-20T16:14:41.6288549Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "1468995",
+            "cid": 1468995,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_1_CTR",
+            "frequency": "133.450",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5962779Z",
+            "logon_time": "2024-04-20T17:30:31.5021409Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Patrick C",
+            "cid": 1343534,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_CTR",
+            "frequency": "128.050",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5958906Z",
+            "logon_time": "2024-04-20T18:03:13.5996313Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "1253785",
+            "cid": 1253785,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_6_CTR",
+            "frequency": "135.325",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5888949Z",
+            "logon_time": "2024-04-20T18:50:39.1388282Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Jamsheed Lovelace",
+            "cid": 1052572,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "BOS_7_CTR",
+            "frequency": "128.750",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5951311Z",
+            "logon_time": "2024-04-20T19:41:45.91345Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "1426527",
+            "cid": 1426527,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "BOS_4_CTR",
+            "frequency": "123.750",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5907436Z",
+            "logon_time": "2024-04-20T19:51:44.5789319Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Joshua Marshall",
+            "cid": 1326742,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_10_CTR",
+            "frequency": "132.300",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5955732Z",
+            "logon_time": "2024-04-20T19:56:04.5601848Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Sean Doyle",
+            "cid": 1333794,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_9_CTR",
+            "frequency": "134.000",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5978489Z",
+            "logon_time": "2024-04-20T20:07:26.5897966Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Braden Kearney",
+            "cid": 1475805,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_2_CTR",
+            "frequency": "128.200",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5908731Z",
+            "logon_time": "2024-04-20T20:16:44.3292526Z"
+        },
+        {
+            "fir": "KZBW",
+            "name": "Nathan Rankin",
+            "cid": 1374353,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "BOS_8_CTR",
+            "frequency": "123.750",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:30:01.1108545Z",
+            "logon_time": "2024-04-20T20:28:34.1318408Z"
+        },
+        {
+            "fir": "KZDC",
+            "name": "John Bartlett",
+            "cid": 1236623,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "DC_321_CTR",
+            "frequency": "133.725",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5871208Z",
+            "logon_time": "2024-04-20T15:49:43.9723314Z"
+        },
+        {
+            "fir": "KZDC",
+            "name": "Gia P",
+            "cid": 1299085,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "DC_12_CTR",
+            "frequency": "126.875",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5866962Z",
+            "logon_time": "2024-04-20T19:07:53.9288498Z"
+        },
+        {
+            "fir": "KZJX",
+            "name": "1337089",
+            "cid": 1337089,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "JAX_301_CTR",
+            "frequency": "135.925",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5906283Z",
+            "logon_time": "2024-04-20T20:10:31.5432219Z"
+        },
+        {
+            "fir": "KZLA",
+            "name": "Ben Anello",
+            "cid": 811680,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "LAX_55_CTR",
+            "frequency": "135.550",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5887799Z",
+            "logon_time": "2024-04-20T18:53:15.3389726Z"
+        },
+        {
+            "fir": "KZMP",
+            "name": "Kris Pierson",
+            "cid": 948429,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "MSP_12_CTR",
+            "frequency": "132.425",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5907291Z",
+            "logon_time": "2024-04-20T19:04:16.8769631Z"
+        },
+        {
+            "fir": "KZMP",
+            "name": "1240191",
+            "cid": 1240191,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "MSP_14_CTR",
+            "frequency": "125.825",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5947576Z",
+            "logon_time": "2024-04-20T19:05:18.0161445Z"
+        },
+        {
+            "fir": "KZMP",
+            "name": "1212890",
+            "cid": 1212890,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "MSP_11_CTR",
+            "frequency": "133.400",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5973959Z",
+            "logon_time": "2024-04-20T19:27:35.1459129Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Donald Desio",
+            "cid": 882554,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "NY_CTR",
+            "frequency": "125.325",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5910508Z",
+            "logon_time": "2024-04-20T16:58:22.5496829Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Milan",
+            "cid": 1452576,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "NY_W_CTR",
+            "frequency": "132.175",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5874606Z",
+            "logon_time": "2024-04-20T17:04:47.9040542Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Dean",
+            "cid": 1527171,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "NY_F1_CTR",
+            "frequency": "133.500",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5901615Z",
+            "logon_time": "2024-04-20T17:36:55.3904877Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Jan Galvez",
+            "cid": 1511350,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "NY_A1_CTR",
+            "frequency": "120.025",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5942239Z",
+            "logon_time": "2024-04-20T18:14:14.2375967Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Eriel Martinez",
+            "cid": 1348338,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "NY_42_CTR",
+            "frequency": "127.175",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5936547Z",
+            "logon_time": "2024-04-20T19:22:57.1046243Z"
+        },
+        {
+            "fir": "KZNY",
+            "name": "Logan Waldman",
+            "cid": 1332767,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "NY_F_CTR",
+            "frequency": "133.500",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5950253Z",
+            "logon_time": "2024-04-20T20:03:52.693365Z"
+        },
+        {
+            "fir": "KZOB",
+            "name": "Xintong Deng",
+            "cid": 1383935,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "CLE_481_CTR",
+            "frequency": "119.875",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.5964643Z",
+            "logon_time": "2024-04-20T18:59:45.2105466Z"
+        },
+        {
+            "fir": "KZTL",
+            "name": "Ford Grable",
+            "cid": 1560654,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ATL_1_CTR",
+            "frequency": "132.975",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.5869008Z",
+            "logon_time": "2024-04-20T20:05:07.6153647Z"
+        },
+        {
+            "fir": "MHCC",
+            "name": "Victor Venegas",
+            "cid": 1576856,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "MHCC_CTR",
+            "frequency": "135.500",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:57.9664661Z",
+            "logon_time": "2024-04-20T19:06:49.1012941Z"
+        },
+        {
+            "fir": "OEJD",
+            "name": "Salman",
+            "cid": 1597249,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "OEJD_1_CTR",
+            "frequency": "126.500",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:30:00.8123559Z",
+            "logon_time": "2024-04-20T20:13:51.9030667Z"
+        },
+        {
+            "fir": "SAEF",
+            "name": "Luis Constantino",
+            "cid": 1066630,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SAEF_CTR",
+            "frequency": "134.500",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:30:01.0881378Z",
+            "logon_time": "2024-04-20T19:54:52.752907Z"
+        },
+        {
+            "fir": "SBRE",
+            "name": "Marcelo Barretto",
+            "cid": 1277383,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "SBRE_N_CTR",
+            "frequency": "123.275",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:49.1897883Z",
+            "logon_time": "2024-04-20T17:20:44.2415543Z"
+        },
+        {
+            "fir": "SKEC",
+            "name": "Santiago Cuéllar Beltrán",
+            "cid": 1496502,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SKEC_CTR",
+            "frequency": "128.400",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:58.3132541Z",
+            "logon_time": "2024-04-20T19:03:00.8586777Z"
+        },
+        {
+            "fir": "SKED",
+            "name": "Cristian Rosas Vargas",
+            "cid": 878234,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SKED_NW_CTR",
+            "frequency": "123.700",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:39.37447Z",
+            "logon_time": "2024-04-20T19:59:29.6681619Z"
+        },
+        {
+            "fir": "SVZM",
+            "name": "Piero Alviarez",
+            "cid": 1105875,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SVZM_W_CTR",
+            "frequency": "123.800",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:48.8350936Z",
+            "logon_time": "2024-04-20T19:37:02.6457916Z"
+        },
+        {
+            "fir": "SVZM",
+            "name": "Joseph Sisco",
+            "cid": 1146565,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SVZM_E_CTR",
+            "frequency": "128.100",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:41.0337008Z",
+            "logon_time": "2024-04-20T19:41:05.4352011Z"
+        },
+        {
+            "fir": "TJZS",
+            "name": "Francis Reilly",
+            "cid": 1498259,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SJU_4_CTR",
+            "frequency": "125.000",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5976195Z",
+            "logon_time": "2024-04-20T17:41:10.0320535Z"
+        },
+        {
+            "fir": "TJZS",
+            "name": "Alfred Tang",
+            "cid": 934809,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "SJU_8_CTR",
+            "frequency": "118.750",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5904288Z",
+            "logon_time": "2024-04-20T18:11:06.3427534Z"
+        },
+        {
+            "fir": "TJZS",
+            "name": "Diego",
+            "cid": 1578257,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SJU_6_CTR",
+            "frequency": "135.700",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:52.5930648Z",
+            "logon_time": "2024-04-20T18:30:24.6483307Z"
+        },
+        {
+            "fir": "TJZS",
+            "name": "Wesley",
+            "cid": 1496714,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "SJU_2_CTR",
+            "frequency": "118.150",
+            "visual_range": 400,
+            "last_updated": "2024-04-20T20:29:43.7669874Z",
+            "logon_time": "2024-04-20T18:36:38.8433734Z"
+        },
+        {
+            "fir": "TTZP",
+            "name": "EJ Davis",
+            "cid": 1074666,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "TTZP_CTR",
+            "frequency": "123.700",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:30:01.6941499Z",
+            "logon_time": "2024-04-20T20:27:22.2690596Z"
+        },
+        {
+            "fir": "YASP",
+            "name": "Jamie K /O",
+            "cid": 1596254,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ML-ASP_CTR",
+            "frequency": "128.850",
+            "visual_range": 600,
+            "last_updated": "2024-04-20T20:29:53.4270695Z",
+            "logon_time": "2024-04-20T10:20:54Z"
+        }
+    ],
+    "other": {
+        "controllers": [
+            {
+                "cid": 123456,
+                "name": "TEST TEST",
+                "callsign": "ISP_E_APP",
+                "frequency": "118.000",
+                "facility": 5,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7766616Z",
+                "logon_time": "2024-04-24T03:30:15.6167874Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KJFK"
+                },
+                "coordinates": [
+                    "-72.56",
+                    "41.1"
+                ]
+            },
+            {
+                "cid": 1123123,
+                "name": "TEST C",
+                "callsign": "LGA_E_APP",
+                "frequency": "118.000",
+                "facility": 5,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7766616Z",
+                "logon_time": "2024-04-24T03:30:15.6167874Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KLGA"
+                },
+                "coordinates": [
+                    "-73.87261",
+                    " 40.943916"
+                ]
+            },
+            {
+                "cid": 1418782,
+                "name": "Jack Karins",
+                "callsign": "MKE_E_APP",
+                "frequency": "118.000",
+                "facility": 5,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7766616Z",
+                "logon_time": "2024-04-24T03:30:15.6167874Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KMKE"
+                },
+                "coordinates": [
+                    "-87.89659881591797",
+                    " 42.947200775146484"
+                ]
+            },
+            {
+                "cid": 1583782,
+                "name": "Holden Abrahams",
+                "callsign": "OKC_TWR",
+                "frequency": "119.350",
+                "facility": 4,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:42.7700172Z",
+                "logon_time": "2024-04-24T05:33:36.9867439Z",
+                "airport": {
+                    "name": "Will Rogers World Airport",
+                    "icao": "KOKC"
+                },
+                "coordinates": [
+                    "-97.60070037841797",
+                    " 35.39310073852539"
+                ]
+            },
+            {
+                "cid": 1518696,
+                "name": "1518696",
+                "callsign": "PHX_S_TWR",
+                "frequency": "120.900",
+                "facility": 4,
+                "rating": 4,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:39.7520166Z",
+                "logon_time": "2024-04-24T04:51:38.6589175Z",
+                "airport": {
+                    "name": "Phoenix Sky Harbor International Airport",
+                    "icao": "KPHX"
+                },
+                "coordinates": [
+                    "-112.01200103759766",
+                    " 33.43429946899414"
+                ]
+            },
+            {
+                "cid": 1377311,
+                "name": "Connor Gibson",
+                "callsign": "PHX_A1_APP",
+                "frequency": "128.650",
+                "facility": 5,
+                "rating": 8,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:38.7764618Z",
+                "logon_time": "2024-04-24T05:05:11.5727032Z",
+                "airport": {
+                    "name": "Phoenix Sky Harbor International Airport",
+                    "icao": "KPHX"
+                },
+                "coordinates": [
+                    "-112.01200103759766",
+                    " 33.43429946899414"
+                ]
+            },
+            {
+                "cid": 1787118,
+                "name": "Ryan Kompare",
+                "callsign": "SAN_TWR",
+                "frequency": "118.300",
+                "facility": 4,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": [
+                    "118.30 Lindbergh Tower |",
+                    "www.laartcc.org |",
+                    "Service for KSAN, if I did well tell them you had Ryan."
+                ],
+                "last_updated": "2024-04-24T05:35:37.7644957Z",
+                "logon_time": "2024-04-24T05:18:08.272263Z",
+                "airport": {
+                    "name": "San Diego International Airport",
+                    "icao": "KSAN"
+                },
+                "coordinates": [
+                    "-117.190002441",
+                    " 32.7336006165"
+                ]
+            },
+            {
+                "cid": 1163988,
+                "name": "Brian A. Neuman",
+                "callsign": "TUS_APP",
+                "frequency": "119.400",
+                "facility": 5,
+                "rating": 8,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:39.7518374Z",
+                "logon_time": "2024-04-24T03:33:35.4543393Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
+                "cid": 1163988,
+                "name": "Test A. B",
+                "callsign": "TUS_1_APP",
+                "frequency": "119.500",
+                "facility": 5,
+                "rating": 8,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:39.7518374Z",
+                "logon_time": "2024-04-24T03:50:35.4543393Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
+                "cid": 1368482,
+                "name": "Kevin Huang",
+                "callsign": "VOK_APP",
+                "frequency": "135.250",
+                "facility": 5,
+                "rating": 4,
+                "server": "VIRTUALNAS",
+                "visual_range": 150,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:42.77187Z",
+                "logon_time": "2024-04-24T05:01:03.1561704Z",
+                "airport": {
+                    "name": "Volk Field",
+                    "icao": "KVOK"
+                },
+                "coordinates": [
+                    "-90.253402709961",
+                    " 43.938999176025"
+                ]
+            },
+            {
+                "cid": 1787118,
+                "name": "Ryan Kompare",
+                "callsign": "SAN_TWR",
+                "frequency": "118.300",
+                "facility": 4,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": [
+                    "118.30 Lindbergh Tower |",
+                    "www.laartcc.org |",
+                    "Service for KSAN, if I did well tell them you had Ryan."
+                ],
+                "last_updated": "2024-04-24T05:35:37.7644957Z",
+                "logon_time": "2024-04-24T05:18:08.272263Z",
+                "airport": {
+                    "name": "Antoine de Saint ExupÃ©ry Airport",
+                    "icao": "SAVN"
+                },
+                "coordinates": [
+                    "-65.0343",
+                    " -40.7512"
+                ]
+            },
+            {
+                "cid": 1608297,
+                "name": "Atharva Patole",
+                "callsign": "VABB_TWR",
+                "frequency": "118.100",
+                "facility": 4,
+                "rating": 2,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "text_atis": [
+                    "\"Mumbai Tower\" | [PDC/DLC Logon VABB]",
+                    "State Callsign, Position, And Aircraft Type On Initial Contact.",
+                    "Part of India vACC | VATSIM West Asia Division | More Information -> indiavacc.org"
+                ],
+                "last_updated": "2024-04-24T05:35:44.7427204Z",
+                "logon_time": "2024-04-24T04:46:47.848198Z",
+                "airport": {
+                    "name": "Chhatrapati Shivaji International Airport",
+                    "icao": "VABB"
+                },
+                "coordinates": [
+                    "72.8678970337",
+                    " 19.0886993408"
+                ]
+            }
+        ],
+        "atis": [
+            {
+                "cid": 1014804,
+                "name": "1014804",
+                "callsign": "KABQ_ATIS",
+                "frequency": "118.000",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "KABQ ATIS INFO E 0452Z. 10012G21KT 10SM SCT140 SCT200 21/M04",
+                    "A3003 (THREE ZERO ZERO THREE). SIMUL APPROACHES IN USE. ARRIVALS",
+                    "EXPECT VISUAL APCH RWYS 8 AND RWY 3. DEPG RWYS 8 AND RWY 3. RMK",
+                    "HZ NE-SE NOTAMS... TWY H CLOSED. READBACK HOLD SHORT",
+                    "INSTRUCTIONS. RWY 30 PAPI OUT OF SERVICE...ADVS YOU HAVE INFO E"
+                ],
+                "last_updated": "2024-04-24T05:35:37.88163Z",
+                "logon_time": "2024-04-24T03:59:37.7554523Z",
+                "airport": {
+                    "name": "Albuquerque International Sunport",
+                    "icao": "KABQ"
+                },
+                "coordinates": [
+                    "-106.609001",
+                    " 35.040199"
+                ]
+            },
+            {
+                "cid": 1475122,
+                "name": "Jordan",
+                "callsign": "KBOI_ATIS",
+                "frequency": "123.900",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KBOI ATIS INFORMATION B. 0453Z. 00000KT 10SM CLR 16/01 A2988",
+                    "(TWO NINER EIGHT EIGHT). VIS APCHS IN USE, LDG & DEPTG RWYS 10L",
+                    "& 10R. VFR DEPS CTC DEL WITH DRCTN OF FLT.. NOTAMS... IFR DEPS",
+                    "EXP A PRE DEP CLNC VIA PRIVATE MESSAGE. READBACK ALL RUNWAY",
+                    "ASSIGNMENTS AND HOLD SHORT INSTRUCTIONS.....ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-04-24T05:35:32.1188967Z",
+                "logon_time": "2024-04-24T04:15:47.1513593Z",
+                "airport": {
+                    "name": "Boise Air Terminal/Gowen Field",
+                    "icao": "KBOI"
+                },
+                "coordinates": [
+                    "-116.223",
+                    " 43.5644"
+                ]
+            },
+            {
+                "cid": 1475122,
+                "name": "Jordan",
+                "callsign": "KBZN_ATIS",
+                "frequency": "135.425",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KBZN ATIS INFORMATION B. 0456Z. 00000KT 10SM CLR 06/M04 A2999",
+                    "(TWO NINER NINER NINER). VIS APCHS IN USE, LDG & DEPTG RWYS 12,",
+                    "11, & 3. VFR DEPS CTC GND WITH DRCTN OF FLT.. NOTAMS... READBACK",
+                    "ALL RUNWAY ASSIGNMENTS AND HOLD SHORT INSTRUCTIONS......ADVS YOU",
+                    "HAVE INFO B"
+                ],
+                "last_updated": "2024-04-24T05:35:44.683874Z",
+                "logon_time": "2024-04-24T04:15:59.7584332Z",
+                "airport": {
+                    "name": "Gallatin Field",
+                    "icao": "KBZN"
+                },
+                "coordinates": [
+                    "-111.1529999",
+                    " 45.77750015"
+                ]
+            },
+            {
+                "cid": 1163988,
+                "name": "Brian A. Neuman",
+                "callsign": "KDMA_ATIS",
+                "frequency": "118.000",
+                "facility": 4,
+                "rating": 8,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "KDMA ATIS INFO D 0455Z. 17005KT 10SM CLR 22/M02 A2995 (TWO NINER",
+                    "NINER FIVE). VISUAL APCH IN USE. LANDING AND DEPARTING RWY 12.",
+                    "NOTAMS... READBACK HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE",
+                    "INFO D"
+                ],
+                "last_updated": "2024-04-24T05:35:32.7500625Z",
+                "logon_time": "2024-04-24T04:03:02.85118Z",
+                "airport": {
+                    "name": "Davis Monthan Air Force Base",
+                    "icao": "KDMA"
+                },
+                "coordinates": [
+                    "-110.883003235",
+                    " 32.1665000916"
+                ]
+            },
+            {
+                "cid": 1475122,
+                "name": "Jordan",
+                "callsign": "KGTF_ATIS",
+                "frequency": "126.600",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KGTF ATIS INFORMATION B. 0453Z. 11009KT 10SM CLR 08/M06 A2994",
+                    "(TWO NINER NINER FOUR). VIS APCHS IN USE, LDG & DEPTG RWYS 3 &",
+                    "35. VFR DEPS CTC GND WITH DRCTN OF FLT.. NOTAMS... READBACK ALL",
+                    "RUNWAY ASSIGNMENTS AND HOLD SHORT INSTRUCTIONS......ADVS YOU",
+                    "HAVE INFO B"
+                ],
+                "last_updated": "2024-04-24T05:35:40.8685273Z",
+                "logon_time": "2024-04-24T04:16:10.9110647Z",
+                "airport": {
+                    "name": "Great Falls International Airport",
+                    "icao": "KGTF"
+                },
+                "coordinates": [
+                    "-111.3710022",
+                    " 47.48199844"
+                ]
+            },
+            {
+                "cid": 1418782,
+                "name": "Jack Karins",
+                "callsign": "KMKE_ATIS",
+                "frequency": "126.400",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "KMKE ATIS INFO E 0452Z. 02015G27KT 10SM SCT019 BKN040 04/01",
+                    "A3001 (THREE ZERO ZERO ONE). ARRS EXP VECTORS ILS APCH RWY 1L.",
+                    "LDG RWY 1L. DEPTG RWY 1L. NOTAMS... TRANSPONDERS REQUIRED TO BE",
+                    "ON WHILE OPERATING ON RWYS AND TWYS. BIRD ACTIVITY VICINITY",
+                    "ARPT. ALL ACFT READBACK ALL HOLD SHORT INSTRUCTIONS. ALL TAXIING",
+                    "DEPARTING AIRCRAFT REMAIN ON GROUND CONTROL FREQ UNTIL ADVSD.",
+                    "...ADVS YOU HAVE INFO E"
+                ],
+                "last_updated": "2024-04-24T05:35:40.3699282Z",
+                "logon_time": "2024-04-24T03:32:55.2892906Z",
+                "airport": {
+                    "name": "General Mitchell International Airport",
+                    "icao": "KMKE"
+                },
+                "coordinates": [
+                    "-87.89659881591797",
+                    " 42.947200775146484"
+                ]
+            },
+            {
+                "cid": 1097491,
+                "name": "William Polley",
+                "callsign": "KMSP_A_ATIS",
+                "frequency": "135.350",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "I",
+                "text_atis": [
+                    "KMSP ARR INFO I 0453Z. 08004KT 10SM FEW060 06/01 A3014 (THREE",
+                    "ZERO ONE FOUR). VIS RWY 12R APCH IN USE, VIS RWY 12L APCH IN",
+                    "USE. FINAL APCH, OVER NOISE-SENSITIVE AREA. NOTAMS... RWY 4, 22",
+                    "CLSD. HAZD WX INFO FOR MSP AREA AVBL ATC FREQ BY RQST. CTN,",
+                    "BIRDS NEAR MSP. READ BACK HS INSTRUCTIONS AND ASSIGNED ALTS..",
+                    "ALL ACFT TAXI WITH XPDR AND ALT ENCODING ON....ADVS YOU HAVE",
+                    "INFO I"
+                ],
+                "last_updated": "2024-04-24T05:35:42.5575116Z",
+                "logon_time": "2024-04-24T04:30:57.545422Z",
+                "airport": {
+                    "name": "Minneapolis-St Paul International/Wold-Chamberlain Airport",
+                    "icao": "KMSP"
+                },
+                "coordinates": [
+                    "-93.221802",
+                    " 44.882"
+                ]
+            },
+            {
+                "cid": 1097491,
+                "name": "William Polley",
+                "callsign": "KMSP_D_ATIS",
+                "frequency": "120.800",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "V",
+                "text_atis": [
+                    "KMSP DEP INFO V 0453Z. 08004KT 10SM FEW060 06/01 A3014 (THREE",
+                    "ZERO ONE FOUR). DEPTG RWY 12L, RWY 12R. NOTAMS... RWY 4, 22",
+                    "CLSD. HAZD WX INFO FOR MSP AREA AVBL ATC FREQ BY RQST. ALL ACFT",
+                    "CTC ATC WHEN READY TO PUSHBACK OR TAXI. CTN, BIRDS NEAR MSP.",
+                    "READ BACK HS INSTRUCTIONS AND ASSIGNED ALTS.. ALL ACFT TAXI WITH",
+                    "XPDR AND ALT ENCODING ON....ADVS YOU HAVE INFO V"
+                ],
+                "last_updated": "2024-04-24T05:35:41.4701646Z",
+                "logon_time": "2024-04-24T04:31:11.4542149Z",
+                "airport": {
+                    "name": "Minneapolis-St Paul International/Wold-Chamberlain Airport",
+                    "icao": "KMSP"
+                },
+                "coordinates": [
+                    "-93.221802",
+                    " 44.882"
+                ]
+            },
+            {
+                "cid": 1583782,
+                "name": "Holden",
+                "callsign": "KOKC_ATIS",
+                "frequency": "125.850",
+                "facility": 4,
+                "rating": 2,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": null,
+                "text_atis": null,
+                "last_updated": "2024-04-24T05:35:34.7185067Z",
+                "logon_time": "2024-04-24T05:35:19.7534224Z",
+                "airport": {
+                    "name": "Will Rogers World Airport",
+                    "icao": "KOKC"
+                },
+                "coordinates": [
+                    "-97.60070037841797",
+                    " 35.39310073852539"
+                ]
+            },
+            {
+                "cid": 1097491,
+                "name": "William Polley",
+                "callsign": "KOMA_ATIS",
+                "frequency": "120.400",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KOMA ATIS INFO A 0452Z. 36004KT 10SM FEW200 09/02 A3011 (THREE",
+                    "ZERO ONE ONE). VIS APCH RWY 32L, 32R, 36 IN USE. BIRD ACTIVITY",
+                    "INVOF OMAHA ARPT. AIR CARRIER RAMP UNCNTLD. PUSHBACK CALL NOT",
+                    "REQD.....ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-04-24T05:35:35.7261785Z",
+                "logon_time": "2024-04-24T04:31:20.7170972Z",
+                "airport": {
+                    "name": "Eppley Airfield",
+                    "icao": "KOMA"
+                },
+                "coordinates": [
+                    "-95.894096",
+                    " 41.3032"
+                ]
+            },
+            {
+                "cid": 1377311,
+                "name": "Connor Gibson",
+                "callsign": "KPHX_ATIS",
+                "frequency": "127.575",
+                "facility": 4,
+                "rating": 5,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "R",
+                "text_atis": [
+                    "KPHX ATIS INFO R 0451Z. 28014KT 10SM CLR 29/M06 A2985 (TWO NINER",
+                    "EIGHT FIVE). SIMUL APCHS IN USE. EXPECT VISUAL APCH RWY 26,",
+                    "VISUAL APCH RWY 25L. DEPARTING RWY 25R. NOTAMS... RWY 7L THL",
+                    "RWSL OTS. MULT CRANES INVOF ARPT. BIRD ACTIVITY INVOF ARPT.",
+                    "READBACK HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE INFO R"
+                ],
+                "last_updated": "2024-04-24T05:35:32.3804663Z",
+                "logon_time": "2024-04-24T05:17:32.4435136Z",
+                "airport": {
+                    "name": "Phoenix Sky Harbor International Airport",
+                    "icao": "KPHX"
+                },
+                "coordinates": [
+                    "-112.01200103759766",
+                    " 33.43429946899414"
+                ]
+            },
+            {
+                "cid": 1787118,
+                "name": "Ryan K",
+                "callsign": "KSAN_ATIS",
+                "frequency": "134.800",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "X",
+                "text_atis": [
+                    "KSAN ATIS INFO X 0451Z. 29006KT 10SM OVC022 16/11 A3006 (THREE",
+                    "ZERO ZERO SIX). LOC AND RNAV APPS IN USE. LDG AND DEPTG RWY 27.",
+                    "NOTAMS... ADVS PRIOR TO TAXI IF RUN UP IS REQUIRED. CALL FOR",
+                    "PUSH ON TWY B. ASDE-X SYSTEM IN USE. ACTIVATE TRANSPONDER WITH",
+                    "MODE C ON ALL TWYS AND RWYS. READBACK ALL RWY HOLD SHORT",
+                    "INSTRUCTIONS.. ...ADVS YOU HAVE INFO X"
+                ],
+                "last_updated": "2024-04-24T05:35:39.5481017Z",
+                "logon_time": "2024-04-24T05:20:24.6050877Z",
+                "airport": {
+                    "name": "San Diego International Airport",
+                    "icao": "KSAN"
+                },
+                "coordinates": [
+                    "-117.190002441",
+                    " 32.7336006165"
+                ]
+            },
+            {
+                "cid": 1475122,
+                "name": "Jordan",
+                "callsign": "KSLC_ATIS",
+                "frequency": "124.750",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KSLC ATIS INFORMATION B. 0454Z. 22004KT 10SM FEW120 BKN140 18/06",
+                    "A2989 (TWO NINER EIGHT NINER). VIS APCHS IN USE, LDG & DEPTG",
+                    "RWYS 34L, 34R, & 35. VFR DEPS CTC CD WITH DRCTN OF FLT..",
+                    "NOTAMS... ARPT SFC DETECTION SYSTEM IN USE. OPERATE XPDR WITH",
+                    "ALT REPORTING ON ARPT SFC. NON JET VFR ARRS & DEPS, EXP",
+                    "ASSIGNMENT OF A PUBLISHED VFR TRANSITION. IFR DEPS EXP A PRE DEP",
+                    "CLNC VIA PRIVATE MESSAGE. READBACK ALL RUNWAY ASSIGNMENTS AND",
+                    "HOLD SHORT INSTRUCTIONS.. SIMULTANEOUS APPROACHES IN USE ACFT",
+                    "OPERATING BTWN RWY 16L AND RWY 16R CTC GND ON 123.77. IF EAST OF",
+                    "RWY 17 CTC GND ON 121.9.....ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-04-24T05:35:33.1461163Z",
+                "logon_time": "2024-04-24T04:44:48.1820118Z",
+                "airport": {
+                    "name": "Salt Lake City International Airport",
+                    "icao": "KSLC"
+                },
+                "coordinates": [
+                    "-111.97799682617188",
+                    " 40.78839874267578"
+                ]
+            },
+            {
+                "cid": 1163988,
+                "name": "Brian A. Neuman",
+                "callsign": "KTUS_ATIS",
+                "frequency": "123.800",
+                "facility": 4,
+                "rating": 8,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "KTUS ATIS INFO C 0453Z. 15008KT 10SM CLR 24/M02 A2998 (TWO NINER",
+                    "NINER EIGHT). VISUAL APCHS IN USE. LANDING AND DEPARTING RWY 12",
+                    "NOTAMS... READBACK HOLD SHORT INSTRUCTIONS WITH RWY DESIGNATOR",
+                    "AND CALLSIGN. TWY A1 BTWN WEST RAMP AND DEARM PAD CLSD TWY A5",
+                    "CLSD...ADVS YOU HAVE INFO C"
+                ],
+                "last_updated": "2024-04-24T05:35:42.9516687Z",
+                "logon_time": "2024-04-24T03:35:58.066051Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
+                "cid": 1368482,
+                "name": "Kevin Huang",
+                "callsign": "KVOK_ATIS",
+                "frequency": "134.350",
+                "facility": 4,
+                "rating": 4,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KVOK ATIS INFO A 0455Z. 33006KT 10SM CLR 03/M02 A3007 (THREE",
+                    "ZERO ZERO SEVEN). EXPECT ILS RUNWAY 27 APPROACH. TACAN AND",
+                    "HI-TACAN APPROACHES AVAILABLE ON REQUEST. LANDING AND DEPARTING",
+                    "RUNWAY 27. ...ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-04-24T05:35:32.6944333Z",
+                "logon_time": "2024-04-24T05:03:02.7267907Z",
+                "airport": {
+                    "name": "Volk Field",
+                    "icao": "KVOK"
+                },
+                "coordinates": [
+                    "-90.253402709961",
+                    " 43.938999176025"
+                ]
+            },
+            {
+                "cid": 934809,
+                "name": "934809",
+                "callsign": "TJSJ_ATIS",
+                "frequency": "125.800",
+                "facility": 4,
+                "rating": 8,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "TJSJ ATIS INFO B 0456Z. 00000KT 10SM FEW037 SCT095 26/22 A2999",
+                    "(TWO NINER NINER NINER). ILS AND VISUAL APCHS RWY 8 AND 10 IN",
+                    "USE. DEPG RWY 8. RY 8 CLSD.H 3 INTERSECTION CLOSED. ILS RWY 8",
+                    "OTS.RWY 8 PAPI OTS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS.",
+                    "APRON 2 AND APRON 3 PUSHBACKS, START UP AND UNHOOK AT",
+                    "INTERMEDIATE HOLDING POSITION MARKING. TWY S BTN APCH END RWY 08",
+                    "AND TWY A CLSD. TWY H2, H3 CLSD. TWY S3, S4 CLSD. TWY H BTN TWY",
+                    "H1 AND TWY H3 CLSD....ADVS YOU HAVE INFO B....ADVS YOU HAVE INFO",
+                    "B"
+                ],
+                "last_updated": "2024-04-24T05:35:37.9487246Z",
+                "logon_time": "2024-04-24T04:29:07.9962581Z",
+                "airport": {
+                    "name": "Luis Munoz Marin International Airport",
+                    "icao": "TJSJ"
+                },
+                "coordinates": [
+                    "-66.0018005371",
+                    " 18.4393997192"
+                ]
+            },
+            {
+                "cid": 934809,
+                "name": "934809",
+                "callsign": "TNCM_ATIS",
+                "frequency": "127.650",
+                "facility": 4,
+                "rating": 8,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "N",
+                "text_atis": [
+                    "TNCM ATIS INFO N 0500Z. 09009KT VIS 10KM FEW018 27/25 A1017 (ONE",
+                    "ZERO ONE SEVEN). LANDING AND DEPARTING RUNWAY 10. RNAV AND",
+                    "VISUAL APPROACH IN USE. VFR AIRCRAFT SAY DIRECTION OF FLIGHT.",
+                    "...ADVS YOU HAVE INFO N"
+                ],
+                "last_updated": "2024-04-24T05:35:45.9755859Z",
+                "logon_time": "2024-04-24T04:29:16.0125121Z",
+                "airport": {
+                    "name": "Princess Juliana International Airport",
+                    "icao": "TNCM"
+                },
+                "coordinates": [
+                    "-63.1088981628",
+                    " 18.041000366200002"
+                ]
+            },
+            {
+                "cid": 1608297,
+                "name": "Atharva Patole ",
+                "callsign": "VABB_ATIS",
+                "frequency": "126.400",
+                "facility": 4,
+                "rating": 2,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "I",
+                "text_atis": [
+                    "VABB ATIS I || 0500Z EXPECT ILS APP || RWY 27 || TRL FL 055 ||",
+                    "WIND 300 DEG 06 KT || VIS 3000 M || WX FU || CLOUD FEW 020 SCT",
+                    "100 || T 33 DP 21 QNH 1008 || TREND NOSIG || DEPARTURES AFTER",
+                    "PASSING 800FT CONTACT RADAR 132.7 MHZ. ARRIVALS AFTER VACATING",
+                    "CONTACT 121.9 MHZ."
+                ],
+                "last_updated": "2024-04-24T05:35:38.7600415Z",
+                "logon_time": "2024-04-24T04:47:54.1455217Z",
+                "airport": {
+                    "name": "Chhatrapati Shivaji International Airport",
+                    "icao": "VABB"
+                },
+                "coordinates": [
+                    "72.8678970337",
+                    " 19.0886993408"
+                ]
+            },
+            {
+                "cid": 1593682,
+                "name": "Finn",
+                "callsign": "YMML_ATIS",
+                "frequency": "118.000",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-WEST",
+                "visual_range": 0,
+                "atis_code": "T",
+                "text_atis": [
+                    "ATIS YMML T 240530",
+                    "+[APCH] EXP GLS OR ILS APCH",
+                    "+[RWY] 16 FOR ARR. RWY 27 FOR DEP",
+                    "+[WND] 210/15. MAX XW 15 KTS BOTH RUNWAYS",
+                    "+[VIS] GREATER THAN 10 KM",
+                    "+[CLD] FEW038",
+                    "+[TMP] 14",
+                    "+[QNH] 1022"
+                ],
+                "last_updated": "2024-04-24T05:35:37.5140511Z",
+                "logon_time": "2024-04-24T05:29:20.0064345Z",
+                "airport": {
+                    "name": "Melbourne International Airport",
+                    "icao": "YMML"
+                },
+                "coordinates": [
+                    "144.843002",
+                    " -37.673302"
+                ]
+            },
+            {
+                "cid": 1684107,
+                "name": "Alex R",
+                "callsign": "YSSY_ATIS",
+                "frequency": "126.250",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-WEST",
+                "visual_range": 0,
+                "atis_code": "A",
+                "text_atis": [
+                    "ATIS YSSY A 240533",
+                    "+[APCH] EXP INDEP VISUAL APCH. DO NOT PASS THRU ASSIGNED RWY CL",
+                    "+[RWY] 16L AND R FOR ARRS AND DEPS",
+                    "+[OPR INFO] INDEP PARL DEPS IN PROG",
+                    "+[WIND] 140-220/4",
+                    "+[WX] CAVOK",
+                    "+[TMP] 25",
+                    "+[QNH] 1015",
+                    "+[SIGWX] EXP TURB IN CIRCUIT AREA"
+                ],
+                "last_updated": "2024-04-24T05:35:45.9276769Z",
+                "logon_time": "2024-04-24T05:30:05.1342028Z",
+                "airport": {
+                    "name": "Sydney Kingsford Smith International Airport",
+                    "icao": "YSSY"
+                },
+                "coordinates": [
+                    "151.177001953125",
+                    " -33.94609832763672"
+                ]
+            }
+        ]
+    },
+    "fss": [
+        {
+            "cid": 1385367,
+            "name": "1385367",
+            "callsign": "NY_AL_FSS",
+            "frequency": "130.500",
+            "facility": 1,
+            "rating": 5,
+            "server": "CANADA",
+            "visual_range": 1500,
+            "text_atis": [
+                "ATC by New York Center HF relay by New York ARINC"
+            ],
+            "last_updated": "2024-04-20T20:30:01.3338017Z",
+            "logon_time": "2024-04-20T14:47:28.6331726Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1545681,
+            "name": "1545681",
+            "callsign": "SBAO__2_FSS",
+            "frequency": "130.425",
+            "facility": 1,
+            "rating": 8,
+            "server": "USA-EAST",
+            "visual_range": 1500,
+            "text_atis": [
+                "Centro Atlantico / Atlantico Center (Portuguese and English)",
+                "Gimme feedback, pretty please? - https //vats.im/brz/feedback",
+                "Live @ twitch.tv/flynimbuss"
+            ],
+            "last_updated": "2024-04-20T20:30:00.7178265Z",
+            "logon_time": "2024-04-20T17:19:08.6432345Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1504305,
+            "name": "Lars Gnilka",
+            "callsign": "NY_CL_FSS",
+            "frequency": "130.000",
+            "facility": 1,
+            "rating": 5,
+            "server": "GERMANY2",
+            "visual_range": 1212,
+            "text_atis": [
+                "New York Radio",
+                "Covering New York Oceanic + Bermuda Airport (TXKF) Only",
+                "Simulating ADS-C (position reports NOT required) | Enjoy HF static sounds"
+            ],
+            "last_updated": "2024-04-20T20:30:02.087525Z",
+            "logon_time": "2024-04-20T18:30:13.7058796Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1047565,
+            "name": "Shayne ",
+            "callsign": "TTZO_B_FSS",
+            "frequency": "126.500",
+            "facility": 1,
+            "rating": 5,
+            "server": "USA-EAST",
+            "visual_range": 1500,
+            "text_atis": [
+                "Piarco Radar"
+            ],
+            "last_updated": "2024-04-20T20:29:39.1212006Z",
+            "logon_time": "2024-04-20T19:11:24.8286894Z",
+            "firInfo": {}
+        }
+    ]
+}
