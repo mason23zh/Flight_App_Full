@@ -19,6 +19,7 @@ import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
 import { DbAirport } from "../types";
+import AirportDetailLoading from "./AirportDetailLoading";
 
 function AirportDetail() {
     const darkMode = useTheme();
@@ -235,7 +236,7 @@ function AirportDetail() {
     }
     return (
         <div>
-            {!isLoading ? <NoMatch/> : <div className="text-center">Loading...</div>}
+            {!isLoading ? <NoMatch/> : <AirportDetailLoading themeMode={themeMode}/>}
         </div>
     );
 }
