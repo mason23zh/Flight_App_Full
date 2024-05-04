@@ -95,7 +95,7 @@ function AirportDetailTafPanel({
             renderCloudsLayers = skyCondition.map((cloud) => {
                 if (cloud.cloudCode === "CAVOK" || cloud.cloudCode === "NCD" || cloud.cloudCode === "SKC") {
                     return (
-                        <div className="flex flex-col" key={`${cloud.cloudCode}${cloud.cloudText}`}>
+                        <div className="flex flex-col" key={`${cloud.cloudCode}${cloud.cloudText}}`}>
                             <div>
                                 {cloud.cloudCode}
                             </div>
@@ -112,7 +112,7 @@ function AirportDetailTafPanel({
                     );
                 }
                 return (
-                    <div className="flex flex-col" key={`${cloud.name}${cloud.cloudBaseAgl}`}>
+                    <div className="flex flex-col" key={`${cloud.cloudText}${cloud.cloudBaseAgl}`}>
                         <div>
                             {cloud.cloudText} clouds at {cloud.cloudBaseAgl} feet AGL
                         </div>
@@ -153,7 +153,7 @@ function AirportDetailTafPanel({
             </div>
         </div>
     );
- 
+
     const renderForecast = forecast.map((f) => (
         <div className="border rounded-lg mb-3" key={Math.random()}>
             <div className="text-center">
