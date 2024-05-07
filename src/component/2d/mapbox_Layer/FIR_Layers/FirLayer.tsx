@@ -18,7 +18,6 @@ interface Controller {
     geoJsonData: GeoJson.FeatureCollection;
 }
 
-
 const FirLayer = ({
     controllerInfo,
     labelVisible,

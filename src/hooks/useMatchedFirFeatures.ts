@@ -74,8 +74,11 @@ const useMatchedFirFeatures = (
 
 
             const newFeatures = geoJsonData.features.reduce((features, feature) => {
+                // some fir like "ZSHA" does not have fir property, use icao instead
                 const firKey = Object.keys(matchedFirs)
-                    .find(key => matchedFirs[key].firInfo.fir === feature.properties.id);
+                    .find(key =>
+                        matchedFirs[key].firInfo.fir === feature.properties.id
+                                || matchedFirs[key].firInfo.icao === feature.properties.id);
                 if (firKey) {
                     const uniqueFeatureKey = `${feature.properties.id}-${firKey}`; // create an unique key
                     if (!features.some(f => f.key === uniqueFeatureKey)) { // Check for unique key

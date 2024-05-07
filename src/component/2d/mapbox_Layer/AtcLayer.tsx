@@ -11,7 +11,7 @@ import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import testData from "../../../test_data/vatsim-data-ctp-controllers-only.json";
+// import testData from "../../../test_data/vatsim-data-chian.json";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
 
 const AtcLayer = () => {
