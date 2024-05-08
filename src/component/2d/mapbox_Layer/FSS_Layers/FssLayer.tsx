@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
 import { Layer, Source } from "react-map-gl";
 import { layerStyle, boundariesLineStyle, highlightLayer } from "./fssLayerMapStyle";
+import useRenderFssLabelMarker from "../../../../hooks/useRenderFssLabelMarker";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -18,9 +19,7 @@ const FssLayer = ({
     labelVisible,
     geoJsonData
 }: Controller) => {
-
     const dispatch = useDispatch();
-
 
     const {
         geoJsonFeatures,
@@ -30,7 +29,6 @@ const FssLayer = ({
         controllerInfo,
         geoJsonData
     );
-
 
     useEffect(() => {
         if (isLoading) {
@@ -55,6 +53,10 @@ const FssLayer = ({
 
     }, [isLoading, error, geoJsonFeatures]);
 
+    const {
+        renderedMarkers,
+        hoverFss
+    } = useRenderFssLabelMarker(geoJsonFeatures);
 
     if (geoJsonFeatures) {
         console.log("geojson features:", geoJsonFeatures);
@@ -62,6 +64,7 @@ const FssLayer = ({
             <Source type="geojson" data={geoJsonFeatures}>
                 <Layer {...layerStyle} />
                 <Layer {...boundariesLineStyle} />
+                {renderedMarkers}
             </Source>
         );
     }

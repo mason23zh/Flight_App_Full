@@ -3201,6 +3201,42 @@
             "last_updated": "2024-05-08T05:48:58.8315396Z",
             "logon_time": "2024-05-08T03:52:59.3957543Z",
             "firInfo": {}
+        },
+        {
+            "cid": 1596254,
+            "name": "Jamie K/O",
+            "callsign": "NAT_FSS",
+            "frequency": "131.900",
+            "facility": 1,
+            "rating": 5,
+            "server": "UK",
+            "visual_range": 1500,
+            "text_atis": [
+                "\"Shanwick Radio\" or \"Gander Radio\" | CPDLC (NATX)",
+                "Covering Shanwick (EGGX) and Gander Oceanic (CZQX) OCAs.",
+                "Oceanic Clearance on nattrak.vatsim.net. Clearance not available on CPDLC"
+            ],
+            "last_updated": "2024-05-08T14:38:16.3868127Z",
+            "logon_time": "2024-05-08T12:22:08.3445534Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1111111,
+            "name": "TEST",
+            "callsign": "PRC_FSS",
+            "frequency": "131.500",
+            "facility": 1,
+            "rating": 5,
+            "server": "UK",
+            "visual_range": 1500,
+            "text_atis": [
+                "\"Shanwick Radio\" or \"Gander Radio\" | CPDLC (NATX)",
+                "Covering Shanwick (EGGX) and Gander Oceanic (CZQX) OCAs.",
+                "Oceanic Clearance on nattrak.vatsim.net. Clearance not available on CPDLC"
+            ],
+            "last_updated": "2024-05-08T14:38:16.3868127Z",
+            "logon_time": "2024-05-08T12:22:08.3445534Z",
+            "firInfo": {}
         }
     ]
 }
