@@ -135,6 +135,10 @@ function ChangeLog() {
                         - Added a map layer to display all FIRs boundaries <br/>
                         - Added a map layer to display global day-night terminator <br/>
                     </div>
+                    <div>
+                        Beta 0.4.3 <br/>
+                        - Fix the issue that some FIRs are missing in the map <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

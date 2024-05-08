@@ -123,3 +123,7 @@
 - Improve the matching logic to include some missing Tracons
 - Added a map layer to display all FIRs boundaries
 - Added a map layer to display global day-night terminator
+
+# Beta 0.4.3
+
+- Fix the issue that some FIRs are missing in the map

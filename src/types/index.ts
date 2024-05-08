@@ -349,6 +349,14 @@ interface VatsimFirs {
     };
 }
 
+interface VatsimFss {
+    [key: string]: {
+        prefix: string,
+        name: string,
+        firs: Array<string>
+    };
+}
+
 interface VatsimMatchedFirBoundariesGeoJson {
     type: "FeatureCollection",
     features: Array<VatsimGeoJsonFeature>
@@ -414,6 +422,7 @@ export type {
     VatsimControllers,
     VatsimGeoJsonFeature,
     VatsimFirs,
+    VatsimFss,
     VatsimFirBoundaries,
     VatsimMatchedFirBoundariesGeoJson,
     AirportService,

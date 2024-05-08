@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import GeoJson from "geojson";
-import { VatsimFirs } from "../../types";
+import { VatsimFirs, VatsimFss } from "../../types";
 
 export const vatsimDataApi = createApi({
     reducerPath: "vatsimData",
@@ -27,7 +27,7 @@ export const vatsimDataApi = createApi({
                     method: "GET"
                 })
             }),
-            fetchVatsimFss: build.query({
+            fetchVatsimFss: build.query<VatsimFss, void>({
                 query: () => ({
                     url: "/vatsim-uirs.json",
                     method: "GET"

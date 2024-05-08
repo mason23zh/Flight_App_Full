@@ -72,7 +72,6 @@ const useMatchedFirFeatures = (
                 return acc;
             }, {});
 
-
             const newFeatures = geoJsonData.features.reduce((features, feature) => {
                 // some fir like "ZSHA" does not have fir property, use icao instead
                 const firKey = Object.keys(matchedFirs)
