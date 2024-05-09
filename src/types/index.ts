@@ -290,6 +290,7 @@ interface Atis {
 interface Fss {
     cid: number,
     name: string,
+    frequency: string,
     callsign: string,
     facility: number,
     rating: number,
@@ -354,6 +355,26 @@ interface VatsimFss {
         prefix: string,
         name: string,
         firs: Array<string>
+    };
+}
+
+interface MatchedFirsController {
+    callsign: string,
+    frequency: string,
+    logon_time: string,
+    name: string
+}
+
+interface MatchedFirs {
+    [key: string]: {
+        firKey: string,
+        controllers: Array<MatchedFirsController>,
+        firInfo: {
+            fir: string,
+            icao: string,
+            name: string,
+            prefix: string
+        }
     };
 }
 
@@ -426,5 +447,6 @@ export type {
     VatsimFirBoundaries,
     VatsimMatchedFirBoundariesGeoJson,
     AirportService,
-    AirportResponse
+    AirportResponse,
+    MatchedFirs
 };

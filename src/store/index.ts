@@ -54,6 +54,7 @@ import {
     vatsimMapTrafficReducer
 } from "./slices/vatsimMapTrafficSlice";
 
+
 /*
 The persisConfig is used to store the map selection option in the localStorage
 This is the config for redux-persist lib
@@ -169,6 +170,7 @@ export {
 };
 
 export { setSelectedTraffic };
+
 
 export const persistor = persistStore(store);
 

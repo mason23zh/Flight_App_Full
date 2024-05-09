@@ -1,6 +1,18 @@
 {
     "fir": [
         {
+            "fir": "CZEG",
+            "name": "TEST 2",
+            "cid": 1312331,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "CZEG_CTR",
+            "frequency": "128.775",
+            "visual_range": 600,
+            "last_updated": "2024-05-07T23:42:33.0867489Z",
+            "logon_time": "2024-05-07T23:18:28.6160951Z"
+        },
+        {
             "fir": "CZUL",
             "name": "Pier-Luc Plamondon",
             "cid": 1300960,
@@ -199,6 +211,18 @@
             "facility": 6,
             "rating": 5,
             "callsign": "SVZM_CTR",
+            "frequency": "128.500",
+            "visual_range": 600,
+            "last_updated": "2024-05-07T23:42:31.9027452Z",
+            "logon_time": "2024-05-07T22:38:38.6788457Z"
+        },
+        {
+            "fir": "ZBPE",
+            "name": "TEST 1",
+            "cid": 12345123,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ZBPE_CTR",
             "frequency": "128.500",
             "visual_range": 600,
             "last_updated": "2024-05-07T23:42:31.9027452Z",

@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 // import testData from "../../../test_data/vatsim-data-chian.json";
 import testData from "../../../test_data/vatsim-czeg-fss.json";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
-import FssLayer from "./FSS_Layers/FssLayer";
 
 const AtcLayer = () => {
     const dispatch = useDispatch();
@@ -36,6 +35,10 @@ const AtcLayer = () => {
         error: geoJsonError,
         isLoading: geoJsonLoading
     } = useFetchVatsimFirBoundariesQuery();
+
+    if (geoJsonData) {
+        // console.log("GeoJson data:", geoJsonData.features);
+    }
 
 
     useEffect(() => {
@@ -69,8 +72,7 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
             {allAtcLayerVisible && (<>
-                <FssLayer controllerInfo={testData} labelVisible={true} geoJsonData={geoJsonData}/>
-                <FirLayer geoJsonData={geoJsonData} controllerInfo={controllerData} labelVisible={true}/>
+                <FirLayer geoJsonData={geoJsonData} controllerInfo={testData} labelVisible={true}/>
                 <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
                 <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
             </>)
