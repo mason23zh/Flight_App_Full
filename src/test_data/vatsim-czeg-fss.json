@@ -13,6 +13,42 @@
             "logon_time": "2024-05-07T23:18:28.6160951Z"
         },
         {
+            "fir": "ADR",
+            "name": "TEST 3",
+            "cid": 123123123,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ADR_CTR",
+            "frequency": "128.775",
+            "visual_range": 600,
+            "last_updated": "2024-05-07T23:42:33.0867489Z",
+            "logon_time": "2024-05-07T23:18:28.6160951Z"
+        },
+        {
+            "fir": "ADR",
+            "name": "TEST 4",
+            "cid": 123123123,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ADR_W_CTR",
+            "frequency": "128.775",
+            "visual_range": 600,
+            "last_updated": "2024-05-07T23:42:33.0867489Z",
+            "logon_time": "2024-05-07T23:18:28.6160951Z"
+        },
+        {
+            "fir": "KZDC",
+            "name": "TEST 4",
+            "cid": 123123123,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "KZDC",
+            "frequency": "128.775",
+            "visual_range": 600,
+            "last_updated": "2024-05-07T23:42:33.0867489Z",
+            "logon_time": "2024-05-07T23:18:28.6160951Z"
+        },
+        {
             "fir": "CZUL",
             "name": "Pier-Luc Plamondon",
             "cid": 1300960,
