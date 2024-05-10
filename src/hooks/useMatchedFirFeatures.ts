@@ -1,6 +1,8 @@
-// This hook will fetch fir data
-// after processing the data it will return formatted GeoJson Feature Collection
+// This hook will fetch fir data,
+// after processing the data it will return formatted GeoJson FeatureCollection,
 // firData, and either loading state or error state.
+// This hook will also check FSS and fetch all FIRs within its associated FSS.
+// A flag called isInFSS in the properties will be added to indicate if FIR is a part of FSS.
 // The complexity of this hook is high, might be improved in the future.
 import { useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
@@ -14,11 +16,6 @@ interface UseMatchedFirFeaturesReturn {
     firData: VatsimFirs,
     isLoading: boolean,
     isError: FetchBaseQueryError | SerializedError
-}
-
-interface Props {
-    controllerInfo: VatsimControllers,
-    geoJsonData: GeoJson.FeatureCollection
 }
 
 
@@ -169,107 +166,5 @@ const useMatchedFirFeatures = (
         isError
     };
 };
-
-// const useMatchedFirFeatures = (
-//     controllerInfo: VatsimControllers,
-//     geoJsonData: GeoJson.FeatureCollection
-// ): UseMatchedFirFeaturesReturn => {
-//     const dispatch = useDispatch();
-//
-//     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
-//         type: "FeatureCollection",
-//         features: []
-//     });
-//
-//     const {
-//         data: firData,
-//         error: firError,
-//         isLoading: firLoading
-//     } = useFetchVatsimFirQuery();
-//
-//     useMemo(() => {
-//         // if (firLoading || geoJsonLoading || firError || geoJsonError) {
-//         if (firLoading || !geoJsonData) {
-//             setGeoJsonFeatures({
-//                 type: "FeatureCollection",
-//                 features: []
-//             });
-//             return;
-//         }
-//
-//         if (firData && controllerInfo && controllerInfo.fir) {
-//             // Only select En route ATC
-//             const matchedFirs = controllerInfo.fir.reduce((acc, controller) => {
-//                 const parts = controller.callsign.split("_")
-//                     .filter(part => part !== "CTR");
-//                 let matchFound = false;
-//
-//                 while (parts.length > 0 && !matchFound) {
-//                     const potentialMatch = parts.join("_");
-//                     if (firData[potentialMatch]) {
-//                         if (!acc[potentialMatch]) { // construct new Fir
-//                             acc[potentialMatch] = {
-//                                 firKey: potentialMatch,
-//                                 controllers: [],
-//                                 firInfo: firData[potentialMatch]
-//                             };
-//                         }
-//                         acc[potentialMatch].controllers.push({ // update Fir
-//                             name: controller.name,
-//                             frequency: controller.frequency,
-//                             logon_time: controller.logon_time,
-//                             callsign: controller.callsign
-//                         });
-//                         matchFound = true;
-//                     }
-//                     parts.pop();
-//                 }
-//                 return acc;
-//             }, {});
-//             /*
-//             * Dispatch the online FIRs data.
-//             * This data will be used in the useMatchFssFeatures hook to prevent
-//             * redundant rendering if FIR within the FSS both online at the same time.
-//             */
-//             dispatch(setOnlineFirs(matchedFirs));
-//
-//
-//             const newFeatures = geoJsonData.features.reduce((features, feature) => {
-//                 // some fir like "ZSHA" does not have fir property, use icao instead
-//                 const firKey = Object.keys(matchedFirs)
-//                     .find(key =>
-//                         matchedFirs[key].firInfo.fir === feature.properties.id
-//                                 || matchedFirs[key].firInfo.icao === feature.properties.id);
-//                 if (firKey) {
-//                     const uniqueFeatureKey = `${feature.properties.id}-${firKey}`; // create an unique key
-//                     if (!features.some(f => f.key === uniqueFeatureKey)) { // Check for unique key
-//                         features.push({
-//                             ...feature,
-//                             key: uniqueFeatureKey,  // Assign a unique key to each feature
-//                             properties: {
-//                                 ...feature.properties,
-//                                 controllers: matchedFirs[firKey].controllers,
-//                                 firInfo: matchedFirs[firKey].firInfo
-//                             }
-//                         });
-//                     }
-//                 }
-//                 return features;
-//             }, []);
-//
-//             setGeoJsonFeatures({
-//                 type: "FeatureCollection",
-//                 features: newFeatures
-//             });
-//         }
-//     }, [controllerInfo, firData, geoJsonData, firError, firLoading]);
-//
-//     return {
-//         geoJsonFeatures,
-//         firData,
-//         isLoading: firLoading,
-//         error: firError
-//     };
-// };
 
 export default useMatchedFirFeatures;
