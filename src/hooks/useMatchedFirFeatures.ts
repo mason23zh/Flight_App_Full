@@ -22,7 +22,7 @@ interface UseMatchedFirFeaturesReturn {
 const useMatchedFirFeatures = (
     controllerInfo: VatsimControllers,
     geoJsonData: GeoJson.FeatureCollection
-) => {
+): UseMatchedFirFeaturesReturn => {
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         type: "FeatureCollection",
         features: []
@@ -43,7 +43,7 @@ const useMatchedFirFeatures = (
     const isLoading = fssLoading || firLoading;
     const isError = firError || fssError;
 
-    console.log(controllerInfo.fss);
+    //onsole.log(controllerInfo.fss);
 
     // console.log("FSS INFO:", controllerInfo.fss);
     // console.log("FIR INFO:", controllerInfo.fir);

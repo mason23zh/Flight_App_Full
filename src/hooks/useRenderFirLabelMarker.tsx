@@ -2,16 +2,12 @@ import GeoJson from "geojson";
 import React, { useMemo } from "react";
 import { Marker } from "react-map-gl";
 import useDelayHoverLabel from "./useDelayHoverLabel";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
 
 const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => {
     let renderedMarkers;
     const [hoverFir, handleMouse] = useDelayHoverLabel();
-    // const onlineFirInFss = useSelector<RootState, Array<string>>((state) => state.vatsimMapController.onlineFssList);
 
     const handleMouseEnter = (feature: GeoJson.Feature) => {
-        // dispatch(onMouseHoverFirLabel(feature));
         handleMouse({
             type: "FeatureCollection",
             features: [feature]
@@ -19,7 +15,6 @@ const useRenderFirLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) => 
     };
 
     const handleMouseLeave = () => {
-        // dispatch(onMouseLeaveFirLabel(null));
         handleMouse(null, false, 150, 10);
     };
 
