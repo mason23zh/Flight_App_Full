@@ -125,6 +125,33 @@ const useMatchedFirFeatures = (
                             });
                         }
                     });
+                } else {
+                    // Handle the case where an FSS is actually an FIR with extended range
+                    const parts = fss.callsign.replace("_FSS", "")
+                        .split("_");
+                    let matchFound = false;
+
+                    while (parts.length > 0 && !matchFound) {
+                        const potentialMatch = parts.join("_");
+                        if (firData[potentialMatch]) {
+                            if (!matchedFirs[potentialMatch]) {
+                                matchedFirs[potentialMatch] = {
+                                    firKey: potentialMatch,
+                                    controllers: [],
+                                    firInfo: firData[potentialMatch],
+                                    isInFss: false
+                                };
+                            }
+                            matchedFirs[potentialMatch].controllers.push({
+                                name: fss.name,
+                                frequency: fss.frequency,
+                                logon_time: fss.logon_time,
+                                callsign: fss.callsign
+                            });
+                            matchFound = true;
+                        }
+                        parts.pop();
+                    }
                 }
             });
         }
