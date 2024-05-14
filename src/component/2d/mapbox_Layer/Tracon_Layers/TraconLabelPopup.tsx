@@ -17,6 +17,9 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
         lat = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][1]);
     }
 
+
+    console.log("Tracon hover:", hoverTracon);
+
     const traconName = hoverTracon.features[0].properties.name;
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";

@@ -268,6 +268,31 @@
     "other": {
         "controllers": [
             {
+                "cid": 1442675,
+                "name": "Gia Huy Tran",
+                "callsign": "VTBS_APP",
+                "frequency": "124.350",
+                "facility": 5,
+                "rating": 4,
+                "server": "GERMANY",
+                "visual_range": 150,
+                "text_atis": [
+                    "Bangkok Approach | PDC Datalink VTBS",
+                    "Top-Down VTBS VTBD and Bangkok TMA up to FL160",
+                    "ATC Controller Feedback at vacc-tha.org/feedback"
+                ],
+                "last_updated": "2024-05-09T05:11:54.0750137Z",
+                "logon_time": "2024-05-09T04:23:14.9460869Z",
+                "airport": {
+                    "name": "Suvarnabhumi Airport",
+                    "icao": "VTBS"
+                },
+                "coordinates": [
+                    "100.74700164794922",
+                    " 13.681099891662598"
+                ]
+            },
+            {
                 "cid": 1612627,
                 "name": "Simon",
                 "callsign": "CYEG_APP",
@@ -313,6 +338,30 @@
                 "coordinates": [
                     "-111.222000122",
                     " 56.653301239"
+                ]
+            },
+            {
+                "cid": 16818,
+                "name": "Julien 1",
+                "callsign": "VTBS_TWR",
+                "frequency": "118.800",
+                "facility": 4,
+                "rating": 2,
+                "server": "CANADA",
+                "visual_range": 50,
+                "text_atis": [
+                    "Ottawa Tower - Bilingual services (EN/FR)",
+                    "Charts and info - vats.im/cyow"
+                ],
+                "last_updated": "2024-05-07T23:42:35.2944195Z",
+                "logon_time": "2024-05-07T21:02:33.9880879Z",
+                "airport": {
+                    "name": "Ottawa Macdonald-Cartier International Airport",
+                    "icao": "CYOW"
+                },
+                "coordinates": [
+                    "-75.66919708251953",
+                    " 45.3224983215332"
                 ]
             },
             {
@@ -3243,6 +3292,23 @@
             ],
             "last_updated": "2024-05-07T23:42:54.1747773Z",
             "logon_time": "2024-05-07T23:01:19.3394893Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1596254,
+            "name": "Jamie K /O",
+            "callsign": "ZAK_FSS",
+            "frequency": "129.400",
+            "facility": 1,
+            "rating": 5,
+            "server": "UK",
+            "visual_range": 1500,
+            "text_atis": [
+                "ATC by Oakland Center HF relay by San Francisco ARINC",
+                "oakartcc.org/pilots/oceanic"
+            ],
+            "last_updated": "2024-05-11T17:01:01.3729914Z",
+            "logon_time": "2024-05-11T15:24:39.8743027Z",
             "firInfo": {}
         },
         {

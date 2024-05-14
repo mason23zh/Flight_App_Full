@@ -2,11 +2,15 @@ import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
 import { useEffect, useState } from "react";
 import { useFetchVatsimTraconBoundariesQuery } from "../store";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
+import * as turf from "@turf/turf";
+import { extractTraconName } from "../component/2d/mapbox_Layer/util/extractTraconName";
 
 interface UseMatchTraconFeaturesReturn {
     geoJsonFeatures: GeoJson.FeatureCollection,
     isLoading: boolean,
-    error: any
+    error: FetchBaseQueryError | SerializedError
 }
 
 const useMatchTraconFeatures = (
@@ -23,6 +27,25 @@ const useMatchTraconFeatures = (
         features: []
     });
 
+    const createMultiPolygonCircle = (center, radius, options, controllerInfo) => {
+        const circle = turf.circle(center, radius, options);
+
+        const multiPolygon = {
+            type: "Feature",
+            properties: {
+                id: controllerInfo.callsign,
+                prefix: [controllerInfo.callsign]
+            },
+            geometry: {
+                type: "MultiPolygon",
+                coordinates: [circle.geometry.coordinates]
+            }
+        };
+
+        return multiPolygon;
+    };
+
+
     useEffect(() => {
         if (isLoading || error) {
             setGeoJsonFeatures({
@@ -38,15 +61,16 @@ const useMatchTraconFeatures = (
             controllerInfo.other.controllers.forEach(controller => {
                 if (controller.facility === 5) {
                     const parts = controller.callsign.split("_");
-                    if (parts[parts.length - 1] === "APP" || parts[parts.length - 1] === "DEP") {
-                        parts.pop();  // Remove the last part if it is "APP" or "DEP"
-                    }
+                    const isApproachOrDeparture = parts[parts.length - 1] === "APP" || parts[parts.length - 1] === "DEP";
+                    if (isApproachOrDeparture) parts.pop(); // Remove "APP" or "DEP"
 
-                    while (parts.length > 0) {
+                    let matched = false;
+
+                    while (parts.length > 0 && !matched) {
                         const potentialMatch = parts.join("_");
                         geoJsonData.features.forEach(feature => {
                             if (feature.properties?.prefix && feature.properties.prefix.includes(potentialMatch)) {
-                                // compose a key, because some tracon has the same id but with different prefix
+                                matched = true;
                                 const key = `${feature.properties.id}-${potentialMatch}`;
                                 if (!featuresMap.has(key)) {
                                     featuresMap.set(key, {
@@ -57,7 +81,6 @@ const useMatchTraconFeatures = (
                                         }
                                     });
                                 }
-
                                 const existingFeature = featuresMap.get(key);
                                 existingFeature.properties.controllers.push({
                                     name: controller.name,
@@ -69,6 +92,38 @@ const useMatchTraconFeatures = (
                         });
                         parts.pop();
                     }
+
+                    // If no match found, create a circle with the given visual_range
+                    if (!matched && controller.visual_range) {
+                        const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
+
+                        // divided by 5 seems to make the circle to the similar size as others, no idea why
+                        const radius = controller.visual_range * 1.852 / 5;
+                        const options = {
+                            steps: 40,
+                            units: "kilometers"
+                        };
+                        const multiPolygonCircle = createMultiPolygonCircle(center, radius, options, controller);
+                        const key = `circle-${controller.callsign}`;
+                        console.log("MultipolygonCircle:", multiPolygonCircle);
+                        console.log("MultipolygonCircle Controller:", controller);
+                        const name = extractTraconName(controller.text_atis);
+
+                        featuresMap.set(key, {
+                            ...multiPolygonCircle,
+                            properties: {
+                                ...multiPolygonCircle.properties,
+                                name: name,
+                                controllers: [{
+                                    callsign: controller.callsign,
+                                    frequency: controller.frequency,
+                                    logon_time: controller.logon_time,
+                                    name: controller.name
+                                }]
+
+                            }
+                        });
+                    }
                 }
             });
 
@@ -76,6 +131,7 @@ const useMatchTraconFeatures = (
                 type: "FeatureCollection",
                 features: Array.from(featuresMap.values())
             });
+
         }
     }, [controllerInfo, geoJsonData, isLoading, error]);
 
