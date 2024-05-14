@@ -37,11 +37,6 @@ const FirLayer = ({
         geoJsonData
     );
 
-    if (geoJsonFeatures) {
-        console.log("MATCHED GEOJSON FEATURE:", geoJsonFeatures);
-    }
-
-
     useEffect(() => {
         if (isLoading) {
             dispatch(addMessage({

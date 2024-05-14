@@ -151,7 +151,6 @@ const useMatchedFirFeatures = (
             return features;
         }, []);
 
-        console.log("New features:", newFeatures);
 
         setGeoJsonFeatures({
             type: "FeatureCollection",

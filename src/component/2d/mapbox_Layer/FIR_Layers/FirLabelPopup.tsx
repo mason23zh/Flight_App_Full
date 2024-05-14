@@ -31,7 +31,6 @@ const FirLabelPopup = ({
 
     // construct the controllers list
     const renderControllersData = hoverFir.features[0].properties.controllers.map((c) => {
-        console.log("C", c);
         const {
             hour,
             minute

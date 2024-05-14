@@ -105,14 +105,13 @@ const useMatchTraconFeatures = (
                         };
                         const multiPolygonCircle = createMultiPolygonCircle(center, radius, options, controller);
                         const key = `circle-${controller.callsign}`;
-                        console.log("MultipolygonCircle:", multiPolygonCircle);
-                        console.log("MultipolygonCircle Controller:", controller);
                         const name = extractTraconName(controller.text_atis);
 
                         featuresMap.set(key, {
                             ...multiPolygonCircle,
                             properties: {
                                 ...multiPolygonCircle.properties,
+                                id: controller.callsign.split("_")[0],
                                 name: name,
                                 controllers: [{
                                     callsign: controller.callsign,
