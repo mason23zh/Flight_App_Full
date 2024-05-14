@@ -38,7 +38,7 @@ const FirLabelPopup = ({
         const key = `${c.name}-${c.logon_time}`;
         return (
             <div key={key} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                <div className={c.callsign.includes("FSS") && callsignColor}>
+                <div className={c.callsign.includes("FSS") ? callsignColor : ""}>
                     {c.callsign}
                 </div>
                 <div className="">
