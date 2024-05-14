@@ -15,7 +15,6 @@ interface UseMatchTraconFeaturesReturn {
 
 const useMatchTraconFeatures = (
     controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
-    // console.log("controller info:", controllerInfo.other.controllers);
     const {
         data: geoJsonData,
         isLoading,

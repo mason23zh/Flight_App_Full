@@ -257,7 +257,7 @@ interface Controller {
     rating: number,
     server: string,
     visual_range: number,
-    text_atis: string[],
+    text_atis: string[] | string | null,
     last_updated: string,
     logon_time: string,
     airport: {
@@ -441,6 +441,7 @@ export type {
     VatsimTrackTraffic,
     DbAirport,
     VatsimControllers,
+    Controller,
     VatsimGeoJsonFeature,
     VatsimFirs,
     VatsimFss,

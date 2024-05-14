@@ -43,12 +43,6 @@ const useMatchedFirFeatures = (
     const isLoading = fssLoading || firLoading;
     const isError = firError || fssError;
 
-    //onsole.log(controllerInfo.fss);
-
-    // console.log("FSS INFO:", controllerInfo.fss);
-    // console.log("FIR INFO:", controllerInfo.fir);
-
-
     useMemo(() => {
         if (firLoading || firError || fssLoading || fssError || !geoJsonData) {
             if (firLoading || !geoJsonData || fssLoading) {

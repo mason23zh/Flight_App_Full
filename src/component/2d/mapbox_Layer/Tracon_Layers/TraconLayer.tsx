@@ -52,7 +52,6 @@ const TraconLayer = ({
             }));
         }
         if (geoJsonFeatures && !error && !isLoading) {
-            // console.log("geo json tracon:", geoJsonFeatures);
             dispatch(removeMessageByLocation({ location: "TRACON" }));
         }
     }, [isLoading, error, geoJsonFeatures]);

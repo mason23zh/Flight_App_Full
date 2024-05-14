@@ -11,7 +11,7 @@ import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import testData from "../../../test_data/vatsim-czeg-fss.json";
+// import testData from "../../../test_data/vatsim-czeg-fss.json";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
 
 const AtcLayer = () => {
@@ -67,9 +67,9 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={testData} geoJsonData={geoJsonData} labelVisible={true}/>
-                <TraconLayer controllerInfo={testData} labelVisible={true}/>
-                <ControllerMarkerLayer controllerInfo={testData} labelVisible={true}/>
+                <FirLayer controllerInfo={controllerData} geoJsonData={geoJsonData} labelVisible={true}/>
+                <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
+                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
             </>)
             }
         </>

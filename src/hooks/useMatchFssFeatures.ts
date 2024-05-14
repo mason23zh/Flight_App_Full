@@ -1,16 +1,13 @@
 import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
 import { useMemo, useState } from "react";
-import { setOnlineFssList, useFetchVatsimFirQuery, useFetchVatsimFssQuery } from "../store";
-import { useDispatch } from "react-redux";
+import { useFetchVatsimFirQuery, useFetchVatsimFssQuery } from "../store";
 
 const useMatchFssFeatures = (
     controllerInfo: VatsimControllers,
     geoJsonData: GeoJson.FeatureCollection) => {
 
-    const dispatch = useDispatch();
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>();
-    const [matchedFirInFss, setMatchedFirInFss] = useState([]);
 
     const {
         data: fssData,
@@ -38,7 +35,6 @@ const useMatchFssFeatures = (
             const fss = fssData[prefix]; // Find the FSS using the prefix
             if (!fss) return acc; // Continue if no FSS is found for the prefix
 
-            // console.log("fss matched:", fssEntry);
 
             const fssFeatures = fss.firs.reduce((fssAcc, firKey) => {
                 const firFeatures = geoJsonData.features.filter(feature => {
@@ -69,20 +65,11 @@ const useMatchFssFeatures = (
             return [...acc, ...fssFeatures];
         }, []);
 
-        setMatchedFirInFss(localMatchedFirs);
-
         setGeoJsonFeatures({
             type: "FeatureCollection",
             features: combinedFeatures
         });
     }, [controllerInfo, fssData, firData, geoJsonData]);
-
-    /*
-    * Dispatch the online FIRs that within the FSS
-    */
-    if (matchedFirInFss.length > 0) {
-        dispatch(setOnlineFssList(matchedFirInFss));
-    }
 
     return {
         geoJsonFeatures,

@@ -1,4 +1,12 @@
-export const extractTraconName = (controller) => {
+/*
+* This function will extract Tracon's name if the tracon has not been found in the tracon GeoJson mapping file
+* The controller object contains a filed called text_atis, the Tracon's name is usually appears in this array/string
+* If not, construct the Tracon name using airport's name.
+*
+* */
+import { Controller } from "../../../../types";
+
+export const extractTraconName = (controller: Controller) => {
     const keywords = ["Approach", "Arrival", "APPROACH", "ARRIVAL", "APP", "DEP", "Departure", "departure"];
     let traconName = "";
 
