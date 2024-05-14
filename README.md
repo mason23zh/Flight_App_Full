@@ -126,4 +126,9 @@
 
 # Beta 0.4.3
 
+- Added new loading screen for AirportDetail page
+- Added new logic to matching FSS and Fir
+- Added different color for FSS popup
 - Fix the issue that some FIRs are missing in the map
+- Fix the issue that some FSS are miss matching
+- Fix the issue that some Tracon are miss matching

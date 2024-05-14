@@ -137,7 +137,12 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.4.3 <br/>
+                        - Added new loading screen for AirportDetail page <br/>
+                        - Added new logic to matching FSS and Fir <br/>
+                        - Added different color for FSS popup <br/>
                         - Fix the issue that some FIRs are missing in the map <br/>
+                        - Fix the issue that some FSS are miss matching <br/>
+                        - Fix the issue that some Tracon are miss matching <br/>
                     </div>
                 </div>
             </div>
