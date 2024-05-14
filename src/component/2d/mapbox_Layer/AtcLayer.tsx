@@ -11,7 +11,6 @@ import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import testData from "../../../test_data/vatsim-data-chian.json";
 import testData from "../../../test_data/vatsim-czeg-fss.json";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
 
@@ -35,10 +34,6 @@ const AtcLayer = () => {
         error: geoJsonError,
         isLoading: geoJsonLoading
     } = useFetchVatsimFirBoundariesQuery();
-
-    if (geoJsonData) {
-        // console.log("GeoJson data:", geoJsonData.features);
-    }
 
 
     useEffect(() => {
@@ -72,7 +67,7 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
             {allAtcLayerVisible && (<>
-                <FirLayer geoJsonData={geoJsonData} controllerInfo={testData} labelVisible={true}/>
+                <FirLayer controllerInfo={testData} geoJsonData={geoJsonData} labelVisible={true}/>
                 <TraconLayer controllerInfo={testData} labelVisible={true}/>
                 <ControllerMarkerLayer controllerInfo={testData} labelVisible={true}/>
             </>)
