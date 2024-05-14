@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useFetchVatsimTraconBoundariesQuery } from "../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
-import * as turf from "@turf/turf";
 import { extractTraconName } from "../component/2d/mapbox_Layer/util/extractTraconName";
+import { createMultiPolygonCircle } from "../component/2d/mapbox_Layer/util/createMultiPolygonCircle";
 
 interface UseMatchTraconFeaturesReturn {
     geoJsonFeatures: GeoJson.FeatureCollection,
@@ -26,25 +26,6 @@ const useMatchTraconFeatures = (
         type: "FeatureCollection",
         features: []
     });
-
-    const createMultiPolygonCircle = (center, radius, options, controllerInfo) => {
-        const circle = turf.circle(center, radius, options);
-
-        const multiPolygon = {
-            type: "Feature",
-            properties: {
-                id: controllerInfo.callsign,
-                prefix: [controllerInfo.callsign]
-            },
-            geometry: {
-                type: "MultiPolygon",
-                coordinates: [circle.geometry.coordinates]
-            }
-        };
-
-        return multiPolygon;
-    };
-
 
     useEffect(() => {
         if (isLoading || error) {
