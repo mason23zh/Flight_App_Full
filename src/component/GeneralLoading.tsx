@@ -1,7 +1,7 @@
 import React from "react";
 import { CustomProvider, Loader } from "rsuite";
 
-const AirportDetailLoading = ({ themeMode }) => {
+const GeneralLoading = ({ themeMode }) => {
     return (
         <CustomProvider theme={themeMode}>
             <div className="text-center">
@@ -11,4 +11,4 @@ const AirportDetailLoading = ({ themeMode }) => {
     );
 };
 
-export default AirportDetailLoading;
+export default GeneralLoading;
