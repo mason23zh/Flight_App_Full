@@ -6,7 +6,8 @@ import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
 import { load } from "@loaders.gl/core";
 import { GLTFLoader } from "@loaders.gl/gltf";
 import { VatsimFlight } from "../../../types";
-import airport_model from "../../../assets/models/airplane.glb";
+import airplane_model from "../../../assets/models/airplane.glb";
+// import airplane_model from "../../../assets/models/b739.glb";
 import { useEffect, useState } from "react";
 
 const ANIMATIONS = {
@@ -16,13 +17,13 @@ const ANIMATIONS = {
 const trafficLayer_3D = (
     data: Array<VatsimFlight>,
     visible: boolean) => {
-    const [airportModel, setAirplaneModel] = useState(null);
+    const [airplaneModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const loadGLT = async () => {
             try {
-                const airplane = await load(airport_model, GLTFLoader);
+                const airplane = await load(airplane_model, GLTFLoader);
                 setAirplaneModel(airplane);
             } catch (e) {
                 setError(new Error("Error loading 3d file", e));
@@ -34,19 +35,19 @@ const trafficLayer_3D = (
 
     // Error reset
     useEffect(() => {
-        if (airportModel) {
+        if (airplaneModel) {
             setError(null);
         }
-    }, [airportModel]);
+    }, [airplaneModel]);
 
-    if (!airportModel || error || !visible) return null;
+    if (!airplaneModel || error || !visible) return null;
 
     return new ScenegraphLayer({
         id: "traffics-layer",
         data,
         pickable: true,
         sizeScale: 20,
-        scenegraph: airportModel && airportModel,
+        scenegraph: airplaneModel && airplaneModel,
         _animations: ANIMATIONS,
         sizeMinPixels: 0.3,
         sizeMaxPixels: 0.4,

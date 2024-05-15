@@ -18,7 +18,6 @@ interface Controller {
     geoJsonData: GeoJson.FeatureCollection;
 }
 
-
 const FirLayer = ({
     controllerInfo,
     labelVisible,
@@ -27,15 +26,17 @@ const FirLayer = ({
 
     const dispatch = useDispatch();
 
+
     const {
         geoJsonFeatures,
         firData,
         isLoading,
-        error
+        isError
     } = useMatchedFirFeatures(
         controllerInfo,
         geoJsonData
     );
+
     useEffect(() => {
         if (isLoading) {
             dispatch(addMessage({
@@ -45,7 +46,7 @@ const FirLayer = ({
             }));
         }
 
-        if (error) {
+        if (isError) {
             dispatch(addMessage({
                 location: "FIR",
                 messageType: "ERROR",
@@ -53,10 +54,10 @@ const FirLayer = ({
             }));
         }
 
-        if (geoJsonFeatures && !error) {
+        if (geoJsonFeatures?.features.length > 0 && !isError) {
             dispatch(removeMessageByLocation({ location: "FIR" }));
         }
-    }, [isLoading, error, geoJsonFeatures, firData]);
+    }, [isLoading, isError, geoJsonFeatures, firData]);
 
     const {
         renderedMarkers,
@@ -64,6 +65,10 @@ const FirLayer = ({
     } = useRenderFirLabelMarker(geoJsonFeatures);
 
     const hoverFirCast = hoverFir as GeoJson.FeatureCollection;
+
+    if (isLoading || isError) {
+        return null;
+    }
 
     if (geoJsonFeatures) {
         return (

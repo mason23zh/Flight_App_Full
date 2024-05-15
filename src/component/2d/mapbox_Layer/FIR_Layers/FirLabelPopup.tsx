@@ -27,6 +27,7 @@ const FirLabelPopup = ({
 
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
+    const callsignColor = darkMode ? "text-purple-300" : "text-purple-500";
 
     // construct the controllers list
     const renderControllersData = hoverFir.features[0].properties.controllers.map((c) => {
@@ -37,7 +38,7 @@ const FirLabelPopup = ({
         const key = `${c.name}-${c.logon_time}`;
         return (
             <div key={key} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                <div className="">
+                <div className={c.callsign.includes("FSS") ? callsignColor : ""}>
                     {c.callsign}
                 </div>
                 <div className="">

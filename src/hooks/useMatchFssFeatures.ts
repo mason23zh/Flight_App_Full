@@ -1,21 +1,81 @@
-import { VatsimControllers, VatsimFirs } from "../types";
+import { VatsimControllers } from "../types";
 import GeoJson from "geojson";
-import { useState } from "react";
-import { useFetchVatsimFssQuery } from "../store";
+import { useMemo, useState } from "react";
+import { useFetchVatsimFirQuery, useFetchVatsimFssQuery } from "../store";
 
 const useMatchFssFeatures = (
     controllerInfo: VatsimControllers,
-    firData: VatsimFirs,
     geoJsonData: GeoJson.FeatureCollection) => {
 
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>();
 
+    const {
+        data: fssData,
+        error: fssError,
+        isLoading: fssLoading
+    } = useFetchVatsimFssQuery();
 
-    // if (firData && controllerInfo) {
-    //     controllerInfo.fss.forEach((fssController) => {
-    //         let geoJsonFeatureList = [];
-    //         fssController.
-    //     });
-    // }
+    const {
+        data: firData,
+        error: firError,
+        isLoading: firLoading
+    } = useFetchVatsimFirQuery();
 
+    const isLoading = fssLoading || firLoading;
+    const error = fssError || firError;
+
+    useMemo(() => {
+        if (!controllerInfo || !controllerInfo.fss || !fssData || !firData || !geoJsonData || error) {
+            return;
+        }
+
+        const localMatchedFirs = [];
+        const combinedFeatures = controllerInfo.fss.reduce((acc, fssEntry) => {
+            const prefix = fssEntry.callsign.split("_")[0]; // Extract FSS prefix from callsign
+            const fss = fssData[prefix]; // Find the FSS using the prefix
+            if (!fss) return acc; // Continue if no FSS is found for the prefix
+
+
+            const fssFeatures = fss.firs.reduce((fssAcc, firKey) => {
+                const firFeatures = geoJsonData.features.filter(feature => {
+                    const icao = firData[firKey]?.icao;
+                    return feature.properties.id === icao;
+                });
+
+                if (firFeatures.length > 0) {
+                    localMatchedFirs.push(firKey);
+                }
+
+                // Append controllerInfo details to each GeoJSON feature
+                return fssAcc.concat(firFeatures.map(feature => ({
+                    ...feature,
+                    properties: {
+                        ...feature.properties,
+                        controllers: [{
+                            callsign: fssEntry.callsign,
+                            frequency: fssEntry.frequency,
+                            logon_time: fssEntry.logon_time,
+                            name: fssEntry.name
+                        }],
+                    }
+                })));
+            }, []);
+
+
+            return [...acc, ...fssFeatures];
+        }, []);
+
+        setGeoJsonFeatures({
+            type: "FeatureCollection",
+            features: combinedFeatures
+        });
+    }, [controllerInfo, fssData, firData, geoJsonData]);
+
+    return {
+        geoJsonFeatures,
+        isLoading,
+        error
+    };
 };
+
+export default useMatchFssFeatures;

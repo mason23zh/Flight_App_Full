@@ -257,7 +257,7 @@ interface Controller {
     rating: number,
     server: string,
     visual_range: number,
-    text_atis: string[],
+    text_atis: string[] | string | null,
     last_updated: string,
     logon_time: string,
     airport: {
@@ -290,6 +290,7 @@ interface Atis {
 interface Fss {
     cid: number,
     name: string,
+    frequency: string,
     callsign: string,
     facility: number,
     rating: number,
@@ -346,6 +347,34 @@ interface VatsimFirs {
         name: string;
         prefix: string;
         fir: string;
+    };
+}
+
+interface VatsimFss {
+    [key: string]: {
+        prefix: string,
+        name: string,
+        firs: Array<string>
+    };
+}
+
+interface MatchedFirsController {
+    callsign: string,
+    frequency: string,
+    logon_time: string,
+    name: string
+}
+
+interface MatchedFirs {
+    [key: string]: {
+        firKey: string,
+        controllers: Array<MatchedFirsController>,
+        firInfo: {
+            fir: string,
+            icao: string,
+            name: string,
+            prefix: string
+        }
     };
 }
 
@@ -412,10 +441,13 @@ export type {
     VatsimTrackTraffic,
     DbAirport,
     VatsimControllers,
+    Controller,
     VatsimGeoJsonFeature,
     VatsimFirs,
+    VatsimFss,
     VatsimFirBoundaries,
     VatsimMatchedFirBoundariesGeoJson,
     AirportService,
-    AirportResponse
+    AirportResponse,
+    MatchedFirs
 };

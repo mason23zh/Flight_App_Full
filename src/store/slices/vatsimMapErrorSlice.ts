@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 interface AddMessagePayloadAction {
     type: "vatsimMapError/addMessage";
     payload: {
-        location: "NXRAD" | "ATC" | "BASE_TRAFFIC" | "FIR" | "TRACON" | "CONTROLLER" | "TRAFFIC_TRACK" | "BASE_MAP";
+        location: "NXRAD" | "ATC" | "BASE_TRAFFIC" | "FIR" | "FSS" | "TRACON" | "CONTROLLER" | "TRAFFIC_TRACK" | "BASE_MAP";
         messageType: "LOADING" | "ERROR";
         content: string;
     };
@@ -12,7 +12,7 @@ interface AddMessagePayloadAction {
 interface RemoveMessagePayloadAction {
     type: "vatsimMapError/removeMessageByLocation",
     payload: {
-        location: "NXRAD" | "ATC" | "BASE_TRAFFIC" | "FIR" | "TRACON" | "CONTROLLER" | "TRAFFIC_TRACK" | "BASE_MAP";
+        location: "NXRAD" | "ATC" | "BASE_TRAFFIC" | "FIR" | "FSS" | "TRACON" | "CONTROLLER" | "TRAFFIC_TRACK" | "BASE_MAP";
         // content: string;
     }
 }
