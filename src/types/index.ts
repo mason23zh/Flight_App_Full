@@ -302,6 +302,7 @@ interface Fss {
     firInfo: {}
 }
 
+
 interface VatsimControllers {
     fir: Array<Fir>,
     other: {
@@ -309,6 +310,7 @@ interface VatsimControllers {
         atis: Array<Atis>
     },
     fss: Array<Fss>
+    tracon: Array<Controller>
 }
 
 interface MultiPolygonGeometry {
