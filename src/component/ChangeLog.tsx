@@ -144,6 +144,10 @@ function ChangeLog() {
                         - Fix the issue that some FSS are miss matching <br/>
                         - Fix the issue that some Tracon are miss matching <br/>
                     </div>
+                    <div>
+                        Beta 0.4.3.1 <br/>
+                        - Adjust tracon matching for the API update <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
