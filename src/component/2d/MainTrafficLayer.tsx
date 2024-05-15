@@ -6,7 +6,7 @@ import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer_3D from "./deckGL_Layer/trafficLayer_3D";
 import { VatsimFlight } from "../../types";
-import { FirstPersonView, PickingInfo } from "@deck.gl/core/typed";
+import { PickingInfo } from "@deck.gl/core/typed";
 import {
     addMessage,
     removeMessageByLocation,
