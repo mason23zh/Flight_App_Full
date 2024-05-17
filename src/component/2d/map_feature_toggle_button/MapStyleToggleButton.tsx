@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
@@ -14,6 +15,14 @@ const MapStyleToggleButton = ({ mapRef }) => {
     const {
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        handleMouseMove,
+        handleMouseLeave,
+        handleMouseEnter,
+        tooltipVisible,
+        mousePosition
+    } = useDisplayTooltip(400);
+
     // close the popup when mapStyle changes
     useEffect(() => {
         dispatch(toggleMapStyleButton(false));
@@ -74,6 +83,9 @@ const MapStyleToggleButton = ({ mapRef }) => {
             <button
                 className="relative p-2 bg-gray-400 rounded-md text-xs text-white"
                 onClick={handleOnClick}
+                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handleMouseEnter}
+                onMouseMove={handleMouseMove}
             >
                 {mapStyleName}
             </button>
@@ -87,7 +99,20 @@ const MapStyleToggleButton = ({ mapRef }) => {
                     : ""
                 }
             </div>
-        </div>
+            {tooltipVisible &&
+                <div
+                    className="fixed px-2 py-1 bg-black text-white
+                        text-xs rounded-md pointer-events-none z-40"
+                    style={{
+                        top: mousePosition.y + 15,
+                        left: mousePosition.x + 15,
+                    }}
+                >
+                    Switching map style
+                </div>
+            }
+        </div
+        >
     );
 };
 

@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
     onToggle: (activeFlag: boolean) => void;
@@ -17,18 +18,19 @@ const MapFeaturesToggleButton = ({
     const activeClass = "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
     const inActiveClass = "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
-    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
-    const [tooltipVisible, setTooltipVisible] = useState(false);
-    const [mousePosition, setMousePosition] = useState({
-        x: 0,
-        y: 0
-    });
 
 
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
 
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+        mousePosition
+    } = useDisplayTooltip(400);
 
     const handleClick = () => {
         const newActiveState = !isActive;
@@ -43,25 +45,6 @@ const MapFeaturesToggleButton = ({
         }
     };
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        setMousePosition({
-            x: e.clientX,
-            y: e.clientY
-        });
-    };
-    const handleMouseEnter = () => {
-        timerRef.current = setTimeout(() => {
-            setTooltipVisible(true);
-        }, 300);
-    };
-
-    const handleMouseLeave = () => {
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
-            timerRef.current = null;
-        }
-        setTooltipVisible(false);
-    };
 
     return (
         <div

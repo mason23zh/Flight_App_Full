@@ -4,6 +4,7 @@ import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapFilterButton } from "../../../store";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -14,15 +15,27 @@ const MapFilterToggleButton = ({ mapRef }: Props) => {
     const {
         mapFilterButtonToggle,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+        mousePosition
+    } = useDisplayTooltip(400);
     const handleOnClick = () => {
         dispatch(toggleMapFilterButton(!mapFilterButtonToggle));
     };
+
 
     return (
         <div>
             <button
                 className="relative px-2 py-1 bg-gray-400 rounded-md text-white items-center w-full"
                 onClick={handleOnClick}
+                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handleMouseEnter}
+                onMouseMove={handleMouseMove}
             >
                 <FaLayerGroup className="text-white text-xl"/>
             </button>
@@ -35,6 +48,18 @@ const MapFilterToggleButton = ({ mapRef }: Props) => {
             >
                 <MapFeaturesToggleButtonGroup mapRef={mapRef}/>
             </div>
+            {tooltipVisible &&
+                <div
+                    className="fixed px-2 py-1 bg-black text-white
+                        text-xs rounded-md pointer-events-none z-40"
+                    style={{
+                        top: mousePosition.y + 15,
+                        left: mousePosition.x + 15,
+                    }}
+                >
+                    Map feature selector
+                </div>
+            }
         </div>
     );
 };
