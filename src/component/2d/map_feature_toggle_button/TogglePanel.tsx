@@ -75,24 +75,28 @@ const TogglePanel = ({ mapRef }: Props) => {
                     onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
                     icon={<IoAirplane/>}
                     initialActive={trafficLayerVisible}
+                    tooltipMessage="Toggle Vatsim traffic"
                 />
 
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleAtcLayer(activeFlag))}
                     icon={<GiControlTower/>}
                     initialActive={allAtcLayerVisible}
+                    tooltipMessage="Toggle ATC visibility"
                 />
 
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))}
                     icon={<TiWeatherDownpour/>}
                     initialActive={weatherRasterVisible}
+                    tooltipMessage="Toggle weather"
                 />
 
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleTerrainLabel(activeFlag))}
                     icon={<CgTerrain/>}
                     initialActive={terrainEnable}
+                    tooltipMessage="Toggle terrain and 3D view"
                 />
 
                 <MapStyleToggleButton mapRef={mapRef}/>
