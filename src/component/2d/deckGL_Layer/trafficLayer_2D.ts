@@ -22,7 +22,7 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
         iconAtlas: aircraftSpriteSheetPNG,
         iconMapping: aircraftSpriteSheetMapping,
         sizeScale: 5,
-        getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, d.groundspeed < 50 ? 0 : d.altitude],
+        getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, 0], //traffic always at 0 feet in 2d view
         getAngle: (d: VatsimFlight) => -d.heading,
         getColor: () => [228, 235, 10],
         getSize: (d: VatsimFlight) => {
