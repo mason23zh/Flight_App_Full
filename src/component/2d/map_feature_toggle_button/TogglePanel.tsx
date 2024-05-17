@@ -70,7 +70,8 @@ const TogglePanel = ({ mapRef }: Props) => {
 
     return (
         <div className="z-[200] absolute">
-            <div className="flex flex-col gap-2 p-1 bg-gray-700 rounded-md ml-2 mt-10 w-auto">
+            <div className="flex flex-col items-center gap-2 p-1 bg-gray-700
+            rounded-md ml-2 mt-10 w-auto">
                 <MapFeaturesToggleButton
                     onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
                     icon={<IoAirplane/>}

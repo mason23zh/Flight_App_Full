@@ -81,7 +81,8 @@ const MapStyleToggleButton = ({ mapRef }) => {
     return (
         <div>
             <button
-                className="relative p-2 bg-gray-400 rounded-md text-xs text-white"
+                className="relative px-2 py-1
+                bg-gray-400 rounded-md text-white text-[10px] text-center"
                 onClick={handleOnClick}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
