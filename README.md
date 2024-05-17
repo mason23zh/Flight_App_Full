@@ -135,4 +135,8 @@
 
 # Beta 0.4.3.1
 
-- Adjust tracon matching for the API update 
+- Adjust tracon matching for the API update
+
+# Beta 0.4.4
+
+- Added tooltip for map feature toggle panel

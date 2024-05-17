@@ -146,7 +146,11 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.4.3.1 <br/>
-                        - Adjust tracon matching for the API update <br/>
+                        - Apply changes for API update <br/>
+                    </div>
+                    <div>
+                        Beta 0.4.4 <br/>
+                        - Added tooltip for map feature toggle panel <br/>
                     </div>
                 </div>
             </div>
