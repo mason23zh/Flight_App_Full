@@ -56,34 +56,24 @@ const useMatchedFirFeatures = (
 
         let matchedFirs = {};
 
-        // Match FIRs based on controller info
-        if (controllerInfo && controllerInfo.fir && firData) {
-            matchedFirs = controllerInfo.fir.reduce((acc, controller) => {
-                const parts = controller.callsign.split("_")
-                    .filter(part => part !== "CTR");
-                let matchFound = false;
 
-                while (parts.length > 0 && !matchFound) {
-                    const potentialMatch = parts.join("_");
-                    if (firData[potentialMatch]) {
-                        if (!acc[potentialMatch]) {
-                            acc[potentialMatch] = {
-                                firKey: potentialMatch,
-                                controllers: [],
-                                firInfo: firData[potentialMatch],
-                                isInFss: false
-                            };
-                        }
-                        acc[potentialMatch].controllers.push({
-                            name: controller.name,
-                            frequency: controller.frequency,
-                            logon_time: controller.logon_time,
-                            callsign: controller.callsign
-                        });
-                        matchFound = true;
-                    }
-                    parts.pop();
+        if (controllerInfo && controllerInfo.fir) {
+            matchedFirs = controllerInfo.fir.reduce((acc, controller) => {
+                const firKey = controller.firInfo.icao;
+                if (!acc[firKey]) {
+                    acc[firKey] = {
+                        firKey: firKey,
+                        controllers: [],
+                        firInfo: controller.firInfo,
+                        isInFss: false
+                    };
                 }
+                acc[firKey].controllers.push({
+                    name: controller.name,
+                    frequency: controller.frequency,
+                    logon_time: controller.logon_time,
+                    callsign: controller.callsign
+                });
                 return acc;
             }, {});
         }

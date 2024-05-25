@@ -19,7 +19,8 @@ interface VatsimTrafficResponse {
 export const vatsimApi = createApi({
     reducerPath: "vatsim",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://api.airportweather.org/v1/vatsim",
+        // baseUrl: "https://api.airportweather.org/v1/vatsim",
+        baseUrl: "http://127.0.0.1:80/v1/vatsim"
     }),
     endpoints(build) {
         return {

@@ -16,4 +16,4 @@ const DayNightLayer = () => {
     }
 };
 
-export default DayNightLayer;
+export default React.memo(DayNightLayer);
