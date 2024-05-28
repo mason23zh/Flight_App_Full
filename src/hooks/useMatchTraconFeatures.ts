@@ -53,7 +53,7 @@ const useMatchTraconFeatures = (
                     geoJsonData.features.forEach(feature => {
                         if (feature.properties?.prefix && feature.properties.prefix.includes(potentialMatch)) {
                             matched = true;
-                            const key = `${feature.properties.id}-${potentialMatch}`;
+                            const key = `${feature.properties.id}-${potentialMatch}-${controller.cid}`;
                             if (!featuresMap.has(key)) {
                                 featuresMap.set(key, {
                                     ...feature,

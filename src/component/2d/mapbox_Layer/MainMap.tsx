@@ -21,7 +21,7 @@ const MainMap = () => {
     if (!window.WebGLRenderingContext) {
         return (
             <div>
-                ERROR
+                Unsupported Device
             </div>
         );
     }

@@ -18,7 +18,7 @@ function SelectedTrafficDetail(props: { traffic: VatsimFlight }) {
                             {traffic.groundspeed || 0} kt
                         </div>
                     </div>
-                    <div className="grid grid-cols-1">
+                    <div className="hidden md:block">
                         <div>
                             Altitude
                         </div>
@@ -27,29 +27,31 @@ function SelectedTrafficDetail(props: { traffic: VatsimFlight }) {
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-3">
-                    <div>Departure</div>
-                    <div>{traffic.flight_plan?.departure || ""}</div>
-                </div>
-                <div className="flex gap-3">
-                    <div>Arrival</div>
-                    <div>{traffic.flight_plan?.arrival || ""}</div>
-                </div>
-                <div className="flex gap-3">
-                    <div>Alternate</div>
-                    <div>{traffic.flight_plan?.alternate || "N/A"}</div>
-                </div>
-                <div className="flex gap-3">
-                    <div>Aircraft</div>
-                    <div>{traffic.flight_plan?.aircraft_short}</div>
-                </div>
-                <div className="flex gap-3">
-                    <div>Name</div>
-                    <div>{traffic.name || ""}</div>
-                </div>
-                <div className="flex gap-3">
-                    <div>Squawk</div>
-                    <div>{traffic.transponder || ""}</div>
+                <div className="bg-red-600">
+                    <div className="flex gap-3">
+                        <div>Departure</div>
+                        <div>{traffic.flight_plan?.departure || ""}</div>
+                    </div>
+                    <div className="flex gap-3">
+                        <div>Arrival</div>
+                        <div>{traffic.flight_plan?.arrival || ""}</div>
+                    </div>
+                    <div className="flex gap-3">
+                        <div>Alternate</div>
+                        <div>{traffic.flight_plan?.alternate || "N/A"}</div>
+                    </div>
+                    <div className="flex gap-3">
+                        <div>Aircraft</div>
+                        <div>{traffic.flight_plan?.aircraft_short}</div>
+                    </div>
+                    <div className="flex gap-3">
+                        <div>Name</div>
+                        <div>{traffic.name || ""}</div>
+                    </div>
+                    <div className="flex gap-3">
+                        <div>Squawk</div>
+                        <div>{traffic.transponder || ""}</div>
+                    </div>
                 </div>
             </div>
         </div>

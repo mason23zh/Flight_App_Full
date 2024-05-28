@@ -20,10 +20,10 @@ const OverallDataBlock = ({
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
                 <div className="grid grid-rows-2 bg-gray-600 p-2">
-                    <div className="text-yellow-500 font-bold text-xl font-Rubik">
+                    <div className="text-yellow-500 font-bold text-md md:text-xl font-Rubik">
                         {callsign}
                     </div>
-                    <div className="text-white font-bold text-md font-Rubik">
+                    <div className="text-white font-bold text-xs md:text-md font-Rubik">
                         {aircraft || "N/A"}
                     </div>
                 </div>
@@ -31,8 +31,8 @@ const OverallDataBlock = ({
                 {/*Departure and Arrival Airport*/}
 
                 <div className="grid grid-cols-2 bg-gray-200">
-                    <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
-                        <div className="text-xl font-bold">
+                    <div className="flex flex-col justify-center items-center border-r p-2 md:p-3 bg-gray-300">
+                        <div className="text-lg md:text-xl font-bold">
                             {depAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`} className="text-blue-600
                                 hover:text-blue-800 underline underline-offset-4 decoration-dashed cursor-pointer">
@@ -41,13 +41,13 @@ const OverallDataBlock = ({
                                 : "N/A"
                             }
                         </div>
-                        <div className="text-lg truncate w-full text-center"
+                        <div className="text-xs md:text-lg truncate w-full text-center"
                             title={depAirport.data[0]?.station.city || "N/A"}>
                             {depAirport.data[0]?.station.city || "N/A"}
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center border-l p-3 bg-gray-300">
-                        <div className="text-xl font-bold">
+                        <div className="text-lg md:text-xl font-bold">
                             {arrAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`} className="text-blue-600
                                 hover:text-blue-800 decoration-dashed underline underline-offset-4 cursor-pointer"
@@ -57,7 +57,7 @@ const OverallDataBlock = ({
                                 : "N/A"
                             }
                         </div>
-                        <div className="text-lg truncate w-full text-center"
+                        <div className="text-xs md:text-lg truncate w-full text-center"
                             title={arrAirport.data[0]?.station.city || "N/A"}>
                             {arrAirport.data[0]?.station.city || "N/A"}
                         </div>
