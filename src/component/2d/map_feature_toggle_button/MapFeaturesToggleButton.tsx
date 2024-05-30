@@ -45,6 +45,8 @@ const MapFeaturesToggleButton = ({
         }
     };
 
+    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
+            "text-xs rounded-md pointer-events-none z-40";
 
     return (
         <div
@@ -61,8 +63,9 @@ const MapFeaturesToggleButton = ({
             </button>
             {tooltipVisible &&
                 <div
+                    // className={`hidden sm:${tooltipStyle}`}
                     className="fixed px-2 py-1 bg-black text-white
-                        text-xs rounded-md pointer-events-none z-40"
+                    text-xs rounded-md pointer-events-none z-40"
                     style={{
                         top: mousePosition.y + 15,
                         left: mousePosition.x + 15,

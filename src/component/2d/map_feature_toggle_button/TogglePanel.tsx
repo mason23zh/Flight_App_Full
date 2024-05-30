@@ -68,42 +68,49 @@ const TogglePanel = ({ mapRef }: Props) => {
         }
     }, [isMapLoaded, dispatch]);
 
+    const parentStyle = "z-[200] absolute bottom-0 w-full sm:top-auto sm:left-0 " +
+            "sm:bottom-auto sm:w-auto sm:right-auto";
+
+    const childStyle = "flex flex-row items-center justify-center gap-2 p-1 bg-gray-700 " +
+            "rounded-md sm:flex-col sm:items-start sm:ml-2 sm:mt-10 sm:justify-start";
+
     return (
-        <div className="z-[200] absolute">
-            <div className="flex flex-col items-center gap-2 p-1 bg-gray-700
-            rounded-md ml-2 mt-10 w-auto">
-                <MapFeaturesToggleButton
-                    onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
-                    icon={<IoAirplane/>}
-                    initialActive={trafficLayerVisible}
-                    tooltipMessage="Toggle Vatsim traffic"
-                />
+        <div className={parentStyle}>
+            <div className="flex justify-center w-full sm:w-auto">
+                <div className={childStyle}>
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
+                        icon={<IoAirplane/>}
+                        initialActive={trafficLayerVisible}
+                        tooltipMessage="Toggle Vatsim traffic"
+                    />
 
-                <MapFeaturesToggleButton
-                    onToggle={(activeFlag) => dispatch(toggleAtcLayer(activeFlag))}
-                    icon={<GiControlTower/>}
-                    initialActive={allAtcLayerVisible}
-                    tooltipMessage="Toggle ATC visibility"
-                />
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleAtcLayer(activeFlag))}
+                        icon={<GiControlTower/>}
+                        initialActive={allAtcLayerVisible}
+                        tooltipMessage="Toggle ATC visibility"
+                    />
 
-                <MapFeaturesToggleButton
-                    onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))}
-                    icon={<TiWeatherDownpour/>}
-                    initialActive={weatherRasterVisible}
-                    tooltipMessage="Toggle weather"
-                />
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))}
+                        icon={<TiWeatherDownpour/>}
+                        initialActive={weatherRasterVisible}
+                        tooltipMessage="Toggle weather"
+                    />
 
-                <MapFeaturesToggleButton
-                    onToggle={(activeFlag) => dispatch(toggleTerrainLabel(activeFlag))}
-                    icon={<CgTerrain/>}
-                    initialActive={terrainEnable}
-                    tooltipMessage="Toggle terrain and 3D view"
-                />
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleTerrainLabel(activeFlag))}
+                        icon={<CgTerrain/>}
+                        initialActive={terrainEnable}
+                        tooltipMessage="Toggle terrain and 3D view"
+                    />
 
-                <MapStyleToggleButton mapRef={mapRef}/>
+                    <MapStyleToggleButton mapRef={mapRef}/>
 
-                <MapFilterToggleButton mapRef={mapRef}/>
+                    <MapFilterToggleButton mapRef={mapRef}/>
 
+                </div>
             </div>
         </div>
     );

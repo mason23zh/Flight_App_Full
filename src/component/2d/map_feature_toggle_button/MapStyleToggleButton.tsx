@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
@@ -11,6 +11,8 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 const MapStyleToggleButton = ({ mapRef }) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
+    // when user click the button, tooltip will disappear
+    const [buttonClick, setButtonClick] = useState(false);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
         mapStyleButtonToggle
@@ -42,7 +44,13 @@ const MapStyleToggleButton = ({ mapRef }) => {
         mapStyleName = "SAT";
         break;
     }
+
+    useEffect(() => {
+        setButtonClick(false);
+    }, [tooltipVisible]);
+
     const handleOnClick = () => {
+        setButtonClick(true);
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
@@ -78,8 +86,15 @@ const MapStyleToggleButton = ({ mapRef }) => {
     }, [mapStyles]);
 
 
+    // <div
+    //         className={`absolute left-[110%] bottom-0.5 transform
+    //             transition-all duration-300
+    //             ease-in-out ${mapStyleButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
+    //         style={{ visibility: mapStyleButtonToggle ? "visible" : "hidden" }}
+    // >
+
     return (
-        <div>
+        <div className="">
             <button
                 className="relative px-2 py-1
                 bg-gray-400 rounded-md text-white text-[10px] text-center"
@@ -90,17 +105,20 @@ const MapStyleToggleButton = ({ mapRef }) => {
             >
                 {mapStyleName}
             </button>
-
-            <div className={`absolute left-[110%] bottom-0.5 transform 
-            ${mapStyleButtonToggle ? "translate-x-0" : "-translate-x-5"} transition-transform duration-300 ease-in-out`
-            }
+            <div
+                className={`absolute bottom-[110%] left-auto right-auto sm:left-[110%] sm:bottom-0.5 transform 
+                transition-all duration-300  
+                ease-in-out 
+                ${mapStyleButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}
+                `}
+                style={{ visibility: mapStyleButtonToggle ? "visible" : "hidden" }}
             >
                 {mapStyleButtonToggle ?
                     <MapStyleToggleButtonGroup/>
                     : ""
                 }
             </div>
-            {tooltipVisible &&
+            {(tooltipVisible && !buttonClick) &&
                 <div
                     className="fixed px-2 py-1 bg-black text-white
                         text-xs rounded-md pointer-events-none z-40"
