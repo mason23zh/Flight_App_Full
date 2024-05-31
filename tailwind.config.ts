@@ -3,6 +3,11 @@ export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {
+            zIndex: {
+                "100": "100",
+                "200": "200",
+                "300": "300"
+            },
             colors: {
                 "arrival-green": "#09d654",
                 "departure-red": "#fc4f4f",
