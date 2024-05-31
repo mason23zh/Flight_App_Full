@@ -22,13 +22,14 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
     const renderControllersData = hoverTracon.features[0].properties.controllers.map((c) => {
+        const uniqueKey = c.name + c.callsign;
         const {
             hour,
             minute
         } = returnOnlineTime(c.logon_time);
 
         return (
-            <div key={c.name} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
+            <div key={uniqueKey} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
                 <div className="">
                     {c.callsign}
                 </div>
@@ -43,6 +44,7 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
                 </div>
             </div>
         );
+        // }
     });
 
     return (

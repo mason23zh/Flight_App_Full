@@ -11,7 +11,7 @@ import TraconLayer from "./Tracon_Layers/TraconLayer";
 import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import testData from "../../../test_data/vatsim-czeg-fss.json";
+import testData from "../../../test_data/vatsim-test-data.json";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
 
 const AtcLayer = () => {
@@ -75,5 +75,5 @@ const AtcLayer = () => {
         </>
     );
 };
- 
+
 export default AtcLayer;
