@@ -38780,16 +38780,6 @@
         "active": "N"
     },
     {
-        "id": "3885",
-        "name": "Pan American Airways",
-        "alias": "\\N",
-        "iata": "PA",
-        "icao": "PAA",
-        "callsign": "",
-        "country": "United States",
-        "active": "N"
-    },
-    {
         "id": "3886",
         "name": "Pan American World Airways",
         "alias": "\\N",
@@ -60677,6 +60667,16 @@
         "icao": "ECO",
         "callsign": "ECOJET",
         "country": "Bolivian",
+        "active": "Y"
+    },
+    {
+        "id": "19866",
+        "name": "ITA Airways",
+        "alias": "",
+        "iata": "AZ",
+        "icao": "ITY",
+        "callsign": "ITARROW",
+        "country": "Italy",
         "active": "Y"
     }
 ]
