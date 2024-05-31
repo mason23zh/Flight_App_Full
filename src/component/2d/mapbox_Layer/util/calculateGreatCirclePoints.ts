@@ -27,13 +27,49 @@ export const calculateGreatCirclePoints = (start: number[], end: number[], numPo
         const lat = Math.atan2(z, Math.sqrt(x * x + y * y));
         const lon = Math.atan2(y, x);
 
-        // Convert back to degrees and wrap longitude
+        // Convert back to degrees
         const lonDegrees = lon * 180 / Math.PI;
         const latDegrees = lat * 180 / Math.PI;
-        coordinates.push([wrapLongitude(lonDegrees), latDegrees]);
-
+        coordinates.push([lonDegrees, latDegrees]);
     }
-    return coordinates;
+
+    // Adjust for crossing the 180° meridian
+    // to prevent an extra line drawing across the map
+    for (let i = 1; i < coordinates.length; i++) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [prevLon, prevLat] = coordinates[i - 1];
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [currLon, currLat] = coordinates[i];
+
+        if (Math.abs(currLon - prevLon) > 180) {
+            if (currLon > prevLon) {
+                coordinates[i - 1][0] += 360;
+            } else {
+                coordinates[i][0] += 360;
+            }
+        }
+    }
+
+    // Normalize longitudes back to the range [-180, 180]
+    const normalizedCoordinates = coordinates.map(([lon, lat]) => [wrapLongitude(lon), lat]);
+
+    // Remove the extra line
+    const adjustedCoordinates = [];
+    for (let i = 0; i < normalizedCoordinates.length - 1; i++) {
+        const [currLon, currLat] = normalizedCoordinates[i];
+        const [nextLon, nextLat] = normalizedCoordinates[i + 1];
+        adjustedCoordinates.push([currLon, currLat]);
+
+        if (Math.abs(nextLon - currLon) > 180) {
+            const midpoint = [(currLon + nextLon) / 2, (currLat + nextLat) / 2];
+            adjustedCoordinates.push([midpoint[0], midpoint[1]]);
+            adjustedCoordinates.push([nextLon, nextLat]);
+        }
+    }
+
+    adjustedCoordinates.push(normalizedCoordinates[normalizedCoordinates.length - 1]);
+
+    return adjustedCoordinates;
 };
 
 
