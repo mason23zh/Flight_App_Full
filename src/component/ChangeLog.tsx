@@ -151,6 +151,10 @@ function ChangeLog() {
                     <div>
                         Beta 0.4.4 <br/>
                         - Added tooltip for map feature toggle panel <br/>
+                        - Added responsive design for map elements <br/>
+                        - Added airliner name display <br/>
+                        - Fixed the tracon popup for the API update <br/>
+                        - Fixed the great circle path drawing got messy if path is crossing the 180° meridian <br/>
                     </div>
                 </div>
             </div>
