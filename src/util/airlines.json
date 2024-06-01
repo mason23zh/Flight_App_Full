@@ -4385,7 +4385,7 @@
         "alias": "\\N",
         "iata": "AS",
         "icao": "ASA",
-        "callsign": " Inc.",
+        "callsign": "ALASKA",
         "country": "United States",
         "active": "Y"
     },
@@ -60677,6 +60677,16 @@
         "icao": "ITY",
         "callsign": "ITARROW",
         "country": "Italy",
+        "active": "Y"
+    },
+    {
+        "id": "19867",
+        "name": "WestJet Encore",
+        "alias": "",
+        "iata": "WR",
+        "icao": "WEN",
+        "callsign": "ENCORE",
+        "country": "Canada",
         "active": "Y"
     }
 ]
