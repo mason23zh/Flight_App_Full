@@ -54330,16 +54330,6 @@
         "active": "Y"
     },
     {
-        "id": "5452",
-        "name": "Wings Air Transport",
-        "alias": "\\N",
-        "iata": "",
-        "icao": "WAT",
-        "callsign": "",
-        "country": "Sudan",
-        "active": "N"
-    },
-    {
         "id": "5453",
         "name": "Wings Airways",
         "alias": "\\N",
@@ -60651,7 +60641,7 @@
     },
     {
         "id": "19864",
-        "name": "Walker Air",
+        "name": "Walker Air Transport",
         "alias": "",
         "iata": "",
         "icao": "WAT",

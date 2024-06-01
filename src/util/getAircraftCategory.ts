@@ -42,13 +42,13 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
                 scale = 11;
                 break;
             case "businessJet":
-                scale = 10;
+                scale = 17;
                 break;
             case "generalAviation":
                 scale = 17;
                 break;
             case "helicopter":
-                scale = 11;
+                scale = 20;
                 break;
             case "military":
                 scale = 10;

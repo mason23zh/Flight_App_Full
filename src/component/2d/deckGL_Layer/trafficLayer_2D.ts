@@ -5,8 +5,8 @@
 import { IconLayer } from "@deck.gl/layers";
 import { VatsimFlight } from "../../../types";
 import { getAircraftSizeCategory } from "../../../util/getAircraftCategory";
-import aircraftSpriteSheetMapping from "../../../assets/mapbox/aircraft-sprite-sheet.json";
-import aircraftSpriteSheetPNG from "../../../assets/mapbox/aircraft-sprite-sheet.png";
+import aircraftSpriteSheetMapping from "../../../assets/mapbox/aircraft_sprite_mapping.json";
+import aircraftSpriteSheetPNG from "../../../assets/mapbox/aircraft_sprite_mapping-0.png";
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
     if (!visible) return null;
