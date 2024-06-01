@@ -47,7 +47,7 @@ const flightPathLayer = (
         getColor: () => [255, 140, 0],
         getSourcePosition: (d) => d.from.coordinates,
         getTargetPosition: (d) => d.to.coordinates,
-        getWidth: 5,
+        getWidth: 3,
         widthMaxPixels: Number.MAX_SAFE_INTEGER,
         widthMinPixels: 0,
         widthScale: 1,
