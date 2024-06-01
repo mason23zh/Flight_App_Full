@@ -239,6 +239,12 @@ interface AirportResponse {
 
 interface Fir {
     fir: string,
+    firInfo: {
+        icao: string,
+        name: string,
+        prefix: string,
+        fir: string
+    },
     name: string,
     facility: number,
     callsign: string,

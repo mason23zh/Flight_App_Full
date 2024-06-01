@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
     onToggle: (activeFlag: boolean) => void;
     icon: React.ReactElement;
     initialActive: boolean;
+    tooltipMessage: string;
 }
 
 const MapFeaturesToggleButton = ({
     onToggle,
     icon,
-    initialActive = false
+    initialActive = false,
+    tooltipMessage
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
@@ -17,9 +20,17 @@ const MapFeaturesToggleButton = ({
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
 
+
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
 
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+        mousePosition
+    } = useDisplayTooltip(400);
 
     const handleClick = () => {
         const newActiveState = !isActive;
@@ -34,13 +45,36 @@ const MapFeaturesToggleButton = ({
         }
     };
 
+    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
+            "text-xs rounded-md pointer-events-none z-40";
+
     return (
-        <button
-            className={activeButtonClass}
-            onClick={handleClick}
+        <div
+            className="relative"
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseMove={handleMouseMove}
         >
-            {styledIcon}
-        </button>
+            <button
+                className={activeButtonClass}
+                onClick={handleClick}
+            >
+                {styledIcon}
+            </button>
+            {tooltipVisible &&
+                <div
+                    // className={`hidden sm:${tooltipStyle}`}
+                    className="fixed px-2 py-1 bg-black text-white
+                    text-xs rounded-md pointer-events-none z-40"
+                    style={{
+                        top: mousePosition.y + 15,
+                        left: mousePosition.x + 15,
+                    }}
+                >
+                    {tooltipMessage}
+                </div>
+            }
+        </div>
     );
 };
 

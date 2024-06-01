@@ -16,7 +16,7 @@ const useRenderTraconLabelMarker = (geoJsonFeatures: GeoJson.FeatureCollection) 
                     return (
                         <Marker
                             style={{ zIndex: 30 }}
-                            key={feature.properties?.id + feature.properties?.prefix[0]}
+                            key={feature.properties?.id + feature.properties?.prefix[0] + feature.properties.name}
                             longitude={Number(lon)}
                             latitude={Number(lat)}
                         >

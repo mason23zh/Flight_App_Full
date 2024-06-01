@@ -92,13 +92,23 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
             getTooltip={({ object }) => {
                 if (object) {
-                    const bgColor = "rgba(39, 40, 45, 0.13)";
+                    const bgColor = "rgba(39, 40, 45, 0.9)";
                     return {
                         text: object && `${object.callsign}
-                                      ${object?.flight_plan?.departure || "N/A"} - ${object?.flight_plan?.arrival || "N/A"}`,
+                                      ${object?.flight_plan?.departure || "N/A"} - ${object?.flight_plan?.arrival
+                                || "N/A"}`,
                         style: {
+                            fontStyle: "bold",
+                            width: "auto",
+                            height: "50px",
+                            padding: "4px",
+                            borderRadius: "10px",
+                            textAlign: "center",
                             backgroundColor: bgColor,
-                            color: "white"
+                            color: "white",
+                            marginLeft: "15px",
+                            marginBottom: "5px",
+                            zIndex: "100",
                         }
                     };
                 }

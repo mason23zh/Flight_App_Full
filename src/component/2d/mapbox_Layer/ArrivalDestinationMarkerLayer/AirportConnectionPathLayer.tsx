@@ -2,8 +2,7 @@ import React from "react";
 import { AirportResponse } from "../../../../types";
 import { Source, Layer } from "react-map-gl";
 import { connectionPathStyle } from "./airportConnectionPathStyle";
-import GeoJson from "geojson";
-import { calculateGreatCirclePoints } from "../util/calculateGreatCirclePoints";
+import { drawGreatCirclePointsFeature } from "../util/drawGreatCirclePointsFeature";
 
 interface AirportConnectionPathLayerProps {
     departureAirport: AirportResponse;
@@ -17,23 +16,13 @@ const AirportConnectionPathLayer = ({
     if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
         return;
     }
-    const greatPathCoords = calculateGreatCirclePoints(
+    const greatCircleFeature = drawGreatCirclePointsFeature(
         departureAirport.data[0].station.geometry.coordinates,
         arrivalAirport.data[0].station.geometry.coordinates,
     );
 
-    const lineData = {
-        type: "Feature",
-        properties: {},
-        geometry: {
-            type: "LineString",
-            coordinates: greatPathCoords
-        }
-    } as GeoJson.Feature;
-
-
     return (
-        <Source type="geojson" id="airport-connection-path" data={lineData}>
+        <Source type="geojson" id="airport-connection-path" data={greatCircleFeature}>
             <Layer {...connectionPathStyle} />
         </Source>
     );

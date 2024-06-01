@@ -84,6 +84,7 @@ const BaseMap = ({ children }) => {
                     source: "mapbox-dem",
                     exaggeration: 1.5
                 } : undefined}
+                logoPosition={"bottom-right"}
             >
                 {terrainEnable &&
                     <Source

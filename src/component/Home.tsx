@@ -14,6 +14,7 @@ import ScrollToHashElement from "./ScrollToHashElement";
 import HomeVatsimEvents from "./HomeVatsimEvents";
 
 function Home() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);
     const {
         data,
@@ -44,7 +45,7 @@ function Home() {
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
-        renderedAirport = <h3>Error</h3>;
+        renderedAirport = <h3 className="text-lg text-center">Error loading Airports</h3>;
     }
 
 

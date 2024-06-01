@@ -4,6 +4,8 @@ export const metarApi = createApi({
     reducerPath: "metar",
     baseQuery: fetchBaseQuery({
         baseUrl: "https://api.airportweather.org/v1/metar",
+        // baseUrl: "http://127.0.0.1:80/v1/metar"
+
     }),
     endpoints(build) {
         return {

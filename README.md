@@ -135,4 +135,12 @@
 
 # Beta 0.4.3.1
 
-- Adjust tracon matching for the API update 
+- Adjust tracon matching for the API update
+
+# Beta 0.4.4
+
+- Added tooltip for map feature toggle panel
+- Added responsive design for map elements
+- Added airliner name display
+- Fixed the tracon popup for the API update
+- Fixed the great circle path drawing got messy if path is crossing the 180° meridian

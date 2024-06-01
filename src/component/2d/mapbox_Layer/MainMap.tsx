@@ -18,6 +18,14 @@ const MainMap = () => {
     const { dayNightTerminator } =
             useSelector((state: RootState) => state.vatsimMapVisible);
 
+    if (!window.WebGLRenderingContext) {
+        return (
+            <div>
+                Unsupported Device
+            </div>
+        );
+    }
+
     return (
         <div>
             <BaseMap>

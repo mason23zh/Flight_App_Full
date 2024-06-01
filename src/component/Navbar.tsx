@@ -22,7 +22,7 @@ function Navbar() {
                         <img src={logo} width={25} height={25} alt="logoIcon"/>
                     </Link>
                 </div>
-                <div>
+                <div className="z-300">
                     <NavbarDropDown/>
                 </div>
             </div>

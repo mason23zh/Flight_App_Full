@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
 import { isFeatureCollection } from "../util/helpers";
 import GeoJson from "geojson";
+import testGeoJson from "../../../../test_data/vatsim-firboundaries.json";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -25,7 +26,6 @@ const FirLayer = ({
 }: Controller) => {
 
     const dispatch = useDispatch();
-
 
     const {
         geoJsonFeatures,

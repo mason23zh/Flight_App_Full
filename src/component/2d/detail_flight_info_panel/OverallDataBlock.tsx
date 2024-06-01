@@ -3,6 +3,9 @@ import FlightProgressBar from "./FlightProgressBar";
 import FlightStatusFlag from "./FlightStatusFlag";
 import calculateArrivalTime from "../../../util/calculateArrivalTime";
 import { Link } from "react-router-dom";
+import getAircraftCallsignName from "../../../util/getAircraftCallsignName";
+import { IoInformationCircleOutline } from "react-icons/io5";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 const OverallDataBlock = ({
     aircraft,
@@ -14,16 +17,67 @@ const OverallDataBlock = ({
     progress
 }) => {
 
+    const airlinerInfo = getAircraftCallsignName(callsign);
+
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+    } = useDisplayTooltip(200);
+
     return (
         <div className="relative">
             <FlightStatusFlag progress={progress}/>
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
-                <div className="grid grid-rows-2 bg-gray-600 p-2">
-                    <div className="text-yellow-500 font-bold text-xl font-Rubik">
+                <div className={`grid ${airlinerInfo ? "grid-rows-3" : "grid-rows-2"} bg-gray-600 p-2`}>
+                    <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
                         {callsign}
                     </div>
-                    <div className="text-white font-bold text-md font-Rubik">
+                    {
+                        airlinerInfo &&
+                        <div
+                            className="text-white text-xs md:text-sm font-Rubik flex items-center gap-1">
+                            {airlinerInfo.name}
+
+                            <div
+                                className="relative text-[15px] md:text-[20px]"
+                                onMouseLeave={handleMouseLeave}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseMove={handleMouseMove}
+                            >
+                                <IoInformationCircleOutline/>
+                                {tooltipVisible &&
+                                <div
+                                    className="fixed px-2 py-1 bg-blue-500 rounded-md
+                                    flex flex-col text-xs font-Rubik text-gray-100
+                                    transition translate-y-[10%]"
+                                >
+                                    <div className="flex items-center gap-1">
+                                        <div>
+                                            Callsign:
+                                        </div>
+                                        <div>
+                                            {airlinerInfo?.callsign}
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <div>
+                                            Country:
+                                        </div>
+                                        <div>
+                                            {airlinerInfo?.country}
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+
+                    <div className="text-white md:font-bold text-xs md:text-sm font-Rubik">
                         {aircraft || "N/A"}
                     </div>
                 </div>
@@ -31,8 +85,8 @@ const OverallDataBlock = ({
                 {/*Departure and Arrival Airport*/}
 
                 <div className="grid grid-cols-2 bg-gray-200">
-                    <div className="flex flex-col justify-center items-center border-r p-3 bg-gray-300">
-                        <div className="text-xl font-bold">
+                    <div className="flex flex-col justify-center items-center border-r p-2 md:p-3 bg-gray-300">
+                        <div className="text-lg md:text-xl font-bold">
                             {depAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${depAirport.data[0].ICAO}`} className="text-blue-600
                                 hover:text-blue-800 underline underline-offset-4 decoration-dashed cursor-pointer">
@@ -41,13 +95,13 @@ const OverallDataBlock = ({
                                 : "N/A"
                             }
                         </div>
-                        <div className="text-lg truncate w-full text-center"
+                        <div className="text-xs md:text-lg truncate w-full text-center"
                             title={depAirport.data[0]?.station.city || "N/A"}>
                             {depAirport.data[0]?.station.city || "N/A"}
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center border-l p-3 bg-gray-300">
-                        <div className="text-xl font-bold">
+                        <div className="text-lg md:text-xl font-bold">
                             {arrAirport.data[0]?.ICAO
                                 ? <Link to={`/airport/detail/${arrAirport.data[0].ICAO}`} className="text-blue-600
                                 hover:text-blue-800 decoration-dashed underline underline-offset-4 cursor-pointer"
@@ -57,7 +111,7 @@ const OverallDataBlock = ({
                                 : "N/A"
                             }
                         </div>
-                        <div className="text-lg truncate w-full text-center"
+                        <div className="text-xs md:text-lg truncate w-full text-center"
                             title={arrAirport.data[0]?.station.city || "N/A"}>
                             {arrAirport.data[0]?.station.city || "N/A"}
                         </div>

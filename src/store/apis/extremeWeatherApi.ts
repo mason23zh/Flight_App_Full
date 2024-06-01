@@ -52,6 +52,7 @@ const generateURL = (weather, scope, code) => {
 export const extremeWeatherApi = createApi({
     reducerPath: "extremeWeatherApi",
     baseQuery: fetchBaseQuery({
+        // baseUrl: "http://127.0.0.1:80/v1/weather"
         baseUrl: "https://api.airportweather.org/v1/weather",
     }),
     endpoints(build) {

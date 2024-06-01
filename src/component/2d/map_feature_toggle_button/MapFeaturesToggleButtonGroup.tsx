@@ -91,11 +91,11 @@ const MapFeaturesToggleButtonGroup = ({
     };
 
     return (
-        <div className="min-w-[280px] bg-gray-500 rounded-lg p-1">
-            <div className="text-center font-bold text-white text-lg p-2">
+        <div className="min-w-[230px] sm:min-w-[280px] bg-gray-500 rounded-lg p-1">
+            <div className="text-center font-bold text-white text-md sm:text-lg p-2">
                 Map Feature Toggle
             </div>
-            <div className="container grid-cols-1 gap-1 w-full font-bold text-sm text-white">
+            <div className="container grid-cols-1 gap-1 w-full font-bold text-xs sm:text-sm text-white">
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b border-t">
                     <div>Label</div>
                     <Toggle

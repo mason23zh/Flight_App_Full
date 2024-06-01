@@ -61,12 +61,13 @@ const FlightInfo = () => {
             progress = Math.round((1 - (toGoDistance / totalDistance)) * 100);
         }
 
+        const style = "z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
+                "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
+                "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
+
         return (
             <CustomProvider theme={"light"}>
-                <div
-                    className="z-[200] absolute right-0 top-0
-                translate-x-[-15%] translate-y-[5%] max-w-[350px] min-w-[350px]"
-                >
+                <div className={style}>
                     <div className="grid-cols-1 bg-gray-500/30 backdrop-blur-lg">
                         <div className="bg-gray-500">
                             <OverallDataBlock
@@ -85,12 +86,13 @@ const FlightInfo = () => {
                                 toGoDistance={toGoDistance}
                             />
                         </div>
-
-                        <OtherDataBlock
-                            flight_plan={traffic.flight_plan}
-                            depAirport={departureAirport}
-                            arrAirport={arrivalAirport}
-                        />
+                        <div className="hidden sm:block">
+                            <OtherDataBlock
+                                flight_plan={traffic.flight_plan}
+                                depAirport={departureAirport}
+                                arrAirport={arrivalAirport}
+                            />
+                        </div>
                         <TargetAirportsLayer
                             departureAirport={departureAirport}
                             arrivalAirport={arrivalAirport}
