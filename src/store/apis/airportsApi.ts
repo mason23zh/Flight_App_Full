@@ -14,8 +14,8 @@ interface PopularAirportResponse {
 export const airportsApi = createApi({
     reducerPath: "airports",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://127.0.0.1:80/v1/airports"
-        // baseUrl: "https://api.airportweather.org/v1/airports",
+        // baseUrl: "http://127.0.0.1:80/v1/airports"
+        baseUrl: "https://api.airportweather.org/v1/airports",
     }),
     endpoints(build) {
         return {

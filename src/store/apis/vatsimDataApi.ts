@@ -5,8 +5,8 @@ import { VatsimFirs, VatsimFss } from "../../types";
 export const vatsimDataApi = createApi({
     reducerPath: "vatsimData",
     baseQuery: fetchBaseQuery({
-        // baseUrl: "https://api.airportweather.org/v1/vatsim/data",
-        baseUrl: "http://127.0.0.1:80/v1/vatsim/data"
+        baseUrl: "https://api.airportweather.org/v1/vatsim/data",
+        // baseUrl: "http://127.0.0.1:80/v1/vatsim/data"
 
     }),
     endpoints(build) {
