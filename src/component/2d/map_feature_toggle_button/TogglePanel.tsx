@@ -18,6 +18,7 @@ import { CgTerrain } from "react-icons/cg";
 import { MapRef } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
+import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -74,6 +75,8 @@ const TogglePanel = ({ mapRef }: Props) => {
     const childStyle = "flex flex-row items-center justify-center gap-2 p-1 bg-gray-700 " +
             "rounded-md sm:flex-col sm:items-start sm:ml-2 sm:mt-10 sm:justify-start";
 
+    const isTouchScreen = useIsTouchScreen();
+
     return (
         <div className={parentStyle}>
             <div className="flex justify-center w-full sm:w-auto">
@@ -83,6 +86,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         icon={<IoAirplane/>}
                         initialActive={trafficLayerVisible}
                         tooltipMessage="Toggle Vatsim traffic"
+                        isTouchScreen={isTouchScreen}
                     />
 
                     <MapFeaturesToggleButton
@@ -90,6 +94,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         icon={<GiControlTower/>}
                         initialActive={allAtcLayerVisible}
                         tooltipMessage="Toggle ATC visibility"
+                        isTouchScreen={isTouchScreen}
                     />
 
                     <MapFeaturesToggleButton
@@ -97,6 +102,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         icon={<TiWeatherDownpour/>}
                         initialActive={weatherRasterVisible}
                         tooltipMessage="Toggle weather"
+                        isTouchScreen={isTouchScreen}
                     />
 
                     <MapFeaturesToggleButton
@@ -104,11 +110,12 @@ const TogglePanel = ({ mapRef }: Props) => {
                         icon={<CgTerrain/>}
                         initialActive={terrainEnable}
                         tooltipMessage="Toggle terrain and 3D view"
+                        isTouchScreen={isTouchScreen}
                     />
 
-                    <MapStyleToggleButton mapRef={mapRef}/>
+                    <MapStyleToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
 
-                    <MapFilterToggleButton mapRef={mapRef}/>
+                    <MapFilterToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
 
                 </div>
             </div>

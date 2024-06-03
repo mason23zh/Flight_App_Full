@@ -15,6 +15,7 @@ import {
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
+import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -83,6 +84,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         terrainEnable ? trafficLayer3D : trafficLayer2D
     ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic]);
 
+    const isTouchScreen = useIsTouchScreen();
     return (
         <DeckGlOverlay
             interleaved={true}
@@ -90,7 +92,7 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
             layers={layers}
             pickingRadius={10}
 
-            getTooltip={({ object }) => {
+            getTooltip={isTouchScreen ? undefined : ({ object }) => {
                 if (object) {
                     const bgColor = "rgba(39, 40, 45, 0.9)";
                     return {

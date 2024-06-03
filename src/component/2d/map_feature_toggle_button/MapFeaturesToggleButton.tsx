@@ -6,13 +6,15 @@ interface Props {
     icon: React.ReactElement;
     initialActive: boolean;
     tooltipMessage: string;
+    isTouchScreen: boolean;
 }
 
 const MapFeaturesToggleButton = ({
     onToggle,
     icon,
     initialActive = false,
-    tooltipMessage
+    tooltipMessage,
+    isTouchScreen
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
@@ -61,11 +63,9 @@ const MapFeaturesToggleButton = ({
             >
                 {styledIcon}
             </button>
-            {tooltipVisible &&
+            {(tooltipVisible && !isTouchScreen) &&
                 <div
-                    // className={`hidden sm:${tooltipStyle}`}
-                    className="fixed px-2 py-1 bg-black text-white
-                    text-xs rounded-md pointer-events-none z-40"
+                    className={tooltipStyle}
                     style={{
                         top: mousePosition.y + 15,
                         left: mousePosition.x + 15,

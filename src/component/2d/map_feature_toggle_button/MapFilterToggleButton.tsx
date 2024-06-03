@@ -8,9 +8,13 @@ import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
+    isTouchScreen: boolean;
 }
 
-const MapFilterToggleButton = ({ mapRef }: Props) => {
+const MapFilterToggleButton = ({
+    mapRef,
+    isTouchScreen
+}: Props) => {
     const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(false);
     const {
@@ -55,7 +59,7 @@ const MapFilterToggleButton = ({ mapRef }: Props) => {
             >
                 <MapFeaturesToggleButtonGroup mapRef={mapRef}/>
             </div>
-            {(tooltipVisible && !buttonClick) &&
+            {(tooltipVisible && !buttonClick && !isTouchScreen) &&
                 <div
                     className="fixed px-2 py-1 bg-black text-white
                         text-xs rounded-md pointer-events-none z-40"
