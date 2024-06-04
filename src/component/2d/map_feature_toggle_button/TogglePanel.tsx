@@ -35,6 +35,7 @@ const TogglePanel = ({ mapRef }: Props) => {
     const dispatch = useDispatch();
 
 
+    // Map loading state/error notification
     useEffect(() => {
         const map = mapRef.current?.getMap();
         if (!map) {

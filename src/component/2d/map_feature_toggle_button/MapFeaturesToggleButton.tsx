@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
@@ -17,8 +17,12 @@ const MapFeaturesToggleButton = ({
     isTouchScreen
 }: Props) => {
     const iconClass = "text-white text-xl";
-    const activeClass = "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
-    const inActiveClass = "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
+    const activeClass = isTouchScreen ?
+        "bg-gray-400 px-2 py-1 items-center rounded-lg" :
+        "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
+    const inActiveClass = isTouchScreen ?
+        "bg-gray-500 px-2 py-1 items-center rounded-lg" :
+        "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
 
@@ -34,18 +38,17 @@ const MapFeaturesToggleButton = ({
         mousePosition
     } = useDisplayTooltip(400);
 
+    useEffect(() => {
+        setActiveButtonClass(isActive ? activeClass : inActiveClass);
+        onToggle(isActive);
+
+    }, [isActive]);
+
     const handleClick = () => {
         const newActiveState = !isActive;
         setIsActive(newActiveState);
-        if (newActiveState) {
-            setActiveButtonClass(activeClass);
-        } else {
-            setActiveButtonClass(inActiveClass);
-        }
-        if (onToggle) {
-            onToggle(newActiveState);
-        }
     };
+
 
     const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
             "text-xs rounded-md pointer-events-none z-40";
