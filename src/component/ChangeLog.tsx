@@ -160,6 +160,10 @@ function ChangeLog() {
                         Beta 0.5 <br/>
                         - Disable tooltip is user is on touchscreen device <br/>
                         - Added scroll bar if flight plan is too long is the Flight Panel <br/>
+                        - Fix the address bar blocking content in IOS device issue <br/>
+                        - Fix page failed to direct when selecting airport directly from weather list <br/>
+                        - Adjust map control panel to fit for touchscreen device <br/>
+                        - Adjust Home page to be fitted in the IOS device <br/>
                     </div>
                 </div>
             </div>
