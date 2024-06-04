@@ -9,7 +9,7 @@ function Layout() {
     // const showFooter = true;
 
     return (
-        <div className="flex flex-col h-screen justify-between gap-0">
+        <div className="flex flex-col h-screen-dvh justify-between gap-0">
             <header className="h-auto">
                 <Navbar/>
             </header>

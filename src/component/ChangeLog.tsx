@@ -156,6 +156,11 @@ function ChangeLog() {
                         - Fixed the tracon popup for the API update <br/>
                         - Fixed the great circle path drawing got messy if path is crossing the 180° meridian <br/>
                     </div>
+                    <div>
+                        Beta 0.5 <br/>
+                        - Disable tooltip is user is on touchscreen device <br/>
+                        - Added scroll bar if flight plan is too long is the Flight Panel <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

@@ -42,7 +42,7 @@ const BaseMap = ({ children }) => {
 
     useEffect(() => {
         const navbarHeight = document.querySelector(".main-navbar").clientHeight;
-        const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+        const mapHeight = `calc(100dvh - ${navbarHeight}px)`;
         setMapStyle(prevStyle => ({
             ...prevStyle,
             height: mapHeight
