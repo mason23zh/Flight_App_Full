@@ -8,7 +8,8 @@ const SmallAirportLayer = () => {
             source="gns-430-source"
             source-layer="gns_airport"
             id="big-gns-430-airport-layer"
-            filter={["==", "type", "large_airport"]}
+            filter={["==", "type", "small_airport"]}
+            minzoom={7}
             paint={{
                 "circle-color": "#00FF00",
                 "circle-radius": 3
