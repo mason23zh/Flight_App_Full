@@ -72,14 +72,17 @@ function AirportDetail() {
 
         // if URLs ICAO not equal to localStorage's airport
         if (airportData && (airportData.ICAO !== paramICAO.toUpperCase())) {
+            console.log("C1");
             requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
                 .catch();
         } else if (!airportData && paramICAO) {
+            console.log("C2");
             requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
                 .catch();
         } else if (airportData && (airportData.ICAO === paramICAO.toUpperCase())) {
-            setAirport(airportData);
-            requestAirportAndSetLocal(paramICAO.toUpperCase(), true)
+            console.log("C3");
+            //setAirport(airportData);
+            requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
                 .catch();
         }
     }, []);
