@@ -18,8 +18,8 @@ const MapFeaturesToggleButton = ({
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
-        "bg-gray-400 px-2 py-1 items-center rounded-lg" :
-        "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
+        "bg-blue-500 px-2 py-1 items-center rounded-lg" :
+        "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
     const inActiveClass = isTouchScreen ?
         "bg-gray-500 px-2 py-1 items-center rounded-lg" :
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
