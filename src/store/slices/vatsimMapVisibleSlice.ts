@@ -18,6 +18,7 @@ const initialState: VatsimMapVisibleState = {
     trackLayerVisible: false,
     trafficLayerVisible: true,
     mapLabelVisible: true,
+    airportLabelVisible: true,
     satelliteLayerVisible: false,
     weatherRasterVisible: false,
     mapStyleButtonToggle: false,
@@ -59,6 +60,9 @@ const vatsimMapVisibleSlice = createSlice({
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
         },
+        toggleAirportLabel(state, action) {
+            state.airportLabelVisible = action.payload;
+        },
         toggleMapRoadLabel(state, action) {
             state.mapRoadVisible = action.payload;
         },
@@ -92,6 +96,7 @@ export const {
     toggleTrafficLayer,
     toggleWeatherRasterLayer,
     toggleMapLabel,
+    toggleAirportLabel,
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     switchMapStyles,

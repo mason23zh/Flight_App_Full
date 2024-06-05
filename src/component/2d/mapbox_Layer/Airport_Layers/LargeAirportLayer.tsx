@@ -2,7 +2,7 @@ import React from "react";
 import { Layer } from "react-map-gl";
 import AirportLabelLayer from "./AirportLabelLayer";
 
-const LargeAirportLayer = () => {
+const LargeAirportLayer = ({ displayLabel }) => {
     return (
         <>
             <Layer
@@ -16,11 +16,13 @@ const LargeAirportLayer = () => {
                     "circle-radius": 3
                 }}
             />
-            <AirportLabelLayer
-                id={"large-gns-430-airport-label"}
-                filter={["==", "type", "large_airport"]}
-                minzoom={6}
-            />
+            {displayLabel &&
+                <AirportLabelLayer
+                    id={"large-gns-430-airport-label"}
+                    filter={["==", "type", "large_airport"]}
+                    minzoom={6}
+                />
+            }
         </>
     );
 };

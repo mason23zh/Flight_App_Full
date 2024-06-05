@@ -8,6 +8,7 @@ import {
     RootState,
     toggleDayNightTerminator,
     toggleMapLabel,
+    toggleAirportLabel,
     toggleMapRoadLabel,
     toggleUnderlineFirBoundaries
 } from "../../../store";
@@ -16,7 +17,7 @@ interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
-type Tag = "LABEL" | "ROAD" | "BUILDING" | "FIR" | "DAY_NIGHT_TERMINATOR";
+type Tag = "LABEL" | "AIRPORT_LABEL" | "ROAD" | "BUILDING" | "FIR" | "DAY_NIGHT_TERMINATOR";
 
 const MapFeaturesToggleButtonGroup = ({
     mapRef
@@ -24,6 +25,7 @@ const MapFeaturesToggleButtonGroup = ({
     const dispatch = useDispatch();
     const {
         mapLabelVisible,
+        airportLabelVisible,
         mapRoadVisible,
         underlineFirBoundaries,
         dayNightTerminator
@@ -75,6 +77,9 @@ const MapFeaturesToggleButtonGroup = ({
 
     const handleOnChange = (mapFeature: Tag, checked: boolean) => {
         switch (mapFeature) {
+        case "AIRPORT_LABEL":
+            dispatch(toggleAirportLabel(checked));
+            break;
         case "LABEL":
             dispatch(toggleMapLabel(checked));
             break;
@@ -96,6 +101,13 @@ const MapFeaturesToggleButtonGroup = ({
                 Map Feature Toggle
             </div>
             <div className="container grid-cols-1 gap-1 w-full font-bold text-xs sm:text-sm text-white">
+                <div className="flex justify-between p-1 ml-2 mr-2 border-t">
+                    <div>Airport Label</div>
+                    <Toggle
+                        checked={airportLabelVisible}
+                        onChange={(checked) => handleOnChange("AIRPORT_LABEL", checked)}
+                    />
+                </div>
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b border-t">
                     <div>Label</div>
                     <Toggle
