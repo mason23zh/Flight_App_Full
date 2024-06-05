@@ -26,16 +26,21 @@ const MapFilterToggleButton = ({
         handleMouseLeave,
         handleMouseMove,
         tooltipVisible,
+        resetTooltip,
         mousePosition
-    } = useDisplayTooltip(400);
+    } = useDisplayTooltip(600);
 
     useEffect(() => {
-        setButtonClick(false);
-    }, [tooltipVisible]);
+        if (buttonClick) {
+            resetTooltip();
+            setButtonClick(false);
+        }
+    }, [tooltipVisible, buttonClick, resetTooltip]);
 
     const handleOnClick = () => {
         dispatch(toggleMapFilterButton(!mapFilterButtonToggle));
         setButtonClick(true);
+        resetTooltip();
     };
 
     return (

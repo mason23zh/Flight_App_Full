@@ -30,8 +30,9 @@ const MapStyleToggleButton = ({
         handleMouseLeave,
         handleMouseEnter,
         tooltipVisible,
+        resetTooltip,
         mousePosition
-    } = useDisplayTooltip(400);
+    } = useDisplayTooltip(600);
 
     // close the popup when mapStyle changes
     useEffect(() => {
@@ -54,11 +55,15 @@ const MapStyleToggleButton = ({
     }
 
     useEffect(() => {
-        setButtonClick(false);
-    }, [tooltipVisible]);
+        if (buttonClick) {
+            setButtonClick(false);
+            resetTooltip();
+        }
+    }, [tooltipVisible, buttonClick, resetTooltip]);
 
     const handleOnClick = () => {
         setButtonClick(true);
+        resetTooltip();
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
@@ -102,7 +107,7 @@ const MapStyleToggleButton = ({
     // >
 
     return (
-        <div className="">
+        <div>
             <button
                 className="relative px-2 py-1
                 bg-gray-400 rounded-md text-white text-[10px] text-center"
