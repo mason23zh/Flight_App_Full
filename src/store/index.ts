@@ -37,7 +37,8 @@ import {
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
     toggleAirportVisible,
-    switchMapStyles
+    switchMapStyles,
+    resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
 import {
@@ -159,7 +160,8 @@ export {
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
     toggleAirportVisible,
-    switchMapStyles
+    switchMapStyles,
+    resetMap
 };
 
 export {

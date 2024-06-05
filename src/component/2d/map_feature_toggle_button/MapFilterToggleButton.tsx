@@ -63,13 +63,13 @@ const MapFilterToggleButton = ({
             </button>
 
             <div
-                className={`absolute bottom-[110%] left-[25%] sm:left-[110%] sm:bottom-[-10%] transform 
+                className={`absolute bottom-[110%] left-[25%] sm:left-[110%] sm:bottom-[-40%] transform 
                 transition-all duration-300 
                 ease-in-out 
                 ${mapFilterButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
                 style={{ visibility: mapFilterButtonToggle ? "visible" : "hidden" }}
             >
-                <MapFeaturesToggleButtonGroup mapRef={mapRef}/>
+                <MapFeaturesToggleButtonGroup mapRef={mapRef} isTouchScreen={isTouchScreen}/>
             </div>
             {(tooltipVisible && !buttonClick && !isTouchScreen) &&
                 <div

@@ -33,6 +33,27 @@ const vatsimMapVisibleSlice = createSlice({
     name: "vatsimMapVisible",
     initialState,
     reducers: {
+        resetMap(state) {
+            state.allAtcLayerVisible = true;
+            state.controllerLayerVisible = true;
+            state.controllerMarkerVisible = true;
+            state.traconLabelVisible = true;
+            state.firLabelVisible = true;
+            state.underlineFirBoundaries = true;
+            state.mapRoadVisible = false;
+            state.trackLayerVisible = false;
+            state.trafficLayerVisible = true;
+            state.mapLabelVisible = true;
+            state.airportLabelVisible = false;
+            state.airportVisible = true;
+            state.satelliteLayerVisible = false;
+            state.weatherRasterVisible = false;
+            state.mapStyleButtonToggle = false;
+            state.mapFilterButtonToggle = true;
+            state.terrainEnable = false;
+            state.dayNightTerminator = false;
+            state.mapStyles = "DEFAULT";
+        },
         switchMapStyles(state, action: MapStylePayloadAction) {
             state.mapStyles = action.payload.mapStyles;
         },
@@ -110,6 +131,7 @@ export const {
     toggleTerrainLabel,
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
-    toggleAirportVisible
+    toggleAirportVisible,
+    resetMap
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

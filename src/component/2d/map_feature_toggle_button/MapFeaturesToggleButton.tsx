@@ -12,7 +12,7 @@ interface Props {
 const MapFeaturesToggleButton = ({
     onToggle,
     icon,
-    initialActive = false,
+    initialActive,
     tooltipMessage,
     isTouchScreen
 }: Props) => {
@@ -39,6 +39,14 @@ const MapFeaturesToggleButton = ({
         resetTooltip,
         mousePosition
     } = useDisplayTooltip(400);
+
+    useEffect(() => {
+        if (initialActive) {
+            setActiveButtonClass(activeClass);
+        } else {
+            setActiveButtonClass(inActiveClass);
+        }
+    }, [initialActive]);
 
     useEffect(() => {
         setActiveButtonClass(isActive ? activeClass : inActiveClass);

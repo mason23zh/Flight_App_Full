@@ -10,11 +10,14 @@ import {
     toggleMapLabel,
     toggleAirportLabel,
     toggleMapRoadLabel,
-    toggleUnderlineFirBoundaries, toggleAirportVisible
+    toggleUnderlineFirBoundaries,
+    toggleAirportVisible,
+    resetMap
 } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
+    isTouchScreen: boolean;
 }
 
 type Tag = "LABEL" |
@@ -26,7 +29,8 @@ type Tag = "LABEL" |
         "DAY_NIGHT_TERMINATOR";
 
 const MapFeaturesToggleButtonGroup = ({
-    mapRef
+    mapRef,
+    isTouchScreen
 }: Props) => {
     const dispatch = useDispatch();
     const {
@@ -36,6 +40,7 @@ const MapFeaturesToggleButtonGroup = ({
         mapRoadVisible,
         underlineFirBoundaries,
         dayNightTerminator,
+
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
@@ -105,6 +110,11 @@ const MapFeaturesToggleButtonGroup = ({
         }
     };
 
+    const resetButtonClass = isTouchScreen ?
+        "bg-red-500 text-xs rounded-md px-2 py-1" :
+        "bg-red-500 text-xs rounded-md px-2 py-1 hover:bg-red-400";
+
+
     return (
         <div className="min-w-[230px] sm:min-w-[280px] bg-gray-500 rounded-lg p-1">
             <div className="text-center font-bold text-white text-md sm:text-lg p-2">
@@ -146,12 +156,22 @@ const MapFeaturesToggleButtonGroup = ({
                         onChange={(checked) => handleOnChange("FIR", checked)}
                     />
                 </div>
-                <div className="flex justify-between p-1 ml-2 mr-2">
+                <div className="flex justify-between p-1 ml-2 mr-2 border-b">
                     <div>Day Night Terminator</div>
                     <Toggle
                         checked={dayNightTerminator}
                         onChange={(checked) => handleOnChange("DAY_NIGHT_TERMINATOR", checked)}
                     />
+                </div>
+                <div className="flex items-center justify-center p-2 ml-2 mr-2">
+                    <button
+                        className={resetButtonClass}
+                        onClick={() => {
+                            dispatch(resetMap());
+                        }}
+                    >
+                        Reset
+                    </button>
                 </div>
             </div>
         </div>
