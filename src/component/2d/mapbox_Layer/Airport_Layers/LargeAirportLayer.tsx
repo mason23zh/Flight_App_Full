@@ -19,8 +19,16 @@ const LargeAirportLayer = ({ displayLabel }) => {
             {displayLabel &&
                 <AirportLabelLayer
                     id={"large-gns-430-airport-label"}
+                    allowTextOverlap={false}
+                    minzoom={3}
                     filter={["==", "type", "large_airport"]}
-                    minzoom={6}
+                    textFiled={[
+                        "step",
+                        ["zoom"],
+                        ["get", "ICAO"],
+                        6,
+                        ["concat", ["get", "ICAO"], " \n ", ["get", "name"]]
+                    ]}
                 />
             }
         </>

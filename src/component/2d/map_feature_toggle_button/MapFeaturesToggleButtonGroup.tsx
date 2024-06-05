@@ -10,14 +10,20 @@ import {
     toggleMapLabel,
     toggleAirportLabel,
     toggleMapRoadLabel,
-    toggleUnderlineFirBoundaries
+    toggleUnderlineFirBoundaries, toggleAirportVisible
 } from "../../../store";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
 }
 
-type Tag = "LABEL" | "AIRPORT_LABEL" | "ROAD" | "BUILDING" | "FIR" | "DAY_NIGHT_TERMINATOR";
+type Tag = "LABEL" |
+        "AIRPORT" |
+        "AIRPORT_LABEL" |
+        "ROAD" |
+        "BUILDING" |
+        "FIR" |
+        "DAY_NIGHT_TERMINATOR";
 
 const MapFeaturesToggleButtonGroup = ({
     mapRef
@@ -25,10 +31,11 @@ const MapFeaturesToggleButtonGroup = ({
     const dispatch = useDispatch();
     const {
         mapLabelVisible,
+        airportVisible,
         airportLabelVisible,
         mapRoadVisible,
         underlineFirBoundaries,
-        dayNightTerminator
+        dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const setMapFeatures = (mapRef: React.RefObject<MapRef>, flag: boolean, tag: Tag) => {
@@ -77,6 +84,9 @@ const MapFeaturesToggleButtonGroup = ({
 
     const handleOnChange = (mapFeature: Tag, checked: boolean) => {
         switch (mapFeature) {
+        case "AIRPORT":
+            dispatch(toggleAirportVisible(checked));
+            break;
         case "AIRPORT_LABEL":
             dispatch(toggleAirportLabel(checked));
             break;
@@ -102,14 +112,22 @@ const MapFeaturesToggleButtonGroup = ({
             </div>
             <div className="container grid-cols-1 gap-1 w-full font-bold text-xs sm:text-sm text-white">
                 <div className="flex justify-between p-1 ml-2 mr-2 border-t">
+                    <div>Airport</div>
+                    <Toggle
+                        checked={airportVisible}
+                        onChange={(checked) => handleOnChange("AIRPORT", checked)}
+                    />
+                </div>
+                <div className="flex justify-between p-1 ml-2 mr-2 border-t">
                     <div>Airport Label</div>
                     <Toggle
+                        disabled={!airportVisible}
                         checked={airportLabelVisible}
                         onChange={(checked) => handleOnChange("AIRPORT_LABEL", checked)}
                     />
                 </div>
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b border-t">
-                    <div>Label</div>
+                    <div>Map Label</div>
                     <Toggle
                         checked={mapLabelVisible}
                         onChange={(checked) => handleOnChange("LABEL", checked)}/>

@@ -18,7 +18,8 @@ const initialState: VatsimMapVisibleState = {
     trackLayerVisible: false,
     trafficLayerVisible: true,
     mapLabelVisible: true,
-    airportLabelVisible: true,
+    airportLabelVisible: false,
+    airportVisible: true,
     satelliteLayerVisible: false,
     weatherRasterVisible: false,
     mapStyleButtonToggle: false,
@@ -59,6 +60,12 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
+        },
+        toggleAirportVisible(state, action) {
+            state.airportVisible = action.payload;
+            if (!state.airportVisible && state.airportLabelVisible) {
+                state.airportLabelVisible = false;
+            }
         },
         toggleAirportLabel(state, action) {
             state.airportLabelVisible = action.payload;
@@ -103,5 +110,6 @@ export const {
     toggleTerrainLabel,
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
+    toggleAirportVisible
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

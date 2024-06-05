@@ -147,6 +147,7 @@
 
 # Beta 0.5
 
+- Added option to toggle airport label on map
 - Disable tooltip is user is on touchscreen device
 - Added scroll bar if flight plan is too long is the Flight Panel
 - Fix the address bar blocking content in IOS device issue

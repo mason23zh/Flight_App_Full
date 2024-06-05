@@ -18,7 +18,6 @@ const BaseMap = ({ children }) => {
         bearing: 0,
     });
 
-
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
     useEffect(() => {
         if (!terrainEnable) {

@@ -7,7 +7,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
 const useAirportsLayers = () => {
-    const { airportLabelVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        airportLabelVisible,
+        airportVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    
+    if (!airportVisible) {
+        return { airportLayers: <></> };
+    }
 
     //Render different number of airports based on map's zoom level
     const layers = <MapboxSourceLayer>

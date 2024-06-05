@@ -1,16 +1,22 @@
+import { Expression } from "mapbox-gl";
 import React from "react";
 import { Layer } from "react-map-gl";
+
 
 interface Props {
     id: string,
     filter: string[],
+    textFiled: Expression,
     minzoom: number,
+    allowTextOverlap: boolean,
 }
 
 const AirportLabelLayer = ({
     id,
     filter,
-    minzoom
+    textFiled,
+    minzoom,
+    allowTextOverlap
 }: Props) => {
     return (
         <Layer
@@ -21,16 +27,22 @@ const AirportLabelLayer = ({
             filter={filter}
             minzoom={minzoom}
             layout={{
-                "text-field": ["concat", ["get", "ICAO"], " - ", ["get", "name"]],
-                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
+                "text-field": textFiled,
+                "text-font": ["Open Sans Bold", "Arial Unicode MS Regular"],
                 "text-size": 12,
-                "text-offset": [0, 1.5],
+                "text-offset": [0, 1.0],
                 "text-anchor": "top",
+                "text-allow-overlap": allowTextOverlap,
             }}
+            // paint={{
+            //     "text-color": "#0876ef",
+            //     "text-halo-color": "#000000",
+            //     "text-halo-width": 0.3,
+            // }}
             paint={{
-                "text-color": "#000000",
-                "text-halo-color": "#FFFFFF",
-                "text-halo-width": 1,
+                "text-color": "#FFFFFF", // Change to white for better visibility
+                "text-halo-color": "#000000", // Keep the halo color black for contrast
+                "text-halo-width": 2, // Increase the halo width for better readability
             }}
         />
     );
