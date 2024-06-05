@@ -98,19 +98,18 @@ const MapStyleToggleButton = ({
         setMapStyle(mapStyles);
     }, [mapStyles]);
 
+    const inactiveButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center hover:bg-gray-400";
+    const activeButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center" :
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center hover:bg-blue-400";
 
-    // <div
-    //         className={`absolute left-[110%] bottom-0.5 transform
-    //             transition-all duration-300
-    //             ease-in-out ${mapStyleButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
-    //         style={{ visibility: mapStyleButtonToggle ? "visible" : "hidden" }}
-    // >
 
     return (
         <div>
             <button
-                className="relative px-2 py-1
-                bg-gray-400 rounded-md text-white text-[10px] text-center"
+                className={mapStyleButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}

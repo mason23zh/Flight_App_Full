@@ -43,10 +43,17 @@ const MapFilterToggleButton = ({
         resetTooltip();
     };
 
+    const inactiveButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full" :
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full hover:bg-gray-400";
+    const activeButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full" :
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full hover:bg-blue-400";
+
     return (
         <div>
             <button
-                className="relative px-2 py-1 bg-gray-400 rounded-md text-white items-center w-full"
+                className={mapFilterButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
