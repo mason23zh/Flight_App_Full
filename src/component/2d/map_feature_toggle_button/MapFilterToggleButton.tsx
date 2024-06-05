@@ -51,7 +51,7 @@ const MapFilterToggleButton = ({
             </button>
 
             <div
-                className={`absolute bottom-[110%] left-[25%] sm:left-[110%] sm:bottom-0.5 transform 
+                className={`absolute bottom-[110%] left-[25%] sm:left-[110%] sm:bottom-[-10%] transform 
                 transition-all duration-300 
                 ease-in-out 
                 ${mapFilterButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
