@@ -78,8 +78,8 @@ function AirportDetail() {
             requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
                 .catch();
         } else if (airportData && (airportData.ICAO === paramICAO.toUpperCase())) {
-            setAirport(airportData);
-            requestAirportAndSetLocal(paramICAO.toUpperCase(), true)
+            //setAirport(airportData);
+            requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
                 .catch();
         }
     }, []);

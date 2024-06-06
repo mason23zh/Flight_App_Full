@@ -3,12 +3,20 @@ import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { MapRef } from "react-map-gl";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
+interface Props {
+    mapRef: React.RefObject<MapRef>;
+    isTouchScreen: boolean;
+}
 
-const MapStyleToggleButton = ({ mapRef }) => {
+const MapStyleToggleButton = ({
+    mapRef,
+    isTouchScreen
+}: Props) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
     // when user click the button, tooltip will disappear
@@ -22,8 +30,9 @@ const MapStyleToggleButton = ({ mapRef }) => {
         handleMouseLeave,
         handleMouseEnter,
         tooltipVisible,
+        resetTooltip,
         mousePosition
-    } = useDisplayTooltip(400);
+    } = useDisplayTooltip(600);
 
     // close the popup when mapStyle changes
     useEffect(() => {
@@ -46,11 +55,15 @@ const MapStyleToggleButton = ({ mapRef }) => {
     }
 
     useEffect(() => {
-        setButtonClick(false);
-    }, [tooltipVisible]);
+        if (buttonClick) {
+            setButtonClick(false);
+            resetTooltip();
+        }
+    }, [tooltipVisible, buttonClick, resetTooltip]);
 
     const handleOnClick = () => {
         setButtonClick(true);
+        resetTooltip();
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
@@ -85,19 +98,18 @@ const MapStyleToggleButton = ({ mapRef }) => {
         setMapStyle(mapStyles);
     }, [mapStyles]);
 
+    const inactiveButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :
+        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center hover:bg-gray-400";
+    const activeButtonClass = isTouchScreen ?
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center" :
+        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center hover:bg-blue-400";
 
-    // <div
-    //         className={`absolute left-[110%] bottom-0.5 transform
-    //             transition-all duration-300
-    //             ease-in-out ${mapStyleButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
-    //         style={{ visibility: mapStyleButtonToggle ? "visible" : "hidden" }}
-    // >
 
     return (
-        <div className="">
+        <div>
             <button
-                className="relative px-2 py-1
-                bg-gray-400 rounded-md text-white text-[10px] text-center"
+                className={mapStyleButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
@@ -118,7 +130,7 @@ const MapStyleToggleButton = ({ mapRef }) => {
                     : ""
                 }
             </div>
-            {(tooltipVisible && !buttonClick) &&
+            {(tooltipVisible && !buttonClick && !isTouchScreen) &&
                 <div
                     className="fixed px-2 py-1 bg-black text-white
                         text-xs rounded-md pointer-events-none z-40"

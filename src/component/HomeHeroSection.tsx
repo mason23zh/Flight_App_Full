@@ -15,10 +15,18 @@ function HomeHeroSection({
     const [randAirport, setRandAirport] = useState(null);
     const [input, setInput] = useState("");
     const [vatsimEventsStatus, setVatsimEventsStatus] = useState(false);
+    const [elementHeight, setElementHeight] = useState("100vh");
+
 
     const darkMode = useTheme();
 
     const getRandomAirport = () => globalAirportICAO[Math.floor(Math.random() * globalAirportICAO.length)];
+
+    useEffect(() => {
+        const navbarHeight = document.querySelector(".main-navbar").clientHeight;
+        const heroSectionHeight = `calc(100dvh - ${navbarHeight}px`;
+        setElementHeight(prev => heroSectionHeight);
+    }, []);
 
 
     useEffect(() => {
@@ -64,12 +72,13 @@ function HomeHeroSection({
         ? "grid grid-cols-1 items-center text-center justify-center md:grid-cols-4 md:gap-4 w-full"
         : "grid grid-cols-1 items-center text-center justify-center md:grid-cols-3 md:gap-4 w-full";
 
- 
+    // h-[calc(100vh-56px)]
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
             <div
-                className="w-full h-[calc(100vh-56px)] bg-cover bg-no-repeat bg-center"
+                className="w-full bg-cover bg-no-repeat bg-center"
                 style={{
+                    height: elementHeight,
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
             >

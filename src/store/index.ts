@@ -28,6 +28,7 @@ import {
     toggleTrafficLayer,
     toggleWeatherRasterLayer,
     toggleMapLabel,
+    toggleAirportLabel,
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     toggleMapStyleButton,
@@ -35,7 +36,9 @@ import {
     toggleTerrainLabel,
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
-    switchMapStyles
+    toggleAirportVisible,
+    switchMapStyles,
+    resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
 import {
@@ -148,6 +151,7 @@ export {
     toggleTrafficLayer,
     toggleWeatherRasterLayer,
     toggleMapLabel,
+    toggleAirportLabel,
     toggleSatelliteLayer,
     toggleMapRoadLabel,
     toggleMapFilterButton,
@@ -155,7 +159,9 @@ export {
     toggleTerrainLabel,
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
-    switchMapStyles
+    toggleAirportVisible,
+    switchMapStyles,
+    resetMap
 };
 
 export {

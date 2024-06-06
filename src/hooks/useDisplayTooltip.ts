@@ -11,6 +11,7 @@ interface UseDisplayToolTip {
     handleMouseEnter: () => void;
     handleMouseLeave: () => void;
     handleMouseMove: (e: React.MouseEvent) => void;
+    resetTooltip: () => void;
 }
 
 const useDisplayTooltip = (delay: number = 300): UseDisplayToolTip => {
@@ -42,12 +43,21 @@ const useDisplayTooltip = (delay: number = 300): UseDisplayToolTip => {
         });
     }, []);
 
+    const resetTooltip = useCallback(() => {
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+            timerRef.current = null;
+        }
+        setTooltipVisible(false);
+    }, []);
+
     return {
         tooltipVisible,
         mousePosition,
         handleMouseEnter,
         handleMouseLeave,
         handleMouseMove,
+        resetTooltip
     };
 };
 

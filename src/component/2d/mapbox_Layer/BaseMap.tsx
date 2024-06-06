@@ -18,7 +18,6 @@ const BaseMap = ({ children }) => {
         bearing: 0,
     });
 
-
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
     useEffect(() => {
         if (!terrainEnable) {
@@ -37,12 +36,12 @@ const BaseMap = ({ children }) => {
         position: "absolute"
     });
 
-
+ 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
     useEffect(() => {
         const navbarHeight = document.querySelector(".main-navbar").clientHeight;
-        const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+        const mapHeight = `calc(100dvh - ${navbarHeight}px)`;
         setMapStyle(prevStyle => ({
             ...prevStyle,
             height: mapHeight

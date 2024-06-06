@@ -1,3 +1,4 @@
+import "./styles.css";
 import { Route, Routes } from "react-router-dom";
 import { useTheme } from "./hooks/ThemeContext";
 import React, { lazy, Suspense } from "react";
@@ -18,7 +19,7 @@ const AirportDetail = lazy(() => import("./component/AirportDetail"));
 const ChangeLog = lazy(() => import("./component/ChangeLog"));
 const VatsimEventsAll = lazy(() => import("./component/VatsimEventsAll"));
 const VatsimEventDetail = lazy(() => import("./component/VatsimEventDetail"));
- 
+
 function App() {
     const darkMode = useTheme();
     const themeMode = darkMode ? "dark" : "light";

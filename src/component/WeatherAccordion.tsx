@@ -9,9 +9,11 @@ function WeatherAccordion({ weather }) {
     const [expand, setExpand] = useState(false);
     const darkMode = useTheme();
     const darkModeClass = darkMode
-        ? "text-lg p-3 items-center h-full bg-gray-500 drop-shadow-md mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3"
-        : "text-lg p-3 items-center h-full bg-gray-200 drop-shadow-md mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3";
-     
+        ? "text-lg p-3 items-center h-full bg-gray-500 drop-shadow-md " +
+            "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3"
+        : "text-lg p-3 items-center h-full bg-gray-200 drop-shadow-md " +
+            "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3";
+
     const {
         icao,
         station,

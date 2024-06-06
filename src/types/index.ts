@@ -430,6 +430,8 @@ interface VatsimMapVisibleState {
     trackLayerVisible: boolean;
     trafficLayerVisible: boolean;
     mapLabelVisible: boolean;
+    airportLabelVisible: boolean;
+    airportVisible: boolean;
     satelliteLayerVisible: boolean;
     weatherRasterVisible: boolean;
     mapStyleButtonToggle: boolean;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
@@ -6,19 +6,26 @@ interface Props {
     icon: React.ReactElement;
     initialActive: boolean;
     tooltipMessage: string;
+    isTouchScreen: boolean;
 }
 
 const MapFeaturesToggleButton = ({
     onToggle,
     icon,
-    initialActive = false,
-    tooltipMessage
+    initialActive,
+    tooltipMessage,
+    isTouchScreen
 }: Props) => {
     const iconClass = "text-white text-xl";
-    const activeClass = "bg-gray-400 px-2 py-1 items-center rounded-lg hover:bg-gray-500";
-    const inActiveClass = "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
+    const activeClass = isTouchScreen ?
+        "bg-blue-500 px-2 py-1 items-center rounded-lg" :
+        "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
+    const inActiveClass = isTouchScreen ?
+        "bg-gray-500 px-2 py-1 items-center rounded-lg" :
+        "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
+    const [buttonClick, setButtonClick] = useState(false);
 
 
     // Copy React-Icon
@@ -29,25 +36,41 @@ const MapFeaturesToggleButton = ({
         handleMouseLeave,
         handleMouseMove,
         tooltipVisible,
+        resetTooltip,
         mousePosition
     } = useDisplayTooltip(400);
 
-    const handleClick = () => {
-        const newActiveState = !isActive;
-        setIsActive(newActiveState);
-        if (newActiveState) {
+    useEffect(() => {
+        if (initialActive) {
             setActiveButtonClass(activeClass);
         } else {
             setActiveButtonClass(inActiveClass);
         }
-        if (onToggle) {
-            onToggle(newActiveState);
-        }
+    }, [initialActive]);
+
+    useEffect(() => {
+        setActiveButtonClass(isActive ? activeClass : inActiveClass);
+        onToggle(isActive);
+
+    }, [isActive]);
+
+    const handleClick = () => {
+        const newActiveState = !isActive;
+        setIsActive(newActiveState);
+        setButtonClick(true);
+        resetTooltip();
     };
+
+    useEffect(() => {
+        if (buttonClick) {
+            resetTooltip();
+            setButtonClick(false);
+        }
+    }, [tooltipVisible, buttonClick, tooltipVisible]);
+
 
     const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
             "text-xs rounded-md pointer-events-none z-40";
-
     return (
         <div
             className="relative"
@@ -61,11 +84,9 @@ const MapFeaturesToggleButton = ({
             >
                 {styledIcon}
             </button>
-            {tooltipVisible &&
+            {(tooltipVisible && !isTouchScreen && !buttonClick) &&
                 <div
-                    // className={`hidden sm:${tooltipStyle}`}
-                    className="fixed px-2 py-1 bg-black text-white
-                    text-xs rounded-md pointer-events-none z-40"
+                    className={tooltipStyle}
                     style={{
                         top: mousePosition.y + 15,
                         left: mousePosition.x + 15,
