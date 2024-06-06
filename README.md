@@ -149,9 +149,11 @@
 
 - Added option to toggle airport label on map
 - Added option to toggle airport marker on map
+- Added option to reset map option
 - Disable tooltip if user is on touchscreen device
 - Added scroll bar if flight plan is too long is the Flight Panel
 - Fix the address bar blocking content in IOS device issue
 - Fix page failed to direct when selecting airport directly from weather list
 - Adjust map control panel to fit for touchscreen device
 - Adjust Home page to be fitted in the IOS device
+- Adjust map control panel hover and selection style

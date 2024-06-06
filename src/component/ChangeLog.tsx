@@ -161,10 +161,12 @@ function ChangeLog() {
                         - Added scroll bar if flight plan is too long is the Flight Panel <br/>
                         - Added option to toggle airport label on map <br/>
                         - Added option to toggle airport marker on map <br/>
+                        - Added option to reset map options <br/>
                         - Disable tooltip if user is on touchscreen device <br/>
                         - Fix the address bar blocking content in IOS device issue <br/>
                         - Fix page failed to direct when selecting airport directly from weather list <br/>
                         - Adjust map control panel to fit for touchscreen device <br/>
+                        - Adjust map control panel hover and selection visual style <br/>
                         - Adjust Home page to be fitted in the IOS device <br/>
                     </div>
                 </div>
