@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
 import ControllerPopupContent from "./ControllerPopupContent";
 import { markerOffsetObject } from "../util/helpers";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import useIsTouchScreen from "../../../../hooks/useIsTouchScreen";
+import mapboxgl from "mapbox-gl";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -59,9 +60,26 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
         });
     }
 
+    const popupRef = useRef<mapboxgl.Popup>();
+
+    useEffect(() => {
+        popupRef.current?.trackPointer();
+        popupRef.current?.setOffset({
+            "top": [0, 15],
+            "top-left": [0, 15],
+            "top-right": [0, 15],
+            "bottom": [0, 15],
+            "bottom-left": [0, 15],
+            "bottom-right": [0, 15],
+            "left": [0, 15],
+            "right": [0, 15]
+        });
+    }, [popupRef.current]);
+
     return (
     //@ts-expect-error to avoid "Property 'offset' does not exist" in Popup
         <Popup
+            ref={popupRef}
             style={{
                 zIndex: 100,
             }}
@@ -69,8 +87,8 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             longitude={lon}
             latitude={lat}
             maxWidth={isTouchScreen ? "380px" : "500px"}
-            offset={isTouchScreen ? "20px" : markerOffsetObject}
-            anchor={isTouchScreen ? "bottom" : undefined}
+            offset={isTouchScreen ? "10px" : "100px"}
+            anchor={isTouchScreen ? "bottom" : null}
         >
             <div className={`grid grid-cols-1 justify-center items-center
             gap-1 p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
