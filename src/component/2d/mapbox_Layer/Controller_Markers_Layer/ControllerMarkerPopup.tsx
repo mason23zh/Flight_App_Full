@@ -43,8 +43,9 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const airportName = hoverInfo.airportName;
     const darkMode = useTheme();
     const isTouchScreen = useIsTouchScreen();
-
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
+    const popupRef = useRef<mapboxgl.Popup | null>(null);
+
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
         renderServices = hoverInfo.services.map((serviceInfo) => {
@@ -60,24 +61,19 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
         });
     }
 
-    const popupRef = useRef<mapboxgl.Popup>();
-
     useEffect(() => {
-        popupRef.current?.trackPointer();
-        popupRef.current?.setOffset({
-            "top": [0, 15],
-            "top-left": [0, 15],
-            "top-right": [0, 15],
-            "bottom": [0, 15],
-            "bottom-left": [0, 15],
-            "bottom-right": [0, 15],
-            "left": [0, 15],
-            "right": [0, 15]
-        });
+        if (popupRef.current) {
+            if (!isTouchScreen) {
+                // @ts-ignore
+                popupRef.current.setOffset(markerOffsetObject);
+
+            } else {
+                popupRef.current.setOffset([0, -40]);
+            }
+        }
     }, [popupRef.current]);
 
     return (
-    //@ts-expect-error to avoid "Property 'offset' does not exist" in Popup
         <Popup
             ref={popupRef}
             style={{
@@ -87,11 +83,11 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             longitude={lon}
             latitude={lat}
             maxWidth={isTouchScreen ? "380px" : "500px"}
-            offset={isTouchScreen ? "10px" : "100px"}
-            anchor={isTouchScreen ? "bottom" : null}
+            anchor={isTouchScreen ? "bottom" : undefined}
+            // offset={markerOffsetObject}
         >
             <div className={`grid grid-cols-1 justify-center items-center
-            gap-1 p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
+            gap-1 p-1 sm:p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
             >
                 <div className="justify-self-start italic
                 font-bold text-sm sm:text-lg">
