@@ -157,3 +157,9 @@
 - Adjust map control panel to fit for touchscreen device
 - Adjust Home page to be fitted in the IOS device
 - Adjust map control panel hover and selection style
+
+# Beta 0.5.1
+
+- Remove the hover popup arrow tip (controller maker)
+- Adjust the controller maker popup size for mobile device
+- Added airport layout for all map styles 

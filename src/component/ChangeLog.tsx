@@ -169,6 +169,14 @@ function ChangeLog() {
                         - Adjust map control panel hover and selection visual style <br/>
                         - Adjust Home page to be fitted in the IOS device <br/>
                     </div>
+                    <div>
+                        Beta 0.5.1 <br/>
+                        - Remove the hover popup arrow tip (controller marker) <br/>
+                        - Adjust the controller marker popup size for mobile device <br/>
+                        - Added airport layout for all map styles <br/>
+
+
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
