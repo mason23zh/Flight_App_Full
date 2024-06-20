@@ -15,7 +15,7 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
         id: "aircraft-icon-layer",
         data: data,
         pickable: true,
-        visible: visible,  // Ensure the visibility flag is actually used
+        visible: visible,
         opacity: 1,
         getIcon: (d: VatsimFlight) => d.flight_plan?.aircraft_short || "B738",
         autoHighlight: true,

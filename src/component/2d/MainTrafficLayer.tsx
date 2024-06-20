@@ -78,7 +78,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         }
     }, [selectTraffic]);
 
-
     const layers = useMemo(() => [
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D

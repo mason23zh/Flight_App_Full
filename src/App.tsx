@@ -9,6 +9,7 @@ import Layout from "./component/Layout";
 import Weather from "./component/Weather";
 import ScrollToTop from "./component/ScrollToTop";
 import GeneralLoading from "./component/GeneralLoading";
+import FlightTracker from "./component/FlightTracker";
 
 const Orion = lazy(() => import("./component/Orion"));
 const Puzzles = lazy(() => import("./component/Puzzles"));
@@ -30,6 +31,7 @@ function App() {
                     <Route index element={<Home/>}/>
                     <Route path="about" element={<About/>}/>
                     <Route path="weather" element={<Weather/>}/>
+                    <Route path="flightTracker" element={<FlightTracker/>}/>
                     <Route path="*" element={<NoMatch/>}/>
 
                     {/* Lazy loaded routes */}
