@@ -6,6 +6,7 @@ import React from "react";
 import DeckGlOverlay from "../deckGL_Layer/DeckGLOverlay";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import renderLocalTrackFlightLayer from "../renderLocalTrackFlightLayer";
+import useGetLocalTrack from "../../../hooks/useGetLocalTrack";
 
 interface FlightData {
     latitude: number | null;
@@ -19,9 +20,10 @@ interface LocalUserTrafficLayerProps {
     liveTrafficData: FlightData;
 }
 
-const LocalUserTrafficLayer = ({ liveTrafficData }: LocalUserTrafficLayerProps) => {
+const LocalUserTrafficLayer = () => {
+    const flightData = useGetLocalTrack();
     const isTouchScreen = useIsTouchScreen();
-    const localTrackFlightLayer = renderLocalTrackFlightLayer(liveTrafficData);
+    const localTrackFlightLayer = renderLocalTrackFlightLayer(flightData);
 
     return (
         <DeckGlOverlay

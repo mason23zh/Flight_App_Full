@@ -18,7 +18,7 @@ const renderLocalTrackFlightLayer = (flightData: LiveFlightData) => {
                 mask: false
             }
         },
-        getPosition: d => [d.longitude || 0, d.latitude || 0],
+        getPosition: d => [d.longitude || 0, d.latitude || 0, d.AGL || 0],
         getAngle: d => -(Math.round(d.heading)),
         getColor: d => [Math.sqrt(d.exits), 140, 0],
         getIcon: d => "arrow",
