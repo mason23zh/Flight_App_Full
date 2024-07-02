@@ -5,7 +5,9 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer, toggleTerrainLabel,
+    toggleAtcLayer,
+    toggleMovingMap,
+    toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
 } from "../../../store";
@@ -13,6 +15,7 @@ import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
+import { MdNavigation } from "react-icons/md";
 
 
 import { MapRef } from "react-map-gl";
@@ -29,7 +32,8 @@ const TogglePanel = ({ mapRef }: Props) => {
         allAtcLayerVisible,
         trafficLayerVisible,
         weatherRasterVisible,
-        terrainEnable
+        terrainEnable,
+        movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -111,6 +115,14 @@ const TogglePanel = ({ mapRef }: Props) => {
                         icon={<CgTerrain/>}
                         initialActive={terrainEnable}
                         tooltipMessage="Toggle terrain and 3D view"
+                        isTouchScreen={isTouchScreen}
+                    />
+
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleMovingMap(activeFlag))}
+                        icon={<MdNavigation/>}
+                        initialActive={movingMap}
+                        tooltipMessage="Enable moving map"
                         isTouchScreen={isTouchScreen}
                     />
 

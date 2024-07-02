@@ -38,6 +38,7 @@ import {
     toggleDayNightTerminator,
     toggleAirportVisible,
     switchMapStyles,
+    toggleMovingMap,
     resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -161,6 +162,7 @@ export {
     toggleDayNightTerminator,
     toggleAirportVisible,
     switchMapStyles,
+    toggleMovingMap,
     resetMap
 };
 

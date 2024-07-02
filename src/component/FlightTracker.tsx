@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { LiveFlightData } from "../types";
 
-interface FlightData {
-    latitude: number | null;
-    longitude: number | null;
-    heading: number | null;
-    groundspeed: number | null;
-    altitude: number | null;
-}
 
 const FlightTracker = () => {
-    const [flightData, setFlightData] = useState<FlightData>({
+    const [flightData, setFlightData] = useState<LiveFlightData>({
         latitude: null,
         longitude: null,
         heading: null,
         groundspeed: null,
-        altitude: null,
+        MSL: null,
     });
 
     useEffect(() => {
@@ -22,7 +16,7 @@ const FlightTracker = () => {
         const ws = new WebSocket("ws://localhost:6789");
 
         ws.onmessage = (event) => {
-            const data: FlightData = JSON.parse(event.data);
+            const data: LiveFlightData = JSON.parse(event.data);
             setFlightData(data);
         };
 
@@ -41,7 +35,16 @@ const FlightTracker = () => {
                 <p>Longitude: {flightData.longitude}</p>
                 <p>Heading: {flightData.heading}</p>
                 <p>Groundspeed: {flightData.groundspeed}</p>
-                <p>Altitude: {flightData.altitude}</p>
+                <p>Altitude(MSL): {flightData.MSL}</p>
+                <p>Altitude(AGL): {flightData.AGL}</p>
+                <p>Heading(mag): {flightData.heading}</p>
+                <p>Heading(true): {flightData.true_heading}</p>
+                <p>Airspeed(ind): {flightData.indicated_airspeed}</p>
+                <p>Airspeed(true):{flightData.true_airspeed}</p>
+                <p>Groundspeed: {flightData.groundspeed}</p>
+                <p>Pitch: {flightData.pitch}</p>
+                <p>Roll: {flightData.roll}</p>
+                <p>Vertical Speed: {flightData.vertical_speed}</p>
             </div>
         </div>
     );

@@ -26,6 +26,7 @@ const initialState: VatsimMapVisibleState = {
     mapFilterButtonToggle: false,
     terrainEnable: false,
     dayNightTerminator: false,
+    movingMap: false,
     mapStyles: "DEFAULT"
 };
 
@@ -52,6 +53,7 @@ const vatsimMapVisibleSlice = createSlice({
             state.mapFilterButtonToggle = true;
             state.terrainEnable = false;
             state.dayNightTerminator = false;
+            state.movingMap = false;
             state.mapStyles = "DEFAULT";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
@@ -78,6 +80,9 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleTerrainLabel(state, action) {
             state.terrainEnable = action.payload;
+        },
+        toggleMovingMap(state, action) {
+            state.movingMap = action.payload;
         },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
@@ -132,6 +137,7 @@ export const {
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
     toggleAirportVisible,
+    toggleMovingMap,
     resetMap
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

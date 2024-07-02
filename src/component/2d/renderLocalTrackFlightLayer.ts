@@ -1,15 +1,9 @@
 import { IconLayer } from "@deck.gl/layers/typed";
 import navigation from "../../assets/mapbox/navigation.png";
+import { LiveFlightData } from "../../types";
 
-interface FlightData {
-    latitude: number | null;
-    longitude: number | null;
-    heading: number | null;
-    groundspeed: number | null;
-    altitude: number | null;
-}
 
-const renderLocalTrackFlightLayer = (flightData: FlightData) => {
+const renderLocalTrackFlightLayer = (flightData: LiveFlightData) => {
 
     return new IconLayer({
         id: "local-aircraft-tracking-layer",

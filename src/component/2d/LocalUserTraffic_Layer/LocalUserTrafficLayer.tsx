@@ -1,3 +1,7 @@
+/*
+* This layer will be responsible for rendering local user traffic
+* This data for the local user traffic will come from simconnector server
+* */
 import React from "react";
 import DeckGlOverlay from "../deckGL_Layer/DeckGLOverlay";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
