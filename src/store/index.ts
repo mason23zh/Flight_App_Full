@@ -39,6 +39,8 @@ import {
     toggleAirportVisible,
     switchMapStyles,
     toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
     resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -163,6 +165,8 @@ export {
     toggleAirportVisible,
     switchMapStyles,
     toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
     resetMap
 };
 

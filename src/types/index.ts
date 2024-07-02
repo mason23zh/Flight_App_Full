@@ -439,6 +439,8 @@ interface VatsimMapVisibleState {
     terrainEnable: boolean;
     dayNightTerminator: boolean;
     movingMap: boolean;
+    mapFollowTraffic: boolean;
+    displayTelemetry: boolean;
     mapStyles: MapStyles;
 }
 

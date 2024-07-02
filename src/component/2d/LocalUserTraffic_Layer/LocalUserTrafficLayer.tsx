@@ -8,17 +8,6 @@ import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import renderLocalTrackFlightLayer from "../renderLocalTrackFlightLayer";
 import useGetLocalTrack from "../../../hooks/useGetLocalTrack";
 
-interface FlightData {
-    latitude: number | null;
-    longitude: number | null;
-    heading: number | null;
-    groundspeed: number | null;
-    altitude: number | null;
-}
-
-interface LocalUserTrafficLayerProps {
-    liveTrafficData: FlightData;
-}
 
 const LocalUserTrafficLayer = () => {
     const flightData = useGetLocalTrack();

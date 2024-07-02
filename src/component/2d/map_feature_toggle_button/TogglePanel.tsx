@@ -5,8 +5,8 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer,
-    toggleMovingMap,
+    toggleAtcLayer, toggleMapFollowTraffic,
+    toggleMovingMap, toggleTelemetry,
     toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
@@ -16,6 +16,8 @@ import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
 import { MdNavigation } from "react-icons/md";
+import { FaLocationCrosshairs } from "react-icons/fa6";
+import { IoSpeedometerOutline } from "react-icons/io5";
 
 
 import { MapRef } from "react-map-gl";
@@ -34,6 +36,8 @@ const TogglePanel = ({ mapRef }: Props) => {
         weatherRasterVisible,
         terrainEnable,
         movingMap,
+        mapFollowTraffic,
+        displayTelemetry,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -125,6 +129,26 @@ const TogglePanel = ({ mapRef }: Props) => {
                         tooltipMessage="Enable moving map"
                         isTouchScreen={isTouchScreen}
                     />
+
+                    {movingMap &&
+                        <>
+                            <MapFeaturesToggleButton
+                                onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}
+                                icon={<FaLocationCrosshairs/>}
+                                initialActive={mapFollowTraffic}
+                                tooltipMessage="Map follow traffic"
+                                isTouchScreen={isTouchScreen}
+                            />
+
+                            <MapFeaturesToggleButton
+                                onToggle={(activeFlag) => dispatch(toggleTelemetry(activeFlag))}
+                                icon={<IoSpeedometerOutline/>}
+                                initialActive={displayTelemetry}
+                                tooltipMessage="Toggle trffic telemtry"
+                                isTouchScreen={isTouchScreen}
+                            />
+                        </>
+                    }
 
                     <MapStyleToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
 

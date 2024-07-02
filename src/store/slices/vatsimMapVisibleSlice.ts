@@ -27,6 +27,8 @@ const initialState: VatsimMapVisibleState = {
     terrainEnable: false,
     dayNightTerminator: false,
     movingMap: false,
+    mapFollowTraffic: true,
+    displayTelemetry: true,
     mapStyles: "DEFAULT"
 };
 
@@ -54,6 +56,8 @@ const vatsimMapVisibleSlice = createSlice({
             state.terrainEnable = false;
             state.dayNightTerminator = false;
             state.movingMap = false;
+            state.mapFollowTraffic = true;
+            state.displayTelemetry = true;
             state.mapStyles = "DEFAULT";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
@@ -83,6 +87,12 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMovingMap(state, action) {
             state.movingMap = action.payload;
+        },
+        toggleTelemetry(state, action) {
+            state.displayTelemetry = action.payload;
+        },
+        toggleMapFollowTraffic(state, action) {
+            state.mapFollowTraffic = action.payload;
         },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
@@ -138,6 +148,8 @@ export const {
     toggleDayNightTerminator,
     toggleAirportVisible,
     toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
     resetMap
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;
