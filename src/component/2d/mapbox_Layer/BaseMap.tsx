@@ -85,7 +85,7 @@ const BaseMap = ({ children }) => {
 
     const initializeTerrainSource = useCallback((map) => {
         if (!terrainEnable) {
-            map.setTerrain();
+            map.setTerrain(undefined);
             return;
         }
 
@@ -117,7 +117,7 @@ const BaseMap = ({ children }) => {
     useEffect(() => {
         const map = mapRef.current?.getMap();
         if (map && !terrainEnable && map.getSource("mapbox-dem")) {
-            map.setTerrain();
+            map.setTerrain(undefined);
             map.removeSource("mapbox-dem");
         }
     }, [terrainEnable]);
