@@ -11,9 +11,7 @@ const BaseMap = ({ children }) => {
 
     const {
         flightData,
-        liveTrafficAvailable,
-        openWebSocket,
-        closeWebSocket
+        liveTrafficAvailable
     } = useWebSocketContext();
 
     const {
@@ -21,14 +19,6 @@ const BaseMap = ({ children }) => {
         mapFollowTraffic,
         movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-
-    useEffect(() => {
-        if (liveTrafficAvailable) {
-            openWebSocket();
-        } else {
-            closeWebSocket();
-        }
-    }, []);
 
 
     // Default view point
@@ -41,7 +31,11 @@ const BaseMap = ({ children }) => {
     });
 
     useEffect(() => {
-        if (movingMap && mapFollowTraffic && flightData.latitude && flightData.longitude) {
+        if (movingMap &&
+                liveTrafficAvailable &&
+                mapFollowTraffic &&
+                flightData.latitude &&
+                flightData.longitude) {
             setViewState((prevState) => ({
                 ...prevState,
                 longitude: flightData.longitude,

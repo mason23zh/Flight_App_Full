@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
-import LocalUserTrafficLayer from "../LocalUserTraffic_Layer/LocalUserTrafficLayer";
 
 
 const MainMap = () => {
@@ -18,9 +17,7 @@ const MainMap = () => {
 
     const {
         dayNightTerminator,
-        movingMap
-    } =
-            useSelector((state: RootState) => state.vatsimMapVisible);
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     if (!window.WebGLRenderingContext) {
         return (
@@ -36,7 +33,6 @@ const MainMap = () => {
                 <MapErrorMessageStack/>
                 <AtcLayer/>
                 <BaseTrafficLayer/>
-                {movingMap && <LocalUserTrafficLayer/>}
                 <NexradLayer/>
                 {dayNightTerminator && <DayNightLayer/>}
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     addMessage,
     removeMessageByLocation,
-    RootState, setLiveTrafficAvailable,
+    RootState,
     toggleAtcLayer, toggleMapFollowTraffic,
     toggleMovingMap, toggleTelemetry,
     toggleTerrainLabel,
@@ -24,6 +24,7 @@ import { MapRef } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
+import { useWebSocketContext } from "../WebSocketContext";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -38,16 +39,26 @@ const TogglePanel = ({ mapRef }: Props) => {
         movingMap,
         mapFollowTraffic,
         displayTelemetry,
-        liveTrafficAvailable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        openWebSocket,
+        closeWebSocket,
+        liveTrafficAvailable
+    } = useWebSocketContext();
+
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
 
 
     const handleMovingMapIconToggle = (activeFlag) => {
-        if (activeFlag && liveTrafficAvailable) {
-            dispatch(toggleMovingMap(true));
+        if (activeFlag) {
+            openWebSocket();
+            if (liveTrafficAvailable) {
+                dispatch(toggleMovingMap(true));
+            }
         } else {
+            closeWebSocket();
             dispatch(toggleMovingMap(false));
         }
     };
