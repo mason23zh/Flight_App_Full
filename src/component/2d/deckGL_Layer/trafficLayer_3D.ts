@@ -17,6 +17,8 @@ const ANIMATIONS = {
 const trafficLayer_3D = (
     data: Array<VatsimFlight>,
     visible: boolean) => {
+
+
     const [airplaneModel, setAirplaneModel] = useState(null);
     const [error, setError] = useState(null);
 
@@ -40,7 +42,7 @@ const trafficLayer_3D = (
         }
     }, [airplaneModel]);
 
-    if (!airplaneModel || error || !visible) return null;
+    if (!airplaneModel || error || !data) return null;
 
     return new ScenegraphLayer({
         id: "traffics-layer",

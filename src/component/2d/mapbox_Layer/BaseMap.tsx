@@ -83,6 +83,45 @@ const BaseMap = ({ children }) => {
         });
     }, []);
 
+    const initializeTerrainSource = useCallback((map) => {
+        if (!terrainEnable) {
+            map.setTerrain();
+            return;
+        }
+
+        if (!map.getSource("mapbox-dem")) {
+            map.addSource("mapbox-dem", {
+                type: "raster-dem",
+                url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+                tileSize: 512,
+                maxzoom: 14
+            });
+        }
+
+        map.setTerrain({
+            source: "mapbox-dem",
+            exaggeration: 1.5
+        });
+    }, [terrainEnable]);
+
+    // To initialize the terrain mode when map load
+    // if terrain is enabled
+    useEffect(() => {
+        const map = mapRef.current?.getMap();
+        if (map) {
+            initializeTerrainSource(map);
+        }
+    }, [initializeTerrainSource]);
+
+    // To remove the terrain if mode switch to 2d
+    useEffect(() => {
+        const map = mapRef.current?.getMap();
+        if (map && !terrainEnable && map.getSource("mapbox-dem")) {
+            map.setTerrain();
+            map.removeSource("mapbox-dem");
+        }
+    }, [terrainEnable]);
+
 
     /*
     * Default Projection: mercator
@@ -105,10 +144,7 @@ const BaseMap = ({ children }) => {
                 style={mapStyle}
                 onMove={onMove}
                 dragPan={true}
-                terrain={terrainEnable ? {
-                    source: "mapbox-dem",
-                    exaggeration: 1.5
-                } : undefined}
+                onLoad={(e) => initializeTerrainSource(e.target)}
                 logoPosition={"bottom-right"}
             >
                 {terrainEnable &&

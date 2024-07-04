@@ -8,6 +8,7 @@ const BaseTrafficLayer = () => {
 
     const {
         trafficLayerVisible,
+        movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
@@ -40,13 +41,13 @@ const BaseTrafficLayer = () => {
     }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots]);
 
 
-    if (vatsimPilots && trafficLayerVisible) {
-        return (
-            <>
-                <MainTrafficLayer vatsimPilots={vatsimPilots.data.pilots}/>
-            </>
-        );
-    }
+    return (
+        <MainTrafficLayer
+            vatsimPilots={vatsimPilots?.data.pilots}
+            movingMap={movingMap}
+            trafficLayerVisible={trafficLayerVisible}
+        />
+    );
 };
 
 export default BaseTrafficLayer;

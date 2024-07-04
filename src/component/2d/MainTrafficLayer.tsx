@@ -21,20 +21,26 @@ import { useWebSocketContext } from "./WebSocketContext";
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
+    movingMap: boolean;
+    trafficLayerVisible: boolean;
 }
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
-const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
+const MainTrafficLayer = ({
+    vatsimPilots,
+    trafficLayerVisible,
+    movingMap
+}:
+        MainTrafficLayerProps) => {
 
     const dispatch = useDispatch();
     let isHovering = false;
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
-        movingMap
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
@@ -47,16 +53,16 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
 
     const { flightData } = useWebSocketContext();
 
-    const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
+    const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable && trafficLayerVisible);
 
     // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
-        return trafficLayer_2D(vatsimPilots, !terrainEnable);
-    }, [terrainEnable, vatsimPilots]);
+        return trafficLayer_2D(vatsimPilots, !terrainEnable && trafficLayerVisible);
+    }, [terrainEnable, vatsimPilots, trafficLayerVisible]);
 
     const localTrafficLayer = useMemo(() => {
-        return renderLocalTrackFlightLayer(flightData);
-    }, [movingMap, flightData]);
+        return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
+    }, [movingMap, flightData, terrainEnable]);
 
 
     useEffect(() => {
@@ -92,8 +98,10 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     const layers = useMemo(() => [
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
-        movingMap && localTrafficLayer
-    ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic, movingMap, flightData]);
+        localTrafficLayer
+    ].filter(Boolean),
+    [trackData, trafficLayer3D, trafficLayer2D, terrainEnable,
+        selectTraffic, movingMap, flightData, trafficLayerVisible]);
 
     const isTouchScreen = useIsTouchScreen();
     return (
