@@ -28,8 +28,8 @@ const initialState: VatsimMapVisibleState = {
     dayNightTerminator: false,
     liveTrafficAvailable: false,
     movingMap: false,
-    mapFollowTraffic: true,
-    displayTelemetry: true,
+    mapFollowTraffic: false,
+    displayTelemetry: false,
     mapStyles: "DEFAULT"
 };
 
@@ -57,8 +57,8 @@ const vatsimMapVisibleSlice = createSlice({
             state.terrainEnable = false;
             state.dayNightTerminator = false;
             state.movingMap = false;
-            state.mapFollowTraffic = true;
-            state.displayTelemetry = true;
+            state.mapFollowTraffic = false;
+            state.displayTelemetry = false;
             state.mapStyles = "DEFAULT";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
@@ -90,13 +90,12 @@ const vatsimMapVisibleSlice = createSlice({
             state.liveTrafficAvailable = action.payload;
         },
         toggleMovingMap(state, action) {
-            if (state.liveTrafficAvailable) {
-                state.movingMap = action.payload;
-            } else {
-                state.movingMap = false;
-            }
+            state.movingMap = action.payload;
         },
         toggleTelemetry(state, action) {
+            if (!state.movingMap && state.displayTelemetry) {
+                state.displayTelemetry = false;
+            }
             state.displayTelemetry = action.payload;
         },
         toggleMapFollowTraffic(state, action) {

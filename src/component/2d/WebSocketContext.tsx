@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useRef, ReactNode, FC } from "react";
 import { LiveFlightData } from "../../types";
+import { setLiveTrafficAvailable } from "../../store";
 
 interface WebSocketContextProps {
     flightData: LiveFlightData;
@@ -31,7 +32,7 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         MSL: null,
     });
 
-    const [liveTrafficAvailable, setLiveTrafficAvailable] = useState(false);
+    const [liveTrafficAvailable, setLiveTrafficAvailableLocal] = useState(false);
     const wsRef = useRef<WebSocket | null>(null);
 
     const openWebSocket = () => {
@@ -40,11 +41,13 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         wsRef.current.onmessage = (event) => {
             const data: LiveFlightData = JSON.parse(event.data);
             setLiveTrafficAvailable(true);
+            setLiveTrafficAvailableLocal(true);
             setFlightData(data);
         };
 
         wsRef.current.onerror = () => {
             setLiveTrafficAvailable(false);
+            setLiveTrafficAvailableLocal(false);
         };
     };
 

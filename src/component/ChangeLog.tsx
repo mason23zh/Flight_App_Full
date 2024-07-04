@@ -171,11 +171,10 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.5.1 <br/>
+                        - Added moving map to track local sim flight <br/>
+                        - Added airport layout for all map styles <br/>
                         - Remove the hover popup arrow tip (controller marker) <br/>
                         - Adjust the controller marker popup size for mobile device <br/>
-                        - Added airport layout for all map styles <br/>
-
-
                     </div>
                 </div>
             </div>

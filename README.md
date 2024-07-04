@@ -160,6 +160,7 @@
 
 # Beta 0.5.1
 
+- Added moving map to track local sim flight
+- Added airport layout for all map styles
 - Remove the hover popup arrow tip (controller maker)
 - Adjust the controller maker popup size for mobile device
-- Added airport layout for all map styles 
