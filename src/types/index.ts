@@ -441,6 +441,7 @@ interface VatsimMapVisibleState {
     movingMap: boolean;
     mapFollowTraffic: boolean;
     displayTelemetry: boolean;
+    liveTrafficAvailable: boolean;
     mapStyles: MapStyles;
 }
 

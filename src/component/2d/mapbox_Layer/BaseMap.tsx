@@ -4,10 +4,32 @@ import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
+import { useWebSocketContext } from "../WebSocketContext";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
-    const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        flightData,
+        liveTrafficAvailable,
+        openWebSocket,
+        closeWebSocket
+    } = useWebSocketContext();
+
+    const {
+        terrainEnable,
+        mapFollowTraffic,
+        movingMap,
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    useEffect(() => {
+        if (liveTrafficAvailable) {
+            openWebSocket();
+        } else {
+            closeWebSocket();
+        }
+    }, []);
+
 
     // Default view point
     const [viewState, setViewState] = useState({
@@ -17,6 +39,16 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
+
+    useEffect(() => {
+        if (movingMap && mapFollowTraffic && flightData.latitude && flightData.longitude) {
+            setViewState((prevState) => ({
+                ...prevState,
+                longitude: flightData.longitude,
+                latitude: flightData.latitude,
+            }));
+        }
+    }, [flightData, mapFollowTraffic]);
 
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
     useEffect(() => {
@@ -36,7 +68,7 @@ const BaseMap = ({ children }) => {
         position: "absolute"
     });
 
- 
+
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
     useEffect(() => {
@@ -69,8 +101,8 @@ const BaseMap = ({ children }) => {
                 ref={mapRef}
                 projection={{ name: "mercator" }}
                 cursor={"auto"}
-
-                {...viewState} // to reset the pitch and bearing
+                // to reset the pitch and bearing
+                {...viewState}
                 dragRotate={terrainEnable}
                 mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                 mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
@@ -103,4 +135,4 @@ const BaseMap = ({ children }) => {
     );
 };
 
-export default BaseMap;
+export default React.memo(BaseMap);

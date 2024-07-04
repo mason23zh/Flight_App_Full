@@ -26,6 +26,7 @@ const initialState: VatsimMapVisibleState = {
     mapFilterButtonToggle: false,
     terrainEnable: false,
     dayNightTerminator: false,
+    liveTrafficAvailable: false,
     movingMap: false,
     mapFollowTraffic: true,
     displayTelemetry: true,
@@ -85,8 +86,15 @@ const vatsimMapVisibleSlice = createSlice({
         toggleTerrainLabel(state, action) {
             state.terrainEnable = action.payload;
         },
+        setLiveTrafficAvailable(state, action) {
+            state.liveTrafficAvailable = action.payload;
+        },
         toggleMovingMap(state, action) {
-            state.movingMap = action.payload;
+            if (state.liveTrafficAvailable) {
+                state.movingMap = action.payload;
+            } else {
+                state.movingMap = false;
+            }
         },
         toggleTelemetry(state, action) {
             state.displayTelemetry = action.payload;
@@ -150,6 +158,7 @@ export const {
     toggleMovingMap,
     toggleTelemetry,
     toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
     resetMap
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

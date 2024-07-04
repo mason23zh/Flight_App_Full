@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     addMessage,
     removeMessageByLocation,
-    RootState,
+    RootState, setLiveTrafficAvailable,
     toggleAtcLayer, toggleMapFollowTraffic,
     toggleMovingMap, toggleTelemetry,
     toggleTerrainLabel,
@@ -38,9 +38,19 @@ const TogglePanel = ({ mapRef }: Props) => {
         movingMap,
         mapFollowTraffic,
         displayTelemetry,
+        liveTrafficAvailable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
+
+
+    const handleMovingMapIconToggle = (activeFlag) => {
+        if (activeFlag && liveTrafficAvailable) {
+            dispatch(toggleMovingMap(true));
+        } else {
+            dispatch(toggleMovingMap(false));
+        }
+    };
 
 
     // Map loading state/error notification
@@ -123,14 +133,14 @@ const TogglePanel = ({ mapRef }: Props) => {
                     />
 
                     <MapFeaturesToggleButton
-                        onToggle={(activeFlag) => dispatch(toggleMovingMap(activeFlag))}
+                        onToggle={handleMovingMapIconToggle}
                         icon={<MdNavigation/>}
                         initialActive={movingMap}
                         tooltipMessage="Enable moving map"
                         isTouchScreen={isTouchScreen}
                     />
 
-                    {movingMap &&
+                    {(movingMap && liveTrafficAvailable) &&
                         <>
                             <MapFeaturesToggleButton
                                 onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}
@@ -144,7 +154,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                                 onToggle={(activeFlag) => dispatch(toggleTelemetry(activeFlag))}
                                 icon={<IoSpeedometerOutline/>}
                                 initialActive={displayTelemetry}
-                                tooltipMessage="Toggle trffic telemtry"
+                                tooltipMessage="Toggle traffic telemtry"
                                 isTouchScreen={isTouchScreen}
                             />
                         </>

@@ -6,13 +6,14 @@ import React from "react";
 import DeckGlOverlay from "../deckGL_Layer/DeckGLOverlay";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import renderLocalTrackFlightLayer from "../renderLocalTrackFlightLayer";
-import useGetLocalTrack from "../../../hooks/useGetLocalTrack";
+import { useWebSocketContext } from "../WebSocketContext";
 
 
 const LocalUserTrafficLayer = () => {
-    const flightData = useGetLocalTrack();
+    const { flightData } = useWebSocketContext();
     const isTouchScreen = useIsTouchScreen();
     const localTrackFlightLayer = renderLocalTrackFlightLayer(flightData);
+
 
     return (
         <DeckGlOverlay

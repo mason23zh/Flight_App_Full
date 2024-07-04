@@ -41,6 +41,7 @@ import {
     toggleMovingMap,
     toggleTelemetry,
     toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
     resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -167,6 +168,7 @@ export {
     toggleMovingMap,
     toggleTelemetry,
     toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
     resetMap
 };
 
