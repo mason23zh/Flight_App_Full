@@ -5,6 +5,7 @@ import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
+import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
@@ -157,6 +158,7 @@ const BaseMap = ({ children }) => {
                     />
                 }
                 <TogglePanel mapRef={mapRef}/>
+                <TelemetryPanel/>
                 <NavigationControl position="bottom-left"/>
                 {AirportLayers}
                 {children}
