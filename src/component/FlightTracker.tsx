@@ -13,7 +13,7 @@ const FlightTracker = () => {
 
     useEffect(() => {
         // Note: This will only work when the web app and local server are running on the same machine
-        const ws = new WebSocket("ws://localhost:6789");
+        const ws = new WebSocket("ws://localhost:49153");
 
         ws.onmessage = (event) => {
             const data: LiveFlightData = JSON.parse(event.data);

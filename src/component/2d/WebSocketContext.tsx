@@ -36,7 +36,7 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const wsRef = useRef<WebSocket | null>(null);
 
     const openWebSocket = () => {
-        wsRef.current = new WebSocket("ws://localhost:6789");
+        wsRef.current = new WebSocket("ws://localhost:49153");
 
         wsRef.current.onmessage = (event) => {
             const data: LiveFlightData = JSON.parse(event.data);
