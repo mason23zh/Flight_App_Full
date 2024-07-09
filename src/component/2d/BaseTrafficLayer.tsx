@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { addMessage, removeMessageByLocation, RootState, useFetchVatsimPilotsDataQuery } from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useDispatch, useSelector } from "react-redux";
+import { db } from "../../database/db";
 
 const BaseTrafficLayer = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,16 @@ const BaseTrafficLayer = () => {
         error: vatsimPilotsError,
         isLoading: vatsimPilotsLoading
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
+
+    // Import vatsim pilots into Dexie
+    useEffect(() => {
+        if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading) {
+            db.syncVatsimTraffic(vatsimPilots.data.pilots)
+                .catch(err => {
+                    console.log("Failed to import vatsim traffic to db:", err);
+                });
+        }
+    }, [vatsimPilotsLoading, vatsimPilots, vatsimPilotsError]);
 
     useEffect(() => {
         if (vatsimPilotsError) {
@@ -39,7 +50,6 @@ const BaseTrafficLayer = () => {
         }
 
     }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots]);
-
 
     return (
         <MainTrafficLayer

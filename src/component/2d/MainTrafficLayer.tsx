@@ -110,7 +110,6 @@ const MainTrafficLayer = ({
             onClick={(info: PickedTraffic) => deckOnClick(info)}
             layers={layers}
             pickingRadius={10}
-
             getTooltip={isTouchScreen ? undefined : ({ object }) => {
                 if (object) {
                     const bgColor = "rgba(39, 40, 45, 0.9)";
