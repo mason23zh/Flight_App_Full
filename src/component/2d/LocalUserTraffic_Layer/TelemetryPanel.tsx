@@ -5,11 +5,17 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 const TelemetryPanel = () => {
-    const { flightData } = useWebSocketContext();
+    const {
+        flightData,
+        liveTrafficAvailable
+    } = useWebSocketContext();
 
-    const { displayTelemetry } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        displayTelemetry,
+        movingMap
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    if (!flightData) return null;
+    if (!flightData || !liveTrafficAvailable || !movingMap) return null;
 
 
     return (
