@@ -80,9 +80,9 @@ const MainTrafficLayer = ({
 
     const trackLayer = useMemo(() => {
         if (trackData && !trackLoading && !trackError) {
-            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true);
+            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
         }
-    }, [trackData, trackLoading, trackError, selectTraffic]);
+    }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable]);
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {

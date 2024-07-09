@@ -7,7 +7,8 @@ const flightPathLayer = (
     data: VatsimTrackTraffic,
     selectTraffic: VatsimFlight,
     trafficData: Array<VatsimFlight>,
-    visible: boolean) => {
+    visible: boolean,
+    terrainEnable: boolean) => {
     const formatTrack = [];
 
     if (data && selectTraffic) {
@@ -22,10 +23,10 @@ const flightPathLayer = (
             if (idx < data.track.length - 1) {
                 tempObj.from.coordinates[0] = t.longitude;
                 tempObj.from.coordinates[1] = t.latitude;
-                tempObj.from.coordinates[2] = t.altitude;
+                tempObj.from.coordinates[2] = terrainEnable ? t.altitude : 0;
                 tempObj.to.coordinates[0] = data.track[idx + 1].longitude;
                 tempObj.to.coordinates[1] = data.track[idx + 1].latitude;
-                tempObj.to.coordinates[2] = data.track[idx + 1].altitude;
+                tempObj.to.coordinates[2] = terrainEnable ? data.track[idx + 1].altitude : 0;
                 formatTrack.push(tempObj);
             } else if (idx === data.track.length - 1) {
                 // get the latest data and update the track
