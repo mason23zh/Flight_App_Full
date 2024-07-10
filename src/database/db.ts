@@ -1,24 +1,32 @@
 import Dexie, { Table } from "dexie";
-import { VatsimFlight } from "../types";
+import { LocalDbAirport, VatsimFlight } from "../types";
 
-class VatsimTrafficDB extends Dexie {
-    vatsimTraffic!: Table<VatsimFlight, string>;
+class VatsimLocalDB extends Dexie {
+    vatsimTraffic!: Table<VatsimFlight, number>;
+    airports!: Table<LocalDbAirport, string>;
 
     constructor() {
-        super("VatsimTrafficDB");
+        super("LocalVatsimDB");
         this.version(1)
-            .stores({
-                vatsimTraffic: `
-                &cid, 
-                callsign, 
-                name, 
-                flight_plan.aircraft, 
-                flight_plan.aircraft_faa, 
-                flight_plan.aircraft_short, 
-                flight_plan.arrival, 
-                flight_plan.departure, 
-                [flight_plan.departure+flight_plan.arrival]`
-            });
+            .stores(
+                {
+                    vatsimTraffic: `&cid, 
+                        callsign, 
+                        name, 
+                        flight_plan.aircraft, 
+                        flight_plan.aircraft_faa, 
+                        flight_plan.aircraft_short, 
+                        flight_plan.arrival, 
+                        flight_plan.departure, 
+                        [flight_plan.departure+flight_plan.arrival]`,
+
+                    airports: `&ident, 
+                            gps_code, 
+                            iata_code, 
+                            municipality,
+                            name`,
+                },
+            );
     }
 
     async syncVatsimTraffic(newData: VatsimFlight[]) {
@@ -32,9 +40,15 @@ class VatsimTrafficDB extends Dexie {
             await this.vatsimTraffic.bulkDelete(keysToRemove);
         });
     }
+
+    async loadAirports(newData: LocalDbAirport[]) {
+        const validAirportData = newData.filter(airport => airport.ident);
+        await this.airports.clear();
+        await this.airports.bulkPut(validAirportData);
+    }
 }
 
 
-const db = new VatsimTrafficDB();
+const db = new VatsimLocalDB();
 
 export { db };

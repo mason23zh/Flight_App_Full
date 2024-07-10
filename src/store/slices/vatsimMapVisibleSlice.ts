@@ -30,6 +30,7 @@ const initialState: VatsimMapVisibleState = {
     movingMap: false,
     mapFollowTraffic: false,
     displayTelemetry: false,
+    searchBoxVisible: false,
     mapStyles: "DEFAULT"
 };
 
@@ -59,6 +60,8 @@ const vatsimMapVisibleSlice = createSlice({
             state.movingMap = false;
             state.mapFollowTraffic = false;
             state.displayTelemetry = false;
+            state.searchBoxVisible = false;
+
             state.mapStyles = "DEFAULT";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
@@ -133,6 +136,9 @@ const vatsimMapVisibleSlice = createSlice({
             if (action.payload && state.mapStyleButtonToggle) {
                 state.mapStyleButtonToggle = false;
             }
+        },
+        toggleSearchBox(state, action) {
+            state.searchBoxVisible = action.payload;
         }
     }
 });
@@ -158,6 +164,7 @@ export const {
     toggleTelemetry,
     toggleMapFollowTraffic,
     setLiveTrafficAvailable,
-    resetMap
+    resetMap,
+    toggleSearchBox
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

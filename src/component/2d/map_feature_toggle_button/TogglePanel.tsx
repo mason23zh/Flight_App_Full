@@ -17,7 +17,7 @@ import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
 import { MdNavigation } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
-import { IoSpeedometerOutline } from "react-icons/io5";
+import { IoSpeedometerOutline, IoSearchSharp } from "react-icons/io5";
 
 
 import { MapRef } from "react-map-gl";
@@ -25,6 +25,7 @@ import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
+import { toggleSearchBox } from "../../../store/slices/vatsimMapVisibleSlice";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -39,6 +40,7 @@ const TogglePanel = ({ mapRef }: Props) => {
         movingMap,
         mapFollowTraffic,
         displayTelemetry,
+        searchBoxVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
@@ -111,6 +113,13 @@ const TogglePanel = ({ mapRef }: Props) => {
         <div className={parentStyle}>
             <div className="flex justify-center w-full sm:w-auto">
                 <div className={childStyle}>
+                    <MapFeaturesToggleButton
+                        onToggle={(activeFlag) => dispatch(toggleSearchBox(activeFlag))}
+                        icon={<IoSearchSharp/>}
+                        initialActive={searchBoxVisible}
+                        tooltipMessage="Search"
+                        isTouchScreen={isTouchScreen}
+                    />
                     <MapFeaturesToggleButton
                         onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
                         icon={<IoAirplane/>}

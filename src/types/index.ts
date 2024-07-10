@@ -232,6 +232,21 @@ interface DbAirport {
     visited: number
 }
 
+interface LocalDbAirport {
+    continent: string,
+    coordinates: string,
+    elevation_ft: string,
+    gps_code: null | string,
+    iata_code: null | string,
+    ident: string,
+    iso_country: string,
+    iso_region: string,
+    local_code: null | string,
+    municipality: null | string,
+    name: string,
+    type: string
+}
+
 interface AirportResponse {
     result: number,
     data: Array<DbAirport>
@@ -442,6 +457,7 @@ interface VatsimMapVisibleState {
     mapFollowTraffic: boolean;
     displayTelemetry: boolean;
     liveTrafficAvailable: boolean;
+    searchBoxVisible: boolean;
     mapStyles: MapStyles;
 }
 
@@ -469,6 +485,7 @@ export type {
     VatsimFlightPlan,
     VatsimTrackTraffic,
     DbAirport,
+    LocalDbAirport,
     VatsimControllers,
     Controller,
     VatsimGeoJsonFeature,
