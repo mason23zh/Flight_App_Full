@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
+import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 
 
 const MainMap = () => {
@@ -18,6 +19,8 @@ const MainMap = () => {
     const {
         dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+    
+    useInitializeDatabase();
 
     if (!window.WebGLRenderingContext) {
         return (

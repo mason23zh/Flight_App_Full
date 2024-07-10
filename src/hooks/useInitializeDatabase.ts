@@ -4,7 +4,6 @@
  */
 
 import { db } from "../database/db";
-import airportData from "../assets/airport_data/airports_with_location.json";
 import { useEffect, useState } from "react";
 import { LocalDbAirport } from "../types";
 
@@ -17,7 +16,12 @@ export const useInitializeDatabase = () => {
                 const airportCount = await db.airports.count();
                 if (airportCount === 0) {
                     console.log("Import airport to local db.");
-                    await db.loadAirports(airportData as LocalDbAirport[]);
+                    const { default: airportData } = await import("../assets/airport_data/airports_with_location.json");
+                    if (Array.isArray(airportData)) {
+                        await db.loadAirports(airportData as unknown as LocalDbAirport[]);
+                    } else {
+                        throw new Error("Invalid airport data format");
+                    }
                 }
                 setIsInitialized(true);
             } catch (e) {
