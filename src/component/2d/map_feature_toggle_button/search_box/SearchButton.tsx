@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
@@ -27,32 +27,24 @@ const SearchButton = ({
 
     const styledIcon = React.cloneElement(<IoSearchSharp/>, { "className": iconClass });
 
-    const [isActive, setIsActive] = useState(false);
-    const [activeButtonClass, setActiveButtonClass] = useState(inActiveClass);
-    const [buttonClick, setButtonClick] = useState(false);
-
     const handleClick = () => {
-        const newActiveState = !isActive;
-        setIsActive(newActiveState);
-        dispatch(toggleSearchBox(newActiveState));
+        dispatch(toggleSearchBox(!searchBoxVisible));
     };
 
-    useEffect(() => {
-        setActiveButtonClass(isActive ? activeClass : inActiveClass);
-    }, [isActive]);
-
+    const activeButtonClass = searchBoxVisible ? activeClass : inActiveClass;
 
     return (
         <>
             <div className="relative">
                 <button
+                    id="search-button"
                     className={activeButtonClass}
                     onClick={handleClick}
                 >
                     {styledIcon}
                 </button>
             </div>
-            {isActive && <SearchBox/>}
+            {searchBoxVisible && <SearchBox/>}
         </>
     );
 };

@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+/*
+* To render all contents returned from the Dexie DB
+* The visibility of this component is controlled by SearchButton component
+*
+* */
+import React, { useEffect, useRef, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
 import { Tabs } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
+import { RootState } from "../../../../store";
 
 
 const SearchBox = () => {
     const darkMode = useTheme();
+    const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const searchBoxRef = useRef<HTMLDivElement>(null);
+    const dispatch = useDispatch();
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,8 +43,25 @@ const SearchBox = () => {
         }
     );
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchBoxRef.current &&
+                    !searchBoxRef.current.contains(event.target as Node) &&
+                    !(event.target as HTMLElement).closest("#search-button")
+            ) {
+                dispatch(toggleSearchBox(false));
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dispatch, searchBoxVisible]);
+
     return (
-        <div className="absolute left-[110%] bg-red-300 min-w-[350px] rounded-lg grid grid-cols-1">
+        <div ref={searchBoxRef}
+            className="absolute left-[110%] bg-red-300 min-w-[350px] rounded-lg grid grid-cols-1">
             <MapSearchInputBar
                 handleChange={handleChange}
                 searchInput={searchInput}

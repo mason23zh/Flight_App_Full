@@ -113,13 +113,6 @@ const TogglePanel = ({ mapRef }: Props) => {
         <div className={parentStyle}>
             <div className="flex justify-center w-full sm:w-auto">
                 <div className={childStyle}>
-                    {/* <MapFeaturesToggleButton */}
-                    {/*     onToggle={(activeFlag) => dispatch(toggleSearchBox(activeFlag))} */}
-                    {/*     icon={<IoSearchSharp/>} */}
-                    {/*     initialActive={searchBoxVisible} */}
-                    {/*     tooltipMessage="Search" */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/* /> */}
 
                     <SearchButton
                         tooltipMessage="TEST"
