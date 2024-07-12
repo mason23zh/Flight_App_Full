@@ -7,12 +7,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import MapSearchInputBar from "./MapSearchInputBar";
-import { searchAirports, searchVatsimTraffic } from "./mapSearchFunction";
+import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
 import { Tabs } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import { RootState } from "../../../../store";
+import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
+import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 
 
 const SearchBox = () => {
@@ -29,17 +31,29 @@ const SearchBox = () => {
 
     const searchResults = useLiveQuery(
         async () => {
-            const airports = await searchAirports(searchInput);
-            const vatsimTraffic = await searchVatsimTraffic(searchInput);
-            return {
-                airports,
-                vatsimTraffic
-            };
+            try {
+                const airports = await searchAirports(searchInput);
+                const vatsimTraffic = await searchVatsimTraffic(searchInput);
+                const aircraftType = await searchByAircraftType(searchInput);
+                return {
+                    airports,
+                    vatsimTraffic,
+                    aircraftType,
+                };
+            } catch (e) {
+                console.error("Error searching:", e);
+                return {
+                    airports: [],
+                    vatsimTraffic: [],
+                    aircraftType: [],
+                };
+            }
         },
         [searchInput],
         {
             airports: [],
-            vatsimTraffic: []
+            vatsimTraffic: [],
+            aircraftType: [],
         }
     );
 
@@ -61,24 +75,26 @@ const SearchBox = () => {
 
     return (
         <div ref={searchBoxRef}
-            className="absolute left-[110%] bg-red-300 min-w-[350px] rounded-lg grid grid-cols-1">
+            className="absolute left-[110%] bg-gray-500 min-w-[350px] 
+            rounded-lg grid grid-cols-1 text-gray-100">
             <MapSearchInputBar
                 handleChange={handleChange}
                 searchInput={searchInput}
                 darkMode={darkMode}
             />
             <div className="p-2">
-                <Tabs defaultActiveKey="1">
-                    <Tabs.Tab eventKey="1" title="Airports">
+                <Tabs defaultActiveKey="1" className="">
+                    <Tabs.Tab eventKey="1" title={`Airports (${searchResults.airports.length})`}>
                         <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
                     </Tabs.Tab>
 
-                    <Tabs.Tab eventKey="2" title="Flights">
-                        <div>Flights</div>
+                    <Tabs.Tab eventKey="2" title={`Flights (${searchResults.vatsimTraffic.length})`}>
+                        <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
                     </Tabs.Tab>
 
-                    <Tabs.Tab eventKey="3" title="Aircrafts">
-                        <div>Aircraft</div>
+
+                    <Tabs.Tab eventKey="3" title={`Aircraft (${searchResults.aircraftType.length})`}>
+                        <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
                     </Tabs.Tab>
                 </Tabs>
             </div>

@@ -476,6 +476,11 @@ interface LiveFlightData {
     vertical_speed?: number;
 }
 
+interface GroupedFlight {
+    aircraftType: string;
+    flights: VatsimFlight[];
+}
+
 export type {
     LiveFlightData,
     VatsimMapVisibleState,
@@ -495,5 +500,6 @@ export type {
     VatsimMatchedFirBoundariesGeoJson,
     AirportService,
     AirportResponse,
-    MatchedFirs
+    MatchedFirs,
+    GroupedFlight,
 };

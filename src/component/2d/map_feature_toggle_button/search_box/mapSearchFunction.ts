@@ -1,10 +1,5 @@
-import { LocalDbAirport, VatsimFlight } from "../../../../types";
+import { GroupedFlight, LocalDbAirport, VatsimFlight } from "../../../../types";
 import { db } from "../../../../database/db";
-
-interface GroupedFlight {
-    aircraftType: string;
-    flights: VatsimFlight[];
-}
 
 export const searchAirports = async (query: string): Promise<LocalDbAirport[]> => {
     if (!query) return [];
@@ -54,7 +49,10 @@ const groupByAircraftType = (flights: VatsimFlight[]): GroupedFlight[] => {
     const groupedFlights: { [key: string]: VatsimFlight[] } = {};
 
     flights.forEach(flight => {
-        const aircraftType = flight.flight_plan?.aircraft || flight.flight_plan?.aircraft_faa || flight.flight_plan?.aircraft_short || "Unknown";
+        const aircraftType = flight.flight_plan?.aircraft ||
+                flight.flight_plan?.aircraft_faa ||
+                flight.flight_plan?.aircraft_short ||
+                "Unknown";
 
         if (!groupedFlights[aircraftType]) {
             groupedFlights[aircraftType] = [];

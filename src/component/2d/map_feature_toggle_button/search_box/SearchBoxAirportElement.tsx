@@ -8,7 +8,8 @@ interface Props {
 
 const SearchBoxAirportElement = ({ airport }: Props) => {
     return (
-        <div className="p-2 grid grid-rows-2">
+        <div className="p-2 grid grid-rows-2 hover:cursor-pointer
+        hover:bg-gray-600 hover:rounded-lg border-b border-slate-400">
             <div className="flex items-center text-[16px] font-Rubik">
                 <div>
                     {airport.ident}

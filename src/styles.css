@@ -38,6 +38,15 @@ html, body, #root {
     font-size: 0.8em;
 }
 
+.rs-nav-item.rs-nav-item-active {
+    color: gray;
+}
+
+.rs-nav-item {
+    color: lightgray;
+}
+
+
 /*@keyframes fadein {*/
 /*    from {*/
 /*        opacity: 0;*/
@@ -79,7 +88,7 @@ html, body, #root {
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
     border-right-color: rgba(234, 14, 14, 0);
 }
- 
+
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color: rgba(230, 14, 14, 0);
 }

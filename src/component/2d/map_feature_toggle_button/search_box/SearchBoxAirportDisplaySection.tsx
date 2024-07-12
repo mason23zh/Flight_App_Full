@@ -15,7 +15,7 @@ const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
         );
     } else {
         return (
-            <div>
+            <div className="grid grid-cols-1 max-h-[500px] overflow-auto ">
                 {
                     airports.map((airport) => {
                         return (
