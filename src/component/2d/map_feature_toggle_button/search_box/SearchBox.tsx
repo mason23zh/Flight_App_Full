@@ -4,6 +4,8 @@ import { useTheme } from "../../../../hooks/ThemeContext";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
+import { Tabs } from "rsuite";
+
 
 const SearchBox = () => {
     const darkMode = useTheme();
@@ -35,12 +37,22 @@ const SearchBox = () => {
             <MapSearchInputBar
                 handleChange={handleChange}
                 searchInput={searchInput}
-                darkMode={darkMode}/>
-            <div>
-                <h2>Airports</h2>
-                <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
+                darkMode={darkMode}
+            />
+            <div className="p-2">
+                <Tabs defaultActiveKey="1">
+                    <Tabs.Tab eventKey="1" title="Airports">
+                        <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
+                    </Tabs.Tab>
 
-                <h2>VATSIM Traffic</h2>
+                    <Tabs.Tab eventKey="2" title="Flights">
+                        <div>Flights</div>
+                    </Tabs.Tab>
+
+                    <Tabs.Tab eventKey="3" title="Aircrafts">
+                        <div>Aircraft</div>
+                    </Tabs.Tab>
+                </Tabs>
             </div>
         </div>
     );
