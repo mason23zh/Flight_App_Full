@@ -83,7 +83,7 @@ const SearchBox = () => {
                 darkMode={darkMode}
             />
             <div className="p-2">
-                <Tabs defaultActiveKey="1" className="">
+                <Tabs defaultActiveKey="1">
                     <Tabs.Tab eventKey="1" title={`Airports (${searchResults.airports.length})`}>
                         <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
                     </Tabs.Tab>
@@ -91,7 +91,6 @@ const SearchBox = () => {
                     <Tabs.Tab eventKey="2" title={`Flights (${searchResults.vatsimTraffic.length})`}>
                         <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
                     </Tabs.Tab>
-
 
                     <Tabs.Tab eventKey="3" title={`Aircraft (${searchResults.aircraftType.length})`}>
                         <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>

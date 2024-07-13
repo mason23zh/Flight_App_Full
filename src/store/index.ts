@@ -12,6 +12,7 @@ import { vatsimApi } from "./apis/vatsimApi";
 import { rainviewerApi } from "./apis/rainviewerApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
+import { setMapSearchSelectedTraffic, mapSearchTrafficReducer } from "./slices/mapSearchTrafficSlice";
 import {
     onMouseHoverFirLabel,
     onMouseLeaveFirLabel,
@@ -86,6 +87,7 @@ export const store = configureStore({
         vatsimMapError: vatsimMapErrorReducer,
         rehydrationComplete: rehydrationCompleteReducer,
         vatsimMapTraffic: vatsimMapTrafficReducer,
+        mapSearchTraffic: mapSearchTrafficReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -185,6 +187,7 @@ export {
 
 export { setSelectedTraffic };
 
+export { setMapSearchSelectedTraffic };
 
 export const persistor = persistStore(store);
 

@@ -42,6 +42,7 @@ const MainTrafficLayer = ({
     const {
         terrainEnable,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
 
     const {
         data: trackData,
@@ -63,6 +64,18 @@ const MainTrafficLayer = ({
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
     }, [movingMap, flightData, terrainEnable]);
+
+    // This useEffect will display the FlightInfo panel to the
+    // traffic that selected via the search box
+    useEffect(() => {
+        if (mapSearchSelectedTraffic) {
+            setSelectTraffic(mapSearchSelectedTraffic);
+            dispatch(setSelectedTraffic(mapSearchSelectedTraffic));
+        } else {
+            setSelectTraffic(null);
+            dispatch(setSelectedTraffic(mapSearchSelectedTraffic));
+        }
+    }, [mapSearchSelectedTraffic]);
 
 
     useEffect(() => {
