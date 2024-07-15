@@ -3,24 +3,21 @@
 * The visibility of this component is controlled by SearchButton component
 *
 * */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
 import { Tabs } from "rsuite";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
-import { RootState } from "../../../../store";
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 
 const SearchBox = () => {
-    const darkMode = useTheme();
-    const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const searchBoxRef = useRef<HTMLDivElement>(null);
     const dispatch = useDispatch();
     const [searchInput, setSearchInput] = useState("");
 
@@ -57,30 +54,24 @@ const SearchBox = () => {
         }
     );
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (searchBoxRef.current &&
-                    !searchBoxRef.current.contains(event.target as Node) &&
-                    !(event.target as HTMLElement).closest("#search-button")
-            ) {
-                dispatch(toggleSearchBox(false));
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [dispatch, searchBoxVisible]);
+    const closeButtonOnClick = () => {
+        dispatch(toggleSearchBox(false));
+    };
 
     return (
-        <div ref={searchBoxRef}
+        <div
             className="absolute left-[110%] bg-gray-500 min-w-[350px] 
             rounded-lg grid grid-cols-1 text-gray-100">
+            <button
+                className="justify-self-end align-middle text-lg px-1 py-0 hover:text-gray-900"
+                onClick={closeButtonOnClick}
+            >
+
+                <IoMdCloseCircleOutline/>
+            </button>
             <MapSearchInputBar
                 handleChange={handleChange}
                 searchInput={searchInput}
-                darkMode={darkMode}
             />
             <div className="p-2">
                 <Tabs defaultActiveKey="1">
