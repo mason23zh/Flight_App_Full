@@ -4,6 +4,7 @@ import { Tabs } from "rsuite";
 import SearchBoxAirportDisplaySection from "../SearchBoxAirportDisplaySection";
 import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
+import AirportInfoSection from "./AirportInfoSection";
 
 interface Props {
     airport: LocalDbAirport;
@@ -46,16 +47,16 @@ const AirportDepartureArrivalDisplay = ({
     return (
         <div className={style}>
             <div>
-                {airport.name}
+                <AirportInfoSection airport={airport}/>
             </div>
             <Tabs defaultActiveKey="1">
-                <Tabs.Tab eventKey="1" title={`Departure (${departureTraffic.length})`}>
+                <Tabs.Tab eventKey="1" title={`Departure (${departureTraffic?.length || 0})`}>
                     <TrafficDetailList
                         flights={departureTraffic}
                         arrival={false}
                     />
                 </Tabs.Tab>
-                <Tabs.Tab eventKey="2" title={`Arrival (${arrivalTraffic.length})`}>
+                <Tabs.Tab eventKey="2" title={`Arrival (${arrivalTraffic?.length || 0})`}>
                     <TrafficDetailList
                         flights={arrivalTraffic}
                         arrival={true}

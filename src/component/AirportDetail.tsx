@@ -43,7 +43,7 @@ function AirportDetail() {
                 .catch();
         }
     }, [airport]);
-
+ 
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));

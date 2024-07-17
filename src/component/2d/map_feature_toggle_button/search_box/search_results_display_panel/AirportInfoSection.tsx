@@ -1,9 +1,17 @@
 import React from "react";
+import { LocalDbAirport } from "../../../../../types";
+import { Panel } from "rsuite";
+import AirportInfoDropDownPanel from "./AirportInfoDropDownPanel";
 
-const AirportInfoSection = () => {
+interface Props {
+    airport: LocalDbAirport;
+}
+
+const AirportInfoSection = ({ airport }: Props) => {
+
     return (
-        <div>
-
+        <div className="text-[16px]">
+            <AirportInfoDropDownPanel airport={airport}/>
         </div>
     );
 };
