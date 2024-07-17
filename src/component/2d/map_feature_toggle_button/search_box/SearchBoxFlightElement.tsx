@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { VatsimFlight } from "../../../../types";
 import { setMapSearchSelectedTraffic } from "../../../../store";
@@ -7,20 +7,31 @@ interface Props {
     flight: VatsimFlight;
     onSelect: (flight: VatsimFlight) => void;
     isSelected: boolean;
+    setRowHeight: (index: number, size: number) => void;
+    index: number;
 }
 
 const SearchBoxFlightElement = ({
     flight,
     onSelect,
-    isSelected
+    isSelected,
+    setRowHeight,
+    index,
 }: Props) => {
     const dispatch = useDispatch();
+    const rowRef = useRef<HTMLDivElement>();
 
     // Dispatch the flight data to be used in the MainTrafficLayer to trigger the Flight Info Panel
     const handleClick = () => {
         dispatch(setMapSearchSelectedTraffic(flight));
         onSelect(flight);
     };
+
+    useEffect(() => {
+        if (rowRef.current) {
+            setRowHeight(index, rowRef.current.getBoundingClientRect().height);
+        }
+    }, []);
 
     const theme = isSelected ? "p-2 grid grid-rows-2 hover:cursor-pointer " +
             "bg-gray-600 rounded-lg border-slate-400"
@@ -29,6 +40,7 @@ const SearchBoxFlightElement = ({
 
     return (
         <div
+            ref={rowRef}
             onClick={handleClick}
             className={theme}
         >

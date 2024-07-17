@@ -9,8 +9,8 @@ interface Props {
 }
 
 const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
-    const listRef = useRef(null);
-    const rowHeights = useRef({});
+    const listRef = useRef<List>(null);
+    const rowHeights = useRef<{ [index: number]: number }>({});
 
     const setRowHeight = (index: number, size: number) => {
         listRef.current.resetAfterIndex(index);
