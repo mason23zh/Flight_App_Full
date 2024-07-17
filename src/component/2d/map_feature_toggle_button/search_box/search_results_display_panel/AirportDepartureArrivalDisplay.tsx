@@ -1,24 +1,61 @@
-import React from "react";
-import { VatsimFlight } from "../../../../../types";
+import React, { useEffect, useState } from "react";
+import { LocalDbAirport, VatsimFlight } from "../../../../../types";
 import { Tabs } from "rsuite";
 import SearchBoxAirportDisplaySection from "../SearchBoxAirportDisplaySection";
+import { searchFlightsByAirports } from "../mapSearchFunction";
 
 interface Props {
-    flights: VatsimFlight[];
+    airport: LocalDbAirport;
+    // flights: VatsimFlight[];
 }
 
-const AirportDepartureArrivalDisplay = ({ flights }: Props) => {
+const AirportDepartureArrivalDisplay = ({
+    airport
+}: Props) => {
+    const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
+    const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
+    const style = "bg-gray-500 z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
+            "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
+            "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
+
+    useEffect(() => {
+        (async () => {
+            const arrivalTraffic = [];
+            const departureTraffic = [];
+            const results = await searchFlightsByAirports(airport.ident || "");
+            results.filter((traffic) => {
+                if (traffic?.flight_plan?.departure.toLowerCase() === airport.ident.toLowerCase()) {
+                    departureTraffic.push(traffic);
+                } else if (traffic?.flight_plan?.arrival.toLowerCase() === airport.ident.toLowerCase()) {
+                    arrivalTraffic.push(traffic);
+                }
+            });
+
+            setArrivalTraffic(arrivalTraffic);
+            setDepartureTraffic(departureTraffic);
+        })();
+    }, [airport]);
+
+    if (arrivalTraffic && departureTraffic) {
+        console.log("Dep:", departureTraffic);
+        console.log("Arr:", arrivalTraffic);
+    }
+
+
     return (
-        <div className="p-2">
+        <div className={style}>
+            <div>
+                {airport.name}
+            </div>
             <Tabs defaultActiveKey="1">
                 <Tabs.Tab eventKey="1" title="Departure">
                     <div>
-                        Departure Flights
+                        DEP
                     </div>
                 </Tabs.Tab>
                 <Tabs.Tab eventKey="2" title="Arrival">
                     <div>
-                        Arrival Flights
+                        ARR
                     </div>
                 </Tabs.Tab>
             </Tabs>

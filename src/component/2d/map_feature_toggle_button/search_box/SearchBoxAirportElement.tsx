@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
+import { useDispatch } from "react-redux";
+import { setMapSearchSelectedAirport } from "../../../../store";
 
 interface Props {
     airport: LocalDbAirport;
@@ -13,6 +15,7 @@ const SearchBoxAirportElement = ({
     setRowHeight,
     index
 }: Props) => {
+    const dispatch = useDispatch();
 
     const rowRef = useRef<HTMLDivElement>();
     useEffect(() => {
@@ -21,29 +24,36 @@ const SearchBoxAirportElement = ({
         }
     }, []);
 
+    const handleOnClick = () => {
+        dispatch(setMapSearchSelectedAirport(airport));
+    };
+
     return (
-        <div
-            ref={rowRef}
-            className="p-2 grid grid-rows-2 hover:cursor-pointer
+        <>
+            <div
+                onClick={handleOnClick}
+                ref={rowRef}
+                className="p-2 grid grid-rows-2 hover:cursor-pointer
                        hover:bg-gray-600 hover:rounded-lg border-b
                        border-slate-400"
-        >
-            <div className="flex items-center text-[16px] font-Rubik">
-                <div>
-                    {airport.ident}
+            >
+                <div className="flex items-center text-[16px] font-Rubik">
+                    <div>
+                        {airport.ident}
+                    </div>
+                    {
+                        airport.iata_code && (
+                            <div>
+                                            &nbsp;/&nbsp;{airport.iata_code}
+                            </div>
+                        )
+                    }
                 </div>
-                {
-                    airport.iata_code && (
-                        <div>
-                                        &nbsp;/&nbsp;{airport.iata_code}
-                        </div>
-                    )
-                }
+                <div className="text-sm w-auto">
+                    {airport.name && <div>{airport.name}</div>}
+                </div>
             </div>
-            <div className="text-sm w-auto">
-                {airport.name && <div>{airport.name}</div>}
-            </div>
-        </div>
+        </>
     );
 };
 

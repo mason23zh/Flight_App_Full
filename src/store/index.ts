@@ -61,6 +61,10 @@ import {
     setSelectedTraffic,
     vatsimMapTrafficReducer
 } from "./slices/vatsimMapTrafficSlice";
+import {
+    setMapSearchSelectedAirport,
+    mapSearchAirportReducer
+} from "./slices/mapSearchAirportSlice";
 
 
 /*
@@ -88,6 +92,7 @@ export const store = configureStore({
         rehydrationComplete: rehydrationCompleteReducer,
         vatsimMapTraffic: vatsimMapTrafficReducer,
         mapSearchTraffic: mapSearchTrafficReducer,
+        mapSearchAirport: mapSearchAirportReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -188,6 +193,8 @@ export {
 export { setSelectedTraffic };
 
 export { setMapSearchSelectedTraffic };
+
+export { setMapSearchSelectedAirport };
 
 export const persistor = persistStore(store);
 

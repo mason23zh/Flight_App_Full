@@ -72,13 +72,33 @@ export const searchByAircraftType = async (query: string): Promise<GroupedFlight
     if (!query) return [];
     const lowerCaseQuery = query.toLowerCase();
 
-    const results = await db.vatsimTraffic
-        .filter(traffic =>
-            (traffic?.flight_plan?.aircraft?.toLowerCase() || "").includes(lowerCaseQuery) ||
-                    (traffic?.flight_plan?.aircraft_faa?.toLowerCase() || "").includes(lowerCaseQuery) ||
-                    (traffic?.flight_plan?.aircraft_short?.toLowerCase() || "").includes(lowerCaseQuery)
-        )
-        .toArray();
+    try {
+        const results = await db.vatsimTraffic
+            .filter(traffic =>
+                (traffic?.flight_plan?.aircraft?.toLowerCase() || "").includes(lowerCaseQuery) ||
+                        (traffic?.flight_plan?.aircraft_faa?.toLowerCase() || "").includes(lowerCaseQuery) ||
+                        (traffic?.flight_plan?.aircraft_short?.toLowerCase() || "").includes(lowerCaseQuery)
+            )
+            .toArray();
 
-    return groupByAircraftType(results);
+        return groupByAircraftType(results);
+    } catch (e) {
+        return [];
+    }
+};
+
+export const searchFlightsByAirports = async (query: string): Promise<VatsimFlight[]> => {
+    if (!query) return [];
+
+    const lowerCaseQuery = query.toLowerCase();
+    try {
+        return await db.vatsimTraffic
+            .filter(traffic =>
+                (traffic?.flight_plan?.departure.toLowerCase() || "").includes(lowerCaseQuery) ||
+                        (traffic?.flight_plan?.arrival.toLowerCase() || "").includes(lowerCaseQuery)
+            )
+            .toArray();
+    } catch (e) {
+        return [];
+    }
 };

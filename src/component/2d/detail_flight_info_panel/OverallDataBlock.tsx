@@ -16,7 +16,7 @@ const OverallDataBlock = ({
     enroute,
     progress
 }) => {
- 
+
     const airlinerInfo = getAircraftCallsignName(callsign);
 
     const {

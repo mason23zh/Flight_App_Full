@@ -7,14 +7,20 @@ import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
 import FlightInfo from "../detail_flight_info_panel/FlightInfo";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { VatsimFlight } from "../../../types";
+import { LocalDbAirport, VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
+import AirportDepartureArrivalDisplay
+    from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 
 
 const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
+
+    const mapSearchSelectedAirport = useSelector<RootState, LocalDbAirport>(
+        state => state.mapSearchAirport.selectedAirport
+    );
 
     const {
         dayNightTerminator,
@@ -39,6 +45,11 @@ const MainMap = () => {
                 <NexradLayer/>
                 {dayNightTerminator && <DayNightLayer/>}
                 {(traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
+                {mapSearchSelectedAirport &&
+                    <AirportDepartureArrivalDisplay
+                        airport={mapSearchSelectedAirport}
+                    />
+                }
             </BaseMap>
         </div>
     );
