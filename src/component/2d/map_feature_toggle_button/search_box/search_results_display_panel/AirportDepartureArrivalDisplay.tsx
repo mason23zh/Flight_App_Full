@@ -3,6 +3,7 @@ import { LocalDbAirport, VatsimFlight } from "../../../../../types";
 import { Tabs } from "rsuite";
 import SearchBoxAirportDisplaySection from "../SearchBoxAirportDisplaySection";
 import { searchFlightsByAirports } from "../mapSearchFunction";
+import TrafficDetailList from "./TrafficDetailList";
 
 interface Props {
     airport: LocalDbAirport;
@@ -14,7 +15,7 @@ const AirportDepartureArrivalDisplay = ({
 }: Props) => {
     const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
     const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
-    const style = "bg-gray-500 z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
+    const style = "text-white bg-gray-500 z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
             "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
             "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
 
@@ -48,15 +49,17 @@ const AirportDepartureArrivalDisplay = ({
                 {airport.name}
             </div>
             <Tabs defaultActiveKey="1">
-                <Tabs.Tab eventKey="1" title="Departure">
-                    <div>
-                        DEP
-                    </div>
+                <Tabs.Tab eventKey="1" title={`Departure (${departureTraffic.length})`}>
+                    <TrafficDetailList
+                        flights={departureTraffic}
+                        arrival={false}
+                    />
                 </Tabs.Tab>
-                <Tabs.Tab eventKey="2" title="Arrival">
-                    <div>
-                        ARR
-                    </div>
+                <Tabs.Tab eventKey="2" title={`Arrival (${arrivalTraffic.length})`}>
+                    <TrafficDetailList
+                        flights={arrivalTraffic}
+                        arrival={true}
+                    />
                 </Tabs.Tab>
             </Tabs>
             <div>
