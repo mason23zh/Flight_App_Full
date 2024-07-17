@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
 
 interface Props {
     airport: LocalDbAirport;
+    setRowHeight: (index: number, size: number) => void; //to send back the height to parent component
+    index: number;
 }
 
 
-const SearchBoxAirportElement = ({ airport }: Props) => {
+const SearchBoxAirportElement = ({
+    airport,
+    setRowHeight,
+    index
+}: Props) => {
+
+    const rowRef = useRef<HTMLDivElement>();
+    useEffect(() => {
+        if (rowRef.current) {
+            setRowHeight(index, rowRef.current.getBoundingClientRect().height);
+        }
+    }, []);
+
     return (
-        <div className="p-2 grid grid-rows-2 hover:cursor-pointer
-        hover:bg-gray-600 hover:rounded-lg border-b border-slate-400">
+        <div
+            ref={rowRef}
+            className="p-2 grid grid-rows-2 hover:cursor-pointer
+                       hover:bg-gray-600 hover:rounded-lg border-b
+                       border-slate-400"
+        >
             <div className="flex items-center text-[16px] font-Rubik">
                 <div>
                     {airport.ident}

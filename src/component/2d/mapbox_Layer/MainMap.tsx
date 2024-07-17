@@ -19,7 +19,7 @@ const MainMap = () => {
     const {
         dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    
+
     useInitializeDatabase();
 
     if (!window.WebGLRenderingContext) {

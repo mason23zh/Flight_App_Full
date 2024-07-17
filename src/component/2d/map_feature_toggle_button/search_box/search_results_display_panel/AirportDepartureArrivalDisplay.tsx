@@ -22,6 +22,9 @@ const AirportDepartureArrivalDisplay = ({ flights }: Props) => {
                     </div>
                 </Tabs.Tab>
             </Tabs>
+            <div>
+                DETAILED CONTENT
+            </div>
         </div>
     );
 };

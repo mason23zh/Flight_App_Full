@@ -5,7 +5,6 @@
 * */
 import React, { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { useTheme } from "../../../../hooks/ThemeContext";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
@@ -19,6 +18,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const SearchBox = () => {
     const dispatch = useDispatch();
+
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
