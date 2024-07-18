@@ -22,6 +22,21 @@ export const searchAirports = async (query: string): Promise<LocalDbAirport[]> =
     }
 };
 
+export const searchAirportByIdent = async (query: string): Promise<LocalDbAirport[]> => {
+    if (!query || query.length === 0) return [];
+    const lowerCaseQuery = query.toLowerCase();
+    try {
+        return await db.airports
+            .filter(airport =>
+                airport.ident.toLowerCase()
+                    .includes(lowerCaseQuery))
+            .toArray();
+    } catch (e) {
+        return [];
+    }
+};
+
+
 export const searchVatsimTraffic = async (query: string): Promise<VatsimFlight[]> => {
     if (!query) return [];
     const lowerCaseQuery = query.toLowerCase();
@@ -102,3 +117,4 @@ export const searchFlightsByAirports = async (query: string): Promise<VatsimFlig
         return [];
     }
 };
+

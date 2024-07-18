@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { LocalDbAirport } from "../../../../../types";
-import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import AirportIdentDisplayBox from "./AirportIdentDisplayBox";
 import AirportInfoExpandContent from "./AirportInfoExpandContent";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { setAirportDepartureArrivalDisplay } from "../../../../../store";
 
 
 interface Props {
@@ -10,26 +12,32 @@ interface Props {
 }
 
 const AirportInfoDropDownPanel = ({ airport }: Props) => {
+    const dispatch = useDispatch();
     const [expand, setExpand] = useState(false);
 
     const handleClick = () => {
         setExpand(prev => !prev);
     };
 
+    const handleCloseClick = () => {
+        dispatch(setAirportDepartureArrivalDisplay(false));
+    };
+
     return (
         <div
-            onClick={handleClick}
-            className="grid grid-cols-4 items-center font-Rubik hover:cursor-pointer">
+            className="grid grid-cols-4 items-center font-Rubik">
             <div className="col-span-3 grid grid-cols-1 justify-self-start gap-1">
                 <div className="text-[15px] pl-1">
                     {airport.name}
                 </div>
                 <div className="w-fit pl-1 justify-self-start">
-                    <AirportIdentDisplayBox airport={airport}/>
+                    <AirportIdentDisplayBox airport={airport} onClickExpand={handleClick}/>
                 </div>
             </div>
-            <div className="justify-self-end text-[25px]">
-                {!expand ? <RiArrowDownSLine/> : <RiArrowUpSLine/>}
+            <div
+                onClick={handleCloseClick}
+                className="justify-self-end text-[25px] hover:cursor-pointer">
+                <IoMdCloseCircleOutline/>
             </div>
             <div className="col-span-4 text-xs">
                 {expand &&

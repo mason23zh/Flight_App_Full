@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import getAircraftCallsignName from "../../../util/getAircraftCallsignName";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { BiTargetLock } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { setTrafficTracking } from "../../../store";
+
 
 const OverallDataBlock = ({
     aircraft,
@@ -16,7 +20,7 @@ const OverallDataBlock = ({
     enroute,
     progress
 }) => {
-
+    const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
 
     const {
@@ -26,14 +30,25 @@ const OverallDataBlock = ({
         tooltipVisible,
     } = useDisplayTooltip(200);
 
+    const handleTrackingClick = () => {
+        dispatch(setTrafficTracking(true));
+    };
+
     return (
         <div className="relative">
             <FlightStatusFlag progress={progress}/>
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
                 <div className={`grid ${airlinerInfo ? "grid-rows-3" : "grid-rows-2"} bg-gray-600 p-2`}>
-                    <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
-                        {callsign}
+                    <div className="flex items-center gap-3">
+                        <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
+                            {callsign}
+                        </div>
+                        <div
+                            onClick={handleTrackingClick}
+                            className="text-gray-100 text-[17px] hover:cursor-pointer hover:text-gray-300">
+                            <BiTargetLock/>
+                        </div>
                     </div>
                     {
                         airlinerInfo &&

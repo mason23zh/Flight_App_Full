@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LocalDbAirport, VatsimFlight } from "../../../../../types";
 import { Tabs } from "rsuite";
-import SearchBoxAirportDisplaySection from "../SearchBoxAirportDisplaySection";
 import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
 import AirportInfoSection from "./AirportInfoSection";
@@ -46,7 +45,7 @@ const AirportDepartureArrivalDisplay = ({
 
     return (
         <div className={style}>
-            <div>
+            <div className="mb-2">
                 <AirportInfoSection airport={airport}/>
             </div>
             <Tabs defaultActiveKey="1">

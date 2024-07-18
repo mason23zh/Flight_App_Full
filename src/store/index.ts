@@ -63,8 +63,14 @@ import {
 } from "./slices/vatsimMapTrafficSlice";
 import {
     setMapSearchSelectedAirport,
+    setAirportDepartureArrivalDisplay,
     mapSearchAirportReducer
 } from "./slices/mapSearchAirportSlice";
+
+import {
+    setTrafficTracking,
+    flightInfoReducer
+} from "./slices/flightInfoSlice";
 
 
 /*
@@ -93,6 +99,7 @@ export const store = configureStore({
         vatsimMapTraffic: vatsimMapTrafficReducer,
         mapSearchTraffic: mapSearchTrafficReducer,
         mapSearchAirport: mapSearchAirportReducer,
+        flightInfo: flightInfoReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -194,7 +201,9 @@ export { setSelectedTraffic };
 
 export { setMapSearchSelectedTraffic };
 
-export { setMapSearchSelectedAirport };
+export { setMapSearchSelectedAirport, setAirportDepartureArrivalDisplay };
+
+export { setTrafficTracking };
 
 export const persistor = persistStore(store);
 

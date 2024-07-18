@@ -2,13 +2,15 @@ import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "
 import { Map, NavigationControl, Source } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, setTrafficTracking } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
+import { VatsimFlight } from "../../../types";
 
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
+    const dispatch = useDispatch();
 
     const {
         flightData,
@@ -21,6 +23,10 @@ const BaseMap = ({ children }) => {
         movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
+    const { tracking } = useSelector((state: RootState) => state.flightInfo);
+    const traffic = useSelector<RootState, VatsimFlight>(
+        state => state.vatsimMapTraffic.selectedTraffic || null);
+
 
     // Default view point
     const [viewState, setViewState] = useState({
@@ -30,6 +36,18 @@ const BaseMap = ({ children }) => {
         pitch: 0,
         bearing: 0,
     });
+
+    useEffect(() => {
+        if (tracking && traffic) {
+            setViewState((prevState) => ({
+                ...prevState,
+                zoom: 5.0,
+                longitude: traffic.longitude,
+                latitude: traffic.latitude
+            }));
+            dispatch(setTrafficTracking(false));
+        }
+    }, [tracking, traffic]);
 
     useEffect(() => {
         if (movingMap &&
@@ -122,7 +140,6 @@ const BaseMap = ({ children }) => {
             map.removeSource("mapbox-dem");
         }
     }, [terrainEnable]);
-
 
     /*
     * Default Projection: mercator
