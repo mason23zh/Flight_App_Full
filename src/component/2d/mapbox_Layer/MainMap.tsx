@@ -52,7 +52,8 @@ const MainMap = () => {
                     {(!airportDepartureArrivalDisplay &&
                                         traffic &&
                                         traffic.callsign.length !== 0) &&
-                                        <FlightInfo/>}
+                                        <FlightInfo/>
+                    }
                     {(selectedAirport && airportDepartureArrivalDisplay) &&
                         <AirportDepartureArrivalDisplay
                             airport={selectedAirport}

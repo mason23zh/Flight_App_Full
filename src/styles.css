@@ -93,3 +93,33 @@ html, body, #root {
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color: rgba(230, 14, 14, 0);
 }
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slideInFromRight 0.5s forwards;
+}
+
+.slide-out {
+    animation: slideOutToRight 0.5s forwards;
+}

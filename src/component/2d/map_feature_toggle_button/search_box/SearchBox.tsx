@@ -14,12 +14,15 @@ import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice"
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { RootState, setSearchInput } from "../../../../store";
+import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 
 
 const SearchBox = () => {
     const dispatch = useDispatch();
-    const { searchInput } = useSelector((state: RootState) => state.mapSearchBox);
+    const {
+        searchInput,
+        tabSelection
+    } = useSelector((state: RootState) => state.mapSearchBox);
 
     /*
     * Dispatch the setSearchInput action to store the previous search input
@@ -61,6 +64,13 @@ const SearchBox = () => {
         dispatch(toggleSearchBox(false));
     };
 
+    /*
+    * Store the tab selection
+    *  */
+    const handleTabSelect = (key: string) => {
+        dispatch(setTabSelection(key));
+    };
+
     return (
         <div
             className="absolute left-[110%] bg-gray-500 min-w-[350px] 
@@ -69,7 +79,6 @@ const SearchBox = () => {
                 className="justify-self-end align-middle text-lg px-1 py-0 hover:text-gray-900"
                 onClick={closeButtonOnClick}
             >
-
                 <IoMdCloseCircleOutline/>
             </button>
             <MapSearchInputBar
@@ -77,16 +86,25 @@ const SearchBox = () => {
                 searchInput={searchInput}
             />
             <div className="p-2">
-                <Tabs defaultActiveKey="1">
-                    <Tabs.Tab eventKey="1" title={`Airports (${searchResults.airports.length})`}>
+                <Tabs
+                    defaultActiveKey={tabSelection}
+                    onSelect={(key) => handleTabSelect(key)}
+                >
+                    <Tabs.Tab
+                        eventKey="1"
+                        title={`Airports (${searchResults.airports.length})`}>
                         <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
                     </Tabs.Tab>
 
-                    <Tabs.Tab eventKey="2" title={`Flights (${searchResults.vatsimTraffic.length})`}>
+                    <Tabs.Tab
+                        eventKey="2"
+                        title={`Flights (${searchResults.vatsimTraffic.length})`}>
                         <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
                     </Tabs.Tab>
 
-                    <Tabs.Tab eventKey="3" title={`Aircraft (${searchResults.aircraftType.length})`}>
+                    <Tabs.Tab
+                        eventKey="3"
+                        title={`Aircraft (${searchResults.aircraftType.length})`}>
                         <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
                     </Tabs.Tab>
                 </Tabs>

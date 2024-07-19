@@ -74,6 +74,7 @@ import {
 
 import {
     setSearchInput,
+    setTabSelection,
     mapSearchBoxReducer
 } from "./slices/mapSearchBoxSlice";
 
@@ -211,7 +212,7 @@ export { setMapSearchSelectedAirport, setAirportDepartureArrivalDisplay };
 
 export { setTrafficTracking };
 
-export { setSearchInput };
+export { setSearchInput, setTabSelection };
 
 export const persistor = persistStore(store);
 
