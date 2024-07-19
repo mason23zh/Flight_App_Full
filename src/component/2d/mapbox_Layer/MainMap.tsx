@@ -12,6 +12,7 @@ import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import AirportDepartureArrivalDisplay
     from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
+import { CustomProvider } from "rsuite";
 
 
 const MainMap = () => {
@@ -40,24 +41,26 @@ const MainMap = () => {
     }
 
     return (
-        <div>
-            <BaseMap>
-                <MapErrorMessageStack/>
-                <AtcLayer/>
-                <BaseTrafficLayer/>
-                <NexradLayer/>
-                {dayNightTerminator && <DayNightLayer/>}
-                {(!airportDepartureArrivalDisplay &&
-                                    traffic &&
-                                    traffic.callsign.length !== 0) &&
-                                    <FlightInfo/>}
-                {(selectedAirport && airportDepartureArrivalDisplay) &&
-                    <AirportDepartureArrivalDisplay
-                        airport={selectedAirport}
-                    />
-                }
-            </BaseMap>
-        </div>
+        <CustomProvider theme="light">
+            <div>
+                <BaseMap>
+                    <MapErrorMessageStack/>
+                    <AtcLayer/>
+                    <BaseTrafficLayer/>
+                    <NexradLayer/>
+                    {dayNightTerminator && <DayNightLayer/>}
+                    {(!airportDepartureArrivalDisplay &&
+                                        traffic &&
+                                        traffic.callsign.length !== 0) &&
+                                        <FlightInfo/>}
+                    {(selectedAirport && airportDepartureArrivalDisplay) &&
+                        <AirportDepartureArrivalDisplay
+                            airport={selectedAirport}
+                        />
+                    }
+                </BaseMap>
+            </div>
+        </CustomProvider>
     );
 };
 

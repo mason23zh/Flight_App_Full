@@ -37,12 +37,6 @@ const AirportDepartureArrivalDisplay = ({
         })();
     }, [airport]);
 
-    if (arrivalTraffic && departureTraffic) {
-        console.log("Dep:", departureTraffic);
-        console.log("Arr:", arrivalTraffic);
-    }
-
-
     return (
         <div className={style}>
             <div className="mb-2">

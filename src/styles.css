@@ -39,11 +39,12 @@ html, body, #root {
 }
 
 .rs-nav-item.rs-nav-item-active {
-    color: gray;
+    color: dimgray;
+    /*background-color: red;*/
 }
 
 .rs-nav-item {
-    color: lightgray;
+    color: gainsboro;
 }
 
 
