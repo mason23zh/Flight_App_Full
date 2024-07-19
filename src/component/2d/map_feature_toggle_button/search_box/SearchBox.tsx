@@ -3,26 +3,29 @@
 * The visibility of this component is controlled by SearchButton component
 *
 * */
-import React, { useState } from "react";
+import React from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
 import { Tabs } from "rsuite";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { RootState, setSearchInput } from "../../../../store";
 
 
 const SearchBox = () => {
     const dispatch = useDispatch();
+    const { searchInput } = useSelector((state: RootState) => state.mapSearchBox);
 
-    const [searchInput, setSearchInput] = useState("");
-
+    /*
+    * Dispatch the setSearchInput action to store the previous search input
+    * */
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchInput(event.target.value);
+        dispatch(setSearchInput(event.target.value));
     };
 
 

@@ -47,7 +47,10 @@ const MainMap = () => {
                 <BaseTrafficLayer/>
                 <NexradLayer/>
                 {dayNightTerminator && <DayNightLayer/>}
-                {(!airportDepartureArrivalDisplay && traffic && traffic.callsign.length !== 0) && <FlightInfo/>}
+                {(!airportDepartureArrivalDisplay &&
+                                    traffic &&
+                                    traffic.callsign.length !== 0) &&
+                                    <FlightInfo/>}
                 {(selectedAirport && airportDepartureArrivalDisplay) &&
                     <AirportDepartureArrivalDisplay
                         airport={selectedAirport}
