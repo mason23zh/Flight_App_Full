@@ -62,9 +62,6 @@ const AirportDepartureArrivalDisplay = ({
                     />
                 </Tabs.Tab>
             </Tabs>
-            <div>
-                DETAILED CONTENT
-            </div>
         </div>
     );
 };

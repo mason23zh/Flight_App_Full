@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { VatsimFlight } from "../../../../../types";
 import { searchAirportByIdent } from "../mapSearchFunction";
 import distanceInKmBetweenEarthCoordinates from "../../../../../util/coordinatesDistanceCalculator";
-import FlightStatusFlag from "../../../detail_flight_info_panel/FlightStatusFlag";
+import calculateArrivalTime from "../../../../../util/calculateArrivalTime";
+import { useDispatch } from "react-redux";
+import { setAirportDepartureArrivalDisplay, setMapSearchSelectedTraffic } from "../../../../../store";
 
 interface Props {
     setRowHeight: (index: number, size: number) => void;
@@ -17,33 +19,22 @@ const TrafficDetailElement = ({
     flight,
     isArrival
 }: Props) => {
+    const dispatch = useDispatch();
     const rowRef = useRef<HTMLDivElement>();
     const [toGoDistance, setToGoDistance] = useState(-1);
-    const [totalDistance, setTotalDistance] = useState(0);
-    const [progress, setProgress] = useState(-1);
 
     useEffect(() => {
-        const departureAirportIdent = flight?.flight_plan?.departure || "";
         const arrivalAirportIdent = flight?.flight_plan?.arrival || "";
         (async () => {
-            const depAirport = await searchAirportByIdent(departureAirportIdent);
             const arrAirport = await searchAirportByIdent(arrivalAirportIdent);
-            if (depAirport && arrAirport) {
+            if (arrAirport) {
                 const arrivalAirportCoord = arrAirport[0].coordinates;
-                const departureAirportCoord = depAirport[0].coordinates;
-                const [dLon, dLat] = departureAirportCoord.split(",");
                 const [aLon, aLat] = arrivalAirportCoord.split(",");
-                const total = Math.round(distanceInKmBetweenEarthCoordinates(
-                    Number(dLat), Number(dLon), Number(aLat), Number(aLon)
-                ) * 0.539957);
                 const toGo = Math.round(
                     distanceInKmBetweenEarthCoordinates(
                         flight.latitude, flight.longitude, Number(aLat), Number(aLon)) * 0.539957
                 );
-                const progress = Math.round((1 - (toGo / total)) * 100);
-                setToGoDistance(total);
-                setTotalDistance(toGo);
-                setProgress(progress);
+                setToGoDistance(toGo);
             }
         })();
     }, [flight]);
@@ -54,10 +45,20 @@ const TrafficDetailElement = ({
         }
     }, []);
 
+    const ETA = (flight?.flight_plan?.deptime && flight?.flight_plan?.enroute_time) ?
+        calculateArrivalTime(flight.flight_plan.deptime, flight.flight_plan.enroute_time) : -1;
+
+    const handleOnClick = () => {
+        dispatch(setAirportDepartureArrivalDisplay(false));
+        dispatch(setMapSearchSelectedTraffic(flight));
+    };
+
     return (
         <div
             ref={rowRef}
-            className="bg-gray-500 grid-cols-1 p-1 border-b border-slate-400 rounded-lg"
+            onClick={handleOnClick}
+            className="bg-gray-500 grid-cols-1 p-1 border-b border-slate-400
+            rounded-lg hover:cursor-pointer hover:bg-gray-600"
         >
             <div className="flex gap-2 font-Rubik font-bold">
                 <div>
@@ -85,9 +86,25 @@ const TrafficDetailElement = ({
                 <div>
                     &bull;
                 </div>
-                {toGoDistance === -1 ? "" : `${toGoDistance} nm`}
+                <div>
+                    {toGoDistance !== -1 ? (
+                        <div>
+                            {toGoDistance}NM remains
+                        </div>
+                    ) : "-"
+                    }
+                </div>
+                <div>
+                    &bull;
+                </div>
+                <div>
+                    {ETA !== -1 ? (
+                        <div>ETA {ETA} Zulu</div>
+                    ) : "-"
+                    }
+                </div>
+
             </div>
-            <FlightStatusFlag progress={progress}/>
         </div>
     );
 };
