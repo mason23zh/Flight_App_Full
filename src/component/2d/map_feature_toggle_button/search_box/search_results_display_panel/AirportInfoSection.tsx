@@ -1,6 +1,5 @@
 import React from "react";
 import { LocalDbAirport } from "../../../../../types";
-import { Panel } from "rsuite";
 import AirportInfoDropDownPanel from "./AirportInfoDropDownPanel";
 
 interface Props {
