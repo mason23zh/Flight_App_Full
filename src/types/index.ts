@@ -1,5 +1,3 @@
-import type GeoJson from "geojson";
-
 interface Barometer {
     hg: string,
     hpa: string,

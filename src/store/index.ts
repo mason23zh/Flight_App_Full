@@ -78,6 +78,11 @@ import {
     mapSearchBoxReducer
 } from "./slices/mapSearchBoxSlice";
 
+import {
+    setMapSearchSelectedAircraft,
+    mapSearchAircraftReducer
+} from "./slices/mapSearchAircraftSlice";
+
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -105,6 +110,7 @@ export const store = configureStore({
         vatsimMapTraffic: vatsimMapTrafficReducer,
         mapSearchTraffic: mapSearchTrafficReducer,
         mapSearchAirport: mapSearchAirportReducer,
+        mapSearchAircraft: mapSearchAircraftReducer,
         mapSearchBox: mapSearchBoxReducer,
         flightInfo: flightInfoReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
@@ -213,6 +219,8 @@ export { setMapSearchSelectedAirport, setAirportDepartureArrivalDisplay };
 export { setTrafficTracking };
 
 export { setSearchInput, setTabSelection };
+
+export { setMapSearchSelectedAircraft };
 
 export const persistor = persistStore(store);
 
