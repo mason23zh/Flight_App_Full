@@ -94,7 +94,9 @@ export const searchByAircraftType = async (query: string): Promise<GroupedFlight
             .filter(traffic =>
                 (traffic?.flight_plan?.aircraft?.toLowerCase() || "").includes(lowerCaseQuery) ||
                         (traffic?.flight_plan?.aircraft_faa?.toLowerCase() || "").includes(lowerCaseQuery) ||
-                        (traffic?.flight_plan?.aircraft_short?.toLowerCase() || "").includes(lowerCaseQuery)
+                        (traffic?.flight_plan?.aircraft_short?.toLowerCase() || "").includes(lowerCaseQuery) ||
+                        (traffic?.flight_plan?.aircraft_iata?.toLocaleLowerCase() || "").includes(lowerCaseQuery) ||
+                        (traffic?.flight_plan?.aircraft_name?.toLocaleLowerCase() || "").includes(lowerCaseQuery)
             )
             .toArray();
 

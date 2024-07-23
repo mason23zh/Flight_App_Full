@@ -17,6 +17,8 @@ class VatsimLocalDB extends Dexie {
                         flight_plan.aircraft, 
                         flight_plan.aircraft_faa, 
                         flight_plan.aircraft_short, 
+                        flight_plan.aircraft_name,
+                        flight_plan.aircraft_iata,
                         flight_plan.arrival, 
                         flight_plan.departure, 
                         [flight_plan.departure+flight_plan.arrival]`,
@@ -38,7 +40,7 @@ class VatsimLocalDB extends Dexie {
 
         // Append aircraft data to VatsimFlight to include aircraft name and iata code
         const updatedData = newData.map(flight => {
-            if (flight.flight_plan) {
+            if (flight.flight_plan) {  //some traffic may not have flight plan
                 const aircraft = aircraftData.find(mapping => mapping.icao === flight.flight_plan.aircraft_short);
                 let updatedFlightPlan = { ...flight.flight_plan };
 
