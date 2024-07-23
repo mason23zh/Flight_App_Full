@@ -74,7 +74,7 @@
     {
         "name": "Airbus Industrie A330",
         "iata": "330",
-        "icao": "\\N",
+        "icao": "A330",
         "id": 13
     },
     {
@@ -92,7 +92,7 @@
     {
         "name": "Airbus Industrie A340",
         "iata": "340",
-        "icao": "\\N",
+        "icao": "A340",
         "id": 16
     },
     {
@@ -1090,5 +1090,125 @@
         "iata": "CCJ",
         "icao": "CL60",
         "id": 182
+    },
+    {
+        "name": "Airbus Industrie A-320neo",
+        "iata": "32V",
+        "icao": "A20N",
+        "id": 183
+    },
+    {
+        "name": "Airbus Industrie A-319neo",
+        "iata": "",
+        "icao": "A19N",
+        "id": 184
+    },
+    {
+        "name": "Airbus Industrie A-321neo",
+        "iata": "",
+        "icao": "A21N",
+        "id": 183
+    },
+    {
+        "name": "Airbus Industrie A-330-900",
+        "iata": "",
+        "icao": "A339",
+        "id": 184
+    },
+    {
+        "name": "Beech King Air 350",
+        "iata": "",
+        "icao": "B350",
+        "id": 185
+    },
+    {
+        "name": "Cessna C700 Longitude",
+        "iata": "CNJ",
+        "icao": "C700",
+        "id": 186
+    },
+    {
+        "name": "Socata TBM-850",
+        "iata": "TM8",
+        "icao": "TBM8",
+        "id": 187
+    },
+    {
+        "name": "Honda HA-420 HondaJet",
+        "iata": "",
+        "icao": "HDJT",
+        "id": 188
+    },
+    {
+        "name": "Aerospatiale\/Alenia ATR 72-212A(600)",
+        "iata": "ATR",
+        "icao": "AT76",
+        "id": 189
+    },
+    {
+        "name": "Diamond DA-62",
+        "iata": "",
+        "icao": "DA62",
+        "id": 189
+    },
+    {
+        "name": "Diamond DA-42",
+        "iata": "",
+        "icao": "DA42",
+        "id": 190
+    },
+    {
+        "name": "Aerospatiale\/Alenia ATR 72-212A(500)",
+        "iata": "ATR",
+        "icao": "AT75",
+        "id": 191
+    },
+    {
+        "name": "Diamond DA40 Diamond Star",
+        "iata": "",
+        "icao": "DA40",
+        "id": 192
+    },
+    {
+        "name": "Piper PA-24 Comanche",
+        "iata": "",
+        "icao": "PA24",
+        "id": 193
+    },
+    {
+        "name": "Piper PA-28 Cherokee",
+        "iata": "",
+        "icao": "P28A",
+        "id": 194
+    },
+    {
+        "name": "Eurocopter EC145",
+        "iata": "",
+        "icao": "EC45",
+        "id": 195
+    },
+    {
+        "name": "Tecnam P-2012 Traveller",
+        "iata": "",
+        "icao": "P212",
+        "id": 196
+    },
+    {
+        "name": "DAHER Kodiak 100",
+        "iata": "",
+        "icao": "K100",
+        "id": 197
+    },
+    {
+        "name": "Cessna 207 Stationair 7",
+        "iata": "",
+        "icao": "C207",
+        "id": 198
+    },
+    {
+        "name": "Cirrus SF-50 Vision",
+        "iata": "",
+        "icao": "SF50",
+        "id": 198
     }
 ]
