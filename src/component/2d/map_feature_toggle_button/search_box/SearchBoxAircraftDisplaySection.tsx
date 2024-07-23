@@ -1,6 +1,6 @@
 import React from "react";
 import { GroupedFlight } from "../../../../types";
-import SearchBoxAircraftElement from "./SearchBoxAircraftElement";
+import SearchBoxAircraftGroup from "./SearchBoxAircraftGroup";
 
 interface Props {
     aircrafts: GroupedFlight[];
@@ -21,7 +21,7 @@ const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
                 aircrafts.map((aircraft) => {
                     return (
                         <div key={aircraft.aircraftType}>
-                            <SearchBoxAircraftElement aircraft={aircraft}/>
+                            <SearchBoxAircraftGroup aircraft={aircraft}/>
                         </div>
                     );
                 })

@@ -19,6 +19,7 @@
 .env.production.local
 
 .idea/compiler.xml
+.idea/material_theme_project_new.xml
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

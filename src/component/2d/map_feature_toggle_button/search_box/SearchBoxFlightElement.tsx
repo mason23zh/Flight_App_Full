@@ -38,6 +38,8 @@ const SearchBoxFlightElement = ({
         : "p-2 grid grid-rows-2 hover:cursor-pointer " +
             "hover:bg-gray-400 hover:rounded-lg border-slate-400 border-b border-slat-400";
 
+    console.log(flight);
+
     return (
         <div
             ref={rowRef}

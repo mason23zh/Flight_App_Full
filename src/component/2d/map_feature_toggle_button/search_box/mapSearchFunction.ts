@@ -64,10 +64,12 @@ const groupByAircraftType = (flights: VatsimFlight[]): GroupedFlight[] => {
     const groupedFlights: { [key: string]: VatsimFlight[] } = {};
 
     flights.forEach(flight => {
-        const aircraftType = flight.flight_plan?.aircraft ||
-                flight.flight_plan?.aircraft_faa ||
-                flight.flight_plan?.aircraft_short ||
-                "Unknown";
+        // const aircraftType = flight.flight_plan?.aircraft ||
+        //         flight.flight_plan?.aircraft_faa ||
+        //         flight.flight_plan?.aircraft_short ||
+        //         "Unknown";
+        //
+        const aircraftType = flight.flight_plan?.aircraft_short || "Unknown";
 
         if (!groupedFlights[aircraftType]) {
             groupedFlights[aircraftType] = [];

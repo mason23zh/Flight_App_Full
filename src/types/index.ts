@@ -110,6 +110,8 @@ interface VatsimFlightPlan {
     aircraft: string,
     aircraft_faa: string,
     aircraft_short: string
+    aircraft_name?: string,
+    aircraft_iata?: string,
     alternate: string,
     altitude: string,
     arrival: string,

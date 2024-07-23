@@ -5,12 +5,13 @@ interface Props {
     aircraft: GroupedFlight;
 }
 
-const SearchBoxAircraftElement = ({ aircraft }: Props) => {
+const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
+    console.log("Aircraft by type:", aircraft);
     return (
         <div>
-                
+            {aircraft.aircraftType}
         </div>
     );
 };
 
-export default SearchBoxAircraftElement;
+export default SearchBoxAircraftGroup;
