@@ -1306,5 +1306,29 @@
         "iata": "",
         "icao": "E75L",
         "id": 214
+    },
+    {
+        "name": "Cirrus SR-22",
+        "iata": "",
+        "icao": "SR22",
+        "id": 215
+    },
+    {
+        "name": "Lockheed C-130",
+        "iata": "",
+        "icao": "C130",
+        "id": 216
+    },
+    {
+        "name": "Boeing FA-18 Hornet",
+        "iata": "",
+        "icao": "F18H",
+        "id": 217
+    },
+    {
+        "name": "Mooney M-20",
+        "iata": "",
+        "icao": "M20P",
+        "id": 218
     }
 ]
