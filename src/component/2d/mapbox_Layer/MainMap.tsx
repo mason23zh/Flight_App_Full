@@ -13,6 +13,7 @@ import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import AirportDepartureArrivalDisplay
     from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 import { CustomProvider } from "rsuite";
+import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 
 
 const MainMap = () => {
@@ -24,6 +25,11 @@ const MainMap = () => {
         airportDepartureArrivalDisplay
     } = useSelector((state: RootState) => state.mapSearchAirport);
 
+    const {
+        selectedAircraftType,
+        aircraftListDisplay
+    }
+            = useSelector((state: RootState) => state.mapSearchAircraft);
 
     const {
         dayNightTerminator,
@@ -59,6 +65,11 @@ const MainMap = () => {
                             airport={selectedAirport}
                         />
                     }
+                    {
+                        ((selectedAircraftType && aircraftListDisplay) &&
+                            <AircraftDisplay/>)
+                    }
+
                 </BaseMap>
             </div>
         </CustomProvider>

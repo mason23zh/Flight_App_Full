@@ -1,7 +1,7 @@
 import React from "react";
 import { GroupedFlight } from "../../../../types";
 import { useDispatch } from "react-redux";
-import { setMapSearchSelectedAircraft } from "../../../../store";
+import { setAircraftListDisplay, setMapSearchSelectedAircraft } from "../../../../store";
 
 interface Props {
     aircraft: GroupedFlight;
@@ -12,6 +12,7 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
     // dispatch the all traffics with selected traffic
     const handleClick = () => {
         dispatch(setMapSearchSelectedAircraft(aircraft.flights));
+        dispatch(setAircraftListDisplay(true));
     };
 
     return (

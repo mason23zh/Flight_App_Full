@@ -326,7 +326,7 @@
     {
         "name": "Boeing 747",
         "iata": "747",
-        "icao": "\\N",
+        "icao": "B747",
         "id": 55
     },
     {
@@ -1330,5 +1330,29 @@
         "iata": "",
         "icao": "M20P",
         "id": 218
+    },
+    {
+        "name": "Cessna A-47 Dragonfly",
+        "iata": "",
+        "icao": "A37",
+        "id": 219
+    },
+    {
+        "name": "Cessna 206",
+        "iata": "",
+        "icao": "C206",
+        "id": 220
+    },
+    {
+        "name": "Antonov An-26",
+        "iata": "AN6",
+        "icao": "AN26",
+        "id": 221
+    },
+    {
+        "name": "Agusta A109",
+        "iata": "",
+        "icao": "A109",
+        "id": 222
     }
 ]

@@ -80,6 +80,7 @@ import {
 
 import {
     setMapSearchSelectedAircraft,
+    setAircraftListDisplay,
     mapSearchAircraftReducer
 } from "./slices/mapSearchAircraftSlice";
 
@@ -220,7 +221,7 @@ export { setTrafficTracking };
 
 export { setSearchInput, setTabSelection };
 
-export { setMapSearchSelectedAircraft };
+export { setMapSearchSelectedAircraft, setAircraftListDisplay };
 
 export const persistor = persistStore(store);
 
