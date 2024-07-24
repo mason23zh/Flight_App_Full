@@ -416,7 +416,7 @@
     {
         "name": "Boeing 777",
         "iata": "777",
-        "icao": "\\N",
+        "icao": "B777",
         "id": 70
     },
     {
@@ -1210,5 +1210,101 @@
         "iata": "",
         "icao": "SF50",
         "id": 198
+    },
+    {
+        "name": "Pacific Aerospace P-750",
+        "iata": "",
+        "icao": "P750",
+        "id": 199
+    },
+    {
+        "name": "Lockheed Martin F-22 Raptor",
+        "iata": "",
+        "icao": "F22",
+        "id": 200
+    },
+    {
+        "name": "Beech 36 Bonanza",
+        "iata": "",
+        "icao": "B36T",
+        "id": 201
+    },
+    {
+        "name": "Beech 35 Bonanza",
+        "iata": "",
+        "icao": "BE35",
+        "id": 202
+    },
+    {
+        "name": "Beech A36 Bonanza 36",
+        "iata": "",
+        "icao": "BE36",
+        "id": 203
+    },
+    {
+        "name": "Cessna 414 Chancellor",
+        "iata": "",
+        "icao": "C414",
+        "id": 204
+    },
+    {
+        "name": "Supermarine Spitfire",
+        "iata": "",
+        "icao": "SPIT",
+        "id": 205
+    },
+    {
+        "name": "Piper PA-46-500TP",
+        "iata": "",
+        "icao": "P46T",
+        "id": 206
+    },
+    {
+        "name": "McDonnell Douglas DC-8-50",
+        "iata": "",
+        "icao": "DC85",
+        "id": 207
+    },
+    {
+        "name": "Cessna 152",
+        "iata": "",
+        "icao": "C152",
+        "id": 208
+    },
+    {
+        "name": "Fokker F-28 Fellowship",
+        "iata": "",
+        "icao": "F28",
+        "id": 209
+    },
+    {
+        "name": "B & F Technik FK-9",
+        "iata": "",
+        "icao": "FK9",
+        "id": 210
+    },
+    {
+        "name": "General Motors TBM Avenger",
+        "iata": "",
+        "icao": "TBM",
+        "id": 211
+    },
+    {
+        "name": "Beech 400 Beechjet",
+        "iata": "",
+        "icao": "BE40",
+        "id": 212
+    },
+    {
+        "name": "Beech 60 Duke",
+        "iata": "",
+        "icao": "BE60",
+        "id": 213
+    },
+    {
+        "name": "Embraer 175 (long wing)",
+        "iata": "",
+        "icao": "E75L",
+        "id": 214
     }
 ]

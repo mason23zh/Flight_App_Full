@@ -1,14 +1,23 @@
 import React from "react";
 import { GroupedFlight } from "../../../../types";
+import { useDispatch } from "react-redux";
+import { setMapSearchSelectedAircraft } from "../../../../store";
 
 interface Props {
     aircraft: GroupedFlight;
 }
 
 const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
-    console.log("Aircraft by type:", aircraft);
+    const dispatch = useDispatch();
+    // dispatch the all traffics with selected traffic
+    const handleClick = () => {
+        dispatch(setMapSearchSelectedAircraft(aircraft.flights));
+    };
+
     return (
-        <div className="font-Rubik grid grid-cols-4 gap-2
+        <div
+            onClick={handleClick}
+            className="font-Rubik grid grid-cols-4 gap-2
         items-center w-full border-b p-1 hover:bg-gray-400 hover:cursor-pointer">
             <div className="col-span-1">
                 {aircraft.aircraftType}
