@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store";
 import AircraftInfoPanel from "./AircraftInfoPanel";
+import SearchBoxFlightDisplaySection from "../SearchBoxFlightDisplaySection";
 
 const AircraftDisplay = () => {
     const { selectedAircraftType } = useSelector((state: RootState) => state.mapSearchAircraft);
@@ -19,7 +20,7 @@ const AircraftDisplay = () => {
                 />
             </div>
             <div>
-                Traffic list {selectedAircraftType.length}
+                <SearchBoxFlightDisplaySection flights={selectedAircraftType}/>
             </div>
         </div>
     );

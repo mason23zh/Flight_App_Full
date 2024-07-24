@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { VatsimFlight } from "../../../../types";
-import { setMapSearchSelectedTraffic } from "../../../../store";
+import { setAircraftListDisplay, setMapSearchSelectedTraffic } from "../../../../store";
 
 interface Props {
     flight: VatsimFlight;
@@ -24,6 +24,7 @@ const SearchBoxFlightElement = ({
     // Dispatch the flight data to be used in the MainTrafficLayer to trigger the Flight Info Panel
     const handleClick = () => {
         dispatch(setMapSearchSelectedTraffic(flight));
+        dispatch(setAircraftListDisplay(false));
         onSelect(flight);
     };
 
@@ -37,8 +38,6 @@ const SearchBoxFlightElement = ({
             "bg-gray-600 rounded-lg border-slate-400 border-b border-slat-400"
         : "p-2 grid grid-rows-2 hover:cursor-pointer " +
             "hover:bg-gray-400 hover:rounded-lg border-slate-400 border-b border-slat-400";
-
-    console.log(flight);
 
     return (
         <div

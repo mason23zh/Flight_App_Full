@@ -16,14 +16,14 @@ const AircraftInfoPanel = ({ aircraft }: Props) => {
     const handClick = () => {
         dispatch(setAircraftListDisplay(false));
     };
-    
+
     return (
-        <div className="grid grid-cols-2 font-Rubik p-2">
-            <div>
-                <div className="font-bold text-lg ">
+        <div className="grid grid-cols-4 font-Rubik p-2 border-b">
+            <div className="col-span-3">
+                <div className="font-bold text-lg">
                     {aircraft?.flight_plan.aircraft_short || "N/A"}
                 </div>
-                <div className="text-sm">
+                <div className="text-sm italic font-bold">
                     {aircraft?.flight_plan?.aircraft_name || ""}
                 </div>
             </div>
