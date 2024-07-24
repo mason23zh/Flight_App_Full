@@ -1,7 +1,11 @@
 import React from "react";
 import { GroupedFlight } from "../../../../types";
 import { useDispatch } from "react-redux";
-import { setAircraftListDisplay, setMapSearchSelectedAircraft } from "../../../../store";
+import {
+    setAircraftListDisplay,
+    setAirportDepartureArrivalDisplay,
+    setMapSearchSelectedAircraft
+} from "../../../../store";
 
 interface Props {
     aircraft: GroupedFlight;
@@ -13,6 +17,7 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
     const handleClick = () => {
         dispatch(setMapSearchSelectedAircraft(aircraft.flights));
         dispatch(setAircraftListDisplay(true));
+        dispatch(setAirportDepartureArrivalDisplay(false));
     };
 
     return (

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { VatsimFlight } from "../../../../types";
-import { setAircraftListDisplay, setMapSearchSelectedTraffic } from "../../../../store";
+import {
+    setAircraftListDisplay,
+    setAirportDepartureArrivalDisplay,
+    setMapSearchSelectedTraffic
+} from "../../../../store";
 
 interface Props {
     flight: VatsimFlight;
@@ -25,6 +29,7 @@ const SearchBoxFlightElement = ({
     const handleClick = () => {
         dispatch(setMapSearchSelectedTraffic(flight));
         dispatch(setAircraftListDisplay(false));
+        dispatch(setAirportDepartureArrivalDisplay(false));
         onSelect(flight);
     };
 

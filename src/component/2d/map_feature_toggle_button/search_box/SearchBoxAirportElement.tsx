@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
-import { setAirportDepartureArrivalDisplay, setMapSearchSelectedAirport } from "../../../../store";
+import {
+    setAircraftListDisplay,
+    setAirportDepartureArrivalDisplay,
+    setMapSearchSelectedAirport
+} from "../../../../store";
 
 interface Props {
     airport: LocalDbAirport;
@@ -27,6 +31,7 @@ const SearchBoxAirportElement = ({
     const handleOnClick = () => {
         dispatch(setMapSearchSelectedAirport(airport));
         dispatch(setAirportDepartureArrivalDisplay(true));
+        dispatch(setAircraftListDisplay(false));
     };
 
     return (
