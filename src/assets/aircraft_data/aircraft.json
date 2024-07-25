@@ -1354,5 +1354,17 @@
         "iata": "",
         "icao": "A109",
         "id": 222
+    },
+    {
+        "name": "Boeing 777 Freighter",
+        "iata": "77F",
+        "icao": "B77F",
+        "id": 223
+    },
+    {
+        "name": "Bombardier Challenger 300",
+        "iata": "",
+        "icao": "CL30",
+        "id": 224
     }
 ]
