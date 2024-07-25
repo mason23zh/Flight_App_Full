@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { LocalDbAirport } from "../../../../../types";
 import AirportIdentDisplayBox from "./AirportIdentDisplayBox";
-import AirportInfoExpandContent from "./AirportInfoExpandContent";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { setAirportDepartureArrivalDisplay } from "../../../../../store";
@@ -13,11 +12,6 @@ interface Props {
 
 const AirportInfoDropDownPanel = ({ airport }: Props) => {
     const dispatch = useDispatch();
-    const [expand, setExpand] = useState(false);
-
-    const handleClick = () => {
-        setExpand(prev => !prev);
-    };
 
     const handleCloseClick = () => {
         dispatch(setAirportDepartureArrivalDisplay(false));
@@ -31,18 +25,13 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
                     {airport.name}
                 </div>
                 <div className="w-fit pl-1 justify-self-start">
-                    <AirportIdentDisplayBox airport={airport} onClickExpand={handleClick}/>
+                    <AirportIdentDisplayBox airport={airport}/>
                 </div>
             </div>
             <div
                 onClick={handleCloseClick}
                 className="justify-self-end text-[25px] hover:cursor-pointer">
                 <IoMdCloseCircleOutline/>
-            </div>
-            <div className="col-span-4 text-xs">
-                {expand &&
-                    <AirportInfoExpandContent airport={airport}/>
-                }
             </div>
         </div>
     );

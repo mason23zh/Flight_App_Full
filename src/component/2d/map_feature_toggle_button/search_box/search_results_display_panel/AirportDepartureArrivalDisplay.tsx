@@ -4,6 +4,7 @@ import { Tabs } from "rsuite";
 import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
 import AirportInfoSection from "./AirportInfoSection";
+import AirportDepartureArrivalPanelInfoTab from "./AirportDepartureArrivalPanelInfoTab";
 
 interface Props {
     airport: LocalDbAirport;
@@ -15,7 +16,7 @@ const AirportDepartureArrivalDisplay = ({
 }: Props) => {
     const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
     const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
-    const style = "text-white bg-gray-500 z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
+    const style = "text-white min-h-[600px] bg-gray-500 z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
             "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
             "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
 
@@ -54,6 +55,9 @@ const AirportDepartureArrivalDisplay = ({
                         flights={arrivalTraffic}
                         arrival={true}
                     />
+                </Tabs.Tab>
+                <Tabs.Tab eventKey="3" title="Information">
+                    <AirportDepartureArrivalPanelInfoTab airport={airport}/>
                 </Tabs.Tab>
             </Tabs>
         </div>

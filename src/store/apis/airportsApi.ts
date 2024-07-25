@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { DbAirport } from "../../types";
+import { DbAirport, DetailAirportResponse } from "../../types";
 
 interface AirportResponse {
     result: number,
@@ -8,6 +8,11 @@ interface AirportResponse {
 
 interface PopularAirportResponse {
     data: Array<DbAirport>;
+}
+
+export interface DetailAirportResponseQuery {
+    result: number,
+    data: Array<DetailAirportResponse>
 }
 
 
@@ -37,7 +42,7 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
             }),
-            fetchDetailAirportWithICAO: build.query({
+            fetchDetailAirportWithICAO: build.query<DetailAirportResponseQuery, { icao: string, decode: boolean }>({
                 query: ({
                     icao,
                     decode

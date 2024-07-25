@@ -197,6 +197,17 @@ interface Runway {
     thresholdOverflyAlt: number
 }
 
+interface DetailAirportResponseAtis {
+    faa: string | { code: string, datis: string },
+    vatsim: string | { code: string, datis: string }
+}
+
+interface DetailAirportResponse {
+    ATIS: DetailAirportResponseAtis,
+    METAR: Weather,
+    airport: DbAirport
+}
+
 interface DbAirportStation {
     city: string,
     continent: string,
@@ -491,6 +502,7 @@ export type {
     VatsimTrackTraffic,
     DbAirport,
     LocalDbAirport,
+    DetailAirportResponse,
     VatsimControllers,
     Controller,
     VatsimGeoJsonFeature,
