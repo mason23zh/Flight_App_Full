@@ -19,6 +19,8 @@ import TimeSection from "./TimeSection";
 import { DbAirport } from "../types";
 import GeneralLoading from "./GeneralLoading";
 
+// TODO: Remove redundent request for getting METAR
+// TODO: Change loading logic, only fetching detail airport data when page loaded
 function AirportDetail() {
     const darkMode = useTheme();
     const navigate = useNavigate();
@@ -43,7 +45,7 @@ function AirportDetail() {
                 .catch();
         }
     }, [airport]);
- 
+
     // get localStorage airport data
     useEffect(() => {
         const airportData = JSON.parse(localStorage.getItem("airportData"));

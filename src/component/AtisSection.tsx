@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Panel } from "rsuite";
 
+//TODO: vatsim atis new type
 function AtisSection({ ATIS }) {
-    interface AtisType1 {
-        faa: string,
-        vatsim: string
-    }
+    console.log("ATIS", ATIS);
 
-    interface AtisType2 {
+    // interface AtisType1 {
+    //     faa: string,
+    //     vatsim: string
+    // }
+
+    interface Atis {
         faa: [{
             airport: string,
             code: string,
             datis: string,
             type: string
-        }],
-        vatsim: {
+        }] | [],
+        vatsim: [{
+            type: string,
             code: string,
             datis: string
-        }
+        }] | []
     }
 
-    type Atis = AtisType1 | AtisType2
+    // type Atis = AtisType1 | AtisType2
 
     const [atis, setAtis] = useState<Atis>();
     let renderATIS;
@@ -36,22 +40,22 @@ function AtisSection({ ATIS }) {
         let faaAtisCode: string;
         let vatsim: string;
         let vatsimAtisCode: string;
-        if (typeof atis.faa === "string") {
-            faa = atis.faa;
+        if (atis.faa.length === 0) {
+            faa = "FAA ATIS Not Available";
             faaAtisCode = "-";
         } else {
             faa = atis.faa[0].datis;
             faaAtisCode = atis.faa[0].code;
         }
 
-        if (typeof atis.vatsim === "string") {
-            vatsim = atis.vatsim;
+        if (atis.vatsim.length === 0) {
+            vatsim = "VATSIM ATIS Not Available";
             vatsimAtisCode = "-";
         } else {
-            vatsim = atis.vatsim.datis;
-            vatsimAtisCode = atis.vatsim.code;
+            vatsim = atis.vatsim[0].datis;
+            vatsimAtisCode = atis.vatsim[0].code;
         }
- 
+
         renderATIS = (
             <div>
                 <Panel header="ATIS" collapsible bordered>

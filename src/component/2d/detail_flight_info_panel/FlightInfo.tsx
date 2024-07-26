@@ -9,6 +9,9 @@ import { CustomProvider } from "rsuite";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
 import TargetAirportsLayer from "../mapbox_Layer/ArrivalDestinationMarkerLayer/TargetAirportsLayer";
 
+//: TODO Add hover tooltip for move the map to traffic button
+//: TODO Add button to switch the camera to first person view on selected traffic
+
 const FlightInfo = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);

@@ -198,8 +198,8 @@ interface Runway {
 }
 
 interface DetailAirportResponseAtis {
-    faa: string | { code: string, datis: string },
-    vatsim: string | { code: string, datis: string }
+    faa: [{ code: string, datis: string, airport: string }] | [],
+    vatsim: [{ code: string, datis: string }] | []
 }
 
 interface DetailAirportResponse {
