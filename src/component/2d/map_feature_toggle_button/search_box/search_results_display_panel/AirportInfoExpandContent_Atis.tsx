@@ -2,8 +2,8 @@ import React from "react";
 import { DetailAirportResponseQuery } from "../../../../../store/apis/airportsApi";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
+import AirportInfoExpandContent_AtisElement from "./AirportInfoExpandContet_AtisElement";
 
-//TODO: ATIS render logic is messed up
 interface Props {
     airportData: DetailAirportResponseQuery;
     airportError: FetchBaseQueryError | SerializedError;
@@ -32,6 +32,17 @@ const AirportInfoExpandContentAtis = ({
         );
     }
 
+    const renderAtisList = (atis: [{ code: string; datis: string }] | [], vatsim: boolean) => {
+        if (atis.length === 0) return null;
+        return atis.map((a) => {
+            return (
+                <div key={`${a.code + a.datis}`}>
+                    <AirportInfoExpandContent_AtisElement atis={a} vatsim={vatsim}/>
+                </div>
+            );
+        });
+    };
+
 
     const renderAtis = (airportData: DetailAirportResponseQuery) => {
         if (airportData.data && airportData.result !== 0) {
@@ -45,40 +56,10 @@ const AirportInfoExpandContentAtis = ({
             return (
                 <div>
                     {vatsimAtis.length > 0 &&
-                        <div className="rounded-xl">
-                            <div className="grid grid-cols-1">
-                                <div className="flex gap-5 p-2 items-center ">
-                                    <div className="flex flex-col p-2">
-                                        <div className="text-sm pb-1">VATSIM</div>
-                                        <div className="bg-yellow-500 text-white p-2 pt-0 pb-0 text-center">
-                                            ATIS
-                                        </div>
-                                        <div className="bg-gray-800 text-white p-2 text-center text-[18px]">
-                                            {vatsimAtis[0].code}
-                                        </div>
-                                    </div>
-                                    <div className="text-left text-sm">{vatsimAtis[0].datis}</div>
-                                </div>
-                            </div>
-                        </div>
+                                renderAtisList(vatsimAtis, true)
                     }
                     {faaAtis.length > 0 &&
-                        <div className="rounded-xl">
-                            <div className="grid grid-cols-1">
-                                <div className="flex gap-5 p-2 items-center ">
-                                    <div className="flex flex-col p-2">
-                                        <div className="text-sm pb-1 text-center">FAA</div>
-                                        <div className="bg-yellow-500 text-white p-2 pt-0 pb-0 text-center">
-                                            ATIS
-                                        </div>
-                                        <div className="bg-gray-800 text-white p-2 text-center text-[18px]">
-                                            {faaAtis[0].code}
-                                        </div>
-                                    </div>
-                                    <div className="text-left text-sm">{faaAtis[0].datis}</div>
-                                </div>
-                            </div>
-                        </div>
+                                renderAtisList(faaAtis, false)
                     }
                 </div>
             );
