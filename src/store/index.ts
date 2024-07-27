@@ -82,7 +82,8 @@ import {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
     mapSearchAircraftReducer,
-    setFilterAircraftOnMap
+    setFilterAircraftOnMap,
+    setSelectedAircraftCategory
 } from "./slices/mapSearchAircraftSlice";
 
 
@@ -222,7 +223,12 @@ export { setTrafficTracking };
 
 export { setSearchInput, setTabSelection };
 
-export { setMapSearchSelectedAircraft, setAircraftListDisplay, setFilterAircraftOnMap };
+export {
+    setMapSearchSelectedAircraft,
+    setAircraftListDisplay,
+    setFilterAircraftOnMap,
+    setSelectedAircraftCategory
+};
 
 export const persistor = persistStore(store);
 

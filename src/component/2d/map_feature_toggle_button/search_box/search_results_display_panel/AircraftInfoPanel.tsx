@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { VatsimFlight } from "../../../../../types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { setAircraftListDisplay, setFilterAircraftOnMap, setMapSearchSelectedAircraft } from "../../../../../store";
+import {
+    setAircraftListDisplay,
+    setFilterAircraftOnMap,
+    setMapSearchSelectedAircraft,
+    setSelectedAircraftCategory
+} from "../../../../../store";
 
 interface Props {
     aircraft: VatsimFlight[] | null;
@@ -19,9 +24,16 @@ const AircraftInfoPanel = ({ aircraft }: Props) => {
     };
 
     const handleFilterClick = () => {
-        setFilter(prev => !prev);
-        dispatch(setFilterAircraftOnMap(filter));
-        dispatch(setMapSearchSelectedAircraft(aircraft));
+        // update local state first to ensure state update in time
+        const newFilterState = !filter;
+        setFilter(newFilterState);
+        /*
+        * No need to dispatch(setMapSearchSelectedAircraft) here
+        * Because this will be done in SearchBox inside the useLiveQuery hook
+        * Dispatch filtered traffic from here will cause traffic stop updating on the map
+        * */
+        dispatch(setFilterAircraftOnMap(newFilterState));
+        // dispatch(setSelectedAircraftCategory(aircraft[0]?.flight_plan.aircraft_short || ""));
     };
 
     return (

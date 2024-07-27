@@ -14,7 +14,7 @@ import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice"
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { RootState, setSearchInput, setTabSelection } from "../../../../store";
+import { RootState, setMapSearchSelectedAircraft, setSearchInput, setTabSelection } from "../../../../store";
 
 
 const SearchBox = () => {
@@ -23,6 +23,8 @@ const SearchBox = () => {
         searchInput,
         tabSelection
     } = useSelector((state: RootState) => state.mapSearchBox);
+    const { selectedAircraftCategory } = useSelector((state: RootState) => state.mapSearchAircraft);
+
 
     /*
     * Dispatch the setSearchInput action to store the previous search input
@@ -31,13 +33,33 @@ const SearchBox = () => {
         dispatch(setSearchInput(event.target.value));
     };
 
-
+    // TODO: traffic update will cause filter re-set
     const searchResults = useLiveQuery(
         async () => {
             try {
                 const airports = await searchAirports(searchInput);
                 const vatsimTraffic = await searchVatsimTraffic(searchInput);
                 const aircraftType = await searchByAircraftType(searchInput);
+
+                /*
+                                     * Dispatch filtered aircraft
+                                     * These traffic will be display on the map
+                                     * LiveQuery will make sure filtered traffic from database got updated
+                                 * */
+                // if (aircraftType && aircraftType.length > 0) {
+                //     if (selectedAircraftCategory.length === 0) {
+                //         return;
+                //     } else {
+                //         const matchingAircraftType = aircraftType.find(group =>
+                //             group.aircraftType.toLowerCase()
+                //                 .includes(searchInput.toLowerCase())
+                //         );
+                //         dispatch(setMapSearchSelectedAircraft(matchingAircraftType.flights));
+                //     }
+                // } else {
+                //     dispatch(setMapSearchSelectedAircraft([]));
+                // }
+
                 return {
                     airports,
                     vatsimTraffic,

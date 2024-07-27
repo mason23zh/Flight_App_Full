@@ -5,12 +5,14 @@ interface MapSearchAircraftSlice {
     selectedAircraftType: VatsimFlight[] | null;
     aircraftListDisplay: boolean;
     filterAircraftOnMap: boolean;
+    selectedAircraftCategory: string;
 }
 
 const initialState: MapSearchAircraftSlice = {
     selectedAircraftType: null,
     aircraftListDisplay: false,
     filterAircraftOnMap: false,
+    selectedAircraftCategory: "",
 };
 
 const mapSearchAircraftSlice = createSlice({
@@ -25,6 +27,9 @@ const mapSearchAircraftSlice = createSlice({
         },
         setFilterAircraftOnMap(state, action: PayloadAction<boolean>) {
             state.filterAircraftOnMap = action.payload;
+        },
+        setSelectedAircraftCategory(state, action: PayloadAction<string>) {
+            state.selectedAircraftCategory = action.payload;
         }
     }
 });
@@ -32,6 +37,7 @@ const mapSearchAircraftSlice = createSlice({
 export const {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
-    setFilterAircraftOnMap
+    setFilterAircraftOnMap,
+    setSelectedAircraftCategory
 } = mapSearchAircraftSlice.actions;
 export const mapSearchAircraftReducer = mapSearchAircraftSlice.reducer;

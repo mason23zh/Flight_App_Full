@@ -1,9 +1,17 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { addMessage, removeMessageByLocation, RootState, useFetchVatsimPilotsDataQuery } from "../../store";
+import {
+    addMessage,
+    removeMessageByLocation,
+    RootState,
+    setMapSearchSelectedAircraft,
+    useFetchVatsimPilotsDataQuery
+} from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
 import { VatsimFlight } from "../../types";
+import { useLiveQuery } from "dexie-react-hooks";
+import { searchByAircraftType } from "./map_feature_toggle_button/search_box/mapSearchFunction";
 
 const BaseTrafficLayer = () => {
     const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
@@ -16,7 +24,8 @@ const BaseTrafficLayer = () => {
 
     const {
         filterAircraftOnMap,
-        selectedAircraftType
+        selectedAircraftType,
+        selectedAircraftCategory,
     } = useSelector((state: RootState) => state.mapSearchAircraft);
 
     const {
@@ -60,21 +69,23 @@ const BaseTrafficLayer = () => {
 
     }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
 
-    useEffect(() => {
-        if (filterAircraftOnMap && selectedAircraftType) {
-            setVatsimPilotsToDisplay(selectedAircraftType);
-        } else {
-            setVatsimPilotsToDisplay(vatsimPilots?.data.pilots || []);
-        }
-    }, [filterAircraftOnMap, selectedAircraftType, vatsimPilots]);
 
-    const memoizedVatsimPilotToDisplay = useMemo(() => vatsimPilotsToDisplay, [vatsimPilotsToDisplay]);
-    
+    const filteredResults = useLiveQuery(
+        async () => {
+            if (filterAircraftOnMap && selectedAircraftCategory) {
+                const results = await searchByAircraftType(selectedAircraftCategory);
+                console.log("RESULTS:", results);
+                dispatch(setMapSearchSelectedAircraft(results.flatMap(result => result.flights)));
+                return results.flatMap(result => result.flights);
+            }
+            return vatsimPilots?.data.pilots || [];
+        },
+        [filterAircraftOnMap, selectedAircraftCategory, vatsimPilots],
+        []
+    );
 
-    // const vatsimPilotToDisplay = (filterAircraftOnMap && selectedAircraftType) ?
-    //     selectedAircraftType :
-    //     vatsimPilots?.data.pilots;
-
+    // const memoizedVatsimPilotToDisplay = useMemo(() => vatsimPilotsToDisplay, [vatsimPilotsToDisplay, vatsimPilots]);
+    const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
     return (
         <MainTrafficLayer
             vatsimPilots={memoizedVatsimPilotToDisplay}

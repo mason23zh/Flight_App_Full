@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
     setAircraftListDisplay,
     setAirportDepartureArrivalDisplay,
-    setMapSearchSelectedAircraft
+    setMapSearchSelectedAircraft, setSelectedAircraftCategory
 } from "../../../../store";
 
 interface Props {
@@ -18,6 +18,7 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
         dispatch(setMapSearchSelectedAircraft(aircraft.flights));
         dispatch(setAircraftListDisplay(true));
         dispatch(setAirportDepartureArrivalDisplay(false));
+        dispatch(setSelectedAircraftCategory(aircraft.aircraftType));
     };
 
     return (
