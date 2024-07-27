@@ -1,16 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { addMessage, removeMessageByLocation, RootState, useFetchVatsimPilotsDataQuery } from "../../store";
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
+import { VatsimFlight } from "../../types";
 
 const BaseTrafficLayer = () => {
+    const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
     const dispatch = useDispatch();
 
     const {
         trafficLayerVisible,
         movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        filterAircraftOnMap,
+        selectedAircraftType
+    } = useSelector((state: RootState) => state.mapSearchAircraft);
 
     const {
         data: vatsimPilots,
@@ -47,13 +54,30 @@ const BaseTrafficLayer = () => {
 
         if (vatsimPilots && !vatsimPilotsLoading && !vatsimPilotsError) {
             dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
+            // initial render
+            setVatsimPilotsToDisplay(vatsimPilots.data.pilots);
         }
 
-    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots]);
+    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
+
+    useEffect(() => {
+        if (filterAircraftOnMap && selectedAircraftType) {
+            setVatsimPilotsToDisplay(selectedAircraftType);
+        } else {
+            setVatsimPilotsToDisplay(vatsimPilots?.data.pilots || []);
+        }
+    }, [filterAircraftOnMap, selectedAircraftType, vatsimPilots]);
+
+    const memoizedVatsimPilotToDisplay = useMemo(() => vatsimPilotsToDisplay, [vatsimPilotsToDisplay]);
+    
+
+    // const vatsimPilotToDisplay = (filterAircraftOnMap && selectedAircraftType) ?
+    //     selectedAircraftType :
+    //     vatsimPilots?.data.pilots;
 
     return (
         <MainTrafficLayer
-            vatsimPilots={vatsimPilots?.data.pilots}
+            vatsimPilots={memoizedVatsimPilotToDisplay}
             movingMap={movingMap}
             trafficLayerVisible={trafficLayerVisible}
         />

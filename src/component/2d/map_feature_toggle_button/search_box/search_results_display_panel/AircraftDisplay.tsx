@@ -16,7 +16,7 @@ const AircraftDisplay = () => {
         <div className={style}>
             <div>
                 <AircraftInfoPanel
-                    aircraft={selectedAircraftType.length ? selectedAircraftType[0] : null}
+                    aircraft={selectedAircraftType.length ? selectedAircraftType : null}
                 />
             </div>
             <div>

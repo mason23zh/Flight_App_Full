@@ -4,11 +4,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface MapSearchAircraftSlice {
     selectedAircraftType: VatsimFlight[] | null;
     aircraftListDisplay: boolean;
+    filterAircraftOnMap: boolean;
 }
 
 const initialState: MapSearchAircraftSlice = {
     selectedAircraftType: null,
     aircraftListDisplay: false,
+    filterAircraftOnMap: false,
 };
 
 const mapSearchAircraftSlice = createSlice({
@@ -20,12 +22,16 @@ const mapSearchAircraftSlice = createSlice({
         },
         setAircraftListDisplay(state, action: PayloadAction<boolean>) {
             state.aircraftListDisplay = action.payload;
+        },
+        setFilterAircraftOnMap(state, action: PayloadAction<boolean>) {
+            state.filterAircraftOnMap = action.payload;
         }
     }
 });
 
 export const {
     setMapSearchSelectedAircraft,
-    setAircraftListDisplay
+    setAircraftListDisplay,
+    setFilterAircraftOnMap
 } = mapSearchAircraftSlice.actions;
 export const mapSearchAircraftReducer = mapSearchAircraftSlice.reducer;

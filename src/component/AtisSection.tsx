@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Panel } from "rsuite";
 
-//TODO: vatsim atis new type
 function AtisSection({ ATIS }) {
-    console.log("ATIS", ATIS);
-
-    // interface AtisType1 {
-    //     faa: string,
-    //     vatsim: string
-    // }
-
     interface Atis {
         faa: [{
             airport: string,
