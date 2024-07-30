@@ -5,8 +5,9 @@ import {
     openTrafficDetail,
     setAircraftListDisplay,
     setAirportDepartureArrivalDisplay,
-    setMapSearchSelectedTraffic
+    setMapSearchSelectedTraffic, setSelectedTraffic, setTrafficTracking
 } from "../../../../store";
+import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 
 interface Props {
     flight: VatsimFlight;
@@ -32,6 +33,10 @@ const SearchBoxFlightElement = ({
         dispatch(setAircraftListDisplay(false));
         dispatch(setAirportDepartureArrivalDisplay(false));
         dispatch(openTrafficDetail());
+        dispatch(toggleSearchBox(false));
+        // set selected traffic to current traffic and move the map focus on this traffic
+        dispatch(setSelectedTraffic(flight));
+        dispatch(setTrafficTracking(true));
         onSelect(flight);
     };
 
