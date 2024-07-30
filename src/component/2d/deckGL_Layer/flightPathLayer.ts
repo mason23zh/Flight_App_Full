@@ -33,10 +33,10 @@ const flightPathLayer = (
                 const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
                 tempObj.to.coordinates[0] = selectedObj?.longitude || 0;
                 tempObj.to.coordinates[1] = selectedObj?.latitude || 0;
-                tempObj.to.coordinates[2] = selectedObj?.altitude || 0;
+                tempObj.to.coordinates[2] = terrainEnable ? selectedObj?.altitude || 0 : 0;
                 tempObj.from.coordinates[0] = t.longitude;
                 tempObj.from.coordinates[1] = t.latitude;
-                tempObj.from.coordinates[2] = t.altitude;
+                tempObj.from.coordinates[2] = terrainEnable ? t.altitude : 0;
                 formatTrack.push(tempObj);
             }
         });
