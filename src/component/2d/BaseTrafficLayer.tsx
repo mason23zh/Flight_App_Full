@@ -11,8 +11,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
 import { VatsimFlight } from "../../types";
 import { useLiveQuery } from "dexie-react-hooks";
-import { searchByAircraftType } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-
+import {
+    searchByAircraftType,
+    searchFlightsByAirports
+} from "./map_feature_toggle_button/search_box/mapSearchFunction";
+//TODO: Need better logic handle filter traffic display
 const BaseTrafficLayer = () => {
     const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
     const dispatch = useDispatch();
@@ -23,10 +26,15 @@ const BaseTrafficLayer = () => {
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
-        filterAircraftOnMap,
+        filterAircraftOnMap: filterByAircraftType,
         selectedAircraftType,
         selectedAircraftCategory,
     } = useSelector((state: RootState) => state.mapSearchAircraft);
+
+    const {
+        filterAircraftOnMap: filterByAirport,
+        selectedAirport,
+    } = useSelector((state: RootState) => state.mapSearchAirport);
 
     const {
         data: vatsimPilots,
@@ -69,18 +77,29 @@ const BaseTrafficLayer = () => {
 
     }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
 
-
+    /*
+    * This useLiveQuery will control what traffic to display on the map,
+    * it will run different query based on the redux state.
+    * useLiveQuery is mandatory here because it will make sure filtered traffic on map to update
+    * */
     const filteredResults = useLiveQuery(
         async () => {
-            if (filterAircraftOnMap && selectedAircraftCategory) {
+            if (filterByAircraftType && selectedAircraftCategory) {
                 const results = await searchByAircraftType(selectedAircraftCategory);
-                console.log("RESULTS:", results);
                 dispatch(setMapSearchSelectedAircraft(results.flatMap(result => result.flights)));
                 return results.flatMap(result => result.flights);
+            } else if (filterByAirport && selectedAirport) {
+                return await searchFlightsByAirports(selectedAirport.ident);
             }
             return vatsimPilots?.data.pilots || [];
         },
-        [filterAircraftOnMap, selectedAircraftCategory, vatsimPilots],
+        [
+            filterByAircraftType,
+            selectedAircraftCategory,
+            vatsimPilots,
+            filterByAirport,
+            selectedAirport
+        ],
         []
     );
 

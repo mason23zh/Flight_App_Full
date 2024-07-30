@@ -11,7 +11,7 @@ import {
     addMessage,
     removeMessageByLocation,
     useFetchTrafficTrackDataQuery,
-    setSelectedTraffic, RootState, setAirportDepartureArrivalDisplay
+    setSelectedTraffic, RootState, setAirportDepartureArrivalDisplay, closeCurrentPanel
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
@@ -105,6 +105,7 @@ const MainTrafficLayer = ({
             dispatch(setAirportDepartureArrivalDisplay(false));
         } else if (!info.layer) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
+            dispatch(closeCurrentPanel());
             setSelectTraffic(null);
         }
     }, [selectTraffic]);

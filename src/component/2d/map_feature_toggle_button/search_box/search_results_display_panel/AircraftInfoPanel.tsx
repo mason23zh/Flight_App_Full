@@ -3,9 +3,9 @@ import { VatsimFlight } from "../../../../../types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import {
+    closeSearchResults,
     setAircraftListDisplay,
-    setFilterAircraftOnMap,
-    setMapSearchSelectedAircraft,
+    setFilterAircraftOnMap_aircraft,
     setSelectedAircraftCategory
 } from "../../../../../store";
 
@@ -13,27 +13,20 @@ interface Props {
     aircraft: VatsimFlight[] | null;
 }
 
+//TODO: New UI design for filter traffic button and layout
 const AircraftInfoPanel = ({ aircraft }: Props) => {
-    const [filter, setFilter] = useState(false);
     const dispatch = useDispatch();
 
     if (!aircraft) return <></>;
 
     const handClick = () => {
+        // close the Aircraft List display
         dispatch(setAircraftListDisplay(false));
-    };
-
-    const handleFilterClick = () => {
-        // update local state first to ensure state update in time
-        const newFilterState = !filter;
-        setFilter(newFilterState);
-        /*
-        * No need to dispatch(setMapSearchSelectedAircraft) here
-        * Because this will be done in SearchBox inside the useLiveQuery hook
-        * Dispatch filtered traffic from here will cause traffic stop updating on the map
-        * */
-        dispatch(setFilterAircraftOnMap(newFilterState));
-        // dispatch(setSelectedAircraftCategory(aircraft[0]?.flight_plan.aircraft_short || ""));
+        // reset traffic filter on the map
+        dispatch(setSelectedAircraftCategory(""));
+        dispatch(setFilterAircraftOnMap_aircraft(false));
+        //dispatch the close search results action
+        dispatch(closeSearchResults());
     };
 
     return (
@@ -53,12 +46,6 @@ const AircraftInfoPanel = ({ aircraft }: Props) => {
                 >
                     <IoMdCloseCircleOutline/>
                 </div>
-            </div>
-            <div
-                onClick={handleFilterClick}
-                className="hover:cursor-pointer"
-            >
-                Filter
             </div>
         </div>
     );

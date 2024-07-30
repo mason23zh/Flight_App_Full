@@ -2,10 +2,12 @@ import React from "react";
 import { GroupedFlight } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
+    openSearchResults, openTrafficDetail,
     setAircraftListDisplay,
-    setAirportDepartureArrivalDisplay,
-    setMapSearchSelectedAircraft, setSelectedAircraftCategory
+    setAirportDepartureArrivalDisplay, setFilterAircraftOnMap_aircraft, setFilterAircraftOnMap_airport,
+    setMapSearchSelectedAircraft, setSelectedAircraftCategory,
 } from "../../../../store";
+import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 
 interface Props {
     aircraft: GroupedFlight;
@@ -13,12 +15,24 @@ interface Props {
 
 const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
     const dispatch = useDispatch();
-    // dispatch the all traffics with selected traffic
     const handleClick = () => {
+        // display selected traffic on map
+        dispatch(setFilterAircraftOnMap_aircraft(true));
+        // remove other filter if they are set
+        dispatch(setFilterAircraftOnMap_airport(false));
+        // dispatch traffic to be displayed on the map and to the aircraft lis display
         dispatch(setMapSearchSelectedAircraft(aircraft.flights));
+        // display the traffic display
         dispatch(setAircraftListDisplay(true));
+        // close other panel if they are open
         dispatch(setAirportDepartureArrivalDisplay(false));
+        //dispatch the traffic type to be used in the useLiveQuery in BaseTrafficLayer
         dispatch(setSelectedAircraftCategory(aircraft.aircraftType));
+        // close the search box
+        dispatch(toggleSearchBox(false));
+        // dispatch the search panel type to mapDisplayPanel slice,
+        // this will help re-open the search results panel if required.
+        dispatch(openSearchResults("AIRCRAFT"));
     };
 
     return (

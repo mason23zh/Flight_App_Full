@@ -25,6 +25,7 @@ const MainMap = () => {
         airportDepartureArrivalDisplay
     } = useSelector((state: RootState) => state.mapSearchAirport);
 
+    //TODO: don't need this to control panel display
     const {
         selectedAircraftType,
         aircraftListDisplay
@@ -34,6 +35,8 @@ const MainMap = () => {
     const {
         dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const { currentPanel } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     useInitializeDatabase();
 
@@ -45,6 +48,14 @@ const MainMap = () => {
             </div>
         );
     }
+
+
+    const renderAircraftDisplayPanel = () => {
+        if (currentPanel?.searchResultsType === "AIRCRAFT" && currentPanel?.activePanel === "searchResults") {
+            return <AircraftDisplay/>;
+        }
+        return null;
+    };
 
     return (
         <CustomProvider theme="light">
@@ -67,10 +78,8 @@ const MainMap = () => {
                         />
                     }
                     {
-                        ((selectedAircraftType && aircraftListDisplay) &&
-                            <AircraftDisplay/>)
+                        renderAircraftDisplayPanel()
                     }
-
                 </BaseMap>
             </div>
         </CustomProvider>

@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { VatsimFlight } from "../../../../../types";
-import { searchAirportByIdent } from "../mapSearchFunction";
-import distanceInKmBetweenEarthCoordinates from "../../../../../util/coordinatesDistanceCalculator";
 import calculateArrivalTime from "../../../../../util/calculateArrivalTime";
 import { useDispatch } from "react-redux";
-import { setAirportDepartureArrivalDisplay, setMapSearchSelectedTraffic } from "../../../../../store";
+import {
+    closeCurrentPanel,
+    openTrafficDetail,
+    setAirportDepartureArrivalDisplay,
+    setMapSearchSelectedTraffic
+} from "../../../../../store";
 
 interface Props {
     setRowHeight: (index: number, size: number) => void;
@@ -21,23 +24,6 @@ const TrafficDetailElement = ({
 }: Props) => {
     const dispatch = useDispatch();
     const rowRef = useRef<HTMLDivElement>();
-    const [toGoDistance, setToGoDistance] = useState(-1);
-
-    useEffect(() => {
-        const arrivalAirportIdent = flight?.flight_plan?.arrival || "";
-        (async () => {
-            const arrAirport = await searchAirportByIdent(arrivalAirportIdent);
-            if (arrAirport) {
-                const arrivalAirportCoord = arrAirport[0].coordinates;
-                const [aLon, aLat] = arrivalAirportCoord.split(",");
-                const toGo = Math.round(
-                    distanceInKmBetweenEarthCoordinates(
-                        flight.latitude, flight.longitude, Number(aLat), Number(aLon)) * 0.539957
-                );
-                setToGoDistance(toGo);
-            }
-        })();
-    }, [flight]);
 
     useEffect(() => {
         if (rowRef.current) {
@@ -45,8 +31,13 @@ const TrafficDetailElement = ({
         }
     }, []);
 
-    const ETA = (flight?.flight_plan?.deptime && flight?.flight_plan?.enroute_time) ?
-        calculateArrivalTime(flight.flight_plan.deptime, flight.flight_plan.enroute_time) : -1;
+    const ETA = useMemo(() => {
+        if (flight?.flight_plan?.deptime && flight?.flight_plan?.enroute_time) {
+            return calculateArrivalTime(flight.flight_plan.deptime, flight.flight_plan.enroute_time);
+        }
+        return -1;
+    }, [flight]);
+
 
     const handleOnClick = () => {
         dispatch(setAirportDepartureArrivalDisplay(false));
@@ -81,17 +72,6 @@ const TrafficDetailElement = ({
                     {isArrival ?
                         flight?.flight_plan?.departure :
                         flight?.flight_plan?.arrival
-                    }
-                </div>
-                <div>
-                    &bull;
-                </div>
-                <div>
-                    {toGoDistance !== -1 ? (
-                        <div>
-                            {toGoDistance}NM remains
-                        </div>
-                    ) : "-"
                     }
                 </div>
                 <div>

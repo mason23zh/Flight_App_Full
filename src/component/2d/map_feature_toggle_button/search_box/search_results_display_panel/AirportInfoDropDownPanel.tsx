@@ -3,7 +3,11 @@ import { LocalDbAirport } from "../../../../../types";
 import AirportIdentDisplayBox from "./AirportIdentDisplayBox";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { setAirportDepartureArrivalDisplay } from "../../../../../store";
+import {
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport,
+    setMapSearchSelectedAirport
+} from "../../../../../store";
 
 
 interface Props {
@@ -14,7 +18,12 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
     const dispatch = useDispatch();
 
     const handleCloseClick = () => {
+        // close the airport departure arrival display panel
         dispatch(setAirportDepartureArrivalDisplay(false));
+        // remove the filter so traffic display on the map will reset
+        dispatch(setFilterAircraftOnMap_airport(false));
+        // remove selected airport from redux to make sure traffic display on the map reset
+        dispatch(setMapSearchSelectedAirport(null));
     };
 
     return (

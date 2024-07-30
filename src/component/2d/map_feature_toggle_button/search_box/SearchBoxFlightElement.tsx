@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { VatsimFlight } from "../../../../types";
 import {
+    openTrafficDetail,
     setAircraftListDisplay,
     setAirportDepartureArrivalDisplay,
     setMapSearchSelectedTraffic
@@ -30,6 +31,7 @@ const SearchBoxFlightElement = ({
         dispatch(setMapSearchSelectedTraffic(flight));
         dispatch(setAircraftListDisplay(false));
         dispatch(setAirportDepartureArrivalDisplay(false));
+        dispatch(openTrafficDetail());
         onSelect(flight);
     };
 

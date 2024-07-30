@@ -3,9 +3,10 @@ import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
     setAircraftListDisplay,
-    setAirportDepartureArrivalDisplay,
+    setAirportDepartureArrivalDisplay, setFilterAircraftOnMap_airport,
     setMapSearchSelectedAirport
 } from "../../../../store";
+import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 
 interface Props {
     airport: LocalDbAirport;
@@ -29,9 +30,16 @@ const SearchBoxAirportElement = ({
     }, []);
 
     const handleOnClick = () => {
+        // dispatch selected airport data to airport arrival panel
         dispatch(setMapSearchSelectedAirport(airport));
+        // display airport arrival departure panel
         dispatch(setAirportDepartureArrivalDisplay(true));
+        // close aircraft list display if they are open
         dispatch(setAircraftListDisplay(false));
+        // close the search box
+        dispatch(toggleSearchBox(false));
+        // filter traffic on the map
+        dispatch(setFilterAircraftOnMap_airport(true));
     };
 
     return (

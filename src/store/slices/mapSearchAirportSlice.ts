@@ -4,11 +4,13 @@ import { LocalDbAirport } from "../../types";
 interface MapSearchAirportSlice {
     selectedAirport: LocalDbAirport | null;
     airportDepartureArrivalDisplay: boolean;
+    filterAircraftOnMap: boolean;
 }
 
 const initialState: MapSearchAirportSlice = {
     selectedAirport: null,
     airportDepartureArrivalDisplay: false,
+    filterAircraftOnMap: false,
 };
 
 const mapSearchAirportSlice = createSlice({
@@ -20,12 +22,16 @@ const mapSearchAirportSlice = createSlice({
         },
         setAirportDepartureArrivalDisplay(state, action: PayloadAction<boolean>) {
             state.airportDepartureArrivalDisplay = action.payload;
+        },
+        setFilterAircraftOnMap_airport(state, action: PayloadAction<boolean>) {
+            state.filterAircraftOnMap = action.payload;
         }
     }
 });
 
 export const {
     setMapSearchSelectedAirport,
-    setAirportDepartureArrivalDisplay
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport
 } = mapSearchAirportSlice.actions;
 export const mapSearchAirportReducer = mapSearchAirportSlice.reducer;

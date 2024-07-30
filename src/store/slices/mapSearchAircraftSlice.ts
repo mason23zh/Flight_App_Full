@@ -25,7 +25,7 @@ const mapSearchAircraftSlice = createSlice({
         setAircraftListDisplay(state, action: PayloadAction<boolean>) {
             state.aircraftListDisplay = action.payload;
         },
-        setFilterAircraftOnMap(state, action: PayloadAction<boolean>) {
+        setFilterAircraftOnMap_aircraft(state, action: PayloadAction<boolean>) {
             state.filterAircraftOnMap = action.payload;
         },
         setSelectedAircraftCategory(state, action: PayloadAction<string>) {
@@ -37,7 +37,7 @@ const mapSearchAircraftSlice = createSlice({
 export const {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
-    setFilterAircraftOnMap,
+    setFilterAircraftOnMap_aircraft,
     setSelectedAircraftCategory
 } = mapSearchAircraftSlice.actions;
 export const mapSearchAircraftReducer = mapSearchAircraftSlice.reducer;

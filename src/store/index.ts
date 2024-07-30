@@ -64,6 +64,7 @@ import {
 import {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport,
     mapSearchAirportReducer
 } from "./slices/mapSearchAirportSlice";
 
@@ -82,9 +83,17 @@ import {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
     mapSearchAircraftReducer,
-    setFilterAircraftOnMap,
+    setFilterAircraftOnMap_aircraft,
     setSelectedAircraftCategory
 } from "./slices/mapSearchAircraftSlice";
+
+import {
+    openSearchResults,
+    openTrafficDetail,
+    closeCurrentPanel,
+    closeSearchResults,
+    mapDisplayPanelReducer
+} from "./slices/mapDisplayPanelSlice";
 
 
 /*
@@ -115,6 +124,7 @@ export const store = configureStore({
         mapSearchAirport: mapSearchAirportReducer,
         mapSearchAircraft: mapSearchAircraftReducer,
         mapSearchBox: mapSearchBoxReducer,
+        mapDisplayPanel: mapDisplayPanelReducer,
         flightInfo: flightInfoReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
@@ -217,7 +227,11 @@ export { setSelectedTraffic };
 
 export { setMapSearchSelectedTraffic };
 
-export { setMapSearchSelectedAirport, setAirportDepartureArrivalDisplay };
+export {
+    setMapSearchSelectedAirport,
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport
+};
 
 export { setTrafficTracking };
 
@@ -226,8 +240,15 @@ export { setSearchInput, setTabSelection };
 export {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
-    setFilterAircraftOnMap,
+    setFilterAircraftOnMap_aircraft,
     setSelectedAircraftCategory
+};
+
+export {
+    openSearchResults,
+    openTrafficDetail,
+    closeCurrentPanel,
+    closeSearchResults
 };
 
 export const persistor = persistStore(store);
