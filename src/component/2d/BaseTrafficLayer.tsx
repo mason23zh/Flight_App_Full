@@ -27,7 +27,6 @@ const BaseTrafficLayer = () => {
 
     const {
         filterAircraftOnMap: filterByAircraftType,
-        selectedAircraftType,
         selectedAircraftCategory,
     } = useSelector((state: RootState) => state.mapSearchAircraft);
 
