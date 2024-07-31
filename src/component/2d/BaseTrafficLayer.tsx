@@ -15,7 +15,7 @@ import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-//TODO: Need better logic handle filter traffic display
+//TODO: state clean up
 const BaseTrafficLayer = () => {
     const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
     const dispatch = useDispatch();
