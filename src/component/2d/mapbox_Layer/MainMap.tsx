@@ -36,7 +36,12 @@ const MainMap = () => {
         dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const { currentPanel } = useSelector((state: RootState) => state.mapDisplayPanel);
+    const {
+        activePanel,
+        searchResultsType,
+        searchResultsVisible,
+        trafficDetailVisible
+    } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     useInitializeDatabase();
 
@@ -51,8 +56,32 @@ const MainMap = () => {
 
 
     const renderAircraftDisplayPanel = () => {
-        if (currentPanel?.searchResultsType === "AIRCRAFT" && currentPanel?.activePanel === "searchResults") {
+        if (activePanel === "searchResults" &&
+                searchResultsType === "AIRCRAFT" &&
+                searchResultsVisible
+        ) {
             return <AircraftDisplay/>;
+        }
+        return null;
+    };
+
+    const renderAircraftDepartureArrivalDisplayPanel = () => {
+        if (activePanel === "searchResults" &&
+                searchResultsType === "AIRPORT" &&
+                searchResultsVisible) {
+            return <AirportDepartureArrivalDisplay
+                airport={selectedAirport}
+            />;
+        }
+        return null;
+    };
+
+    const renderFlightInfoPanel = () => {
+        if (activePanel === "trafficDetail" &&
+                trafficDetailVisible &&
+                traffic &&
+                traffic.callsign.length !== 0) {
+            return <FlightInfo/>;
         }
         return null;
     };
@@ -66,16 +95,17 @@ const MainMap = () => {
                     <BaseTrafficLayer/>
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
-                    {(!aircraftListDisplay &&
-                                        !airportDepartureArrivalDisplay &&
-                                        traffic &&
-                                        traffic.callsign.length !== 0) &&
-                                        <FlightInfo/>
+                    {/* {(!aircraftListDisplay && */}
+                    {/*                     !airportDepartureArrivalDisplay && */}
+                    {/*                     traffic && */}
+                    {/*                     traffic.callsign.length !== 0) && */}
+                    {/*                     <FlightInfo/> */}
+                    {/* } */}
+                    {
+                        renderFlightInfoPanel()
                     }
-                    {(selectedAirport && airportDepartureArrivalDisplay) &&
-                        <AirportDepartureArrivalDisplay
-                            airport={selectedAirport}
-                        />
+                    {
+                        renderAircraftDepartureArrivalDisplayPanel()
                     }
                     {
                         renderAircraftDisplayPanel()

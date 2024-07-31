@@ -4,6 +4,7 @@ import AirportIdentDisplayBox from "./AirportIdentDisplayBox";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import {
+    closeSearchResults,
     setAirportDepartureArrivalDisplay,
     setFilterAircraftOnMap_airport,
     setMapSearchSelectedAirport
@@ -24,6 +25,8 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
         dispatch(setFilterAircraftOnMap_airport(false));
         // remove selected airport from redux to make sure traffic display on the map reset
         dispatch(setMapSearchSelectedAirport(null));
+        //close the search result list
+        dispatch(closeSearchResults());
     };
 
     return (

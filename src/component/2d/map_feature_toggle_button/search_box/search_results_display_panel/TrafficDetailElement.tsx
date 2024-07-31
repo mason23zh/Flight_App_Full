@@ -3,10 +3,10 @@ import { VatsimFlight } from "../../../../../types";
 import calculateArrivalTime from "../../../../../util/calculateArrivalTime";
 import { useDispatch } from "react-redux";
 import {
-    closeCurrentPanel,
     openTrafficDetail,
-    setAirportDepartureArrivalDisplay,
-    setMapSearchSelectedTraffic
+    setMapSearchSelectedTraffic,
+    setSelectedTraffic,
+    setTrafficTracking
 } from "../../../../../store";
 
 interface Props {
@@ -40,8 +40,12 @@ const TrafficDetailElement = ({
 
 
     const handleOnClick = () => {
-        dispatch(setAirportDepartureArrivalDisplay(false));
+        // dispatch the traffic
         dispatch(setMapSearchSelectedTraffic(flight));
+        dispatch(setSelectedTraffic(flight));
+        //open traffic detail, this action will also close search result list
+        dispatch(openTrafficDetail());
+        dispatch(setTrafficTracking(true));
     };
 
     return (

@@ -11,7 +11,11 @@ import {
     addMessage,
     removeMessageByLocation,
     useFetchTrafficTrackDataQuery,
-    setSelectedTraffic, RootState, setAirportDepartureArrivalDisplay, closeCurrentPanel
+    setSelectedTraffic,
+    RootState,
+    setAirportDepartureArrivalDisplay,
+    closeTrafficDetail,
+    openTrafficDetail
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
@@ -29,6 +33,7 @@ interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
+//TODO: Selected traffic state might be redundent
 const MainTrafficLayer = ({
     vatsimPilots,
     trafficLayerVisible,
@@ -102,10 +107,11 @@ const MainTrafficLayer = ({
         if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
-            dispatch(setAirportDepartureArrivalDisplay(false));
+            // dispatch(setAirportDepartureArrivalDisplay(false));
+            dispatch(openTrafficDetail());
         } else if (!info.layer) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
-            dispatch(closeCurrentPanel());
+            dispatch(closeTrafficDetail());
             setSelectTraffic(null);
         }
     }, [selectTraffic]);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { VatsimFlight } from "../../../../../types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";

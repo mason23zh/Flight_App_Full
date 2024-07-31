@@ -90,7 +90,7 @@ import {
 import {
     openSearchResults,
     openTrafficDetail,
-    closeCurrentPanel,
+    closeTrafficDetail,
     closeSearchResults,
     mapDisplayPanelReducer
 } from "./slices/mapDisplayPanelSlice";
@@ -247,7 +247,7 @@ export {
 export {
     openSearchResults,
     openTrafficDetail,
-    closeCurrentPanel,
+    closeTrafficDetail,
     closeSearchResults
 };
 
