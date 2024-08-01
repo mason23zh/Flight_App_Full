@@ -22,15 +22,7 @@ const MainMap = () => {
 
     const {
         selectedAirport,
-        airportDepartureArrivalDisplay
     } = useSelector((state: RootState) => state.mapSearchAirport);
-
-    //TODO: don't need this to control panel display
-    const {
-        selectedAircraftType,
-        aircraftListDisplay
-    }
-            = useSelector((state: RootState) => state.mapSearchAircraft);
 
     const {
         dayNightTerminator,
@@ -54,11 +46,7 @@ const MainMap = () => {
         );
     }
 
-
     const renderAircraftDisplayPanel = () => {
-        console.log("Active panel:", activePanel);
-        console.log("search results type:", searchResultsType);
-        console.log("search results visible:", searchResultsVisible);
         if (activePanel === "searchResults" &&
                 searchResultsType === "AIRCRAFT" &&
                 searchResultsVisible
@@ -98,21 +86,9 @@ const MainMap = () => {
                     <BaseTrafficLayer/>
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
-                    {/* {(!aircraftListDisplay && */}
-                    {/*                     !airportDepartureArrivalDisplay && */}
-                    {/*                     traffic && */}
-                    {/*                     traffic.callsign.length !== 0) && */}
-                    {/*                     <FlightInfo/> */}
-                    {/* } */}
-                    {
-                        renderFlightInfoPanel()
-                    }
-                    {
-                        renderAircraftDepartureArrivalDisplayPanel()
-                    }
-                    {
-                        renderAircraftDisplayPanel()
-                    }
+                    {renderFlightInfoPanel()}
+                    {renderAircraftDepartureArrivalDisplayPanel()}
+                    {renderAircraftDisplayPanel()}
                 </BaseMap>
             </div>
         </CustomProvider>
