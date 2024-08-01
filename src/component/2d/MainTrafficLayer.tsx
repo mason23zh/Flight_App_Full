@@ -112,12 +112,12 @@ const MainTrafficLayer = ({
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
-        if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
+        if (info.layer && info.object && (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
             // dispatch(setAirportDepartureArrivalDisplay(false));
             dispatch(openTrafficDetail());
-        } else if (!info.layer) {
+        } else if (!info.layer || !info.object) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
             dispatch(closeTrafficDetail());
             setSelectTraffic(null);

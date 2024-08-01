@@ -56,6 +56,9 @@ const MainMap = () => {
 
 
     const renderAircraftDisplayPanel = () => {
+        console.log("Active panel:", activePanel);
+        console.log("search results type:", searchResultsType);
+        console.log("search results visible:", searchResultsVisible);
         if (activePanel === "searchResults" &&
                 searchResultsType === "AIRCRAFT" &&
                 searchResultsVisible
