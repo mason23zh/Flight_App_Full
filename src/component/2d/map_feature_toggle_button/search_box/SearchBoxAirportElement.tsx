@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
-    openSearchResults,
+    openSearchResults, setFilterAircraftOnMap_aircraft,
     setFilterAircraftOnMap_airport,
     setMapSearchSelectedAirport
 } from "../../../../store";
@@ -34,6 +34,8 @@ const SearchBoxAirportElement = ({
         dispatch(setMapSearchSelectedAirport(airport));
         // close the search box
         dispatch(toggleSearchBox(false));
+        //remove other filter if they are set
+        dispatch(setFilterAircraftOnMap_aircraft(false));
         // filter traffic on the map
         dispatch(setFilterAircraftOnMap_airport(true));
         // Open search result list
