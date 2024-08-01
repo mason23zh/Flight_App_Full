@@ -48,6 +48,7 @@ const MainTrafficLayer = ({
         terrainEnable,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
+    const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     const {
         data: trackData,
@@ -97,10 +98,17 @@ const MainTrafficLayer = ({
     }, [trackData, trackError, trackLoading]);
 
     const trackLayer = useMemo(() => {
+        // this will clean up the path if user already pick a traffic on the map
+        // but open the search list result panel. Because selectTraffic haven't change,
+        // the path will reamin on the map.
+        if (searchResultsVisible) {
+            setSelectTraffic(null);
+        }
+
         if (trackData && !trackLoading && !trackError) {
             return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
         }
-    }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable]);
+    }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
