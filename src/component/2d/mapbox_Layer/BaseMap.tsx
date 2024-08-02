@@ -7,7 +7,7 @@ import { RootState, setTrafficTracking } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
-import { ViewStateProvider } from "../../../util/viewStateContext";
+import { ViewStateProvider } from "../viewStateContext";
 
 
 export interface Viewport {

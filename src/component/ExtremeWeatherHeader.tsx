@@ -16,6 +16,7 @@ import {
 import { changeUserSelection } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 
+//TODO: TS-ERROR
 function ExtremeWeatherHeader() {
     const darkMode = useTheme();
     const buttonClasses = darkMode
@@ -122,7 +123,7 @@ function ExtremeWeatherHeader() {
         };
         setUserSelection(updatedSelection);
     };
- 
+
     let renderedDropDown;
     if (showDropDown && userSelection.scope === COUNTRY) {
         renderedDropDown = (

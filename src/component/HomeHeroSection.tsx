@@ -4,7 +4,7 @@ import { CustomProvider } from "rsuite";
 import axios from "axios";
 import { useTheme } from "../hooks/ThemeContext";
 import InputAndSearch from "./InputAndSearch";
-import globalAirportICAO from "../util/globalAirportICAO";
+import { globalAirportICAO } from "../util/globalAirportICAO";
 
 
 function HomeHeroSection({

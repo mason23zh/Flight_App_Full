@@ -14,17 +14,18 @@ import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice"
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { RootState, setMapSearchSelectedAircraft, setSearchInput, setTabSelection } from "../../../../store";
+import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 
+interface SearchBoxProps {
+    visible: boolean;
+}
 
-const SearchBox = () => {
+const SearchBox = ({ visible }: SearchBoxProps) => {
     const dispatch = useDispatch();
     const {
         searchInput,
         tabSelection
     } = useSelector((state: RootState) => state.mapSearchBox);
-    const { selectedAircraftCategory } = useSelector((state: RootState) => state.mapSearchAircraft);
-
 
     /*
     * Dispatch the setSearchInput action to store the previous search input
@@ -33,32 +34,12 @@ const SearchBox = () => {
         dispatch(setSearchInput(event.target.value));
     };
 
-    // TODO: traffic update will cause filter re-set
     const searchResults = useLiveQuery(
         async () => {
             try {
                 const airports = await searchAirports(searchInput);
                 const vatsimTraffic = await searchVatsimTraffic(searchInput);
                 const aircraftType = await searchByAircraftType(searchInput);
-
-                /*
-                                     * Dispatch filtered aircraft
-                                     * These traffic will be display on the map
-                                     * LiveQuery will make sure filtered traffic from database got updated
-                                 * */
-                // if (aircraftType && aircraftType.length > 0) {
-                //     if (selectedAircraftCategory.length === 0) {
-                //         return;
-                //     } else {
-                //         const matchingAircraftType = aircraftType.find(group =>
-                //             group.aircraftType.toLowerCase()
-                //                 .includes(searchInput.toLowerCase())
-                //         );
-                //         dispatch(setMapSearchSelectedAircraft(matchingAircraftType.flights));
-                //     }
-                // } else {
-                //     dispatch(setMapSearchSelectedAircraft([]));
-                // }
 
                 return {
                     airports,
@@ -92,11 +73,15 @@ const SearchBox = () => {
     const handleTabSelect = (key: string) => {
         dispatch(setTabSelection(key));
     };
+    console.log("visible", visible);
 
+    // TODO: Improve style, add animation 
+    const searchBoxStyle = "absolute sm:left-[110%] bottom-[150%] sm:bottom-auto " +
+            "bg-gray-500 min-w-[350px] " +
+            "rounded-lg grid grid-cols-1 text-gray-100";
     return (
         <div
-            className="absolute left-[110%] bg-gray-500 min-w-[350px] 
-            rounded-lg grid grid-cols-1 text-gray-100">
+            className={searchBoxStyle}>
             <button
                 className="justify-self-end align-middle text-lg px-1 py-0 hover:text-gray-900"
                 onClick={closeButtonOnClick}

@@ -14,7 +14,7 @@ import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-import { useViewState } from "../../util/viewStateContext";
+import { useViewState } from "./viewStateContext";
 
 
 const BaseTrafficLayer = () => {
@@ -100,7 +100,7 @@ const BaseTrafficLayer = () => {
         ],
         []
     );
- 
+
     const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
     return (
         <MainTrafficLayer

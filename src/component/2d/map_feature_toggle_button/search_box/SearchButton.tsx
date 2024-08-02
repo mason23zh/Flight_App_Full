@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import SearchBox from "./SearchBox";
+import MapFeaturesToggleButtonGroup from "../MapFeaturesToggleButtonGroup";
 
 interface Props {
     tooltipMessage: string;
     isTouchScreen: boolean;
 }
+
+//TODO: Missing tooltip
+//TODO: Search box not close when other tool panel open
 
 const SearchButton = ({
     isTouchScreen,
@@ -44,7 +48,7 @@ const SearchButton = ({
                     {styledIcon}
                 </button>
             </div>
-            {searchBoxVisible && <SearchBox/>}
+            {searchBoxVisible && <SearchBox visible={searchBoxVisible}/>}
         </>
     );
 };
