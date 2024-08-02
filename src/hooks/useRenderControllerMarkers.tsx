@@ -210,10 +210,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         });
     };
 
-
-    // const renderedMarkers = renderMarkers();
     const renderedMarkers = useMemo(() => renderMarkers(), [data]);
-
 
     return {
         renderedMarkers,

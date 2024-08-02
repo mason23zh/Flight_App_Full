@@ -18,8 +18,8 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
         visible: visible,
         opacity: 1,
         getIcon: (d: VatsimFlight) => {
-            const icon = d.flight_plan?.aircraft_short || "B738";
-            return aircraftSpriteSheetMapping[icon] ? icon : "B738";
+            const icon = d.flight_plan?.aircraft_short || "CL60";
+            return aircraftSpriteSheetMapping[icon] ? icon : "CL60";
         },
         autoHighlight: true,
         iconAtlas: aircraftSpriteSheetPNG,

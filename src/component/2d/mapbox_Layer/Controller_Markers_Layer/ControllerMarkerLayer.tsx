@@ -11,7 +11,7 @@ interface Controller {
 
 const ControllerMarkerLayer = ({
     controllerInfo,
-    labelVisible
+    labelVisible,
 }: Controller) => {
     const {
         renderedMarkers,

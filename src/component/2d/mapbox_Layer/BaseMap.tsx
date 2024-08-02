@@ -7,9 +7,10 @@ import { RootState, setTrafficTracking } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
+import { ViewStateProvider } from "../../../util/viewStateContext";
 
 
-interface Viewport {
+export interface Viewport {
     longitude: number;
     latitude: number;
     zoom: number;
@@ -19,11 +20,12 @@ interface Viewport {
     bearing: number;
 }
 
-interface ChildProps {
-    viewState: Viewport;
+
+interface BaseMapProps {
+    children: React.ReactNode;
 }
 
-const BaseMap = ({ children }) => {
+const BaseMap = ({ children }: BaseMapProps) => {
     const mapRef = useRef(null);
     // const mapContainerRef = document.getElementById("mainMap").client;
     const dispatch = useDispatch();
@@ -182,57 +184,51 @@ const BaseMap = ({ children }) => {
         }
     }, [terrainEnable]);
 
+
     /*
     * Default Projection: mercator
-    * Unable to use globe as Projection due to mapbox api limitation
+    * Unable to use globe as Projection due to mapbox api limitation.
+    * ViewStateProvider will pass the viewState to BaseTrafficLayer,
+    * the viewState will help filter out the traffic that not within the viewport.
     */
     return (
-        <div onContextMenu={evt => evt.preventDefault()}>
-            <Map
-                id="mainMap"
-                ref={mapRef}
-                projection={{ name: "mercator" }}
-                cursor={"auto"}
-                // to reset the pitch and bearing
-                {...viewState}
-                dragRotate={terrainEnable}
-                mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
-                mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
-                initialViewState={viewState}
-                maxPitch={70}
-                style={mapStyle}
-                onMove={onMove}
-                dragPan={true}
-                onLoad={(e) => initializeTerrainSource(e.target)}
-                logoPosition={"bottom-right"}
-            >
-                {terrainEnable &&
-                    <Source
-                        id="mapbox-dem"
-                        type="raster-dem"
-                        url="mapbox://mapbox.mapbox-terrain-dem-v1"
-                        tileSize={512}
-                        maxzoom={14}
-                    />
-                }
-                <TogglePanel mapRef={mapRef}/>
-                <TelemetryPanel/>
-                <NavigationControl position="bottom-left"/>
-                {AirportLayers}
-                {/*pass view state to children to be use in the MainTrafficLayer*/}
-                {React.Children.toArray(children)
-                    .filter(Boolean) // Filter out null/undefined
-                    .map(child =>
-                        React.isValidElement<ChildProps>(child)
-                            ? React.cloneElement(child, {
-                                viewState: {
-                                    ...viewState,
-                                }
-                            })
-                            : child
-                    )}
-            </Map>
-        </div>
+        <ViewStateProvider value={viewState}>
+            <div onContextMenu={evt => evt.preventDefault()}>
+                <Map
+                    id="mainMap"
+                    ref={mapRef}
+                    projection={{ name: "mercator" }}
+                    cursor={"auto"}
+                    // to reset the pitch and bearing
+                    {...viewState}
+                    dragRotate={terrainEnable}
+                    mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
+                    mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
+                    initialViewState={viewState}
+                    maxPitch={70}
+                    style={mapStyle}
+                    onMove={onMove}
+                    dragPan={true}
+                    onLoad={(e) => initializeTerrainSource(e.target)}
+                    logoPosition={"bottom-right"}
+                >
+                    {terrainEnable &&
+                        <Source
+                            id="mapbox-dem"
+                            type="raster-dem"
+                            url="mapbox://mapbox.mapbox-terrain-dem-v1"
+                            tileSize={512}
+                            maxzoom={14}
+                        />
+                    }
+                    <TogglePanel mapRef={mapRef}/>
+                    <TelemetryPanel/>
+                    <NavigationControl position="bottom-left"/>
+                    {AirportLayers}
+                    {children}
+                </Map>
+            </div>
+        </ViewStateProvider>
     );
 };
 

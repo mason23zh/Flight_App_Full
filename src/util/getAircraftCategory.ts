@@ -18,7 +18,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
         businessJet: ["C25A", "C25B", "C25C", "C500", "C550", "C56X", "C680", "C750", "CL30", "CL35", "CL60", "E35L",
             "E50P", "E55P", "E545", "E550", "FA50", "FA7X", "GL5T", "GL6T", "G150", "G280", "GLEX", "HDJT", "LJ35",
             "LJ45", "LJ60", "LR45", "LR60", "P180", "GLF6"],
-        generalAviation: ["C172", "C182", "C206", "C208", "C210", "DA40", "DA42", "DR40", "DV20", "P28A", "P28B",
+        generalAviation: ["C172", "BT36", "C182", "C206", "C208", "C210", "DA40", "DA42", "DR40", "DV20", "P28A", "P28B",
             "P28R", "P28T", "P32R", "P32T", "P46T", "PC6", "PC9", "PC12", "PC24", "SR20", "SR22", "B350", "PA46", "PC6T",],
         helicopter: ["AS32", "AS50", "AS55", "AS65", "AS66", "B06", "B407", "B412", "B429", "EC20", "EC25", "EC30",
             "EC35", "EC45", "H500", "H60", "NH90", "R22", "R44", "R66", "S61", "S76", "S92", "UH1"],

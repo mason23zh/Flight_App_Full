@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
     addMessage,
     removeMessageByLocation,
@@ -9,16 +9,17 @@ import {
 import MainTrafficLayer from "./MainTrafficLayer";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
-import { VatsimFlight } from "../../types";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-//TODO: state clean up
-const BaseTrafficLayer = ({ viewState }) => {
-    const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
+import { useViewState } from "../../util/viewStateContext";
+
+
+const BaseTrafficLayer = () => {
     const dispatch = useDispatch();
+    const viewState = useViewState();
 
     const {
         trafficLayerVisible,
@@ -70,8 +71,6 @@ const BaseTrafficLayer = ({ viewState }) => {
 
         if (vatsimPilots && !vatsimPilotsLoading && !vatsimPilotsError) {
             dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
-            // initial render
-            setVatsimPilotsToDisplay(vatsimPilots.data.pilots);
         }
 
     }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
@@ -101,8 +100,7 @@ const BaseTrafficLayer = ({ viewState }) => {
         ],
         []
     );
-
-    // const memoizedVatsimPilotToDisplay = useMemo(() => vatsimPilotsToDisplay, [vatsimPilotsToDisplay, vatsimPilots]);
+ 
     const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
     return (
         <MainTrafficLayer
