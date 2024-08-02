@@ -16,7 +16,7 @@ import {
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
 //TODO: state clean up
-const BaseTrafficLayer = () => {
+const BaseTrafficLayer = ({ viewState }) => {
     const [vatsimPilotsToDisplay, setVatsimPilotsToDisplay] = useState<VatsimFlight[]>([]);
     const dispatch = useDispatch();
 
@@ -109,6 +109,7 @@ const BaseTrafficLayer = () => {
             vatsimPilots={memoizedVatsimPilotToDisplay}
             movingMap={movingMap}
             trafficLayerVisible={trafficLayerVisible}
+            viewState={viewState}
         />
     );
 };

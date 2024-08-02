@@ -8,8 +8,24 @@ import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
 
+
+interface Viewport {
+    longitude: number;
+    latitude: number;
+    zoom: number;
+    width: number;
+    height: number;
+    pitch: number;
+    bearing: number;
+}
+
+interface ChildProps {
+    viewState: Viewport;
+}
+
 const BaseMap = ({ children }) => {
     const mapRef = useRef(null);
+    // const mapContainerRef = document.getElementById("mainMap").client;
     const dispatch = useDispatch();
 
     const {
@@ -35,8 +51,11 @@ const BaseMap = ({ children }) => {
         zoom: 2.7,
         pitch: 0,
         bearing: 0,
+        width: 0,
+        height: 0
     });
 
+    // To move the map view to the tracked traffic
     useEffect(() => {
         if (tracking && traffic) {
             setViewState((prevState) => ({
@@ -49,6 +68,7 @@ const BaseMap = ({ children }) => {
         }
     }, [tracking, traffic]);
 
+    // To make map view to follow local user traffic
     useEffect(() => {
         if (movingMap &&
                 liveTrafficAvailable &&
@@ -84,6 +104,7 @@ const BaseMap = ({ children }) => {
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
+    // adjust map height
     useEffect(() => {
         const navbarHeight = document.querySelector(".main-navbar").clientHeight;
         const mapHeight = `calc(100dvh - ${navbarHeight}px)`;
@@ -93,14 +114,34 @@ const BaseMap = ({ children }) => {
         }));
     }, []);
 
+    // set map width and height in the viewState when component mount
+    useEffect(() => {
+        const mapElement = document.getElementById("mainMap");
+        if (mapElement && mapRef.current) {
+            const mapHeight = mapElement.clientHeight || 0;
+            const mapWidth = mapElement.clientWidth || 0;
+            setViewState((prevState) => ({
+                ...prevState,
+                width: mapWidth,
+                height: mapHeight
+            }));
+        }
+    }, [mapRef.current]);
 
+    // change map view, update map height and width
     const onMove = useCallback(({ viewState }) => {
+        const mapElement = document.getElementById("mainMap");
+        const mapHeight = mapElement?.clientHeight || 0;
+        const mapWidth = mapElement?.clientWidth || 0;
         setViewState({
             longitude: viewState.longitude,
             latitude: viewState,
+            height: mapHeight,
+            width: mapWidth,
             ...viewState
         });
     }, []);
+
 
     const initializeTerrainSource = useCallback((map) => {
         if (!terrainEnable) {
@@ -178,7 +219,18 @@ const BaseMap = ({ children }) => {
                 <TelemetryPanel/>
                 <NavigationControl position="bottom-left"/>
                 {AirportLayers}
-                {children}
+                {/*pass view state to children to be use in the MainTrafficLayer*/}
+                {React.Children.toArray(children)
+                    .filter(Boolean) // Filter out null/undefined
+                    .map(child =>
+                        React.isValidElement<ChildProps>(child)
+                            ? React.cloneElement(child, {
+                                viewState: {
+                                    ...viewState,
+                                }
+                            })
+                            : child
+                    )}
             </Map>
         </div>
     );

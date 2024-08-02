@@ -22,8 +22,25 @@ import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
 import renderLocalTrackFlightLayer from "./renderLocalTrackFlightLayer";
 import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "./WebSocketContext";
+import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
+import { filter } from "lodash";
 
-interface MainTrafficLayerProps {
+
+interface Viewport {
+    longitude: number;
+    latitude: number;
+    zoom: number;
+    width: number;
+    height: number;
+    pitch: number;
+    bearing: number;
+}
+
+interface ChildProps {
+    viewState: Viewport;
+}
+
+interface MainTrafficLayerProps extends ChildProps {
     vatsimPilots: Array<VatsimFlight>;
     movingMap: boolean;
     trafficLayerVisible: boolean;
@@ -37,9 +54,11 @@ interface PickedTraffic extends PickingInfo {
 const MainTrafficLayer = ({
     vatsimPilots,
     trafficLayerVisible,
-    movingMap
+    movingMap,
+    viewState
 }:
         MainTrafficLayerProps) => {
+
 
     const dispatch = useDispatch();
     let isHovering = false;
@@ -58,14 +77,22 @@ const MainTrafficLayer = ({
         skip: !selectTraffic
     });
 
+    // only return traffic within the viewport
+    const filteredTrafficData = useMemo(() => {
+        return filterTrafficDataInViewport(vatsimPilots, viewState);
+    }, [vatsimPilots, viewState]);
+
+    // console.log("total vatsim traffic:", vatsimPilots.length);
+    // console.log("total filtered traffic:", filteredTrafficData.length);
+
     const { flightData } = useWebSocketContext();
 
-    const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable && trafficLayerVisible);
+    const trafficLayer3D = trafficLayer_3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
 
     // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
-        return trafficLayer_2D(vatsimPilots, !terrainEnable && trafficLayerVisible);
-    }, [terrainEnable, vatsimPilots, trafficLayerVisible]);
+        return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    }, [terrainEnable, filteredTrafficData, trafficLayerVisible]);
 
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
@@ -82,7 +109,6 @@ const MainTrafficLayer = ({
             dispatch(setSelectedTraffic(mapSearchSelectedTraffic));
         }
     }, [mapSearchSelectedTraffic]);
-
 
     useEffect(() => {
         if (trackError) {
