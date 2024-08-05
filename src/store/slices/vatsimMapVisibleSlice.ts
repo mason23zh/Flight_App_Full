@@ -127,18 +127,24 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
-            if (action.payload && state.mapFilterButtonToggle) {
+            if (action.payload && (state.mapFilterButtonToggle || state.searchBoxVisible)) {
                 state.mapFilterButtonToggle = false;
+                state.searchBoxVisible = false;
             }
         },
         toggleMapFilterButton(state, action) {
             state.mapFilterButtonToggle = action.payload;
-            if (action.payload && state.mapStyleButtonToggle) {
+            if (action.payload && (state.mapStyleButtonToggle || state.searchBoxVisible)) {
                 state.mapStyleButtonToggle = false;
+                state.searchBoxVisible = false;
             }
         },
         toggleSearchBox(state, action) {
             state.searchBoxVisible = action.payload;
+            if (action.payload && (state.mapStyleButtonToggle || state.mapFilterButtonToggle)) {
+                state.mapStyleButtonToggle = false;
+                state.mapFilterButtonToggle = false;
+            }
         }
     }
 });

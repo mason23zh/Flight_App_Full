@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
@@ -19,6 +19,7 @@ const SearchButton = ({
     tooltipMessage
 }: Props) => {
     const dispatch = useDispatch();
+    const [showSearchBox, setShowSearchBox] = useState(false);
     const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
@@ -40,9 +41,15 @@ const SearchButton = ({
 
     const styledIcon = React.cloneElement(<IoSearchSharp/>, { "className": iconClass });
 
+    useEffect(() => {
+        setShowSearchBox(searchBoxVisible);
+    }, [searchBoxVisible]);
+
     const handleClick = () => {
         resetTooltip();
-        dispatch(toggleSearchBox(!searchBoxVisible));
+        const tempState = !showSearchBox;
+        dispatch(toggleSearchBox(tempState));
+        setShowSearchBox(tempState);
     };
 
     const activeButtonClass = searchBoxVisible ? activeClass : inActiveClass;
@@ -61,7 +68,7 @@ const SearchButton = ({
                     {styledIcon}
                 </button>
             </div>
-            {searchBoxVisible && <SearchBox visible={searchBoxVisible}/>}
+            {searchBoxVisible && <SearchBox visible={showSearchBox}/>}
             {(tooltipVisible && !isTouchScreen) &&
                 <div
                     className="fixed px-2 py-1 bg-black text-white
