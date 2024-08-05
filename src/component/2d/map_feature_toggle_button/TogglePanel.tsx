@@ -114,7 +114,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                 <div className={childStyle}>
 
                     <SearchButton
-                        tooltipMessage="TEST"
+                        tooltipMessage="Search"
                         isTouchScreen={isTouchScreen}
                     />
 

@@ -5,13 +5,13 @@ import { RootState } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import SearchBox from "./SearchBox";
 import MapFeaturesToggleButtonGroup from "../MapFeaturesToggleButtonGroup";
+import useDisplayTooltip from "../../../../hooks/useDisplayTooltip";
 
 interface Props {
     tooltipMessage: string;
     isTouchScreen: boolean;
 }
 
-//TODO: Missing tooltip
 //TODO: Search box not close when other tool panel open
 
 const SearchButton = ({
@@ -20,6 +20,15 @@ const SearchButton = ({
 }: Props) => {
     const dispatch = useDispatch();
     const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+        resetTooltip,
+        mousePosition
+    } = useDisplayTooltip(600);
 
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
@@ -32,6 +41,7 @@ const SearchButton = ({
     const styledIcon = React.cloneElement(<IoSearchSharp/>, { "className": iconClass });
 
     const handleClick = () => {
+        resetTooltip();
         dispatch(toggleSearchBox(!searchBoxVisible));
     };
 
@@ -44,11 +54,26 @@ const SearchButton = ({
                     id="search-button"
                     className={activeButtonClass}
                     onClick={handleClick}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseMove={handleMouseMove}
                 >
                     {styledIcon}
                 </button>
             </div>
             {searchBoxVisible && <SearchBox visible={searchBoxVisible}/>}
+            {(tooltipVisible && !isTouchScreen) &&
+                <div
+                    className="fixed px-2 py-1 bg-black text-white
+                        text-xs rounded-md pointer-events-none z-40"
+                    style={{
+                        top: mousePosition.y + 15,
+                        left: mousePosition.x + 15,
+                    }}
+                >
+                    {tooltipMessage}
+                </div>
+            }
         </>
     );
 };
