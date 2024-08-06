@@ -80,7 +80,7 @@ const AirportInfoExpandContent_Weather = ({
 
     if (airportData && taf) {
         return (
-            <div>
+            <div className="p-1 rounded-lg max-h-full overflow-y-auto">
                 <div className="p-1 grid grid-cols-1 text-sm">
                     <div className="font-bold">
                         METAR

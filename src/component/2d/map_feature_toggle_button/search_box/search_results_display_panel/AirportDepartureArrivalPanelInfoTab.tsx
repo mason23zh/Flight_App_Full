@@ -40,12 +40,12 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
 
     // TODO: Add airport panel
     return (
-        <div className="grid grid-cols-1 font-Rubik gap-2 max-h-[500px] overflow-y-auto">
+        <div className="grid grid-cols-1 font-Rubik gap-2 max-h-full overflow-y-auto p-2 rounded-md">
             <div
                 onClick={handleWeatherClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
             >
-                <div className="items-center text-[18px] text-center">
+                <div className="items-center text-[17px] sm:text-[18px] text-center">
                     Weather
                 </div>
                 {weatherPanel &&
@@ -62,7 +62,7 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
                 onClick={handleAtcClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
             >
-                <div className="items-center text-[18px] text-center">
+                <div className="items-center text-[17px] sm:text-[18px] text-center">
                     ATIS
                 </div>
                 {atcPanel &&

@@ -54,7 +54,7 @@ const AirportInfoExpandContentAtis = ({
             }
 
             return (
-                <div>
+                <div className="">
                     {vatsimAtis.length > 0 &&
                                 renderAtisList(vatsimAtis, true)
                     }
