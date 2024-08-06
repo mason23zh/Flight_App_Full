@@ -70,10 +70,13 @@ const SearchBox = () => {
         dispatch(setTabSelection(key));
     };
 
-    // TODO: Improve style, add animation 
-    const searchBoxStyle = "absolute sm:left-[110%] bottom-[150%] sm:bottom-auto " +
-            "bg-gray-500 min-w-[350px] sm:max-w-[350px] " +
-            "rounded-lg grid grid-cols-1 text-gray-100 max-h-[500px] sm:max-h-[700px]";
+    // TODO: Improve style, add animation
+    const searchBoxStyle =
+            "fixed left-auto right-auto top-[60px] z-50 min-w-[350px] " +
+            "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +
+            "bg-gray-500 max-h-[80vh] sm:max-h-[70vh] " +
+            "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
+
     return (
         <div
             className={searchBoxStyle}>
