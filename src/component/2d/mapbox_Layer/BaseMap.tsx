@@ -28,6 +28,7 @@ interface BaseMapProps {
 const BaseMap = ({ children }: BaseMapProps) => {
     const mapRef = useRef(null);
     // const mapContainerRef = document.getElementById("mainMap").client;
+    const [navigationPosition, setNavigationPosition] = useState<"bottom-left" | "top-left">("bottom-left");
     const dispatch = useDispatch();
 
     const {
@@ -103,8 +104,19 @@ const BaseMap = ({ children }: BaseMapProps) => {
         position: "absolute"
     });
 
-
     const { airportLayers: AirportLayers } = useAirportsLayers();
+
+    // Change navigation position based on the screen size when component mounted
+    useEffect(() => {
+        const mapElement = document.getElementById("mainMap");
+        //640px is the value for tailwind to switch to 'sm' view
+        if (mapElement && mapElement.clientWidth <= 640) {
+            setNavigationPosition("top-left");
+        } else {
+            setNavigationPosition("bottom-left");
+        }
+    }, []);
+
 
     // adjust map height
     useEffect(() => {
@@ -223,7 +235,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     }
                     <TogglePanel mapRef={mapRef}/>
                     <TelemetryPanel/>
-                    <NavigationControl position="bottom-left"/>
+                    <NavigationControl position={navigationPosition}/>
                     {AirportLayers}
                     {children}
                 </Map>

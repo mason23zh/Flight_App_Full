@@ -42,7 +42,7 @@ const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
     }
 
     return (
-        <div className="h-[500px]">
+        <div className="h-[300px] sm:h-[500px]">
             <AutoSizer>
                 {({
                     height,

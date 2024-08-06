@@ -16,11 +16,7 @@ import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 
-interface SearchBoxProps {
-    visible: boolean;
-}
-
-const SearchBox = ({ visible }: SearchBoxProps) => {
+const SearchBox = () => {
     const dispatch = useDispatch();
     const {
         searchInput,
@@ -73,12 +69,11 @@ const SearchBox = ({ visible }: SearchBoxProps) => {
     const handleTabSelect = (key: string) => {
         dispatch(setTabSelection(key));
     };
-    console.log("visible", visible);
 
     // TODO: Improve style, add animation 
     const searchBoxStyle = "absolute sm:left-[110%] bottom-[150%] sm:bottom-auto " +
-            "bg-gray-500 min-w-[350px] " +
-            "rounded-lg grid grid-cols-1 text-gray-100";
+            "bg-gray-500 min-w-[350px] sm:max-w-[350px] " +
+            "rounded-lg grid grid-cols-1 text-gray-100 max-h-[500px] sm:max-h-[700px]";
     return (
         <div
             className={searchBoxStyle}>

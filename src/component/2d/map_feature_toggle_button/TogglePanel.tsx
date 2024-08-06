@@ -39,7 +39,6 @@ const TogglePanel = ({ mapRef }: Props) => {
         movingMap,
         mapFollowTraffic,
         displayTelemetry,
-        searchBoxVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {

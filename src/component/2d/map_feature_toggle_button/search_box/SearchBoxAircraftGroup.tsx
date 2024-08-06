@@ -2,7 +2,7 @@ import React from "react";
 import { GroupedFlight } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
-    openSearchResults, openTrafficDetail,
+    openSearchResults,
     setAircraftListDisplay,
     setAirportDepartureArrivalDisplay, setFilterAircraftOnMap_aircraft, setFilterAircraftOnMap_airport,
     setMapSearchSelectedAircraft, setSelectedAircraftCategory,
@@ -38,17 +38,19 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
     return (
         <div
             onClick={handleClick}
-            className="font-Rubik grid grid-cols-4 gap-2
-        items-center w-full border-b p-1 hover:bg-gray-400 hover:cursor-pointer">
-            <div className="col-span-1">
+            className="font-Rubik grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2
+        items-center sm:w-auto border-b p-1 hover:bg-gray-400 hover:cursor-pointer max-w-[300px] ">
+            <div className="sm:col-span-1">
                 {aircraft.aircraftType}
             </div>
-            <div className="col-span-2">
+            <div className="sm:col-span-2">
                 {aircraft.flights[0].flight_plan?.aircraft_name || "-"}
             </div>
-            <div className="flex gap-1 col-span-1">
-                <div>Online:</div>
-                <div>{aircraft.flights.length}</div>
+            <div className="sm:col-span-1 sm:block hidden">
+                <div className="flex gap-1">
+                    <div>Online:</div>
+                    <div>{aircraft.flights.length}</div>
+                </div>
             </div>
         </div>
     );
