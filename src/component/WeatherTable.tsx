@@ -221,7 +221,7 @@ function WeatherTable({ expandedContent }) {
         return <Skeleton className="h-8 w-auto" times={10}/>;
     }
     if (error) {
-        return <div>Error</div>;
+        return <div>No Results</div>;
     }
 
     const handleSortClick = () => {

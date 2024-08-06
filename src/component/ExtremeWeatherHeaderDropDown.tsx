@@ -134,7 +134,7 @@ function ExtremeWeatherHeaderDropDown() {
             />
         );
     }
-      
+
 
     return (
         <div className="text-sm flex items-center justify-center p-3 md:text-lg">
