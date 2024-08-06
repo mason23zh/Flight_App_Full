@@ -16,7 +16,6 @@ import {
 import { changeUserSelection } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
 
-//TODO: TS-ERROR
 function ExtremeWeatherHeader() {
     const darkMode = useTheme();
     const buttonClasses = darkMode
