@@ -76,7 +76,6 @@ const MainMap = () => {
         }
         return null;
     };
-    //TODO: TS-ERROR 
     return (
         <CustomProvider theme="light">
             <div>

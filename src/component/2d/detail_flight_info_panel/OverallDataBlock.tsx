@@ -9,6 +9,7 @@ import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { BiTargetLock } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setTrafficTracking } from "../../../store";
+import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 
 
 const OverallDataBlock = ({
@@ -20,6 +21,7 @@ const OverallDataBlock = ({
     enroute,
     progress
 }) => {
+    const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
 
@@ -28,6 +30,13 @@ const OverallDataBlock = ({
         handleMouseLeave,
         handleMouseMove,
         tooltipVisible,
+    } = useDisplayTooltip(200);
+
+    const {
+        handleMouseMove: handleTrackMouseMove,
+        handleMouseLeave: handleTrackMouseLeave,
+        handleMouseEnter: handleTrackMouseEnter,
+        tooltipVisible: trackTooltipVisible,
     } = useDisplayTooltip(200);
 
     const handleTrackingClick = () => {
@@ -46,8 +55,22 @@ const OverallDataBlock = ({
                         </div>
                         <div
                             onClick={handleTrackingClick}
-                            className="text-gray-100 text-[17px] hover:cursor-pointer hover:text-gray-300">
+                            onMouseEnter={handleTrackMouseEnter}
+                            onMouseLeave={handleTrackMouseLeave}
+                            onMouseMove={handleTrackMouseMove}
+                            className="text-gray-100 text-[17px] hover:cursor-pointer hover:text-gray-300 relative">
                             <BiTargetLock/>
+                            {(trackTooltipVisible && !isTouchScreen) &&
+                                <div className="absolute left-full top-1/2 
+                                transform -translate-y-1/2 ml-2
+                                bg-blue-500 text-white text-xs
+                                rounded-md px-2 py-1 flex whitespace-nowrap"
+                                >
+                                    <div>
+                                        Move to traffic
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                     {
@@ -63,7 +86,7 @@ const OverallDataBlock = ({
                                 onMouseMove={handleMouseMove}
                             >
                                 <IoInformationCircleOutline/>
-                                {tooltipVisible &&
+                                {(tooltipVisible && !isTouchScreen) &&
                                 <div
                                     className="fixed px-2 py-1 bg-blue-500 rounded-md
                                     flex flex-col text-xs font-Rubik text-gray-100
