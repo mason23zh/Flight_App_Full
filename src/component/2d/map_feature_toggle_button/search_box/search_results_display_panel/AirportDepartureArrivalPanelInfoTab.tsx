@@ -3,6 +3,7 @@ import { LocalDbAirport } from "../../../../../types";
 import AirportInfoExpandContent_Weather from "./AirportInfoExpandContent_Weather";
 import { useFetchDetailAirportWithICAOQuery } from "../../../../../store";
 import AirportInfoExpandContent_Atis from "./AirportInfoExpandContent_Atis";
+import AirportInfoExpandContent_AirportInfo from "./AirportInfoExpandContent_AirportInfo";
 
 interface Props {
     airport: LocalDbAirport;
@@ -24,10 +25,12 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
 
     const [weatherPanel, setWeatherPanel] = useState(false);
     const [atcPanel, setAtcPanel] = useState(false);
+    const [airportInfoPanel, setAirportInfoPanel] = useState(false);
 
     useEffect(() => {
         setWeatherPanel(false);
         setAtcPanel(false);
+        setAirportInfoPanel(false);
     }, []);
 
     const handleWeatherClick = () => {
@@ -38,7 +41,10 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
         setAtcPanel(prev => !prev);
     };
 
-    // TODO: Add airport panel
+    const handleAirportInfoClick = () => {
+        setAirportInfoPanel(prev => !prev);
+    };
+
     return (
         <div className="grid grid-cols-1 font-Rubik gap-2 max-h-full overflow-y-auto p-2 rounded-md">
             <div
@@ -67,6 +73,21 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
                 </div>
                 {atcPanel &&
                     <AirportInfoExpandContent_Atis
+                        airportData={airportData}
+                        airportError={airportDataError}
+                        airportFetching={airportDataFetching}
+                    />
+                }
+            </div>
+            <div
+                onClick={handleAirportInfoClick}
+                className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
+            >
+                <div className="items-center text-[17px] sm:text-[18px] text-center">
+                    Info
+                </div>
+                {airportInfoPanel &&
+                    <AirportInfoExpandContent_AirportInfo
                         airportData={airportData}
                         airportError={airportDataError}
                         airportFetching={airportDataFetching}
