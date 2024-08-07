@@ -33,9 +33,9 @@ const SearchBox = () => {
     const searchResults = useLiveQuery(
         async () => {
             try {
-                const airports = await searchAirports(searchInput);
-                const vatsimTraffic = await searchVatsimTraffic(searchInput);
-                const aircraftType = await searchByAircraftType(searchInput);
+                const airports = await searchAirports(searchInput.trim());
+                const vatsimTraffic = await searchVatsimTraffic(searchInput.trim());
+                const aircraftType = await searchByAircraftType(searchInput.trim());
 
                 return {
                     airports,
