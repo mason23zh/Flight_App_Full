@@ -16,7 +16,6 @@ import HomeVatsimEvents from "./HomeVatsimEvents";
 function Home() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);
-    //TODO: might cache the data
     const {
         data,
         error,

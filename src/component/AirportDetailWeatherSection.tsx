@@ -1,85 +1,57 @@
-import React, { useEffect, useState } from "react";
-import { useFetchMetarByICAOQuery } from "../store";
+import React from "react";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
+import { Weather } from "../types";
 
-function AirportDetailWeatherSection({ icao }) {
-    const [skipRender, setSkipRender] = useState(true);
-    const [ICAO, setICAO] = useState("");
-    useEffect(() => {
-        if (icao) {
-            setICAO(icao);
-            setSkipRender(false);
-        }
-    }, [icao]);
+interface Props {
+    metar: Weather;
+}
 
-    const {
-        data: metar,
-        error,
-        isFetching
-    } = useFetchMetarByICAOQuery({
-        icao: ICAO,
-        decode: true
-    }, {
-        skip: skipRender,
-        refetchOnMountOrArgChange: true,
-    });
+function AirportDetailWeatherSection({ metar }: Props) {
 
-
-    if (error) {
+    if (!metar) {
         return (
             <div>
-                Unable to fetch weather for {icao.toUpperCase()}
-            </div>
-        );
-    }
-
-    if (isFetching) {
-        return (
-            <div>
-                Fetching weather for {icao.toUpperCase()}
+                Unable to fetch weather
             </div>
         );
     }
 
     if (metar) {
-        if (metar.data && metar.results !== 0) {
-            const { data } = metar;
-            const {
-                conditions = [],
-                clouds,
-                flight_category,
-                raw_text,
-                temperature,
-                dewpoint,
-                humidity,
-                wind,
-                visibility,
-                barometer,
+        const {
+            conditions = [],
+            clouds,
+            flight_category,
+            raw_text,
+            temperature,
+            dewpoint,
+            humidity,
+            wind,
+            visibility,
+            barometer,
+        } = metar;
 
-            } = data[0];
-            const renderRawText = (
-                // Limit the width here to show the click chevron
-                <div className="w-[95%]">
-                    {raw_text}
-                </div>
-            );
-            return (
-                <div className="w-auto">
-                    <AirportDetailWeatherPanel
-                        raw_text={renderRawText}
-                        flightCategory={flight_category}
-                        temperature={temperature}
-                        dewpoint={dewpoint}
-                        barometer={barometer}
-                        clouds={clouds}
-                        conditions={conditions}
-                        humidity={humidity}
-                        wind={wind}
-                        visibility={visibility}
-                    />
-                </div>
-            );
-        }
+        const renderRawText = (
+            // Limit the width here to show the click chevron
+            <div className="w-[95%]">
+                {raw_text}
+            </div>
+        );
+        return (
+            <div className="w-auto">
+                <AirportDetailWeatherPanel
+                    raw_text={renderRawText}
+                    flightCategory={flight_category}
+                    temperature={temperature}
+                    dewpoint={dewpoint}
+                    barometer={barometer}
+                    clouds={clouds}
+                    conditions={conditions}
+                    humidity={humidity}
+                    wind={wind}
+                    visibility={visibility}
+                />
+            </div>
+        );
     }
 }
 

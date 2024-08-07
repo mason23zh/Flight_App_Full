@@ -33,7 +33,6 @@ function AirportDetailTafSection({ icao }) {
             const { data } = tafData;
             const {
                 forecast,
-                icao: tafICAO,
                 raw_text,
             } = data[0];
             const renderRawText = () => {
@@ -51,7 +50,6 @@ function AirportDetailTafSection({ icao }) {
                 <div className="w-auto">
                     <AirportDetailTafPanel
                         forecast={forecast}
-                        icao={tafICAO}
                         raw_text={renderRawText()}
                     />
                 </div>

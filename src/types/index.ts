@@ -75,7 +75,9 @@ interface Weather {
     station: Station,
     temperature: Temperature,
     visibility: Visibility,
-    wind: Wind
+    wind: Wind,
+    conditions?: [{ code: string, text: string }],
+    flight_category: string | null,
 }
 
 interface Airport {

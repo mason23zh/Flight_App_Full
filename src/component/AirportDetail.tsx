@@ -23,7 +23,6 @@ import { RootState, useFetchDetailAirportWithICAOQuery } from "../store";
 import { DetailAirportResponseQuery } from "../store/apis/airportsApi";
 import Airports from "./Airports";
 
-//TODO: request sent multiple times.
 function AirportDetail() {
     const darkMode = useTheme();
     const themeMode = darkMode ? "dark" : "light";
@@ -107,7 +106,7 @@ function AirportDetail() {
                         />
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                        <AirportDetailWeatherSection icao={ICAO}/>
+                        <AirportDetailWeatherSection metar={metar}/>
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailTafSection icao={ICAO}/>
