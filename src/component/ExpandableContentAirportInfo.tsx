@@ -4,13 +4,15 @@ import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSelectedAirportICAO } from "../store";
 
- 
 function ExpandableContentAirportInfo({
     row,
     airportData
 }) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const {
         degrees,
         speed_kts
@@ -118,7 +120,7 @@ function ExpandableContentAirportInfo({
 
 
     const handleClick = () => {
-        localStorage.setItem("airportData", JSON.stringify(airportData));
+        dispatch(setSelectedAirportICAO(airportData.ICAO));
         navigate(`/airport/detail/${airportData.ICAO}`);
     };
 

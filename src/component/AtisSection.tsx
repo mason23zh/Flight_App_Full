@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Panel } from "rsuite";
+import { DetailAirportResponseAtis } from "../types";
 
-function AtisSection({ ATIS }) {
-    interface Atis {
-        faa: [{
-            airport: string,
-            code: string,
-            datis: string,
-            type: string
-        }] | [],
-        vatsim: [{
-            type: string,
-            code: string,
-            datis: string
-        }] | []
-    }
+interface Props {
+    ATIS: DetailAirportResponseAtis;
+}
 
-    // type Atis = AtisType1 | AtisType2
+function AtisSection({ ATIS }: Props) {
 
-    const [atis, setAtis] = useState<Atis>();
+    const [atis, setAtis] = useState<DetailAirportResponseAtis>();
     let renderATIS;
 
     useEffect(() => {
+        console.log("ATIS:", ATIS);
         setAtis(ATIS);
     }, [ATIS]);
 

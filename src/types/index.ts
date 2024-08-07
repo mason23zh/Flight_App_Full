@@ -179,7 +179,7 @@ interface VatsimTrackTraffic {
     track: [TrackObj]
 }
 
-interface Runway {
+export interface Runway {
     gsAngle: number,
     ilsFreq: number,
     ilsHdg: number,
@@ -197,7 +197,7 @@ interface Runway {
     thresholdOverflyAlt: number
 }
 
-interface DetailAirportResponseAtis {
+export interface DetailAirportResponseAtis {
     faa: [{ code: string, datis: string, airport: string }] | [],
     vatsim: [{ code: string, datis: string }] | []
 }
@@ -331,7 +331,7 @@ interface Fss {
     text_atis: string[],
     last_updated: string,
     logon_time: string,
-    firInfo: {}
+    firInfo: object,
 }
 
 

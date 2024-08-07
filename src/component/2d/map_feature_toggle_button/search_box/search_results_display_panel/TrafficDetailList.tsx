@@ -18,7 +18,7 @@ const TrafficDetailList = ({
     const rowHeights = useRef<{ [index: number]: number }>({});
 
     if (!flights || flights.length === 0) {
-        return <div>No Traffic</div>;
+        return <div className="p-2">No Traffic</div>;
     }
 
     const setRowHeight = (index: number, size: number) => {

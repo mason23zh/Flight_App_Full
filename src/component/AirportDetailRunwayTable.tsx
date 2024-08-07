@@ -4,7 +4,7 @@ import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
 import AirportDetailRunwayTableIconContext from "./AirportDetailRunwayTable_IconContext";
-import { Weather } from "../types/index";
+import { Runway, Weather } from "../types/index";
 
 const {
     Column,
@@ -12,11 +12,15 @@ const {
     Cell
 } = Table;
 
+interface Props {
+    runways: Array<Runway>;
+    metar: Weather;
+}
 
 function AirportDetailRunwayTable({
     runways,
     metar
-}) {
+}: Props) {
 
     const [sortColumn, setSortColumn] = useState();
     const [sortType, setSortType] = useState();
@@ -114,18 +118,18 @@ function AirportDetailRunwayTable({
     };
 
 
-    const sortData = () => runways.sort((a, b) => {
-        if (sortColumn && sortType) {
-            const x = a[sortColumn];
-            const y = b[sortColumn];
-
-            if (sortType === "asc") {
-                return x - y;
-            }
-            return y - x;
-        }
-        return runways;
-    });
+    // const sortData = () => runways.sort((a, b) => {
+    //     if (sortColumn && sortType) {
+    //         const x = a[sortColumn];
+    //         const y = b[sortColumn];
+    //
+    //         if (sortType === "asc") {
+    //             return x - y;
+    //         }
+    //         return y - x;
+    //     }
+    //     return runways;
+    // });
 
     const handleColumnSort = (columnToBeSort, typeToBeSort) => {
         setSortColumn(columnToBeSort);
@@ -138,7 +142,7 @@ function AirportDetailRunwayTable({
             <Table
                 virtualized
                 height={600}
-                data={sortData()}
+                data={runways}
                 bordered
                 cellBordered
                 autoHeight

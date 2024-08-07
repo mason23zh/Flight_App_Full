@@ -95,6 +95,11 @@ import {
     mapDisplayPanelReducer
 } from "./slices/mapDisplayPanelSlice";
 
+import {
+    setSelectedAirportICAO,
+    airportSelectionReducer
+} from "./slices/airportSelectionSlice";
+
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -126,6 +131,7 @@ export const store = configureStore({
         mapSearchBox: mapSearchBoxReducer,
         mapDisplayPanel: mapDisplayPanelReducer,
         flightInfo: flightInfoReducer,
+        airportSelection: airportSelectionReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -249,6 +255,10 @@ export {
     openTrafficDetail,
     closeTrafficDetail,
     closeSearchResults
+};
+
+export {
+    setSelectedAirportICAO
 };
 
 export const persistor = persistStore(store);
