@@ -161,6 +161,14 @@
 # Beta 0.5.1
 
 - Added moving map to track local sim flight
+- Added search feature in the map
 - Added airport layout for all map styles
+- Map performance optimization
+- Fixed the issue that Detail Airport Page not loading correctly in some condition
+- Fixed the issue that partial traffic path remains in 3D mode if map is in 2D mode
+- Fixed the issue that traffic path is incorrect in 2D mode
+- Fixed the issue that theme mode does not apply in the Main Map correctly sometimes
+- Fixed the issue that map might freeze if load with terrain mode enabled
+- Applied change for the new Datis API format
 - Remove the hover popup arrow tip (controller maker)
 - Adjust the controller maker popup size for mobile device
