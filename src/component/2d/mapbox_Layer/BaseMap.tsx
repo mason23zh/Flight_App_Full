@@ -3,7 +3,7 @@ import { Map, NavigationControl, Source } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, setTrafficTracking } from "../../../store";
+import { RootState, setAirportTracking, setTrafficTracking } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
@@ -42,7 +42,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
         movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const { tracking } = useSelector((state: RootState) => state.flightInfo);
+    const { tracking: trafficTracking } = useSelector((state: RootState) => state.flightInfo);
+    const {
+        tracking: airportTracking,
+        selectedAirport: mapSearchSelectedAirport
+    }
+            = useSelector((state: RootState) => state.mapSearchAirport);
+
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
 
@@ -60,16 +66,29 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     // To move the map view to the tracked traffic
     useEffect(() => {
-        if (tracking && traffic) {
+        if (trafficTracking && traffic) {
             setViewState((prevState) => ({
                 ...prevState,
-                zoom: 5.0,
+                zoom: 10.0,
                 longitude: traffic.longitude,
                 latitude: traffic.latitude
             }));
             dispatch(setTrafficTracking(false));
         }
-    }, [tracking, traffic]);
+
+        if (airportTracking && mapSearchSelectedAirport) {
+            const lng = Number(mapSearchSelectedAirport.coordinates.split(",")[0]);
+            const lat = Number(mapSearchSelectedAirport.coordinates.split(",")[1]);
+            setViewState((prevState) => ({
+                ...prevState,
+                zoom: 13.0,
+                longitude: lng,
+                latitude: lat
+            }));
+            dispatch(setAirportTracking(false));
+        }
+
+    }, [trafficTracking, traffic, airportTracking, mapSearchSelectedAirport]);
 
     // To make map view to follow local user traffic
     useEffect(() => {

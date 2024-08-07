@@ -13,7 +13,6 @@ import {
     useFetchTrafficTrackDataQuery,
     setSelectedTraffic,
     RootState,
-    setAirportDepartureArrivalDisplay,
     closeTrafficDetail,
     openTrafficDetail
 } from "../../store";
@@ -23,7 +22,6 @@ import renderLocalTrackFlightLayer from "./renderLocalTrackFlightLayer";
 import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "./WebSocketContext";
 import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
-import { filter } from "lodash";
 
 
 interface Viewport {

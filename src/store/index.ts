@@ -65,7 +65,8 @@ import {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
     setFilterAircraftOnMap_airport,
-    mapSearchAirportReducer
+    mapSearchAirportReducer,
+    setAirportTracking,
 } from "./slices/mapSearchAirportSlice";
 
 import {
@@ -236,7 +237,8 @@ export { setMapSearchSelectedTraffic };
 export {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
-    setFilterAircraftOnMap_airport
+    setFilterAircraftOnMap_airport,
+    setAirportTracking
 };
 
 export { setTrafficTracking };

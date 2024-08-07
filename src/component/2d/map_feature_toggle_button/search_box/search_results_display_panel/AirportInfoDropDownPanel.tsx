@@ -10,7 +10,6 @@ import {
     setMapSearchSelectedAirport
 } from "../../../../../store";
 
-//TODO: Add icon to move the camera to the airport
 interface Props {
     airport: LocalDbAirport;
 }

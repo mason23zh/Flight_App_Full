@@ -5,12 +5,14 @@ interface MapSearchAirportSlice {
     selectedAirport: LocalDbAirport | null;
     airportDepartureArrivalDisplay: boolean;
     filterAircraftOnMap: boolean;
+    tracking: boolean;
 }
 
 const initialState: MapSearchAirportSlice = {
     selectedAirport: null,
     airportDepartureArrivalDisplay: false,
     filterAircraftOnMap: false,
+    tracking: false,
 };
 
 const mapSearchAirportSlice = createSlice({
@@ -25,6 +27,9 @@ const mapSearchAirportSlice = createSlice({
         },
         setFilterAircraftOnMap_airport(state, action: PayloadAction<boolean>) {
             state.filterAircraftOnMap = action.payload;
+        },
+        setAirportTracking(state, action: PayloadAction<boolean>) {
+            state.tracking = action.payload;
         }
     }
 });
@@ -32,6 +37,7 @@ const mapSearchAirportSlice = createSlice({
 export const {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
-    setFilterAircraftOnMap_airport
+    setFilterAircraftOnMap_airport,
+    setAirportTracking
 } = mapSearchAirportSlice.actions;
 export const mapSearchAirportReducer = mapSearchAirportSlice.reducer;

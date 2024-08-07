@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
-    openSearchResults, setFilterAircraftOnMap_aircraft,
+    openSearchResults, setAirportTracking, setFilterAircraftOnMap_aircraft,
     setFilterAircraftOnMap_airport,
-    setMapSearchSelectedAirport
+    setMapSearchSelectedAirport, setTrafficTracking
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 
@@ -40,6 +40,10 @@ const SearchBoxAirportElement = ({
         dispatch(setFilterAircraftOnMap_airport(true));
         // Open search result list
         dispatch(openSearchResults("AIRPORT"));
+        // make sure the flight tracking is off
+        dispatch(setTrafficTracking(false));
+        // move the map to the airport
+        dispatch(setAirportTracking(true));
     };
 
     return (

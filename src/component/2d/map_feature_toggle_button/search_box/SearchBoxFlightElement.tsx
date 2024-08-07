@@ -4,7 +4,7 @@ import { VatsimFlight } from "../../../../types";
 import {
     openTrafficDetail,
     setAircraftListDisplay,
-    setAirportDepartureArrivalDisplay,
+    setAirportDepartureArrivalDisplay, setAirportTracking,
     setMapSearchSelectedTraffic, setSelectedTraffic, setTrafficTracking
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
@@ -34,6 +34,8 @@ const SearchBoxFlightElement = ({
         dispatch(setAirportDepartureArrivalDisplay(false));
         dispatch(openTrafficDetail());
         dispatch(toggleSearchBox(false));
+        // make sure airport tracking is off
+        dispatch(setAirportTracking(false));
         // set selected traffic to current traffic and move the map focus on this traffic
         dispatch(setSelectedTraffic(flight));
         dispatch(setTrafficTracking(true));

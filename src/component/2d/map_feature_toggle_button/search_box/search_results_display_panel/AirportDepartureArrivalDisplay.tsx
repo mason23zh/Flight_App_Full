@@ -45,7 +45,7 @@ const AirportDepartureArrivalDisplay = ({
             <div className="mb-2 p-1 bg-gray-500">
                 <AirportInfoSection airport={airport}/>
             </div>
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1">
                 <Tabs defaultActiveKey="1">
                     <Tabs.Tab eventKey="1" title={`Departure (${departureTraffic?.length || 0})`}>
                         <TrafficDetailList
@@ -60,9 +60,7 @@ const AirportDepartureArrivalDisplay = ({
                         />
                     </Tabs.Tab>
                     <Tabs.Tab eventKey="3" title="Information">
-                        <div className="">
-                            <AirportDepartureArrivalPanelInfoTab airport={airport}/>
-                        </div>
+                        <AirportDepartureArrivalPanelInfoTab airport={airport}/>
                     </Tabs.Tab>
                 </Tabs>
             </div>
