@@ -23,6 +23,7 @@ import { RootState, useFetchDetailAirportWithICAOQuery } from "../store";
 import { DetailAirportResponseQuery } from "../store/apis/airportsApi";
 import Airports from "./Airports";
 
+//TODO: request sent multiple times.
 function AirportDetail() {
     const darkMode = useTheme();
     const themeMode = darkMode ? "dark" : "light";

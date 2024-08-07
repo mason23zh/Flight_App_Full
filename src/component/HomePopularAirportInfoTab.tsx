@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
 import { setSelectedAirportICAO } from "../store";
 import { useDispatch } from "react-redux";
- 
+
+//TODO: memo?
 function HomePopularAirportInfoTab({
     airport,
     counter
