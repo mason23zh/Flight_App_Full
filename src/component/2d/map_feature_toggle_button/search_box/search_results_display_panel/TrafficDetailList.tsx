@@ -47,10 +47,8 @@ const TrafficDetailList = ({
         </div>
     );
 
-
-    // const status = from ? "from" : "to";
     return (
-        <div className="h-[550px]">
+        <div className="h-[300px] sm:h-[500px]">
             <AutoSizer>
                 {({
                     height,

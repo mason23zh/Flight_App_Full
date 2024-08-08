@@ -16,11 +16,11 @@ const AirportDepartureArrivalDisplay = ({
 }: Props) => {
     const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
     const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
-
+   
     const style =
-            "text-white h-[60vh] sm:h-[70vh] bg-gray-500 z-[200] absolute left-1/2 top-0 transform -translate-x-1/2 " +
+            "text-white max-h-[80vh] sm:max-h-[70vh] bg-gray-500 z-[200] absolute left-1/2 top-0 transform -translate-x-1/2 " +
             "sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] w-[300px] sm:max-w-[350px] sm:min-w-[350px] " +
-            "top-[1vh] sm:top-auto rounded-lg overflow-hidden flex flex-col";
+            "top-[10vh] sm:top-auto rounded-lg overflow-hidden flex flex-col";
 
     useEffect(() => {
         (async () => {
@@ -39,6 +39,7 @@ const AirportDepartureArrivalDisplay = ({
             setDepartureTraffic(departureTraffic);
         })();
     }, [airport]);
+
 
     return (
         <div className={style}>

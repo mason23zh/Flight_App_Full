@@ -6,7 +6,7 @@ import WeatherTable from "./WeatherTable";
 import SubRowAsync from "./SubRowAsync";
 import { useTheme } from "../hooks/ThemeContext";
 import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
-  
+
 function ExtremeWeather() {
     const darkMode = useTheme();
     const renderExpandedContent = React.useCallback(({ row }) => (
@@ -29,7 +29,9 @@ function ExtremeWeather() {
                         </div>
                     </>
                 </div>
-                <div className="flex justify-center items-center p-5 ml-5 mr-5">
+                <div className="flex justify-center
+                items-center max-w-[350px] sm:max-w-[950px]
+                p-2 sm:p-5 ml-auto mr-auto">
                     <div className="overflow-auto">
                         <WeatherTable expandedContent={renderExpandedContent}/>
                     </div>

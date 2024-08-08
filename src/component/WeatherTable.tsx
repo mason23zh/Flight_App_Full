@@ -237,7 +237,7 @@ function WeatherTable({ expandedContent }) {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center gap-2">
+        <div className="flex flex-col justify-center items-center gap-2 w-full">
             <table
                 {...getTableProps()}
             >

@@ -10,8 +10,12 @@
 html, body, #root {
     height: 100%;
     margin: 0;
+    -webkit-overflow-scrolling: touch;
 }
 
+html {
+    overscroll-behavior: none;
+}
 
 @supports (height: 100dvh) {
     .h-screen-dvh {
@@ -46,7 +50,6 @@ html, body, #root {
 .rs-nav-item {
     color: gainsboro;
 }
-
 
 /*@keyframes fadein {*/
 /*    from {*/

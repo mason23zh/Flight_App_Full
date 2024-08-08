@@ -54,7 +54,7 @@ const TrafficDetailElement = ({
         <div
             ref={rowRef}
             onClick={handleOnClick}
-            className="bg-gray-500 grid-cols-1 p-1 border-b border-slate-400
+            className="bg-gray-500 grid-cols-1 p-2 border-b border-slate-400
             rounded-lg hover:cursor-pointer hover:bg-gray-600"
         >
             <div className="flex gap-2 font-Rubik font-bold">
