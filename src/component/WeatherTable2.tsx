@@ -9,9 +9,12 @@ import {
 } from "../util/selection_names";
 import GeneralLoading from "./GeneralLoading";
 import useIsTouchScreen from "../hooks/useIsTouchScreen";
+import ExtremeWeatherTableModal from "./ExtremeWeatherTable_Modal";
 
+//TODO: incorrect theme setting when component first mount
 interface Props {
     requestNumber: number;
+    tableHeight: number;
 }
 
 const {
@@ -19,38 +22,49 @@ const {
     HeaderCell,
     Cell
 } = Table;
+const rowKey = "icao";
 
-const WeatherTable2 = ({ requestNumber }: Props) => {
+const WeatherTable2 = ({
+    requestNumber,
+    tableHeight
+}: Props) => {
     const isTouchScreen = useIsTouchScreen();
     const {
         weather,
         scope,
         code
     } = useSelector((state: RootState) => state.extremeWeather.userSelection);
-    // default return 10 results
-    const [requestLimit, setRequestLimit] = useState(requestNumber);
+
     // default to asc order
     const [sortOrder, setSortOrder] = useState(1);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [selectedRowData, setSelectedRowData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [requestParams, setRequestParams] = useState<{ limit: number, sort: number }>({
-        limit: requestLimit,
+        limit: requestNumber,
         sort: sortOrder
     });
 
-
     /*
     * If screen width is below 640, do not render Airport Name column
-    * This change will be made only when the component is mounted at the first time
     * */
     useEffect(() => {
-        const pageElement = document.getElementById("root");
-        //640px is the value for tailwind to switch to 'sm' view
-        if (pageElement && pageElement.clientWidth <= 640) {
-            setIsSmallScreen(true);
-        } else {
-            setIsSmallScreen(false);
-        }
+        const detectIfSmallScreen = () => {
+            const rootWidth = document.getElementById("root")?.offsetWidth;
+            if (rootWidth <= 640) {
+                setIsSmallScreen(true);
+            } else {
+                setIsSmallScreen(false);
+            }
+        };
+        detectIfSmallScreen();
+        window.addEventListener("resize", detectIfSmallScreen);
+
+        return () => {
+            window.removeEventListener("resize", detectIfSmallScreen);
+        };
     }, []);
+
 
     /*
     * Change the request params to trigger rtkQuery to make new request
@@ -146,8 +160,6 @@ const WeatherTable2 = ({ requestNumber }: Props) => {
         return [];
     }, [metars, isFetching, error]);
 
-    console.log("weather row:", weatherRowData);
-
 
     if (isFetching) {
         return (
@@ -240,26 +252,36 @@ const WeatherTable2 = ({ requestNumber }: Props) => {
         }
     };
 
+    const handleRowClick = (rowData) => {
+        setSelectedRowData(rowData);
+        setIsModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setSelectedRowData(null);
+    };
 
     return (
         <div style={{
-            height: "100%",
+            height: tableHeight,
             width: "100%",
             overflowX: "auto",
             position: "relative",
 
         }}>
             <Table
+                shouldUpdateScroll={false}
                 autoHeight={false}
-                height={isSmallScreen ? 340 : 600}
+                height={tableHeight}
                 data={weatherRowData}
-                onRowClick={rowData => {
-                    console.log(rowData);
-                }}
+                onRowClick={handleRowClick}
                 onSortColumn={handleSortColumn}
                 hover={!isTouchScreen}
+                rowKey={rowKey}
+                virtualized
             >
-                <Column flexGrow={1} align="center">
+                <Column width={80} align="center">
                     <HeaderCell>ICAO</HeaderCell>
                     <Cell dataKey="icao"/>
                 </Column>
@@ -277,6 +299,12 @@ const WeatherTable2 = ({ requestNumber }: Props) => {
 
                 {renderDynamicDataColumn()}
             </Table>
+            {(setSelectedRowData) &&
+                <ExtremeWeatherTableModal
+                    rowData={selectedRowData}
+                    open={isModalOpen}
+                    onClose={handleModalClose}/>
+            }
         </div>
     );
 };

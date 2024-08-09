@@ -36,7 +36,6 @@ function AirportDetail() {
 
     const effectiveICAO = paramICAO ? paramICAO.toUpperCase() : airportICAO;
     const isValidICAO = /^[A-Z]{4}$/.test(effectiveICAO);
-    console.log("Effective ICAO:", effectiveICAO);
 
     const {
         data: fetchedAirportData,

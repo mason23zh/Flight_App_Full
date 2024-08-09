@@ -8,9 +8,9 @@ function SubRowAsync({ row }) {
         error,
         isFetching,
     } = useFetchBasicAirportWithICAOQuery(
-        row.original.icao,
+        row.icao,
     );
-     
+
 
     if (airport) {
         const airportData = airport.data[0];

@@ -6,6 +6,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setSelectedAirportICAO } from "../store";
+import { useTheme } from "../hooks/ThemeContext";
 
 function ExpandableContentAirportInfo({
     row,
@@ -13,10 +14,15 @@ function ExpandableContentAirportInfo({
 }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const darkMode = useTheme();
+
+    const bgGreenColor = darkMode ? "bg-green-600" : "bg-green-400";
+    const bgRedColor = darkMode ? "bg-red-600" : "bg-red-400";
+
     const {
         degrees,
         speed_kts
-    } = row.original.wind;
+    } = row.wind;
 
     const toRadians = (angle) => angle * (Math.PI / 180);
 
@@ -29,7 +35,7 @@ function ExpandableContentAirportInfo({
 
         if (crossWind <= 0) {
             crossWindButton = (
-                <div className="flex justify-center items-center p-1 bg-green-400 rounded-xl">
+                <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
                     <HiArrowNarrowLeft/>
                     <div>
                         {-crossWind} kts
@@ -38,7 +44,7 @@ function ExpandableContentAirportInfo({
             );
         } else if (crossWind > 0) {
             crossWindButton = (
-                <div className="flex justify-center items-center p-1 bg-green-400 rounded-xl">
+                <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
                     <HiArrowNarrowRight/>
                     <div>
                         {crossWind} kts
@@ -50,7 +56,7 @@ function ExpandableContentAirportInfo({
 
         if (headWind <= 0) {
             headWindButton = (
-                <div className="flex justify-center items-center p-1 bg-red-400 rounded-xl">
+                <div className={`flex justify-center items-center p-1 ${bgRedColor} rounded-xl`}>
                     <HiArrowNarrowUp/>
                     <div>
                         {-headWind} kts
@@ -59,7 +65,7 @@ function ExpandableContentAirportInfo({
             );
         } else if (headWind > 0) {
             headWindButton = (
-                <div className="flex justify-center items-center p-1 bg-green-400 rounded-xl">
+                <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
                     <HiArrowNarrowDown/>
                     <div>
                         {headWind} kts
@@ -84,8 +90,8 @@ function ExpandableContentAirportInfo({
     const airportTransAltitude = airportData.transitionAltitude;
 
     const renderedRunways = airportData.runways.map((runways) => (
-        <div key={runways.runway_id} className="p-3 flex flex-col ">
-            <div>
+        <div key={runways.runway_id} className="p-3 flex flex-col font-Rubik">
+            <div className="italic font-bold">
                 Runway {runways.runway_id}
             </div>
             <div>
@@ -128,7 +134,7 @@ function ExpandableContentAirportInfo({
         <div className="text-sm p-3 md:text-lg">
             <div className="flex flex-col justify-center items-center">
                 <div>
-                    {row.original.raw_text}
+                    {row.raw_text}
                 </div>
                 <div>
                     {airportElevation ? `Elevation: ${airportElevation} ft` : ""}

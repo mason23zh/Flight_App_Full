@@ -12,7 +12,6 @@ function AtisSection({ ATIS }: Props) {
     let renderATIS;
 
     useEffect(() => {
-        console.log("ATIS:", ATIS);
         setAtis(ATIS);
     }, [ATIS]);
 

@@ -26,7 +26,7 @@ function Weather() {
     } = useFetchMetarByGenericInputQuery({ data: userInput }, {
         skip: !userInput,
     });
- 
+
     // store data to localStorage to save the previous search results
     useEffect(() => {
         if (data) {
@@ -54,19 +54,21 @@ function Weather() {
     } else if (data) {
         renderedWeather = <WeatherList weather={data}/>;
     } else {
-        renderedWeather = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
+        renderedWeather = <div className="text-center text-xl flex-grow"><h3>Enter search query</h3></div>;
     }
 
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div>
+            <div className="flex flex-col flex-grow">
                 <HeroSection
                     backgroundImage={bgImg}
                     message={message}
                     placedHoldMessage={placeHolderMessage}
                     onSubmit={handleFormSubmit}
                 />
-                {renderedWeather}
+                <div className="flex flex-grow flex-col">
+                    {renderedWeather}
+                </div>
             </div>
         </CustomProvider>
     );

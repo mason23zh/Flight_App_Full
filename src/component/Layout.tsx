@@ -9,15 +9,15 @@ function Layout() {
     // const showFooter = true;
 
     return (
-        <div className="flex flex-col h-screen-dvh justify-between gap-0">
-            <header className="h-auto">
+        <div className="flex flex-col h-screen-dvh">
+            <header id="header" className="h-auto">
                 <Navbar/>
             </header>
-            <main className="mb-auto">
+            <main className="flex flex-grow flex-col">
                 <Outlet/>
             </main>
             {showFooter &&
-                <footer className="h-auto">
+                <footer id="footer" className="h-auto">
                     <Footer/>
                 </footer>
             }
