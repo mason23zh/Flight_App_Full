@@ -4,8 +4,9 @@ import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import { useTheme } from "../hooks/ThemeContext";
 import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
-import WeatherTable2 from "./WeatherTable2";
+import WeatherTable from "./WeatherTable";
 
+//TODO: Entire page move a little
 function ExtremeWeather() {
     const darkMode = useTheme();
     // number of weather to be requested, default to 20
@@ -20,7 +21,7 @@ function ExtremeWeather() {
             const buttonHeight = document.getElementById("weather-table-button")?.offsetHeight || 0;
             const windowHeight = window.innerHeight;
 
-            const availableHeight = windowHeight - headerHeight - heroHeight - footerHeight - buttonHeight - 5;
+            const availableHeight = windowHeight - headerHeight - heroHeight - footerHeight - buttonHeight;
             setTableHeight(availableHeight);
         };
 
@@ -45,20 +46,18 @@ function ExtremeWeather() {
             <div className={darkMode ? "bg-gray-400 min-h-screen-dvh flex flex-col" : "bg-gray-200 min-h-screen-dvh flex flex-col"}>
                 <div className="flex-grow">
                     <ExtremeWeatherHeroSection/>
-                    <>
-                        <div className="hidden transition-all ease-in-out ExWeatherHeadMd:block">
-                            <ExtremeWeatherHeader/>
-                        </div>
-                        <div className="transition-all ease-in-out ExWeatherHeadMd:hidden">
-                            <ExtremeWeatherHeaderDropDown/>
-                        </div>
-                    </>
+                    <div className="hidden transition-all ease-in-out md:block">
+                        <ExtremeWeatherHeader/>
+                    </div>
+                    <div className="transition-all ease-in-out md:hidden">
+                        <ExtremeWeatherHeaderDropDown/>
+                    </div>
+                    <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
                 </div>
-                <WeatherTable2 tableHeight={tableHeight} requestNumber={weatherDataNumber}/>
                 <div id="weather-table-button"
-                    className="relative bottom-0 left-0 right-0 py-1 shadow-md">
-                    <div className="grid grid-rows-1 justify-items-center px-2">
-                        <div className="justify-self-center flex items-center gap-3">
+                    className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
+                    <div className="px-2 flex justify-center items-center px-2">
+                        <div className="flex items-center gap-3">
                             <div
                                 className={`px-2 py-1 ${darkMode ? "bg-green-600" : "bg-green-400"} rounded-lg
                         text-sm hover:bg-amber-400 cursor-pointer`}
@@ -79,49 +78,6 @@ function ExtremeWeather() {
             </div>
         </CustomProvider>
     );
-
-    // return (
-    //     <>
-    //         <CustomProvider theme={darkMode ? "dark" : "light"}>
-    //             <div className="">
-    //                 <div className={darkMode ? "bg-gray-400" : "bg-gray-200"}>
-    //                     <ExtremeWeatherHeroSection/>
-    //                     <>
-    //                         <div className="hidden transition-all ease-in-out ExWeatherHeadMd:block">
-    //                             <ExtremeWeatherHeader/>
-    //                         </div>
-    //                         <div className="transition-all ease-in-out ExWeatherHeadMd:hidden">
-    //                             <ExtremeWeatherHeaderDropDown/>
-    //                         </div>
-    //                     </>
-    //                 </div>
-    //                 <WeatherTable2 requestNumber={weatherDataNumber}/>
-    //             </div>
-    //             <div className="relative bottom-0 left-0 right-0">
-    //                 <div>
-    //                     <div className="grid grid-rows-1 justify-items-center px-2 ">
-    //                         <div className="justify-self-center flex items-center gap-3">
-    //                             <div
-    //                                 className="px-2 py-1 bg-green-500 rounded-lg
-    //                             text-sm hover:bg-amber-400 cursor-pointer"
-    //                                 onClick={handleMoreDataClick}
-    //                             >
-    //                                 Load More Data
-    //                             </div>
-    //                             <div
-    //                                 className="px-2 py-1 bg-red-400 rounded-lg
-    //                             text-sm hover:bg-amber-400 cursor-pointer"
-    //                                 onClick={handleResetClick}
-    //                             >
-    //                                 Set Default
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </CustomProvider>
-    //     </>
-    // );
 }
 
 export default ExtremeWeather;

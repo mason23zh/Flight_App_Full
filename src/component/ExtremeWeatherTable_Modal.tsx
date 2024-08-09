@@ -11,7 +11,7 @@ const ExtremeWeatherTableModal = ({
     const renderModalTitle = () => {
         if (rowData) {
             return (
-                <div className="flex flex-col gap-2 p-1 italic font-Rubik">
+                <div className="flex flex-col gap-2 p-1 italic font-Rubik text-sm sm:text-lg">
                     <div>
                         {rowData.icao}
                     </div>

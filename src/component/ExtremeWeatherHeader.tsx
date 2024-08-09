@@ -145,7 +145,7 @@ function ExtremeWeatherHeader() {
     }
 
     return (
-        <div className="flex items-center justify-center gap-10 p-3 mt-1 relative">
+        <div className="flex items-center justify-center gap-10 p-3 relative">
             <button
                 onClick={() => handleWeatherButtonClick(WIND_SPEED)}
                 className={weatherActive.WIND_SPEED ? activeButtonClass : buttonClasses}

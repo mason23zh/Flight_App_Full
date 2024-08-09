@@ -13,7 +13,7 @@ function Layout() {
             <header id="header" className="h-auto">
                 <Navbar/>
             </header>
-            <main className="flex flex-grow flex-col">
+            <main className="flex flex-grow flex-col justify-between">
                 <Outlet/>
             </main>
             {showFooter &&

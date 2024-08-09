@@ -7,14 +7,19 @@
 @import "tailwindcss/utilities";
 
 
-html, body, #root {
+body, #root {
     height: 100%;
     margin: 0;
+    padding: 0;
     -webkit-overflow-scrolling: touch;
 }
 
 html {
     overscroll-behavior: none;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 @supports (height: 100dvh) {

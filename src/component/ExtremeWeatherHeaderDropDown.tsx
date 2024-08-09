@@ -137,7 +137,7 @@ function ExtremeWeatherHeaderDropDown() {
 
 
     return (
-        <div className="text-sm flex items-center justify-center p-3 md:text-lg">
+        <div className="text-sm flex items-center justify-center p-3 gap-2">
             <Dropdown title={userSelection.weather.replace("_", " ")}>
                 <Dropdown.Item
                     onSelect={() => handleWeatherButtonClick(WIND_SPEED)}
