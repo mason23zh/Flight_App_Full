@@ -3,7 +3,7 @@ import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import ExtremeWeatherHeroSectionScope from "./ExtremeWeatherHeroSectionScope";
 import backgroundImage from "../images/thunderstorm.jpg";
- 
+
 function ExtremeWeatherHeroSection() {
     const {
         weather,
@@ -22,7 +22,7 @@ function ExtremeWeatherHeroSection() {
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
-                    height: "200px",
+                    height: "150px",
                     width: "auto",
                 }}
             />

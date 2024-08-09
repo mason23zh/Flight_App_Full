@@ -19,7 +19,7 @@ import { Weather } from "../types";
 //     Header: string,
 //     accessor: string,
 // }
-
+//TODO: Refactor extreme weather table
 function WeatherTable({ expandedContent }) {
     const darkMode = useTheme();
     const darkModeClass = darkMode

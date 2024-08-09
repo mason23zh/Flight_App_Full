@@ -8,8 +8,6 @@ import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
 import { ViewStateProvider } from "../viewStateContext";
-import { DomEvent } from "leaflet";
-import preventDefault = DomEvent.preventDefault;
 
 
 export interface Viewport {
