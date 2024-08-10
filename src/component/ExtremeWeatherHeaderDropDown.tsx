@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown } from "rsuite";
+import { Dropdown, InputPicker } from "rsuite";
 import { useDispatch } from "react-redux";
 import Select from "react-select";
 import {
@@ -15,6 +15,9 @@ import {
 import { changeUserSelection } from "../store";
 import { COUNTRY_CODE } from "../util/country_code";
 import { CONTINENT_CODE } from "../util/contient_code";
+import { ItemDataType } from "rsuite/CascadeTree";
+
+//TODO: Dropdown menu messed up the style, need to add new input picker
 
 function ExtremeWeatherHeaderDropDown() {
     const dispatch = useDispatch();
@@ -106,39 +109,46 @@ function ExtremeWeatherHeaderDropDown() {
         setUserSelection(updatedSelection);
     };
 
-    const handleSelectChange = (arg) => {
+    const handleSelectChange = (_, item: ItemDataType) => {
         const updatedSelection = {
             ...userSelection,
-            code: { ...arg },
+            code: { ...item },
         };
+        console.log("updatedSelection", updatedSelection);
         setUserSelection(updatedSelection);
     };
 
     let renderedDropDown;
+
+
     if (showDropDown && userSelection.scope === COUNTRY) {
         renderedDropDown = (
-            <Select
-                options={COUNTRY_CODE}
-                placeholder="Select country..."
-                className="absolute top-[5%] w-auto text-black"
-                onChange={handleSelectChange}
+            <InputPicker
+                data={COUNTRY_CODE}
+                labelKey={"label"}
+                valueKey={"value"}
+                onSelect={(value, item) => handleSelectChange(value, item)}
+                style={{ width: 120 }}
+                placeholder="Select Country"
             />
         );
     } else if (showDropDown && userSelection.scope === CONTINENT) {
         renderedDropDown = (
-            <Select
-                options={CONTINENT_CODE}
-                placeholder="Select continent..."
-                className="text-sm absolute top-[5%] w-full text-black md:text-lg"
-                onChange={handleSelectChange}
+            <InputPicker
+                data={CONTINENT_CODE}
+                onSelect={(value, item) => handleSelectChange(value, item)}
+                style={{ width: 120 }}
+                placeholder="Select Continent"
             />
+
         );
     }
 
 
     return (
         <div className="text-sm flex items-center justify-center p-3 gap-2">
-            <Dropdown title={userSelection.weather.replace("_", " ")}>
+            <Dropdown
+                title={userSelection.weather.replace("_", " ")}>
                 <Dropdown.Item
                     onSelect={() => handleWeatherButtonClick(WIND_SPEED)}
                     active={weatherActive.WIND_SPEED}

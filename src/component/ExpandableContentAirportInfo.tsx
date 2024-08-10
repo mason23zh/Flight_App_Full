@@ -132,7 +132,7 @@ function ExpandableContentAirportInfo({
 
     return (
         <div className="text-sm p-3 md:text-lg">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center gap-2">
                 <div>
                     {row.raw_text}
                 </div>
