@@ -38,7 +38,7 @@ function ExtremeWeatherHeroSection() {
                         Extreme Weather
                     </h1>
                     <h2 className="text-xl text-center md:text-3xl
-                    transition-all ease-in-out duration-300"
+                    transition-all ease-in-out duration-300 hidden sm:block"
                     >
                         <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope}/>
                     </h2>

@@ -180,6 +180,7 @@ function ChangeLog() {
                         - Fixed the issue that traffic path is incorrect in 2D mode <br/>
                         - Fixed the issue that theme mode does not apply in the Main Map correctly sometimes <br/>
                         - Fixed the issue that map might freeze if load with terrain mode enabled <br/>
+                        - Applied new design to Extreme Weather page <br/>
                         - Applied change for the new Datis API format <br/>
                         - Remove the hover popup arrow tip (controller marker) <br/>
                         - Adjust the controller marker popup size for mobile device <br/>

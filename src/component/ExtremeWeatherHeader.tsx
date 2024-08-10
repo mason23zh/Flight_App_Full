@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Select from "react-select";
 import { InputPicker } from "rsuite";
 import { useDispatch } from "react-redux";
 import { COUNTRY_CODE } from "../util/country_code";

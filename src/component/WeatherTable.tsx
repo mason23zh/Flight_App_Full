@@ -167,10 +167,10 @@ const WeatherTable = ({
             <GeneralLoading themeMode={darkTheme ? "dark" : "light"}/>
         );
     }
-
-    if (error) {
-        return <div>Error...</div>;
-    }
+    //
+    // if (error) {
+    //     return <div>Error...</div>;
+    // }
 
     /*
     * Render column depends on the user selection
@@ -275,7 +275,7 @@ const WeatherTable = ({
                 shouldUpdateScroll={false}
                 autoHeight={false}
                 height={tableHeight}
-                data={weatherRowData}
+                data={error ? [] : weatherRowData}
                 onRowClick={handleRowClick}
                 onSortColumn={handleSortColumn}
                 hover={!isTouchScreen}

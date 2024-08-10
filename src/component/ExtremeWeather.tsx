@@ -6,7 +6,6 @@ import { useTheme } from "../hooks/ThemeContext";
 import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
 import WeatherTable from "./WeatherTable";
 
-//TODO: Entire page move a little
 function ExtremeWeather() {
     const darkMode = useTheme();
     // number of weather to be requested, default to 20
@@ -52,8 +51,8 @@ function ExtremeWeather() {
                     <div className="transition-all ease-in-out md:hidden">
                         <ExtremeWeatherHeaderDropDown/>
                     </div>
-                    <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
                 </div>
+                <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
                 <div id="weather-table-button"
                     className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
                     <div className="px-2 flex justify-center items-center px-2">

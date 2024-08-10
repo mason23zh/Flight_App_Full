@@ -111,7 +111,6 @@ function ExtremeWeatherHeaderDropDown() {
             ...userSelection,
             code: { ...item },
         };
-        console.log("updatedSelection", updatedSelection);
         setUserSelection(updatedSelection);
     };
 
