@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, InputPicker } from "rsuite";
 import { useDispatch } from "react-redux";
-import Select from "react-select";
 import {
     BARO,
     CONTINENT,
@@ -16,8 +15,6 @@ import { changeUserSelection } from "../store";
 import { COUNTRY_CODE } from "../util/country_code";
 import { CONTINENT_CODE } from "../util/contient_code";
 import { ItemDataType } from "rsuite/CascadeTree";
-
-//TODO: Dropdown menu messed up the style, need to add new input picker
 
 function ExtremeWeatherHeaderDropDown() {
     const dispatch = useDispatch();
