@@ -15,7 +15,7 @@ import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
-
+//TODO: might need to close the search box if search result display when the screen size is "sm"
 const SearchBox = () => {
     const dispatch = useDispatch();
     const {
