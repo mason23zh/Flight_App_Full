@@ -114,7 +114,7 @@ function ExtremeWeatherHeaderDropDown() {
         setUserSelection(updatedSelection);
     };
 
-    let renderedDropDown;
+    let renderedDropDown: JSX.Element;
 
 
     if (showDropDown && userSelection.scope === COUNTRY) {
