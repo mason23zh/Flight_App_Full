@@ -23,6 +23,7 @@ import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "./WebSocketContext";
 import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
 
+//TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
 
 interface Viewport {
     longitude: number;

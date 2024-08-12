@@ -15,7 +15,7 @@ import AirportDepartureArrivalDisplay
 import { CustomProvider } from "rsuite";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 
-
+//TODO: High memory usage
 const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
