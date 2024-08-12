@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import { InputPicker } from "rsuite";
 import { useDispatch } from "react-redux";
 import { COUNTRY_CODE } from "../util/country_code";
 import { CONTINENT_CODE } from "../util/contient_code";
@@ -15,12 +15,13 @@ import {
 } from "../util/selection_names";
 import { changeUserSelection } from "../store";
 import { useTheme } from "../hooks/ThemeContext";
+import { ItemDataType } from "rsuite/CascadeTree";
 
 function ExtremeWeatherHeader() {
     const darkMode = useTheme();
     const buttonClasses = darkMode
-        ? "p-1 rounded text-gray-100 text-lg hover:text-white hover:bg-blue-500 duration-100"
-        : "p-1 rounded text-blue-500 text-lg hover:text-white hover:bg-blue-500 duration-100";
+        ? "p-1 rounded text-gray-100 text-sm ExWeatherHeadMd:text-lg hover:text-white hover:bg-blue-500 duration-100"
+        : "p-1 rounded text-blue-500 text-sm ExWeatherHeadMd:text-lg hover:text-white hover:bg-blue-500 duration-100";
 
     const dispatch = useDispatch();
     const [userSelection, setUserSelection] = useState({
@@ -61,10 +62,11 @@ function ExtremeWeatherHeader() {
         dispatch(changeUserSelection(userSelection));
     }, [userSelection, dispatch]);
 
-    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-lg shadow-md";
+    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-sm ExWeatherHeadMd:text-lg shadow-md";
 
-    const scopeButtonClass = "p-1 text-lg bg-amber-400 rounded text-gray-600 hover:bg-green-600 hover:text-white duration-100";
-    const activeScopeButtonClass = "p-1 text-lg bg-green-600 text-white rounded shadow-md";
+    const scopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-amber-400 rounded " +
+            "text-gray-600 hover:bg-green-600 hover:text-white duration-100";
+    const activeScopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-green-600 text-white rounded shadow-md";
 
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {
@@ -115,37 +117,41 @@ function ExtremeWeatherHeader() {
         setUserSelection(updatedSelection);
     };
 
-    const handleSelectChange = (arg) => {
+    const handleSelectChange = (_, item: ItemDataType) => {
         const updatedSelection = {
             ...userSelection,
-            code: { ...arg },
+            code: { ...item },
         };
         setUserSelection(updatedSelection);
     };
- 
+
     let renderedDropDown;
     if (showDropDown && userSelection.scope === COUNTRY) {
         renderedDropDown = (
-            <Select
-                options={COUNTRY_CODE}
-                placeholder="Select country..."
-                className="absolute top-[5%] w-[200px] text-black"
-                onChange={handleSelectChange}
+            <InputPicker
+                data={COUNTRY_CODE}
+                labelKey={"label"}
+                valueKey={"value"}
+                onSelect={(value, item) => handleSelectChange(value, item)}
+                style={{ width: 120 }}
+                placeholder="Select Country"
             />
         );
     } else if (showDropDown && userSelection.scope === CONTINENT) {
         renderedDropDown = (
-            <Select
-                options={CONTINENT_CODE}
-                placeholder="Select continent..."
-                className="absolute top-[5%] w-[200px] text-black"
-                onChange={handleSelectChange}
+            <InputPicker
+                data={CONTINENT_CODE}
+                labelKey={"label"}
+                valueKey={"value"}
+                onSelect={(value, item) => handleSelectChange(value, item)}
+                style={{ width: 120 }}
+                placeholder="Select Country"
             />
         );
     }
 
     return (
-        <div className="flex items-center justify-center gap-10 p-3 mt-1 relative">
+        <div className="flex items-center justify-center gap-10 p-3 relative">
             <button
                 onClick={() => handleWeatherButtonClick(WIND_SPEED)}
                 className={weatherActive.WIND_SPEED ? activeButtonClass : buttonClasses}

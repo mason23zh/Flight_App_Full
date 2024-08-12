@@ -7,11 +7,20 @@
 @import "tailwindcss/utilities";
 
 
-html, body, #root {
+body, #root {
     height: 100%;
     margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
 }
 
+html {
+    overscroll-behavior: none;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 @supports (height: 100dvh) {
     .h-screen-dvh {
@@ -36,6 +45,15 @@ html, body, #root {
 
 .deck-tooltip {
     font-size: 0.8em;
+}
+
+.rs-nav-item.rs-nav-item-active {
+    color: dimgray;
+    /*background-color: red;*/
+}
+
+.rs-nav-item {
+    color: gainsboro;
 }
 
 /*@keyframes fadein {*/
@@ -64,26 +82,52 @@ html, body, #root {
     min-width: 300px;
 }
 
-/*.mapboxgl-popup-close-button {*/
-/*    font-size: 16px;*/
-/*    font-family: Tahoma, Verdana, sans-serif;*/
-/*    color: #c3c3c3;*/
-/*    font-weight: bold;*/
-/*}*/
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color: rgba(227, 15, 15, 0);
+}
 
-/*.mapboxgl-popup-close-button:hover {*/
-/*    color: #999;*/
-/*    background-color: white;*/
-/*    border-top-right-radius: 12px;*/
-/*}*/
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color: rgba(230, 15, 15, 0);
+}
 
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: rgba(234, 14, 14, 0);
+}
 
-/*html {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*}*/
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: rgba(230, 14, 14, 0);
+}
 
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
-/*#root {*/
-/*    padding: 10px;*/
-/*}*/
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slideInFromRight 0.5s forwards;
+}
+
+.slide-out {
+    animation: slideOutToRight 0.5s forwards;
+}

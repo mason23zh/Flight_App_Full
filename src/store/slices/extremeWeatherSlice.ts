@@ -4,8 +4,9 @@ import { GLOBAL, WIND_SPEED } from "../../util/selection_names";
 interface UserSelection {
     weather: string
     scope: string,
-    code: string
+    code: object
 }
+
 
 const extremeWeatherSlice = createSlice({
     name: "extremeWeather",
@@ -13,12 +14,11 @@ const extremeWeatherSlice = createSlice({
         userSelection: {
             weather: WIND_SPEED,
             scope: GLOBAL,
-            code: "",
+            code: {},
         },
     },
     reducers: {
         changeUserSelection(state, action: PayloadAction<UserSelection>) {
-            // eslint-disable-next-line no-param-reassign
             state.userSelection = action.payload;
         },
     },

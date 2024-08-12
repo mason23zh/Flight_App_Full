@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
 import ControllerPopupContent from "./ControllerPopupContent";
 import { markerOffsetObject } from "../util/helpers";
 import { useTheme } from "../../../../hooks/ThemeContext";
+import useIsTouchScreen from "../../../../hooks/useIsTouchScreen";
+import mapboxgl from "mapbox-gl";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -40,8 +42,9 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const lat = Number(hoverInfo.coordinates[1]);
     const airportName = hoverInfo.airportName;
     const darkMode = useTheme();
-
+    const isTouchScreen = useIsTouchScreen();
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
+    const popupRef = useRef<mapboxgl.Popup | null>(null);
 
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
@@ -58,22 +61,36 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
         });
     }
 
+    useEffect(() => {
+        if (popupRef.current) {
+            if (!isTouchScreen) {
+                // @ts-ignore
+                popupRef.current.setOffset(markerOffsetObject);
+
+            } else {
+                popupRef.current.setOffset([0, -40]);
+            }
+        }
+    }, [popupRef.current]);
+
     return (
-    //@ts-expect-error to avoid "Property 'offset' does not exist" in Popup
         <Popup
+            ref={popupRef}
             style={{
                 zIndex: 100,
             }}
             closeButton={false}
             longitude={lon}
             latitude={lat}
-            maxWidth="500"
-            offset={markerOffsetObject}
+            maxWidth={isTouchScreen ? "380px" : "500px"}
+            anchor={isTouchScreen ? "bottom" : undefined}
+            // offset={markerOffsetObject}
         >
             <div className={`grid grid-cols-1 justify-center items-center
-            gap-1 p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
+            gap-1 p-1 sm:p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
             >
-                <div className="justify-self-start italic font-bold text-lg">
+                <div className="justify-self-start italic
+                font-bold text-sm sm:text-lg">
                     {hoverInfo.icao}
                 </div>
                 <div className="justify-self-start font-extrabold">

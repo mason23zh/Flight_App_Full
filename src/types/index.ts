@@ -1,5 +1,3 @@
-import type GeoJson from "geojson";
-
 interface Barometer {
     hg: string,
     hpa: string,
@@ -77,7 +75,9 @@ interface Weather {
     station: Station,
     temperature: Temperature,
     visibility: Visibility,
-    wind: Wind
+    wind: Wind,
+    conditions?: [{ code: string, text: string }],
+    flight_category: string | null,
 }
 
 interface Airport {
@@ -110,6 +110,8 @@ interface VatsimFlightPlan {
     aircraft: string,
     aircraft_faa: string,
     aircraft_short: string
+    aircraft_name?: string,
+    aircraft_iata?: string,
     alternate: string,
     altitude: string,
     arrival: string,
@@ -179,7 +181,7 @@ interface VatsimTrackTraffic {
     track: [TrackObj]
 }
 
-interface Runway {
+export interface Runway {
     gsAngle: number,
     ilsFreq: number,
     ilsHdg: number,
@@ -195,6 +197,17 @@ interface Runway {
     runway_ils_avl: number,
     thresholdElevation: number,
     thresholdOverflyAlt: number
+}
+
+export interface DetailAirportResponseAtis {
+    faa: [{ code: string, datis: string, airport: string }] | [],
+    vatsim: [{ code: string, datis: string }] | []
+}
+
+interface DetailAirportResponse {
+    ATIS: DetailAirportResponseAtis,
+    METAR: Weather,
+    airport: DbAirport
 }
 
 interface DbAirportStation {
@@ -230,6 +243,21 @@ interface DbAirport {
     station: DbAirportStation,
     transitionAltitude: number,
     visited: number
+}
+
+interface LocalDbAirport {
+    continent: string,
+    coordinates: string,
+    elevation_ft: string,
+    gps_code: null | string,
+    iata_code: null | string,
+    ident: string,
+    iso_country: string,
+    iso_region: string,
+    local_code: null | string,
+    municipality: null | string,
+    name: string,
+    type: string
 }
 
 interface AirportResponse {
@@ -305,7 +333,7 @@ interface Fss {
     text_atis: string[],
     last_updated: string,
     logon_time: string,
-    firInfo: {}
+    firInfo: object,
 }
 
 
@@ -438,11 +466,36 @@ interface VatsimMapVisibleState {
     mapFilterButtonToggle: boolean;
     terrainEnable: boolean;
     dayNightTerminator: boolean;
+    movingMap: boolean;
+    mapFollowTraffic: boolean;
+    displayTelemetry: boolean;
+    liveTrafficAvailable: boolean;
+    searchBoxVisible: boolean;
     mapStyles: MapStyles;
 }
 
+interface LiveFlightData {
+    latitude?: number;
+    longitude?: number;
+    MSL?: number;
+    AGL?: number;
+    heading?: number;
+    true_heading?: number;
+    indicated_airspeed?: number;
+    true_airspeed?: number;
+    groundspeed?: number;
+    pitch?: number;
+    roll?: number;
+    vertical_speed?: number;
+}
+
+interface GroupedFlight {
+    aircraftType: string;
+    flights: VatsimFlight[];
+}
 
 export type {
+    LiveFlightData,
     VatsimMapVisibleState,
     Weather,
     Event,
@@ -450,6 +503,8 @@ export type {
     VatsimFlightPlan,
     VatsimTrackTraffic,
     DbAirport,
+    LocalDbAirport,
+    DetailAirportResponse,
     VatsimControllers,
     Controller,
     VatsimGeoJsonFeature,
@@ -459,5 +514,6 @@ export type {
     VatsimMatchedFirBoundariesGeoJson,
     AirportService,
     AirportResponse,
-    MatchedFirs
+    MatchedFirs,
+    GroupedFlight,
 };

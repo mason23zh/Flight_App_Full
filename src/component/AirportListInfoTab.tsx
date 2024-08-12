@@ -2,13 +2,16 @@ import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
- 
+import { setSelectedAirportICAO } from "../store";
+import { useDispatch } from "react-redux";
+
 function AirportListInfoTab({ airport }) {
     const {
         ICAO,
         iata,
         station,
     } = airport;
+    const dispatch = useDispatch();
     const icaoAndIata = iata.length === 0
         ? <div>{ICAO}</div>
         : (
@@ -28,9 +31,6 @@ function AirportListInfoTab({ airport }) {
             + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
             + "h-full bg-gray-300";
 
-    const handleClick = () => {
-        localStorage.setItem("airportData", JSON.stringify(airport));
-    };
 
     const elevationSection = (
         airport.elevation
@@ -69,12 +69,11 @@ function AirportListInfoTab({ airport }) {
     const goToAirportIcon = (
         <Link
             to={`/airport/detail/${ICAO}`}
-            onMouseOver={handleClick}
+            onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
             <IoIosArrowRoundForward size={40}/>
         </Link>
     );
-
 
     return (
         <div className={themeClass}>

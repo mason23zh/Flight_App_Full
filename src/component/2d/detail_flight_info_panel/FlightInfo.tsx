@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LiveDataBlock from "./LiveDataBlock";
 import OverallDataBlock from "./OverallDataBlock";
 import OtherDataBlock from "./OtherDataBlock";
@@ -8,6 +8,8 @@ import { VatsimFlight } from "../../../types";
 import { CustomProvider } from "rsuite";
 import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistanceCalculator";
 import TargetAirportsLayer from "../mapbox_Layer/ArrivalDestinationMarkerLayer/TargetAirportsLayer";
+
+//: TODO Add button to switch the camera to first person view on selected traffic
 
 const FlightInfo = () => {
     const traffic = useSelector<RootState, VatsimFlight>(

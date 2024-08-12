@@ -26,6 +26,11 @@ const initialState: VatsimMapVisibleState = {
     mapFilterButtonToggle: false,
     terrainEnable: false,
     dayNightTerminator: false,
+    liveTrafficAvailable: false,
+    movingMap: false,
+    mapFollowTraffic: false,
+    displayTelemetry: false,
+    searchBoxVisible: false,
     mapStyles: "DEFAULT"
 };
 
@@ -52,6 +57,11 @@ const vatsimMapVisibleSlice = createSlice({
             state.mapFilterButtonToggle = true;
             state.terrainEnable = false;
             state.dayNightTerminator = false;
+            state.movingMap = false;
+            state.mapFollowTraffic = false;
+            state.displayTelemetry = false;
+            state.searchBoxVisible = false;
+
             state.mapStyles = "DEFAULT";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
@@ -79,6 +89,21 @@ const vatsimMapVisibleSlice = createSlice({
         toggleTerrainLabel(state, action) {
             state.terrainEnable = action.payload;
         },
+        setLiveTrafficAvailable(state, action) {
+            state.liveTrafficAvailable = action.payload;
+        },
+        toggleMovingMap(state, action) {
+            state.movingMap = action.payload;
+        },
+        toggleTelemetry(state, action) {
+            if (!state.movingMap && state.displayTelemetry) {
+                state.displayTelemetry = false;
+            }
+            state.displayTelemetry = action.payload;
+        },
+        toggleMapFollowTraffic(state, action) {
+            state.mapFollowTraffic = action.payload;
+        },
         toggleMapLabel(state, action) {
             state.mapLabelVisible = action.payload;
         },
@@ -102,14 +127,23 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
-            if (action.payload && state.mapFilterButtonToggle) {
+            if (action.payload && (state.mapFilterButtonToggle || state.searchBoxVisible)) {
                 state.mapFilterButtonToggle = false;
+                state.searchBoxVisible = false;
             }
         },
         toggleMapFilterButton(state, action) {
             state.mapFilterButtonToggle = action.payload;
-            if (action.payload && state.mapStyleButtonToggle) {
+            if (action.payload && (state.mapStyleButtonToggle || state.searchBoxVisible)) {
                 state.mapStyleButtonToggle = false;
+                state.searchBoxVisible = false;
+            }
+        },
+        toggleSearchBox(state, action) {
+            state.searchBoxVisible = action.payload;
+            if (action.payload && (state.mapStyleButtonToggle || state.mapFilterButtonToggle)) {
+                state.mapStyleButtonToggle = false;
+                state.mapFilterButtonToggle = false;
             }
         }
     }
@@ -132,6 +166,11 @@ export const {
     toggleUnderlineFirBoundaries,
     toggleDayNightTerminator,
     toggleAirportVisible,
-    resetMap
+    toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
+    resetMap,
+    toggleSearchBox
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

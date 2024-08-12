@@ -13,8 +13,8 @@ function NavbarElement() {
     //     ? "rounded-lg bg-green-500 text-white py-1 px-3"
     //     : "rounded-lg bg-green-400 py-1 px-3";
     const navBarBgTheme = darkMode
-        ? "flex justify-between py-1 px-5 bg-gray-900 w-screen text-gray-300"
-        : "flex justify-between py-1 px-5 bg-gray-100 w-screen text-gray-700";
+        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300"
+        : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700";
     // const navBarInputTheme = darkMode
     //     ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"
     //     : "border-2 rounded-lg py-1 px-3 text-black text-[17px]";

@@ -169,6 +169,22 @@ function ChangeLog() {
                         - Adjust map control panel hover and selection visual style <br/>
                         - Adjust Home page to be fitted in the IOS device <br/>
                     </div>
+                    <div>
+                        Beta 0.5.1 <br/>
+                        - Added moving map to track local sim flight <br/>
+                        - Added search feature in the map<br/>
+                        - Added airport layout for all map styles <br/>
+                        - Map performance optimization <br/>
+                        - Fixed the issue that Detail Airport Page not loading correctly in some condition <br/>
+                        - Fixed the issue that partial traffic path remains in 3D mode if map is in 2D mode <br/>
+                        - Fixed the issue that traffic path is incorrect in 2D mode <br/>
+                        - Fixed the issue that theme mode does not apply in the Main Map correctly sometimes <br/>
+                        - Fixed the issue that map might freeze if load with terrain mode enabled <br/>
+                        - Applied new design to Extreme Weather page <br/>
+                        - Applied change for the new Datis API format <br/>
+                        - Remove the hover popup arrow tip (controller marker) <br/>
+                        - Adjust the controller marker popup size for mobile device <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

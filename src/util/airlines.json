@@ -60641,7 +60641,7 @@
     },
     {
         "id": "19864",
-        "name": "Walker Air Transport",
+        "name": "Walker Air Transport (Virtual)",
         "alias": "",
         "iata": "",
         "icao": "WAT",
@@ -60677,6 +60677,46 @@
         "icao": "WEN",
         "callsign": "ENCORE",
         "country": "Canada",
+        "active": "Y"
+    },
+    {
+        "id": "19868",
+        "name": "Air China Inner Mongolia",
+        "alias": "",
+        "iata": "",
+        "icao": "CNM",
+        "callsign": "MENGYUAN",
+        "country": "China",
+        "active": "Y"
+    },
+    {
+        "id": "19869",
+        "name": "Hangzhou Airlines (Virtual)",
+        "alias": "",
+        "iata": "HZ",
+        "icao": "HAZ",
+        "callsign": "Hangzhou",
+        "country": "China",
+        "active": "Y"
+    },
+    {
+        "id": "19870",
+        "name": "Hangzhou Airlines (Virtual)",
+        "alias": "",
+        "iata": "HZ",
+        "icao": "HZC",
+        "callsign": "Hangzhou Cargo",
+        "country": "China",
+        "active": "Y"
+    },
+    {
+        "id": "19871",
+        "name": "Hangzhou Airlines (Virtual)",
+        "alias": "",
+        "iata": "HL",
+        "icao": "HWL",
+        "callsign": "West lake",
+        "country": "China",
         "active": "Y"
     }
 ]

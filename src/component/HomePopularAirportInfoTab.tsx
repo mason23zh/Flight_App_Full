@@ -2,11 +2,14 @@ import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
+import { setSelectedAirportICAO } from "../store";
+import { useDispatch } from "react-redux";
 
 function HomePopularAirportInfoTab({
     airport,
     counter
 }) {
+    const dispatch = useDispatch();
     const {
         ICAO,
         iata,
@@ -22,7 +25,7 @@ function HomePopularAirportInfoTab({
                 <div className="hidden md:block">{iata}</div>
             </div>
         );
-     
+
     const darkMode = useTheme();
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
@@ -31,10 +34,6 @@ function HomePopularAirportInfoTab({
         : "border-2 rounded-3xl grid grid-cols-3 "
             + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
             + "h-full bg-gray-300";
-
-    const handleClick = () => {
-        localStorage.setItem("airportData", JSON.stringify(airport));
-    };
 
     const nameSection = (
         <div className="items-center">
@@ -69,7 +68,7 @@ function HomePopularAirportInfoTab({
     const goToAirportIcon = (
         <Link
             to={`/airport/detail/${ICAO}`}
-            onMouseOver={handleClick}
+            onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
             <IoIosArrowRoundForward size={40}/>
         </Link>

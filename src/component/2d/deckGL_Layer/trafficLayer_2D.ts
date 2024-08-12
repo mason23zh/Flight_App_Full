@@ -9,15 +9,18 @@ import aircraftSpriteSheetMapping from "../../../assets/mapbox/aircraft_sprite_m
 import aircraftSpriteSheetPNG from "../../../assets/mapbox/aircraft_sprite_mapping-0.png";
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
-    if (!visible) return null;
-
+    if (!visible || !data) return null;
+    //TODO: Need to update sprite mapping file
     return new IconLayer({
         id: "aircraft-icon-layer",
         data: data,
         pickable: true,
-        visible: visible,  // Ensure the visibility flag is actually used
+        visible: visible,
         opacity: 1,
-        getIcon: (d: VatsimFlight) => d.flight_plan?.aircraft_short || "B738",
+        getIcon: (d: VatsimFlight) => {
+            const icon = d.flight_plan?.aircraft_short || "CL60";
+            return aircraftSpriteSheetMapping[icon] ? icon : "CL60";
+        },
         autoHighlight: true,
         iconAtlas: aircraftSpriteSheetPNG,
         iconMapping: aircraftSpriteSheetMapping,

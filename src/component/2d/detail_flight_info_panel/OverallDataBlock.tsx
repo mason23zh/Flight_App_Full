@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 import getAircraftCallsignName from "../../../util/getAircraftCallsignName";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { BiTargetLock } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { setTrafficTracking } from "../../../store";
+import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
+
 
 const OverallDataBlock = ({
     aircraft,
@@ -16,7 +21,8 @@ const OverallDataBlock = ({
     enroute,
     progress
 }) => {
-
+    const isTouchScreen = useIsTouchScreen();
+    const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
 
     const {
@@ -26,14 +32,46 @@ const OverallDataBlock = ({
         tooltipVisible,
     } = useDisplayTooltip(200);
 
+    const {
+        handleMouseMove: handleTrackMouseMove,
+        handleMouseLeave: handleTrackMouseLeave,
+        handleMouseEnter: handleTrackMouseEnter,
+        tooltipVisible: trackTooltipVisible,
+    } = useDisplayTooltip(200);
+
+    const handleTrackingClick = () => {
+        dispatch(setTrafficTracking(true));
+    };
+
     return (
         <div className="relative">
             <FlightStatusFlag progress={progress}/>
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
                 <div className={`grid ${airlinerInfo ? "grid-rows-3" : "grid-rows-2"} bg-gray-600 p-2`}>
-                    <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
-                        {callsign}
+                    <div className="flex items-center gap-3">
+                        <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
+                            {callsign}
+                        </div>
+                        <div
+                            onClick={handleTrackingClick}
+                            onMouseEnter={handleTrackMouseEnter}
+                            onMouseLeave={handleTrackMouseLeave}
+                            onMouseMove={handleTrackMouseMove}
+                            className="text-gray-100 text-[17px] hover:cursor-pointer hover:text-gray-300 relative">
+                            <BiTargetLock/>
+                            {(trackTooltipVisible && !isTouchScreen) &&
+                                <div className="absolute left-full top-1/2 
+                                transform -translate-y-1/2 ml-2
+                                bg-blue-500 text-white text-xs
+                                rounded-md px-2 py-1 flex whitespace-nowrap"
+                                >
+                                    <div>
+                                        Move to traffic
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                     {
                         airlinerInfo &&
@@ -48,7 +86,7 @@ const OverallDataBlock = ({
                                 onMouseMove={handleMouseMove}
                             >
                                 <IoInformationCircleOutline/>
-                                {tooltipVisible &&
+                                {(tooltipVisible && !isTouchScreen) &&
                                 <div
                                     className="fixed px-2 py-1 bg-blue-500 rounded-md
                                     flex flex-col text-xs font-Rubik text-gray-100

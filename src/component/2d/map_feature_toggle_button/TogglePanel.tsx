@@ -5,7 +5,9 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer, toggleTerrainLabel,
+    toggleAtcLayer, toggleMapFollowTraffic,
+    toggleMovingMap, toggleTelemetry,
+    toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
 } from "../../../store";
@@ -13,12 +15,16 @@ import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
-
+import { MdNavigation } from "react-icons/md";
+import { FaLocationCrosshairs } from "react-icons/fa6";
+import { IoSpeedometerOutline } from "react-icons/io5";
 
 import { MapRef } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
+import { useWebSocketContext } from "../WebSocketContext";
+import SearchButton from "./search_box/SearchButton";
 
 interface Props {
     mapRef: React.RefObject<MapRef>;
@@ -29,10 +35,33 @@ const TogglePanel = ({ mapRef }: Props) => {
         allAtcLayerVisible,
         trafficLayerVisible,
         weatherRasterVisible,
-        terrainEnable
+        terrainEnable,
+        movingMap,
+        mapFollowTraffic,
+        displayTelemetry,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const {
+        openWebSocket,
+        closeWebSocket,
+        liveTrafficAvailable
+    } = useWebSocketContext();
+
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
+
+
+    const handleMovingMapIconToggle = (activeFlag) => {
+        if (activeFlag) {
+            openWebSocket();
+            if (liveTrafficAvailable) {
+                dispatch(toggleMovingMap(true));
+            }
+        } else {
+            closeWebSocket();
+            dispatch(toggleMovingMap(false));
+        }
+    };
 
 
     // Map loading state/error notification
@@ -82,6 +111,12 @@ const TogglePanel = ({ mapRef }: Props) => {
         <div className={parentStyle}>
             <div className="flex justify-center w-full sm:w-auto">
                 <div className={childStyle}>
+
+                    <SearchButton
+                        tooltipMessage="Search"
+                        isTouchScreen={isTouchScreen}
+                    />
+
                     <MapFeaturesToggleButton
                         onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))}
                         icon={<IoAirplane/>}
@@ -113,6 +148,34 @@ const TogglePanel = ({ mapRef }: Props) => {
                         tooltipMessage="Toggle terrain and 3D view"
                         isTouchScreen={isTouchScreen}
                     />
+
+                    <MapFeaturesToggleButton
+                        onToggle={handleMovingMapIconToggle}
+                        icon={<MdNavigation/>}
+                        initialActive={movingMap}
+                        tooltipMessage="Enable moving map"
+                        isTouchScreen={isTouchScreen}
+                    />
+
+                    {(movingMap && liveTrafficAvailable) &&
+                        <>
+                            <MapFeaturesToggleButton
+                                onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}
+                                icon={<FaLocationCrosshairs/>}
+                                initialActive={mapFollowTraffic}
+                                tooltipMessage="Map follow traffic"
+                                isTouchScreen={isTouchScreen}
+                            />
+
+                            <MapFeaturesToggleButton
+                                onToggle={(activeFlag) => dispatch(toggleTelemetry(activeFlag))}
+                                icon={<IoSpeedometerOutline/>}
+                                initialActive={displayTelemetry}
+                                tooltipMessage="Toggle traffic telemtry"
+                                isTouchScreen={isTouchScreen}
+                            />
+                        </>
+                    }
 
                     <MapStyleToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
 

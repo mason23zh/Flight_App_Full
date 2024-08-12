@@ -51,7 +51,6 @@ const MapFeaturesToggleButton = ({
     useEffect(() => {
         setActiveButtonClass(isActive ? activeClass : inActiveClass);
         onToggle(isActive);
-
     }, [isActive]);
 
     const handleClick = () => {

@@ -77,7 +77,7 @@ const ControllerPopupContent = ({
         // const themeClass = darkMode ? "bg-gray-600 text-gray-300" : "bg-gray-300 text-gray-700";
         if (serviceType !== "ATIS") {
             return (
-                <div className="grid grid-cols-4 w-full font-bold p-2">
+                <div className="grid grid-cols-4 w-full font-bold p-1 sm:p-2">
                     {serviceIcon}
                     <div className="justify-self-start">
                         {serviceData.callsign}
@@ -92,7 +92,7 @@ const ControllerPopupContent = ({
             );
         } else if (serviceType === "ATIS") {
             return (
-                <div className="grid grid-cols-4 w-full border-1 font-bold p-2">
+                <div className="grid grid-cols-4 w-full border-1 font-bold p-1 sm:p-2">
                     <div className="col-span-1">
                         {serviceIcon}
                     </div>

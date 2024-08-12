@@ -8,7 +8,7 @@ function AtisPanel({
     return (
         <div className="w-auto">
             <Panel header="ATIS">
-                <div className="grid grid-cols-1 tex-sm sm:text-lg">
+                <div className="grid grid-cols-1 text-sm sm:text-lg">
                     <div>
                         {faaAtis}
                     </div>
@@ -20,5 +20,5 @@ function AtisPanel({
         </div>
     );
 }
-  
+
 export default AtisPanel;

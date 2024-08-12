@@ -1,49 +1,81 @@
-// noinspection JSUnusedGlobalSymbols
-import React, { useState } from "react";
-import {
-    CgChevronDoubleDown, CgChevronDoubleUp,
-} from "react-icons/cg";
-import { useTable, useExpanded } from "react-table";
+import React, { useEffect, useState } from "react";
+import { Table } from "rsuite";
 import { useSelector } from "react-redux";
+import { RootState, useFetchWeatherMetarsQuery } from "../store";
+import { Weather } from "../types";
 import {
     BARO,
     TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
 } from "../util/selection_names";
-import { useFetchWeatherMetarsQuery } from "../store";
-import Skeleton from "./Skeleton";
-import { useTheme } from "../hooks/ThemeContext";
-import { RootState } from "../store";
-import { Weather } from "../types";
+import GeneralLoading from "./GeneralLoading";
+import useIsTouchScreen from "../hooks/useIsTouchScreen";
+import ExtremeWeatherTableModal from "./ExtremeWeatherTable_Modal";
 
-// interface WeatherColumn {
-//     Header: string,
-//     accessor: string,
-// }
+interface Props {
+    requestNumber: number;
+    tableHeight: number;
+    darkTheme: boolean;
+}
 
-function WeatherTable({ expandedContent }) {
-    const darkMode = useTheme();
-    const darkModeClass = darkMode
-        ? "[&>*:nth-child(odd)]:bg-gray-500 [&>*:nth-child(even)]:bg-gray-700"
-        : "[&>*:nth-child(odd)]:bg-blue-300 [&>*:nth-child(even)]:bg-orange-200";
-    const darkModeThClass = darkMode
-        ? "text-sm p-2 border-5 bg-red-400 md:text-xl"
-        : "text-sm p-2 border-5 bg-red-300 md:text-xl";
-    let columnsToRender;
-    const [sortOrder, setSortOrder] = useState(1);
-    const [rowData, setRowData] = useState(null);
-    const [requestLimit, setRequestLimit] = useState(10);
-    let requestParams: { limit: number, sort?: number } = { limit: requestLimit };
+const {
+    Column,
+    HeaderCell,
+    Cell
+} = Table;
+const rowKey = "icao";
+
+const WeatherTable = ({
+    requestNumber,
+    tableHeight,
+    darkTheme
+}: Props) => {
+    const isTouchScreen = useIsTouchScreen();
     const {
         weather,
         scope,
         code
     } = useSelector((state: RootState) => state.extremeWeather.userSelection);
-    if (weather === TEMPERATURE || weather === BARO) {
-        requestParams = {
-            ...requestParams,
-            sort: sortOrder
+
+    // default to asc order
+    const [sortOrder, setSortOrder] = useState(1);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [selectedRowData, setSelectedRowData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [requestParams, setRequestParams] = useState<{ limit: number, sort: number }>({
+        limit: requestNumber,
+        sort: sortOrder
+    });
+
+    /*
+    * If screen width is below 640, do not render Airport Name column
+    * */
+    useEffect(() => {
+        const detectIfSmallScreen = () => {
+            const rootWidth = document.getElementById("root")?.offsetWidth;
+            if (rootWidth <= 640) {
+                setIsSmallScreen(true);
+            } else {
+                setIsSmallScreen(false);
+            }
         };
-    }
+        detectIfSmallScreen();
+        window.addEventListener("resize", detectIfSmallScreen);
+
+        return () => {
+            window.removeEventListener("resize", detectIfSmallScreen);
+        };
+    }, []);
+
+
+    /*
+    * Change the request params to trigger rtkQuery to make new request
+    * */
+    useEffect(() => {
+        setRequestParams({
+            sort: sortOrder,
+            limit: requestNumber
+        });
+    }, [sortOrder, requestNumber]);
 
     const {
         data: metars,
@@ -56,84 +88,8 @@ function WeatherTable({ expandedContent }) {
         params: requestParams,
     }, { refetchOnMountOrArgChange: true });
 
-    const handleDetailClick = (row) => {
-        const updatedRowData = { ...rowData, ...row };
-        setRowData(updatedRowData);
-    };
-
-    const renderExpandColumn = () => ({
-        Header: () => null, // No header
-        id: "expander", // It needs an ID
-        Cell: ({ row }) => (
-            <span {...row.getToggleRowExpandedProps()}>
-                {row.isExpanded ? <button>Hide</button>
-                    : <button onClick={() => handleDetailClick(row)}>Details</button>}
-            </span>
-        ),
-    });
-
-    const weatherColumn = [
-        {
-            Header: "ICAO",
-            accessor: "icao"
-        },
-        {
-            Header: "Airport Name",
-            accessor: "name"
-        },
-        {
-            Header: "Temperature",
-            accessor: "temp_c"
-        },
-        {
-            Header: "Wind Speed",
-            accessor: "wind_speed_kt"
-        },
-        {
-            Header: "Wind Gust",
-            accessor: "wind_gust_kt"
-        },
-        {
-            Header: "Visibility",
-            accessor: "visibility_statute_mi"
-        },
-        {
-            Header: "Baro",
-            accessor: "altim_in_hg"
-        },
-        {
-            Header: "City",
-            accessor: "municipality"
-        },
-    ];
-
-    if (weather === WIND_SPEED) {
-        columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Speed" || header.Header === "ICAO" || header.Header === "Airport Name"));
-        columnsToRender.push({
-            Header: "Wind Data",
-            accessor: "wind_data"
-        });
-        columnsToRender.push(renderExpandColumn());
-    } else if (weather === WIND_GUST) {
-        columnsToRender = weatherColumn.filter((header) => (header.Header === "Wind Gust" || header.Header === "ICAO" || header.Header === "Airport Name"));
-        columnsToRender.push({
-            Header: "Wind Data",
-            accessor: "wind_data"
-        });
-        columnsToRender.push(renderExpandColumn());
-    } else if (weather === VISIBILITY) {
-        columnsToRender = weatherColumn.filter((header) => (header.Header === "Visibility" || header.Header === "ICAO" || header.Header === "Airport Name"));
-        columnsToRender.push(renderExpandColumn());
-    } else if (weather === BARO) {
-        columnsToRender = weatherColumn.filter((header) => (header.Header === "Baro" || header.Header === "ICAO" || header.Header === "Airport Name"));
-        columnsToRender.push(renderExpandColumn());
-    } else if (weather === TEMPERATURE) {
-        columnsToRender = weatherColumn.filter((header) => (header.Header === "Temperature" || header.Header === "ICAO" || header.Header === "Airport Name"));
-        columnsToRender.push(renderExpandColumn());
-    }
-
-    const columns = React.useMemo(() => columnsToRender, [weather]);
-    const weatherRow = React.useMemo(() => {
+    // merge new data into exist metars
+    const weatherRowData = React.useMemo(() => {
         if (isFetching === false && metars) {
             // add wind data if weather selection is either wind speed or wind gust
             if (weather === WIND_SPEED || weather === WIND_GUST) {
@@ -204,153 +160,154 @@ function WeatherTable({ expandedContent }) {
         }
         return [];
     }, [metars, isFetching, error]);
-    const tableInstance = useTable({
-        columns,
-        data: weatherRow
-    }, useExpanded);
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-        visibleColumns,
-    } = tableInstance;
+
 
     if (isFetching) {
-        return <Skeleton className="h-8 w-auto" times={10}/>;
+        return (
+            <GeneralLoading themeMode={darkTheme ? "dark" : "light"}/>
+        );
     }
-    if (error) {
-        return <div>Error</div>;
-    }
+    //
+    // if (error) {
+    //     return <div>Error...</div>;
+    // }
 
-    const handleSortClick = () => {
-        setSortOrder(Number(sortOrder) * -1);
+    /*
+    * Render column depends on the user selection
+    * Wind Speed -> wind_speed_kt & wind_data
+    * Wind Gust -> wind_gust_ket & wind_data
+    * Visibility -> visibility_statute_mi
+    * Baro -> altim_in_hg
+    * Temperature -> temp_c
+    * */
+    const renderDynamicDataColumn = () => {
+        if (weather === WIND_SPEED) {
+            return (
+                <>
+                    <Column flexGrow={1} minWidth={50} align="center">
+                        <HeaderCell>Wind Speed</HeaderCell>
+                        <Cell dataKey="wind_speed_kt"/>
+                    </Column>
+                    <Column flexGrow={1} minWidth={80} align="center">
+                        <HeaderCell>Wind Data</HeaderCell>
+                        <Cell dataKey="wind_data"/>
+                    </Column>
+                </>
+            );
+        } else if (weather === WIND_GUST) {
+            return (
+                <>
+                    <Column flexGrow={1} minWidth={50} align="center">
+                        <HeaderCell>Wind Gust</HeaderCell>
+                        <Cell dataKey="wind_gust_kt"/>
+                    </Column>
+                    <Column flexGrow={1} minWidth={80} align="center">
+                        <HeaderCell>Wind Data</HeaderCell>
+                        <Cell dataKey="wind_data"/>
+                    </Column>
+                </>
+            );
+        } else if (weather === VISIBILITY) {
+            return (
+                <>
+                    <Column flexGrow={1} align="center">
+                        <HeaderCell>Visibility</HeaderCell>
+                        <Cell dataKey="visibility_statute_mi"/>
+                    </Column>
+                </>
+            );
+        } else if (weather === BARO) {
+            return (
+                <>
+                    <Column flexGrow={1} align="center" sortable>
+                        <HeaderCell>Baro</HeaderCell>
+                        <Cell dataKey="altim_in_hg"/>
+                    </Column>
+                </>
+            );
+        } else if (weather === TEMPERATURE) {
+            return (
+                <>
+                    <Column flexGrow={1} minWidth={50} align="center" sortable>
+                        <HeaderCell>Temperature</HeaderCell>
+                        <Cell dataKey="temp_c"/>
+                    </Column>
+                </>
+            );
+        }
     };
 
-    const handleLoadMoreData = () => {
-        setRequestLimit(requestLimit + 10);
+    /*
+    * handleSortColumn will change the requestParams
+    * This will set trkQuery to make a new request with sorted data.
+    * We don't sort locally.
+    * */
+    const handleSortColumn = (sortColumn: "temp_c" | "altim_in_hg") => {
+        if (sortColumn === "temp_c" || sortColumn === "altim_in_hg") {
+            const newSortOrder = sortOrder * -1;
+            setSortOrder(newSortOrder);
+            setRequestParams({
+                sort: newSortOrder,
+                limit: 10
+            });
+        }
     };
 
-    const handleSetDataToDefault = () => {
-        setRequestLimit(10);
+    const handleRowClick = (rowData) => {
+        setSelectedRowData(rowData);
+        setIsModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setSelectedRowData(null);
     };
 
     return (
-        <div className="flex flex-col justify-center items-center gap-2">
-            <table
-                {...getTableProps()}
+        <div style={{
+            height: `${tableHeight}`,
+            width: "100%",
+            overflowX: "auto",
+            position: "relative",
+
+        }}>
+            <Table
+                shouldUpdateScroll={false}
+                autoHeight={false}
+                height={tableHeight}
+                data={error ? [] : weatherRowData}
+                onRowClick={handleRowClick}
+                onSortColumn={handleSortColumn}
+                hover={!isTouchScreen}
+                rowKey={rowKey}
+                virtualized
             >
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr
-                            key={headerGroup.id}
-                            {...headerGroup.getHeaderGroupProps()}
-                        >
-                            {headerGroup.headers.map((column) => {
-                                if (column.Header === "Baro") {
-                                    return (
-                                        <th
-                                            key={column.id}
-                                            {...column.getHeaderProps()}
-                                            className={darkModeThClass}
-                                            onClick={handleSortClick}
-                                        >
-                                            <div className="flex items-center justify-center hover:cursor-pointer">
-                                                {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown/>
-                                                    : <CgChevronDoubleUp/>}
-                                            </div>
-                                        </th>
-                                    );
-                                }
+                <Column width={80} align="center">
+                    <HeaderCell>ICAO</HeaderCell>
+                    <Cell dataKey="icao"/>
+                </Column>
 
-                                if (column.Header === "Temperature") {
-                                    return (
-                                        <th
-                                            key={column.id}
-                                            {...column.getHeaderProps()}
-                                            className={darkModeThClass}
-                                            onClick={handleSortClick}
-                                        >
-                                            <div className="flex items-center justify-center hover:cursor-pointer">
-                                                {column.render("Header")}
-                                                {sortOrder === -1 ? <CgChevronDoubleDown/>
-                                                    : <CgChevronDoubleUp/>}
-                                            </div>
-                                        </th>
-                                    );
-                                }
+                {/*
+                    Conditional render Airport Name column based on the screen width
+                */}
+                {!isSmallScreen ?
+                    <Column flexGrow={2} align="center">
+                        <HeaderCell>Airport Name</HeaderCell>
+                        <Cell dataKey="station.location.name"/>
+                    </Column>
+                    : null
+                }
 
-                                return (
-                                    <th
-                                        key={column.id}
-                                        {...column.getHeaderProps()}
-                                        className={darkModeThClass}
-                                    >
-                                        {column.render("Header")}
-                                    </th>
-                                );
-                            })}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody
-                    {...getTableBodyProps()}
-                    className={darkModeClass}
-                >
-                    {rows.map((row) => {
-                        prepareRow(row);
-                        const rowProps = row.getRowProps();
-                        delete rowProps.role;
-                        return (
-                            <React.Fragment key={rowProps.key} {...rowProps}>
-                                <tr
-                                    key={row.id}
-                                    className="text-sm text-center md:text-xl"
-                                >
-                                    {row.cells.map((cell) => (
-                                        <td
-                                            key={cell.id}
-                                            {...cell.getCellProps()}
-                                            className="p-5"
-                                        >
-                                            {cell.render("Cell")}
-                                        </td>
-                                    ))}
-                                </tr>
-                                {row.isExpanded ? (
-                                    <tr
-                                        key={row.id}
-                                    >
-                                        <td
-                                            colSpan={visibleColumns.length}
-                                        >
-                                            {expandedContent({ row })}
-                                        </td>
-                                    </tr>
-                                ) : null}
-                            </React.Fragment>
-                        );
-                    })}
-                </tbody>
-            </table>
-            <div className="flex justify-center gap-3">
-                <button
-                    onClick={handleLoadMoreData}
-                    className="px-2 py-1 bg-green-500 rounded-xl text-lg hover:bg-amber-400 shadow-2xl"
-                >
-                    Load More...
-                </button>
-                <button
-                    onClick={handleSetDataToDefault}
-                    className="px-2 py-1 bg-red-400 rounded-xl text-lg hover:bg-amber-400 shadow-2xl "
-                >
-                    Set Default
-                </button>
-            </div>
+                {renderDynamicDataColumn()}
+            </Table>
+            {(setSelectedRowData) &&
+                <ExtremeWeatherTableModal
+                    rowData={selectedRowData}
+                    open={isModalOpen}
+                    onClose={handleModalClose}/>
+            }
         </div>
     );
-}
+};
 
 export default WeatherTable;

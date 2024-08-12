@@ -11,26 +11,62 @@ import {
     addMessage,
     removeMessageByLocation,
     useFetchTrafficTrackDataQuery,
-    setSelectedTraffic, RootState
+    setSelectedTraffic,
+    RootState,
+    closeTrafficDetail,
+    openTrafficDetail
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
+import renderLocalTrackFlightLayer from "./renderLocalTrackFlightLayer";
 import useIsTouchScreen from "../../hooks/useIsTouchScreen";
+import { useWebSocketContext } from "./WebSocketContext";
+import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
 
-interface MainTrafficLayerProps {
+//TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
+
+interface Viewport {
+    longitude: number;
+    latitude: number;
+    zoom: number;
+    width: number;
+    height: number;
+    pitch: number;
+    bearing: number;
+}
+
+interface ChildProps {
+    viewState: Viewport;
+}
+
+interface MainTrafficLayerProps extends ChildProps {
     vatsimPilots: Array<VatsimFlight>;
+    movingMap: boolean;
+    trafficLayerVisible: boolean;
 }
 
 interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
-const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
+//TODO: Selected traffic state might be redundent
+const MainTrafficLayer = ({
+    vatsimPilots,
+    trafficLayerVisible,
+    movingMap,
+    viewState
+}:
+        MainTrafficLayerProps) => {
+
 
     const dispatch = useDispatch();
     let isHovering = false;
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        terrainEnable,
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
+    const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     const {
         data: trackData,
@@ -40,13 +76,38 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
         skip: !selectTraffic
     });
 
-    const trafficLayer3D = trafficLayer_3D(vatsimPilots, terrainEnable);
+    // only return traffic within the viewport
+    const filteredTrafficData = useMemo(() => {
+        return filterTrafficDataInViewport(vatsimPilots, viewState);
+    }, [vatsimPilots, viewState]);
+
+    // console.log("total vatsim traffic:", vatsimPilots.length);
+    // console.log("total filtered traffic:", filteredTrafficData.length);
+
+    const { flightData } = useWebSocketContext();
+
+    const trafficLayer3D = trafficLayer_3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
 
     // useMemo can ONLY with trafficLayer_2D
     const trafficLayer2D = useMemo(() => {
-        return trafficLayer_2D(vatsimPilots, !terrainEnable);
-    }, [terrainEnable, vatsimPilots]);
+        return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    }, [terrainEnable, filteredTrafficData, trafficLayerVisible]);
 
+    const localTrafficLayer = useMemo(() => {
+        return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
+    }, [movingMap, flightData, terrainEnable]);
+
+    // This useEffect will display the FlightInfo panel to the
+    // traffic that selected via the search box
+    useEffect(() => {
+        if (mapSearchSelectedTraffic) {
+            setSelectTraffic(mapSearchSelectedTraffic);
+            dispatch(setSelectedTraffic(mapSearchSelectedTraffic));
+        } else {
+            setSelectTraffic(null);
+            dispatch(setSelectedTraffic(mapSearchSelectedTraffic));
+        }
+    }, [mapSearchSelectedTraffic]);
 
     useEffect(() => {
         if (trackError) {
@@ -62,27 +123,39 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
     }, [trackData, trackError, trackLoading]);
 
     const trackLayer = useMemo(() => {
-        if (trackData && !trackLoading && !trackError) {
-            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true);
+        // this will clean up the path if user already pick a traffic on the map
+        // but open the search list result panel. Because selectTraffic haven't change,
+        // the path will reamin on the map.
+        if (searchResultsVisible) {
+            setSelectTraffic(null);
         }
-    }, [trackData, trackLoading, trackError, selectTraffic]);
+
+        if (trackData && !trackLoading && !trackError) {
+            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
+        }
+    }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
-        if (!selectTraffic || (info.layer && info.object && info.object.callsign !== selectTraffic.callsign)) {
+        if (info.layer && info.object && (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
-        } else if (!info.layer) {
+            // dispatch(setAirportDepartureArrivalDisplay(false));
+            dispatch(openTrafficDetail());
+        } else if (!info.layer || !info.object) {
             dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
+            dispatch(closeTrafficDetail());
             setSelectTraffic(null);
         }
     }, [selectTraffic]);
 
-
     const layers = useMemo(() => [
         trackLayer, // Always included
-        terrainEnable ? trafficLayer3D : trafficLayer2D
-    ].filter(Boolean), [trackData, trafficLayer3D, trafficLayer2D, terrainEnable, selectTraffic]);
+        terrainEnable ? trafficLayer3D : trafficLayer2D,
+        localTrafficLayer
+    ].filter(Boolean),
+    [trackData, trafficLayer3D, trafficLayer2D, terrainEnable,
+        selectTraffic, movingMap, flightData, trafficLayerVisible]);
 
     const isTouchScreen = useIsTouchScreen();
     return (
@@ -91,7 +164,6 @@ const MainTrafficLayer = ({ vatsimPilots }: MainTrafficLayerProps) => {
             onClick={(info: PickedTraffic) => deckOnClick(info)}
             layers={layers}
             pickingRadius={10}
-
             getTooltip={isTouchScreen ? undefined : ({ object }) => {
                 if (object) {
                     const bgColor = "rgba(39, 40, 45, 0.9)";

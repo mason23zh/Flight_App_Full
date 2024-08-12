@@ -16,76 +16,62 @@ import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
-import { DbAirport } from "../types";
+import { DbAirport, DetailAirportResponseAtis, Weather } from "../types";
 import GeneralLoading from "./GeneralLoading";
+import { useSelector } from "react-redux";
+import { RootState, useFetchDetailAirportWithICAOQuery } from "../store";
+import { DetailAirportResponseQuery } from "../store/apis/airportsApi";
+import Airports from "./Airports";
 
 function AirportDetail() {
     const darkMode = useTheme();
+    const themeMode = darkMode ? "dark" : "light";
     const navigate = useNavigate();
     const [airport, setAirport] = useState<DbAirport>();
-    const [metar, setMetar] = useState({});
-    const [ATIS, setATIS] = useState();
-    const [isLoading, setIsLoading] = useState(true);
+    const [metar, setMetar] = useState<Weather>();
+    const [ATIS, setATIS] = useState<DetailAirportResponseAtis>();
 
-    setTimeout(() => setIsLoading(false), 5000);
-
+    const { airportICAO } = useSelector((state: RootState) => state.airportSelection);
     const { icao: paramICAO } = useParams();
 
-    // Update airport visited count
+    const effectiveICAO = paramICAO ? paramICAO.toUpperCase() : airportICAO;
+    const isValidICAO = /^[A-Z]{4}$/.test(effectiveICAO);
+
+    const {
+        data: fetchedAirportData,
+        error: airportDataError,
+        isFetching: airportDataFetching,
+    } = useFetchDetailAirportWithICAOQuery({
+        icao: effectiveICAO,
+        decode: true
+    }, {
+        skip: !isValidICAO
+    });
+
     useEffect(() => {
-        if (airport && airport.ICAO?.length !== 0) {
-            const updateVisited = async (icao) => {
-                await axios.put(
-                    "https://api.airportweather.org/v1/airports/update-visited",
-                    { icao: `${icao}` });
-            };
-            updateVisited(airport.ICAO)
-                .catch();
+        if (
+            !isValidICAO || airportDataError ||
+                (fetchedAirportData &&
+                        (fetchedAirportData.result === 0 || fetchedAirportData.data.length === 0))
+        ) {
+            navigate("/airport");
         }
-    }, [airport]);
+    }, [fetchedAirportData, airportDataError, navigate]);
 
-    // get localStorage airport data
+    // set fetched data
     useEffect(() => {
-        const airportData = JSON.parse(localStorage.getItem("airportData"));
-        // infoOnly: only set METAR and ATIS from request, using localStorage to set airport data.
-        const requestAirportAndSetLocal = async (icao, infoOnly) => {
-            try {
-                const response = await axios.get(
-                    `https://api.airportweather.org/v1/airports/icao/${icao}?decode=true`
-                );
-                if (response && response.data.results !== 0) {
-                    if (response.data.data[0].airport && !infoOnly) {
-                        setAirport(response.data.data[0].airport);
-                    }
-                    if (response.data.data[0].METAR) {
-                        setMetar(response.data.data[0].METAR);
-                    }
-                    if (response.data.data[0].ATIS) {
-                        setATIS(response.data.data[0].ATIS);
-                    }
-                    localStorage.setItem("airportData", JSON.stringify(response.data.data[0].airport));
-                }
-            } catch (e) {
-                navigate("/airport");
-            }
-        };
-
-        // if URLs ICAO not equal to localStorage's airport
-        if (airportData && (airportData.ICAO !== paramICAO.toUpperCase())) {
-            requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
-                .catch();
-        } else if (!airportData && paramICAO) {
-            requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
-                .catch();
-        } else if (airportData && (airportData.ICAO === paramICAO.toUpperCase())) {
-            //setAirport(airportData);
-            requestAirportAndSetLocal(paramICAO.toUpperCase(), false)
-                .catch();
+        if (fetchedAirportData && fetchedAirportData.result !== 0) {
+            setMetar(fetchedAirportData.data[0].METAR || null);
+            setAirport(fetchedAirportData.data[0].airport || null);
+            setATIS(fetchedAirportData.data[0].ATIS || null);
         }
-    }, []);
+    }, [fetchedAirportData]);
 
-    const themeMode = darkMode ? "dark" : "light";
-    if (airport) {
+    if (airportDataFetching) {
+        return <GeneralLoading themeMode={themeMode}/>;
+    }
+
+    if (airport && fetchedAirportData) {
         const {
             country_code,
             country_name
@@ -119,7 +105,7 @@ function AirportDetail() {
                         />
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                        <AirportDetailWeatherSection icao={ICAO}/>
+                        <AirportDetailWeatherSection metar={metar}/>
                     </div>
                     <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailTafSection icao={ICAO}/>
@@ -158,11 +144,7 @@ function AirportDetail() {
             </CustomProvider>
         );
     }
-    return (
-        <div>
-            {!isLoading ? <NoMatch/> : <GeneralLoading themeMode={themeMode}/>}
-        </div>
-    );
+    return null;
 }
 
 export default AirportDetail;

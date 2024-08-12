@@ -3,11 +3,14 @@ import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
+import { useDispatch } from "react-redux";
+import { setSelectedAirportICAO } from "../store";
 
 function VatsimAirportInfoTab({
     airport,
     counter
 }) {
+    const dispatch = useDispatch();
     const {
         ICAO,
         iata,
@@ -35,10 +38,6 @@ function VatsimAirportInfoTab({
             + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
             + "h-full bg-gray-300";
 
-
-    const handleClick = () => {
-        localStorage.setItem("airportData", JSON.stringify(airport));
-    };
 
     const delIcon = controller.DEL ? (
         <div className="border-2 bg-blue-500 text-center " title="Delivery">
@@ -111,7 +110,7 @@ function VatsimAirportInfoTab({
     const goToAirportIcon = (
         <Link
             to={`airport/detail/${ICAO}`}
-            onMouseOver={handleClick}
+            onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
             <IoIosArrowRoundForward size={40}/>
         </Link>

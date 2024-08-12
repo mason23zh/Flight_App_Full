@@ -12,6 +12,7 @@ import { vatsimApi } from "./apis/vatsimApi";
 import { rainviewerApi } from "./apis/rainviewerApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
+import { setMapSearchSelectedTraffic, mapSearchTrafficReducer } from "./slices/mapSearchTrafficSlice";
 import {
     onMouseHoverFirLabel,
     onMouseLeaveFirLabel,
@@ -38,6 +39,10 @@ import {
     toggleDayNightTerminator,
     toggleAirportVisible,
     switchMapStyles,
+    toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
     resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -56,6 +61,45 @@ import {
     setSelectedTraffic,
     vatsimMapTrafficReducer
 } from "./slices/vatsimMapTrafficSlice";
+import {
+    setMapSearchSelectedAirport,
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport,
+    mapSearchAirportReducer,
+    setAirportTracking,
+} from "./slices/mapSearchAirportSlice";
+
+import {
+    setTrafficTracking,
+    flightInfoReducer
+} from "./slices/flightInfoSlice";
+
+import {
+    setSearchInput,
+    setTabSelection,
+    mapSearchBoxReducer
+} from "./slices/mapSearchBoxSlice";
+
+import {
+    setMapSearchSelectedAircraft,
+    setAircraftListDisplay,
+    mapSearchAircraftReducer,
+    setFilterAircraftOnMap_aircraft,
+    setSelectedAircraftCategory
+} from "./slices/mapSearchAircraftSlice";
+
+import {
+    openSearchResults,
+    openTrafficDetail,
+    closeTrafficDetail,
+    closeSearchResults,
+    mapDisplayPanelReducer
+} from "./slices/mapDisplayPanelSlice";
+
+import {
+    setSelectedAirportICAO,
+    airportSelectionReducer
+} from "./slices/airportSelectionSlice";
 
 
 /*
@@ -82,6 +126,13 @@ export const store = configureStore({
         vatsimMapError: vatsimMapErrorReducer,
         rehydrationComplete: rehydrationCompleteReducer,
         vatsimMapTraffic: vatsimMapTrafficReducer,
+        mapSearchTraffic: mapSearchTrafficReducer,
+        mapSearchAirport: mapSearchAirportReducer,
+        mapSearchAircraft: mapSearchAircraftReducer,
+        mapSearchBox: mapSearchBoxReducer,
+        mapDisplayPanel: mapDisplayPanelReducer,
+        flightInfo: flightInfoReducer,
+        airportSelection: airportSelectionReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -161,6 +212,10 @@ export {
     toggleDayNightTerminator,
     toggleAirportVisible,
     switchMapStyles,
+    toggleMovingMap,
+    toggleTelemetry,
+    toggleMapFollowTraffic,
+    setLiveTrafficAvailable,
     resetMap
 };
 
@@ -177,6 +232,36 @@ export {
 
 export { setSelectedTraffic };
 
+export { setMapSearchSelectedTraffic };
+
+export {
+    setMapSearchSelectedAirport,
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_airport,
+    setAirportTracking
+};
+
+export { setTrafficTracking };
+
+export { setSearchInput, setTabSelection };
+
+export {
+    setMapSearchSelectedAircraft,
+    setAircraftListDisplay,
+    setFilterAircraftOnMap_aircraft,
+    setSelectedAircraftCategory
+};
+
+export {
+    openSearchResults,
+    openTrafficDetail,
+    closeTrafficDetail,
+    closeSearchResults
+};
+
+export {
+    setSelectedAirportICAO
+};
 
 export const persistor = persistStore(store);
 

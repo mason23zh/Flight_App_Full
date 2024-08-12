@@ -73,7 +73,7 @@ function Home() {
 
 
     return (
-        <div>
+        <div className="flex flex-col flex-grow mr-0 ml-0">
             <ScrollToHashElement/>
             <HomeHeroSection
                 backgroundImage={backgroundImage}

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Table } from "rsuite";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
 import AirportDetailRunwayTableIconContext from "./AirportDetailRunwayTable_IconContext";
-import { Weather } from "../types/index";
+import { Runway, Weather } from "../types";
 
 const {
     Column,
@@ -12,30 +12,27 @@ const {
     Cell
 } = Table;
 
+interface Props {
+    runways: Array<Runway>;
+    metar: Weather;
+}
 
 function AirportDetailRunwayTable({
     runways,
     metar
-}) {
+}: Props) {
 
-    const [sortColumn, setSortColumn] = useState();
-    const [sortType, setSortType] = useState();
-    const [weather, setWeather] = useState<Weather>();
+    const [sortColumn, setSortColumn] = useState<keyof Runway | null>(null);
+    const [sortType, setSortType] = useState<"asc" | "desc" | null>(null);
 
-    const toRadians = (angle) => angle * (Math.PI / 180);
+    const toRadians = (angle: number) => angle * (Math.PI / 180);
 
-    useEffect(() => {
+    const renderWindComponent = (runwayHdg: number) => {
+        let headWindComponent: JSX.Element;
+        let crossWindComponent: JSX.Element;
         if (metar) {
-            setWeather(metar);
-        }
-    }, [metar]);
-
-    const renderWindComponent = (runwayHdg) => {
-        let headWindComponent;
-        let crossWindComponent;
-        if (weather) {
-            const windDegrees = weather?.wind?.degrees;
-            const windSpeed = weather?.wind?.speed_kts;
+            const windDegrees = metar?.wind?.degrees;
+            const windSpeed = metar?.wind?.speed_kts;
             const crossWind = Math.round(Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             const headWind = Math.round(Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
             if (crossWind <= 0) {
@@ -113,25 +110,32 @@ function AirportDetailRunwayTable({
         }
     };
 
-
-    const sortData = () => runways.sort((a, b) => {
+    const sortData = (): Runway[] => {
         if (sortColumn && sortType) {
-            const x = a[sortColumn];
-            const y = b[sortColumn];
+            return [...runways].sort((a, b) => {
+                const x = a[sortColumn];
+                const y = b[sortColumn];
 
-            if (sortType === "asc") {
-                return x - y;
-            }
-            return y - x;
+                // Handle string sorting
+                if (typeof x === "string" && typeof y === "string") {
+                    return sortType === "asc" ? x.localeCompare(y) : y.localeCompare(x);
+                }
+
+                // Handle numeric sorting
+                if (typeof x === "number" && typeof y === "number") {
+                    return sortType === "asc" ? x - y : y - x;
+                }
+
+                return 0;
+            });
         }
         return runways;
-    });
-
-    const handleColumnSort = (columnToBeSort, typeToBeSort) => {
-        setSortColumn(columnToBeSort);
-        setSortType(typeToBeSort);
     };
 
+    const handleColumnSort = (column: keyof Runway, type: "asc" | "desc") => {
+        setSortColumn(column);
+        setSortType(type);
+    };
 
     return (
         <div>

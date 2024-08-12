@@ -1,9 +1,11 @@
 // This accordion will display basic information of airport
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomProvider } from "rsuite";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
 import { useTheme } from "../hooks/ThemeContext";
+import { setSelectedAirportICAO } from "../store";
+import { useDispatch } from "react-redux";
 
 function WeatherAccordion({ weather }) {
     const [expand, setExpand] = useState(false);
@@ -29,21 +31,12 @@ function WeatherAccordion({ weather }) {
         visibility,
     } = weather;
 
-    useEffect(() => {
-        localStorage.removeItem("airportData");
-    });
+    const dispatch = useDispatch();
 
     const handleExpand = () => {
         setExpand(!expand);
     };
 
-    const handleLinkClick = () => {
-        const airport = {
-            ICAO: icao,
-            flag: true
-        };
-        localStorage.setItem("airportData", JSON.stringify(airport));
-    };
     const renderRawText = (
         // Limit the width here to show the click chevron
         <div className="w-[95%] text-center">
@@ -74,7 +67,7 @@ function WeatherAccordion({ weather }) {
                     className={darkMode
                         ? "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-300 hover:no-underline text-gray-100"
                         : "rounded-lg bg-green-400 py-1 px-3 hover:bg-yellow-400 hover:no-underline"}
-                    onMouseOver={handleLinkClick}
+                    onClick={() => dispatch(setSelectedAirportICAO(icao))}
                 >Go to
                     Airport
                 </Link>
