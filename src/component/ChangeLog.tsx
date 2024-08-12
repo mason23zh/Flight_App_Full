@@ -185,6 +185,10 @@ function ChangeLog() {
                         - Remove the hover popup arrow tip (controller marker) <br/>
                         - Adjust the controller marker popup size for mobile device <br/>
                     </div>
+                    <div>
+                        Beta 0.5.2 <br/>
+                        - Fixed the text encoding issue (backend fix) <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

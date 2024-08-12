@@ -173,3 +173,7 @@
 - Applied change for the new Datis API format
 - Remove the hover popup arrow tip (controller maker)
 - Adjust the controller maker popup size for mobile device
+
+#Beta 0.5.2
+
+- Fixed the text encoding issue (backend fix)

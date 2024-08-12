@@ -81,6 +81,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
 
     useEffect(() => {
         function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
+            if (!controllers || controllers.length === 0) return [];
             const facilityMap = facilities.reduce((map, f) => {
                 map[f.id] = f.short;
                 return map;
@@ -125,7 +126,7 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         }
 
         if (controllerInfo) {
-            const temp = combineAirportServices(controllerInfo.other.controllers, controllerInfo.other.atis, facilities);
+            const temp = combineAirportServices(controllerInfo?.other?.controllers, controllerInfo?.other?.atis, facilities);
             setData(temp);
         }
 
