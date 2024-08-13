@@ -187,7 +187,7 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.5.2 <br/>
-                        - Fixed the text encoding issue (backend fix) <br/>
+                        - Fixed the text encoding issue (backend and frontend fix) <br/>
                     </div>
                 </div>
             </div>

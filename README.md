@@ -176,4 +176,4 @@
 
 #Beta 0.5.2
 
-- Fixed the text encoding issue (backend fix)
+- Fixed the text encoding issue (backend and frontend fix)
