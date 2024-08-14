@@ -2,6 +2,7 @@
  * Use to render the DeckGL overlay
  * */
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer_3D from "./deckGL_Layer/trafficLayer_3D";
@@ -33,6 +34,7 @@ interface Viewport {
     height: number;
     pitch: number;
     bearing: number;
+    isDragging: boolean;
 }
 
 interface ChildProps {
@@ -67,6 +69,24 @@ const MainTrafficLayer = ({
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
+    // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
+    const [previousViewBounds, setPreivousViewBounds] = useState<[number, number, number, number] | null>(null);
+    const [previsouZoom, setPreviousZoom] = useState<number>(null);
+
+    /*
+    * The currentViewBounds is the coordinates of viewport edge of current viewport
+    * This will update if viewState changes
+    * */
+    const currentViewBounds = useMemo(() => {
+        const viewportBounds = new WebMercatorViewport({
+            longitude: viewState.longitude,
+            latitude: viewState.latitude,
+            zoom: viewState.zoom,
+            width: viewState.width,
+            height: viewState.height
+        }).getBounds();
+        return viewportBounds;
+    }, [viewState]);
 
     const {
         data: trackData,
@@ -76,22 +96,54 @@ const MainTrafficLayer = ({
         skip: !selectTraffic
     });
 
-    // only return traffic within the viewport
+    /*
+    * Passing current
+    * */
     const filteredTrafficData = useMemo(() => {
-        return filterTrafficDataInViewport(vatsimPilots, viewState);
-    }, [vatsimPilots, viewState]);
+        const data =
+                        filterTrafficDataInViewport(
+                            vatsimPilots,
+                            currentViewBounds,
+                            previousViewBounds,
+                            viewState.zoom,
+                            previsouZoom,
+                            viewState.isDragging
+                        );
+        // Update previousBounds after filtering
+        if (!viewState.isDragging || (previsouZoom && (previsouZoom !== viewState.zoom))) {
+            setPreviousZoom(viewState.zoom);
+            setPreivousViewBounds(currentViewBounds);
+        }
 
-    // console.log("total vatsim traffic:", vatsimPilots.length);
-    // console.log("total filtered traffic:", filteredTrafficData.length);
+        return data;
+    },
+    [
+        vatsimPilots,
+        currentViewBounds,
+        previousViewBounds,
+        viewState.isDragging,
+        viewState.zoom,
+        previsouZoom
+    ]);
+
 
     const { flightData } = useWebSocketContext();
 
-    const trafficLayer3D = trafficLayer_3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
 
-    // useMemo can ONLY with trafficLayer_2D
+    const trafficLayer3D = useMemo(() => {
+        if (terrainEnable && trafficLayerVisible) {
+            return trafficLayer_3D(filteredTrafficData, true);
+        }
+        return null;
+    }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
+
+
     const trafficLayer2D = useMemo(() => {
+        console.log("filtered traffic data length:", filteredTrafficData.length);
+
         return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
-    }, [terrainEnable, filteredTrafficData, trafficLayerVisible]);
+    }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
+
 
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);

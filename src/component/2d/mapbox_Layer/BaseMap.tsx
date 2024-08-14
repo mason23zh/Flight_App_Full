@@ -9,18 +9,6 @@ import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
 import { ViewStateProvider } from "../viewStateContext";
 
-
-export interface Viewport {
-    longitude: number;
-    latitude: number;
-    zoom: number;
-    width: number;
-    height: number;
-    pitch: number;
-    bearing: number;
-}
-
-
 interface BaseMapProps {
     children: React.ReactNode;
 }
@@ -61,8 +49,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
         pitch: 0,
         bearing: 0,
         width: 0,
-        height: 0
+        height: 0,
+        isDragging: false
     });
+
 
     // To move the map view to the tracked traffic
     useEffect(() => {
@@ -171,6 +161,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             latitude: viewState,
             height: mapHeight,
             width: mapWidth,
+            isDragging: true, //reset isDragging to true when map start moving
             ...viewState
         });
     }, []);
@@ -215,6 +206,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [terrainEnable]);
 
+    const handleDragEnd = useCallback(() => {
+        setViewState(prevState => ({
+            ...prevState,
+            isDragging: false
+        }));
+    }, []);
+
 
     /*
     * Default Projection: mercator
@@ -224,7 +222,9 @@ const BaseMap = ({ children }: BaseMapProps) => {
     */
     return (
         <ViewStateProvider value={viewState}>
-            <div onContextMenu={evt => evt.preventDefault()}>
+            <div
+                onContextMenu={evt => evt.preventDefault()}
+            >
                 <Map
                     id="mainMap"
                     ref={mapRef}
@@ -240,6 +240,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     style={mapStyle}
                     onMove={onMove}
                     dragPan={true}
+                    onDragEnd={handleDragEnd}
+                    renderWorldCopies={false} //prevent map wrapping
                     onLoad={(e) => initializeTerrainSource(e.target)}
                     logoPosition={"bottom-right"}
                 >

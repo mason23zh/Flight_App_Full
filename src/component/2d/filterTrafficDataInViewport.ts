@@ -1,53 +1,51 @@
 /*
 * Using WebMercatorViewport to filter out the traffic that not within the viewport
 * */
-import { WebMercatorViewport } from "@deck.gl/core/typed";
 import { VatsimFlight } from "../../types";
-
-interface Viewport {
-    longitude: number;
-    latitude: number;
-    zoom: number;
-    width: number; //screen width
-    height: number; //screen height
-}
 
 const filterTrafficDataInViewport = (
     trafficData: VatsimFlight[],
-    viewport: Viewport): VatsimFlight[] => {
+    currentBounds: [number, number, number, number],
+    previousBounds: [number, number, number, number] | null,
+    currentZoom: number,
+    previousZoom: number | null,
+    isDragging: boolean
+): VatsimFlight[] => {
+    // console.log("filtered data run");
 
-    const {
-        latitude,
-        longitude,
-        zoom,
-        width,
-        height
-    } = viewport;
-
-    //using WebMercatorViewport to get bounds of current viewport
-    const viewportBounds = new WebMercatorViewport({
-        longitude,
-        latitude,
-        zoom,
-        width,
-        height
-    }).getBounds();
-
-    const [minLng, minLat, maxLng, maxLat] = viewportBounds;
+    const [minLng, minLat, maxLng, maxLat] = currentBounds;
 
     if (trafficData.length === 0) return [];
 
-    return trafficData.filter(({
-        longitude,
-        latitude
-    }) => {
-        return (
-            longitude >= minLng &&
-                longitude <= maxLng &&
-                latitude >= minLat &&
-                latitude <= maxLat
-        );
-    });
+    const zoomChanged = previousZoom === null || currentZoom !== previousZoom;
+
+    if (!zoomChanged && isDragging && previousBounds) {
+        const [prevMinLng, prevMinLat, prevMaxLng, prevMaxLat] = previousBounds;
+
+        return trafficData.filter(({
+            longitude,
+            latitude
+        }) => {
+            return (
+                longitude >= prevMinLng &&
+                    longitude <= prevMaxLng &&
+                    latitude >= prevMinLat &&
+                    latitude <= prevMaxLat
+            );
+        });
+    } else {
+        return trafficData.filter(({
+            longitude,
+            latitude
+        }) => {
+            return (
+                longitude >= minLng &&
+                    longitude <= maxLng &&
+                    latitude >= minLat &&
+                    latitude <= maxLat
+            );
+        });
+    }
 };
 
 export default filterTrafficDataInViewport;
