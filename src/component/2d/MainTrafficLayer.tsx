@@ -97,7 +97,8 @@ const MainTrafficLayer = ({
     });
 
     /*
-    * Passing current
+    * Return filtered traffic data based on the map zoom state, view location
+    * The filtered data length will trigger trafficLayer_2D or trafficLayer_3D function to run.
     * */
     const filteredTrafficData = useMemo(() => {
         const data =
@@ -139,8 +140,6 @@ const MainTrafficLayer = ({
 
 
     const trafficLayer2D = useMemo(() => {
-        console.log("filtered traffic data length:", filteredTrafficData.length);
-
         return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 

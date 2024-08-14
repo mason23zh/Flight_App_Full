@@ -15,7 +15,6 @@ const trafficLayer_3D = (
     visible: boolean) => {
 
     if (!visible || !data) return null;
-    console.log("traffic layer 3d run.");
 
     return new ScenegraphLayer({
         id: "traffics-layer",

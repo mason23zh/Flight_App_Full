@@ -8,6 +8,7 @@ interface Viewport {
     bearing: number;
     width: number;
     height: number;
+    isDragging: boolean;//to track mouse dragging state
 }
 
 // Create a Context for the viewState
@@ -21,7 +22,7 @@ export const useViewState = () => {
     }
     return context;
 };
- 
+
 
 export const ViewStateProvider: React.FC<{ value: Viewport; children: React.ReactNode }> = ({
     value,

@@ -11,7 +11,6 @@ const filterTrafficDataInViewport = (
     previousZoom: number | null,
     isDragging: boolean
 ): VatsimFlight[] => {
-    // console.log("filtered data run");
 
     const [minLng, minLat, maxLng, maxLat] = currentBounds;
 
