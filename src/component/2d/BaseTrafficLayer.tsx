@@ -42,6 +42,12 @@ const BaseTrafficLayer = () => {
         isLoading: vatsimPilotsLoading
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
+    // const {
+    //     data: controllerData,
+    //     error: controllerError,
+    //     isLoading: controllerLoading
+    // } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
+
     // Import vatsim pilots into Dexie
     useEffect(() => {
         if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading) {

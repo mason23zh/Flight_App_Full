@@ -9,6 +9,7 @@ import VatsimEventDetail from "./VatsimEventDetail";
 import { RootState } from "../store";
 import { Event } from "../types";
 
+//TODO: virtualized && page style fix
 function VatsimEventsAll() {
     const dispatch = useDispatch();
     const reduxEvent: Partial<Event> = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);

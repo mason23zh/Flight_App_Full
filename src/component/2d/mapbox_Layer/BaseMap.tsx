@@ -213,6 +213,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }));
     }, []);
 
+    const handOnMoveEnd = useCallback(() => {
+        setViewState(prevState => ({
+            ...prevState,
+            isDragging: false
+        }));
+    }, []);
+
 
     /*
     * Default Projection: mercator
@@ -239,9 +246,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxPitch={70}
                     style={mapStyle}
                     onMove={onMove}
+                    onMoveEnd={handOnMoveEnd}
                     dragPan={true}
                     onDragEnd={handleDragEnd}
-                    renderWorldCopies={false} //prevent map wrapping
+                    renderWorldCopies={true} //prevent map wrapping
                     onLoad={(e) => initializeTerrainSource(e.target)}
                     logoPosition={"bottom-right"}
                 >

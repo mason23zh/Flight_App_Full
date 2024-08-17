@@ -1,23 +1,24 @@
 import React from "react";
 import { Popup } from "react-map-gl";
 import GeoJson from "geojson";
-import { VatsimFirs } from "../../../../types";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
+import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
 interface Props {
-    hoverFir: GeoJson.FeatureCollection,
-    firData: VatsimFirs
+    hoverFir: MatchedFir,
 }
 
 const FirLabelPopup = ({
     hoverFir,
 }: Props) => {
+    if (!hoverFir) return null;
+
     let tempFirName: string;
     const darkMode = useTheme();
 
 
-    const firName = hoverFir.features[0].properties.firInfo.name;
+    const firName = hoverFir.firInfo.name;
     // Normalize the En route controller to "Center"
     if (firName.includes("Central") || firName.includes("Radar") || firName.includes("ACC")) {
         tempFirName = firName;
@@ -30,7 +31,7 @@ const FirLabelPopup = ({
     const callsignColor = darkMode ? "text-purple-300" : "text-purple-500";
 
     // construct the controllers list
-    const renderControllersData = hoverFir.features[0].properties.controllers.map((c) => {
+    const renderControllersData = hoverFir.controllers.map((c) => {
         const {
             hour,
             minute
@@ -60,8 +61,8 @@ const FirLabelPopup = ({
                 zIndex: 100,
             }}
             maxWidth="500px"
-            longitude={Number(hoverFir.features[0].properties.label_lon)}
-            latitude={Number(hoverFir.features[0].properties.label_lat)}
+            longitude={Number(hoverFir.label_lon)}
+            latitude={Number(hoverFir.label_lat)}
             closeButton={false}
             anchor="bottom"
         >
@@ -69,7 +70,7 @@ const FirLabelPopup = ({
             <div className={`w-full p-2 font-Rubik rounded-xl ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-[17px] font-bold">
-                        {hoverFir.features[0].properties.id}
+                        {hoverFir.id}
                     </div>
                     <div className="text-[17px]">
                         {tempFirName}

@@ -1,5 +1,6 @@
 import { WebMercatorViewport } from "@deck.gl/core/typed";
 import { VatsimControllers } from "../../types";
+import { wrapLongitudeForBounds } from "../../util/wrapLongitudeForViewportBounds";
 
 interface Viewport {
     longitude: number;
@@ -9,6 +10,7 @@ interface Viewport {
     height: number;
 }
 
+//TODO: Need to handle latitude wrapping
 const filterControllerMarkerInViewport = (
     controllerData: VatsimControllers,
     viewport: Viewport
@@ -29,7 +31,9 @@ const filterControllerMarkerInViewport = (
         height
     }).getBounds();
 
-    const [minLng, minLat, maxLng, maxLat] = viewportBounds;
+    const wrappedBounds = wrapLongitudeForBounds(viewportBounds);
+
+    const [minLng, minLat, maxLng, maxLat] = wrappedBounds;
 
 
     const controllerInfo = controllerData.other.controllers.filter((controller) => {

@@ -2,6 +2,7 @@
 * Using WebMercatorViewport to filter out the traffic that not within the viewport
 * */
 import { VatsimFlight } from "../../types";
+import { wrapLongitudeForBounds } from "../../util/wrapLongitudeForViewportBounds";
 
 const filterTrafficDataInViewport = (
     trafficData: VatsimFlight[],
@@ -11,39 +12,53 @@ const filterTrafficDataInViewport = (
     previousZoom: number | null,
     isDragging: boolean
 ): VatsimFlight[] => {
-
-    const [minLng, minLat, maxLng, maxLat] = currentBounds;
+    // const [minLng, minLat, maxLng, maxLat] = currentBounds;
 
     if (trafficData.length === 0) return [];
 
     const zoomChanged = previousZoom === null || currentZoom !== previousZoom;
 
-    if (!zoomChanged && isDragging && previousBounds) {
-        const [prevMinLng, prevMinLat, prevMaxLng, prevMaxLat] = previousBounds;
+    // Need to wrap the longitude to display traffic from both east and west hemisphere
+    const currentBoundsWrapped = wrapLongitudeForBounds(currentBounds);
+    const previousBoundsWrapped = wrapLongitudeForBounds(previousBounds);
 
-        return trafficData.filter(({
-            longitude,
-            latitude
-        }) => {
-            return (
-                longitude >= prevMinLng &&
-                    longitude <= prevMaxLng &&
-                    latitude >= prevMinLat &&
-                    latitude <= prevMaxLat
-            );
-        });
-    } else {
-        return trafficData.filter(({
-            longitude,
-            latitude
-        }) => {
-            return (
-                longitude >= minLng &&
-                    longitude <= maxLng &&
+    const filterDataInBounds = (
+        bounds: [number, number, number, number],
+        data: VatsimFlight[]
+    ): VatsimFlight[] => {
+        const [minLng, minLat, maxLng, maxLat] = bounds;
+
+
+        if (minLng > maxLng) {
+            // Handle map wrapping: split into two ranges
+            return data.filter(({
+                longitude,
+                latitude
+            }) => {
+                return (
                     latitude >= minLat &&
-                    latitude <= maxLat
-            );
-        });
+                        latitude <= maxLat &&
+                        (longitude >= minLng || longitude <= maxLng)
+                );
+            });
+        } else {
+            return data.filter(({
+                longitude,
+                latitude
+            }) => {
+                return (
+                    longitude >= minLng &&
+                        longitude <= maxLng &&
+                        latitude >= minLat &&
+                        latitude <= maxLat
+                );
+            });
+        }
+    };
+    if (!zoomChanged && isDragging && previousBounds) {
+        return filterDataInBounds(previousBoundsWrapped, trafficData);
+    } else {
+        return filterDataInBounds(currentBoundsWrapped, trafficData);
     }
 };
 

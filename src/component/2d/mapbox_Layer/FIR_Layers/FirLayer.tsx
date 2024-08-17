@@ -3,15 +3,13 @@
 import React, { useEffect } from "react";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
-import useMatchedFirFeatures from "../../../../hooks/useMatchedFirFeatures";
-import { layerStyle, boundariesLineStyle, highlightLayer } from "./firLayerMapStyle";
+import { activeFirLayerStyle } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
-import { isFeatureCollection } from "../util/helpers";
 import GeoJson from "geojson";
-import testGeoJson from "../../../../test_data/vatsim-firboundaries.json";
+import useMatchedFirs, { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -25,17 +23,16 @@ const FirLayer = ({
     geoJsonData
 }: Controller) => {
 
+    if (!geoJsonData || !controllerInfo) return null;
+
     const dispatch = useDispatch();
+    console.log("Fir layer run");
 
     const {
-        geoJsonFeatures,
-        firData,
+        matchedFirs: matchedFIRS,
         isLoading,
         isError
-    } = useMatchedFirFeatures(
-        controllerInfo,
-        geoJsonData
-    );
+    } = useMatchedFirs(controllerInfo, geoJsonData);
 
     useEffect(() => {
         if (isLoading) {
@@ -54,37 +51,56 @@ const FirLayer = ({
             }));
         }
 
-        if (geoJsonFeatures?.features.length > 0 && !isError) {
+        if (matchedFIRS?.length > 0 && !isError) {
             dispatch(removeMessageByLocation({ location: "FIR" }));
         }
-    }, [isLoading, isError, geoJsonFeatures, firData]);
+    }, [isLoading, isError, matchedFIRS]);
 
     const {
         renderedMarkers,
         hoverFir
-    } = useRenderFirLabelMarker(geoJsonFeatures);
+    } = useRenderFirLabelMarker(matchedFIRS);
 
-    const hoverFirCast = hoverFir as GeoJson.FeatureCollection;
+    const hoverFirCast = hoverFir as MatchedFir;
 
     if (isLoading || isError) {
         return null;
     }
 
-    if (geoJsonFeatures) {
+    if (matchedFIRS) {
+        const matchedFirIds = matchedFIRS.map(fir => fir.id);
+        const layerStyle = activeFirLayerStyle(matchedFirIds, hoverFirCast);
+
         return (
-            <Source type="geojson" data={geoJsonFeatures}>
+            <Source
+                id="active-fir-layers"
+                type="vector"
+                url="mapbox://mason-zh.clqudy2fp2ag61nogduw0ofwr-96of0"
+            >
                 <Layer {...layerStyle} />
-                <Layer {...boundariesLineStyle}/>
-                {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFirCast)) &&
-                    <Source type="geojson" data={hoverFirCast}>
-                        <Layer {...highlightLayer}/>
-                        <FirLabelPopup hoverFir={hoverFirCast} firData={firData}/>
-                    </Source>
+                {(hoverFir && labelVisible) &&
+                    <FirLabelPopup hoverFir={hoverFirCast}/>
                 }
                 {labelVisible && renderedMarkers}
             </Source>
         );
     }
+
+    // if (geoJsonFeatures) {
+    //     return (
+    //         <Source type="geojson" data={geoJsonFeatures}>
+    //             <Layer {...layerStyle} />
+    //             <Layer {...boundariesLineStyle}/>
+    //             {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFirCast)) &&
+    //                 <Source type="geojson" data={hoverFirCast}>
+    //                     <Layer {...highlightLayer}/>
+    //                     <FirLabelPopup hoverFir={hoverFirCast} firData={firData}/>
+    //                 </Source>
+    //             }
+    //             {labelVisible && renderedMarkers}
+    //         </Source>
+    //     );
+    // }
 };
 
 export default React.memo(FirLayer);

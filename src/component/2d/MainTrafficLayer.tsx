@@ -24,6 +24,7 @@ import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "./WebSocketContext";
 import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
 
+
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
 
 interface Viewport {
@@ -71,7 +72,8 @@ const MainTrafficLayer = ({
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
     // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
     const [previousViewBounds, setPreivousViewBounds] = useState<[number, number, number, number] | null>(null);
-    const [previsouZoom, setPreviousZoom] = useState<number>(null);
+    const [previousZoom, setPreviousZoom] = useState<number>(null);
+
 
     /*
     * The currentViewBounds is the coordinates of viewport edge of current viewport
@@ -107,11 +109,11 @@ const MainTrafficLayer = ({
                             currentViewBounds,
                             previousViewBounds,
                             viewState.zoom,
-                            previsouZoom,
+                            previousZoom,
                             viewState.isDragging
                         );
         // Update previousBounds after filtering
-        if (!viewState.isDragging || (previsouZoom && (previsouZoom !== viewState.zoom))) {
+        if (!viewState.isDragging || (previousZoom && (previousZoom !== viewState.zoom))) {
             setPreviousZoom(viewState.zoom);
             setPreivousViewBounds(currentViewBounds);
         }
@@ -124,12 +126,13 @@ const MainTrafficLayer = ({
         previousViewBounds,
         viewState.isDragging,
         viewState.zoom,
-        previsouZoom
+        previousZoom
     ]);
 
 
     const { flightData } = useWebSocketContext();
 
+    // const matchedFirIds = useMatchedFirIds(controllerData);
 
     const trafficLayer3D = useMemo(() => {
         if (terrainEnable && trafficLayerVisible) {
@@ -143,6 +146,9 @@ const MainTrafficLayer = ({
         return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 
+    // const activeFir = useMemo(() => {
+    //     return selectedFirLayer(matchedFirIds);
+    // }, [controllerData]);
 
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
@@ -201,6 +207,7 @@ const MainTrafficLayer = ({
     }, [selectTraffic]);
 
     const layers = useMemo(() => [
+        // activeFir,
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
         localTrafficLayer

@@ -48,8 +48,9 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
 
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
-        renderServices = hoverInfo.services.map((serviceInfo) => {
-            if (serviceInfo.facility !== 5) {
+        renderServices = hoverInfo.services
+            .filter(serviceInfo => serviceInfo.facility !== 5)
+            .map((serviceInfo) => {
                 return (
                     <div key={serviceInfo.callsign}>
                         <ControllerPopupContent
@@ -57,8 +58,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                             serviceType={serviceInfo.serviceType}/>
                     </div>
                 );
-            }
-        });
+            });
     }
 
     useEffect(() => {

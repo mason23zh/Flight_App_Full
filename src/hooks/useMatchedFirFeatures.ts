@@ -4,12 +4,13 @@
 // This hook will also check FSS and fetch all FIRs within its associated FSS.
 // A flag called isInFSS in the properties will be added to indicate if FIR is a part of FSS.
 // The complexity of this hook is high, might be improved in the future.
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { VatsimControllers, VatsimFirs } from "../types";
 import GeoJson from "geojson";
 import { useFetchVatsimFirQuery, useFetchVatsimFssQuery } from "../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
+
 
 interface UseMatchedFirFeaturesReturn {
     geoJsonFeatures: GeoJson.FeatureCollection,
@@ -44,27 +45,29 @@ const useMatchedFirFeatures = (
     const isError = firError || fssError;
 
     useMemo(() => {
-        if (firLoading || firError || fssLoading || fssError || !geoJsonData) {
-            if (firLoading || !geoJsonData || fssLoading) {
-                setGeoJsonFeatures({
-                    type: "FeatureCollection",
-                    features: []
-                });
-                return;
-            }
+        console.log("use memo run useMathcedFirfeature");
+        if (firLoading || firError || fssLoading || fssError || !geoJsonData || !controllerInfo) {
+            setGeoJsonFeatures({
+                type: "FeatureCollection",
+                features: []
+            });
+            return;
         }
 
         let matchedFirs = {};
 
-
-        if (controllerInfo && controllerInfo.fir) {
+        if (controllerInfo.fir) {
             matchedFirs = controllerInfo.fir.reduce((acc, controller) => {
                 const firKey = controller.firInfo.icao;
+                const firInfoWithFlag = {
+                    ...controller.firInfo,
+                    isFss: false
+                };
                 if (!acc[firKey]) {
                     acc[firKey] = {
                         firKey: firKey,
                         controllers: [],
-                        firInfo: controller.firInfo,
+                        firInfo: firInfoWithFlag,
                         isInFss: false
                     };
                 }
@@ -79,7 +82,7 @@ const useMatchedFirFeatures = (
         }
 
         // Check FSS data if available
-        if (controllerInfo && controllerInfo.fss && fssData) {
+        if (controllerInfo.fss && fssData) {
             controllerInfo.fss.forEach(fss => {
                 const fssKey = fss.callsign.replace("_FSS", "");
                 if (fssData[fssKey] && fssData[fssKey].firs) {
@@ -87,6 +90,10 @@ const useMatchedFirFeatures = (
                         if (!matchedFirs[firKey]) {
                             const firInfo = firData[firKey];
                             if (firInfo) {
+                                const firInfoWithFlag = {
+                                    ...firInfo,
+                                    isFss: true,
+                                };
                                 matchedFirs[firKey] = {
                                     firKey: firKey,
                                     controllers: [{
@@ -95,7 +102,7 @@ const useMatchedFirFeatures = (
                                         logon_time: fss.logon_time,
                                         callsign: fss.callsign
                                     }],
-                                    firInfo: firInfo,
+                                    firInfo: firInfoWithFlag,
                                     isInFss: true
                                 };
                             }
@@ -118,15 +125,20 @@ const useMatchedFirFeatures = (
                     while (parts.length > 0 && !matchFound) {
                         const potentialMatch = parts.join("_");
                         if (firData[potentialMatch]) {
-                            if (!matchedFirs[potentialMatch]) {
-                                matchedFirs[potentialMatch] = {
-                                    firKey: potentialMatch,
+                            const potentialMatchFirCode = firData[potentialMatch].fir;
+                            const firInfoWithFlag = {
+                                ...firData[potentialMatch],
+                                isFss: true
+                            };
+                            if (!matchedFirs[potentialMatchFirCode]) {
+                                matchedFirs[potentialMatchFirCode] = {
+                                    firKey: potentialMatchFirCode,
                                     controllers: [],
-                                    firInfo: firData[potentialMatch],
+                                    firInfo: firInfoWithFlag,
                                     isInFss: false
                                 };
                             }
-                            matchedFirs[potentialMatch].controllers.push({
+                            matchedFirs[potentialMatchFirCode].controllers.push({
                                 name: fss.name,
                                 frequency: fss.frequency,
                                 logon_time: fss.logon_time,
@@ -140,34 +152,93 @@ const useMatchedFirFeatures = (
             });
         }
 
-        const newFeatures = geoJsonData?.features.reduce((features, feature) => {
-            const firKey = Object.keys(matchedFirs)
-                .find(key =>
-                    matchedFirs[key].firInfo.fir === feature.properties.id ||
-                            matchedFirs[key].firInfo.icao === feature.properties.id
-                );
 
-            if (firKey && !features.some(f => f.key === `${feature.properties.id}-${firKey}`)) {
-                features.push({
-                    ...feature,
-                    key: `${feature.properties.id}-${firKey}`,
-                    properties: {
-                        ...feature.properties,
-                        controllers: matchedFirs[firKey].controllers,
-                        firInfo: matchedFirs[firKey].firInfo,
-                        isInFss: matchedFirs[firKey].isInFss
+        const chunkSize = 50;
+        let currentIndex = 0;
+        const totalFeatures = geoJsonData.features.length;
+        const processedFeatures = [];
+
+        const processChunk = () => {
+            const chunk = geoJsonData.features.slice(currentIndex, currentIndex + chunkSize);
+
+            chunk.forEach(feature => {
+                const firKey = Object.keys(matchedFirs)
+                    .find(key => {
+                        const matchedFir = matchedFirs[key];
+                        return matchedFir.firInfo.fir === feature.properties.id ||
+                                    matchedFir.firInfo.icao === feature.properties.id;
+                    });
+
+                if (firKey) {
+                    const matchedFir = matchedFirs[firKey];
+                    const isOceanicFeature = feature.properties.oceanic === "1";
+
+                    // Check if FIR is associated with an FSS
+                    if (matchedFir.firInfo.isFss) {
+                        const existingFeatureIndex = processedFeatures.findIndex(f => f.properties.id === feature.properties.id);
+
+                        if (existingFeatureIndex !== -1) {
+                            const existingFeature = processedFeatures[existingFeatureIndex];
+
+                            if (isOceanicFeature && existingFeature.properties.oceanic !== "1") {
+                                // Replace with oceanic feature for FSS FIRs
+                                processedFeatures[existingFeatureIndex] = {
+                                    ...feature,
+                                    key: `${feature.properties.id}-${firKey}`,
+                                    properties: {
+                                        ...feature.properties,
+                                        controllers: matchedFirs[firKey].controllers,
+                                        firInfo: matchedFirs[firKey].firInfo,
+                                        isInFss: matchedFirs[firKey].isInFss
+                                    }
+                                };
+                            }
+                        } else {
+                            processedFeatures.push({
+                                ...feature,
+                                key: `${feature.properties.id}-${firKey}`,
+                                properties: {
+                                    ...feature.properties,
+                                    controllers: matchedFirs[firKey].controllers,
+                                    firInfo: matchedFirs[firKey].firInfo,
+                                    isInFss: matchedFirs[firKey].isInFss
+                                }
+                            });
+                        }
+                    } else {
+                        // Handle FIRs not associated with FSS
+                        const nonOceanicFeature = processedFeatures.find(f => f.properties.id === feature.properties.id && f.properties.oceanic === "0");
+
+                        if (!nonOceanicFeature && !isOceanicFeature) {
+                            processedFeatures.push({
+                                ...feature,
+                                key: `${feature.properties.id}-${firKey}`,
+                                properties: {
+                                    ...feature.properties,
+                                    controllers: matchedFirs[firKey].controllers,
+                                    firInfo: matchedFirs[firKey].firInfo,
+                                    isInFss: matchedFirs[firKey].isInFss
+                                }
+                            });
+                        }
                     }
+                }
+            });
+
+            currentIndex += chunkSize;
+
+            if (currentIndex < totalFeatures) {
+                requestIdleCallback(processChunk);
+            } else {
+                setGeoJsonFeatures({
+                    type: "FeatureCollection",
+                    features: processedFeatures
                 });
             }
-            return features;
-        }, []);
+        };
 
-
-        setGeoJsonFeatures({
-            type: "FeatureCollection",
-            features: newFeatures
-        });
-    }, [controllerInfo, firData, fssData, geoJsonData, isError, isLoading]);
+        requestIdleCallback(processChunk);
+    }, [controllerInfo, geoJsonData, firData, fssData, firLoading, firError, fssLoading, fssError]);
 
     return {
         firData,
