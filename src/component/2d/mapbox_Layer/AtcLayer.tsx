@@ -18,6 +18,8 @@ import filterFirGeoJsonInViewport from "../filterFirGeoJsonInViewport";
 import { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 // import geoJsonData from "../../../assets/vatsim_geoJson/simplified_vatsim_firboundaries.json";
 // import testData from "../../../assets/getvatsimcontrollers-missing-lppo-kzny.json";
+// import testData from "../../../test_data/vatsim-czeg-fss.json";
+import testData from "../../../assets/getvatsimcontrollers-mismatch-edgg-edmm.json";
 
 const AtcLayer = () => {
     const dispatch = useDispatch();
@@ -111,8 +113,7 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer/>}
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={controllerData} geoJsonData={geoJsonData}
-                    labelVisible={true}/>
+                <FirLayer controllerInfo={controllerData} labelVisible={true}/>
                 <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
                 <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
             </>)

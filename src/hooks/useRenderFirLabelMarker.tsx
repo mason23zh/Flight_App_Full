@@ -18,13 +18,13 @@ const useRenderFirLabelMarker = (matchedFir: MatchedFir[]) => {
     renderedMarkers = useMemo(() => {
         if (matchedFir && matchedFir.length > 0) {
             renderedMarkers = matchedFir.map((feature) => {
-                if (feature.isInFss) {
+                if (feature.isInFss || feature.firInfo.isFss) {
                     return (
                         <Marker
                             style={{ zIndex: 50 }}
-                            key={feature.id}
-                            longitude={Number(feature.label_lon)}
-                            latitude={Number(feature.label_lat)}
+                            key={`${feature.id}`}
+                            longitude={Number(feature.firInfo?.entries[0]?.label_lon)}
+                            latitude={Number(feature.firInfo?.entries[0]?.label_lat)}
 
                         >
                             <div
@@ -37,7 +37,7 @@ const useRenderFirLabelMarker = (matchedFir: MatchedFir[]) => {
                                         FSS
                                     </div>
                                     <div className="bg-amber-50 rounded-b-md px-1 py-0 opacity-80 font-bold">
-                                        {feature.id}
+                                        {feature.firInfo.firBoundary}
                                     </div>
                                 </div>
                             </div>
@@ -47,16 +47,16 @@ const useRenderFirLabelMarker = (matchedFir: MatchedFir[]) => {
                 return (
                     <Marker
                         style={{ zIndex: 50 }}
-                        key={feature.id}
-                        longitude={Number(feature.label_lon)}
-                        latitude={Number(feature.label_lat)}
+                        key={`${feature.id}`}
+                        longitude={Number(feature.firInfo?.entries[0]?.label_lon)}
+                        latitude={Number(feature.firInfo?.entries[0]?.label_lat)}
 
                     >
                         <div
                             onMouseEnter={() => handleMouseEnter(feature)}
                             onMouseLeave={handleMouseLeave}
                             className="bg-amber-50 text-center rounded-md py-0 px-1 text-[11px] font-bold text-black opacity-80">
-                            {feature.id}
+                            {feature.firInfo.firBoundary}
                         </div>
                     </Marker>);
             })

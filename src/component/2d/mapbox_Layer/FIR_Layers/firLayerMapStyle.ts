@@ -1,13 +1,20 @@
 import { FillLayer, LineLayer } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
-export const activeFirLayerStyle = (matchedFirIds: string[], hoverFir: MatchedFir): FillLayer => {
+export const activeFirLayerStyle = (matchedFirs: {
+    id: string,
+    oceanic: string,
+}[], hoverFir: MatchedFir): FillLayer => {
     const hoverFirId = hoverFir ? hoverFir.id : null;
+    const filterConditions = matchedFirs.flatMap(fir => [
+        ["all", ["==", ["get", "id"], fir.id], ["==", ["get", "oceanic"], fir.oceanic]]
+    ]);
+
     return {
         id: "fir-boundaries-layer",
         type: "fill",
         source: "active-fir-layers",
-        "source-layer": "firboundaries",
+        "source-layer": "latest_fir_boundaries",
         paint: {
             "fill-color": "#9499a8",
             "fill-opacity": [
@@ -18,7 +25,10 @@ export const activeFirLayerStyle = (matchedFirIds: string[], hoverFir: MatchedFi
             ],
             "fill-outline-color": "#FFFFFF",
         },
-        filter: ["in", "id", ...matchedFirIds],
+        filter: [
+            "any",
+            ...filterConditions
+        ]
     };
 };
 

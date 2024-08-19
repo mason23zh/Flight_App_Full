@@ -1,0 +1,3559 @@
+{
+    "fir": [
+        {
+            "firInfo": {
+                "icao": "EGGX",
+                "name": "Shanwick Oceanic",
+                "prefix": "EGGX",
+                "fir": "EGGX"
+            },
+            "fir": "EGGX",
+            "name": "Matej Borovka",
+            "cid": 1497525,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EGGX_CTR",
+            "frequency": "131.800",
+            "visual_range": 500,
+            "last_updated": "2024-08-16T21:55:30.8196727Z",
+            "logon_time": "2024-08-16T20:25:34.3347962Z"
+        },
+        {
+            "firInfo": {
+                "icao": "EISN",
+                "name": "Shannon ACC - Shannon",
+                "prefix": "",
+                "fir": "EISN"
+            },
+            "fir": "EISN",
+            "name": "Federico Handl",
+            "cid": 1281995,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EISN_CTR",
+            "frequency": "134.260",
+            "visual_range": 327,
+            "last_updated": "2024-08-16T21:55:22.9393214Z",
+            "logon_time": "2024-08-16T19:15:51.9131108Z"
+        },
+        {
+            "firInfo": {
+                "icao": "EKDK",
+                "name": "Kobenhavn",
+                "prefix": "",
+                "fir": "EKDK"
+            },
+            "fir": "EKDK",
+            "name": "Johan Vágadal",
+            "cid": 861609,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "EKDK_CTR",
+            "frequency": "136.485",
+            "visual_range": 450,
+            "last_updated": "2024-08-16T21:55:38.6890333Z",
+            "logon_time": "2024-08-16T20:13:12.2821641Z"
+        },
+        {
+            "firInfo": {
+                "icao": "FACA",
+                "name": "Cape Town",
+                "prefix": "",
+                "fir": "FACA"
+            },
+            "fir": "FACA",
+            "name": "Drikus Jansen Van Vuuren",
+            "cid": 1429343,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "FACA_CTR",
+            "frequency": "125.100",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:36.5837819Z",
+            "logon_time": "2024-08-16T17:41:31.2253372Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZBW",
+                "name": "Boston",
+                "prefix": "BOS",
+                "fir": "KZBW"
+            },
+            "fir": "KZBW",
+            "name": "1426527",
+            "cid": 1426527,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "BOS_2_CTR",
+            "frequency": "134.700",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:38.1065107Z",
+            "logon_time": "2024-08-16T17:54:51.0765374Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZBW",
+                "name": "Boston",
+                "prefix": "BOS",
+                "fir": "KZBW"
+            },
+            "fir": "KZBW",
+            "name": "Matt Moran",
+            "cid": 1591037,
+            "facility": 6,
+            "rating": 4,
+            "callsign": "BOS_CTR",
+            "frequency": "134.700",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:33.0944287Z",
+            "logon_time": "2024-08-16T21:43:14.587333Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZJX",
+                "name": "Jacksonville",
+                "prefix": "JAX",
+                "fir": "KZJX"
+            },
+            "fir": "KZJX",
+            "name": "1337089",
+            "cid": 1337089,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "JAX_30_CTR",
+            "frequency": "135.925",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:27.0953901Z",
+            "logon_time": "2024-08-16T21:44:02.1194714Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZLA",
+                "name": "Los Angeles",
+                "prefix": "LAX",
+                "fir": "KZLA"
+            },
+            "fir": "KZLA",
+            "name": "Tyler Gehlbach",
+            "cid": 1398242,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "LAX_25_CTR",
+            "frequency": "126.525",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:38.1065958Z",
+            "logon_time": "2024-08-16T20:44:56.3640398Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZLA",
+                "name": "Los Angeles",
+                "prefix": "LAX",
+                "fir": "KZLA"
+            },
+            "fir": "KZLA",
+            "name": "Caleb Henry",
+            "cid": 1342786,
+            "facility": 6,
+            "rating": 4,
+            "callsign": "LAX_251_CTR",
+            "frequency": "126.525",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:26.1132444Z",
+            "logon_time": "2024-08-16T20:46:37.3376999Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZLA",
+                "name": "Los Angeles",
+                "prefix": "LAX",
+                "fir": "KZLA"
+            },
+            "fir": "KZLA",
+            "name": "Ben Anello",
+            "cid": 811680,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "LAX_252_CTR",
+            "frequency": "199.998",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:26.1147247Z",
+            "logon_time": "2024-08-16T21:43:21.5008865Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZME",
+                "name": "Memphis",
+                "prefix": "MEM",
+                "fir": "KZME"
+            },
+            "fir": "KZME",
+            "name": "Henry Grayer",
+            "cid": 1366661,
+            "facility": 6,
+            "rating": 10,
+            "callsign": "MEM_22_CTR",
+            "frequency": "132.550",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:26.1138013Z",
+            "logon_time": "2024-08-16T20:39:36.0079624Z"
+        },
+        {
+            "firInfo": {
+                "icao": "KZTL",
+                "name": "Atlanta",
+                "prefix": "ATL",
+                "fir": "KZTL"
+            },
+            "fir": "KZTL",
+            "name": "Jack",
+            "cid": 1459978,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "ATL_CTR",
+            "frequency": "132.975",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:26.1144372Z",
+            "logon_time": "2024-08-16T20:37:47.8945588Z"
+        },
+        {
+            "firInfo": {
+                "icao": "LRBB",
+                "name": "Bucharest",
+                "prefix": "",
+                "fir": "LRBB"
+            },
+            "fir": "LRBB",
+            "name": "Teodor",
+            "cid": 1427633,
+            "facility": 6,
+            "rating": 5,
+            "callsign": "LRBB_L_CTR",
+            "frequency": "122.030",
+            "visual_range": 350,
+            "last_updated": "2024-08-16T21:55:18.1927945Z",
+            "logon_time": "2024-08-16T17:06:34.3275979Z"
+        },
+        {
+            "firInfo": {
+                "icao": "MHCC",
+                "name": "Cenamer",
+                "prefix": "",
+                "fir": "MHCC"
+            },
+            "fir": "MHCC",
+            "name": "Jurgen Hempel",
+            "cid": 1199223,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "MHCC_CTR",
+            "frequency": "135.500",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:19.8132572Z",
+            "logon_time": "2024-08-16T20:53:05.7590486Z"
+        },
+        {
+            "firInfo": {
+                "icao": "BAIRES",
+                "name": "Baires TMA - Ezeiza",
+                "prefix": "",
+                "fir": "BAIRES"
+            },
+            "fir": "BAIRES",
+            "name": "Anibal S",
+            "cid": 811546,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "BAIRES_CTR",
+            "frequency": "125.900",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:37.3156381Z",
+            "logon_time": "2024-08-16T21:25:11.0078446Z"
+        },
+        {
+            "firInfo": {
+                "icao": "SKED",
+                "name": "Bogota",
+                "prefix": "",
+                "fir": "SKED"
+            },
+            "fir": "SKED",
+            "name": "Santiago Gaymer",
+            "cid": 1104181,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "SKED_CTR",
+            "frequency": "128.600",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:17.5354387Z",
+            "logon_time": "2024-08-16T21:29:17.9110853Z"
+        },
+        {
+            "firInfo": {
+                "icao": "ZBPE",
+                "name": "Beijing",
+                "prefix": "",
+                "fir": "ZBPE"
+            },
+            "fir": "ZBPE",
+            "name": "TEST",
+            "cid": 11041811,
+            "facility": 6,
+            "rating": 8,
+            "callsign": "ZBPE_CTR",
+            "frequency": "128.600",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:17.5354387Z",
+            "logon_time": "2024-08-16T21:29:17.9110853Z"
+        },
+        {
+            "firInfo": {
+                "icao": "SUEO",
+                "name": "Montevideo",
+                "prefix": "",
+                "fir": "SUEO"
+            },
+            "fir": "SUEO",
+            "name": "Gualdemar",
+            "cid": 832940,
+            "facility": 6,
+            "rating": 7,
+            "callsign": "SUEO_CTR",
+            "frequency": "128.500",
+            "visual_range": 600,
+            "last_updated": "2024-08-16T21:55:27.6721179Z",
+            "logon_time": "2024-08-16T20:16:02.3698362Z"
+        }
+    ],
+    "tracon": [
+        {
+            "cid": 1317411,
+            "name": "Mickey",
+            "callsign": "BIKF_APP",
+            "frequency": "119.300",
+            "facility": 5,
+            "rating": 4,
+            "server": "UK",
+            "visual_range": 150,
+            "text_atis": [
+                "Keflavik Approach | Covering BIKF & BIRK top-down",
+                "PDC | BIKF",
+                "Charts at chartfox.org | Feedback welcome at cc.vatsim-scandinavia.org/feedback"
+            ],
+            "last_updated": "2024-08-16T21:55:32.7849687Z",
+            "logon_time": "2024-08-16T18:05:08.2012935Z",
+            "airport": {
+                "name": "Keflavik International Airport",
+                "icao": "BIKF"
+            },
+            "coordinates": [
+                "-22.6056",
+                " 63.985001"
+            ]
+        },
+        {
+            "cid": 1349402,
+            "name": "Kevin Goarley",
+            "callsign": "CYVR_APP",
+            "frequency": "128.600",
+            "facility": 5,
+            "rating": 4,
+            "server": "CANADA",
+            "visual_range": 150,
+            "text_atis": [
+                "Vancouver Terminal Control Unit \"VANCOUVER ARRIVAL/DEPARTURE/TERMINAL\"",
+                "Charts at www.fltplan.com | Info and feedback on the website czvr.ca **PDC CODE - CYVR**",
+                "Unit covers CYVR, CYYJ, CYXX, CYCD, KBLI, and other South Coast airports"
+            ],
+            "last_updated": "2024-08-16T21:55:30.5249907Z",
+            "logon_time": "2024-08-16T21:18:41.3996483Z",
+            "airport": {
+                "name": "Vancouver International Airport",
+                "icao": "CYVR"
+            },
+            "coordinates": [
+                "-123.183998108",
+                " 49.193901062"
+            ]
+        },
+        {
+            "cid": 1343255,
+            "name": "Daniel Button",
+            "callsign": "EGHQ_APP",
+            "frequency": "133.405",
+            "facility": 5,
+            "rating": 7,
+            "server": "UK",
+            "visual_range": 120,
+            "text_atis": [
+                "Newquay Radar",
+                "LARS available within 60 NM",
+                "Charts here! chartfox.org/eghq"
+            ],
+            "last_updated": "2024-08-16T21:55:18.8995219Z",
+            "logon_time": "2024-08-16T18:06:12.7640015Z",
+            "airport": {
+                "name": "Newquay Cornwall Airport",
+                "icao": "EGHQ"
+            },
+            "coordinates": [
+                "-4.995409965515137",
+                " 50.44060134887695"
+            ]
+        },
+        {
+            "cid": 1012739,
+            "name": "Morten Jelle",
+            "callsign": "EKCH_W_APP",
+            "frequency": "119.805",
+            "facility": 5,
+            "rating": 7,
+            "server": "AMSTERDAM",
+            "visual_range": 150,
+            "text_atis": [
+                "Copenhagen Approach - Voice Atis For Departures on 122.855. For arrivals on 122.755",
+                "Info, charts and forums at www.vatsim-scandinavia.org/pilots/airports-charts/denmark/ | Thank you for your feedback!",
+                "cc.vatsim-scandinavia.org/feedback - Enjoy your flight in Denmark!"
+            ],
+            "last_updated": "2024-08-16T21:55:21.6754549Z",
+            "logon_time": "2024-08-16T20:44:07.4888327Z",
+            "airport": {
+                "name": "Copenhagen Kastrup Airport",
+                "icao": "EKCH"
+            },
+            "coordinates": [
+                "12.656000137329",
+                " 55.617900848389"
+            ]
+        },
+        {
+            "cid": 1432868,
+            "name": "Chandler Hoyle ",
+            "callsign": "ATL_APP",
+            "frequency": "133.475",
+            "facility": 5,
+            "rating": 5,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": null,
+            "last_updated": "2024-08-16T21:55:38.106883Z",
+            "logon_time": "2024-08-16T20:38:13.2923181Z",
+            "airport": {
+                "name": "Hartsfield Jackson Atlanta International Airport",
+                "icao": "KATL"
+            },
+            "coordinates": [
+                "-84.428101",
+                " 33.6367"
+            ]
+        },
+        {
+            "cid": 1209660,
+            "name": "Angel Ledesma",
+            "callsign": "MCO_E_APP",
+            "frequency": "124.800",
+            "facility": 5,
+            "rating": 4,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": null,
+            "last_updated": "2024-08-16T21:55:26.1141558Z",
+            "logon_time": "2024-08-16T21:12:49.3672423Z",
+            "airport": {
+                "name": "Orlando International Airport",
+                "icao": "KMCO"
+            },
+            "coordinates": [
+                "-81.30899810791016",
+                " 28.429399490356445"
+            ]
+        },
+        {
+            "cid": 1460378,
+            "name": "Max Klopper",
+            "callsign": "PHL_NA_APP",
+            "frequency": "128.400",
+            "facility": 5,
+            "rating": 4,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": [
+                "Philly Approach covering PHL, ILG, PNE, TTN",
+                "Feedback? https //nyartcc.org/feedback"
+            ],
+            "last_updated": "2024-08-16T21:55:38.1067411Z",
+            "logon_time": "2024-08-16T19:42:23.0926053Z",
+            "airport": {
+                "name": "Philadelphia International Airport",
+                "icao": "KPHL"
+            },
+            "coordinates": [
+                "-75.24109649658203",
+                " 39.87189865112305"
+            ]
+        },
+        {
+            "cid": 1123937,
+            "name": "Sam Carman",
+            "callsign": "SAN_W_APP",
+            "frequency": "119.600",
+            "facility": 5,
+            "rating": 10,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": null,
+            "last_updated": "2024-08-16T21:55:26.1129599Z",
+            "logon_time": "2024-08-16T21:31:30.0164898Z",
+            "airport": {
+                "name": "San Diego International Airport",
+                "icao": "KSAN"
+            },
+            "coordinates": [
+                "-117.190002441",
+                " 32.7336006165"
+            ]
+        },
+        {
+            "cid": 951459,
+            "name": "Daniel Rechberger",
+            "callsign": "LOWL_APP",
+            "frequency": "125.685",
+            "facility": 5,
+            "rating": 5,
+            "server": "GERMANY2",
+            "visual_range": 150,
+            "text_atis": [
+                "Linz Radar CPDLC/DCL LOWL",
+                "My active sector vats.im/lovv",
+                "Charts vats.im/lovv-charts"
+            ],
+            "last_updated": "2024-08-16T21:55:24.3586442Z",
+            "logon_time": "2024-08-16T19:36:03.6441781Z",
+            "airport": {
+                "name": "Linz Hörsching Airport",
+                "icao": "LOWL"
+            },
+            "coordinates": [
+                "14.1875",
+                " 48.2332"
+            ]
+        },
+        {
+            "cid": 1104855,
+            "name": "Mauricio Esparza",
+            "callsign": "MMMX_APP",
+            "frequency": "121.200",
+            "facility": 5,
+            "rating": 7,
+            "server": "USA-WEST",
+            "visual_range": 100,
+            "text_atis": [
+                "Aproximacion Mexico / Mexico Approach",
+                "Serving MMMX, MMTO, MMCB, and MMPB and MMSM arrivals and departures",
+                "ATIS available on 127.650",
+                "ATC feedback - vatmex.com.mx"
+            ],
+            "last_updated": "2024-08-16T21:55:27.2479548Z",
+            "logon_time": "2024-08-16T20:56:27.3323179Z",
+            "airport": {
+                "name": "Licenciado Benito Juarez International Airport",
+                "icao": "MMMX"
+            },
+            "coordinates": [
+                "-99.072098",
+                " 19.4363"
+            ]
+        },
+        {
+            "cid": 1677974,
+            "name": "Adam ",
+            "callsign": "SCT_APP",
+            "frequency": "128.050",
+            "facility": 5,
+            "rating": 4,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": null,
+            "last_updated": "2024-08-16T21:55:26.1143213Z",
+            "logon_time": "2024-08-16T20:44:46.9509765Z",
+            "airport": {
+                "name": "Socotra International Airport",
+                "icao": "OYSQ"
+            },
+            "coordinates": [
+                "53.905799865722656",
+                " 12.63070011138916"
+            ]
+        },
+        {
+            "cid": 1648902,
+            "name": "Kevin",
+            "callsign": "NY_APP",
+            "frequency": "128.125",
+            "facility": 5,
+            "rating": 4,
+            "server": "VIRTUALNAS",
+            "visual_range": 150,
+            "text_atis": [
+                "New York Approach",
+                "Services at LGA, JFK",
+                "Online for 1-2 hours",
+                "Tip jar http //www.nyart.cc"
+            ],
+            "last_updated": "2024-08-16T21:55:26.1134025Z",
+            "logon_time": "2024-08-16T20:26:17.9575609Z",
+            "airport": {},
+            "coordinates": []
+        },
+        {
+            "cid": 814118,
+            "name": "Martin Insulander",
+            "callsign": "MI_OBS",
+            "frequency": "199.998",
+            "facility": 5,
+            "rating": 4,
+            "server": "AMSTERDAM",
+            "visual_range": 150,
+            "text_atis": null,
+            "last_updated": "2024-08-16T21:55:20.8161888Z",
+            "logon_time": "2024-08-16T21:45:15.2972817Z",
+            "airport": {},
+            "coordinates": []
+        }
+    ],
+    "other": {
+        "controllers": [
+            {
+                "cid": 1631253,
+                "name": "Michael",
+                "callsign": "EDDH_E_GND",
+                "frequency": "121.705",
+                "facility": 3,
+                "rating": 2,
+                "server": "GERMANY",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:19.7475227Z",
+                "logon_time": "2024-08-16T19:59:58.9067161Z",
+                "airport": {
+                    "name": "Hamburg Airport",
+                    "icao": "EDDH"
+                },
+                "coordinates": [
+                    "9.9882297515869",
+                    " 53.630401611328"
+                ]
+            },
+            {
+                "cid": 1419107,
+                "name": "Johannes",
+                "callsign": "EDXW_TWR",
+                "frequency": "119.750",
+                "facility": 4,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 50,
+                "text_atis": [
+                    "SYLT TOWER",
+                    "Submit your feedback at feedback.vatger.de"
+                ],
+                "last_updated": "2024-08-16T21:55:38.1340478Z",
+                "logon_time": "2024-08-16T20:50:39.4060477Z",
+                "airport": {
+                    "name": "Westerland Sylt Airport",
+                    "icao": "EDXW"
+                },
+                "coordinates": [
+                    "8.34047031403",
+                    " 54.9132003784"
+                ]
+            },
+            {
+                "cid": 1240254,
+                "name": "Paul Walker",
+                "callsign": "EGCC_GND",
+                "frequency": "121.855",
+                "facility": 3,
+                "rating": 2,
+                "server": "UK",
+                "visual_range": 20,
+                "text_atis": [
+                    "Manchester Ground",
+                    "INITIAL CLIMB ALTITUDE 5000 FEET",
+                    "PDC available \"EGCC\". Submit feedback at vats.im/atcfb"
+                ],
+                "last_updated": "2024-08-16T21:55:28.3841312Z",
+                "logon_time": "2024-08-16T21:23:11.3616435Z",
+                "airport": {
+                    "name": "Manchester Airport",
+                    "icao": "EGCC"
+                },
+                "coordinates": [
+                    "-2.2749500274658203",
+                    " 53.35369873046875"
+                ]
+            },
+            {
+                "cid": 970762,
+                "name": "Harry Jeffery",
+                "callsign": "EGSS_TWR",
+                "frequency": "123.805",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "text_atis": [
+                    "Stansted Tower",
+                    "Voice ATIS on 127.175",
+                    "Submit feedback at vats.im/atcfb"
+                ],
+                "last_updated": "2024-08-16T21:55:19.7180724Z",
+                "logon_time": "2024-08-16T20:25:07.6454294Z",
+                "airport": {
+                    "name": "London Stansted Airport",
+                    "icao": "EGSS"
+                },
+                "coordinates": [
+                    "0.234999999404",
+                    " 51.8849983215"
+                ]
+            },
+            {
+                "cid": 1745220,
+                "name": "Jesper Hvenegaard",
+                "callsign": "EKCH_A_TWR",
+                "frequency": "118.105",
+                "facility": 4,
+                "rating": 3,
+                "server": "AMSTERDAM",
+                "visual_range": 50,
+                "text_atis": [
+                    "Kastrup Tower - Voice Atis For Departures on 122.855. For arrivals on 122.755",
+                    "Info, charts and forums at www.vatsim-scandinavia.org/pilots/airports-charts/denmark/ | Thank you for your feedback!",
+                    "cc.vatsim-scandinavia.org/feedback - Enjoy your flight in Denmark! PDC Available on EKCH"
+                ],
+                "last_updated": "2024-08-16T21:55:38.7492544Z",
+                "logon_time": "2024-08-16T20:57:59.1484967Z",
+                "airport": {
+                    "name": "Copenhagen Kastrup Airport",
+                    "icao": "EKCH"
+                },
+                "coordinates": [
+                    "12.656000137329",
+                    " 55.617900848389"
+                ]
+            },
+            {
+                "cid": 1462126,
+                "name": "Ask E",
+                "callsign": "ENBR_GND",
+                "frequency": "121.900",
+                "facility": 3,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 20,
+                "text_atis": [
+                    "§ Flesland Ground § DCL/PDC available, Logon ENBR",
+                    "§ Feedback welcome at vatsca.org/feedback",
+                    "§ Please read the airport briefing at vatsca.org/ENBR"
+                ],
+                "last_updated": "2024-08-16T21:55:37.7895086Z",
+                "logon_time": "2024-08-16T19:43:08.1698932Z",
+                "airport": {
+                    "name": "Bergen Airport Flesland",
+                    "icao": "ENBR"
+                },
+                "coordinates": [
+                    "5.218140125",
+                    " 60.29339981"
+                ]
+            },
+            {
+                "cid": 1765290,
+                "name": "Johan Sjölin",
+                "callsign": "ESGG_TWR",
+                "frequency": "118.605",
+                "facility": 4,
+                "rating": 2,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "text_atis": [
+                    "Landvetter Tower",
+                    "PDC ESGG - Initial climb clearance to 5000 ft unless otherwise instructed.",
+                    "Feedback - cc.vatsim-scandinavia.org/feedback"
+                ],
+                "last_updated": "2024-08-16T21:55:24.8993655Z",
+                "logon_time": "2024-08-16T21:36:07.1977488Z",
+                "airport": {
+                    "name": "Gothenburg-Landvetter Airport",
+                    "icao": "ESGG"
+                },
+                "coordinates": [
+                    "12.279800415039",
+                    " 57.662799835205"
+                ]
+            },
+            {
+                "cid": 1315134,
+                "name": "Zack",
+                "callsign": "ATL_TWR",
+                "frequency": "119.100",
+                "facility": 4,
+                "rating": 7,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": [
+                    "Hey! It's my first day here.",
+                    "Atlanta, Georgia, is in the Eastern Time Zone. Please check a monitor for the current local time."
+                ],
+                "last_updated": "2024-08-16T21:55:38.1066717Z",
+                "logon_time": "2024-08-16T20:41:15.479934Z",
+                "airport": {
+                    "name": "Hartsfield Jackson Atlanta International Airport",
+                    "icao": "KATL"
+                },
+                "coordinates": [
+                    "-84.428101",
+                    " 33.6367"
+                ]
+            },
+            {
+                "cid": 1621187,
+                "name": "1621187",
+                "callsign": "ATL_1_TWR",
+                "frequency": "119.100",
+                "facility": 4,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": [
+                    "If I've done a good job for you, please let my trainers know!",
+                    "https //www.ztlartcc.org/feedback/new"
+                ],
+                "last_updated": "2024-08-16T21:55:26.1146328Z",
+                "logon_time": "2024-08-16T20:41:55.1317707Z",
+                "airport": {
+                    "name": "Hartsfield Jackson Atlanta International Airport",
+                    "icao": "KATL"
+                },
+                "coordinates": [
+                    "-84.428101",
+                    " 33.6367"
+                ]
+            },
+            {
+                "cid": 1790146,
+                "name": "James Gandolfi",
+                "callsign": "BHM_GND",
+                "frequency": "121.700",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1063447Z",
+                "logon_time": "2024-08-16T20:22:01.1611747Z",
+                "airport": {
+                    "name": "Birmingham-Shuttlesworth International Airport",
+                    "icao": "KBHM"
+                },
+                "coordinates": [
+                    "-86.75350189",
+                    " 33.56290054"
+                ]
+            },
+            {
+                "cid": 1478446,
+                "name": "Ben S.",
+                "callsign": "BOS_TWR",
+                "frequency": "128.800",
+                "facility": 4,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1071191Z",
+                "logon_time": "2024-08-16T18:22:35.8506237Z",
+                "airport": {
+                    "name": "General Edward Lawrence Logan International Airport",
+                    "icao": "KBOS"
+                },
+                "coordinates": [
+                    "-71.00520325",
+                    " 42.36429977"
+                ]
+            },
+            {
+                "cid": 1613468,
+                "name": "1613468",
+                "callsign": "DCA_GND",
+                "frequency": "121.700",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": [
+                    "Washington/Reagan Ground",
+                    "Charts at https //vzdc.org/charts/KDCA",
+                    "Feedback? - https //vzdc.org/feedback/new"
+                ],
+                "last_updated": "2024-08-16T21:55:26.1136125Z",
+                "logon_time": "2024-08-16T21:18:27.2626099Z",
+                "airport": {
+                    "name": "Ronald Reagan Washington National Airport",
+                    "icao": "KDCA"
+                },
+                "coordinates": [
+                    "-77.037697",
+                    " 38.8521"
+                ]
+            },
+            {
+                "cid": 1015802,
+                "name": "Chris Caracciola",
+                "callsign": "JFK_1_GND",
+                "frequency": "121.900",
+                "facility": 3,
+                "rating": 4,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": [
+                    "Kennedy Ground",
+                    "We love"
+                ],
+                "last_updated": "2024-08-16T21:55:26.1145508Z",
+                "logon_time": "2024-08-16T20:44:26.3664455Z",
+                "airport": {
+                    "name": "John F Kennedy International Airport",
+                    "icao": "KJFK"
+                },
+                "coordinates": [
+                    "-73.7789",
+                    " 40.639801"
+                ]
+            },
+            {
+                "cid": 1787118,
+                "name": "Ryan Kompare",
+                "callsign": "LAX_S_TWR",
+                "frequency": "120.950",
+                "facility": 4,
+                "rating": 3,
+                "server": "VIRTUALNAS",
+                "visual_range": 50,
+                "text_atis": [
+                    "Los Angeles Tower | 120.950",
+                    "Feedback appreciated at www.laartcc.org/feedback",
+                    "Services for Los Angeles Tower, advise any questions, always happy to help!"
+                ],
+                "last_updated": "2024-08-16T21:55:38.106952Z",
+                "logon_time": "2024-08-16T20:44:45.7945799Z",
+                "airport": {
+                    "name": "Los Angeles International Airport",
+                    "icao": "KLAX"
+                },
+                "coordinates": [
+                    "-118.407997",
+                    " 33.942501"
+                ]
+            },
+            {
+                "cid": 1480710,
+                "name": "Matthew Hardy",
+                "callsign": "MSP_S_GND",
+                "frequency": "121.900",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1064414Z",
+                "logon_time": "2024-08-16T20:31:14.1685182Z",
+                "airport": {
+                    "name": "Minneapolis-St Paul International/Wold-Chamberlain Airport",
+                    "icao": "KMSP"
+                },
+                "coordinates": [
+                    "-93.221802",
+                    " 44.882"
+                ]
+            },
+            {
+                "cid": 1711940,
+                "name": "Akari King-Wright",
+                "callsign": "SAN_GND",
+                "frequency": "123.900",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1068135Z",
+                "logon_time": "2024-08-16T21:14:49.2514875Z",
+                "airport": {
+                    "name": "San Diego International Airport",
+                    "icao": "KSAN"
+                },
+                "coordinates": [
+                    "-117.190002441",
+                    " 32.7336006165"
+                ]
+            },
+            {
+                "cid": 1777974,
+                "name": "Mike Bradley",
+                "callsign": "SDF_E_GND",
+                "frequency": "121.700",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:27.0951293Z",
+                "logon_time": "2024-08-16T21:44:17.3391921Z",
+                "airport": {
+                    "name": "Louisville Muhammad Ali International Airport",
+                    "icao": "KSDF"
+                },
+                "coordinates": [
+                    "-85.736",
+                    " 38.1744"
+                ]
+            },
+            {
+                "cid": 1636920,
+                "name": "William E Archer",
+                "callsign": "TUS_GND",
+                "frequency": "120.025",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1060577Z",
+                "logon_time": "2024-08-16T21:05:46.9645273Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
+                "cid": 1193154,
+                "name": "Javier Cabrera",
+                "callsign": "LEMD_TWR",
+                "frequency": "118.155",
+                "facility": 4,
+                "rating": 3,
+                "server": "UK",
+                "visual_range": 50,
+                "text_atis": [
+                    "Barajas Tower - PDC/DCL Datalink [LEMD]",
+                    "vats.im/lexx",
+                    "Charts on aip.enaire.es/AIP/ - Want to provide feedback? feedback@vatsimspain.es"
+                ],
+                "last_updated": "2024-08-16T21:55:28.7266386Z",
+                "logon_time": "2024-08-16T21:12:48.8112525Z",
+                "airport": {
+                    "name": "Adolfo Suárez Madrid–Barajas Airport",
+                    "icao": "LEMD"
+                },
+                "coordinates": [
+                    "-3.56264",
+                    " 40.471926"
+                ]
+            },
+            {
+                "cid": 1596750,
+                "name": "Maximilian Bobens",
+                "callsign": "LOWW_TWR",
+                "frequency": "119.400",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY2",
+                "visual_range": 100,
+                "text_atis": [
+                    "Wien Tower",
+                    "For charts visit www.vacc-austria.org"
+                ],
+                "last_updated": "2024-08-16T21:55:26.9293512Z",
+                "logon_time": "2024-08-16T20:23:51.8542699Z",
+                "airport": {
+                    "name": "Vienna International Airport",
+                    "icao": "LOWW"
+                },
+                "coordinates": [
+                    "16.569700241089",
+                    " 48.110298156738"
+                ]
+            },
+            {
+                "cid": 1483774,
+                "name": "Rui Jacome",
+                "callsign": "LPPT_TWR",
+                "frequency": "118.105",
+                "facility": 4,
+                "rating": 3,
+                "server": "AMSTERDAM",
+                "visual_range": 50,
+                "text_atis": [
+                    "Lisboa Tower. DCL available on LPPT",
+                    "Squawk Mode C on the ground. For updated charts - charts.portugal-vacc.org/#LPPT",
+                    "For ATC feedback vats.im/pt_feedback"
+                ],
+                "last_updated": "2024-08-16T21:55:19.535974Z",
+                "logon_time": "2024-08-16T20:48:30.310219Z",
+                "airport": {
+                    "name": "Humberto Delgado Airport (Lisbon Portela Airport)",
+                    "icao": "LPPT"
+                },
+                "coordinates": [
+                    "-9.13592",
+                    " 38.7813"
+                ]
+            },
+            {
+                "cid": 1645754,
+                "name": "Daniel",
+                "callsign": "LSZH_TWR",
+                "frequency": "118.100",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "text_atis": [
+                    "Zurich Tower, Grüezi",
+                    "ATIS 125.730, Initial climb clearance 5000ft",
+                    "Find validated routes *routes.vacc.ch*, read our charts *charts.vacc.ch*, feedback *fb.vacc.ch*"
+                ],
+                "last_updated": "2024-08-16T21:55:14.3931365Z",
+                "logon_time": "2024-08-16T18:13:31.8962804Z",
+                "airport": {
+                    "name": "Zürich Airport",
+                    "icao": "LSZH"
+                },
+                "coordinates": [
+                    "8.54917",
+                    " 47.464699"
+                ]
+            },
+            {
+                "cid": 1648929,
+                "name": "Dian Wendel",
+                "callsign": "LSZH_S_GND",
+                "frequency": "121.755",
+                "facility": 3,
+                "rating": 3,
+                "server": "GERMANY2",
+                "visual_range": 10,
+                "text_atis": [
+                    "Zurich Apron, Grüezi",
+                    "ATIS 125.730",
+                    "Find validated routes *routes.vacc.ch*, read our charts *charts.vacc.ch*, feedback *fb.vacc.ch*"
+                ],
+                "last_updated": "2024-08-16T21:55:27.6512301Z",
+                "logon_time": "2024-08-16T20:18:29.2964744Z",
+                "airport": {
+                    "name": "Zürich Airport",
+                    "icao": "LSZH"
+                },
+                "coordinates": [
+                    "8.54917",
+                    " 47.464699"
+                ]
+            },
+            {
+                "cid": 1711940,
+                "name": "Akari King-Wright",
+                "callsign": "SAN_GND",
+                "frequency": "123.900",
+                "facility": 3,
+                "rating": 2,
+                "server": "VIRTUALNAS",
+                "visual_range": 20,
+                "text_atis": null,
+                "last_updated": "2024-08-16T21:55:38.1068135Z",
+                "logon_time": "2024-08-16T21:14:49.2514875Z",
+                "airport": {
+                    "name": "Antoine de Saint Exupéry Airport",
+                    "icao": "SAVN"
+                },
+                "coordinates": [
+                    "-65.0343",
+                    " -40.7512"
+                ]
+            },
+            {
+                "cid": 1783106,
+                "name": "Gustavo Ortega",
+                "callsign": "SEQM_TWR",
+                "frequency": "118.350",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-EAST",
+                "visual_range": 69,
+                "text_atis": [
+                    "Quito Tower EN/ES",
+                    "Visit us ecuador.vatsur.org"
+                ],
+                "last_updated": "2024-08-16T21:55:28.8366058Z",
+                "logon_time": "2024-08-16T21:37:18.7238397Z",
+                "airport": {
+                    "name": "Mariscal Sucre International Airport",
+                    "icao": "SEQM"
+                },
+                "coordinates": [
+                    "-78.3575",
+                    " -0.129166666667"
+                ]
+            },
+            {
+                "cid": 1008102,
+                "name": "Juan C Puerta",
+                "callsign": "SKBO_N_TWR",
+                "frequency": "118.100",
+                "facility": 4,
+                "rating": 3,
+                "server": "UK",
+                "visual_range": 50,
+                "text_atis": [
+                    "El Dorado North Tower",
+                    "Welcome to VATSIM Colombia"
+                ],
+                "last_updated": "2024-08-16T21:55:20.3908401Z",
+                "logon_time": "2024-08-16T21:43:06.0957235Z",
+                "airport": {
+                    "name": "El Dorado International Airport",
+                    "icao": "SKBO"
+                },
+                "coordinates": [
+                    "-74.1469",
+                    " 4.70159"
+                ]
+            },
+            {
+                "cid": 1784321,
+                "name": "CHRISTIAN DELBONO",
+                "callsign": "SUMU_TWR",
+                "frequency": "118.100",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-EAST",
+                "visual_range": 20,
+                "text_atis": [
+                    "EVENTO URUGUAY - ARGENTINA CROSS RIO DE LA PLATA",
+                    "18 DE AGOSTO - 2000Z - 2300Z LOS ESPERAMOS - WELCOME",
+                    "www.firmontevideo.org -"
+                ],
+                "last_updated": "2024-08-16T21:55:30.4788806Z",
+                "logon_time": "2024-08-16T21:39:05.6427346Z",
+                "airport": {
+                    "name": "Carrasco International /General C L Berisso Airport",
+                    "icao": "SUMU"
+                },
+                "coordinates": [
+                    "-56.0308",
+                    " -34.838402"
+                ]
+            }
+        ],
+        "atis": [
+            {
+                "cid": 1317411,
+                "name": "Mickey",
+                "callsign": "BIKF_ATIS",
+                "frequency": "128.300",
+                "facility": 4,
+                "rating": 4,
+                "server": "UK",
+                "visual_range": 0,
+                "atis_code": "H",
+                "text_atis": [
+                    "KEFLAVIK ATIS H ISSUED AT 2130 UTC. RWY 28 IN USE. EXP ILS OR",
+                    "RNP APCH, RWY 28 . WEATHER AT 2130 UTC. WIND 310 DEG 6 KT.",
+                    "CAVOK. TEMP 9 . DP 8 . QNH 987 HPA, 29.15 INCHES. TRL 80 . NOTAM",
+                    "ALPHA 0542 TWY ECHO 1 CLOSED. ADVISE ON INITIAL CONTACT YOU HAVE",
+                    "ATIS H."
+                ],
+                "last_updated": "2024-08-16T21:55:32.7853471Z",
+                "logon_time": "2024-08-16T19:56:16.1164077Z",
+                "airport": {
+                    "name": "Keflavik International Airport",
+                    "icao": "BIKF"
+                },
+                "coordinates": [
+                    "-22.6056",
+                    " 63.985001"
+                ]
+            },
+            {
+                "cid": 1349402,
+                "name": "Kevin Goarley",
+                "callsign": "CYVR_ATIS",
+                "frequency": "124.600",
+                "facility": 4,
+                "rating": 4,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "F",
+                "text_atis": [
+                    "VANCOUVER INFORMATION F. WEATHER AT 2100Z. 14007KT 20SM FEW030",
+                    "SCT092 BKN100 21/12 A3001 (THREE ZERO ZERO ONE). APPR ILS OR",
+                    "RNAV OR VISUAL RWY 08L AND RWY 08R. SIMULTANEOUS PARRALEL RUNWAY",
+                    "OPERATIONS IN USE. LANDING RUNWAY IS RWY 08L PRIMARY AND RWY 08R",
+                    "SECONDARY. DEPARTING RWY 08R.. PDC AVAILABLE ON RQST.. INFORM",
+                    "ATC YOU HAVE INFORMATION F."
+                ],
+                "last_updated": "2024-08-16T21:55:28.1344355Z",
+                "logon_time": "2024-08-16T21:18:58.1598409Z",
+                "airport": {
+                    "name": "Vancouver International Airport",
+                    "icao": "CYVR"
+                },
+                "coordinates": [
+                    "-123.183998108",
+                    " 49.193901062"
+                ]
+            },
+            {
+                "cid": 1349402,
+                "name": "Kevin Goarley",
+                "callsign": "CYXX_ATIS",
+                "frequency": "119.800",
+                "facility": 4,
+                "rating": 4,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "L",
+                "text_atis": [
+                    "ABBOTSFORD INFORMATION L WEATHER AT 2100Z. 20004KT 150V230 25SM",
+                    "FEW031 SCT061 BKN095 22/13 A3001 (THREE ZERO ZERO ONE). IFR",
+                    "APPROACH IS RNAV RWY 25. LANDING AND DEPARTING RWY 19 AND RWY",
+                    "25... INFORM ATC YOU HAVE INFORMATION L."
+                ],
+                "last_updated": "2024-08-16T21:55:31.1427266Z",
+                "logon_time": "2024-08-16T21:21:46.1672386Z",
+                "airport": {
+                    "name": "Abbotsford Airport",
+                    "icao": "CYXX"
+                },
+                "coordinates": [
+                    "-122.36100006103516",
+                    " 49.025299072265625"
+                ]
+            },
+            {
+                "cid": 1349402,
+                "name": "Kevin Goarley",
+                "callsign": "CYYJ_ATIS",
+                "frequency": "118.800",
+                "facility": 4,
+                "rating": 4,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "L",
+                "text_atis": [
+                    "VICTORIA ATIS INFORMATION L. WEATHER AT 2100Z. 12007KT 30SM",
+                    "FEW030 BKN110 BKN200 17/11 A3001 (THREE ZERO ZERO ONE). APPR",
+                    "RNAV OR VISUAL RWY 09. LANDING AND DEPARTING RWY 09... PDC AVAIL",
+                    "ON RQST.. INFORM ATC YOU HAVE INFORMATION L."
+                ],
+                "last_updated": "2024-08-16T21:55:38.1435154Z",
+                "logon_time": "2024-08-16T21:21:23.1744355Z",
+                "airport": {
+                    "name": "Victoria International Airport",
+                    "icao": "CYYJ"
+                },
+                "coordinates": [
+                    "-123.426002502",
+                    " 48.646900177"
+                ]
+            },
+            {
+                "cid": 1631253,
+                "name": "Michael",
+                "callsign": "EDDH_ATIS",
+                "frequency": "124.325",
+                "facility": 4,
+                "rating": 2,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "HAMBURG INFORMATION D. MET REPORT TIME 2120Z. WHEN PASSING",
+                    "2000FT MONITOR UNICOM ON 122.800. EXPECT ILS APPROACH RUNWAY 23.",
+                    "RUNWAY IN USE FOR LANDING 23 AND TAKEOFF 33.. TRANSITION LEVEL",
+                    "70... 32004KT VIS 10KM BKN028 18/17 QNH 1013. HAMBURG",
+                    "INFORMATION D OUT."
+                ],
+                "last_updated": "2024-08-16T21:55:32.638723Z",
+                "logon_time": "2024-08-16T20:01:47.5524335Z",
+                "airport": {
+                    "name": "Hamburg Airport",
+                    "icao": "EDDH"
+                },
+                "coordinates": [
+                    "9.9882297515869",
+                    " 53.630401611328"
+                ]
+            },
+            {
+                "cid": 1419107,
+                "name": "Johannes",
+                "callsign": "EDXW_ATIS",
+                "frequency": "118.400",
+                "facility": 4,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 0,
+                "atis_code": "C",
+                "text_atis": [
+                    "SYLT INFORMATION C MET REPORT TIME 2120",
+                    "AUTOMATED WEATHER MESSAGE EXPECT ILS APPROACH RUNWAY 32",
+                    "RUNWAYS IN USE 32 TRL 70 WHEN AIRBORNE MONITOR UNICOM",
+                    "122.8 WIND 280 DEGREES 6 KNOTS VISIBILITY 10",
+                    "KILOMETERS CLOUDS FEW 2900 FEET TEMPERATURE 16",
+                    "DEW POINT 11 QNH 1013 SYLT INFORMATION C OUT"
+                ],
+                "last_updated": "2024-08-16T21:55:38.1337014Z",
+                "logon_time": "2024-08-16T20:50:57.8652493Z",
+                "airport": {
+                    "name": "Westerland Sylt Airport",
+                    "icao": "EDXW"
+                },
+                "coordinates": [
+                    "8.34047031403",
+                    " 54.9132003784"
+                ]
+            },
+            {
+                "cid": 1240254,
+                "name": "Paul Walker",
+                "callsign": "EGCC_ATIS",
+                "frequency": "121.980",
+                "facility": 4,
+                "rating": 2,
+                "server": "UK",
+                "visual_range": 0,
+                "atis_code": "W",
+                "text_atis": [
+                    "MANCHESTER INFORMATION WHISKEY .. TIME 2120 .. RUNWAY IN USE 23R",
+                    ".. TRANSITION LEVEL FLIGHT LEVEL 60 .. SURFACE WIND CALM ..",
+                    "VISIBILITY 10 KILOMETERS OR MORE .. BKN 4100 FT .. TMP PLUS 15",
+                    "DP PLUS 8 .. QNH 1014 .. GROUND IS OPEN .. DEPARTING AIRCRAFT",
+                    "MAKE INITIAL CONTACT ON FREQUENCY 121.855 .. ACKNOWLEDGE RECEIPT",
+                    "OF INFORMATION WHISKEY AND ADVISE AIRCRAFT TYPE ON FIRST",
+                    "CONTACT."
+                ],
+                "last_updated": "2024-08-16T21:55:28.3977477Z",
+                "logon_time": "2024-08-16T21:24:13.927127Z",
+                "airport": {
+                    "name": "Manchester Airport",
+                    "icao": "EGCC"
+                },
+                "coordinates": [
+                    "-2.2749500274658203",
+                    " 53.35369873046875"
+                ]
+            },
+            {
+                "cid": 1343255,
+                "name": "Daniel Button",
+                "callsign": "EGHQ_ATIS",
+                "frequency": "127.405",
+                "facility": 4,
+                "rating": 7,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "H",
+                "text_atis": [
+                    "THIS IS. NEWQUAY. AIRFIELD INFORMATION H. AT TIME 2120Z. RUNWAY",
+                    "IN USE, 30. TRANSITION LEVEL 40.. 33006KT. VIS 10KM... OVC029.",
+                    "15. 10. QNH 1017. AD AND APCH SVCS COMBD. DEPTG ACFT CTC NEWQUAY",
+                    "RADAR ON 133.405.. H."
+                ],
+                "last_updated": "2024-08-16T21:55:37.9168539Z",
+                "logon_time": "2024-08-16T18:07:08.0525929Z",
+                "airport": {
+                    "name": "Newquay Cornwall Airport",
+                    "icao": "EGHQ"
+                },
+                "coordinates": [
+                    "-4.995409965515137",
+                    " 50.44060134887695"
+                ]
+            },
+            {
+                "cid": 970762,
+                "name": "Harry Jeffery",
+                "callsign": "EGSS_ATIS",
+                "frequency": "127.179",
+                "facility": 4,
+                "rating": 3,
+                "server": "UK",
+                "visual_range": 0,
+                "atis_code": "L",
+                "text_atis": [
+                    "STANSTED INFORMATION L TIME 212 0, AUTOMATIC , RUNWAY IN USE 2",
+                    "2, TRANSITION LEVEL FLIGHT LEVEL 7 0, SURFACE WIND VARIABLE 1",
+                    "KNOTS VISIBILITY 10KM OR MORE NO CLOUD DETECTED TEMPERATURE +1",
+                    "6, DEW POINT +1 4, QNH 101 4,",
+                    "ACKNOWLEDGE RECEIPT OF INFORMATION L AND ADVISE AIRCRAFT TYPE",
+                    "ON FIRST CONTACT"
+                ],
+                "last_updated": "2024-08-16T21:55:19.6942781Z",
+                "logon_time": "2024-08-16T20:26:04.1360289Z",
+                "airport": {
+                    "name": "London Stansted Airport",
+                    "icao": "EGSS"
+                },
+                "coordinates": [
+                    "0.234999999404",
+                    " 51.8849983215"
+                ]
+            },
+            {
+                "cid": 1281995,
+                "name": "Federico Handl",
+                "callsign": "EIDW_ATIS",
+                "frequency": "124.530",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "M",
+                "text_atis": [
+                    "EIDW ATIS INFO M 2130Z. APP TYPE ILS, LDG RWY 28L, TKOF RWY 28L,",
+                    "SINGLE RWY OPS IN USE, LDG TFC PLAN TO VACATE TWY S5,.",
+                    "TRANSITION LEVEL 60. 25007KT 200V290 VIS 10KM FEW018 BKN035",
+                    "15/09 Q1013 HPA. LOW VISIBILITY PROCEDURES IN EFCT TWY A CLSD,",
+                    "TWY E2 CLSD....ADVS YOU HAVE INFO M"
+                ],
+                "last_updated": "2024-08-16T21:55:31.1507952Z",
+                "logon_time": "2024-08-16T20:03:46.1568906Z",
+                "airport": {
+                    "name": "Dublin Airport",
+                    "icao": "EIDW"
+                },
+                "coordinates": [
+                    "-6.27007",
+                    " 53.421299"
+                ]
+            },
+            {
+                "cid": 1281995,
+                "name": "Federico Handl",
+                "callsign": "EINN_ATIS",
+                "frequency": "130.955",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "F",
+                "text_atis": [
+                    "EINN ATIS INFO F 2130Z. APP TYPE ILS, LDG RWY 24, TKOF RWY 24,.",
+                    "TRANSITION LEVEL 60.. 22008KT VIS 10KM FEW015 BKN047 14/12 Q1014",
+                    "HPA....ADVS YOU HAVE INFO F"
+                ],
+                "last_updated": "2024-08-16T21:55:36.5835778Z",
+                "logon_time": "2024-08-16T19:16:51.5843977Z",
+                "airport": {
+                    "name": "Shannon Airport",
+                    "icao": "EINN"
+                },
+                "coordinates": [
+                    "-8.92482",
+                    " 52.702"
+                ]
+            },
+            {
+                "cid": 861609,
+                "name": "Johan Vágadal",
+                "callsign": "EKBI_D_ATIS",
+                "frequency": "129.105",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "THIS IS EKBI DEPARTURE INFO D. AUTOMATIC OBSERVATION. 2120Z",
+                    "EXPECT RADAR VECTORS FOR ILS-Z APPROACH. RUNWAY IN USE 27.",
+                    "TRANSITION LEVEL 45. 26002KT 9999 NCD 11/10 Q1013 (ONE ZERO ONE",
+                    "THREE)... THIS WAS EKBI INFO D. ...ADVS YOU HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:36.1735167Z",
+                "logon_time": "2024-08-16T20:14:51.6244074Z",
+                "airport": {
+                    "name": "Billund Airport",
+                    "icao": "EKBI"
+                },
+                "coordinates": [
+                    "9.15178012848",
+                    " 55.7402992249"
+                ]
+            },
+            {
+                "cid": 861609,
+                "name": "Johan Vágadal",
+                "callsign": "EKCH_A_ATIS",
+                "frequency": "122.755",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "THIS IS COPENHAGEN ARRIVAL INFORMATION D. AT 2120Z. EXPECT ILS",
+                    "APPROACH. RUNWAY IN USE FOR LANDING 04 LEFT. EXPECT ALPHA STARS.",
+                    "VISUAL APPROACH ON REQUEST. TRANSITION LEVEL 65. 02002KT 9999",
+                    "SCT022 BKN030 18/16 Q1012 (ONE ZERO ONE TWO)... AT FIRST CONTACT",
+                    "WITH APPROACH, STATE AIRCRAFT TYPE. THIS WAS COPENHAGEN ARRIVAL",
+                    "INFO D....ADVS YOU HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:28.0253178Z",
+                "logon_time": "2024-08-16T20:14:43.5040982Z",
+                "airport": {
+                    "name": "Copenhagen Kastrup Airport",
+                    "icao": "EKCH"
+                },
+                "coordinates": [
+                    "12.656000137329",
+                    " 55.617900848389"
+                ]
+            },
+            {
+                "cid": 861609,
+                "name": "Johan Vágadal",
+                "callsign": "EKCH_D_ATIS",
+                "frequency": "122.855",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "THIS IS COPENHAGEN DEPARTURE INFO D. AT 2120Z. RUNWAY IN USE FOR",
+                    "TAKEOFF 04 RIGHT. 02002KT 9999 SCT022 BKN030 18/16 Q1012 (ONE",
+                    "ZERO ONE TWO).. AT FIRST CONTACT WITH APRON CONTROL ADVISE IF",
+                    "UNABLE TO PERFORM CUSTOMIZED PUSHBACK.. THIS WAS COPENHAGEN",
+                    "DEPARTURE INFO D....ADVS YOU HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:31.6043607Z",
+                "logon_time": "2024-08-16T20:14:47.0452347Z",
+                "airport": {
+                    "name": "Copenhagen Kastrup Airport",
+                    "icao": "EKCH"
+                },
+                "coordinates": [
+                    "12.656000137329",
+                    " 55.617900848389"
+                ]
+            },
+            {
+                "cid": 861609,
+                "name": "Johan Vágadal",
+                "callsign": "EKYT_ATIS",
+                "frequency": "120.480",
+                "facility": 4,
+                "rating": 5,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "THIS IS EKYT DEPARTURE AND ARRIVAL INFO D. AT 2120Z. EXCEPT ILS",
+                    "APPROACH, VISUAL APPROACH ON REQUEST. RUNWAY 26R IN USE.",
+                    "TRANSITION LEVEL 45. 27004KT 9999 NCD 14/11 Q1011 (ONE ZERO ONE",
+                    "ONE)... THIS WAS EKYT DEPARTURE AND ARRIVAL INFO D. ...ADVS YOU",
+                    "HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:24.0698284Z",
+                "logon_time": "2024-08-16T20:14:54.5298298Z",
+                "airport": {
+                    "name": "Aalborg Airport",
+                    "icao": "EKYT"
+                },
+                "coordinates": [
+                    "9.84924316406",
+                    " 57.0927589138"
+                ]
+            },
+            {
+                "cid": 1462126,
+                "name": "Ask E",
+                "callsign": "ENBR_ATIS",
+                "frequency": "125.250",
+                "facility": 4,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 0,
+                "atis_code": "J",
+                "text_atis": [
+                    "THIS IS FLESLAND INFORMATION JULIET .. TIME 2120 .. EXPECT ILS",
+                    "WHISKEY APPROACH .. RUNWAY IN USE 17 .. TRANSITION LEVEL 85 ..",
+                    "FOR EN-ROUTE CLEARANCE REQUEST VIA DATALINK OR CONTACT GROUND",
+                    "121.9 .. WIND 190 DEGREES 13 KNOTS .. VISIBILITY 10 KILOMETERS",
+                    "OR MORE .. SHOWERS IN THE VICINITY .. CLOUDS FEW 1500 FT SCT",
+                    "2300 FT BKN 4600 FT .. TMP 14 DP 10 .. QNH 1006 .. REMARK WIND",
+                    "1200FT 190 DEGREES 18 KNOTS."
+                ],
+                "last_updated": "2024-08-16T21:55:37.7897856Z",
+                "logon_time": "2024-08-16T19:45:06.2657675Z",
+                "airport": {
+                    "name": "Bergen Airport Flesland",
+                    "icao": "ENBR"
+                },
+                "coordinates": [
+                    "5.218140125",
+                    " 60.29339981"
+                ]
+            },
+            {
+                "cid": 1110880,
+                "name": "Andrzej ",
+                "callsign": "EPGD_ATIS",
+                "frequency": "129.630",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 0,
+                "atis_code": "C",
+                "text_atis": [
+                    "THIS IS GDANSK INFORMATION CHARLIE . TIME 2130 .",
+                    "EXPECT TANGO ARRIVALS FOR ILS APPROACH RUNWAY 29 .",
+                    "DEPARTURES RUNWAY 29 . TRANSITION LEVEL 8 0 .",
+                    "WIND 270 DEGREES 5 KNOTS . CAVOK . TEMPERATURE 19 .",
+                    "DEWPOINT 18 . QNH 1013 . FOR ATC CLEARENCE CONTACT 125.450 .",
+                    "WHEN AIRBORNE CONTACT RADAR ON 125.450 .",
+                    "END OF INFORMATION CHARLIE ."
+                ],
+                "last_updated": "2024-08-16T21:55:15.0918171Z",
+                "logon_time": "2024-08-16T20:40:13.3026466Z",
+                "airport": {
+                    "name": "Gdańsk Lech Wałęsa Airport",
+                    "icao": "EPGD"
+                },
+                "coordinates": [
+                    "18.46619987487793",
+                    " 54.377601623535156"
+                ]
+            },
+            {
+                "cid": 1110880,
+                "name": "Andrzej ",
+                "callsign": "EPKK_ATIS",
+                "frequency": "126.130",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 0,
+                "atis_code": "A",
+                "text_atis": [
+                    "THIS IS KRAKOW INFORMATION ALPHA . TIME 2130 .",
+                    "EXPECT GOLF ARRIVALS FOR ILS APPROACH RUNWAY 25 .",
+                    "DEPARTURES RUNWAY 25 . TRANSITION LEVEL 8 0 .",
+                    "WIND 050 DEGREES 3 KNOTS . CAVOK . TEMPERATURE 21 .",
+                    "DEWPOINT 18 . QNH 1015 . FOR ATC CLEARENCE CONTACT 125.45 .",
+                    "WHEN AIRBORNE CONTACT RADAR ON 125.450 .",
+                    "END OF INFORMATION ALPHA ."
+                ],
+                "last_updated": "2024-08-16T21:55:15.1035465Z",
+                "logon_time": "2024-08-16T21:47:10.4018557Z",
+                "airport": {
+                    "name": "Kraków John Paul II International Airport",
+                    "icao": "EPKK"
+                },
+                "coordinates": [
+                    "19.7848",
+                    " 50.077702"
+                ]
+            },
+            {
+                "cid": 1110880,
+                "name": "Andrzej ",
+                "callsign": "EPWA_ATIS",
+                "frequency": "120.455",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 0,
+                "atis_code": "C",
+                "text_atis": [
+                    "THIS IS WARSAW INFORMATION CHARLIE . TIME 2130 .",
+                    "EXPECT UNIFORM ARRIVALS FOR ILSYANKEE APPROACH RUNWAY 33 .",
+                    "DEPARTURES RUNWAY 29 . TRANSITION LEVEL 8 0 . WIND CALM .",
+                    "CAVOK . TEMPERATURE 20 . DEWPOINT 15 . QNH 1014 .",
+                    "FOR ATC CLEARENCE CONTACT 125.450 .",
+                    "WHEN AIRBORNE CONTACT RADAR ON 125.450 .",
+                    "END OF INFORMATION CHARLIE ."
+                ],
+                "last_updated": "2024-08-16T21:55:15.0915832Z",
+                "logon_time": "2024-08-16T20:39:46.0265697Z",
+                "airport": {
+                    "name": "Warsaw Chopin Airport",
+                    "icao": "EPWA"
+                },
+                "coordinates": [
+                    "20.967100143399996",
+                    " 52.1656990051"
+                ]
+            },
+            {
+                "cid": 1765290,
+                "name": "Johan Sjölin",
+                "callsign": "ESGG_ATIS",
+                "frequency": "118.380",
+                "facility": 4,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "ESGG ATIS E. TIME 2120Z. ILS RWY 21 IN USE. TRL 65. MET REPORT",
+                    "WIND 220/03KT VIS CAVOK T10/DP09 QNH 1011 HPA."
+                ],
+                "last_updated": "2024-08-16T21:55:36.1132259Z",
+                "logon_time": "2024-08-16T21:36:21.0890962Z",
+                "airport": {
+                    "name": "Gothenburg-Landvetter Airport",
+                    "icao": "ESGG"
+                },
+                "coordinates": [
+                    "12.279800415039",
+                    " 57.662799835205"
+                ]
+            },
+            {
+                "cid": 1429343,
+                "name": "Drikus Jansen Van Vuuren",
+                "callsign": "FACT_ATIS",
+                "frequency": "127.000",
+                "facility": 4,
+                "rating": 5,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "M",
+                "text_atis": [
+                    "FACT ATIS INFORMATION M. 2100Z. 33013KT CAVOK 12/10 A1017 (ONE",
+                    "ZERO ONE SEVEN). RUNWAY 01 IN USE. EXPECT ILS APPROACH...",
+                    "TRANSITION LEVEL 85. ADVISE IF UNABLE ILS APPROACH. ADVISE ON",
+                    "INITIAL CONTACT YOU HAVE INFORMATION M....ADVS YOU HAVE INFO M"
+                ],
+                "last_updated": "2024-08-16T21:55:31.2218246Z",
+                "logon_time": "2024-08-16T21:10:46.1695001Z",
+                "airport": {
+                    "name": "Cape Town International Airport",
+                    "icao": "FACT"
+                },
+                "coordinates": [
+                    "18.6016998291",
+                    " -33.9648017883"
+                ]
+            },
+            {
+                "cid": 1429343,
+                "name": "Drikus Jansen Van Vuuren",
+                "callsign": "FAGG_ATIS",
+                "frequency": "126.225",
+                "facility": 4,
+                "rating": 5,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "F",
+                "text_atis": [
+                    "FAGG ATIS INFORMATION F. 2100Z. 30003KT CAVOK 09/09 A1015 (ONE",
+                    "ZERO ONE FIVE). RUNWAY 29 IN USE. EXPECT ILS APPROACH...",
+                    "TRANSITION LEVEL 90. ADVISE ON INITIAL CONTACT YOU HAVE",
+                    "INFORMATION F....ADVS YOU HAVE INFO F"
+                ],
+                "last_updated": "2024-08-16T21:55:27.2476386Z",
+                "logon_time": "2024-08-16T17:41:56.9282259Z",
+                "airport": {
+                    "name": "George Airport",
+                    "icao": "FAGG"
+                },
+                "coordinates": [
+                    "22.378902",
+                    " -34.0056"
+                ]
+            },
+            {
+                "cid": 1429343,
+                "name": "Drikus Jansen Van Vuuren",
+                "callsign": "FAPE_ATIS",
+                "frequency": "126.800",
+                "facility": 4,
+                "rating": 5,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "FAPE ATIS INFORMATION E. 2100Z. 06007KT CAVOK 17/16 A1015 (ONE",
+                    "ZERO ONE FIVE). RUNWAY 08 IN USE. EXPECT ILS APPROACH...",
+                    "TRANSITION LEVEL 65. ADVISE ON INITIAL CONTACT YOU HAVE",
+                    "INFORMATION E....ADVS YOU HAVE INFO E"
+                ],
+                "last_updated": "2024-08-16T21:55:32.0516029Z",
+                "logon_time": "2024-08-16T17:42:01.7307316Z",
+                "airport": {
+                    "name": "Port Elizabeth Airport",
+                    "icao": "FAPE"
+                },
+                "coordinates": [
+                    "25.6173000336",
+                    " -33.9849014282"
+                ]
+            },
+            {
+                "cid": 1432868,
+                "name": "1432868",
+                "callsign": "KATL_D_ATIS",
+                "frequency": "125.550",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "V",
+                "text_atis": [
+                    "ATL DEP INFO V 2052Z. 20011G15KT 10SM FEW044 FEW150 FEW250 33/20",
+                    "A3003 (THREE ZERO ZERO THREE). SIMUL DEPS, DEPTG RWYS 26L, 27R.",
+                    "XPECT RNAV OFF THE GROUND DEPTG RWY 26L, XPECT RNAV OFF THE",
+                    "GROUND DEPTG RWY 27R. RWY 27R DEPS TWY W OPERATIONS IN EFFECT.",
+                    "GROUND CONTROL WILL ASSIGN RUNWAY WITH TAXI INSTRUCTIONS.",
+                    "NOTAMS... OPERATE TRANSPONDER WITH MODE C ON ALL RAMPS, TWYS,",
+                    "AND RWYS. ...ADVS YOU HAVE INFO V"
+                ],
+                "last_updated": "2024-08-16T21:55:24.6226429Z",
+                "logon_time": "2024-08-16T20:38:54.5307202Z",
+                "airport": {
+                    "name": "Hartsfield Jackson Atlanta International Airport",
+                    "icao": "KATL"
+                },
+                "coordinates": [
+                    "-84.428101",
+                    " 33.6367"
+                ]
+            },
+            {
+                "cid": 1432868,
+                "name": "1432868",
+                "callsign": "KATL_A_ATIS",
+                "frequency": "119.650",
+                "facility": 4,
+                "rating": 5,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "J",
+                "text_atis": [
+                    "ATL ARR INFO J 2052Z. 20011G15KT 10SM FEW044 FEW150 FEW250 33/20",
+                    "A3003 (THREE ZERO ZERO THREE). SIMUL APCHS ARE IN PROGRESS,",
+                    "VISUAL APPROACH RWY VISUAL APPROACH RWY 27L. NOTAMS... OPERATE",
+                    "TRANSPONDER WITH MODE C ON ALL RAMPS, TWYS, AND RWYS....ADVS YOU",
+                    "HAVE INFO J"
+                ],
+                "last_updated": "2024-08-16T21:55:38.1260794Z",
+                "logon_time": "2024-08-16T20:39:08.0314206Z",
+                "airport": {
+                    "name": "Hartsfield Jackson Atlanta International Airport",
+                    "icao": "KATL"
+                },
+                "coordinates": [
+                    "-84.428101",
+                    " 33.6367"
+                ]
+            },
+            {
+                "cid": 1790146,
+                "name": "James Gandolfi",
+                "callsign": "KBHM_ATIS",
+                "frequency": "119.400",
+                "facility": 4,
+                "rating": 2,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KBHM ATIS INFO B 2056Z. 25009KT 10SM FEW048 BKN075 33/22 A2999",
+                    "(TWO NINER NINER NINER). VIS RWY 24 APCH IN USE. NOTAMS...",
+                    "READBACK ALL HOLD SHORT INSTRUCTIONS. VFR AIRCRAFT SAY DIRECTION",
+                    "OF FLIGHT. ...ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:29.1589761Z",
+                "logon_time": "2024-08-16T20:22:44.0995663Z",
+                "airport": {
+                    "name": "Birmingham-Shuttlesworth International Airport",
+                    "icao": "KBHM"
+                },
+                "coordinates": [
+                    "-86.75350189",
+                    " 33.56290054"
+                ]
+            },
+            {
+                "cid": 1366661,
+                "name": "Henry Grayer",
+                "callsign": "KBNA_ATIS",
+                "frequency": "135.100",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "L",
+                "text_atis": [
+                    "KBNA ATIS INFO L 2053Z. 27011G18KT 10SM FEW060 SCT110 BKN250",
+                    "36/19 A2993 (TWO NINER NINER THREE). VIS APCHS RWY 20R AND 20L",
+                    "IN USE. DEPG RWY 20R AND 20C. R-N-P APCHS AVBL UPON RQST.",
+                    "SIMULTANEOUS APPROACHES TO PARALLEL RUNWAYS IN USE. NOTAMS...",
+                    "BIRD ACTIVITY IN VCY OF ARPT, USE XTM CAUT. THE TERMINAL RAMP IS",
+                    "UNCTL. CTC GND CTL WHEN READY TO TAXI......ADVS YOU HAVE INFO L"
+                ],
+                "last_updated": "2024-08-16T21:55:34.5549115Z",
+                "logon_time": "2024-08-16T20:41:34.4393965Z",
+                "airport": {
+                    "name": "Nashville International Airport",
+                    "icao": "KBNA"
+                },
+                "coordinates": [
+                    "-86.6781997680664",
+                    " 36.1245002746582"
+                ]
+            },
+            {
+                "cid": 1478446,
+                "name": "Ben S.",
+                "callsign": "KBOS_ATIS",
+                "frequency": "135.000",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "BOSTON LOGAN AIRPORT ATIS INFORMATION A. 2054Z. 11009KT 6SM HZ",
+                    "FEW090 OVC220 21/18 A3008 (THREE ZERO ZERO EIGHT). APCHS ARE",
+                    "BEING CONDUCTED TO PARALLEL RWYS. ILS RWY 4R APCH AND ILS RWY",
+                    "15R APCH WITH A VIS APCH TO RWY 4L IN USE, DEPTG RWY 9. RWY 33R",
+                    "IS APPROVED FOR TURN OFF AFTER LDG. READBACK ALL HOLD SHORT",
+                    "INSTRUCTIONS AND ASSIGNED ALTITUDES. NUMEROUS CRANES IN BOSTON",
+                    "AREA AND IN THE VICINITY OF LOGAN AIRPORT. TWY B CLSD FROM N TO",
+                    "Z....ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:35.5615293Z",
+                "logon_time": "2024-08-16T18:27:20.5301657Z",
+                "airport": {
+                    "name": "General Edward Lawrence Logan International Airport",
+                    "icao": "KBOS"
+                },
+                "coordinates": [
+                    "-71.00520325",
+                    " 42.36429977"
+                ]
+            },
+            {
+                "cid": 1677974,
+                "name": "Adam",
+                "callsign": "KBUR_ATIS",
+                "frequency": "134.500",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "R",
+                "text_atis": [
+                    "KBUR ATIS INFO R 2053Z. 17009KT 10SM CLR 32/16 A2988 (TWO NINER",
+                    "EIGHT EIGHT). ILS, RNAV Y/Z RWY 8 APPROACHES IN USE, OR VECTORS",
+                    "VIS APP. LANDING AND DEPTG RWY 8, AND RWY 15. LAHSO IN EFFECT",
+                    "FOR NON TURBOJET ACFT LDG RWY 15, AVBL LDG DIST FOUR THOUSAND",
+                    "TWO HUNDRED FIFTY FEET. READBACK ALL RWY HOLD SHORT",
+                    "INSTRUCTIONS. NOTAMS... RY 15 VASI OTS. ALL RWY 8 ARRIVALS USE",
+                    "CAUTION FOR VNY EAST TRAFFIC PATTERN....ADVS ON INITIAL CONTACT",
+                    "YOU HAVE INFO R....ADVS YOU HAVE INFO R"
+                ],
+                "last_updated": "2024-08-16T21:55:24.1974701Z",
+                "logon_time": "2024-08-16T20:45:24.2005348Z",
+                "airport": {
+                    "name": "Bob Hope Airport",
+                    "icao": "KBUR"
+                },
+                "coordinates": [
+                    "-118.35900115966797",
+                    " 34.20069885253906"
+                ]
+            },
+            {
+                "cid": 1521176,
+                "name": "1521176",
+                "callsign": "KBWI_ATIS",
+                "frequency": "127.800",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "W",
+                "text_atis": [
+                    "KBWI ATIS INFO W 2054Z. 14010KT 10SM FEW060 BKN160 BKN240 30/18",
+                    "A2999 (TWO NINER NINER NINER). AIRCRAFT EXPECT ILS RWY 10. DEPG",
+                    "RWY 15R/15L.IF UNABLE RWY 15R ADVISE ON INITIAL CONTACT.",
+                    "NOTAMS... ASDEX IN USE OPERATE MODE C ON ALL RWYS/TAXIWAYS..",
+                    "...ADVS YOU HAVE INFO W"
+                ],
+                "last_updated": "2024-08-16T21:55:00.5665555Z",
+                "logon_time": "2024-08-16T21:51:15.5577797Z",
+                "airport": {
+                    "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                    "icao": "KBWI"
+                },
+                "coordinates": [
+                    "-76.668297",
+                    " 39.1754"
+                ]
+            },
+            {
+                "cid": 1459978,
+                "name": "Jack",
+                "callsign": "KCLT_D_ATIS",
+                "frequency": "132.100",
+                "facility": 4,
+                "rating": 5,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "KCLT ATIS INFO D 2052Z. 20008G16KT 10SM FEW040 SCT120 SCT250",
+                    "31/21 A3001 (THREE ZERO ZERO ONE). SIMUL DEPS IN USE, EXPECT RY",
+                    "18C, RY 18L. NOTAMS... RWYS 5, 23 CLSD. PAJA IN PROGRESS",
+                    "CHARLOTTE 037 RADIAL 34 DME AT RUQ, CHARLOTTE 206 RADIAL 27 DME",
+                    "AT DCM ALL ACFT USE CAUTION. BIRD ACTIVITY VICINITY ARPT.",
+                    "TRANSPONDERS REQUIRED TO BE ON WHILE OPERATING ON RWYS AND TWYS.",
+                    "ALL AIRCRAFT READ BACK ALL RUNWAY HOLD SHORT INSTRUCTIONS WITH",
+                    "CALLSIGN. VFR ACFT CTC CD 127.15, ADVISE ACFT TYPE, INITIAL HDG",
+                    "PLAND ALT....ADVS YOU HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:34.1637608Z",
+                "logon_time": "2024-08-16T20:53:34.2318333Z",
+                "airport": {
+                    "name": "Charlotte Douglas International Airport",
+                    "icao": "KCLT"
+                },
+                "coordinates": [
+                    "-80.94309997558594",
+                    " 35.2140007019043"
+                ]
+            },
+            {
+                "cid": 1459978,
+                "name": "Jack",
+                "callsign": "KCLT_A_ATIS",
+                "frequency": "121.150",
+                "facility": 4,
+                "rating": 5,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "Y",
+                "text_atis": [
+                    "KCLT ATIS INFO Y 2052Z. 20008G16KT 10SM FEW040 SCT120 SCT250",
+                    "31/21 A3001 (THREE ZERO ZERO ONE). SIMUL APCHS IN USE, EXPECT",
+                    "VIS APCH 18L, 18C, 18R. NOTAMS... RWYS 5, 23 CLSD. PAJA IN",
+                    "PROGRESS CHARLOTTE 037 RADIAL 34 DME AT RUQ, CHARLOTTE 206",
+                    "RADIAL 27 DME AT DCM ALL ACFT USE CAUTION. BIRD ACTIVITY",
+                    "VICINITY ARPT. TRANSPONDERS REQUIRED TO BE ON WHILE OPERATING ON",
+                    "RWYS AND TWYS. ALL AIRCRAFT READ BACK ALL RUNWAY HOLD SHORT",
+                    "INSTRUCTIONS WITH CALLSIGN. VFR ACFT CTC CD 127.15, ADVISE ACFT",
+                    "TYPE, INITIAL HDG PLAND ALT....ADVS YOU HAVE INFO Y"
+                ],
+                "last_updated": "2024-08-16T21:55:26.0744847Z",
+                "logon_time": "2024-08-16T20:53:41.1297079Z",
+                "airport": {
+                    "name": "Charlotte Douglas International Airport",
+                    "icao": "KCLT"
+                },
+                "coordinates": [
+                    "-80.94309997558594",
+                    " 35.2140007019043"
+                ]
+            },
+            {
+                "cid": 1123937,
+                "name": "Sam Carman",
+                "callsign": "KCRQ_ATIS",
+                "frequency": "120.150",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KCRQ ATIS INFO B 2053Z. 25009KT 10SM CLR 23/18 A2988 (TWO NINER",
+                    "EIGHT EIGHT). VIS APPS IN USE, LDG & DEPTG RWY 24. REED BACK ALL",
+                    "RWY CROSSINGS. VFR AIRCRAFT SAY DIRECTION OF FLT. ...ADVS YOU",
+                    "HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:36.6534435Z",
+                "logon_time": "2024-08-16T21:46:51.6701867Z",
+                "airport": {
+                    "name": "Mc Clellan-Palomar Airport",
+                    "icao": "KCRQ"
+                },
+                "coordinates": [
+                    "-117.2799988",
+                    " 33.12829971"
+                ]
+            },
+            {
+                "cid": 1613468,
+                "name": "1613468",
+                "callsign": "KDCA_ATIS",
+                "frequency": "132.650",
+                "facility": 4,
+                "rating": 2,
+                "server": "AMSTERDAM",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KDCA ATIS INFO A 2052Z. 19109KT 10SM BKN065 BKN180 31/18 A2998",
+                    "(TWO NINER NINER EIGHT). ARRIVALS EXPECT RIVER VISUAL 19. LNDG",
+                    "AND DEPG RWYS 19, 15, 22. MULTIPLE APPROACHES BEING CONDUCTED TO",
+                    "INTERSECTING RWYS. USE CAUTION. NOTAMS... RNP APCH ON REQUEST.",
+                    "READ BACK ALL RWY ASSIGNMENTS AND HOLD SHORT INSTRUCTIONS.",
+                    "OPERATE MODE C ON ALL TAXIWAYS AND RUNWAYS. DO NOT ENTER",
+                    "PROHIBITED AIRSPACE NORTH OF ARPT...",
+                    "[ADVISE_ON_INIT_CONTACT]....ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:27.1463692Z",
+                "logon_time": "2024-08-16T21:26:27.1655019Z",
+                "airport": {
+                    "name": "Ronald Reagan Washington National Airport",
+                    "icao": "KDCA"
+                },
+                "coordinates": [
+                    "-77.037697",
+                    " 38.8521"
+                ]
+            },
+            {
+                "cid": 1648902,
+                "name": "Kevin",
+                "callsign": "KFRG_ATIS",
+                "frequency": "126.650",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "T",
+                "text_atis": [
+                    "REPUBLIC AIRPORT INFORMATION T, TIME 2053Z. 13009KT 9SM CLR",
+                    "26/21 A3003 (THREE ZERO ZERO THREE). RNAV RUNWAY 19 APPROACH IN",
+                    "USE. LANDING AND DEPARTING RUNWAY 19.. NOTAMS... IFR DEPARTURES",
+                    "ADVISE GROUND CONTROL THAT YOU ARE IFR. READBACK ALL RUNWAY HOLD",
+                    "SHORT INSTRUCTIONS, RUNWAY ASSIGNMENTS, AND ALTITUDE",
+                    "ASSIGNMENTS. ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION",
+                    "[ATIS_CODE].....ADVS YOU HAVE INFO T."
+                ],
+                "last_updated": "2024-08-16T21:55:31.0139127Z",
+                "logon_time": "2024-08-16T20:39:00.9643938Z",
+                "airport": {
+                    "name": "Republic Airport",
+                    "icao": "KFRG"
+                },
+                "coordinates": [
+                    "-73.4133987427",
+                    " 40.7288017273"
+                ]
+            },
+            {
+                "cid": 1521176,
+                "name": "1521176",
+                "callsign": "KIAD_ATIS",
+                "frequency": "134.850",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "KIAD ATIS INFO E 2052Z. 19006KT 10SM FEW055 SCT100 BKN170 BKN250",
+                    "30/18 A2999 (TWO NINER NINER NINER). ACFT EXPECT ILS/VA RWY 19L,",
+                    "19C, 19R. DEPARTING RWY 30. SIGNATURE DEPARTURES EXPECT RWY 19L.",
+                    "ACFT ARE EXPECTED TO CROSS & EXIT RWY AS QUICKLY AS POSSIBLE..",
+                    "NOTAMS... ASDEX IN USE OPERATE MODE C ON ALL RWYS/TAXIWAYS. RAMP",
+                    "IS A NON-MOVEMENT AREA CALL FOR TAXI ON THE EAST OR WEST SIDE OF",
+                    "THE RAMP.....ADVS YOU HAVE INFO E"
+                ],
+                "last_updated": "2024-08-16T21:54:59.490094Z",
+                "logon_time": "2024-08-16T21:51:29.48529Z",
+                "airport": {
+                    "name": "Washington Dulles International Airport",
+                    "icao": "KIAD"
+                },
+                "coordinates": [
+                    "-77.45580292",
+                    " 38.94449997"
+                ]
+            },
+            {
+                "cid": 1648902,
+                "name": "Kevin",
+                "callsign": "KISP_ATIS",
+                "frequency": "120.725",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "I",
+                "text_atis": [
+                    "KISP ATIS INFORMATION I. 2056Z. 15010KT 8SM FEW015 FEW030 BKN250",
+                    "24/21 A3003 (THREE ZERO ZERO THREE). ILS RWY 24 APCH IN USE. LDG",
+                    "AND DEPTG RY 24......ADVS YOU HAVE INFO I."
+                ],
+                "last_updated": "2024-08-16T21:55:35.0613332Z",
+                "logon_time": "2024-08-16T20:40:20.0270565Z",
+                "airport": {
+                    "name": "Long Island Mac Arthur Airport",
+                    "icao": "KISP"
+                },
+                "coordinates": [
+                    "-73.10019684",
+                    " 40.79520035"
+                ]
+            },
+            {
+                "cid": 1015802,
+                "name": "Chris Caracciola",
+                "callsign": "KJFK_ATIS",
+                "frequency": "128.725",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "G",
+                "text_atis": [
+                    "KJFK ATIS INFO G 2051Z. 14010KT 10SM SCT250 27/20 A3003 (THREE",
+                    "ZERO ZERO THREE). APCH IN USE RNAV GPS *Z RY 13L. DEPTG RY 13R..",
+                    "NOTAMS... OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND RUNWAYS.",
+                    "READBACK ALL RWY HOLD SHORT INSTRUCTIONS. GROUND METERING IN",
+                    "EFFECT....ADVS YOU HAVE INFO G."
+                ],
+                "last_updated": "2024-08-16T21:55:28.5860087Z",
+                "logon_time": "2024-08-16T20:45:58.5840268Z",
+                "airport": {
+                    "name": "John F Kennedy International Airport",
+                    "icao": "KJFK"
+                },
+                "coordinates": [
+                    "-73.7789",
+                    " 40.639801"
+                ]
+            },
+            {
+                "cid": 1342786,
+                "name": "Caleb Henry",
+                "callsign": "KLAS_ATIS",
+                "frequency": "132.400",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KLAS ATIS INFO A 2056Z. 00000KT 10SM FEW180 41/08 A2988 (TWO",
+                    "NINER EIGHT EIGHT). VIS APPS IN USE. LDG RWYS 26L, 19R, AND 19L.",
+                    "DEPTG RWYS 26R, 19L, AND 19R. SIMUL APPS TO CROSSING AND",
+                    "PARALLEL RWYS IN USE. CONVERGING RWY OPS IN EFFECT. NOTAMS...",
+                    "LAS VEGAS METROPLEX PROCEDURES IN EFFECT. VERIFY NAVIGATIONAL",
+                    "DATA IS UP TO DATE. ASDE-X SYSTEM IN USE. ACTIVATE TRANSPONDER",
+                    "WITH MODE C ON ALL TWYS AND RWYS. READBACK ALL RWY HOLD SHORT",
+                    "INSTRUCTIONS. ...ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:31.0531188Z",
+                "logon_time": "2024-08-16T21:19:31.0717279Z",
+                "airport": {
+                    "name": "McCarran International Airport",
+                    "icao": "KLAS"
+                },
+                "coordinates": [
+                    "-115.1520004",
+                    " 36.08010101"
+                ]
+            },
+            {
+                "cid": 1787118,
+                "name": "Ryan K",
+                "callsign": "KLAX_ATIS",
+                "frequency": "133.800",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "Y",
+                "text_atis": [
+                    "KLAX ATIS INFO Y 2053Z. 25012KT 10SM FEW250 26/19 A2988 (TWO",
+                    "NINER EIGHT EIGHT). RNAV AND ILS APPS IN PROG RWYS 24R AND 25L.",
+                    "PARALLEL APPS IN PROG BTWN LOS ANGELES AND HAWTHORNE ARPTS.",
+                    "SIMUL INSTRUMENT DEPS IN PROG RWYS 24L AND 25L/R. NOTAMS...",
+                    "ASDE-X SYSTEM IN USE. ACTIVATE TRANSPONDER WITH MODE C ON ALL",
+                    "TWYS AND RWYS. ARRS TO RWY 24R EXP EXIT AT TWY Y. READBACK ALL",
+                    "RWY HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE INFO Y"
+                ],
+                "last_updated": "2024-08-16T21:55:34.8167322Z",
+                "logon_time": "2024-08-16T20:45:49.8732674Z",
+                "airport": {
+                    "name": "Los Angeles International Airport",
+                    "icao": "KLAX"
+                },
+                "coordinates": [
+                    "-118.407997",
+                    " 33.942501"
+                ]
+            },
+            {
+                "cid": 1648902,
+                "name": "Kevin",
+                "callsign": "KLGA_ATIS",
+                "frequency": "127.050",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "KLGA ATIS INFO B 2051Z. 18011KT 10SM FEW045 FEW250 28/18 A3000",
+                    "(THREE ZERO ZERO ZERO). ILS RY 22 APCH IN USE. DEPTG RY 13..",
+                    "NOTAMS... OPERATE XPDR ON MODE *C ON ALL TAXIWAYS AND",
+                    "RUNWAYS.....ADVS YOU HAVE INFO B."
+                ],
+                "last_updated": "2024-08-16T21:55:37.9604043Z",
+                "logon_time": "2024-08-16T20:38:07.9289138Z",
+                "airport": {
+                    "name": "La Guardia Airport",
+                    "icao": "KLGA"
+                },
+                "coordinates": [
+                    "-73.872597",
+                    " 40.777199"
+                ]
+            },
+            {
+                "cid": 1209660,
+                "name": "Angel Ledesma",
+                "callsign": "KMCO_A_ATIS",
+                "frequency": "121.250",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "L",
+                "text_atis": [
+                    "KMCO ARRIVAL ATIS INFORMATION L. 2053Z. 06613KT 10SM SCT050",
+                    "BKN080 31/19 A3000 (THREE ZERO ZERO ZERO). SIMULTANEOUS APPCHS,",
+                    "ILS RWY 35R, RNAV APCH RWY 36L.. NOTAMS... ALL ACFT CTC GC ON",
+                    "124.8. ASDE-X IN USE, OPERATE MODE C ON ALL AIRPORT SURFACES..",
+                    "...ADVS YOU HAVE INFO L"
+                ],
+                "last_updated": "2024-08-16T21:55:33.9368277Z",
+                "logon_time": "2024-08-16T21:15:04.0170784Z",
+                "airport": {
+                    "name": "Orlando International Airport",
+                    "icao": "KMCO"
+                },
+                "coordinates": [
+                    "-81.30899810791016",
+                    " 28.429399490356445"
+                ]
+            },
+            {
+                "cid": 1209660,
+                "name": "Angel Ledesma",
+                "callsign": "KMCO_D_ATIS",
+                "frequency": "120.525",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "Y",
+                "text_atis": [
+                    "KMCO DEPARTURE ATIS INFORMATION Y. 2053Z. 06613KT 10SM SCT050",
+                    "BKN080 31/19 A3000 (THREE ZERO ZERO ZERO). DEPG RWYS 35L, 36R,",
+                    "36L.. NOTAMS... G CLSD BTWN, H4 AND H1. AIR CARRIERS ONLY,",
+                    "EXPECT RWY ASSIGNMENT W/ DIGITAL CLEARANCE. ALL ACFT CTC GC ON",
+                    "124.8. ASDE-X IN USE, OPERATE MODE C ON ALL AIRPORT SURFACES.",
+                    "PUSH AND START AT PILOTS DISCRETION.. ...ADVS YOU HAVE INFO Y"
+                ],
+                "last_updated": "2024-08-16T21:55:34.1434368Z",
+                "logon_time": "2024-08-16T21:17:04.2285194Z",
+                "airport": {
+                    "name": "Orlando International Airport",
+                    "icao": "KMCO"
+                },
+                "coordinates": [
+                    "-81.30899810791016",
+                    " 28.429399490356445"
+                ]
+            },
+            {
+                "cid": 1366661,
+                "name": "Henry Grayer",
+                "callsign": "KMEM_ATIS",
+                "frequency": "127.750",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "Q",
+                "text_atis": [
+                    "KMEM ATIS INFO Q 2054Z. 24007KT 10SM SCT043 SCT085 35/24 A2993",
+                    "(TWO NINER NINER THREE). SIMUL VIS APCHS IN USE RWY 18R AND 18L.",
+                    "SIMUL DEPS IN USE RY 18R AND 18C. OPERATE MODE C ON TAXIWAYS AND",
+                    "RUNWAYS. SIMULTANEOUS APPROACHES TO PARALLEL RUNWAYS IN USE.",
+                    "NOTAMS... BIRD ACTIVITY RPTD IN THE VC OF THE ARPT. READBACK ALL",
+                    "RWY HOLD SHORT INSTRUCTIONS. RECAT WAKE TURBULENCE SEPARATION",
+                    "STANDARDS IN EFFECT. ALL ACFT CTC GC FOR PUSHBACK ONTO TWY N OR",
+                    "TWY J.....ADVS YOU HAVE INFO Q"
+                ],
+                "last_updated": "2024-08-16T21:55:31.5030018Z",
+                "logon_time": "2024-08-16T20:41:01.391234Z",
+                "airport": {
+                    "name": "Memphis International Airport",
+                    "icao": "KMEM"
+                },
+                "coordinates": [
+                    "-89.97669982910156",
+                    " 35.04240036010742"
+                ]
+            },
+            {
+                "cid": 1123937,
+                "name": "Sam Carman",
+                "callsign": "KMYF_ATIS",
+                "frequency": "126.900",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "D",
+                "text_atis": [
+                    "KMYF ATIS INFO D 2053Z. 25008KT 10SM CLR 27/18 A2989 (TWO NINER",
+                    "EIGHT NINER). VIS APPS IN USE, LDG & DEPTG RWY 28L & RWY 28R.",
+                    "PARALLEL RWY OPS IN EFFECT. REED BACK ALL RWY CROSSINGS. VFR",
+                    "AIRCRAFT SAY DIRECTION OF FLT. ...ADVS YOU HAVE INFO D"
+                ],
+                "last_updated": "2024-08-16T21:55:31.1625623Z",
+                "logon_time": "2024-08-16T21:46:46.166418Z",
+                "airport": {
+                    "name": "Montgomery-Gibbs Executive Airport",
+                    "icao": "KMYF"
+                },
+                "coordinates": [
+                    "-117.139999",
+                    " 32.8157"
+                ]
+            },
+            {
+                "cid": 1677974,
+                "name": "Adam",
+                "callsign": "KONT_ATIS",
+                "frequency": "124.250",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "U",
+                "text_atis": [
+                    "KONT ATIS INFO U 2053Z. 23010KT 10SM FEW200 34/13 A2988 (TWO",
+                    "NINER EIGHT EIGHT). ILS AND VIS APR IN USE RWY 26R. LNDG AND",
+                    "DEPG RWY 26R. NOTAMS... RY 26L, 8R CLSD. PILOTS READBACK RWY",
+                    "ASSIGNMENTS AND HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE INFO U"
+                ],
+                "last_updated": "2024-08-16T21:55:24.073372Z",
+                "logon_time": "2024-08-16T20:45:39.046332Z",
+                "airport": {
+                    "name": "Ontario International Airport",
+                    "icao": "KONT"
+                },
+                "coordinates": [
+                    "-117.60099792480469",
+                    " 34.055999755859375"
+                ]
+            },
+            {
+                "cid": 1460378,
+                "name": "Max Klopper",
+                "callsign": "KPHL_ATIS",
+                "frequency": "133.400",
+                "facility": 4,
+                "rating": 4,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "KPHL ATIS INFO C 2054Z. 18006KT 10SM FEW070 SCT280 31/12 A3000",
+                    "(THREE ZERO ZERO ZERO). SIMUL APCHS TO PARALLEL AND INTERSECTING",
+                    "RWYS 27R, 17 AND 26 IN USE. ARRS EXP ILS APCH RWY 27R, ILS Z RWY",
+                    "17 APCH, OR VIS APCH RWY 26. DEPTG RWY 27L, RWY 17.. . OPERATE",
+                    "XPDR ON MODE C ON ALL TAXIWAYS AND RUNWAYS. ...ADVS YOU HAVE",
+                    "INFO C."
+                ],
+                "last_updated": "2024-08-16T21:55:35.0225679Z",
+                "logon_time": "2024-08-16T19:45:58.3776336Z",
+                "airport": {
+                    "name": "Philadelphia International Airport",
+                    "icao": "KPHL"
+                },
+                "coordinates": [
+                    "-75.24109649658203",
+                    " 39.87189865112305"
+                ]
+            },
+            {
+                "cid": 1677974,
+                "name": "Adam",
+                "callsign": "KPSP_ATIS",
+                "frequency": "124.650",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "KPSP ATIS INFO C 2053Z. VRB05KT 10SM CLR 42/12 A2980 (TWO NINER",
+                    "EIGHT ZERO). RNAV AND VISUAL APCH RWY 31L IN USE. LNDG AND DEPG",
+                    "RWY 31L AND 31R. NOTAMS... READBACK ALL RWY HOLD SHORT",
+                    "INSTRUCTIONS. ACTIVATE TRANSPONDER WITH MODE C ON ALL TWYS AND",
+                    "RWYS.. ...ADVS YOU HAVE INFO C"
+                ],
+                "last_updated": "2024-08-16T21:55:31.6247455Z",
+                "logon_time": "2024-08-16T21:34:46.6685129Z",
+                "airport": {
+                    "name": "Palm Springs International Airport",
+                    "icao": "KPSP"
+                },
+                "coordinates": [
+                    "-116.50700378417969",
+                    " 33.8297004699707"
+                ]
+            },
+            {
+                "cid": 1123937,
+                "name": "Sam Carman",
+                "callsign": "KSAN_ATIS",
+                "frequency": "134.800",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "O",
+                "text_atis": [
+                    "KSAN ATIS INFO O 2051Z. 19008KT 140V220 10SM FEW012 SCT200 24/18",
+                    "A2990 (TWO NINER NINER ZERO). LANDING RUNWAY 27 LOCALIZER,",
+                    "VISUAL, RNAV APPROACHES IN USE. DEPG RWY 27. NOTAMS... ASDE-X",
+                    "SYSTEM IN USE. ACTIVATE TRANSPONDER WITH MODE C ON ALL TWYS AND",
+                    "RWYS. READBACK ALL RWY HOLD SHORT INSTRUCTIONS. ...ADVS YOU HAVE",
+                    "INFO O"
+                ],
+                "last_updated": "2024-08-16T21:55:27.4536688Z",
+                "logon_time": "2024-08-16T21:32:57.4485783Z",
+                "airport": {
+                    "name": "San Diego International Airport",
+                    "icao": "KSAN"
+                },
+                "coordinates": [
+                    "-117.190002441",
+                    " 32.7336006165"
+                ]
+            },
+            {
+                "cid": 1777974,
+                "name": "Mike Bradley",
+                "callsign": "KSDF_ATIS",
+                "frequency": "118.725",
+                "facility": 4,
+                "rating": 2,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "LOUISVILLE INTERNATIONAL AIRPORT ATIS INFORMATION A 2056Z.",
+                    "25013KT 10SM SCT037 BKN048 BKN250 31/21 A2988 (TWO NINER EIGHT",
+                    "EIGHT). ILS APCH RWY 17L AND 17R. SIMUL APCHS IN USE. RWY 17R",
+                    "ARRIVALS, 29, 11 NSE SENSI, AVBL ONLY FOR OPR NCT. SMUL",
+                    "DEPARTURES IN USE. NOTAMS... INCREASED BIRD ACTIVITY IN THE",
+                    "VICINITY OF THE AIRPORT. HAZD WX INFO FOR KENTUCKY AND INDIANA",
+                    "AVBL FMR FSS....ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:36.5891469Z",
+                "logon_time": "2024-08-16T21:45:21.6279316Z",
+                "airport": {
+                    "name": "Louisville Muhammad Ali International Airport",
+                    "icao": "KSDF"
+                },
+                "coordinates": [
+                    "-85.736",
+                    " 38.1744"
+                ]
+            },
+            {
+                "cid": 1123937,
+                "name": "Sam Carman",
+                "callsign": "KSEE_ATIS",
+                "frequency": "125.450",
+                "facility": 4,
+                "rating": 10,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "W",
+                "text_atis": [
+                    "KSEE ATIS INFO W 2047Z. 22007KT 10SM SKC 31/18 A2988 (TWO NINER",
+                    "EIGHT EIGHT). VIS APPS IN USE, LDG & DEPTG RWY 27L & RWY 27R.",
+                    "PARALLEL RWY OPS IN EFFECT. REED BACK ALL RWY CROSSINGS. VFR",
+                    "AIRCRAFT SAY DIRECTION OF FLT. ...ADVS YOU HAVE INFO W"
+                ],
+                "last_updated": "2024-08-16T21:55:27.2232927Z",
+                "logon_time": "2024-08-16T21:46:42.2390881Z",
+                "airport": {
+                    "name": "Gillespie Field",
+                    "icao": "KSEE"
+                },
+                "coordinates": [
+                    "-116.97200012207",
+                    " 32.826198577881"
+                ]
+            },
+            {
+                "cid": 1209660,
+                "name": "Angel Ledesma",
+                "callsign": "KSFB_ATIS",
+                "frequency": "125.975",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 50,
+                "atis_code": "W",
+                "text_atis": [
+                    "KSFB ATIS INFO W 2053Z. 05512KT 10SM CLR 32/18 A3000 (THREE ZERO",
+                    "ZERO ZERO). ILS APP RWY 9L. VISUAL APP 9C. DEPTG RWYS 9L, 9C.",
+                    "NOTAMS... CTC DEP 124.8. RWY 9R/27L CLSD. PUSH AND START AT",
+                    "PILOTS DISCRETION. ...ADVS YOU HAVE INFO W"
+                ],
+                "last_updated": "2024-08-16T21:55:26.1453779Z",
+                "logon_time": "2024-08-16T21:21:41.2298466Z",
+                "airport": {
+                    "name": "Orlando Sanford International Airport",
+                    "icao": "KSFB"
+                },
+                "coordinates": [
+                    "-81.23750305175781",
+                    " 28.777599334716797"
+                ]
+            },
+            {
+                "cid": 1677974,
+                "name": "Adam",
+                "callsign": "KSNA_ATIS",
+                "frequency": "126.000",
+                "facility": 4,
+                "rating": 4,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KSNA ATIS INFO A 2053Z. 21010KT 10SM FEW300 26/18 A2988 (TWO",
+                    "NINER EIGHT EIGHT). VISUAL APPROACHES RWY 20R IN USE. LDG AND",
+                    "DEPTG RWYS 20R, AND 20L. NOTAMS... HAZD WX INFO FOR SOUTHERN",
+                    "CALIFORNIA AVBL ON FSS FREQUENCIES. ...ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:35.4384046Z",
+                "logon_time": "2024-08-16T20:47:05.3998264Z",
+                "airport": {
+                    "name": "John Wayne Airport-Orange County Airport",
+                    "icao": "KSNA"
+                },
+                "coordinates": [
+                    "-117.8679962",
+                    " 33.67570114"
+                ]
+            },
+            {
+                "cid": 1636920,
+                "name": "William E Archer",
+                "callsign": "KTUS_ATIS",
+                "frequency": "123.800",
+                "facility": 4,
+                "rating": 2,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "KTUS ATIS INFO A 2053Z. 00000KT 10SM CLR 39/14 A2997 (TWO NINER",
+                    "NINER SEVEN). VISUAL APCHS IN USE. LANDING AND DEPARTING RWY 30.",
+                    "NOTAMS... READBACK HOLD SHORT INSTRUCTIONS WITH RWY DESIGNATOR",
+                    "AND CALLSIGN. TWY A1 BTWN WEST RAMP AND DEARM PAD CLSD TWY A5",
+                    "CLSD...ADVS YOU HAVE INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:33.8897372Z",
+                "logon_time": "2024-08-16T21:33:48.9376825Z",
+                "airport": {
+                    "name": "Tucson International Airport / Morris Air National Guard Base",
+                    "icao": "KTUS"
+                },
+                "coordinates": [
+                    "-110.938053",
+                    " 32.115004"
+                ]
+            },
+            {
+                "cid": 1193154,
+                "name": "Javier Cabrera",
+                "callsign": "LEMD_D_ATIS",
+                "frequency": "130.855",
+                "facility": 4,
+                "rating": 3,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "THIS IS LEMD ATIS INFORMATION B. AT TIME 2130Z. RWY IN USE FOR",
+                    "DEPARTURES 36 LEFT... 34007KT CAVOK 28/04 Q1018. TRANSITION",
+                    "LEVEL 140. THIS WAS LEMD ATIS INFORMATION B....ADVS YOU HAVE",
+                    "INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:33.1706987Z",
+                "logon_time": "2024-08-16T21:13:03.2874754Z",
+                "airport": {
+                    "name": "Adolfo Suárez Madrid–Barajas Airport",
+                    "icao": "LEMD"
+                },
+                "coordinates": [
+                    "-3.56264",
+                    " 40.471926"
+                ]
+            },
+            {
+                "cid": 1193154,
+                "name": "Javier Cabrera",
+                "callsign": "LEMD_A_ATIS",
+                "frequency": "118.255",
+                "facility": 4,
+                "rating": 3,
+                "server": "UK",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "THIS IS LEMD ATIS INFORMATION B. AT TIME 2130Z. RWY IN USE FOR",
+                    "ARRIVALS 32 RIGHT. EXPECT ILS Z APPROACH RWY 32 RIGHT... 34007KT",
+                    "CAVOK 28/04 Q1018. TRANSITION LEVEL 140. THIS WAS LEMD ATIS",
+                    "INFORMATION B....ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:35.4264484Z",
+                "logon_time": "2024-08-16T21:13:05.4499134Z",
+                "airport": {
+                    "name": "Adolfo Suárez Madrid–Barajas Airport",
+                    "icao": "LEMD"
+                },
+                "coordinates": [
+                    "-3.56264",
+                    " 40.471926"
+                ]
+            },
+            {
+                "cid": 951459,
+                "name": "Daniel Rechberger",
+                "callsign": "LOWL_ATIS",
+                "frequency": "128.130",
+                "facility": 4,
+                "rating": 5,
+                "server": "GERMANY2",
+                "visual_range": 0,
+                "atis_code": "F",
+                "text_atis": [
+                    "THIS IS LINZ INFORMATION F AT TIME 2120 RUNWAY 08",
+                    "TRANSITION LEVEL 110 AUTOMATIC WEATHER REPORT WIND 140 DEGREES 4",
+                    "KNOTS VARIABLE BETWEEN 110 AND 170 DEGREES VISIBILITY",
+                    "MORE THAN 10 KILOMETERS NO CLOUD DETECTED TEMPERATURE 24",
+                    "DEW POINT 17 QNH 1016 THIS WAS LINZ INFORMATION F"
+                ],
+                "last_updated": "2024-08-16T21:55:24.3638272Z",
+                "logon_time": "2024-08-16T19:36:40.4810383Z",
+                "airport": {
+                    "name": "Linz Hörsching Airport",
+                    "icao": "LOWL"
+                },
+                "coordinates": [
+                    "14.1875",
+                    " 48.2332"
+                ]
+            },
+            {
+                "cid": 1596750,
+                "name": "Maximilian Bobens",
+                "callsign": "LOWW_D_ATIS",
+                "frequency": "121.730",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY2",
+                "visual_range": 0,
+                "atis_code": "Y",
+                "text_atis": [
+                    "THIS IS WIEN-SCHWECHAT DEPARTURE INFORMATION YANKEE , AT 2120",
+                    "DEPARTURE RUNWAY 29",
+                    "ALL AIRCRAFT DEPARTING BETWEEN 2100 LOCAL TIME AND 0700 LOCAL TIME WILL BE CLEARED VIA NOISE ABATEMENT SID, STRICT ADHERENCE IS MANDATORY AND WILL BE MONITORED",
+                    "ARRIVAL RUNWAY 29 TRANSITION LEVEL 110 WIND 200 DEGREES 7",
+                    "KNOTS CAVOK TEMPERATURE 23 DEW POINT 18 QNH 1015 NOSIG"
+                ],
+                "last_updated": "2024-08-16T21:55:26.9432416Z",
+                "logon_time": "2024-08-16T20:24:28.0927908Z",
+                "airport": {
+                    "name": "Vienna International Airport",
+                    "icao": "LOWW"
+                },
+                "coordinates": [
+                    "16.569700241089",
+                    " 48.110298156738"
+                ]
+            },
+            {
+                "cid": 1596750,
+                "name": "Maximilian Bobens",
+                "callsign": "LOWW_A_ATIS",
+                "frequency": "122.955",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY",
+                "visual_range": 0,
+                "atis_code": "Y",
+                "text_atis": [
+                    "THIS IS WIEN-SCHWECHAT ARRIVAL INFORMATION YANKEE , AT 2120",
+                    "ARRIVAL RUNWAY 29 ILS TRANSITION LEVEL 110 WIND 200 DEGREES 7",
+                    "KNOTS CAVOK TEMPERATURE 23 DEW POINT 18 QNH 1015 NOSIG"
+                ],
+                "last_updated": "2024-08-16T21:55:26.9195167Z",
+                "logon_time": "2024-08-16T20:25:16.0053436Z",
+                "airport": {
+                    "name": "Vienna International Airport",
+                    "icao": "LOWW"
+                },
+                "coordinates": [
+                    "16.569700241089",
+                    " 48.110298156738"
+                ]
+            },
+            {
+                "cid": 1483774,
+                "name": "Rui Jacome",
+                "callsign": "LPPT_ATIS",
+                "frequency": "124.155",
+                "facility": 4,
+                "rating": 3,
+                "server": "CANADA",
+                "visual_range": 0,
+                "atis_code": "E",
+                "text_atis": [
+                    "LPPT ATIS E 2130 Z EXP ILS APCH RWY IN USE 02 TRL 50",
+                    "FOR DEP CLEARANCE CONTACT TWR 118.105 AFTER LDG VACATE VIA H4",
+                    "WND 330 DEG 19 KT CAVOK TEMP 27 DP 12 QNH 1016",
+                    "COMPLY WITH SPEED LIMITATIONS ACK LPPT INFO E"
+                ],
+                "last_updated": "2024-08-16T21:55:19.544673Z",
+                "logon_time": "2024-08-16T20:54:07.2255279Z",
+                "airport": {
+                    "name": "Humberto Delgado Airport (Lisbon Portela Airport)",
+                    "icao": "LPPT"
+                },
+                "coordinates": [
+                    "-9.13592",
+                    " 38.7813"
+                ]
+            },
+            {
+                "cid": 1645754,
+                "name": "Daniel",
+                "callsign": "LSZH_ATIS",
+                "frequency": "118.000",
+                "facility": 4,
+                "rating": 3,
+                "server": "GERMANY2",
+                "visual_range": 0,
+                "atis_code": "I",
+                "text_atis": [
+                    "THIS IS ZURICH INFORMATION INDIA AT 2120 .. DEPARTURE RUNWAY 32",
+                    ".. ARRIVALS EXPECT ILS APPROACH RUNWAY 28 .. RUNWAY CONDITION",
+                    "WET .. TRANSITION LEVEL 70 .. WIND VARIABLE 4 KNOTS ..",
+                    "VISIBILITY 10 KILOMETERS OR MORE .. LIGHT SHOWERS OF RAIN ..",
+                    "CLOUDS FEW TCU 5000 FT BKN 5500 FT .. TMP 25 DP 17 .. QNH 1018",
+                    ".. TEMPORARY SHOWERS OF RAIN .. REPORT AIRCRAFT TYPE ON INITIAL",
+                    "CONTACT WITH ZURICH ARRIVAL .. ZURICH INFORMATION INDIA."
+                ],
+                "last_updated": "2024-08-16T21:55:14.3936062Z",
+                "logon_time": "2024-08-16T18:14:24.2323545Z",
+                "airport": {
+                    "name": "Zürich Airport",
+                    "icao": "LSZH"
+                },
+                "coordinates": [
+                    "8.54917",
+                    " 47.464699"
+                ]
+            },
+            {
+                "cid": 1199223,
+                "name": "Jurgen Hempel",
+                "callsign": "MHTG_ATIS",
+                "frequency": "127.750",
+                "facility": 4,
+                "rating": 8,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "MHTG ATIS INFO B 2100Z. 35012KT VIS 10KM BKN038TCU FEW040 29/17",
+                    "A1017 (ONE ZERO ONE SEVEN). LANDING RUNWAY 02. RNP RUNWAY 02.",
+                    "DEPARTING RUNWAY 02. ...ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:35.5761592Z",
+                "logon_time": "2024-08-16T20:53:17.6290285Z",
+                "airport": {
+                    "name": "Toncontín International Airport",
+                    "icao": "MHTG"
+                },
+                "coordinates": [
+                    "-87.21720123291016",
+                    " 14.06089973449707"
+                ]
+            },
+            {
+                "cid": 1104855,
+                "name": "Mauricio Esparza",
+                "callsign": "MMMX_ATIS",
+                "frequency": "127.650",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-WEST",
+                "visual_range": 50,
+                "atis_code": "F",
+                "text_atis": [
+                    "MMMX INFO F 2140UTC. 20014KT 6SM -TSRA BKN020CB OVC080 18/14",
+                    "A3028 (THREE ZERO TWO EIGHT). RWYS 23 IN USE, EXPT ILS APPR RWY",
+                    "23L, ...ADVS YOU HAVE INFO F"
+                ],
+                "last_updated": "2024-08-16T21:55:29.4161756Z",
+                "logon_time": "2024-08-16T20:56:44.4914034Z",
+                "airport": {
+                    "name": "Licenciado Benito Juarez International Airport",
+                    "icao": "MMMX"
+                },
+                "coordinates": [
+                    "-99.072098",
+                    " 19.4363"
+                ]
+            },
+            {
+                "cid": 1199223,
+                "name": "Jurgen Hempel",
+                "callsign": "MROC_ATIS",
+                "frequency": "127.675",
+                "facility": 4,
+                "rating": 8,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "MROC ATIS INFO B 2100Z. 25011KT VIS 10KM OVC020 24/22 A2997 (TWO",
+                    "NINER NINER SEVEN). LANDING RUNWAY 25. R NAV WISKEY AND ECHO.",
+                    "CYRUS VISUAL IS AVAILABLE UPON REQUEST AND IS SUBJECT TO",
+                    "TRAFFIC. DEPARTING RUNWAY 25. A MAXIMUM OF 4 SIMULTANEOUS",
+                    "INSTRUCTION OR VERIFICATION FLIGHTS ARE AUTHORIZED IN THE MROC",
+                    "CONTROL AREA, IF RUNWAY 25 IS IN USE THESE TYPES OF FLIGHTS ARE",
+                    "NOT ALLOWED. AD CONCENTRATION OF BIRDS SFC/5000 FT AMLS DUE TO",
+                    "MIGRATORY PERIOD CTN ADZ. OBST SIGN (ID 2B) OF 957M AMSL",
+                    "CENTERED COORD 095959N 0841122W CTN ADZ.. ...ADVS YOU HAVE INFO",
+                    "B"
+                ],
+                "last_updated": "2024-08-16T21:55:30.4220211Z",
+                "logon_time": "2024-08-16T20:53:20.7482368Z",
+                "airport": {
+                    "name": "Juan Santamaria International Airport",
+                    "icao": "MROC"
+                },
+                "coordinates": [
+                    "-84.20880126953125",
+                    " 9.993860244750977"
+                ]
+            },
+            {
+                "cid": 1199223,
+                "name": "Jurgen Hempel",
+                "callsign": "MZBZ_ATIS",
+                "frequency": "132.750",
+                "facility": 4,
+                "rating": 8,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "MZBZ ATIS INFO B 2100Z. 09008KT VIS 10KM FEW024 32/26 A2989 (TWO",
+                    "NINER EIGHT NINER). LANDING RUNWAY 07. ILS DME ZULU RUNWAY 07.",
+                    "DEPARTING RUNWAY 07. ...ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:36.4248959Z",
+                "logon_time": "2024-08-16T20:53:25.7314134Z",
+                "airport": {
+                    "name": "Philip S. W. Goldson International Airport",
+                    "icao": "MZBZ"
+                },
+                "coordinates": [
+                    "-88.30819702148438",
+                    " 17.539100646972656"
+                ]
+            },
+            {
+                "cid": 1503241,
+                "name": "Rashid Raikhy",
+                "callsign": "OMAA_ATIS",
+                "frequency": "119.975",
+                "facility": 4,
+                "rating": 10,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "OMAA DEP ARR C 2100Z / DEP 31L. ARR 31L. WIND 33006KT 310V030.",
+                    "CAVOK. T 34 / DP 28. QNH A995 (ZERO NINER NINER FIVE).. A-CDM",
+                    "PROCEDURES IN USE. PILOTS ARE TO CONFIRM TOBT (READY FOR PUSH)",
+                    "TIME ON VACDM.VATSIM.ME. CONTACT CLR DELIVERY WHEN READY FOR",
+                    "PUSH AND START ON FREQ 1 2 5. 1 0 0. CTN ILS GLIDE PATH PSBL SGL",
+                    "FLUCTUATIONS DUE TO TAXIING AND DEPARTING ACFT. MINIMIZE RWY",
+                    "OCCUPANCY TIMES. ACFT OPERATORS SHOULD ENSURE THAT MODE S",
+                    "TRANSPONDERS ARE ABLE TO OPERATE WHEN THE ACFT IS ON GND. INFORM",
+                    "ATC IF NOT PBN RNAV 1 GNASS EQUIPPED. ON FIRST CONTACT STATE FPL",
+                    "RECEIVING DEP INFO C....ADVS YOU HAVE INFO C"
+                ],
+                "last_updated": "2024-08-16T21:55:32.3528518Z",
+                "logon_time": "2024-08-16T19:50:02.4324849Z",
+                "airport": {
+                    "name": "Abu Dhabi International Airport",
+                    "icao": "OMAA"
+                },
+                "coordinates": [
+                    "54.651100158691406",
+                    " 24.433000564575195"
+                ]
+            },
+            {
+                "cid": 1503241,
+                "name": "Rashid Raikhy",
+                "callsign": "OMDB_ATIS",
+                "frequency": "131.700",
+                "facility": 4,
+                "rating": 10,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "G",
+                "text_atis": [
+                    "OMDB DEP AND ARR G AT TIME 2100Z. DEP RWY 12 RIGHT. ARR RWY 12",
+                    "LEFT. SFC WIND 08008KT. VIS CAVOK. T 36. DP 27. QNH A995 (ZERO",
+                    "NINER NINER FIVE) HPA... ADZ ACFT TYPE ON FST CTC. PILOTS MUST",
+                    "REPORT READY FOR PUSHBACK ON RADAR 132. 15. DURING PUSHBACK.AND",
+                    "TAXI.SQUAWK ASSIGNED TRANSPONDER CODE. ARRS SQUAWK ASSIGNED",
+                    "TRANSPONDER CODE UNTIL ON STAND. ENHANCE WAKE TURB SEPARATION IN",
+                    "FORCE. ADZ ATC PRIOR TO ENTERING RWY IF ADDITIONAL WAKE TURB",
+                    "SEPARATION IS REQUIRED. MNM RWY OCCUPANCY REQUIRED. CAUTION",
+                    "POSSIBLE GLIDE SLOPE FLUC.. ADVS ATC COPIED G. ...ADVS YOU HAVE",
+                    "INFO G"
+                ],
+                "last_updated": "2024-08-16T21:55:27.1727565Z",
+                "logon_time": "2024-08-16T21:22:12.2313457Z",
+                "airport": {
+                    "name": "Dubai International Airport",
+                    "icao": "OMDB"
+                },
+                "coordinates": [
+                    "55.3643989563",
+                    " 25.2527999878"
+                ]
+            },
+            {
+                "cid": 1503241,
+                "name": "Rashid Raikhy",
+                "callsign": "OMSJ_ATIS",
+                "frequency": "122.400",
+                "facility": 4,
+                "rating": 10,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "G",
+                "text_atis": [
+                    "THIS IS SHARJAH ATIS INFORMATION G. TIME 2100Z. ILS APP RWY 12",
+                    "IN USE. MET REPORT 09009KT CAVOK 34/27 A996 (ZERO NINER NINER",
+                    "SIX)... THIS WAS SHARJAH ATIS INFORMATION G. OUT...ADVS YOU HAVE",
+                    "INFO G"
+                ],
+                "last_updated": "2024-08-16T21:55:26.7363363Z",
+                "logon_time": "2024-08-16T21:22:26.7853151Z",
+                "airport": {
+                    "name": "Sharjah International Airport",
+                    "icao": "OMSJ"
+                },
+                "coordinates": [
+                    "55.5172004699707",
+                    " 25.32859992980957"
+                ]
+            },
+            {
+                "cid": 811546,
+                "name": "Anibal",
+                "callsign": "SABE_ATIS",
+                "frequency": "127.600",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "E",
+                "text_atis": [
+                    "SABE ATIS INFORMATION E. 2100Z. 12014KT VIS 10KM FEW023 11/05",
+                    "A1021 (ONE ZERO TWO ONE). DEP AND ARR RWY 13. EXP ILS Z APP RWY",
+                    "13. TL040. NOISE ABATEMENT PROCEDURES IN EFCT. IFR CLNC AVBL VIA",
+                    "PDC......ADVS YOU HAVE INFO E"
+                ],
+                "last_updated": "2024-08-16T21:55:38.4766439Z",
+                "logon_time": "2024-08-16T21:26:53.6835599Z",
+                "airport": {
+                    "name": "Jorge Newbery Airpark",
+                    "icao": "SABE"
+                },
+                "coordinates": [
+                    "-58.4156",
+                    " -34.5592"
+                ]
+            },
+            {
+                "cid": 811546,
+                "name": "Anibal",
+                "callsign": "SADF_ATIS",
+                "frequency": "129.500",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "U",
+                "text_atis": [
+                    "SADF ATIS INFORMATION U. 2100Z. 12010KT CAVOK 12/06 A1021 (ONE",
+                    "ZERO TWO ONE). DEP AND ARR RWY 05. EXP ILS Z APP RWY 05. TL040..",
+                    "...ADVS YOU HAVE INFO U"
+                ],
+                "last_updated": "2024-08-16T21:55:29.9258674Z",
+                "logon_time": "2024-08-16T21:27:15.1128993Z",
+                "airport": {
+                    "name": "San Fernando Airport",
+                    "icao": "SADF"
+                },
+                "coordinates": [
+                    "-58.5896",
+                    " -34.4532"
+                ]
+            },
+            {
+                "cid": 811546,
+                "name": "Anibal",
+                "callsign": "SAEZ_ATIS",
+                "frequency": "127.800",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST2",
+                "visual_range": 50,
+                "atis_code": "K",
+                "text_atis": [
+                    "SAEZ ATIS INFORMATION K. 2100Z. 12008KT CAVOK 11/06 A1021 (ONE",
+                    "ZERO TWO ONE). DEP AND ARR RWY 11. EXP ILS X-RAY APP RWY 11.",
+                    "TL040. AFTER LANDING IF CONDITIONS PERMIT EXPT TO VACATE RWY VIA",
+                    "RWY 35. IFR CLNC AVBL VIA PDC.. ...ADVS YOU HAVE INFO K"
+                ],
+                "last_updated": "2024-08-16T21:55:30.4885814Z",
+                "logon_time": "2024-08-16T21:27:00.6717045Z",
+                "airport": {
+                    "name": "Ministro Pistarini International Airport",
+                    "icao": "SAEZ"
+                },
+                "coordinates": [
+                    "-58.5358",
+                    " -34.8222"
+                ]
+            },
+            {
+                "cid": 1783106,
+                "name": "Gustavo Ortega",
+                "callsign": "SEQM_ATIS",
+                "frequency": "118.900",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "A",
+                "text_atis": [
+                    "SEQM ATIS INFO A 2130Z. 16012KT 120V190 VIS 10KM SCT040 BKN300",
+                    "24/04 A1023 (ONE ZERO TWO THREE). ACTIVE RWY 36 ...ADVS YOU HAVE",
+                    "INFO A"
+                ],
+                "last_updated": "2024-08-16T21:55:30.9852325Z",
+                "logon_time": "2024-08-16T21:37:45.9832928Z",
+                "airport": {
+                    "name": "Mariscal Sucre International Airport",
+                    "icao": "SEQM"
+                },
+                "coordinates": [
+                    "-78.3575",
+                    " -0.129166666667"
+                ]
+            },
+            {
+                "cid": 1104181,
+                "name": "Santiago Gaymer",
+                "callsign": "SKBO_ATIS",
+                "frequency": "127.800",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "SKBO ATIS INFO C, 2100Z. DOMESTIC FLIGHTS EXPT ILS YANKEE, RWY",
+                    "ONE FOUR RIGHT. INTERNATIONAL FLIGHTS EXPT ILS YANKEE, RWY ONE",
+                    "FOUR LEFT. SIMUL PARALLEL APCHS IN PROG. 16013G25KT VIS 10KM",
+                    "SCT020 SCT080 18/08 A1027 (ONE ZERO TWO SEVEN). ACFT ON GND",
+                    "REPORT GATE NUMBER. ...ADVS YOU HAVE INFO C"
+                ],
+                "last_updated": "2024-08-16T21:55:30.9068113Z",
+                "logon_time": "2024-08-16T21:29:57.7791085Z",
+                "airport": {
+                    "name": "El Dorado International Airport",
+                    "icao": "SKBO"
+                },
+                "coordinates": [
+                    "-74.1469",
+                    " 4.70159"
+                ]
+            },
+            {
+                "cid": 1104181,
+                "name": "Santiago Gaymer",
+                "callsign": "SKCG_ATIS",
+                "frequency": "127.650",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "SKCG ATIS INFO B. 2100Z. EXPT RNP APCH, RWY IN USE 19. 33007KT",
+                    "300V020 VIS 10KM -TSRA FEW012 BKN017CB 31/30 A1008 (ONE ZERO",
+                    "ZERO EIGHT). ...ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:32.191922Z",
+                "logon_time": "2024-08-16T21:30:01.2692971Z",
+                "airport": {
+                    "name": "Rafael Nuñez International Airport",
+                    "icao": "SKCG"
+                },
+                "coordinates": [
+                    "-75.513",
+                    " 10.4424"
+                ]
+            },
+            {
+                "cid": 1104181,
+                "name": "Santiago Gaymer",
+                "callsign": "SKRG_ATIS",
+                "frequency": "127.700",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "C",
+                "text_atis": [
+                    "SKRG ATIS INFO C. 2100Z. EXPT ILS YANKEE APCH, RWY IN USE 01.",
+                    "15006KT VIS 10KM FEW020 24/08 A1024 (ONE ZERO TWO FOUR). ...ADVS",
+                    "YOU HAVE INFO C"
+                ],
+                "last_updated": "2024-08-16T21:55:35.6164827Z",
+                "logon_time": "2024-08-16T21:30:05.549275Z",
+                "airport": {
+                    "name": "Jose Maria Córdova International Airport",
+                    "icao": "SKRG"
+                },
+                "coordinates": [
+                    "-75.4231",
+                    " 6.16454"
+                ]
+            },
+            {
+                "cid": 832940,
+                "name": "Gualdemar",
+                "callsign": "SULS_ATIS",
+                "frequency": "128.100",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "SULS ATIS INFORMATION B. 2100Z. 16008KT VIS 10KM OVC012 09/05",
+                    "A1020 (ONE ZERO TWO ZERO). TRANSITION LEVEL 040. ARRIVALS RWY 26",
+                    "AND 19. APROACH RNP Z RWY 26 AND 19 IN USE. DEPARTURE RWY",
+                    "26......ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:26.6440592Z",
+                "logon_time": "2024-08-16T20:18:26.8344905Z",
+                "airport": {
+                    "name": "Capitan Corbeta CA Curbelo International Airport",
+                    "icao": "SULS"
+                },
+                "coordinates": [
+                    "-55.09429931640625",
+                    " -34.855098724365234"
+                ]
+            },
+            {
+                "cid": 832940,
+                "name": "Gualdemar",
+                "callsign": "SUMU_ATIS",
+                "frequency": "128.000",
+                "facility": 4,
+                "rating": 7,
+                "server": "USA-EAST",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "SUMU ATIS INFORMATION B. 2100Z. 16007KT VIS 10KM OVC015 09/07",
+                    "A1021 (ONE ZERO TWO ONE). TRANSITION LEVEL 040. ARRIVALS RWY 25",
+                    "AND 19. ILS Z PROCEDURES IN USE. DEPARTURE RWY 25......ADVS YOU",
+                    "HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:26.2993413Z",
+                "logon_time": "2024-08-16T20:17:56.4691519Z",
+                "airport": {
+                    "name": "Carrasco International /General C L Berisso Airport",
+                    "icao": "SUMU"
+                },
+                "coordinates": [
+                    "-56.0308",
+                    " -34.838402"
+                ]
+            },
+            {
+                "cid": 1504305,
+                "name": "Lars Gnilka",
+                "callsign": "TXKF_ATIS",
+                "frequency": "119.600",
+                "facility": 4,
+                "rating": 5,
+                "server": "GERMANY2",
+                "visual_range": 50,
+                "atis_code": "B",
+                "text_atis": [
+                    "TXKF ATIS INFO B 2055Z. EXPECT ALL INSTRUMENT APPROACHES RWY",
+                    "12.. 11532G42KT 6000 -RA SCT017 BKN120 OVC160 27/24 A1005 (ONE",
+                    "ZERO ZERO FIVE). RWY REPORT. RWY 12. RWY WET. TAXIWAY WET.. END",
+                    "OF INFORMATION B....ADVS YOU HAVE INFO B"
+                ],
+                "last_updated": "2024-08-16T21:55:38.3845332Z",
+                "logon_time": "2024-08-16T20:43:23.3967189Z",
+                "airport": {
+                    "name": "L.F. Wade International International Airport",
+                    "icao": "TXKF"
+                },
+                "coordinates": [
+                    "-64.67870330810547",
+                    " 32.36399841308594"
+                ]
+            },
+            {
+                "cid": 1362947,
+                "name": "Jacob F",
+                "callsign": "YMML_ATIS",
+                "frequency": "118.000",
+                "facility": 4,
+                "rating": 3,
+                "server": "USA-WEST",
+                "visual_range": 0,
+                "atis_code": "O",
+                "text_atis": [
+                    "ATIS YMML O 162149",
+                    "[APCH] EXP GLS OR ILS APCH",
+                    "[RWY] 27 FOR ARR. RWY 34 FOR DEPARTURES VIA MNG NONIX DOSEL, AND BOGES, RWY 27 FOR ALL OTHER DEPARTURES",
+                    "+[WIND] 010/10",
+                    "[VIS] GT 10KM",
+                    "+[WX] VCSH",
+                    "+[CLD] BKN043",
+                    "+[TMP] 10",
+                    "[QNH] 1005"
+                ],
+                "last_updated": "2024-08-16T21:55:24.5830588Z",
+                "logon_time": "2024-08-16T21:31:36.2238892Z",
+                "airport": {
+                    "name": "Melbourne International Airport",
+                    "icao": "YMML"
+                },
+                "coordinates": [
+                    "144.843002",
+                    " -37.673302"
+                ]
+            }
+        ]
+    },
+    "fss": [
+        {
+            "cid": 1111111,
+            "name": "TEST",
+            "callsign": "PRC_FSS",
+            "frequency": "131.500",
+            "facility": 1,
+            "rating": 5,
+            "server": "UK",
+            "visual_range": 1500,
+            "text_atis": [
+                "\"Shanwick Radio\" or \"Gander Radio\" | CPDLC (NATX)",
+                "Covering Shanwick (EGGX) and Gander Oceanic (CZQX) OCAs.",
+                "Oceanic Clearance on nattrak.vatsim.net. Clearance not available on CPDLC"
+            ],
+            "last_updated": "2024-05-08T14:38:16.3868127Z",
+            "logon_time": "2024-05-08T12:22:08.3445534Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1504305,
+            "name": "Lars Gnilka",
+            "callsign": "NY_CL_FSS",
+            "frequency": "130.000",
+            "facility": 1,
+            "rating": 5,
+            "server": "GERMANY2",
+            "visual_range": 1500,
+            "text_atis": [
+                "New York Radio | PDC/CPDLC KZWY",
+                "Covering New York Oceanic + Bermuda Airport (TXKF) Only",
+                "Simulating ADS-C (position reports NOT required) | Enjoy HF static sounds"
+            ],
+            "last_updated": "2024-08-16T21:55:23.1055216Z",
+            "logon_time": "2024-08-16T20:40:53.7002209Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1058098,
+            "name": "1058098",
+            "callsign": "LPPO_FSS",
+            "frequency": "132.075",
+            "facility": 1,
+            "rating": 7,
+            "server": "AMSTERDAM",
+            "visual_range": 577,
+            "text_atis": [
+                "Santa Maria Radio | CPDLC LPPO | Oceanic clearance via nattrak.vatsim.net",
+                "Top down service in LPPO FIR, including radar zone if local ATC offline",
+                "Pos rep - FIX, ALTITUDE, TIME, NEXT FIX, NEXT FIX TIME, FIX AFTER NEXT FIX"
+            ],
+            "last_updated": "2024-08-16T21:55:38.6058615Z",
+            "logon_time": "2024-08-16T21:28:14.5660299Z",
+            "firInfo": {}
+        }
+    ]
+}

@@ -1,0 +1,4090 @@
+[
+    {
+        "fssCallsign": "ADR_U",
+        "fssName": "Adria Radar Upper",
+        "firs": [
+            {
+                "icao": "LJLA",
+                "name": "Ljubljana",
+                "callsignPrefix": "LJLA",
+                "firBoundary": "LJLA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "46.028879",
+                        "label_lon": "14.707096",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LDZO",
+                "name": "Zagreb",
+                "callsignPrefix": "LDZO",
+                "firBoundary": "LDZO",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "43.97195",
+                        "label_lon": "14.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LQSB",
+                "name": "Sarajevo",
+                "callsignPrefix": "LQSA",
+                "firBoundary": "LQSB",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "43.915189",
+                        "label_lon": "17.679715",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LYBA",
+                "name": "Beograd",
+                "callsignPrefix": "LYBA",
+                "firBoundary": "LYBA",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "43.65597",
+                        "label_lon": "20.65533",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LWSS",
+                "name": "Skopje",
+                "callsignPrefix": "LWSS",
+                "firBoundary": "LWSS",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "41.585028",
+                        "label_lon": "21.743602",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LAAA",
+                "name": "Tirana",
+                "callsignPrefix": "LAAA",
+                "firBoundary": "LAAA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "41.153205",
+                        "label_lon": "19.961987",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "AFRN",
+        "fssName": "North Africa Control",
+        "firs": [
+            {
+                "icao": "DAAA",
+                "name": "Algiers",
+                "callsignPrefix": "DAAA",
+                "firBoundary": "DAAA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "28.975",
+                        "label_lon": "1.666666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "DRRR",
+                "name": "Niamey",
+                "callsignPrefix": "DRRR",
+                "firBoundary": "DRRR",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "17.016667",
+                        "label_lon": "3.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "DTTC",
+                "name": "Tunis",
+                "callsignPrefix": "DTTC",
+                "firBoundary": "DTTC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "34.615961",
+                        "label_lon": "9.508024",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FTTT",
+                "name": "N'Djamena",
+                "callsignPrefix": "FTTT",
+                "firBoundary": "FTTT",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "15.0",
+                        "label_lon": "18.233334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "GMMM",
+                "name": "Casablanca",
+                "callsignPrefix": "GMMM",
+                "firBoundary": "GMMM",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "31.814217",
+                        "label_lon": "-8.390876",
+                        "oceanic": "0"
+                    },
+                    {
+                        "label_lat": "33.0",
+                        "label_lon": "-12.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HLLL",
+                "name": "Tripoli",
+                "callsignPrefix": "TIP",
+                "firBoundary": "HLLL",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "26.916667",
+                        "label_lon": "17.275245",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "AFRC",
+        "fssName": "Africa Central Control",
+        "firs": [
+            {
+                "icao": "FLFI",
+                "name": "Lusaka",
+                "callsignPrefix": "FLFI",
+                "firBoundary": "FLFI",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-13.091603",
+                        "label_lon": "27.853286",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FNAN",
+                "name": "Luanda",
+                "callsignPrefix": "FNAN",
+                "firBoundary": "FNAN",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-12.083334",
+                        "label_lon": "7.166666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FSSS",
+                "name": "Seychelles",
+                "callsignPrefix": "FSSS",
+                "firBoundary": "FSSS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "0.183333",
+                        "label_lon": "52.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FWLL",
+                "name": "Lilongwe",
+                "callsignPrefix": "FWLL",
+                "firBoundary": "FWLL",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-12.743854",
+                        "label_lon": "34.294567",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FZZA",
+                "name": "Kinshasa",
+                "callsignPrefix": "FZZA",
+                "firBoundary": "FZZA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-3.0",
+                        "label_lon": "22.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HKNA",
+                "name": "Nairobi",
+                "callsignPrefix": "HKNA",
+                "firBoundary": "HKNA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-0.351167",
+                        "label_lon": "38.950528",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HTDC",
+                "name": "Dar-Es-Salaam",
+                "callsignPrefix": "HTDC",
+                "firBoundary": "HTDC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-6.368818",
+                        "label_lon": "36.425811",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HUEC",
+                "name": "Entebbe",
+                "callsignPrefix": "HUEC",
+                "firBoundary": "HUEC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "1.25369",
+                        "label_lon": "32.306",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "AFRE",
+        "fssName": "East Africa Control",
+        "firs": [
+            {
+                "icao": "HAAA",
+                "name": "Addis Ababa",
+                "callsignPrefix": "HAAA",
+                "firBoundary": "HAAA",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "9.44375",
+                        "label_lon": "40.500354",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HCSM",
+                "name": "Mogadishu",
+                "callsignPrefix": "HCSM",
+                "firBoundary": "HCSM",
+                "isFss": true,
+                "suffix": "Radio",
+                "entries": [
+                    {
+                        "label_lat": "5.092196",
+                        "label_lon": "50.499371",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HHAA",
+                "name": "Asmara",
+                "callsignPrefix": "HHAA",
+                "firBoundary": "HHAA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "16.180911",
+                        "label_lon": "39.819237",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HSSS",
+                "name": "Khartoum",
+                "callsignPrefix": "HSSS",
+                "firBoundary": "HSSS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "13.000771",
+                        "label_lon": "30.163157",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "AFRS",
+        "fssName": "Africa South Control",
+        "firs": [
+            {
+                "icao": "FACA",
+                "name": "Cape Town",
+                "callsignPrefix": "FACA",
+                "firBoundary": "FACA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-33.25",
+                        "label_lon": "23.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FAJA",
+                "name": "Johannesburg",
+                "callsignPrefix": "FAJA",
+                "firBoundary": "FAJA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-27.566667",
+                        "label_lon": "28.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FBGR",
+                "name": "Gaborone",
+                "callsignPrefix": "FBGR",
+                "firBoundary": "FBGR",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-22.172223",
+                        "label_lon": "24.675",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FIMM",
+                "name": "Mauritius",
+                "callsignPrefix": "FIMM",
+                "firBoundary": "FIMM",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-25.5",
+                        "label_lon": "65.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FMMM",
+                "name": "Antananarivo",
+                "callsignPrefix": "FMMM",
+                "firBoundary": "FMMM",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-20.0",
+                        "label_lon": "48.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FQBE",
+                "name": "Beira",
+                "callsignPrefix": "FQBE",
+                "firBoundary": "FQBE",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-20.209379",
+                        "label_lon": "36.607389",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FVHF",
+                "name": "Harare",
+                "callsignPrefix": "FVHF",
+                "firBoundary": "FVHF",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-19.017743",
+                        "label_lon": "29.143667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FYWH",
+                "name": "Windhoek",
+                "callsignPrefix": "FYWH",
+                "firBoundary": "FYWH",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-22.22541",
+                        "label_lon": "17.631199",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "AFRW",
+        "fssName": "Africa West Control",
+        "firs": [
+            {
+                "icao": "DGAC",
+                "name": "Accra",
+                "callsignPrefix": "DGAC",
+                "firBoundary": "DGAC",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "7.0",
+                        "label_lon": "0.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "DGAO",
+                "name": "Accra Oceanic",
+                "callsignPrefix": "DGAO",
+                "firBoundary": "DGAO",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "-2.0",
+                        "label_lon": "2.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "DIII",
+                "name": "Abidjan",
+                "callsignPrefix": "DIII",
+                "firBoundary": "DIII",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "4.3",
+                        "label_lon": "-5.2",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "DNKK",
+                "name": "Kano",
+                "callsignPrefix": "DNKK",
+                "firBoundary": "DNKK",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "8.442681",
+                        "label_lon": "8.66818",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "FCCC",
+                "name": "Brazzaville",
+                "callsignPrefix": "FCCC",
+                "firBoundary": "FCCC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "1.5",
+                        "label_lon": "14.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "GLRB",
+                "name": "Roberts",
+                "callsignPrefix": "GLRB",
+                "firBoundary": "GLRB",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "6.337707",
+                        "label_lon": "-12.124819",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "GOOO",
+                "name": "Dakar",
+                "callsignPrefix": "GOOO",
+                "firBoundary": "GOOO",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "16.0",
+                        "label_lon": "-11.933149",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "GOOC",
+                "name": "Dakar Oceanic",
+                "callsignPrefix": "GOOC",
+                "firBoundary": "GOOC",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "2.500555",
+                        "label_lon": "-20.249722",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "GVSC",
+                "name": "Sal Oceanic",
+                "callsignPrefix": "GVSC",
+                "firBoundary": "GVSC",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "18.481667",
+                        "label_lon": "-28.751528",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "ASEA_N",
+        "fssName": "South East Asia Control",
+        "firs": [
+            {
+                "icao": "VHHK",
+                "name": "Hong Kong",
+                "callsignPrefix": "HKG",
+                "firBoundary": "VHHK",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "20.166667",
+                        "label_lon": "114.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "RPHI",
+                "name": "Manila",
+                "callsignPrefix": "MNL",
+                "firBoundary": "RPHI",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "12.248708",
+                        "label_lon": "123.501372",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VVHM",
+                "name": "Ho Chi Minh",
+                "callsignPrefix": "VVHM",
+                "firBoundary": "VVHM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "10.958542",
+                        "label_lon": "108.831833",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VTBB",
+                "name": "Bangkok",
+                "callsignPrefix": "VTBB",
+                "firBoundary": "VTBB",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "13.042771",
+                        "label_lon": "101.083018",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VVHN",
+                "name": "Hanoi",
+                "callsignPrefix": "VVHN",
+                "firBoundary": "VVHN",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "19.578677",
+                        "label_lon": "106.276211",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VLVT",
+                "name": "Vientiane",
+                "callsignPrefix": "VLVT",
+                "firBoundary": "VLVT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "19.870834",
+                        "label_lon": "102.660161",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VDPF",
+                "name": "Phnom Penh",
+                "callsignPrefix": "VDPF",
+                "firBoundary": "VDPF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "12.732899",
+                        "label_lon": "104.948148",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "ASEA_S",
+        "fssName": "South East Asia Control",
+        "firs": [
+            {
+                "icao": "WSJC",
+                "name": "Singapore",
+                "callsignPrefix": "WSJC",
+                "firBoundary": "WSJC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "4.833334",
+                        "label_lon": "109.333334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WMFC",
+                "name": "Kuala Lumpur",
+                "callsignPrefix": "WMFC",
+                "firBoundary": "WMFC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "5.607951",
+                        "label_lon": "99.582158",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WBFC",
+                "name": "Kota Kinabalu",
+                "callsignPrefix": "WBFC",
+                "firBoundary": "WBFC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "4.625",
+                        "label_lon": "114.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WIIF",
+                "name": "Jakarta",
+                "callsignPrefix": "WIIF",
+                "firBoundary": "WIIF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-2.902256",
+                        "label_lon": "102.277836",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WAAF",
+                "name": "Ujung Pandang",
+                "callsignPrefix": "WAAF",
+                "firBoundary": "WAAF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-2.916667",
+                        "label_lon": "125.1",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "ASEA",
+        "fssName": "South East Asia Control",
+        "firs": [
+            {
+                "icao": "VHHK",
+                "name": "Hong Kong",
+                "callsignPrefix": "HKG",
+                "firBoundary": "VHHK",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "20.166667",
+                        "label_lon": "114.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WSJC",
+                "name": "Singapore",
+                "callsignPrefix": "WSJC",
+                "firBoundary": "WSJC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "4.833334",
+                        "label_lon": "109.333334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WMFC",
+                "name": "Kuala Lumpur",
+                "callsignPrefix": "WMFC",
+                "firBoundary": "WMFC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "5.607951",
+                        "label_lon": "99.582158",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WBFC",
+                "name": "Kota Kinabalu",
+                "callsignPrefix": "WBFC",
+                "firBoundary": "WBFC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "4.625",
+                        "label_lon": "114.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WIIF",
+                "name": "Jakarta",
+                "callsignPrefix": "WIIF",
+                "firBoundary": "WIIF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-2.902256",
+                        "label_lon": "102.277836",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "WAAF",
+                "name": "Ujung Pandang",
+                "callsignPrefix": "WAAF",
+                "firBoundary": "WAAF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-2.916667",
+                        "label_lon": "125.1",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "RPHI",
+                "name": "Manila",
+                "callsignPrefix": "MNL",
+                "firBoundary": "RPHI",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "12.248708",
+                        "label_lon": "123.501372",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VVHM",
+                "name": "Ho Chi Minh",
+                "callsignPrefix": "VVHM",
+                "firBoundary": "VVHM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "10.958542",
+                        "label_lon": "108.831833",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VDPF",
+                "name": "Phnom Penh",
+                "callsignPrefix": "VDPF",
+                "firBoundary": "VDPF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "12.732899",
+                        "label_lon": "104.948148",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VTBB",
+                "name": "Bangkok",
+                "callsignPrefix": "VTBB",
+                "firBoundary": "VTBB",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "13.042771",
+                        "label_lon": "101.083018",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VVHN",
+                "name": "Hanoi",
+                "callsignPrefix": "VVHN",
+                "firBoundary": "VVHN",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "19.578677",
+                        "label_lon": "106.276211",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VLVT",
+                "name": "Vientiane",
+                "callsignPrefix": "VLVT",
+                "firBoundary": "VLVT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "19.870834",
+                        "label_lon": "102.660161",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VYYF",
+                "name": "Yangon",
+                "callsignPrefix": "VYYF",
+                "firBoundary": "VYYF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "19.29099",
+                        "label_lon": "96.592",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "ASIA",
+        "fssName": "West Asia Control",
+        "firs": [
+            {
+                "icao": "VABF",
+                "name": "Mumbai",
+                "callsignPrefix": "VABF",
+                "firBoundary": "VABF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "15.29",
+                        "label_lon": "70.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VIDF",
+                "name": "Delhi",
+                "callsignPrefix": "VIDF",
+                "firBoundary": "VIDF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "30.258011",
+                        "label_lon": "76.556075",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VECF",
+                "name": "Kolkata",
+                "callsignPrefix": "VECF",
+                "firBoundary": "VECF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "20.1",
+                        "label_lon": "89.4",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VOMF",
+                "name": "Chennai",
+                "callsignPrefix": "VOMF",
+                "firBoundary": "VOMF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "15.03",
+                        "label_lon": "83.59",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VEGF",
+                "name": "Guwahati",
+                "callsignPrefix": "VEGF",
+                "firBoundary": "VEGF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "26.455",
+                        "label_lon": "92.131667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OPKR",
+                "name": "Karachi",
+                "callsignPrefix": "OPKR",
+                "firBoundary": "OPKR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "26.749449",
+                        "label_lon": "67.256735",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OPLR",
+                "name": "Lahore",
+                "callsignPrefix": "OPLR",
+                "firBoundary": "OPLR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "33.463532",
+                        "label_lon": "71.686419",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OAKX",
+                "name": "Kabul",
+                "callsignPrefix": "OAKX",
+                "firBoundary": "OAKX",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "33.951253",
+                        "label_lon": "67.683334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VCCF",
+                "name": "Colombo",
+                "callsignPrefix": "VCCF",
+                "firBoundary": "VCCF",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "4.0",
+                        "label_lon": "84.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VRMF",
+                "name": "Male",
+                "callsignPrefix": "VRMF",
+                "firBoundary": "VRMF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "0.75",
+                        "label_lon": "73.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VGFR",
+                "name": "Dhaka",
+                "callsignPrefix": "VGFR",
+                "firBoundary": "VGFR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "23.801272",
+                        "label_lon": "90.345546",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "VNSM",
+                "name": "Kathmandu",
+                "callsignPrefix": "VNSM",
+                "firBoundary": "VNSM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "28.391824",
+                        "label_lon": "84.134033",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "BALT",
+        "fssName": "Baltic Control",
+        "firs": [
+            {
+                "icao": "EYVL",
+                "name": "Vilnius",
+                "callsignPrefix": "EYVL",
+                "firBoundary": "EYVL",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "55.168631",
+                        "label_lon": "22.43743",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EVRR",
+                "name": "Riga",
+                "callsignPrefix": "EVRR",
+                "firBoundary": "EVRR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "57.046945",
+                        "label_lon": "23.378195",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EETT",
+                "name": "Tallinn",
+                "callsignPrefix": "EETT",
+                "firBoundary": "EETT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "58.709167",
+                        "label_lon": "24.438055",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "BICC",
+        "fssName": "Iceland Radio",
+        "firs": [
+            {
+                "icao": "BIRD-E",
+                "name": "Reykjavik ACC (East) - Reykjavik",
+                "callsignPrefix": "BIRD_E",
+                "firBoundary": "BIRD-E",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "63.6",
+                        "label_lon": "-5.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "BIRD-N",
+                "name": "Reykjavik ACC (North) - Reykjavik",
+                "callsignPrefix": "BIRD_N",
+                "firBoundary": "BIRD-N",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "70.0",
+                        "label_lon": "-11.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "BIRD-S",
+                "name": "Reykjavik ACC (South) - Reykjavik",
+                "callsignPrefix": "BIRD_S",
+                "firBoundary": "BIRD-S",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "64.0",
+                        "label_lon": "-20.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "BIRD-W",
+                "name": "Reykjavik ACC (West) - Reykjavik",
+                "callsignPrefix": "BIRD_W",
+                "firBoundary": "BIRD-W",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "66.0",
+                        "label_lon": "-45.8",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "CARI",
+        "fssName": "Caribbean Control",
+        "firs": [
+            {
+                "icao": "MUFH",
+                "name": "Havana",
+                "callsignPrefix": "HAV",
+                "firBoundary": "MUFH",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "21.25",
+                        "label_lon": "-79.666666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MKJK",
+                "name": "Kingston",
+                "callsignPrefix": "MKJK",
+                "firBoundary": "MKJK",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "17.5",
+                        "label_lon": "-77.625",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MTEG",
+                "name": "Port-Au-Prince",
+                "callsignPrefix": "MTEG",
+                "firBoundary": "MTEG",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.708334",
+                        "label_lon": "-73.316667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MDCS",
+                "name": "Santo Domingo",
+                "callsignPrefix": "MDCS",
+                "firBoundary": "MDCS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.208334",
+                        "label_lon": "-69.999305",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TNCF",
+                "name": "Curaçao",
+                "callsignPrefix": "TNCF",
+                "firBoundary": "TNCF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "14.2",
+                        "label_lon": "-70.533334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TJZS",
+                "name": "San Juan",
+                "callsignPrefix": "SJU",
+                "firBoundary": "TJZS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "19.25",
+                        "label_lon": "-65.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TTZP",
+                "name": "Piarco",
+                "callsignPrefix": "TTZP",
+                "firBoundary": "TTZP",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "13.713303",
+                        "label_lon": "-60.064226",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "CARE",
+        "fssName": "Caribbean Control East",
+        "firs": [
+            {
+                "icao": "MDCS",
+                "name": "Santo Domingo",
+                "callsignPrefix": "MDCS",
+                "firBoundary": "MDCS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.208334",
+                        "label_lon": "-69.999305",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TJZS",
+                "name": "San Juan",
+                "callsignPrefix": "SJU",
+                "firBoundary": "TJZS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "19.25",
+                        "label_lon": "-65.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TTZP",
+                "name": "Piarco",
+                "callsignPrefix": "TTZP",
+                "firBoundary": "TTZP",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "13.713303",
+                        "label_lon": "-60.064226",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "CARW",
+        "fssName": "Caribbean Control West",
+        "firs": [
+            {
+                "icao": "MUFH",
+                "name": "Havana",
+                "callsignPrefix": "HAV",
+                "firBoundary": "MUFH",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "21.25",
+                        "label_lon": "-79.666666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MKJK",
+                "name": "Kingston",
+                "callsignPrefix": "MKJK",
+                "firBoundary": "MKJK",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "17.5",
+                        "label_lon": "-77.625",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MTEG",
+                "name": "Port-Au-Prince",
+                "callsignPrefix": "MTEG",
+                "firBoundary": "MTEG",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.708334",
+                        "label_lon": "-73.316667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TNCF",
+                "name": "Curaçao",
+                "callsignPrefix": "TNCF",
+                "firBoundary": "TNCF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "14.2",
+                        "label_lon": "-70.533334",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "ANT",
+        "fssName": "Antilles Center",
+        "firs": [
+            {
+                "icao": "MDCS",
+                "name": "Santo Domingo",
+                "callsignPrefix": "MDCS",
+                "firBoundary": "MDCS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.208334",
+                        "label_lon": "-69.999305",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "TNCF",
+                "name": "Curaçao",
+                "callsignPrefix": "TNCF",
+                "firBoundary": "TNCF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "14.2",
+                        "label_lon": "-70.533334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MTEG",
+                "name": "Port-Au-Prince",
+                "callsignPrefix": "MTEG",
+                "firBoundary": "MTEG",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "18.708334",
+                        "label_lon": "-73.316667",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EURN",
+        "fssName": "EuroNorth",
+        "firs": [
+            {
+                "icao": "EKDK",
+                "name": "Kobenhavn",
+                "callsignPrefix": "EKDK",
+                "firBoundary": "EKDK",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "56.472916",
+                        "label_lon": "8.949445",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EETT",
+                "name": "Tallinn",
+                "callsignPrefix": "EETT",
+                "firBoundary": "EETT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "58.709167",
+                        "label_lon": "24.438055",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EFIN",
+                "name": "Helsinki",
+                "callsignPrefix": "EFIN",
+                "firBoundary": "EFIN",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "63.733333",
+                        "label_lon": "27.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EVRR",
+                "name": "Riga",
+                "callsignPrefix": "EVRR",
+                "firBoundary": "EVRR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "57.046945",
+                        "label_lon": "23.378195",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EYVL",
+                "name": "Vilnius",
+                "callsignPrefix": "EYVL",
+                "firBoundary": "EYVL",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "55.168631",
+                        "label_lon": "22.43743",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ENBD",
+                "name": "Bodo ACC - Polaris",
+                "callsignPrefix": "ENBD",
+                "firBoundary": "ENBD",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "69.38036",
+                        "label_lon": "15.84846",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ENOS",
+                "name": "Oslo ACC - Polaris",
+                "callsignPrefix": "ENOS",
+                "firBoundary": "ENOS",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "59.5",
+                        "label_lon": "9.432621",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ENSV",
+                "name": "Stavanger ACC - Polaris",
+                "callsignPrefix": "ENSV",
+                "firBoundary": "ENSV",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "60.758034",
+                        "label_lon": "3.75",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ESOS",
+                "name": "Stockholm ACC - Sweden",
+                "callsignPrefix": "ESOS",
+                "firBoundary": "ESOS",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "61.33",
+                        "label_lon": "16.41",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-EN",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "EPWW",
+                "name": "Warszawa",
+                "callsignPrefix": "EPWA",
+                "firBoundary": "EPWW",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "52.433334",
+                        "label_lon": "19.15",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LKAA",
+                "name": "Praha",
+                "callsignPrefix": "LKAA",
+                "firBoundary": "LKAA",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "49.8",
+                        "label_lon": "15.475",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LZBB",
+                "name": "Bratislava",
+                "callsignPrefix": "LZBB",
+                "firBoundary": "LZBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "48.666667",
+                        "label_lon": "19.708333",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LHCC",
+                "name": "Budapest",
+                "callsignPrefix": "LHCC",
+                "firBoundary": "LHCC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "47.169264",
+                        "label_lon": "19.50865",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-ES",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "LIPP",
+                "name": "Padova",
+                "callsignPrefix": "LIMM",
+                "firBoundary": "LIPP",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.3",
+                        "label_lon": "11.55",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LJLA",
+                "name": "Ljubljana",
+                "callsignPrefix": "LJLA",
+                "firBoundary": "LJLA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "46.028879",
+                        "label_lon": "14.707096",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LDZO",
+                "name": "Zagreb",
+                "callsignPrefix": "LDZO",
+                "firBoundary": "LDZO",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "43.97195",
+                        "label_lon": "14.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LQSB",
+                "name": "Sarajevo",
+                "callsignPrefix": "LQSA",
+                "firBoundary": "LQSB",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "43.915189",
+                        "label_lon": "17.679715",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIBB",
+                "name": "Brindisi",
+                "callsignPrefix": "LIBB",
+                "firBoundary": "LIBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "41.2",
+                        "label_lon": "16.041666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIRR",
+                "name": "Roma",
+                "callsignPrefix": "LIRR",
+                "firBoundary": "LIRR",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "40.108334",
+                        "label_lon": "13.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LMMM",
+                "name": "Malta",
+                "callsignPrefix": "LMMM",
+                "firBoundary": "LMMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "35.416667",
+                        "label_lon": "15.5",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-ME",
+        "fssName": "Maastricht",
+        "firs": [
+            {
+                "icao": "EDWW-B",
+                "name": "Bremen ACC (Boerde) - Bremen",
+                "callsignPrefix": "EDWW_F",
+                "firBoundary": "EDWW-B",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "53.3",
+                        "label_lon": "12.79",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDMM",
+                "name": "Muenchen",
+                "callsignPrefix": "EDMM",
+                "firBoundary": "EDMM",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "49.711666",
+                        "label_lon": "11.786666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDGG-BAD",
+                "name": "Langen Radar (Baden) - Langen",
+                "callsignPrefix": "EDGG_BAD",
+                "firBoundary": "EDGG-BAD",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "48.66",
+                        "label_lon": "8.77",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDGG-DKB",
+                "name": "Langen Radar (Dinkelsbuehl) - Langen",
+                "callsignPrefix": "EDGG_DKB",
+                "firBoundary": "EDGG-DKB",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "49.6",
+                        "label_lon": "9.9",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDGG-GIN",
+                "name": "Langen Radar (Giessen) - Langen",
+                "callsignPrefix": "EDGG_GIN",
+                "firBoundary": "EDGG-GIN",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "50.75",
+                        "label_lon": "8.96",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDGG-RUD",
+                "name": "Langen Radar (Ruedesheim) - Langen",
+                "callsignPrefix": "EDGG_RUD",
+                "firBoundary": "EDGG-RUD",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "49.7",
+                        "label_lon": "7.2",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LOVV",
+                "name": "Wien",
+                "callsignPrefix": "LOVV",
+                "firBoundary": "LOVV",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "47.3",
+                        "label_lon": "14.15",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-MW",
+        "fssName": "Maastricht",
+        "firs": [
+            {
+                "icao": "EDGG-PAH",
+                "name": "Langen Radar (Pad High) - Langen",
+                "callsignPrefix": "EDGG_PAH",
+                "firBoundary": "EDGG-PAH",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "51.5",
+                        "label_lon": "7.4",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDWW-A",
+                "name": "Bremen ACC (Aller) - Bremen",
+                "callsignPrefix": "EDWW_A",
+                "firBoundary": "EDWW-A",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "53.74880",
+                        "label_lon": "8.55256",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EDWW-D",
+                "name": "Bremen ACC (Deister) - Bremen",
+                "callsignPrefix": "EDWW_D",
+                "firBoundary": "EDWW-D",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "51.71725",
+                        "label_lon": "9.80834",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EHAA",
+                "name": "Amsterdam",
+                "callsignPrefix": "EHAA",
+                "firBoundary": "EHAA",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "52.4",
+                        "label_lon": "5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "EBBU",
+                "name": "Brussels",
+                "callsignPrefix": "EBBU",
+                "firBoundary": "EBBU",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "50.652284",
+                        "label_lon": "4.544189",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-SE",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "LTAA",
+                "name": "Ankara Control - Ankara",
+                "callsignPrefix": "ANK",
+                "firBoundary": "LTAA",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "39.2875",
+                        "label_lon": "37.399954",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LTBB",
+                "name": "Ankara Control - Istanbul",
+                "callsignPrefix": "ANK_W",
+                "firBoundary": "LTBB",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "39.433334",
+                        "label_lon": "28.3",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LCCC",
+                "name": "Nicosia",
+                "callsignPrefix": "LCCC",
+                "firBoundary": "LCCC",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "33.9573",
+                        "label_lon": "33.229451",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-SW",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "LRBB",
+                "name": "Bucharest",
+                "callsignPrefix": "LRBB",
+                "firBoundary": "LRBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.949777",
+                        "label_lon": "25.402153",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LUUU",
+                "name": "Chisinau",
+                "callsignPrefix": "LUKK",
+                "firBoundary": "LUUU",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "46.959166",
+                        "label_lon": "29.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LBSR",
+                "name": "Sofia",
+                "callsignPrefix": "LBSR",
+                "firBoundary": "LBSR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "42.8",
+                        "label_lon": "26.2",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LYBA",
+                "name": "Beograd",
+                "callsignPrefix": "LYBA",
+                "firBoundary": "LYBA",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "43.65597",
+                        "label_lon": "20.65533",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LGGG",
+                "name": "Athinai",
+                "callsignPrefix": "LGGG",
+                "firBoundary": "LGGG",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "36.7",
+                        "label_lon": "24.55",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LAAA",
+                "name": "Tirana",
+                "callsignPrefix": "LAAA",
+                "firBoundary": "LAAA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "41.153205",
+                        "label_lon": "19.961987",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LWSS",
+                "name": "Skopje",
+                "callsignPrefix": "LWSS",
+                "firBoundary": "LWSS",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "41.585028",
+                        "label_lon": "21.743602",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-WN",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "LFBB",
+                "name": "Bordeaux",
+                "callsignPrefix": "LFBB",
+                "firBoundary": "LFBB",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "44.775",
+                        "label_lon": "0.628889",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFEE",
+                "name": "Reims (Covers North-East LFFF FL295+)",
+                "callsignPrefix": "LFEE",
+                "firBoundary": "LFEE",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "48.35",
+                        "label_lon": "5.16",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFMM",
+                "name": "Marseille",
+                "callsignPrefix": "LFMM",
+                "firBoundary": "LFMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "42.75",
+                        "label_lon": "6.0125",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFRR",
+                "name": "Brest",
+                "callsignPrefix": "LFRR",
+                "firBoundary": "LFRR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "48.0",
+                        "label_lon": "-1.6",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIMM",
+                "name": "Milano",
+                "callsignPrefix": "LIMM",
+                "firBoundary": "LIMM",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.0",
+                        "label_lon": "8.65",
+                        "oceanic": "0"
+                    },
+                    {
+                        "label_lat": "45.3",
+                        "label_lon": "11.55",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LSAS",
+                "name": "Swiss Radar - Switzerland",
+                "callsignPrefix": "LSAS",
+                "firBoundary": "LSAS",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "46.762858",
+                        "label_lon": "7.862335",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "EUC-WS",
+        "fssName": "Eurocontrol",
+        "firs": [
+            {
+                "icao": "LPPC",
+                "name": "Lisboa",
+                "callsignPrefix": "LPPC",
+                "firBoundary": "LPPC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "40.0",
+                        "label_lon": "-9.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LECM",
+                "name": "Madrid",
+                "callsignPrefix": "LEMD",
+                "firBoundary": "LECM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "41.5",
+                        "label_lon": "-3.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LECB",
+                "name": "Barcelona",
+                "callsignPrefix": "LEBL",
+                "firBoundary": "LECB",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "40.3",
+                        "label_lon": "1.45",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LECS",
+                "name": "Sevilla",
+                "callsignPrefix": "LECS",
+                "firBoundary": "LECS",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "37.7",
+                        "label_lon": "-4.4",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "GULF",
+        "fssName": "Gulf Control",
+        "firs": [
+            {
+                "icao": "OIIX",
+                "name": "Tehran",
+                "callsignPrefix": "TEH",
+                "firBoundary": "OIIX",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "32.336067",
+                        "label_lon": "54.182875",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ORBB",
+                "name": "Baghdad",
+                "callsignPrefix": "ORBB",
+                "firBoundary": "ORBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "33.02789",
+                        "label_lon": "43.761655",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OSTT",
+                "name": "Damascus",
+                "callsignPrefix": "OSDI",
+                "firBoundary": "OSTT",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "34.779167",
+                        "label_lon": "38.9125",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OEJD",
+                "name": "Jeddah",
+                "callsignPrefix": "OEJD",
+                "firBoundary": "OEJD",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "23.85724",
+                        "label_lon": "44.107376",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OKAC",
+                "name": "Kuwait",
+                "callsignPrefix": "OKAC",
+                "firBoundary": "OKAC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "29.178334",
+                        "label_lon": "48.111389",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OBBB",
+                "name": "Bahrain",
+                "callsignPrefix": "OBBB",
+                "firBoundary": "OBBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "27.209287",
+                        "label_lon": "50.275408",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OMAE",
+                "name": "U.A.E",
+                "callsignPrefix": "OMAE",
+                "firBoundary": "OMAE",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "24.441124",
+                        "label_lon": "54.187345",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OYSC",
+                "name": "Sanaa",
+                "callsignPrefix": "OYSC",
+                "firBoundary": "OYSC",
+                "isFss": true,
+                "suffix": "Radio",
+                "entries": [
+                    {
+                        "label_lat": "15.775",
+                        "label_lon": "50.83",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OOMM",
+                "name": "Muscat",
+                "callsignPrefix": "OOMM",
+                "firBoundary": "OOMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "21.094973",
+                        "label_lon": "57.603686",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OJAC",
+                "name": "Amman",
+                "callsignPrefix": "OJAC",
+                "firBoundary": "OJAC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "31.285853",
+                        "label_lon": "36.35",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OLBB",
+                "name": "Beirut",
+                "callsignPrefix": "OLBA",
+                "firBoundary": "OLBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "33.852245",
+                        "label_lon": "35.758643",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "HECC",
+                "name": "Cairo",
+                "callsignPrefix": "HECC",
+                "firBoundary": "HECC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "27.998667",
+                        "label_lon": "31.081334",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "GULF_E",
+        "fssName": "Gulf Control",
+        "firs": [
+            {
+                "icao": "OBBB",
+                "name": "Bahrain",
+                "callsignPrefix": "OBBB",
+                "firBoundary": "OBBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "27.209287",
+                        "label_lon": "50.275408",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OIIX",
+                "name": "Tehran",
+                "callsignPrefix": "TEH",
+                "firBoundary": "OIIX",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "32.336067",
+                        "label_lon": "54.182875",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OKAC",
+                "name": "Kuwait",
+                "callsignPrefix": "OKAC",
+                "firBoundary": "OKAC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "29.178334",
+                        "label_lon": "48.111389",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OMAE",
+                "name": "U.A.E",
+                "callsignPrefix": "OMAE",
+                "firBoundary": "OMAE",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "24.441124",
+                        "label_lon": "54.187345",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OOMM",
+                "name": "Muscat",
+                "callsignPrefix": "OOMM",
+                "firBoundary": "OOMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "21.094973",
+                        "label_lon": "57.603686",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ORBB",
+                "name": "Baghdad",
+                "callsignPrefix": "ORBB",
+                "firBoundary": "ORBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "33.02789",
+                        "label_lon": "43.761655",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "GULF_W",
+        "fssName": "Gulf Control",
+        "firs": [
+            {
+                "icao": "HECC",
+                "name": "Cairo",
+                "callsignPrefix": "HECC",
+                "firBoundary": "HECC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "27.998667",
+                        "label_lon": "31.081334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OEJD",
+                "name": "Jeddah",
+                "callsignPrefix": "OEJD",
+                "firBoundary": "OEJD",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "23.85724",
+                        "label_lon": "44.107376",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OJAC",
+                "name": "Amman",
+                "callsignPrefix": "OJAC",
+                "firBoundary": "OJAC",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "31.285853",
+                        "label_lon": "36.35",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OLBB",
+                "name": "Beirut",
+                "callsignPrefix": "OLBA",
+                "firBoundary": "OLBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "33.852245",
+                        "label_lon": "35.758643",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OSTT",
+                "name": "Damascus",
+                "callsignPrefix": "OSDI",
+                "firBoundary": "OSTT",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "34.779167",
+                        "label_lon": "38.9125",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "OYSC",
+                "name": "Sanaa",
+                "callsignPrefix": "OYSC",
+                "firBoundary": "OYSC",
+                "isFss": true,
+                "suffix": "Radio",
+                "entries": [
+                    {
+                        "label_lat": "15.775",
+                        "label_lon": "50.83",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "LFUP",
+        "fssName": "France Control",
+        "firs": [
+            {
+                "icao": "LFMM",
+                "name": "Marseille",
+                "callsignPrefix": "LFMM",
+                "firBoundary": "LFMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "42.75",
+                        "label_lon": "6.0125",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFFF",
+                "name": "Paris",
+                "callsignPrefix": "LFPG",
+                "firBoundary": "LFFF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "48.82",
+                        "label_lon": "2.15",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFEE",
+                "name": "Reims (Covers North-East LFFF FL295+)",
+                "callsignPrefix": "LFEE",
+                "firBoundary": "LFEE",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "48.35",
+                        "label_lon": "5.16",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFBB",
+                "name": "Bordeaux",
+                "callsignPrefix": "LFBB",
+                "firBoundary": "LFBB",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "44.775",
+                        "label_lon": "0.628889",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LFRR",
+                "name": "Brest",
+                "callsignPrefix": "LFRR",
+                "firBoundary": "LFRR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "48.0",
+                        "label_lon": "-1.6",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "LIUP",
+        "fssName": "Italy Radar",
+        "firs": [
+            {
+                "icao": "LIMM",
+                "name": "Milano",
+                "callsignPrefix": "LIMM",
+                "firBoundary": "LIMM",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.0",
+                        "label_lon": "8.65",
+                        "oceanic": "0"
+                    },
+                    {
+                        "label_lat": "45.3",
+                        "label_lon": "11.55",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIBB",
+                "name": "Brindisi",
+                "callsignPrefix": "LIBB",
+                "firBoundary": "LIBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "41.2",
+                        "label_lon": "16.041666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIRR",
+                "name": "Roma",
+                "callsignPrefix": "LIRR",
+                "firBoundary": "LIRR",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "40.108334",
+                        "label_lon": "13.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LIPP",
+                "name": "Padova",
+                "callsignPrefix": "LIMM",
+                "firBoundary": "LIPP",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.3",
+                        "label_lon": "11.55",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "LRUB",
+        "fssName": "Black Sea West Control",
+        "firs": [
+            {
+                "icao": "LBSR",
+                "name": "Sofia",
+                "callsignPrefix": "LBSR",
+                "firBoundary": "LBSR",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "42.8",
+                        "label_lon": "26.2",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LRBB",
+                "name": "Bucharest",
+                "callsignPrefix": "LRBB",
+                "firBoundary": "LRBB",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "45.949777",
+                        "label_lon": "25.402153",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "LUUU",
+                "name": "Chisinau",
+                "callsignPrefix": "LUKK",
+                "firBoundary": "LUUU",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "46.959166",
+                        "label_lon": "29.0",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "PRC",
+        "fssName": "Beijing Control",
+        "firs": [
+            {
+                "icao": "ZBPE",
+                "name": "Beijing",
+                "callsignPrefix": "ZBPE",
+                "firBoundary": "ZBPE",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "40.09172",
+                        "label_lon": "113.29524",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZGZU",
+                "name": "Guangzhou",
+                "callsignPrefix": "ZGZU",
+                "firBoundary": "ZGZU",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "25.279167",
+                        "label_lon": "111.341667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZJSA",
+                "name": "Sanya",
+                "callsignPrefix": "ZJSA",
+                "firBoundary": "ZJSA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "18.41011",
+                        "label_lon": "110.40915",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZLHW",
+                "name": "Lanzhou",
+                "callsignPrefix": "ZLHW",
+                "firBoundary": "ZLHW",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "36.65053",
+                        "label_lon": "107.32085",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZPKM",
+                "name": "Kunming",
+                "callsignPrefix": "ZPKM",
+                "firBoundary": "ZPKM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "30.54656",
+                        "label_lon": "98.10727",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZSHA",
+                "name": "Shanghai",
+                "callsignPrefix": "ZSHA",
+                "firBoundary": "ZSHA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "29.37925",
+                        "label_lon": "118.17084",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZWUQ",
+                "name": "Urumqi",
+                "callsignPrefix": "ZWUQ",
+                "firBoundary": "ZWUQ",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "39.77188",
+                        "label_lon": "84.3564",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "ZYSH",
+                "name": "Shenyang",
+                "callsignPrefix": "ZYSH",
+                "firBoundary": "ZYSH",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "44.83988",
+                        "label_lon": "123.03321",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-ERC",
+        "fssName": "Eastern Russia Control",
+        "firs": [
+            {
+                "icao": "UEEE",
+                "name": "Yakutsk",
+                "callsignPrefix": "UEEE",
+                "firBoundary": "UEEE",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "66.25",
+                        "label_lon": "130.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UHHH",
+                "name": "Khabarovsk",
+                "callsignPrefix": "UHHH",
+                "firBoundary": "UHHH",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "51.0",
+                        "label_lon": "139.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UHMM",
+                "name": "Magadan",
+                "callsignPrefix": "UHMM",
+                "firBoundary": "UHMM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "65.6",
+                        "label_lon": "166.0",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-WRC",
+        "fssName": "Western Russia Control",
+        "firs": [
+            {
+                "icao": "UMMV",
+                "name": "Minsk",
+                "callsignPrefix": "UMMM",
+                "firBoundary": "UMMV",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "53.78",
+                        "label_lon": "27.958334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UUWV",
+                "name": "Moscow",
+                "callsignPrefix": "UUWV",
+                "firBoundary": "UUWV",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "54.074167",
+                        "label_lon": "38.841667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UWWW",
+                "name": "Samara",
+                "callsignPrefix": "UWWW",
+                "firBoundary": "UWWW",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "53.578334",
+                        "label_lon": "51.833333",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-ESC",
+        "fssName": "Siberia Control",
+        "firs": [
+            {
+                "icao": "UNKL",
+                "name": "Krasnoyarsk",
+                "callsignPrefix": "UNKL",
+                "firBoundary": "UNKL",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "64.68202",
+                        "label_lon": "95.66849",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UNNT",
+                "name": "Novosibirsk",
+                "callsignPrefix": "UNNT",
+                "firBoundary": "UNNT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "56.75",
+                        "label_lon": "79.666667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UIII",
+                "name": "Irkutsk",
+                "callsignPrefix": "UIII",
+                "firBoundary": "UIII",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "56.0",
+                        "label_lon": "111.558333",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-WSC",
+        "fssName": "Western Siberia Control",
+        "firs": [
+            {
+                "icao": "USTV",
+                "name": "Tyumen",
+                "callsignPrefix": "USTV",
+                "firBoundary": "USTV",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "64.425",
+                        "label_lon": "72.033334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "USSV",
+                "name": "Yekaterinburg ACC - Ural",
+                "callsignPrefix": "USSV",
+                "firBoundary": "USSV",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "58.791667",
+                        "label_lon": "55.116667",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-CEN",
+        "fssName": "Asia-Center",
+        "firs": [
+            {
+                "icao": "UATT",
+                "name": "Aktyubinsk",
+                "callsignPrefix": "UATT",
+                "firBoundary": "UATT",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "48.5",
+                        "label_lon": "54.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UACN",
+                "name": "Astana",
+                "callsignPrefix": "UACN",
+                "firBoundary": "UACN",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "50.5",
+                        "label_lon": "68.9",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UAAA",
+                "name": "Almaty",
+                "callsignPrefix": "UAAA",
+                "firBoundary": "UAAA",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "47.037778",
+                        "label_lon": "77.552778",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTAK",
+                "name": "Turkmenbashy",
+                "callsignPrefix": "UTAK",
+                "firBoundary": "UTAK",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "39.841667",
+                        "label_lon": "54.558334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTAA",
+                "name": "Ashkhabad",
+                "callsignPrefix": "UTAA",
+                "firBoundary": "UTAA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "38.6",
+                        "label_lon": "59.6",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTAT",
+                "name": "Dashkhovuz",
+                "callsignPrefix": "UTAT",
+                "firBoundary": "UTAT",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "41.239893",
+                        "label_lon": "58.823281",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTAV",
+                "name": "Turkmenabat",
+                "callsignPrefix": "UTAV",
+                "firBoundary": "UTAV",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "38.5375",
+                        "label_lon": "63.458334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTSD",
+                "name": "Samarkand",
+                "callsignPrefix": "UTSD",
+                "firBoundary": "UTSD",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "39.9",
+                        "label_lon": "65.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTTR",
+                "name": "Tashkent",
+                "callsignPrefix": "UTTR",
+                "firBoundary": "UTTR",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "41.875",
+                        "label_lon": "64.291666",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UAII",
+                "name": "Shymkent",
+                "callsignPrefix": "UAII",
+                "firBoundary": "UAII",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "44.008889",
+                        "label_lon": "66.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UCFO",
+                "name": "Osh",
+                "callsignPrefix": "UCFO",
+                "firBoundary": "UCFO",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "40.770833",
+                        "label_lon": "73.3",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UTDD",
+                "name": "Dushanbe",
+                "callsignPrefix": "UTDD",
+                "firBoundary": "UTDD",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "38.8",
+                        "label_lon": "71.333333",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UCFM",
+                "name": "Bishkek",
+                "callsignPrefix": "UCFM",
+                "firBoundary": "UCFM",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "41.916667",
+                        "label_lon": "76.1",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-NWC",
+        "fssName": "North Western Russia Control",
+        "firs": [
+            {
+                "icao": "ULLL",
+                "name": "Sankt-Peterburg ACC - Peterburg",
+                "callsignPrefix": "ULLL",
+                "firBoundary": "ULLL",
+                "isFss": true,
+                "suffix": "",
+                "entries": [
+                    {
+                        "label_lat": "62.762269283868555",
+                        "label_lon": "41.8881",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UMKK",
+                "name": "Kaliningrad",
+                "callsignPrefix": "UMKK",
+                "firBoundary": "UMKK",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "55.205682",
+                        "label_lon": "20.215527",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "RU-SC",
+        "fssName": "Caucasus-Radar",
+        "firs": [
+            {
+                "icao": "URRV",
+                "name": "Rostov",
+                "callsignPrefix": "URRV",
+                "firBoundary": "URRV",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "46.583333",
+                        "label_lon": "43.133334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UGGG",
+                "name": "Tbilisi",
+                "callsignPrefix": "UGGG",
+                "firBoundary": "UGGG",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "42.166667",
+                        "label_lon": "43.441667",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UDDD",
+                "name": "Yerevan",
+                "callsignPrefix": "UGEE",
+                "firBoundary": "UDDD",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "40.058334",
+                        "label_lon": "45.008334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "UBBA",
+                "name": "Baku",
+                "callsignPrefix": "UBBB",
+                "firBoundary": "UBBA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "40.266667",
+                        "label_lon": "48.691666",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "SAM-N",
+        "fssName": "South America Control North",
+        "firs": [
+            {
+                "icao": "SEFG",
+                "name": "Guayaquil",
+                "callsignPrefix": "SEFG",
+                "firBoundary": "SEFG",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-1.770833",
+                        "label_lon": "-83.583334",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SKED",
+                "name": "Bogota",
+                "callsignPrefix": "SKED",
+                "firBoundary": "SKED",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "2.210747",
+                        "label_lon": "-74.875487",
+                        "oceanic": "0"
+                    },
+                    {
+                        "label_lat": "11.316331",
+                        "label_lon": "-74.208836",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SKEC",
+                "name": "Barranquilla",
+                "callsignPrefix": "SKEC",
+                "firBoundary": "SKEC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "11.316331",
+                        "label_lon": "-74.208836",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MPZL",
+                "name": "Panama",
+                "callsignPrefix": "MPZL",
+                "firBoundary": "MPZL",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "9.75",
+                        "label_lon": "-80.1125",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "MHCC",
+                "name": "Cenamer",
+                "callsignPrefix": "MHCC",
+                "firBoundary": "MHCC",
+                "isFss": true,
+                "suffix": "Centre",
+                "entries": [
+                    {
+                        "label_lat": "11.075",
+                        "label_lon": "-93.25",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SVZM",
+                "name": "Maiquetia",
+                "callsignPrefix": "SVZM",
+                "firBoundary": "SVZM",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "8.212349",
+                        "label_lon": "-66.600468",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SYGC",
+                "name": "Georgetown",
+                "callsignPrefix": "SYGC",
+                "firBoundary": "SYGC",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "5.033333",
+                        "label_lon": "-58.936083",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SMPM",
+                "name": "Paramaribo",
+                "callsignPrefix": "SMPM",
+                "firBoundary": "SMPM",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "5.566667",
+                        "label_lon": "-55.95",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SOOO",
+                "name": "Cayenne",
+                "callsignPrefix": "SOOO",
+                "firBoundary": "SOOO",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "7.816667",
+                        "label_lon": "-44.775",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "SAM-E",
+        "fssName": "South America Control East",
+        "firs": [
+            {
+                "icao": "SBCW",
+                "name": "Curitiba",
+                "callsignPrefix": "SBCW",
+                "firBoundary": "SBCW",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-25.166834",
+                        "label_lon": "-51.104167",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SBAZ",
+                "name": "Amazonica",
+                "callsignPrefix": "SBAZ",
+                "firBoundary": "SBAZ",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-6.051",
+                        "label_lon": "-57.65525",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SBRE",
+                "name": "Recife",
+                "callsignPrefix": "SBRE",
+                "firBoundary": "SBRE",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-8.736945",
+                        "label_lon": "-40.277056",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SBBS",
+                "name": "Brasilia",
+                "callsignPrefix": "SBBR",
+                "firBoundary": "SBBS",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-16.050833",
+                        "label_lon": "-48.416667",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "SAM-S",
+        "fssName": "South America Control South",
+        "firs": [
+            {
+                "icao": "SUEO",
+                "name": "Montevideo",
+                "callsignPrefix": "SUEO",
+                "firBoundary": "SUEO",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-37.0",
+                        "label_lon": "-31.6",
+                        "oceanic": "1"
+                    }
+                ]
+            },
+            {
+                "icao": "SGFA",
+                "name": "Asuncion",
+                "callsignPrefix": "SGFA",
+                "firBoundary": "SGFA",
+                "isFss": true,
+                "suffix": "Center",
+                "entries": [
+                    {
+                        "label_lat": "-23.479613",
+                        "label_lon": "-58.458802",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SAEF",
+                "name": "Ezeiza",
+                "callsignPrefix": "SAEF",
+                "firBoundary": "SAEF",
+                "isFss": true,
+                "suffix": "Centro",
+                "entries": [
+                    {
+                        "label_lat": "-42.0",
+                        "label_lon": "-49.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SARR",
+                "name": "Resistencia",
+                "callsignPrefix": "SARR",
+                "firBoundary": "SARR",
+                "isFss": true,
+                "suffix": "Centro",
+                "entries": [
+                    {
+                        "label_lat": "-29.4",
+                        "label_lon": "-58.9",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SACF",
+                "name": "Cordoba",
+                "callsignPrefix": "SACF",
+                "firBoundary": "SACF",
+                "isFss": true,
+                "suffix": "Centro",
+                "entries": [
+                    {
+                        "label_lat": "-27.875",
+                        "label_lon": "-64.925",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SAMF",
+                "name": "Mendoza",
+                "callsignPrefix": "SAMF",
+                "firBoundary": "SAMF",
+                "isFss": true,
+                "suffix": "Centro",
+                "entries": [
+                    {
+                        "label_lat": "-35.35",
+                        "label_lon": "-67.5",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SAVF",
+                "name": "Comodoro Rivadavia",
+                "callsignPrefix": "SAVF",
+                "firBoundary": "SAVF",
+                "isFss": true,
+                "suffix": "Centro",
+                "entries": [
+                    {
+                        "label_lat": "-49.641667",
+                        "label_lon": "-49.0",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "fssCallsign": "SAM-W",
+        "fssName": "South America Control West",
+        "firs": [
+            {
+                "icao": "SCEZ",
+                "name": "Santiago",
+                "callsignPrefix": "SCEZ",
+                "firBoundary": "SCEZ",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "-33.5",
+                        "label_lon": "-78.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SCTZ",
+                "name": "Puerto Montt",
+                "callsignPrefix": "SCTZ",
+                "firBoundary": "SCTZ",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "-42.75",
+                        "label_lon": "-78.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SCCZ",
+                "name": "Punta Arenas",
+                "callsignPrefix": "SCCZ",
+                "firBoundary": "SCCZ",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "-53.5",
+                        "label_lon": "-77.85",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SCFZ",
+                "name": "Antofagasta",
+                "callsignPrefix": "SCFZ",
+                "firBoundary": "SCFZ",
+                "isFss": true,
+                "suffix": "Radar",
+                "entries": [
+                    {
+                        "label_lat": "-22.983334",
+                        "label_lon": "-78.0",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SLLF",
+                "name": "La Paz",
+                "callsignPrefix": "SLLF",
+                "firBoundary": "SLLF",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-16.262908",
+                        "label_lon": "-63.508809",
+                        "oceanic": "0"
+                    }
+                ]
+            },
+            {
+                "icao": "SPIM",
+                "name": "Lima",
+                "callsignPrefix": "LIM",
+                "firBoundary": "SPIM",
+                "isFss": true,
+                "suffix": "Control",
+                "entries": [
+                    {
+                        "label_lat": "-9.2",
+                        "label_lon": "-79.333334",
+                        "oceanic": "0"
+                    }
+                ]
+            }
+        ]
+    }
+]

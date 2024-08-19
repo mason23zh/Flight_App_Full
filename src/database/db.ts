@@ -1,10 +1,12 @@
 import Dexie, { Table } from "dexie";
 import aircraftData from "../assets/aircraft_data/aircraft.json";
-import { LocalDbAirport, VatsimFlight } from "../types";
+import { LocalDbAirport, MergedFirMatching, MergedFssMatching, VatsimFlight } from "../types";
 
 class VatsimLocalDB extends Dexie {
     vatsimTraffic!: Table<VatsimFlight, number>;
     airports!: Table<LocalDbAirport, string>;
+    fir!: Table<MergedFirMatching, string>;
+    fss!: Table<MergedFssMatching, string>;
 
     constructor() {
         super("LocalVatsimDB");
@@ -28,6 +30,12 @@ class VatsimLocalDB extends Dexie {
                             iata_code, 
                             municipality,
                             name`,
+                    fir: `&icao,
+                        callsignPrefix,
+                        firBoundary,
+                        [icao+callsignPrefix+firBoundary]`,
+                    fss: `&fssCallsign, 
+                          fssName`,
                 },
             );
     }
@@ -71,6 +79,18 @@ class VatsimLocalDB extends Dexie {
         const validAirportData = newData.filter(airport => airport.ident);
         await this.airports.clear();
         await this.airports.bulkPut(validAirportData);
+    }
+
+    async loadFir(newData: MergedFirMatching[]) {
+        const validFirData = newData.filter(fir => fir.icao);
+        await this.fir.clear();
+        await this.fir.bulkPut(validFirData);
+    }
+
+    async loadFss(newData: MergedFssMatching[]) {
+        const validFssData = newData.filter(fss => fss.fssCallsign);
+        await this.fss.clear();
+        await this.fss.bulkPut(validFssData);
     }
 }
 

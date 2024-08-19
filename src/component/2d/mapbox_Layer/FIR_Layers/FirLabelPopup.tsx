@@ -4,6 +4,7 @@ import GeoJson from "geojson";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 interface Props {
     hoverFir: MatchedFir,
@@ -17,13 +18,10 @@ const FirLabelPopup = ({
     let tempFirName: string;
     const darkMode = useTheme();
 
-
-    const firName = hoverFir.firInfo.name;
-    // Normalize the En route controller to "Center"
-    if (firName.includes("Central") || firName.includes("Radar") || firName.includes("ACC")) {
-        tempFirName = firName;
+    if (hoverFir.firInfo.name && hoverFir.firInfo.suffix) {
+        tempFirName = hoverFir.firInfo.name + " " + hoverFir.firInfo.suffix;
     } else {
-        tempFirName = firName + " Center";
+        tempFirName = hoverFir.firInfo.name;
     }
 
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
@@ -61,8 +59,8 @@ const FirLabelPopup = ({
                 zIndex: 100,
             }}
             maxWidth="500px"
-            longitude={Number(hoverFir.label_lon)}
-            latitude={Number(hoverFir.label_lat)}
+            longitude={Number(hoverFir.firInfo.entries[0].label_lon)}
+            latitude={Number(hoverFir.firInfo.entries[0].label_lat)}
             closeButton={false}
             anchor="bottom"
         >
@@ -70,7 +68,7 @@ const FirLabelPopup = ({
             <div className={`w-full p-2 font-Rubik rounded-xl ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-[17px] font-bold">
-                        {hoverFir.id}
+                        {hoverFir.firInfo.icao}
                     </div>
                     <div className="text-[17px]">
                         {tempFirName}

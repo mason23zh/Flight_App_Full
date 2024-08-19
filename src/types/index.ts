@@ -321,7 +321,7 @@ interface Atis {
     coordinates: string[]
 }
 
-interface Fss {
+export interface Fss {
     cid: number,
     name: string,
     frequency: string,
@@ -494,6 +494,27 @@ interface GroupedFlight {
     flights: VatsimFlight[];
 }
 
+interface MergedFirMatching {
+    icao: string;
+    name: string;
+    callsignPrefix: string;
+    firBoundary: string;
+    isFss: boolean;
+    fssName?: string;
+    suffix: string;
+    entries: {
+        label_lat: string;
+        label_lon: string;
+        oceanic: string;
+    }[];
+}
+
+interface MergedFssMatching {
+    fssCallsign: string;
+    fssName: string;
+    firs: MergedFirMatching[];
+}
+
 export type {
     LiveFlightData,
     VatsimMapVisibleState,
@@ -516,4 +537,6 @@ export type {
     AirportResponse,
     MatchedFirs,
     GroupedFlight,
+    MergedFirMatching,
+    MergedFssMatching
 };

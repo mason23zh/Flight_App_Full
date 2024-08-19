@@ -8,22 +8,19 @@ import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
-import GeoJson from "geojson";
 import useMatchedFirs, { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
 interface Controller {
     controllerInfo: VatsimControllers;
     labelVisible: boolean;
-    geoJsonData: GeoJson.FeatureCollection;
 }
 
 const FirLayer = ({
     controllerInfo,
     labelVisible,
-    geoJsonData
 }: Controller) => {
 
-    if (!geoJsonData || !controllerInfo) return null;
+    if (!controllerInfo) return null;
 
     const dispatch = useDispatch();
     console.log("Fir layer run");
@@ -32,7 +29,8 @@ const FirLayer = ({
         matchedFirs: matchedFIRS,
         isLoading,
         isError
-    } = useMatchedFirs(controllerInfo, geoJsonData);
+    } = useMatchedFirs(controllerInfo);
+    console.log("MatchedFIRS:", matchedFIRS);
 
     useEffect(() => {
         if (isLoading) {
@@ -68,14 +66,17 @@ const FirLayer = ({
     }
 
     if (matchedFIRS) {
-        const matchedFirIds = matchedFIRS.map(fir => fir.id);
-        const layerStyle = activeFirLayerStyle(matchedFirIds, hoverFirCast);
+        const matchedFirs = matchedFIRS.map(fir => ({
+            id: fir.firInfo.firBoundary,
+            oceanic: fir.firInfo?.entries[0]?.oceanic || "0"
+        }));
+        const layerStyle = activeFirLayerStyle(matchedFirs, hoverFirCast);
 
         return (
             <Source
                 id="active-fir-layers"
                 type="vector"
-                url="mapbox://mason-zh.clqudy2fp2ag61nogduw0ofwr-96of0"
+                url="mapbox://mason-zh.cm00590z503li1tlkgyy8e5s3-5pv1b"
             >
                 <Layer {...layerStyle} />
                 {(hoverFir && labelVisible) &&
@@ -85,22 +86,6 @@ const FirLayer = ({
             </Source>
         );
     }
-
-    // if (geoJsonFeatures) {
-    //     return (
-    //         <Source type="geojson" data={geoJsonFeatures}>
-    //             <Layer {...layerStyle} />
-    //             <Layer {...boundariesLineStyle}/>
-    //             {(hoverFir && firData && labelVisible && isFeatureCollection(hoverFirCast)) &&
-    //                 <Source type="geojson" data={hoverFirCast}>
-    //                     <Layer {...highlightLayer}/>
-    //                     <FirLabelPopup hoverFir={hoverFirCast} firData={firData}/>
-    //                 </Source>
-    //             }
-    //             {labelVisible && renderedMarkers}
-    //         </Source>
-    //     );
-    // }
 };
 
 export default React.memo(FirLayer);
