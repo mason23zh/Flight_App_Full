@@ -5,7 +5,7 @@ export const activeFirLayerStyle = (matchedFirs: {
     id: string,
     oceanic: string,
 }[], hoverFir: MatchedFir): FillLayer => {
-    const hoverFirId = hoverFir ? hoverFir.id : null;
+    const hoverFirId = hoverFir ? hoverFir.firInfo.firBoundary : null;
     const filterConditions = matchedFirs.flatMap(fir => [
         ["all", ["==", ["get", "id"], fir.id], ["==", ["get", "oceanic"], fir.oceanic]]
     ]);
