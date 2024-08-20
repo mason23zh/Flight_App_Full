@@ -502,6 +502,7 @@ interface MergedFirMatching {
     isFss: boolean;
     fssName?: string;
     suffix: string;
+    uniqueId: string;
     entries: {
         label_lat: string;
         label_lon: string;

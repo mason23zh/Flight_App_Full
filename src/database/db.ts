@@ -30,10 +30,10 @@ class VatsimLocalDB extends Dexie {
                             iata_code, 
                             municipality,
                             name`,
-                    fir: `&icao,
+                    fir: `&uniqueId,
+                        icao,
                         callsignPrefix,
-                        firBoundary,
-                        [icao+callsignPrefix+firBoundary]`,
+                        firBoundary`,
                     fss: `&fssCallsign, 
                           fssName`,
                 },
@@ -82,7 +82,7 @@ class VatsimLocalDB extends Dexie {
     }
 
     async loadFir(newData: MergedFirMatching[]) {
-        const validFirData = newData.filter(fir => fir.icao);
+        const validFirData = newData.filter(fir => fir.uniqueId);
         await this.fir.clear();
         await this.fir.bulkPut(validFirData);
     }
