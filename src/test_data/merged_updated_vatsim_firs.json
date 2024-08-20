@@ -12,7 +12,8 @@
                 "label_lon": "16.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0debd8df055c57f89a8234d7a2f31d87"
     },
     {
         "icao": "ADR-W",
@@ -27,7 +28,8 @@
                 "label_lon": "16.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2c2c0dd96d7b12c3d927d42006a59010"
     },
     {
         "icao": "ADR-E",
@@ -42,7 +44,8 @@
                 "label_lon": "20.8",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dde7b7468e34a1d1d4a63b733429e648"
     },
     {
         "icao": "AGGG",
@@ -57,7 +60,8 @@
                 "label_lon": "160.9375",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6727922e7899f33c2680990677f34124"
     },
     {
         "icao": "ANAU",
@@ -72,7 +76,8 @@
                 "label_lon": "165.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "707dfd9a98a9f050463e1f2355c099f0"
     },
     {
         "icao": "AYPM",
@@ -87,7 +92,8 @@
                 "label_lon": "148.500000",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "be7ae363d2574bf529c5285074e48e57"
     },
     {
         "icao": "BGGL",
@@ -102,7 +108,8 @@
                 "label_lon": "-30.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2a95ae5404841227dbfbfa67f73340f5"
     },
     {
         "icao": "BIRD",
@@ -117,7 +124,8 @@
                 "label_lon": "-28.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "35b217bf1eb3dad8342c59544933cc7f"
     },
     {
         "icao": "BIRD-E",
@@ -132,7 +140,8 @@
                 "label_lon": "-5.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "76a07c6e333c0ec769067d6d6ba2368c"
     },
     {
         "icao": "BIRD-N",
@@ -147,7 +156,8 @@
                 "label_lon": "-11.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7cb409a0e8b4105d910df02a48e84ae9"
     },
     {
         "icao": "BIRD-S",
@@ -162,7 +172,8 @@
                 "label_lon": "-20.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c11595d4fa6adbb8f6e992b140f67c8b"
     },
     {
         "icao": "BIRD-W",
@@ -177,7 +188,8 @@
                 "label_lon": "-45.8",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "41c7ea51005c4bfee1c57033c97355ac"
     },
     {
         "icao": "BSW",
@@ -192,7 +204,8 @@
                 "label_lon": "25.831099",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "45d901048c88b809d8f97ac2e000c1aa"
     },
     {
         "icao": "CZEG",
@@ -207,7 +220,8 @@
                 "label_lon": "-99.376111",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "50a4ca1bc8a70adce1d12cee45203334"
     },
     {
         "icao": "CZQM",
@@ -222,7 +236,8 @@
                 "label_lon": "-62.366685",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "163e7b6b006f6da7475c1e237dbc4bef"
     },
     {
         "icao": "CZZV",
@@ -237,7 +252,8 @@
                 "label_lon": "-64.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c212e9d953994150ab5df3a476a6fb7f"
     },
     {
         "icao": "CZQX",
@@ -252,7 +268,8 @@
                 "label_lon": "-56.166667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e72bd5758fb30ed0156f92f244b213de"
     },
     {
         "icao": "CZQO",
@@ -267,7 +284,8 @@
                 "label_lon": "-42.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0de7cb338eb33cfbd54cde1a7b4571af"
     },
     {
         "icao": "CZQO-GOTA",
@@ -282,7 +300,8 @@
                 "label_lon": "-59.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7828a7cf5469255d256bb5deb052bb07"
     },
     {
         "icao": "CZUL",
@@ -297,7 +316,8 @@
                 "label_lon": "-68.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2b63fac3b513405b6af8a74cd58f8bc8"
     },
     {
         "icao": "CZVR",
@@ -312,7 +332,8 @@
                 "label_lon": "-125.56875",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4796621818da92d48064bf72cdb02fe0"
     },
     {
         "icao": "CZWG",
@@ -327,7 +348,8 @@
                 "label_lon": "-95.000695",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "18527f4eda1b905ba3eb99c3bab442e1"
     },
     {
         "icao": "CZYZ",
@@ -342,7 +364,8 @@
                 "label_lon": "-81.591805",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5c4b95a62f20c7000ec845dc3718751b"
     },
     {
         "icao": "DAAA",
@@ -357,7 +380,8 @@
                 "label_lon": "1.666666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "43b68ef4edbae46b12071412c71e030c"
     },
     {
         "icao": "DGAC",
@@ -372,7 +396,8 @@
                 "label_lon": "0.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8f9679a8ef3b5de0662ab6b4f149e5ed"
     },
     {
         "icao": "DGAO",
@@ -387,7 +412,8 @@
                 "label_lon": "2.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c6122feecb7aaafc24f19d87d08b2444"
     },
     {
         "icao": "DIII",
@@ -402,7 +428,8 @@
                 "label_lon": "-5.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8b27391bbaf1d4b47a1ad343e9806fda"
     },
     {
         "icao": "DNKK",
@@ -417,7 +444,8 @@
                 "label_lon": "8.66818",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1c952bf9814fd08d54089d97b75815dc"
     },
     {
         "icao": "DRRR",
@@ -432,7 +460,8 @@
                 "label_lon": "3.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "41ae9db3efabafe4a7e1c0aff3ef8337"
     },
     {
         "icao": "DTTC",
@@ -447,7 +476,8 @@
                 "label_lon": "9.508024",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fab951b0ce07f11f0693fe9d869ae468"
     },
     {
         "icao": "EBBU",
@@ -462,7 +492,8 @@
                 "label_lon": "4.544189",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7086b551f0abaa9829638ebea5ee599f"
     },
     {
         "icao": "EBUR",
@@ -477,7 +508,8 @@
                 "label_lon": "4.544189",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "438a9b823ea814311214655a0c237308"
     },
     {
         "icao": "EDGG-BAD",
@@ -492,7 +524,8 @@
                 "label_lon": "8.77",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fd54052ad49622c5e41fbc01f5009eb9"
     },
     {
         "icao": "EDGG-GIN",
@@ -507,7 +540,8 @@
                 "label_lon": "8.96",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "632dcec047b1c24a7edae4a7673e081a"
     },
     {
         "icao": "EDGG-DKB",
@@ -522,7 +556,8 @@
                 "label_lon": "9.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "334aa9245814db8ea5e0d1ec30de5f74"
     },
     {
         "icao": "EDGG-RUD",
@@ -537,7 +572,8 @@
                 "label_lon": "7.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5e84f34b7dc89535f15d97c12fb15ab0"
     },
     {
         "icao": "EDGG-KTG",
@@ -552,7 +588,8 @@
                 "label_lon": "8.54",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "037ca22d76339634e00f80aff1943a4c"
     },
     {
         "icao": "EDGG-HMM",
@@ -567,7 +604,8 @@
                 "label_lon": "7.62",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cf3aeb5b5e360735a5cab0645fd80767"
     },
     {
         "icao": "EDGG-PAH",
@@ -582,7 +620,8 @@
                 "label_lon": "7.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1bcf1ea2313200491323ab7d9a54adab"
     },
     {
         "icao": "EDGG",
@@ -597,7 +636,8 @@
                 "label_lon": "8.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4bb50154ee44e4ce6cc5cf48a0e5f5cc"
     },
     {
         "icao": "EDMM",
@@ -612,7 +652,8 @@
                 "label_lon": "11.786666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "75a85bf0bc977f796c8726bb8d5865b8"
     },
     {
         "icao": "EDMM-ZUG",
@@ -627,7 +668,8 @@
                 "label_lon": "10.85",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "799071a2e9e1c34281eccd72347c7b73"
     },
     {
         "icao": "EDMM-RDG",
@@ -642,7 +684,8 @@
                 "label_lon": "11.72787",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7f796ac1c34aecc502fea16b4a3aa200"
     },
     {
         "icao": "EDMM-HOF",
@@ -657,7 +700,8 @@
                 "label_lon": "11.56",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "945024ca4ac6d140a56276ec4ca7b245"
     },
     {
         "icao": "EDMM-GER",
@@ -672,7 +716,8 @@
                 "label_lon": "12.43",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "26c459006d4d73891072e6406f3d23cc"
     },
     {
         "icao": "EDWW",
@@ -687,7 +732,8 @@
                 "label_lon": "10.8",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "08b8bd4df75520182f6512c11b714c9f"
     },
     {
         "icao": "EDWW-B",
@@ -702,7 +748,8 @@
                 "label_lon": "12.79",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "599cedcc347b31703a4dc2f7bd747017"
     },
     {
         "icao": "EDWW-A",
@@ -717,7 +764,8 @@
                 "label_lon": "8.55256",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6dd6e04581f85c4cc9b8d5e45f062770"
     },
     {
         "icao": "EDWW-W",
@@ -732,7 +780,8 @@
                 "label_lon": "9.25423",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0544e998f9e75711f5d58d821b66dadb"
     },
     {
         "icao": "EDWW-D",
@@ -747,7 +796,8 @@
                 "label_lon": "9.80834",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1853f083ed5fafd9241fa40e027fb199"
     },
     {
         "icao": "EDXX",
@@ -762,7 +812,8 @@
                 "label_lon": "10.10",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1639cdbb2c5a1d4e56035824bde25f3f"
     },
     {
         "icao": "EETT",
@@ -777,7 +828,8 @@
                 "label_lon": "24.438055",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0cadcad874229620988330ed63f16bf4"
     },
     {
         "icao": "EFIN",
@@ -792,7 +844,8 @@
                 "label_lon": "27.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9e711849ef0a901de82d5e292fc4a50d"
     },
     {
         "icao": "EGGX",
@@ -807,7 +860,8 @@
                 "label_lon": "-22.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e9d32bb0add5ca631748824a2cec951f"
     },
     {
         "icao": "EGPX",
@@ -822,7 +876,8 @@
                 "label_lon": "-2.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "266b6a632f153a0a88a1c95bd079124c"
     },
     {
         "icao": "EGPX-D",
@@ -837,7 +892,8 @@
                 "label_lon": "-3.64",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bc53f98ba7dcbb0e392fbe3801d4124b"
     },
     {
         "icao": "EGPX-E",
@@ -852,7 +908,8 @@
                 "label_lon": "0.22",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4d0afaa368c9cb13992e2dc833c2dd00"
     },
     {
         "icao": "EGPX-N",
@@ -867,7 +924,8 @@
                 "label_lon": "-1.55",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bb6768f63c23d2dc30694f9b31e6eb2e"
     },
     {
         "icao": "EGPX-S",
@@ -882,7 +940,8 @@
                 "label_lon": "1.27",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bd3de38e1a8a0c324b54f8d762b71671"
     },
     {
         "icao": "EGPX-WD",
@@ -897,7 +956,8 @@
                 "label_lon": "-6.71",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3741fc2b8bd3acc4dee8c530335788f5"
     },
     {
         "icao": "EGPX-W",
@@ -912,7 +972,8 @@
                 "label_lon": "-8.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e98ffec91b6c6db17b0b98a663275949"
     },
     {
         "icao": "EGPX-A",
@@ -927,7 +988,8 @@
                 "label_lon": "-5.33",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "54775f442fe7e93917baf015757d85af"
     },
     {
         "icao": "EGTL",
@@ -942,7 +1004,8 @@
                 "label_lon": "-0.14",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "949357ba474c8ca44ed98811faa3a13f"
     },
     {
         "icao": "EGTL-N",
@@ -957,7 +1020,8 @@
                 "label_lon": "-0.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fd49f97cb23f0aebd41c4675da2a2102"
     },
     {
         "icao": "EGTL-S",
@@ -972,7 +1036,8 @@
                 "label_lon": "-0.13",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1b62a64029bc2f8bb640de7cad2c38e5"
     },
     {
         "icao": "EGTM",
@@ -987,7 +1052,8 @@
                 "label_lon": "-2.34",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f9cca04d8012b8a73b9b69650aeaeb2a"
     },
     {
         "icao": "EGTM-W",
@@ -1002,7 +1068,8 @@
                 "label_lon": "-3.718",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a569a6caf7fb04bd0f4b09bc166a0ebe"
     },
     {
         "icao": "EGTM-NE",
@@ -1017,7 +1084,8 @@
                 "label_lon": "-0.817",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c823a92ce5502e413bec7530fea9350b"
     },
     {
         "icao": "EGTT",
@@ -1032,7 +1100,8 @@
                 "label_lon": "-1.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4133aa04ef8627bfebee7d5d91b29ae5"
     },
     {
         "icao": "EGTT-C",
@@ -1047,7 +1116,8 @@
                 "label_lon": "-0.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e8c08cd56b4de63b6dbebb6de55e2503"
     },
     {
         "icao": "EGTT-M",
@@ -1062,7 +1132,8 @@
                 "label_lon": "-1.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3538db39e9a0d971c47e55d631b6d8db"
     },
     {
         "icao": "EGTT-E",
@@ -1077,7 +1148,8 @@
                 "label_lon": "1.82",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bebdf4fc9341c8c080296941e83f726b"
     },
     {
         "icao": "EGTT-N",
@@ -1092,7 +1164,8 @@
                 "label_lon": "0.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "211cbaf80059cf0b81ebab0cfb55e696"
     },
     {
         "icao": "EGTT-NE",
@@ -1107,7 +1180,8 @@
                 "label_lon": "2.03",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e16d4c5a48e64af55380c4831ee7a079"
     },
     {
         "icao": "EGTT-NW",
@@ -1122,7 +1196,8 @@
                 "label_lon": "-3.718",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f0e5d4318a400a835ee6d81b2621a23d"
     },
     {
         "icao": "EGTT-S",
@@ -1137,7 +1212,8 @@
                 "label_lon": "-1.24",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ed0de7c7abb6f8575f5bc6727daa7009"
     },
     {
         "icao": "EGTT-D",
@@ -1152,7 +1228,8 @@
                 "label_lon": "1.08",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "27f3ea4940957abb9a7388229427b88c"
     },
     {
         "icao": "EGTT-SC",
@@ -1167,7 +1244,8 @@
                 "label_lon": "1.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "41f4379f4579d7ba0d27104613b1447a"
     },
     {
         "icao": "EGTT-W",
@@ -1182,7 +1260,8 @@
                 "label_lon": "-5.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9b50b6c1091355686c05beea353db606"
     },
     {
         "icao": "EGVV",
@@ -1197,7 +1276,8 @@
                 "label_lon": "-1.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6fba2ac013ed47a8b1f1865bd27a04e3"
     },
     {
         "icao": "EGYP",
@@ -1212,7 +1292,8 @@
                 "label_lon": "-61.500000",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2b03d45c35aaaa5465c914943d13d7f4"
     },
     {
         "icao": "EHAA",
@@ -1227,7 +1308,8 @@
                 "label_lon": "5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2bd7a8325bb6731c54554b3a3af09a84"
     },
     {
         "icao": "EHMC",
@@ -1242,7 +1324,8 @@
                 "label_lon": "5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c219977f8954159cdf88b6966178ba48"
     },
     {
         "icao": "EHML",
@@ -1257,7 +1340,8 @@
                 "label_lon": "5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "00dff3986de4917c563768bee79d0236"
     },
     {
         "icao": "EIDW",
@@ -1272,7 +1356,8 @@
                 "label_lon": "-6.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8e29e9e250421b9d4645452c875e2fbe"
     },
     {
         "icao": "EISN",
@@ -1287,7 +1372,8 @@
                 "label_lon": "-11",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "980fe5681a3b1629879696fd1dfd7abc"
     },
     {
         "icao": "EISN-L",
@@ -1302,7 +1388,8 @@
                 "label_lon": "-11.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c8af3a341410fb15ba4972097f69e6be"
     },
     {
         "icao": "EKDK",
@@ -1317,7 +1404,8 @@
                 "label_lon": "8.949445",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "33b577f1d9106260313bf74701e47081"
     },
     {
         "icao": "EKDK-E",
@@ -1332,7 +1420,8 @@
                 "label_lon": "10.6085",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "310b451612423a2e9efd485f058290d9"
     },
     {
         "icao": "EKDK-W",
@@ -1347,7 +1436,8 @@
                 "label_lon": "7.0631",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "305ab4f39253eaa548b3d588971612b0"
     },
     {
         "icao": "ENBD",
@@ -1362,7 +1452,8 @@
                 "label_lon": "15.84846",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "46a104bc4729237cd823d512ac318232"
     },
     {
         "icao": "ENBD-E",
@@ -1377,7 +1468,8 @@
                 "label_lon": "21.593",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9b8ecaf98cce58a3c85c8ad09da4f2aa"
     },
     {
         "icao": "ENBD-C",
@@ -1392,7 +1484,8 @@
                 "label_lon": "10.5852",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5b1da732117eda762de43d9bd382d6e0"
     },
     {
         "icao": "ENBD-S",
@@ -1407,7 +1500,8 @@
                 "label_lon": "8.2303",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0b25ececf182d90242cd8c5ba79a5dc5"
     },
     {
         "icao": "ENBD-19",
@@ -1422,7 +1516,8 @@
                 "label_lon": "11.3052",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f4e1e269361fa49e754abb5530b2f08e"
     },
     {
         "icao": "ENOB",
@@ -1437,7 +1532,8 @@
                 "label_lon": "15.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "96c0b6fb8562c77e5ea5eb55f04573a1"
     },
     {
         "icao": "ENOR",
@@ -1452,7 +1548,8 @@
                 "label_lon": "9.455475",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0c705a0a39ac70226af89f776e6ee44e"
     },
     {
         "icao": "ENOR-SC",
@@ -1467,7 +1564,8 @@
                 "label_lon": "8.17",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d44a3286da7e0a6e895fe467610ee936"
     },
     {
         "icao": "ENOR-S",
@@ -1482,7 +1580,8 @@
                 "label_lon": "7.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "099ab0df6a88982ced998c771f71e2a4"
     },
     {
         "icao": "ENOS",
@@ -1497,7 +1596,8 @@
                 "label_lon": "9.432621",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "45ed69af7441a56591aeadfe9696d22e"
     },
     {
         "icao": "ENOS-1",
@@ -1512,7 +1612,8 @@
                 "label_lon": "11.83",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "840c05b2530b7492e75e7e4590efd7bf"
     },
     {
         "icao": "ENOS-4",
@@ -1527,7 +1628,8 @@
                 "label_lon": "10.68",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e21e904bfacbc3f4432468deba72ab18"
     },
     {
         "icao": "ENOS-8",
@@ -1542,7 +1644,8 @@
                 "label_lon": "8.20",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "25aec6eeceaf283a1753bcc544626386"
     },
     {
         "icao": "ENRC-N",
@@ -1557,7 +1660,8 @@
                 "label_lon": "15.84846",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4a58f29d5fb229ead21fa543b0766850"
     },
     {
         "icao": "ENRC-S",
@@ -1572,7 +1676,8 @@
                 "label_lon": "7.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "72a0ca28cdca08f08a359ff486df134f"
     },
     {
         "icao": "ENSV",
@@ -1587,7 +1692,8 @@
                 "label_lon": "3.75",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "80706974ecd44b55609a98edb2fafc50"
     },
     {
         "icao": "ENSV-W",
@@ -1602,7 +1708,8 @@
                 "label_lon": "3.01",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1f2650bef82b81e5ee7ac567711a0d4f"
     },
     {
         "icao": "ENSV-E",
@@ -1617,7 +1724,8 @@
                 "label_lon": "6.8",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5cf29738f7b387c6e26eaed9cee248d9"
     },
     {
         "icao": "EPWW",
@@ -1632,7 +1740,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d7a4884579dcefe41ff9430b028f9fdb"
     },
     {
         "icao": "EPWW-N",
@@ -1647,7 +1756,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d184b455b8d00ae9f70cc660a4ed207b"
     },
     {
         "icao": "EPWW-S",
@@ -1662,7 +1772,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f600d56a26a9555431b7f73da4c179e5"
     },
     {
         "icao": "EPWW-W",
@@ -1677,7 +1788,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "92be83c4ded51b1615b520f59b61bea9"
     },
     {
         "icao": "EPWW-SW",
@@ -1692,7 +1804,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d92561d2fa2870da7038f58380b946d5"
     },
     {
         "icao": "EPWW-NW",
@@ -1707,7 +1820,8 @@
                 "label_lon": "19.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "72e645dcdfbfcb53f194987733c3413e"
     },
     {
         "icao": "ESMM",
@@ -1722,7 +1836,8 @@
                 "label_lon": "14.00",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "193b65453610b1b47075413471309c5b"
     },
     {
         "icao": "ESMM-5",
@@ -1737,7 +1852,8 @@
                 "label_lon": "12.40",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1dd3c1de3221aef7020634a02d338409"
     },
     {
         "icao": "ESMM-7",
@@ -1752,7 +1868,8 @@
                 "label_lon": "16.20",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1ab8a3d7a357dd72c8502504e0e8d321"
     },
     {
         "icao": "ESMM-8",
@@ -1767,7 +1884,8 @@
                 "label_lon": "13.40",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c647ff73e567d9395b9ccaa16c0dd960"
     },
     {
         "icao": "ESOS",
@@ -1782,7 +1900,8 @@
                 "label_lon": "16.41",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "663afaa879ef4302ae3660d9f9e7cdcd"
     },
     {
         "icao": "ESOS-K",
@@ -1797,7 +1916,8 @@
                 "label_lon": "19.41",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cb95259979bb969f2bd906a0bdabc8f7"
     },
     {
         "icao": "ESOS-N",
@@ -1812,7 +1932,8 @@
                 "label_lon": "16.57",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7ba9f67cff9d5674022ca7dd4c5b553f"
     },
     {
         "icao": "ESOS-3",
@@ -1827,7 +1948,8 @@
                 "label_lon": "16.48",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "319c328766019c6e426105ebb35d8863"
     },
     {
         "icao": "ESSR",
@@ -1842,7 +1964,8 @@
                 "label_lon": "16.41",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7e2e32a2019e6c3f8818226885cf6ffa"
     },
     {
         "icao": "EVRR",
@@ -1857,7 +1980,8 @@
                 "label_lon": "23.378195",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c11fe161595656efb3d7a6d022a80a62"
     },
     {
         "icao": "EYVL",
@@ -1872,7 +1996,8 @@
                 "label_lon": "22.43743",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "152463d598e149e566e61362685706a7"
     },
     {
         "icao": "FACA",
@@ -1887,7 +2012,8 @@
                 "label_lon": "23.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b6878bf4bbea5a974093797b7a83f60c"
     },
     {
         "icao": "FACA-E",
@@ -1902,7 +2028,8 @@
                 "label_lon": "25.7",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1d1e21862c056569a1c565910ffe0889"
     },
     {
         "icao": "FACA-W",
@@ -1917,7 +2044,8 @@
                 "label_lon": "17.7",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c95cdea47914839d26d5883a7fab60a5"
     },
     {
         "icao": "FAJO",
@@ -1932,7 +2060,8 @@
                 "label_lon": "32.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6ca3ffe4bd0ca493f4ec73dcf5892829"
     },
     {
         "icao": "FAJA",
@@ -1947,7 +2076,8 @@
                 "label_lon": "28.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ac5136fd44a655183eeecce9c5915924"
     },
     {
         "icao": "FASA",
@@ -1962,7 +2092,8 @@
                 "label_lon": "24.469167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "39f10124f5ea482834cb10db314505f1"
     },
     {
         "icao": "FBGR",
@@ -1977,7 +2108,8 @@
                 "label_lon": "24.675",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e2d1e8a21a1f876fc9e58e1a289d9e30"
     },
     {
         "icao": "FCCC",
@@ -1992,7 +2124,8 @@
                 "label_lon": "14.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a393afafdcc9c1923bf3586bc989eb07"
     },
     {
         "icao": "FIMM",
@@ -2007,7 +2140,8 @@
                 "label_lon": "65.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6fa0757b3bd5eb2b85c8b4c37e462b33"
     },
     {
         "icao": "FLFI",
@@ -2022,7 +2156,8 @@
                 "label_lon": "27.853286",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "38698af55b560487af0cbe82cea5f65d"
     },
     {
         "icao": "FMMM",
@@ -2037,7 +2172,8 @@
                 "label_lon": "48.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bab6dd73bfe3c4617a06da0d51e588d1"
     },
     {
         "icao": "FNAN",
@@ -2052,7 +2188,8 @@
                 "label_lon": "7.166666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6f679447f6f89aaca7a12a5bc0b3b88c"
     },
     {
         "icao": "FQBE",
@@ -2067,7 +2204,8 @@
                 "label_lon": "36.607389",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c5ddce7255ad26fa6f59e1ddf246556e"
     },
     {
         "icao": "FSSS",
@@ -2082,7 +2220,8 @@
                 "label_lon": "52.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dedd3a40681370e2b07bcd491cddd51f"
     },
     {
         "icao": "FTTT",
@@ -2097,7 +2236,8 @@
                 "label_lon": "18.233334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b8627afc4e4cbaf38ddaf1dbed9df144"
     },
     {
         "icao": "FVHF",
@@ -2112,7 +2252,8 @@
                 "label_lon": "29.143667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ca9a3f28ab462b8be2f642ff37ad1a0d"
     },
     {
         "icao": "FWLL",
@@ -2127,7 +2268,8 @@
                 "label_lon": "34.294567",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0b20dd587147cfe1ef584f0c1485b2ee"
     },
     {
         "icao": "FYWH",
@@ -2142,7 +2284,8 @@
                 "label_lon": "17.631199",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8f98ef6f50ebfb75851b8a2bab7f3e7d"
     },
     {
         "icao": "FZZA",
@@ -2157,7 +2300,8 @@
                 "label_lon": "22.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6b17d1e5f460a7606056b76189f7530a"
     },
     {
         "icao": "GCCC",
@@ -2172,7 +2316,8 @@
                 "label_lon": "-16.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "99c18514574be7944e08a4f6041dbc4a"
     },
     {
         "icao": "GCCC-R6",
@@ -2187,7 +2332,8 @@
                 "label_lon": "-16.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "715ac08411bb75b1f52d7f7711f6813e"
     },
     {
         "icao": "GCCO",
@@ -2202,7 +2348,8 @@
                 "label_lon": "-21.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9f919e3d43b3b188a36571fa61c81634"
     },
     {
         "icao": "GLRB",
@@ -2217,7 +2364,8 @@
                 "label_lon": "-12.124819",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9b3184a71b932e20b7f44f320bb7f1e0"
     },
     {
         "icao": "GMMM",
@@ -2232,7 +2380,8 @@
                 "label_lon": "-8.390876",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ef6401745ec86185ecf55e60094771a5"
     },
     {
         "icao": "GMMM",
@@ -2247,7 +2396,8 @@
                 "label_lon": "-12.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7aa58b8c28572a1b26ca08427fb5e1da"
     },
     {
         "icao": "GMAC",
@@ -2262,7 +2412,8 @@
                 "label_lon": "-12.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4d9e120c7e72973a1a85f7e896c79fda"
     },
     {
         "icao": "GOOO",
@@ -2277,7 +2428,8 @@
                 "label_lon": "-11.933149",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7f388a574f0606078072d512182c84c6"
     },
     {
         "icao": "GOOC",
@@ -2292,7 +2444,8 @@
                 "label_lon": "-20.249722",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8e182288340d7ac46f22aa849f805e05"
     },
     {
         "icao": "GVSC",
@@ -2307,7 +2460,8 @@
                 "label_lon": "-28.751528",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d94941dbac18122390854baad7a6a510"
     },
     {
         "icao": "HAAA",
@@ -2322,7 +2476,8 @@
                 "label_lon": "40.500354",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ff64d1a99bc459b48be46e76801e0fdb"
     },
     {
         "icao": "HBBA",
@@ -2337,7 +2492,8 @@
                 "label_lon": "29.916189",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "40875ddda2c236a804a28feaeaae8427"
     },
     {
         "icao": "HCSM",
@@ -2352,7 +2508,8 @@
                 "label_lon": "50.499371",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cad2a5d503d7f74873af2dc4568bd741"
     },
     {
         "icao": "HECC",
@@ -2367,7 +2524,8 @@
                 "label_lon": "31.081334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "44ba3e97fa23c4c77844d64602cd09d4"
     },
     {
         "icao": "HHAA",
@@ -2382,7 +2540,8 @@
                 "label_lon": "39.819237",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "25a4bdbf05a2d1d2fa4cd846bb857b76"
     },
     {
         "icao": "HKNA",
@@ -2397,7 +2556,8 @@
                 "label_lon": "38.950528",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "474dc162f53db551d22b40d960b4863c"
     },
     {
         "icao": "HJJJ",
@@ -2412,7 +2572,8 @@
                 "label_lon": "29.988512",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "58de92d8317fe735e9fc8c8ba1a97e23"
     },
     {
         "icao": "HLLL",
@@ -2427,7 +2588,8 @@
                 "label_lon": "17.275245",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "701beec4c1d94eabed8549af02aab3e6"
     },
     {
         "icao": "HLLB",
@@ -2442,7 +2604,8 @@
                 "label_lon": "17.275245",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "09cfca81b395be6f970e72dc8f70bdeb"
     },
     {
         "icao": "HRYR",
@@ -2457,7 +2620,8 @@
                 "label_lon": "29.873917",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cf8b0f5317e81609f4d4d54542c399cb"
     },
     {
         "icao": "HSSS",
@@ -2472,7 +2636,8 @@
                 "label_lon": "30.163157",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ec3e9cadc65324ab6fe1577c18250f42"
     },
     {
         "icao": "HTDC",
@@ -2487,7 +2652,8 @@
                 "label_lon": "36.425811",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d9a45146651505646ca3fb8169fe84a6"
     },
     {
         "icao": "HUEC",
@@ -2502,7 +2668,8 @@
                 "label_lon": "32.306",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7b7b629883e42cd612c7a064931c43db"
     },
     {
         "icao": "KZAB",
@@ -2517,7 +2684,8 @@
                 "label_lon": "-107.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "970a7986c77df80b638a1cc387077c89"
     },
     {
         "icao": "KZAU",
@@ -2532,7 +2700,8 @@
                 "label_lon": "-89.141667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b1acfc2b952ae6b7953147238c611df8"
     },
     {
         "icao": "KZBW",
@@ -2547,7 +2716,8 @@
                 "label_lon": "-71.895834",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f462f5d3e7705198c05b714ba28ade25"
     },
     {
         "icao": "KZDC",
@@ -2562,7 +2732,8 @@
                 "label_lon": "-76.754167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0da59f04fe0ca93fc06e50fec4c74613"
     },
     {
         "icao": "KZDV",
@@ -2577,7 +2748,8 @@
                 "label_lon": "-105.339584",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "de96f60d08ecb530f2b3e99de2661bc1"
     },
     {
         "icao": "KZFW",
@@ -2592,7 +2764,8 @@
                 "label_lon": "-97.811111",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d0e6b63e847b4748d97c263e70a73121"
     },
     {
         "icao": "KZHU",
@@ -2607,7 +2780,8 @@
                 "label_lon": "-92.7279",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "13ce1ac44735512b5113fb52636ebdfc"
     },
     {
         "icao": "KZID",
@@ -2622,7 +2796,8 @@
                 "label_lon": "-84.358334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f426a5e09f7b7fb86474c7bba7736f33"
     },
     {
         "icao": "KZJX",
@@ -2637,7 +2812,8 @@
                 "label_lon": "-82.345",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4a8dffdf0e977bf6e7cb5489256daeec"
     },
     {
         "icao": "KZJX-P",
@@ -2652,7 +2828,8 @@
                 "label_lon": "-85.770",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0524283f85aa5e3cc093a69e4ed3896e"
     },
     {
         "icao": "KZJX-C",
@@ -2667,7 +2844,8 @@
                 "label_lon": "-81.838",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "75876b7148e95eab7fdaf91ade1a44ce"
     },
     {
         "icao": "KZJX-A",
@@ -2682,7 +2860,8 @@
                 "label_lon": "-79.413",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "82348613273ed34459684b80773847f5"
     },
     {
         "icao": "KZKC",
@@ -2697,7 +2876,8 @@
                 "label_lon": "-95.322222",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "abed3cbee4dd01fe31f7d230518d4eb5"
     },
     {
         "icao": "KZLA",
@@ -2712,7 +2892,8 @@
                 "label_lon": "-117.377084",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6e52ac5aa06143764bb47c0ea34fe400"
     },
     {
         "icao": "KZLC",
@@ -2727,7 +2908,8 @@
                 "label_lon": "-111.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "54c1dc8569d7d39d79a68a1c8c4b6846"
     },
     {
         "icao": "KZMA",
@@ -2742,7 +2924,8 @@
                 "label_lon": "-81",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "df9d02045f0646fa37febb7a6e550fd3"
     },
     {
         "icao": "KZMO",
@@ -2757,7 +2940,8 @@
                 "label_lon": "-75.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2c1ce59529da7eb93770f214a51d2ac6"
     },
     {
         "icao": "KZME",
@@ -2772,7 +2956,8 @@
                 "label_lon": "-90.422917",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a86cd058ab9e85204e6d19b9bca532a1"
     },
     {
         "icao": "KZMP",
@@ -2787,7 +2972,8 @@
                 "label_lon": "-92.676112",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5f78e91257de9e3a077cc62931c5827d"
     },
     {
         "icao": "KZNY-W",
@@ -2802,7 +2988,8 @@
                 "label_lon": "-76.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c72c40bf6bbfb4b5be85c7257da9c7f0"
     },
     {
         "icao": "KZNY",
@@ -2817,7 +3004,8 @@
                 "label_lon": "-74.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "48949859ca7728b73c1d06873958102f"
     },
     {
         "icao": "KZNY",
@@ -2832,7 +3020,8 @@
                 "label_lon": "-58.5",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "42601d291714c9ab3589cf8badfaff4d"
     },
     {
         "icao": "KZNY-BDA",
@@ -2847,7 +3036,8 @@
                 "label_lon": "-64.7",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "67c4401c65b2923efff55f324b625a9a"
     },
     {
         "icao": "KZOA",
@@ -2862,7 +3052,8 @@
                 "label_lon": "-122.004167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "daa6a1bce5ee90fb7d64e2ad9d615327"
     },
     {
         "icao": "KZAK",
@@ -2877,7 +3068,8 @@
                 "label_lon": "-160.0",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "6aaed9580a549425b01143f0c4961d9e"
     },
     {
         "icao": "KZA1",
@@ -2892,7 +3084,8 @@
                 "label_lon": "-160.0",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "dabfac2ae52edbc226fc26ad5e139b49"
     },
     {
         "icao": "KZOB",
@@ -2907,7 +3100,8 @@
                 "label_lon": "-80.833334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "800d7d4e4f7f128c225cb3b1c23cff2f"
     },
     {
         "icao": "KZSE",
@@ -2922,7 +3116,8 @@
                 "label_lon": "-121.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b5d35137b8268154973a50aa016bc2dc"
     },
     {
         "icao": "KZTL",
@@ -2937,7 +3132,8 @@
                 "label_lon": "-84.045833",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8bf4cfb3bcbd768e34695950969024e4"
     },
     {
         "icao": "LAAA",
@@ -2952,7 +3148,8 @@
                 "label_lon": "19.961987",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6b816136596e6284bf0fb7d39b6d52d2"
     },
     {
         "icao": "LBSR",
@@ -2967,7 +3164,8 @@
                 "label_lon": "26.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "59c2b7cfcfd8fa91712bb2602bc61373"
     },
     {
         "icao": "LCCC",
@@ -2982,7 +3180,8 @@
                 "label_lon": "33.229451",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2ec7f1abd287de0f9bbdfb2029462085"
     },
     {
         "icao": "LCCC-E",
@@ -2997,7 +3196,8 @@
                 "label_lon": "34.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "16977aa4fdb538b39b21323451c4a6fa"
     },
     {
         "icao": "LCCC-S2",
@@ -3012,7 +3212,8 @@
                 "label_lon": "30.54",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7d901990a6db05d578d93c42b36ef30f"
     },
     {
         "icao": "LCCC-S1",
@@ -3027,7 +3228,8 @@
                 "label_lon": "32.5619",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1a36a22308c1756a3900c77895162545"
     },
     {
         "icao": "LCCC-W",
@@ -3042,7 +3244,8 @@
                 "label_lon": "31.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4628bc7ffe2fc49499a62694686918e4"
     },
     {
         "icao": "LDZO",
@@ -3057,7 +3260,8 @@
                 "label_lon": "14.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ac40a00ce7fc0b5e5484963064d36e3c"
     },
     {
         "icao": "LECB",
@@ -3072,7 +3276,8 @@
                 "label_lon": "1.45",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "33aa7efcd3e735e2c28f15ffa3e1acda"
     },
     {
         "icao": "LECB-W",
@@ -3087,7 +3292,8 @@
                 "label_lon": "0.78",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d85946b3ebf7ca4567cda1e4f46954c0"
     },
     {
         "icao": "LECB-E",
@@ -3102,7 +3308,8 @@
                 "label_lon": "3.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bfd491736beeba9d8969960c476b0dec"
     },
     {
         "icao": "LECB-S",
@@ -3117,7 +3324,8 @@
                 "label_lon": "4.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "81fab4dfe05046c65e0f05a0463620d5"
     },
     {
         "icao": "LECB-N",
@@ -3132,7 +3340,8 @@
                 "label_lon": "1.93",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "46979eb3d726979dbe7c92fb6ae44657"
     },
     {
         "icao": "LECL",
@@ -3147,7 +3356,8 @@
                 "label_lon": "-0.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dffe3090e2c22b406c7e2d6269b7a331"
     },
     {
         "icao": "LECM",
@@ -3162,7 +3372,8 @@
                 "label_lon": "-3.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2b65f8f140324e0650dc73a401be178d"
     },
     {
         "icao": "LECM-ALL",
@@ -3177,7 +3388,8 @@
                 "label_lon": "-3.7",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d4acb2173d5caf64f45004a99ecca267"
     },
     {
         "icao": "LECM-R1",
@@ -3192,7 +3404,8 @@
                 "label_lon": "-5.6",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "744f1f99f65cc45ae6ae0e56857645c8"
     },
     {
         "icao": "LECM-R2",
@@ -3207,7 +3420,8 @@
                 "label_lon": "-5.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6063d50328470c6f1bac52fa82256d0a"
     },
     {
         "icao": "LECP",
@@ -3222,7 +3436,8 @@
                 "label_lon": "2.05",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "01bd038b30324ba7c5b9d80f470c2ce2"
     },
     {
         "icao": "LECS",
@@ -3237,7 +3452,8 @@
                 "label_lon": "-4.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "336eec529c61b732b3a13fd305cbd75d"
     },
     {
         "icao": "LFBB",
@@ -3252,7 +3468,8 @@
                 "label_lon": "0.628889",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a7d6a01cc0e7a4a8a6cf5b7bb7875aa3"
     },
     {
         "icao": "LFEE",
@@ -3267,7 +3484,8 @@
                 "label_lon": "5.16",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f599f4260e32eed4fa2f3857a9cafb01"
     },
     {
         "icao": "LFEE-N",
@@ -3282,7 +3500,8 @@
                 "label_lon": "3.34",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bf6d08e4abca6bc143e76ae6b625d472"
     },
     {
         "icao": "LFEE-S",
@@ -3297,7 +3516,8 @@
                 "label_lon": "6.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c43e60441b543b7ecc175924c00e4fc1"
     },
     {
         "icao": "LFFF",
@@ -3312,7 +3532,8 @@
                 "label_lon": "2.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b11b0b7c6e1835139d6d1417891a954c"
     },
     {
         "icao": "LFMM",
@@ -3327,7 +3548,8 @@
                 "label_lon": "6.0125",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b746714f744c2eea13eae4418216b746"
     },
     {
         "icao": "LFRR",
@@ -3342,7 +3564,8 @@
                 "label_lon": "-1.6",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "033131375caed11dc6f44d44bc79c42b"
     },
     {
         "icao": "LFRR-N",
@@ -3357,7 +3580,8 @@
                 "label_lon": "-4.125",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "06d1b54cbadd448032439faa0c7c410d"
     },
     {
         "icao": "LFRR-E",
@@ -3372,7 +3596,8 @@
                 "label_lon": "0.95",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8ef404c5a1c62f3fe013150bb87ad02e"
     },
     {
         "icao": "LFUM",
@@ -3387,7 +3612,8 @@
                 "label_lon": "6.0125",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "887c3173bfe397c02afd5e11913e6f00"
     },
     {
         "icao": "LGGG",
@@ -3402,7 +3628,8 @@
                 "label_lon": "24.55",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d4aff179dfee82510f8b3ce24c85ce1d"
     },
     {
         "icao": "LGGG-RDS",
@@ -3417,7 +3644,8 @@
                 "label_lon": "26.041007",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b33d930bad2a2005e2ce9bb9c3fc9294"
     },
     {
         "icao": "LGGG-KRK",
@@ -3432,7 +3660,8 @@
                 "label_lon": "21.010782",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "09d9bd44632dbcf58184acc5ee06995c"
     },
     {
         "icao": "LGGG-MIL",
@@ -3447,7 +3676,8 @@
                 "label_lon": "24.465394",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "49f391d675a66412e875717466551dcd"
     },
     {
         "icao": "LGGG-KFN",
@@ -3462,7 +3692,8 @@
                 "label_lon": "19.692540",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6f042f8e18879b6f2e72607a4b666f20"
     },
     {
         "icao": "LGGG-PLH",
@@ -3477,7 +3708,8 @@
                 "label_lon": "22.131505",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3ef3ba91f7061eaff8900b69ace2ef5f"
     },
     {
         "icao": "LGGG-KAV",
@@ -3492,7 +3724,8 @@
                 "label_lon": "28.720959",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9556dfadd4894436b0d732ac250d127c"
     },
     {
         "icao": "LGGG-SIT",
@@ -3507,7 +3740,8 @@
                 "label_lon": "26.36085",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8d300176fb2ea2ab955add37ffe6779f"
     },
     {
         "icao": "LGMD-W",
@@ -3522,7 +3756,8 @@
                 "label_lon": "23.114011",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "58a1098a0533464953b61741e15e34c5"
     },
     {
         "icao": "LGMD-LMO",
@@ -3537,7 +3772,8 @@
                 "label_lon": "25.10577",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bc9a8b5982e98aab94a33342481523ca"
     },
     {
         "icao": "LGMD-KVL",
@@ -3552,7 +3788,8 @@
                 "label_lon": "24.673346",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8e8c5800e64add7973a1a8a1dadc3d30"
     },
     {
         "icao": "LHCC",
@@ -3567,7 +3804,8 @@
                 "label_lon": "19.50865",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5e8770f10174eac0643fb26522c62eb3"
     },
     {
         "icao": "LIBB",
@@ -3582,7 +3820,8 @@
                 "label_lon": "16.041666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7cf873e0398f6d6f6819943bd0931930"
     },
     {
         "icao": "LIMM",
@@ -3597,7 +3836,8 @@
                 "label_lon": "8.65",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5d8f98ec64abb2a3a0726a4af39c95f2"
     },
     {
         "icao": "LIMM",
@@ -3612,7 +3852,8 @@
                 "label_lon": "11.55",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "80a483cd5e1a1f485419f579f11e6dfe"
     },
     {
         "icao": "LIPP",
@@ -3627,7 +3868,8 @@
                 "label_lon": "11.55",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "abcfb43d6342648bbc8d6b5689dc0e99"
     },
     {
         "icao": "LIRR",
@@ -3642,7 +3884,8 @@
                 "label_lon": "13.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a025a0331eb5ace17f4a1293af9133d4"
     },
     {
         "icao": "LJLA",
@@ -3657,7 +3900,8 @@
                 "label_lon": "14.707096",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "48307400e0a1926c8ed04a8ea915b800"
     },
     {
         "icao": "LKAA",
@@ -3672,7 +3916,8 @@
                 "label_lon": "15.475",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b7e3c60252397c9bf8dd69504bc85f63"
     },
     {
         "icao": "LLLL",
@@ -3687,7 +3932,8 @@
                 "label_lon": "34.74961",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "969f02bac2a9642503eae1d943bdf00c"
     },
     {
         "icao": "LLSC",
@@ -3702,7 +3948,8 @@
                 "label_lon": "34.87608",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "67725f2f6e03426ea6c59b73966aa886"
     },
     {
         "icao": "LLPT",
@@ -3717,7 +3964,8 @@
                 "label_lon": "34.934306",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8796671573c30eaa7f6fb6291627b7d7"
     },
     {
         "icao": "LLPL",
@@ -3732,7 +3980,8 @@
                 "label_lon": "34.74961",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "032cb8265000b87274593490e4b2da49"
     },
     {
         "icao": "LLGV",
@@ -3747,7 +3996,8 @@
                 "label_lon": "34.74961",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2dd8d0aacc556e6792676b55504b4cea"
     },
     {
         "icao": "LMMM",
@@ -3762,7 +4012,8 @@
                 "label_lon": "15.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b9b926ef6ebab2e8f2dd9dc706344aee"
     },
     {
         "icao": "LOVV-C",
@@ -3777,7 +4028,8 @@
                 "label_lon": "14.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cdcf5b895f09260d3f56139167a37cf3"
     },
     {
         "icao": "LOVV-B",
@@ -3792,7 +4044,8 @@
                 "label_lon": "13.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1a65c09621feea5cce84ea8dde78f8f3"
     },
     {
         "icao": "LOVV-N",
@@ -3807,7 +4060,8 @@
                 "label_lon": "14.35",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "72e29c025003e6736034599554e32483"
     },
     {
         "icao": "LOVV-E",
@@ -3822,7 +4076,8 @@
                 "label_lon": "16.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "01b53136f9ddaef52bd0f85d2498b608"
     },
     {
         "icao": "LOVV-W",
@@ -3837,7 +4092,8 @@
                 "label_lon": "13.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5238a440d10da425e20cbb65ffa0aaf9"
     },
     {
         "icao": "LOVV",
@@ -3852,7 +4108,8 @@
                 "label_lon": "14.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8818cd4de4e4da35c10dcc087f5a7517"
     },
     {
         "icao": "LPPC",
@@ -3867,7 +4124,8 @@
                 "label_lon": "-9.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6c81990f65b69b8f7755e7c3bff900e8"
     },
     {
         "icao": "LPPC-D",
@@ -3882,7 +4140,8 @@
                 "label_lon": "-12.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f8a3797dca43015a51d7069523b92e85"
     },
     {
         "icao": "LPPC-W",
@@ -3897,7 +4156,8 @@
                 "label_lon": "-11.840505",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f322c48ef75257fdffa1746057d4c250"
     },
     {
         "icao": "LPPC-E",
@@ -3912,7 +4172,8 @@
                 "label_lon": "-8.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "38a99383e9c77c66ce8de40bed4b991b"
     },
     {
         "icao": "LPPC-I",
@@ -3927,7 +4188,8 @@
                 "label_lon": "-14.854017",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2ad86a14f26d3db97ec931171c855a72"
     },
     {
         "icao": "LPPC-N",
@@ -3942,7 +4204,8 @@
                 "label_lon": "-8.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "192b1ee3bddfd0ae86593f50d86a19ed"
     },
     {
         "icao": "LPPC-C",
@@ -3957,7 +4220,8 @@
                 "label_lon": "-8.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2ddb24c730d78a3536bdeacde19fd82f"
     },
     {
         "icao": "LPPC-S",
@@ -3972,7 +4236,8 @@
                 "label_lon": "-8.85",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f7634d708e5614afda5db0fef39880b3"
     },
     {
         "icao": "LPPO",
@@ -3987,7 +4252,8 @@
                 "label_lon": "-28.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2826a4367057e85936fefcb37002817b"
     },
     {
         "icao": "LPPO-TMA",
@@ -4002,7 +4268,8 @@
                 "label_lon": "-30.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c899e4595b83644964df8be6c43bb171"
     },
     {
         "icao": "LPAM",
@@ -4017,7 +4284,8 @@
                 "label_lon": "-9.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a90acb420aa0ba20570a60b58e38ee32"
     },
     {
         "icao": "LQSB",
@@ -4032,7 +4300,8 @@
                 "label_lon": "17.679715",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6915c81a79f56ec17ad771ba02794272"
     },
     {
         "icao": "LRBB",
@@ -4047,7 +4316,8 @@
                 "label_lon": "25.402153",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3ff9274e2b2bb5e16eb4e76542c4f2c3"
     },
     {
         "icao": "LSAS",
@@ -4062,7 +4332,8 @@
                 "label_lon": "7.862335",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ce010868f092773a7d8f439c2fba9d75"
     },
     {
         "icao": "LSAG",
@@ -4077,7 +4348,8 @@
                 "label_lon": "6.682834",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1751a7e103b66f0188779fff2294f745"
     },
     {
         "icao": "LSAZ",
@@ -4092,7 +4364,8 @@
                 "label_lon": "8.749433",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0fbcd0a83abf808c3dc093090136a332"
     },
     {
         "icao": "LTAA",
@@ -4107,7 +4380,8 @@
                 "label_lon": "37.399954",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9e2dbdfc56ececae9a11633268fa5061"
     },
     {
         "icao": "LTAA-A",
@@ -4122,7 +4396,8 @@
                 "label_lon": "37.399954",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b18e761cbaefa46e5a2be94054d2de32"
     },
     {
         "icao": "LTBB",
@@ -4137,7 +4412,8 @@
                 "label_lon": "28.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d91b2b3a0bebe96d8a1b0b83b35740b5"
     },
     {
         "icao": "LUUU",
@@ -4152,7 +4428,8 @@
                 "label_lon": "29.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1ae75a038cabbd0374c51b102c3501da"
     },
     {
         "icao": "LWSS",
@@ -4167,7 +4444,8 @@
                 "label_lon": "21.743602",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2c25fab98d4c9b793acb749f5edfa882"
     },
     {
         "icao": "LYBA",
@@ -4182,7 +4460,8 @@
                 "label_lon": "20.65533",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bce2e30768cdcb2e6b58392298b5c583"
     },
     {
         "icao": "LZBB",
@@ -4197,7 +4476,8 @@
                 "label_lon": "19.708333",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "133e90637bbcf7f13ce66223734433eb"
     },
     {
         "icao": "MDCS",
@@ -4212,7 +4492,8 @@
                 "label_lon": "-69.999305",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1bd29f1f4e60702c01bbaec4f7a68d0a"
     },
     {
         "icao": "MHCC",
@@ -4227,7 +4508,8 @@
                 "label_lon": "-93.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0aa8512d6dcdfa5051c7219df41a72f1"
     },
     {
         "icao": "MKJK",
@@ -4242,7 +4524,8 @@
                 "label_lon": "-77.625",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2e5a385c0a24e7feada24f8bb3b8accd"
     },
     {
         "icao": "MMEX",
@@ -4257,7 +4540,8 @@
                 "label_lon": "-100.78432",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1d9a9ce0f6d0968b1a8140e7e22817c0"
     },
     {
         "icao": "MMFR",
@@ -4272,7 +4556,8 @@
                 "label_lon": "-102.805229",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c9e5d4ce0019535e35260ef88dc584ec"
     },
     {
         "icao": "MMID",
@@ -4287,7 +4572,8 @@
                 "label_lon": "-92.447442",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4bcbfe5d76f0741c517a350f7c2bf488"
     },
     {
         "icao": "MMTY",
@@ -4302,7 +4588,8 @@
                 "label_lon": "-102.75",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "eea6bb6c4b32ea54376713366987fbbc"
     },
     {
         "icao": "MMZT",
@@ -4317,7 +4604,8 @@
                 "label_lon": "-109.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1d7b057643f43704a947553670eb1565"
     },
     {
         "icao": "MMFO",
@@ -4332,7 +4620,8 @@
                 "label_lon": "-109.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7515e8c04d2c8cf9f5c53b90eeb6cccf"
     },
     {
         "icao": "MPZL",
@@ -4347,7 +4636,8 @@
                 "label_lon": "-80.1125",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f9c84095dc91e29f949c3082bd1edb9c"
     },
     {
         "icao": "MTEG",
@@ -4362,7 +4652,8 @@
                 "label_lon": "-73.316667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1aa5f748018606997920f4f85ea457ba"
     },
     {
         "icao": "MUFH",
@@ -4377,7 +4668,8 @@
                 "label_lon": "-79.666666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "360ea6c80df85d8835a3e437f2b842e7"
     },
     {
         "icao": "NAT",
@@ -4392,7 +4684,8 @@
                 "label_lon": "-32.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d1a268f48c638ac1b1e709df3a54f93c"
     },
     {
         "icao": "NCRG",
@@ -4407,7 +4700,8 @@
                 "label_lon": "-159.52499",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3da4a3411d85866915349de1cfe9c908"
     },
     {
         "icao": "NFFF",
@@ -4422,7 +4716,8 @@
                 "label_lon": "175.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4dde052256cba6eb4417effa0c1b832a"
     },
     {
         "icao": "NFFN",
@@ -4437,7 +4732,8 @@
                 "label_lon": "179.828924",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3972b6c13b41dd8e752276b79685c95a"
     },
     {
         "icao": "NVVV",
@@ -4452,7 +4748,8 @@
                 "label_lon": "168.500000",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1179878a869ae3a5a06731e2e4aa6882"
     },
     {
         "icao": "NSTU",
@@ -4467,7 +4764,8 @@
                 "label_lon": "-170.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "61667f2829f13781a2f57f8cc02bee7d"
     },
     {
         "icao": "NTTT",
@@ -4482,7 +4780,8 @@
                 "label_lon": "-138.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c4d066e9fc5aee6af12a7defbd7db5d6"
     },
     {
         "icao": "NTTC",
@@ -4497,7 +4796,8 @@
                 "label_lon": "-149.16261",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9daa8572e6a59d2566ffea4bea2bd75b"
     },
     {
         "icao": "NWWW",
@@ -4512,7 +4812,8 @@
                 "label_lon": "165.250000",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "78b62adf76bc6f07b67027e51f7ed69e"
     },
     {
         "icao": "NZZO",
@@ -4527,7 +4828,8 @@
                 "label_lon": "-170.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d3c0e5ef2a1a575e052c7eba4fc55b95"
     },
     {
         "icao": "NZAA",
@@ -4542,7 +4844,8 @@
                 "label_lon": "174.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "985c022216941f3c172aae913d960f8b"
     },
     {
         "icao": "NZCB",
@@ -4557,7 +4860,8 @@
                 "label_lon": "176.75",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "db28513c85516571ce99535920681323"
     },
     {
         "icao": "NZCT",
@@ -4572,7 +4876,8 @@
                 "label_lon": "172.75",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fa6a0c7802e6b1cc01eaed5347a7afda"
     },
     {
         "icao": "NZCK",
@@ -4587,7 +4892,8 @@
                 "label_lon": "173.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7b2a1bf2b89c731ff3da99167facae87"
     },
     {
         "icao": "NZCS",
@@ -4602,7 +4908,8 @@
                 "label_lon": "170.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "af99f55113e2983fa04f02a7a25ac924"
     },
     {
         "icao": "NZOH",
@@ -4617,7 +4924,8 @@
                 "label_lon": "176.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "45c1aad7d9c879b6d10aa81c5f4c4f9f"
     },
     {
         "icao": "NZCM",
@@ -4632,7 +4940,8 @@
                 "label_lon": "171.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c72dd56c827f3fb91ac51c3e66dbac6a"
     },
     {
         "icao": "NSFA",
@@ -4647,7 +4956,8 @@
                 "label_lon": "-171.34628",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9deddc93861557448ae366957e8e3f61"
     },
     {
         "icao": "OAKX",
@@ -4662,7 +4972,8 @@
                 "label_lon": "67.683334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c518cc21dad8cb6d1012f2a089c482d2"
     },
     {
         "icao": "OBBB",
@@ -4677,7 +4988,8 @@
                 "label_lon": "50.275408",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "08a00ee675e2682b688f789ec0aed1a7"
     },
     {
         "icao": "OBBB-N",
@@ -4692,7 +5004,8 @@
                 "label_lon": "49.800525",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4d9a4c27e54071397bf41a96eb26cba5"
     },
     {
         "icao": "OBBB-C",
@@ -4707,7 +5020,8 @@
                 "label_lon": "50.799653",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "36eb1d4dbf5f7609d86df5d7b7d1a936"
     },
     {
         "icao": "OBBB-E",
@@ -4722,7 +5036,8 @@
                 "label_lon": "52.491067",
                 "oceanic": "9"
             }
-        ]
+        ],
+        "uniqueId": "b0e62548eec69f5683cc83c502cb6dab"
     },
     {
         "icao": "OEJD",
@@ -4737,7 +5052,8 @@
                 "label_lon": "44.107376",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bfa584afb01d722756c866f9d951edce"
     },
     {
         "icao": "OERD",
@@ -4752,7 +5068,8 @@
                 "label_lon": "43.543168",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c14ea1d42d72d1cdc3b82e4fab136429"
     },
     {
         "icao": "OIIX",
@@ -4767,7 +5084,8 @@
                 "label_lon": "54.182875",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "814c3ec6f89146e28bc06b92575c8449"
     },
     {
         "icao": "OTDF",
@@ -4782,7 +5100,8 @@
                 "label_lon": "51.903699",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "832e515b627bca89bee7a091ce45b3c8"
     },
     {
         "icao": "TEH-1W",
@@ -4797,7 +5116,8 @@
                 "label_lon": "45.944948",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d53380edcb90b011d9bef0ba0da95c3c"
     },
     {
         "icao": "TEH-1N",
@@ -4812,7 +5132,8 @@
                 "label_lon": "46.812884",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "60d79ff69dcdfc70726583839a0a1ff2"
     },
     {
         "icao": "TEH-1E",
@@ -4827,7 +5148,8 @@
                 "label_lon": "49.611297",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bf444097919e3a075491cf9a36e6c93d"
     },
     {
         "icao": "TEH-2W",
@@ -4842,7 +5164,8 @@
                 "label_lon": "47.156989",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "55d37e55b9a36d6fcec54a34960c92a5"
     },
     {
         "icao": "TEH-2E",
@@ -4857,7 +5180,8 @@
                 "label_lon": "50.855803",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "295efaf5792d6d5e4d0f151bc2f2b6fe"
     },
     {
         "icao": "TEH-3N",
@@ -4872,7 +5196,8 @@
                 "label_lon": "49.841167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "af23ad04717ba2863540df9f96277eb2"
     },
     {
         "icao": "TEH-3S",
@@ -4887,7 +5212,8 @@
                 "label_lon": "51.400997",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "464bbe87b3c8637dd4808aa8eb4cbc51"
     },
     {
         "icao": "TEH-4W",
@@ -4902,7 +5228,8 @@
                 "label_lon": "51.722331",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "eb416a36b9fa8a4e89fb8578c2a5690d"
     },
     {
         "icao": "TEH-4S",
@@ -4917,7 +5244,8 @@
                 "label_lon": "54.452178",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "793d5ab81c6a45b41dbdc3315ee89a40"
     },
     {
         "icao": "TEH-4E",
@@ -4932,7 +5260,8 @@
                 "label_lon": "53.953448",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9eaf322577b0f075edf7e4fe1a5ea046"
     },
     {
         "icao": "TEH-5W",
@@ -4947,7 +5276,8 @@
                 "label_lon": "56.382753",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "00a83438718de3a58440cae647d25179"
     },
     {
         "icao": "TEH-5E",
@@ -4962,7 +5292,8 @@
                 "label_lon": "59.509878",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "662eabaeb2b36e19bbee49a93066efb5"
     },
     {
         "icao": "TEH-6E",
@@ -4977,7 +5308,8 @@
                 "label_lon": "59.676467",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8cb029df788c0c7eb7a63ef0f7d26f3f"
     },
     {
         "icao": "TEH-6W",
@@ -4992,7 +5324,8 @@
                 "label_lon": "56.773148",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "71b6ff030151d595bcc1bb8496deaa31"
     },
     {
         "icao": "TEH-7",
@@ -5007,7 +5340,8 @@
                 "label_lon": "56.735832",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9d60041a5eeaf3af9bf9d2fe28d48eb8"
     },
     {
         "icao": "OJAC",
@@ -5022,7 +5356,8 @@
                 "label_lon": "36.35",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9f0d49bbdfff2fd74ca09646a5c4a024"
     },
     {
         "icao": "OKAC",
@@ -5037,7 +5372,8 @@
                 "label_lon": "48.111389",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "67ba3bde724a165f3fe030e8e8aac716"
     },
     {
         "icao": "OLBB",
@@ -5052,7 +5388,8 @@
                 "label_lon": "35.758643",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e1e6443ab4d625a0ab3cc96ccfa1df1a"
     },
     {
         "icao": "OMAE",
@@ -5067,7 +5404,8 @@
                 "label_lon": "54.187345",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8fe71ee8d07e1270a4214c50b773ef7c"
     },
     {
         "icao": "OOMM",
@@ -5082,7 +5420,8 @@
                 "label_lon": "57.603686",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0a2acdaf3a73e65d4beb82247b349d54"
     },
     {
         "icao": "OPKR",
@@ -5097,7 +5436,8 @@
                 "label_lon": "67.256735",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3599f1ab55df5549ac422cf1e7ee7d08"
     },
     {
         "icao": "OPLR",
@@ -5112,7 +5452,8 @@
                 "label_lon": "71.686419",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3a6554e69d67c4fdf1a898bd81ee4930"
     },
     {
         "icao": "ORBB",
@@ -5127,7 +5468,8 @@
                 "label_lon": "43.761655",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "94816b27a643ca9eaa64379638d4f1c5"
     },
     {
         "icao": "ORBB-N",
@@ -5142,7 +5484,8 @@
                 "label_lon": "42.700911",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cc8341a4c79c680e51fcc46c8e9572fd"
     },
     {
         "icao": "ORBB-S",
@@ -5157,7 +5500,8 @@
                 "label_lon": "42.700911",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "25c3ad56f7c16b0c822ba0d36e055a9e"
     },
     {
         "icao": "OSTT",
@@ -5172,7 +5516,8 @@
                 "label_lon": "38.9125",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e64a0e1fc8edba624297078c61e4e159"
     },
     {
         "icao": "OYSC",
@@ -5187,7 +5532,8 @@
                 "label_lon": "50.83",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "28a72d55b7d9ef8f573d3ad82759ae96"
     },
     {
         "icao": "PAZA",
@@ -5202,7 +5548,8 @@
                 "label_lon": "-165.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7b703fcf280431ee34a91082282a8207"
     },
     {
         "icao": "PAZA-D",
@@ -5217,7 +5564,8 @@
                 "label_lon": "-165.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b40999f7817d8c9b1bc03f7698b40bf8"
     },
     {
         "icao": "PAZA-P",
@@ -5232,7 +5580,8 @@
                 "label_lon": "-175.9",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "5699fb73cb286d47a135d95c53e7cd37"
     },
     {
         "icao": "PAZA-A",
@@ -5247,7 +5596,8 @@
                 "label_lon": "-150.0",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "36d9e1ae4076f47e633dda0ce6f27c8e"
     },
     {
         "icao": "PGZU",
@@ -5262,7 +5612,8 @@
                 "label_lon": "144.795983",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "aa06db3a2b1dd50252b7cc3e4d511246"
     },
     {
         "icao": "PHZH",
@@ -5277,7 +5628,8 @@
                 "label_lon": "-157.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4ab8b71bbbb6c3fcd54af0bb23ca2de4"
     },
     {
         "icao": "RCAA",
@@ -5292,7 +5644,8 @@
                 "label_lon": "121.39",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dc327d114ad3f96f749e9b166a2a9ac4"
     },
     {
         "icao": "RJCG",
@@ -5307,7 +5660,8 @@
                 "label_lon": "138.37",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dc208054675b1148077a1205f2c99524"
     },
     {
         "icao": "RJDG",
@@ -5322,7 +5676,8 @@
                 "label_lon": "128.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d8b0fdd6a4c1de3190382362ee5957d2"
     },
     {
         "icao": "RJTG",
@@ -5337,7 +5692,8 @@
                 "label_lon": "150.208334",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "abebc0f0263a2c5fb61505ac7470cf87"
     },
     {
         "icao": "RJTG",
@@ -5352,7 +5708,8 @@
                 "label_lon": "134.6369",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a13bc16beb75c072cb56540279f3dbd5"
     },
     {
         "icao": "RKRR",
@@ -5367,7 +5724,8 @@
                 "label_lon": "127.347750",
                 "oceanic": 0
             }
-        ]
+        ],
+        "uniqueId": "b44a3c79ebe7e3b8d9d05f7a3605a1cd"
     },
     {
         "icao": "RKRR-N",
@@ -5382,7 +5740,8 @@
                 "label_lon": "125.831460",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "70f2407aa7010b1da12d4e8aa8d3b681"
     },
     {
         "icao": "RKRR-S",
@@ -5397,7 +5756,8 @@
                 "label_lon": "125.538159",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "12bf07b923c694dd7dbfdc722fd9e232"
     },
     {
         "icao": "RKDA",
@@ -5412,7 +5772,8 @@
                 "label_lon": "128.898325",
                 "oceanic": 0
             }
-        ]
+        ],
+        "uniqueId": "f6967822ee188463e2455693c06d4bdc"
     },
     {
         "icao": "RKDA-W",
@@ -5427,7 +5788,8 @@
                 "label_lon": "128.898325",
                 "oceanic": 0
             }
-        ]
+        ],
+        "uniqueId": "279f657a980517a638b51d0329c92359"
     },
     {
         "icao": "RKDA-E",
@@ -5442,7 +5804,8 @@
                 "label_lon": "128.898325",
                 "oceanic": 0
             }
-        ]
+        ],
+        "uniqueId": "03e4b300e942572c4ef6cd677428b20a"
     },
     {
         "icao": "RKDA-C",
@@ -5457,7 +5820,8 @@
                 "label_lon": "128.898325",
                 "oceanic": 0
             }
-        ]
+        ],
+        "uniqueId": "b5ca2490bbeb5ccfec48613be5ca249a"
     },
     {
         "icao": "RJBG",
@@ -5472,7 +5836,8 @@
                 "label_lon": "129.248056",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8d3033659aa90d63c00501f4d4ea6523"
     },
     {
         "icao": "RPHI",
@@ -5487,7 +5852,8 @@
                 "label_lon": "123.501372",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "142bf3079b2eb440fdd18f87fa931ccf"
     },
     {
         "icao": "SACF",
@@ -5502,7 +5868,8 @@
                 "label_lon": "-64.925",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a4a04e4126e99aaba2261b70f858801a"
     },
     {
         "icao": "SACO",
@@ -5517,7 +5884,8 @@
                 "label_lon": "-64.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7cdc5a550ba29a33a23db2b254da74ee"
     },
     {
         "icao": "SAEF",
@@ -5532,7 +5900,8 @@
                 "label_lon": "-49.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3853994c708010a33dfe73a09ec11608"
     },
     {
         "icao": "SAEF-N",
@@ -5547,7 +5916,8 @@
                 "label_lon": "-60.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "292013e23c402ad512a909e5e0896ce8"
     },
     {
         "icao": "SAEF-S",
@@ -5562,7 +5932,8 @@
                 "label_lon": "-62.15",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0d47f49aaf8de33395d3f49d06409b2f"
     },
     {
         "icao": "BAIRES",
@@ -5577,7 +5948,8 @@
                 "label_lon": "-58.56082",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0b305d1fa8966298d4bbe454a43dd4c8"
     },
     {
         "icao": "SAMF",
@@ -5592,7 +5964,8 @@
                 "label_lon": "-67.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6420928ccba0cd122e3fd34a58d0cd96"
     },
     {
         "icao": "SAME",
@@ -5607,7 +5980,8 @@
                 "label_lon": "-68.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9724aa6c525d757f3a62f97fa8ce0091"
     },
     {
         "icao": "SARR",
@@ -5622,7 +5996,8 @@
                 "label_lon": "-58.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4475212434c4de8c1fc0dd68b6c6a75d"
     },
     {
         "icao": "SARE",
@@ -5637,7 +6012,8 @@
                 "label_lon": "-59.1",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bbb34d68a552f572c068cc083d38170f"
     },
     {
         "icao": "SAVF",
@@ -5652,7 +6028,8 @@
                 "label_lon": "-49.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3293694232f4a39ce74f6d1ce836a026"
     },
     {
         "icao": "SAVC",
@@ -5667,7 +6044,8 @@
                 "label_lon": "-67.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "015186b22ad106ce65fdc6d175c80364"
     },
     {
         "icao": "SBAZ",
@@ -5682,7 +6060,8 @@
                 "label_lon": "-57.65525",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "06fcca7069af98b0fe08f52579c63f24"
     },
     {
         "icao": "SBBS",
@@ -5697,7 +6076,8 @@
                 "label_lon": "-48.416667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a5aca529e50833248b97a67592ebd1b2"
     },
     {
         "icao": "SBCW",
@@ -5712,7 +6092,8 @@
                 "label_lon": "-51.104167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3f5ec7dd68421a53915bb6947b012fe4"
     },
     {
         "icao": "SBAO",
@@ -5727,7 +6108,8 @@
                 "label_lon": "-30.375",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "353c50d7ddbaf115c5707c6d58aa434c"
     },
     {
         "icao": "SBRE",
@@ -5742,7 +6124,8 @@
                 "label_lon": "-40.277056",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "437fe8dfab6c65946a62ffb5bed2b9b6"
     },
     {
         "icao": "SCCZ",
@@ -5757,7 +6140,8 @@
                 "label_lon": "-77.85",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2947c329d091201b5d76715ffcd02791"
     },
     {
         "icao": "SCEZ",
@@ -5772,7 +6156,8 @@
                 "label_lon": "-78.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9104f75b3b20710e6992d2d2d9f0e997"
     },
     {
         "icao": "SCFZ",
@@ -5787,7 +6172,8 @@
                 "label_lon": "-78.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ec4effc01b259a8fa2dee43fb7df4e00"
     },
     {
         "icao": "SCIZ",
@@ -5802,7 +6188,8 @@
                 "label_lon": "-110.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7f77a00852ee46171ab69b8f155edb61"
     },
     {
         "icao": "SCTZ",
@@ -5817,7 +6204,8 @@
                 "label_lon": "-78.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5e8dd32ad77bf3cb677f739b8a3da1bc"
     },
     {
         "icao": "SEFG",
@@ -5832,7 +6220,8 @@
                 "label_lon": "-83.583334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cf6707b0439fcbdb882d3cc28da33ba6"
     },
     {
         "icao": "SGFA",
@@ -5847,7 +6236,8 @@
                 "label_lon": "-58.458802",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "14c4fcafc0d5ade692a85c077a8abf1f"
     },
     {
         "icao": "SKEC",
@@ -5862,7 +6252,8 @@
                 "label_lon": "-74.208836",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a3ca9b8214b38aca930eae13b0eaf4b7"
     },
     {
         "icao": "SKED",
@@ -5877,7 +6268,8 @@
                 "label_lon": "-74.875487",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ccac3319c14522ef0a6951eadf0cbe3c"
     },
     {
         "icao": "SKED",
@@ -5892,7 +6284,8 @@
                 "label_lon": "-74.208836",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "59d0cc3965c7563afd59aaa31667923e"
     },
     {
         "icao": "SLLF",
@@ -5907,7 +6300,8 @@
                 "label_lon": "-63.508809",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fc30d785de8f4b74b03cbf56ed77ee62"
     },
     {
         "icao": "SMPM",
@@ -5922,7 +6316,8 @@
                 "label_lon": "-55.95",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fa073eb669b1204fa2bb2c06e080e872"
     },
     {
         "icao": "SOOO",
@@ -5937,7 +6332,8 @@
                 "label_lon": "-44.775",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c33f787274dbb4d6ab30da012427ce6d"
     },
     {
         "icao": "SPIM",
@@ -5952,7 +6348,8 @@
                 "label_lon": "-79.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bf1bfc291425f40a600861c7a00d47ff"
     },
     {
         "icao": "SPI1",
@@ -5967,7 +6364,8 @@
                 "label_lon": "-79.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "676aef6da79c852622730b22584e9339"
     },
     {
         "icao": "SPI2",
@@ -5982,7 +6380,8 @@
                 "label_lon": "-79.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bea50c4b520bd383368f641b6d1605f4"
     },
     {
         "icao": "SPI3",
@@ -5997,7 +6396,8 @@
                 "label_lon": "-79.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b2089dc69de3480ac9877a2aade09568"
     },
     {
         "icao": "SUEO",
@@ -6012,7 +6412,8 @@
                 "label_lon": "-31.6",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "05e1f6dacfb2a3ce3bf46936bcfffa01"
     },
     {
         "icao": "SUEO",
@@ -6027,7 +6428,8 @@
                 "label_lon": "-55.036112",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "566a01643d6604f75b18df928e1c2cc2"
     },
     {
         "icao": "SVZM",
@@ -6042,7 +6444,8 @@
                 "label_lon": "-66.600468",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1aec2a56f65466af02b015fd63f749b8"
     },
     {
         "icao": "SYGC",
@@ -6057,7 +6460,8 @@
                 "label_lon": "-58.936083",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ca5dab6ffc3272294158897e751c642a"
     },
     {
         "icao": "TJZS",
@@ -6072,7 +6476,8 @@
                 "label_lon": "-65.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2b3985422ab20fcaedf2963dc48b8edf"
     },
     {
         "icao": "TNCF",
@@ -6087,7 +6492,8 @@
                 "label_lon": "-70.533334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e6607f65d21a66fc5efae208dd741946"
     },
     {
         "icao": "TTZP",
@@ -6102,7 +6508,8 @@
                 "label_lon": "-60.064226",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "628419d5b15795cf80f44f83d0a08087"
     },
     {
         "icao": "TTZO",
@@ -6117,7 +6524,8 @@
                 "label_lon": "-47.593671",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d240a1be02fe458ec1cf51c7e2a2f837"
     },
     {
         "icao": "UAAA",
@@ -6132,7 +6540,8 @@
                 "label_lon": "77.552778",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "377eb384aa3257a1d594eed094b3e4d5"
     },
     {
         "icao": "UACN",
@@ -6147,7 +6556,8 @@
                 "label_lon": "68.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dbdd4167e304a25c981fa4d40c6a659d"
     },
     {
         "icao": "UAII",
@@ -6162,7 +6572,8 @@
                 "label_lon": "66.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d246a4762eda10bb6e3f770befd13b7b"
     },
     {
         "icao": "UATT",
@@ -6177,7 +6588,8 @@
                 "label_lon": "54.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bea1aeef2139530509659f86fd2dee9f"
     },
     {
         "icao": "UBBA",
@@ -6192,7 +6604,8 @@
                 "label_lon": "48.691666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e037d12065134a032a340f38d52de2ec"
     },
     {
         "icao": "UBBA-S",
@@ -6207,7 +6620,8 @@
                 "label_lon": "45.44359",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "879ad19e3ae1ad4577b61c21c0da189c"
     },
     {
         "icao": "UCFM",
@@ -6222,7 +6636,8 @@
                 "label_lon": "76.1",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "55563d064ca8edf6c6005ef196ea4e02"
     },
     {
         "icao": "UCFO",
@@ -6237,7 +6652,8 @@
                 "label_lon": "73.3",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ad0330d8e9bbbbd4aaacb9665337c56a"
     },
     {
         "icao": "UDDD",
@@ -6252,7 +6668,8 @@
                 "label_lon": "45.008334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bcf0f9335c9f4985eec7f3aec7a03255"
     },
     {
         "icao": "UEEE",
@@ -6267,7 +6684,8 @@
                 "label_lon": "130.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "253a6cf6025365877951d757a973a873"
     },
     {
         "icao": "UGGG",
@@ -6282,7 +6700,8 @@
                 "label_lon": "43.441667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "69114c9aa34a3fcaac3e43fdc8f47f7b"
     },
     {
         "icao": "UHHH",
@@ -6297,7 +6716,8 @@
                 "label_lon": "139.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fc7ded52873126ab5d461396923ee22f"
     },
     {
         "icao": "UHHH-1",
@@ -6312,7 +6732,8 @@
                 "label_lon": "133.5469",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "331bebddf953202214a812b068ec9d53"
     },
     {
         "icao": "UHHH-2",
@@ -6327,7 +6748,8 @@
                 "label_lon": "143.7041",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d512999cbf062fd1e6ebe85481cb2601"
     },
     {
         "icao": "UHHH-3",
@@ -6342,7 +6764,8 @@
                 "label_lon": "134.21572",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d0e8e23bad319742e4057a22fee84a8a"
     },
     {
         "icao": "UHHH-HF",
@@ -6357,7 +6780,8 @@
                 "label_lon": "146.509417",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d029e7ccc7fa43a3979f59b70a3df88f"
     },
     {
         "icao": "UHMM",
@@ -6372,7 +6796,8 @@
                 "label_lon": "166.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "365bfd52b0c669e0f9a15cafee0298bb"
     },
     {
         "icao": "UIII",
@@ -6387,7 +6812,8 @@
                 "label_lon": "111.558333",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2361cdd347b29c8ef72df5a37ed1ccf9"
     },
     {
         "icao": "UKBV",
@@ -6402,7 +6828,8 @@
                 "label_lon": "30.941667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7b6f364b74e6f29031d9648c31d6b262"
     },
     {
         "icao": "UKFV",
@@ -6417,7 +6844,8 @@
                 "label_lon": "33.759167",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7475120be1e5b60a52df3814899e7be9"
     },
     {
         "icao": "UKDV",
@@ -6432,7 +6860,8 @@
                 "label_lon": "36.516667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0ec9a9879b251b415f45cfd98206b266"
     },
     {
         "icao": "UKLV",
@@ -6447,7 +6876,8 @@
                 "label_lon": "24.987917",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ea4dea25df6eb698736b7bbf20197599"
     },
     {
         "icao": "UKOV",
@@ -6462,7 +6892,8 @@
                 "label_lon": "30.6275",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d19fca014dc81e300f73bc8a7cd9a4fc"
     },
     {
         "icao": "UKR",
@@ -6477,7 +6908,8 @@
                 "label_lon": "31.892367",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0a6ff4e8c2426c7980f9c8ff22f5015f"
     },
     {
         "icao": "ULLL",
@@ -6492,7 +6924,8 @@
                 "label_lon": "41.8881",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4d832351076795f1303190e50efb66b2"
     },
     {
         "icao": "ULLL-AM",
@@ -6507,7 +6940,8 @@
                 "label_lon": "42.4992",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "742cb045b8a17a9ef8903c0463a98a2a"
     },
     {
         "icao": "ULLL-AR",
@@ -6522,7 +6956,8 @@
                 "label_lon": "41.88812255859375",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "24f6349b38bed94b1fadcc85acf47632"
     },
     {
         "icao": "ULLL-MO",
@@ -6537,7 +6972,8 @@
                 "label_lon": "41.74777",
                 "oceanic": "1"
             }
-        ]
+        ],
+        "uniqueId": "9688ca1005d3aae60d8065708436f62d"
     },
     {
         "icao": "ULLL-MR",
@@ -6552,7 +6988,8 @@
                 "label_lon": "35.56818",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f807e581f313d5bc7e5752ac8a29c63e"
     },
     {
         "icao": "ULLL-NM",
@@ -6567,7 +7004,8 @@
                 "label_lon": "51.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7420efe55a596b09bacb12ae50349764"
     },
     {
         "icao": "ULLL-R",
@@ -6582,7 +7020,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0af348367a232998bd2e8272651215d4"
     },
     {
         "icao": "ULLL-SW",
@@ -6597,7 +7036,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "95af59406c8a71394bed2bf11af64834"
     },
     {
         "icao": "ULLL-R1",
@@ -6612,7 +7052,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b7ecedd95e1166edafb5742f9068e46f"
     },
     {
         "icao": "ULLL-R2",
@@ -6627,7 +7068,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fc07b572c32a3e42839f4b6b9cc83953"
     },
     {
         "icao": "ULLL-R3",
@@ -6642,7 +7084,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "41f7ce89de325946d8f6b8e2e0b3eed2"
     },
     {
         "icao": "ULLL-R4",
@@ -6657,7 +7100,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c05a9c007e54cf58a1029ce7ac6038f0"
     },
     {
         "icao": "ULLL-R5",
@@ -6672,7 +7116,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0a27b701d0ba017e47b408d71028568d"
     },
     {
         "icao": "ULLL-R6",
@@ -6687,7 +7132,8 @@
                 "label_lon": "31.42006",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b70fe26d332a2b8e727a8dced4a4e88d"
     },
     {
         "icao": "ULLL-S",
@@ -6702,7 +7148,8 @@
                 "label_lon": "54.966667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "24bddd4c3e98376e25639155530b83f1"
     },
     {
         "icao": "ULLL-W",
@@ -6717,7 +7164,8 @@
                 "label_lon": "39.7193",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8ab04693ffa4156c0133c84ce588c301"
     },
     {
         "icao": "ULLL-KT",
@@ -6732,7 +7180,8 @@
                 "label_lon": "45.2618165052269",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f1e28485d5ec68bf955fb230f24a395e"
     },
     {
         "icao": "ULLL-WK",
@@ -6747,7 +7196,8 @@
                 "label_lon": "42.0969070406566",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "458a279679335a26753de8d7c0a8daaf"
     },
     {
         "icao": "UMKK",
@@ -6762,7 +7212,8 @@
                 "label_lon": "20.215527",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6d55836809a4b35406686f5b3e7b7842"
     },
     {
         "icao": "UMMV",
@@ -6777,7 +7228,8 @@
                 "label_lon": "27.958334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "355f0b3bc5c76ded275b5247e70132e0"
     },
     {
         "icao": "UNKL",
@@ -6792,7 +7244,8 @@
                 "label_lon": "95.66849",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f0839378092247b9789c5f7e72d89137"
     },
     {
         "icao": "UNNT",
@@ -6807,7 +7260,8 @@
                 "label_lon": "79.666667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a92283d331f4fa1060b5288426ee20ae"
     },
     {
         "icao": "URRV",
@@ -6822,7 +7276,8 @@
                 "label_lon": "43.133334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1b418cc9ae8d0e25638b874f5d94b986"
     },
     {
         "icao": "USSV",
@@ -6837,7 +7292,8 @@
                 "label_lon": "55.116667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ba61d10c7ca7db46625898ef1ab2a8dd"
     },
     {
         "icao": "USTV",
@@ -6852,7 +7308,8 @@
                 "label_lon": "72.033334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c0cce229df8cc4f054a0b6e851d843d8"
     },
     {
         "icao": "UTAA",
@@ -6867,7 +7324,8 @@
                 "label_lon": "59.6",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "930ec361a3e5a1bb323f26135b8891e9"
     },
     {
         "icao": "UTAK",
@@ -6882,7 +7340,8 @@
                 "label_lon": "54.558334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4a32b8f719254e739dabe11e202fe712"
     },
     {
         "icao": "UTAT",
@@ -6897,7 +7356,8 @@
                 "label_lon": "58.823281",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "91b9681cbe587a9a8a1bdb1cdd0e2116"
     },
     {
         "icao": "UTAV",
@@ -6912,7 +7372,8 @@
                 "label_lon": "63.458334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8f720f7f18fd6148213f7777342a1da6"
     },
     {
         "icao": "UTDD",
@@ -6927,7 +7388,8 @@
                 "label_lon": "71.333333",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "19b31f5c22aea4cc03c297f52dcc14e3"
     },
     {
         "icao": "UTSD",
@@ -6942,7 +7404,8 @@
                 "label_lon": "65.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "63e54ff51d02002460855c84163d3d36"
     },
     {
         "icao": "UTTR",
@@ -6957,7 +7420,8 @@
                 "label_lon": "64.291666",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8dbb9c4a2d61027d0ea4c5977f76a792"
     },
     {
         "icao": "UUWV",
@@ -6972,7 +7436,8 @@
                 "label_lon": "38.841667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9cab31b35a65d089e4bbfeded1ff625e"
     },
     {
         "icao": "UUWV-N",
@@ -6987,7 +7452,8 @@
                 "label_lon": "38.9",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b8305c79933c7226d2c0c7eb79842f20"
     },
     {
         "icao": "UUWV-S",
@@ -7002,7 +7468,8 @@
                 "label_lon": "37.6",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8fcdf7f0dc848f5c8ac9eaa675a40d49"
     },
     {
         "icao": "UUWV-NW",
@@ -7017,7 +7484,8 @@
                 "label_lon": "36.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "13f9575d07e5235d30a33b7f115aa4e9"
     },
     {
         "icao": "UUWV-NE",
@@ -7032,7 +7500,8 @@
                 "label_lon": "43.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0dd823d9cd4a48616b3a39fde7f7e7c1"
     },
     {
         "icao": "UUWV-SE",
@@ -7047,7 +7516,8 @@
                 "label_lon": "40.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d1ff27bfaa9dca8a860de6e3741bb4c3"
     },
     {
         "icao": "UUWV-E",
@@ -7062,7 +7532,8 @@
                 "label_lon": "40.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2b815b13fb4c35733aa04130159bb15d"
     },
     {
         "icao": "UUWV-SW",
@@ -7077,7 +7548,8 @@
                 "label_lon": "35.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3a930107fc1b11faa9520c31a5030926"
     },
     {
         "icao": "UUWV-W",
@@ -7092,7 +7564,8 @@
                 "label_lon": "33.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e43cbafddc7e47a47b5596b9413ff501"
     },
     {
         "icao": "UWWW",
@@ -7107,7 +7580,8 @@
                 "label_lon": "51.833333",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ca7f3bf50db6396897c701fa88a1dcc9"
     },
     {
         "icao": "VAAH",
@@ -7122,7 +7596,8 @@
                 "label_lon": "72.4328",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7bd600a43d5e0ff2ab78b36dd0961919"
     },
     {
         "icao": "VABB",
@@ -7137,7 +7612,8 @@
                 "label_lon": "71.58858",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c4a3a89d5a2c5618b661b41be7c556e6"
     },
     {
         "icao": "VABF",
@@ -7152,7 +7628,8 @@
                 "label_lon": "70.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dc61debd050d19882b579547a455a927"
     },
     {
         "icao": "VABX",
@@ -7167,7 +7644,8 @@
                 "label_lon": "65.0758",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d40a054b81c490802805132153d7e5f2"
     },
     {
         "icao": "VANP",
@@ -7182,7 +7660,8 @@
                 "label_lon": "77.56858",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2e95d190631425b778e6bab3881522ab"
     },
     {
         "icao": "VCCF",
@@ -7197,7 +7676,8 @@
                 "label_lon": "84.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b8ad68c56844e5148bac8cd5f25b3753"
     },
     {
         "icao": "VDPF",
@@ -7212,7 +7692,8 @@
                 "label_lon": "104.948148",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3420fa29c8babbc75af01ffa08509f8a"
     },
     {
         "icao": "VEBN",
@@ -7227,7 +7708,8 @@
                 "label_lon": "82.3335",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bc6de951d10a404941fc13ec304f2e41"
     },
     {
         "icao": "VECC",
@@ -7242,7 +7724,8 @@
                 "label_lon": "86.46",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6702a94c7fe909f881170fefb02e2bfe"
     },
     {
         "icao": "VECC-B",
@@ -7257,7 +7740,8 @@
                 "label_lon": "84.1645",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "26881564de5144b039367423e287435b"
     },
     {
         "icao": "VECC-R",
@@ -7272,7 +7756,8 @@
                 "label_lon": "82.3251",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fd35183485dc81b1c63c2a7452c8c13d"
     },
     {
         "icao": "VECF",
@@ -7287,7 +7772,8 @@
                 "label_lon": "89.4",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c9de09a42cbe22a39459ab2f95b5bb48"
     },
     {
         "icao": "VECX",
@@ -7302,7 +7788,8 @@
                 "label_lon": "88.5025",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d9745f06438af31d221bb38b7ed1b594"
     },
     {
         "icao": "VEGF",
@@ -7317,7 +7804,8 @@
                 "label_lon": "92.131667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "894f8427dfaa0f0231b17c6b6fcecb11"
     },
     {
         "icao": "VGFR",
@@ -7332,7 +7820,8 @@
                 "label_lon": "90.345546",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a6c887e8c31f0f2acbe34f87cda32ee4"
     },
     {
         "icao": "VHHK",
@@ -7347,7 +7836,8 @@
                 "label_lon": "114.5",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "17edb4cd0603dad7ca0c103a09568eef"
     },
     {
         "icao": "VIDF",
@@ -7362,7 +7852,8 @@
                 "label_lon": "76.556075",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "afa5338027c7c00ecc1abd54e48be6a3"
     },
     {
         "icao": "VIDP",
@@ -7377,7 +7868,8 @@
                 "label_lon": "76.3419",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "374e15f271c203457013f2a55c296797"
     },
     {
         "icao": "VLVT",
@@ -7392,7 +7884,8 @@
                 "label_lon": "102.660161",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4abf395127a12cc699a501aaa3bae02e"
     },
     {
         "icao": "VNSM",
@@ -7407,7 +7900,8 @@
                 "label_lon": "84.134033",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cd98d9250a5858c95bd57a5479332f7a"
     },
     {
         "icao": "VOBL",
@@ -7422,7 +7916,8 @@
                 "label_lon": "77.3225",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b6e64d2955efe71778d210c5b85c13b0"
     },
     {
         "icao": "VOCI",
@@ -7437,7 +7932,8 @@
                 "label_lon": "76.18",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9c38baaf1cc3c075fe2f03a215a77f03"
     },
     {
         "icao": "VOHS",
@@ -7452,7 +7948,8 @@
                 "label_lon": "78.3251",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bb97e76582498e3aeec8e1d0a6107a22"
     },
     {
         "icao": "VOMF",
@@ -7467,7 +7964,8 @@
                 "label_lon": "83.59",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f2666d346440e3fae9f2179c94e79688"
     },
     {
         "icao": "VOML",
@@ -7482,7 +7980,8 @@
                 "label_lon": "74.3543",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d95709b2f126ea24fcaa2957cfef9b12"
     },
     {
         "icao": "VOMM",
@@ -7497,7 +7996,8 @@
                 "label_lon": "81.151",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f75919b8ac4223332b2be13ea6d51a5f"
     },
     {
         "icao": "VOMX",
@@ -7512,7 +8012,8 @@
                 "label_lon": "88.5744",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b6d7b261dcd273bfa18f5086eca9da1d"
     },
     {
         "icao": "VOTV",
@@ -7527,7 +8028,8 @@
                 "label_lon": "75.3307",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ca194d25785b64065cfa1b6b5dec7f6c"
     },
     {
         "icao": "VRMF",
@@ -7542,7 +8044,8 @@
                 "label_lon": "73.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "753ee9a71787820897ce03029cdbdcae"
     },
     {
         "icao": "VTBB",
@@ -7557,7 +8060,8 @@
                 "label_lon": "101.083018",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0fe62819fdca63ecb0cd26f0e5d095a3"
     },
     {
         "icao": "VVCL",
@@ -7572,7 +8076,8 @@
                 "label_lon": "106.93746",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "120edfec948c4262f1d6f92658d700b7"
     },
     {
         "icao": "VVHN",
@@ -7587,7 +8092,8 @@
                 "label_lon": "106.276211",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3f7cecdc70f5f9379062f433a2bae377"
     },
     {
         "icao": "VVHM",
@@ -7602,7 +8108,8 @@
                 "label_lon": "108.831833",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "77021002ddee586842de8740fc4a7c36"
     },
     {
         "icao": "VYYF",
@@ -7617,7 +8124,8 @@
                 "label_lon": "96.592",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "83e35e23a0ea777950c3ff843da6d557"
     },
     {
         "icao": "WAAF",
@@ -7632,7 +8140,8 @@
                 "label_lon": "125.1",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "be687f4453cbea8051cf727b4176572c"
     },
     {
         "icao": "WAAF-B",
@@ -7647,7 +8156,8 @@
                 "label_lon": "116.642222",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ad21c3914a3d5fcd677013f436d5096e"
     },
     {
         "icao": "WAAF-W",
@@ -7662,7 +8172,8 @@
                 "label_lon": "115.760278",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1e9fba48bcdc2f9ec1610b657f11d8c6"
     },
     {
         "icao": "WAAF-E",
@@ -7677,7 +8188,8 @@
                 "label_lon": "127.424694",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9146ed768bcde0986746d0e69bb5fedc"
     },
     {
         "icao": "WBFC",
@@ -7692,7 +8204,8 @@
                 "label_lon": "114.25",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2f3302619e2b79404eb13955b89bd3da"
     },
     {
         "icao": "WBGG",
@@ -7707,7 +8220,8 @@
                 "label_lon": "111.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0dcd2b881775d57ca2671126c3a48da3"
     },
     {
         "icao": "WIIF",
@@ -7722,7 +8236,8 @@
                 "label_lon": "102.277836",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2846ec65b024950c29ec78460b71a14b"
     },
     {
         "icao": "WIIF-N",
@@ -7737,7 +8252,8 @@
                 "label_lon": "96.326111",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8c14befc9276c914bf8c6e82f73e2df8"
     },
     {
         "icao": "WIIF-W",
@@ -7752,7 +8268,8 @@
                 "label_lon": "102.339444",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "06084cfd594da0cd7011d0c63f915703"
     },
     {
         "icao": "WIIF-E",
@@ -7767,7 +8284,8 @@
                 "label_lon": "108.814833",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b232c45bd80efecb2413580edd63dfe5"
     },
     {
         "icao": "WMFC",
@@ -7782,7 +8300,8 @@
                 "label_lon": "99.582158",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8f2c0c7161148bd3c2c2182f2fff6a50"
     },
     {
         "icao": "WSJC",
@@ -7797,7 +8316,8 @@
                 "label_lon": "109.333334",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a07256d1631c241ca08872bd49b86969"
     },
     {
         "icao": "YARA",
@@ -7812,7 +8332,8 @@
                 "label_lon": "139.202342",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bf57969ba96bac3c695db57406c34f58"
     },
     {
         "icao": "YARL",
@@ -7827,7 +8348,8 @@
                 "label_lon": "151.263989",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4bf9c74be635ec5abfee9b5946a8033b"
     },
     {
         "icao": "YASP",
@@ -7842,7 +8364,8 @@
                 "label_lon": "133.65313",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "70eeaff0b22d69c409a9e84f76f47ca0"
     },
     {
         "icao": "YASW",
@@ -7857,7 +8380,8 @@
                 "label_lon": "130.5439",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fb4aff0fc3669edffac4a86428b39fe7"
     },
     {
         "icao": "YAUG",
@@ -7872,7 +8396,8 @@
                 "label_lon": "136.950344",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f95ad9188f1a0904e40be5869fe0d80d"
     },
     {
         "icao": "YBAR",
@@ -7887,7 +8412,8 @@
                 "label_lon": "145.812514",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a5441424fd0bf2c2752dadcb15b335a0"
     },
     {
         "icao": "YBIK",
@@ -7902,7 +8428,8 @@
                 "label_lon": "150.21193",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "657038fd516146dcd2a1392b65104ef9"
     },
     {
         "icao": "YBKE",
@@ -7917,7 +8444,8 @@
                 "label_lon": "144.993866",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1dc273a23ce5e7d1010d2c805755cf28"
     },
     {
         "icao": "YBLA",
@@ -7932,7 +8460,8 @@
                 "label_lon": "147.10921",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d29e82df07ec57e2760766074e568485"
     },
     {
         "icao": "YBUR",
@@ -7947,7 +8476,8 @@
                 "label_lon": "151.92881",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "49730f365a277a34a65761d711a04f61"
     },
     {
         "icao": "YCNK",
@@ -7962,7 +8492,8 @@
                 "label_lon": "150.96587",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "91c8923177026ac518ace65e8cf08c5f"
     },
     {
         "icao": "YCOL",
@@ -7977,7 +8508,8 @@
                 "label_lon": "154.31667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a6f23df481aa330d270fc8053b1dfccf"
     },
     {
         "icao": "YCRS",
@@ -7992,7 +8524,8 @@
                 "label_lon": "118.888494",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f58330da87b45e2aecad9f34674a8505"
     },
     {
         "icao": "YCVN",
@@ -8007,7 +8540,8 @@
                 "label_lon": "149.004499",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "81436bd4b3a70b7762d89cc4911a1b98"
     },
     {
         "icao": "YDOS",
@@ -8022,7 +8556,8 @@
                 "label_lon": "151.82435",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a7227beaa39604f469c441f4354e75a8"
     },
     {
         "icao": "YELW",
@@ -8037,7 +8572,8 @@
                 "label_lon": "146.14289",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d1119fe25c6cb62441049a70a2694bf9"
     },
     {
         "icao": "YESP",
@@ -8052,7 +8588,8 @@
                 "label_lon": "122.289883",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bfaff7915647265b1aa1c353f94c909a"
     },
     {
         "icao": "YFLD",
@@ -8067,7 +8604,8 @@
                 "label_lon": "157.87379",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "69fa3cf406a093c816c894ab10b20095"
     },
     {
         "icao": "YFOR",
@@ -8082,7 +8620,8 @@
                 "label_lon": "130.542438",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4f58dba825eee9eec20ccd30b0b51a04"
     },
     {
         "icao": "YGEL",
@@ -8097,7 +8636,8 @@
                 "label_lon": "114.263405",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9bb5880579b0c3971cf545bc3b4a6c9d"
     },
     {
         "icao": "YGOL",
@@ -8112,7 +8652,8 @@
                 "label_lon": "153.17972",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3dc97cea86c52d3b9a507d8127542e18"
     },
     {
         "icao": "YGTH",
@@ -8127,7 +8668,8 @@
                 "label_lon": "146.796663",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fa24d5d07b464cec10298ef5db6a085d"
     },
     {
         "icao": "YGUN",
@@ -8142,7 +8684,8 @@
                 "label_lon": "148.56283",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "91366db43da54597813a922fcbe9d500"
     },
     {
         "icao": "YGVE",
@@ -8157,7 +8700,8 @@
                 "label_lon": "117.804804",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bf4fff944a033dde20495c4072d7fd92"
     },
     {
         "icao": "YHUO",
@@ -8172,7 +8716,8 @@
                 "label_lon": "146.469407",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7255cc451f69d9540478a241ad86ab78"
     },
     {
         "icao": "YHWE",
@@ -8187,7 +8732,8 @@
                 "label_lon": "158.714616",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e7f94293714baf88e70813409f088b59"
     },
     {
         "icao": "YHYD",
@@ -8202,7 +8748,8 @@
                 "label_lon": "119.065568",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "441d6d2e11a23125050d788f3d1e127c"
     },
     {
         "icao": "YIND",
@@ -8217,7 +8764,8 @@
                 "label_lon": "93.067652",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b261421ad3638d5cc52dd3508afd2040"
     },
     {
         "icao": "YINE",
@@ -8232,7 +8780,8 @@
                 "label_lon": "109.158525",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fa5a9f5e10ec7bda6341dcf5fe1b5b0e"
     },
     {
         "icao": "YINL",
@@ -8247,7 +8796,8 @@
                 "label_lon": "152.59437",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "994cb8673f30c95d31ad758e8fdbdc46"
     },
     {
         "icao": "YINS",
@@ -8262,7 +8812,8 @@
                 "label_lon": "139.999596",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "eac53d165afa8fd390509b98ceefa8a1"
     },
     {
         "icao": "YISA",
@@ -8277,7 +8828,8 @@
                 "label_lon": "140.388607",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7d4f715b309bbe6aa8550a6047f341dd"
     },
     {
         "icao": "YJAR",
@@ -8292,7 +8844,8 @@
                 "label_lon": "116.93032",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fc9e299fa07572c4f01dcecd3dfd1c69"
     },
     {
         "icao": "YKAT",
@@ -8307,7 +8860,8 @@
                 "label_lon": "149.504314",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "26232c607e09c47a9227a345177b4295"
     },
     {
         "icao": "YKEN",
@@ -8322,7 +8876,8 @@
                 "label_lon": "144.900158",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "52af22f6d4240490b095a1b143d9ffe3"
     },
     {
         "icao": "YKIY",
@@ -8337,7 +8892,8 @@
                 "label_lon": "125.608865",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f0a4fe5abea5ce05b58d7f7c615cc1d3"
     },
     {
         "icao": "YKPL",
@@ -8352,7 +8908,8 @@
                 "label_lon": "151.86536",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bec15a7fe8027c2aba632bc95d069db0"
     },
     {
         "icao": "YLEA",
@@ -8367,7 +8924,8 @@
                 "label_lon": "114.106715",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "58a082b609a30a1e810258121e16932b"
     },
     {
         "icao": "YMDE",
@@ -8382,7 +8940,8 @@
                 "label_lon": "149.555574",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "821352b35b5db471279c84f2100821f1"
     },
     {
         "icao": "YMEK",
@@ -8397,7 +8956,8 @@
                 "label_lon": "115.95591",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d4f9731b4ca303d77ffd40f09513ef23"
     },
     {
         "icao": "YMLD",
@@ -8412,7 +8972,8 @@
                 "label_lon": "151.7414",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ae791cc8ae2477ada9f27d803a9b922f"
     },
     {
         "icao": "YMNN",
@@ -8427,7 +8988,8 @@
                 "label_lon": "152.17121",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "05b85936c5f313086a9a68f05a4e12fa"
     },
     {
         "icao": "YMTK",
@@ -8442,7 +9004,8 @@
                 "label_lon": "120.97259",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b10c51916d94d0513f81b6485b7c1d51"
     },
     {
         "icao": "YMUN",
@@ -8457,7 +9020,8 @@
                 "label_lon": "141.482768",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "61f48e28532aaa0cf3394f6ef136b4ba"
     },
     {
         "icao": "YMZI",
@@ -8472,7 +9036,8 @@
                 "label_lon": "122.5183",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "9345594802a3beb2c2865d8473fe24f2"
     },
     {
         "icao": "YNEW",
@@ -8487,7 +9052,8 @@
                 "label_lon": "122.06207",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2fb38c965131183c5fd53ab5f4d83a99"
     },
     {
         "icao": "YNSA",
@@ -8502,7 +9068,8 @@
                 "label_lon": "153.06762",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fe5adac2b2ca878c22f4fa937a1d2438"
     },
     {
         "icao": "YOCN",
@@ -8517,7 +9084,8 @@
                 "label_lon": "153.415611",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2a64bef15a3d95d8e0a653e7e10d471f"
     },
     {
         "icao": "YOLW",
@@ -8532,7 +9100,8 @@
                 "label_lon": "114.353878",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e3f143bc0b2eb85e2e89f9e07a20eee8"
     },
     {
         "icao": "YOXL",
@@ -8547,7 +9116,8 @@
                 "label_lon": "144.787212",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "20db760d23015158465b8ff375feb975"
     },
     {
         "icao": "YPAR",
@@ -8562,7 +9132,8 @@
                 "label_lon": "117.09607",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1f38631e4d9dfdaf1a8a022fe50da2bf"
     },
     {
         "icao": "YPIY",
@@ -8577,7 +9148,8 @@
                 "label_lon": "117.10739",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fd15f5cad930884fa1a80bcaefce3042"
     },
     {
         "icao": "YPOT",
@@ -8592,7 +9164,8 @@
                 "label_lon": "118.8443",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "616d18b2d872acb75cde36177b28c855"
     },
     {
         "icao": "YSDY",
@@ -8607,7 +9180,8 @@
                 "label_lon": "154.783212",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5537b7a6a351ef4309c3969fec624b7c"
     },
     {
         "icao": "YSNO",
@@ -8622,7 +9196,8 @@
                 "label_lon": "149.1789",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "44e547801bda928f0d80f26e3cb970fe"
     },
     {
         "icao": "YSTR",
@@ -8637,7 +9212,8 @@
                 "label_lon": "134.889028",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a9352e1e91a3a26f08b114389ee3ca49"
     },
     {
         "icao": "YSWY",
@@ -8652,7 +9228,8 @@
                 "label_lon": "148.2994",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e80f4e98ee4ec17816298369054026c3"
     },
     {
         "icao": "YTBD",
@@ -8667,7 +9244,8 @@
                 "label_lon": "139.939612",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "cb21baa8ed97fc35f67379e8cd934b71"
     },
     {
         "icao": "YTBP",
@@ -8682,7 +9260,8 @@
                 "label_lon": "148.500183",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bab49249641bb7df12d6fb2ea22564e3"
     },
     {
         "icao": "YTRT",
@@ -8697,7 +9276,8 @@
                 "label_lon": "131.70158",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "25ef76a90c18bc90298b110f5e2a2fe4"
     },
     {
         "icao": "YTSN",
@@ -8712,7 +9292,8 @@
                 "label_lon": "157.389245",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7669aae51036aeed763f8ccdc15cf489"
     },
     {
         "icao": "YWAR",
@@ -8727,7 +9308,8 @@
                 "label_lon": "126.389564",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "028672001b241d00ea896db7c2e61c24"
     },
     {
         "icao": "YWEG",
@@ -8742,7 +9324,8 @@
                 "label_lon": "143.189324",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "8b11228d34415bf901438b63d154e84a"
     },
     {
         "icao": "YWOL",
@@ -8757,7 +9340,8 @@
                 "label_lon": "151.303522",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "666083ca6450ead9470ed3d8debb8d91"
     },
     {
         "icao": "YWON",
@@ -8772,7 +9356,8 @@
                 "label_lon": "145.96719",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f56a9b38451fc655466c3f19c38fc773"
     },
     {
         "icao": "YWRA",
@@ -8787,7 +9372,8 @@
                 "label_lon": "136.86043",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ded2c2ddb37395facc60955087f8f91d"
     },
     {
         "icao": "YYWE",
@@ -8802,7 +9388,8 @@
                 "label_lon": "143.53974",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2e69f431c4975a5b57304e913c3f6ffb"
     },
     {
         "icao": "ZBPE",
@@ -8817,7 +9404,8 @@
                 "label_lon": "113.29524",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0d7971e47f442b8c90057100a3252e84"
     },
     {
         "icao": "ZBAA",
@@ -8832,7 +9420,8 @@
                 "label_lon": "114.74083",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "7c4bb61b7f197008960b8f433b43b4ab"
     },
     {
         "icao": "ZBAA-N",
@@ -8847,7 +9436,8 @@
                 "label_lon": "111.68852",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "010ed369e41924ba2d5d3339c6495fec"
     },
     {
         "icao": "ZBAA-S",
@@ -8862,7 +9452,8 @@
                 "label_lon": "115.40058",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "944f4c4f818396c7af4226506a3fb23e"
     },
     {
         "icao": "ZBAA-W",
@@ -8877,7 +9468,8 @@
                 "label_lon": "112.80947",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0180aa0f50a3e06f8f5be29a09c1a520"
     },
     {
         "icao": "ZBAA-C",
@@ -8892,7 +9484,8 @@
                 "label_lon": "116.10292",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a43c72c08e690c03cef55879a0674509"
     },
     {
         "icao": "ZBHH",
@@ -8907,7 +9500,8 @@
                 "label_lon": "112.43802",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "6bb7778898125a15df7b8b0dc5458538"
     },
     {
         "icao": "ZHCC",
@@ -8922,7 +9516,8 @@
                 "label_lon": "113.63576",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c5b3734935a27ba0acb750e5145f0952"
     },
     {
         "icao": "ZHHH",
@@ -8937,7 +9532,8 @@
                 "label_lon": "112.84509",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "60032cb300c322b1478a9d25651b3775"
     },
     {
         "icao": "ZHWH",
@@ -8952,7 +9548,8 @@
                 "label_lon": "113.26801",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "3d1ecf2ab1517a8a5b6d3af140a66ba2"
     },
     {
         "icao": "ZGHA",
@@ -8967,7 +9564,8 @@
                 "label_lon": "111.76022",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "50175352e8399f13f7a902d4b7f2c80b"
     },
     {
         "icao": "ZGNN",
@@ -8982,7 +9580,8 @@
                 "label_lon": "108.0",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4d21b19663eca48307aff95d8b8b6c5a"
     },
     {
         "icao": "ZGGG",
@@ -8997,7 +9596,8 @@
                 "label_lon": "113.798889",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d3a4743deae30ec6bd2bc8b46d715b6d"
     },
     {
         "icao": "ZGZU",
@@ -9012,7 +9612,8 @@
                 "label_lon": "111.341667",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "f9569f539cb65562479eb076dedc307d"
     },
     {
         "icao": "ZJSA",
@@ -9027,7 +9628,8 @@
                 "label_lon": "110.40915",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5e9604cb5593ff1f6c16931b9438aec4"
     },
     {
         "icao": "ZJSY-L",
@@ -9042,7 +9644,8 @@
                 "label_lon": "109.57186",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fe5846429b2853a3eea8bc5a10911e77"
     },
     {
         "icao": "ZJSY-O",
@@ -9057,7 +9660,8 @@
                 "label_lon": "111.82820",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5c2d1064efedb89704b4b7f5e33ff7c5"
     },
     {
         "icao": "ZKKP",
@@ -9072,7 +9676,8 @@
                 "label_lon": "129.375807",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "c2bfd105943c00281e1b474112615f2f"
     },
     {
         "icao": "ZLHW",
@@ -9087,7 +9692,8 @@
                 "label_lon": "107.32085",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "db1dd73b80590de8518075719bdf558c"
     },
     {
         "icao": "ZLLL",
@@ -9102,7 +9708,8 @@
                 "label_lon": "99.94012",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "a3c3be6636a6b71c42742a9be777203f"
     },
     {
         "icao": "ZLXY",
@@ -9117,7 +9724,8 @@
                 "label_lon": "108.67186",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "883c78ac52124ced4797957ebd6c448c"
     },
     {
         "icao": "ZULS",
@@ -9132,7 +9740,8 @@
                 "label_lon": "90.11675",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "05a401e66121230f1931ce7287121af3"
     },
     {
         "icao": "ZPKM",
@@ -9147,7 +9756,8 @@
                 "label_lon": "98.10727",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0cabd3547c1d29942fec4611da105a5a"
     },
     {
         "icao": "ZSHA",
@@ -9162,7 +9772,8 @@
                 "label_lon": "118.17084",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "2608d79594bad1161b396fe39568a39e"
     },
     {
         "icao": "ZSSS",
@@ -9177,7 +9788,8 @@
                 "label_lon": "120.21437",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "909cd41e864e480074b8bfc2d1c19171"
     },
     {
         "icao": "ZSSS-N",
@@ -9192,7 +9804,8 @@
                 "label_lon": "120.86906",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "087b1a858ee79b0929ace1a4a0b94bd6"
     },
     {
         "icao": "ZSSS-S",
@@ -9207,7 +9820,8 @@
                 "label_lon": "117.76710",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "139f17a96603626becae0626a450d543"
     },
     {
         "icao": "ZSSS-W",
@@ -9222,7 +9836,8 @@
                 "label_lon": "116.96885",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bd23f071505f400fc5255233be6a3616"
     },
     {
         "icao": "ZSSS-C",
@@ -9237,7 +9852,8 @@
                 "label_lon": "121.16198",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "4ad7e9dc3fdd7711b42cf23294c94de0"
     },
     {
         "icao": "ZSQD",
@@ -9252,7 +9868,8 @@
                 "label_lon": "121.89935",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "515d1fa183d79b70f4430433b4d8ee72"
     },
     {
         "icao": "ZSJN",
@@ -9267,7 +9884,8 @@
                 "label_lon": "117.2",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "fb2128b7ecd02562b0d1fad8393ffe6e"
     },
     {
         "icao": "ZSOF",
@@ -9282,7 +9900,8 @@
                 "label_lon": "116.96807",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "452a97394c637cf690d005242a4ffa60"
     },
     {
         "icao": "ZSCN",
@@ -9297,7 +9916,8 @@
                 "label_lon": "116.48420",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ca6ba16151d4ae705a2c9f914b80aa1f"
     },
     {
         "icao": "ZSAM",
@@ -9312,7 +9932,8 @@
                 "label_lon": "117.72576",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "bd349a9a14e4b3410770cccc8babf692"
     },
     {
         "icao": "ZUUU",
@@ -9327,7 +9948,8 @@
                 "label_lon": "103.65367",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "edbdab7943d6c05fd340b88e711f9766"
     },
     {
         "icao": "ZUGY",
@@ -9342,7 +9964,8 @@
                 "label_lon": "107.28488",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "ac9f53b0b70bfc7f6aa96b7358c6e872"
     },
     {
         "icao": "ZPPP",
@@ -9357,7 +9980,8 @@
                 "label_lon": "102.06528",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "69dbebabb9b582d4a5612b450f841476"
     },
     {
         "icao": "ZWUQ",
@@ -9372,7 +9996,8 @@
                 "label_lon": "84.3564",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "b3c656dc358c7174fc4ed76271ed4e64"
     },
     {
         "icao": "ZWWW-N",
@@ -9387,7 +10012,8 @@
                 "label_lon": "88.59345",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "49b34847d18ec024a2bb8c73b8a5f70c"
     },
     {
         "icao": "ZWWW-S",
@@ -9402,7 +10028,8 @@
                 "label_lon": "82.14278",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "014aa6f48ca2f7c24530ecfd3302ff34"
     },
     {
         "icao": "ZYSH",
@@ -9417,7 +10044,8 @@
                 "label_lon": "123.03321",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "76603b2611e40f8a6d26dd8cbbc1985c"
     },
     {
         "icao": "ZYTX",
@@ -9432,7 +10060,8 @@
                 "label_lon": "120.84118",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "95746d20491c0dd046873d18ee3a32a4"
     },
     {
         "icao": "ZYHB",
@@ -9447,7 +10076,8 @@
                 "label_lon": "125.20939",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "dd899e881f3e414b6bd06f73a637ba46"
     },
     {
         "icao": "ZYTL",
@@ -9462,7 +10092,8 @@
                 "label_lon": "123.05282",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "e03ba835efd49ba541091c7d6f0703a9"
     },
     {
         "icao": "ZMUB",
@@ -9477,7 +10108,8 @@
                 "label_lon": "103.85",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "27a1e0cbd61241fda7f3d3e0a5807dce"
     },
     {
         "icao": "ZMUB-A",
@@ -9492,7 +10124,8 @@
                 "label_lon": "92.656149",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "5b7741b0afb334e9eac0af4a72bd345f"
     },
     {
         "icao": "ZMUB-B",
@@ -9507,7 +10140,8 @@
                 "label_lon": "98.265783",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "d1814ef9c1edfe7ea439edc84373adea"
     },
     {
         "icao": "ZMUB-C",
@@ -9522,7 +10156,8 @@
                 "label_lon": "106.672674",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "0d498b1be6e6e7f56fd1c6e7765cc260"
     },
     {
         "icao": "ZMUB-D",
@@ -9537,7 +10172,8 @@
                 "label_lon": "112.992962",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "255a41e4f8de9d1159547d0c5da0665d"
     },
     {
         "icao": "ZMUB-G",
@@ -9552,7 +10188,8 @@
                 "label_lon": "105.372327",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "47fd5aba514488b612a0fc0cc3f98075"
     },
     {
         "icao": "ZMUB-M",
@@ -9567,6 +10204,7 @@
                 "label_lon": "101.07816",
                 "oceanic": "0"
             }
-        ]
+        ],
+        "uniqueId": "1d421d7f228a70517bdc770ddbce7f97"
     }
 ]
