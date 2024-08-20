@@ -16,7 +16,9 @@
                         "label_lon": "14.707096",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "48307400e0a1926c8ed04a8ea915b800",
+                "fssName": "Adria Radar Upper"
             },
             {
                 "icao": "LDZO",
@@ -31,7 +33,9 @@
                         "label_lon": "14.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ac40a00ce7fc0b5e5484963064d36e3c",
+                "fssName": "Adria Radar Upper"
             },
             {
                 "icao": "LQSB",
@@ -46,7 +50,9 @@
                         "label_lon": "17.679715",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6915c81a79f56ec17ad771ba02794272",
+                "fssName": "Adria Radar Upper"
             },
             {
                 "icao": "LYBA",
@@ -61,7 +67,9 @@
                         "label_lon": "20.65533",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bce2e30768cdcb2e6b58392298b5c583",
+                "fssName": "Adria Radar Upper"
             },
             {
                 "icao": "LWSS",
@@ -76,7 +84,9 @@
                         "label_lon": "21.743602",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2c25fab98d4c9b793acb749f5edfa882",
+                "fssName": "Adria Radar Upper"
             },
             {
                 "icao": "LAAA",
@@ -91,7 +101,9 @@
                         "label_lon": "19.961987",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6b816136596e6284bf0fb7d39b6d52d2",
+                "fssName": "Adria Radar Upper"
             }
         ]
     },
@@ -112,7 +124,9 @@
                         "label_lon": "1.666666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "43b68ef4edbae46b12071412c71e030c",
+                "fssName": "North Africa Control"
             },
             {
                 "icao": "DRRR",
@@ -127,7 +141,9 @@
                         "label_lon": "3.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "41ae9db3efabafe4a7e1c0aff3ef8337",
+                "fssName": "North Africa Control"
             },
             {
                 "icao": "DTTC",
@@ -142,7 +158,9 @@
                         "label_lon": "9.508024",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "fab951b0ce07f11f0693fe9d869ae468",
+                "fssName": "North Africa Control"
             },
             {
                 "icao": "FTTT",
@@ -157,7 +175,9 @@
                         "label_lon": "18.233334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b8627afc4e4cbaf38ddaf1dbed9df144",
+                "fssName": "North Africa Control"
             },
             {
                 "icao": "GMMM",
@@ -177,7 +197,9 @@
                         "label_lon": "-12.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7aa58b8c28572a1b26ca08427fb5e1da",
+                "fssName": "North Africa Control"
             },
             {
                 "icao": "HLLL",
@@ -192,7 +214,9 @@
                         "label_lon": "17.275245",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "09cfca81b395be6f970e72dc8f70bdeb",
+                "fssName": "North Africa Control"
             }
         ]
     },
@@ -213,7 +237,9 @@
                         "label_lon": "27.853286",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "38698af55b560487af0cbe82cea5f65d",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "FNAN",
@@ -228,7 +254,9 @@
                         "label_lon": "7.166666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6f679447f6f89aaca7a12a5bc0b3b88c",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "FSSS",
@@ -243,7 +271,9 @@
                         "label_lon": "52.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "dedd3a40681370e2b07bcd491cddd51f",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "FWLL",
@@ -258,7 +288,9 @@
                         "label_lon": "34.294567",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0b20dd587147cfe1ef584f0c1485b2ee",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "FZZA",
@@ -273,7 +305,9 @@
                         "label_lon": "22.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6b17d1e5f460a7606056b76189f7530a",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "HKNA",
@@ -288,7 +322,9 @@
                         "label_lon": "38.950528",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "474dc162f53db551d22b40d960b4863c",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "HTDC",
@@ -303,7 +339,9 @@
                         "label_lon": "36.425811",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "d9a45146651505646ca3fb8169fe84a6",
+                "fssName": "Africa Central Control"
             },
             {
                 "icao": "HUEC",
@@ -318,7 +356,9 @@
                         "label_lon": "32.306",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7b7b629883e42cd612c7a064931c43db",
+                "fssName": "Africa Central Control"
             }
         ]
     },
@@ -339,7 +379,9 @@
                         "label_lon": "40.500354",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ff64d1a99bc459b48be46e76801e0fdb",
+                "fssName": "East Africa Control"
             },
             {
                 "icao": "HCSM",
@@ -354,7 +396,9 @@
                         "label_lon": "50.499371",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "cad2a5d503d7f74873af2dc4568bd741",
+                "fssName": "East Africa Control"
             },
             {
                 "icao": "HHAA",
@@ -369,7 +413,9 @@
                         "label_lon": "39.819237",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "25a4bdbf05a2d1d2fa4cd846bb857b76",
+                "fssName": "East Africa Control"
             },
             {
                 "icao": "HSSS",
@@ -384,7 +430,9 @@
                         "label_lon": "30.163157",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ec3e9cadc65324ab6fe1577c18250f42",
+                "fssName": "East Africa Control"
             }
         ]
     },
@@ -405,7 +453,9 @@
                         "label_lon": "23.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b6878bf4bbea5a974093797b7a83f60c",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FAJA",
@@ -420,7 +470,9 @@
                         "label_lon": "28.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ac5136fd44a655183eeecce9c5915924",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FBGR",
@@ -435,7 +487,9 @@
                         "label_lon": "24.675",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e2d1e8a21a1f876fc9e58e1a289d9e30",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FIMM",
@@ -450,7 +504,9 @@
                         "label_lon": "65.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6fa0757b3bd5eb2b85c8b4c37e462b33",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FMMM",
@@ -465,7 +521,9 @@
                         "label_lon": "48.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bab6dd73bfe3c4617a06da0d51e588d1",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FQBE",
@@ -480,7 +538,9 @@
                         "label_lon": "36.607389",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c5ddce7255ad26fa6f59e1ddf246556e",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FVHF",
@@ -495,7 +555,9 @@
                         "label_lon": "29.143667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ca9a3f28ab462b8be2f642ff37ad1a0d",
+                "fssName": "Africa South Control"
             },
             {
                 "icao": "FYWH",
@@ -510,7 +572,9 @@
                         "label_lon": "17.631199",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8f98ef6f50ebfb75851b8a2bab7f3e7d",
+                "fssName": "Africa South Control"
             }
         ]
     },
@@ -531,7 +595,9 @@
                         "label_lon": "0.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8f9679a8ef3b5de0662ab6b4f149e5ed",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "DGAO",
@@ -546,7 +612,9 @@
                         "label_lon": "2.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c6122feecb7aaafc24f19d87d08b2444",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "DIII",
@@ -561,7 +629,9 @@
                         "label_lon": "-5.2",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8b27391bbaf1d4b47a1ad343e9806fda",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "DNKK",
@@ -576,7 +646,9 @@
                         "label_lon": "8.66818",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1c952bf9814fd08d54089d97b75815dc",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "FCCC",
@@ -591,7 +663,9 @@
                         "label_lon": "14.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a393afafdcc9c1923bf3586bc989eb07",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "GLRB",
@@ -606,7 +680,9 @@
                         "label_lon": "-12.124819",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9b3184a71b932e20b7f44f320bb7f1e0",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "GOOO",
@@ -621,7 +697,9 @@
                         "label_lon": "-11.933149",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7f388a574f0606078072d512182c84c6",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "GOOC",
@@ -636,7 +714,9 @@
                         "label_lon": "-20.249722",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8e182288340d7ac46f22aa849f805e05",
+                "fssName": "Africa West Control"
             },
             {
                 "icao": "GVSC",
@@ -651,7 +731,9 @@
                         "label_lon": "-28.751528",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "d94941dbac18122390854baad7a6a510",
+                "fssName": "Africa West Control"
             }
         ]
     },
@@ -672,7 +754,9 @@
                         "label_lon": "114.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "17edb4cd0603dad7ca0c103a09568eef",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "RPHI",
@@ -687,7 +771,9 @@
                         "label_lon": "123.501372",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "142bf3079b2eb440fdd18f87fa931ccf",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VVHM",
@@ -702,7 +788,9 @@
                         "label_lon": "108.831833",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "77021002ddee586842de8740fc4a7c36",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VTBB",
@@ -717,7 +805,9 @@
                         "label_lon": "101.083018",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0fe62819fdca63ecb0cd26f0e5d095a3",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VVHN",
@@ -732,7 +822,9 @@
                         "label_lon": "106.276211",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3f7cecdc70f5f9379062f433a2bae377",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VLVT",
@@ -747,7 +839,9 @@
                         "label_lon": "102.660161",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4abf395127a12cc699a501aaa3bae02e",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VDPF",
@@ -762,7 +856,9 @@
                         "label_lon": "104.948148",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3420fa29c8babbc75af01ffa08509f8a",
+                "fssName": "South East Asia Control"
             }
         ]
     },
@@ -783,7 +879,9 @@
                         "label_lon": "109.333334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a07256d1631c241ca08872bd49b86969",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WMFC",
@@ -798,7 +896,9 @@
                         "label_lon": "99.582158",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8f2c0c7161148bd3c2c2182f2fff6a50",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WBFC",
@@ -813,7 +913,9 @@
                         "label_lon": "114.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2f3302619e2b79404eb13955b89bd3da",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WIIF",
@@ -828,7 +930,9 @@
                         "label_lon": "102.277836",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2846ec65b024950c29ec78460b71a14b",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WAAF",
@@ -843,7 +947,9 @@
                         "label_lon": "125.1",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "be687f4453cbea8051cf727b4176572c",
+                "fssName": "South East Asia Control"
             }
         ]
     },
@@ -864,7 +970,9 @@
                         "label_lon": "114.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "17edb4cd0603dad7ca0c103a09568eef",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WSJC",
@@ -879,7 +987,9 @@
                         "label_lon": "109.333334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a07256d1631c241ca08872bd49b86969",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WMFC",
@@ -894,7 +1004,9 @@
                         "label_lon": "99.582158",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8f2c0c7161148bd3c2c2182f2fff6a50",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WBFC",
@@ -909,7 +1021,9 @@
                         "label_lon": "114.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2f3302619e2b79404eb13955b89bd3da",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WIIF",
@@ -924,7 +1038,9 @@
                         "label_lon": "102.277836",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2846ec65b024950c29ec78460b71a14b",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "WAAF",
@@ -939,7 +1055,9 @@
                         "label_lon": "125.1",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "be687f4453cbea8051cf727b4176572c",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "RPHI",
@@ -954,7 +1072,9 @@
                         "label_lon": "123.501372",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "142bf3079b2eb440fdd18f87fa931ccf",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VVHM",
@@ -969,7 +1089,9 @@
                         "label_lon": "108.831833",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "77021002ddee586842de8740fc4a7c36",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VDPF",
@@ -984,7 +1106,9 @@
                         "label_lon": "104.948148",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3420fa29c8babbc75af01ffa08509f8a",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VTBB",
@@ -999,7 +1123,9 @@
                         "label_lon": "101.083018",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0fe62819fdca63ecb0cd26f0e5d095a3",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VVHN",
@@ -1014,7 +1140,9 @@
                         "label_lon": "106.276211",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3f7cecdc70f5f9379062f433a2bae377",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VLVT",
@@ -1029,7 +1157,9 @@
                         "label_lon": "102.660161",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4abf395127a12cc699a501aaa3bae02e",
+                "fssName": "South East Asia Control"
             },
             {
                 "icao": "VYYF",
@@ -1044,7 +1174,9 @@
                         "label_lon": "96.592",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "83e35e23a0ea777950c3ff843da6d557",
+                "fssName": "South East Asia Control"
             }
         ]
     },
@@ -1065,7 +1197,9 @@
                         "label_lon": "70.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "dc61debd050d19882b579547a455a927",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VIDF",
@@ -1080,7 +1214,9 @@
                         "label_lon": "76.556075",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "afa5338027c7c00ecc1abd54e48be6a3",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VECF",
@@ -1095,7 +1231,9 @@
                         "label_lon": "89.4",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c9de09a42cbe22a39459ab2f95b5bb48",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VOMF",
@@ -1110,7 +1248,9 @@
                         "label_lon": "83.59",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f2666d346440e3fae9f2179c94e79688",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VEGF",
@@ -1125,7 +1265,9 @@
                         "label_lon": "92.131667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "894f8427dfaa0f0231b17c6b6fcecb11",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "OPKR",
@@ -1140,7 +1282,9 @@
                         "label_lon": "67.256735",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3599f1ab55df5549ac422cf1e7ee7d08",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "OPLR",
@@ -1155,7 +1299,9 @@
                         "label_lon": "71.686419",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3a6554e69d67c4fdf1a898bd81ee4930",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "OAKX",
@@ -1170,7 +1316,9 @@
                         "label_lon": "67.683334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c518cc21dad8cb6d1012f2a089c482d2",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VCCF",
@@ -1185,7 +1333,9 @@
                         "label_lon": "84.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b8ad68c56844e5148bac8cd5f25b3753",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VRMF",
@@ -1200,7 +1350,9 @@
                         "label_lon": "73.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "753ee9a71787820897ce03029cdbdcae",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VGFR",
@@ -1215,7 +1367,9 @@
                         "label_lon": "90.345546",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a6c887e8c31f0f2acbe34f87cda32ee4",
+                "fssName": "West Asia Control"
             },
             {
                 "icao": "VNSM",
@@ -1230,7 +1384,9 @@
                         "label_lon": "84.134033",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "cd98d9250a5858c95bd57a5479332f7a",
+                "fssName": "West Asia Control"
             }
         ]
     },
@@ -1251,7 +1407,9 @@
                         "label_lon": "22.43743",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "152463d598e149e566e61362685706a7",
+                "fssName": "Baltic Control"
             },
             {
                 "icao": "EVRR",
@@ -1266,7 +1424,9 @@
                         "label_lon": "23.378195",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c11fe161595656efb3d7a6d022a80a62",
+                "fssName": "Baltic Control"
             },
             {
                 "icao": "EETT",
@@ -1281,7 +1441,9 @@
                         "label_lon": "24.438055",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0cadcad874229620988330ed63f16bf4",
+                "fssName": "Baltic Control"
             }
         ]
     },
@@ -1302,7 +1464,9 @@
                         "label_lon": "-5.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "76a07c6e333c0ec769067d6d6ba2368c",
+                "fssName": "Iceland Radio"
             },
             {
                 "icao": "BIRD-N",
@@ -1317,7 +1481,9 @@
                         "label_lon": "-11.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7cb409a0e8b4105d910df02a48e84ae9",
+                "fssName": "Iceland Radio"
             },
             {
                 "icao": "BIRD-S",
@@ -1332,7 +1498,9 @@
                         "label_lon": "-20.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c11595d4fa6adbb8f6e992b140f67c8b",
+                "fssName": "Iceland Radio"
             },
             {
                 "icao": "BIRD-W",
@@ -1347,7 +1515,9 @@
                         "label_lon": "-45.8",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "41c7ea51005c4bfee1c57033c97355ac",
+                "fssName": "Iceland Radio"
             }
         ]
     },
@@ -1368,7 +1538,9 @@
                         "label_lon": "-79.666666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "360ea6c80df85d8835a3e437f2b842e7",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "MKJK",
@@ -1383,7 +1555,9 @@
                         "label_lon": "-77.625",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2e5a385c0a24e7feada24f8bb3b8accd",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "MTEG",
@@ -1398,7 +1572,9 @@
                         "label_lon": "-73.316667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1aa5f748018606997920f4f85ea457ba",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "MDCS",
@@ -1413,11 +1589,13 @@
                         "label_lon": "-69.999305",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1bd29f1f4e60702c01bbaec4f7a68d0a",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "TNCF",
-                "name": "Curaçao",
+                "name": "Cura\u00c3\u00a7ao",
                 "callsignPrefix": "TNCF",
                 "firBoundary": "TNCF",
                 "isFss": true,
@@ -1428,7 +1606,9 @@
                         "label_lon": "-70.533334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e6607f65d21a66fc5efae208dd741946",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "TJZS",
@@ -1443,7 +1623,9 @@
                         "label_lon": "-65.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2b3985422ab20fcaedf2963dc48b8edf",
+                "fssName": "Caribbean Control"
             },
             {
                 "icao": "TTZP",
@@ -1458,7 +1640,9 @@
                         "label_lon": "-60.064226",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "628419d5b15795cf80f44f83d0a08087",
+                "fssName": "Caribbean Control"
             }
         ]
     },
@@ -1479,7 +1663,9 @@
                         "label_lon": "-69.999305",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1bd29f1f4e60702c01bbaec4f7a68d0a",
+                "fssName": "Caribbean Control East"
             },
             {
                 "icao": "TJZS",
@@ -1494,7 +1680,9 @@
                         "label_lon": "-65.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2b3985422ab20fcaedf2963dc48b8edf",
+                "fssName": "Caribbean Control East"
             },
             {
                 "icao": "TTZP",
@@ -1509,7 +1697,9 @@
                         "label_lon": "-60.064226",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "628419d5b15795cf80f44f83d0a08087",
+                "fssName": "Caribbean Control East"
             }
         ]
     },
@@ -1530,7 +1720,9 @@
                         "label_lon": "-79.666666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "360ea6c80df85d8835a3e437f2b842e7",
+                "fssName": "Caribbean Control West"
             },
             {
                 "icao": "MKJK",
@@ -1545,7 +1737,9 @@
                         "label_lon": "-77.625",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2e5a385c0a24e7feada24f8bb3b8accd",
+                "fssName": "Caribbean Control West"
             },
             {
                 "icao": "MTEG",
@@ -1560,11 +1754,13 @@
                         "label_lon": "-73.316667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1aa5f748018606997920f4f85ea457ba",
+                "fssName": "Caribbean Control West"
             },
             {
                 "icao": "TNCF",
-                "name": "Curaçao",
+                "name": "Cura\u00c3\u00a7ao",
                 "callsignPrefix": "TNCF",
                 "firBoundary": "TNCF",
                 "isFss": true,
@@ -1575,7 +1771,9 @@
                         "label_lon": "-70.533334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e6607f65d21a66fc5efae208dd741946",
+                "fssName": "Caribbean Control West"
             }
         ]
     },
@@ -1596,11 +1794,13 @@
                         "label_lon": "-69.999305",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1bd29f1f4e60702c01bbaec4f7a68d0a",
+                "fssName": "Antilles Center"
             },
             {
                 "icao": "TNCF",
-                "name": "Curaçao",
+                "name": "Cura\u00c3\u00a7ao",
                 "callsignPrefix": "TNCF",
                 "firBoundary": "TNCF",
                 "isFss": true,
@@ -1611,7 +1811,9 @@
                         "label_lon": "-70.533334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e6607f65d21a66fc5efae208dd741946",
+                "fssName": "Antilles Center"
             },
             {
                 "icao": "MTEG",
@@ -1626,7 +1828,9 @@
                         "label_lon": "-73.316667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1aa5f748018606997920f4f85ea457ba",
+                "fssName": "Antilles Center"
             }
         ]
     },
@@ -1647,7 +1851,9 @@
                         "label_lon": "8.949445",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "33b577f1d9106260313bf74701e47081",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "EETT",
@@ -1662,7 +1868,9 @@
                         "label_lon": "24.438055",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0cadcad874229620988330ed63f16bf4",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "EFIN",
@@ -1677,7 +1885,9 @@
                         "label_lon": "27.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9e711849ef0a901de82d5e292fc4a50d",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "EVRR",
@@ -1692,7 +1902,9 @@
                         "label_lon": "23.378195",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c11fe161595656efb3d7a6d022a80a62",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "EYVL",
@@ -1707,7 +1919,9 @@
                         "label_lon": "22.43743",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "152463d598e149e566e61362685706a7",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "ENBD",
@@ -1722,7 +1936,9 @@
                         "label_lon": "15.84846",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4a58f29d5fb229ead21fa543b0766850",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "ENOS",
@@ -1737,7 +1953,9 @@
                         "label_lon": "9.432621",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "45ed69af7441a56591aeadfe9696d22e",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "ENSV",
@@ -1752,7 +1970,9 @@
                         "label_lon": "3.75",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "80706974ecd44b55609a98edb2fafc50",
+                "fssName": "EuroNorth"
             },
             {
                 "icao": "ESOS",
@@ -1767,7 +1987,9 @@
                         "label_lon": "16.41",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7e2e32a2019e6c3f8818226885cf6ffa",
+                "fssName": "EuroNorth"
             }
         ]
     },
@@ -1788,7 +2010,9 @@
                         "label_lon": "19.15",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "72e645dcdfbfcb53f194987733c3413e",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LKAA",
@@ -1803,7 +2027,9 @@
                         "label_lon": "15.475",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b7e3c60252397c9bf8dd69504bc85f63",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LZBB",
@@ -1818,7 +2044,9 @@
                         "label_lon": "19.708333",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "133e90637bbcf7f13ce66223734433eb",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LHCC",
@@ -1833,7 +2061,9 @@
                         "label_lon": "19.50865",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "5e8770f10174eac0643fb26522c62eb3",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -1854,7 +2084,9 @@
                         "label_lon": "11.55",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "abcfb43d6342648bbc8d6b5689dc0e99",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LJLA",
@@ -1869,7 +2101,9 @@
                         "label_lon": "14.707096",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "48307400e0a1926c8ed04a8ea915b800",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LDZO",
@@ -1884,7 +2118,9 @@
                         "label_lon": "14.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ac40a00ce7fc0b5e5484963064d36e3c",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LQSB",
@@ -1899,7 +2135,9 @@
                         "label_lon": "17.679715",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6915c81a79f56ec17ad771ba02794272",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LIBB",
@@ -1914,7 +2152,9 @@
                         "label_lon": "16.041666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7cf873e0398f6d6f6819943bd0931930",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LIRR",
@@ -1929,7 +2169,9 @@
                         "label_lon": "13.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a025a0331eb5ace17f4a1293af9133d4",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LMMM",
@@ -1944,7 +2186,9 @@
                         "label_lon": "15.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b9b926ef6ebab2e8f2dd9dc706344aee",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -1965,7 +2209,9 @@
                         "label_lon": "12.79",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "599cedcc347b31703a4dc2f7bd747017",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDMM",
@@ -1980,7 +2226,9 @@
                         "label_lon": "11.786666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "75a85bf0bc977f796c8726bb8d5865b8",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDGG-BAD",
@@ -1995,7 +2243,9 @@
                         "label_lon": "8.77",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "fd54052ad49622c5e41fbc01f5009eb9",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDGG-DKB",
@@ -2010,7 +2260,9 @@
                         "label_lon": "9.9",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "334aa9245814db8ea5e0d1ec30de5f74",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDGG-GIN",
@@ -2025,7 +2277,9 @@
                         "label_lon": "8.96",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "632dcec047b1c24a7edae4a7673e081a",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDGG-RUD",
@@ -2040,7 +2294,9 @@
                         "label_lon": "7.2",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "5e84f34b7dc89535f15d97c12fb15ab0",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "LOVV",
@@ -2055,7 +2311,9 @@
                         "label_lon": "14.15",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8818cd4de4e4da35c10dcc087f5a7517",
+                "fssName": "Maastricht"
             }
         ]
     },
@@ -2076,7 +2334,9 @@
                         "label_lon": "7.4",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1bcf1ea2313200491323ab7d9a54adab",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDWW-A",
@@ -2091,7 +2351,9 @@
                         "label_lon": "8.55256",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6dd6e04581f85c4cc9b8d5e45f062770",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EDWW-D",
@@ -2106,7 +2368,9 @@
                         "label_lon": "9.80834",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1853f083ed5fafd9241fa40e027fb199",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EHAA",
@@ -2121,7 +2385,9 @@
                         "label_lon": "5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "00dff3986de4917c563768bee79d0236",
+                "fssName": "Maastricht"
             },
             {
                 "icao": "EBBU",
@@ -2136,7 +2402,9 @@
                         "label_lon": "4.544189",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "438a9b823ea814311214655a0c237308",
+                "fssName": "Maastricht"
             }
         ]
     },
@@ -2157,7 +2425,9 @@
                         "label_lon": "37.399954",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9e2dbdfc56ececae9a11633268fa5061",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LTBB",
@@ -2172,7 +2442,9 @@
                         "label_lon": "28.3",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "d91b2b3a0bebe96d8a1b0b83b35740b5",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LCCC",
@@ -2187,7 +2459,9 @@
                         "label_lon": "33.229451",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2ec7f1abd287de0f9bbdfb2029462085",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -2208,7 +2482,9 @@
                         "label_lon": "25.402153",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3ff9274e2b2bb5e16eb4e76542c4f2c3",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LUUU",
@@ -2223,7 +2499,9 @@
                         "label_lon": "29.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1ae75a038cabbd0374c51b102c3501da",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LBSR",
@@ -2238,7 +2516,9 @@
                         "label_lon": "26.2",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "59c2b7cfcfd8fa91712bb2602bc61373",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LYBA",
@@ -2253,7 +2533,9 @@
                         "label_lon": "20.65533",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bce2e30768cdcb2e6b58392298b5c583",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LGGG",
@@ -2268,7 +2550,9 @@
                         "label_lon": "24.55",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "d4aff179dfee82510f8b3ce24c85ce1d",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LAAA",
@@ -2283,7 +2567,9 @@
                         "label_lon": "19.961987",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6b816136596e6284bf0fb7d39b6d52d2",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LWSS",
@@ -2298,7 +2584,9 @@
                         "label_lon": "21.743602",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2c25fab98d4c9b793acb749f5edfa882",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -2319,7 +2607,9 @@
                         "label_lon": "0.628889",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a7d6a01cc0e7a4a8a6cf5b7bb7875aa3",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LFEE",
@@ -2334,7 +2624,9 @@
                         "label_lon": "5.16",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f599f4260e32eed4fa2f3857a9cafb01",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LFMM",
@@ -2349,7 +2641,9 @@
                         "label_lon": "6.0125",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "887c3173bfe397c02afd5e11913e6f00",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LFRR",
@@ -2364,7 +2658,9 @@
                         "label_lon": "-1.6",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "033131375caed11dc6f44d44bc79c42b",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LIMM",
@@ -2384,7 +2680,9 @@
                         "label_lon": "11.55",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "80a483cd5e1a1f485419f579f11e6dfe",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LSAS",
@@ -2399,7 +2697,9 @@
                         "label_lon": "7.862335",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ce010868f092773a7d8f439c2fba9d75",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -2420,7 +2720,9 @@
                         "label_lon": "-9.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a90acb420aa0ba20570a60b58e38ee32",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LECM",
@@ -2435,7 +2737,9 @@
                         "label_lon": "-3.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2b65f8f140324e0650dc73a401be178d",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LECB",
@@ -2450,7 +2754,9 @@
                         "label_lon": "1.45",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "33aa7efcd3e735e2c28f15ffa3e1acda",
+                "fssName": "Eurocontrol"
             },
             {
                 "icao": "LECS",
@@ -2465,7 +2771,9 @@
                         "label_lon": "-4.4",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "336eec529c61b732b3a13fd305cbd75d",
+                "fssName": "Eurocontrol"
             }
         ]
     },
@@ -2486,7 +2794,9 @@
                         "label_lon": "54.182875",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "814c3ec6f89146e28bc06b92575c8449",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "ORBB",
@@ -2501,7 +2811,9 @@
                         "label_lon": "43.761655",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "94816b27a643ca9eaa64379638d4f1c5",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OSTT",
@@ -2516,7 +2828,9 @@
                         "label_lon": "38.9125",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e64a0e1fc8edba624297078c61e4e159",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OEJD",
@@ -2531,7 +2845,9 @@
                         "label_lon": "44.107376",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bfa584afb01d722756c866f9d951edce",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OKAC",
@@ -2546,7 +2862,9 @@
                         "label_lon": "48.111389",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "67ba3bde724a165f3fe030e8e8aac716",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OBBB",
@@ -2561,7 +2879,9 @@
                         "label_lon": "50.275408",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "08a00ee675e2682b688f789ec0aed1a7",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OMAE",
@@ -2576,7 +2896,9 @@
                         "label_lon": "54.187345",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8fe71ee8d07e1270a4214c50b773ef7c",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OYSC",
@@ -2591,7 +2913,9 @@
                         "label_lon": "50.83",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "28a72d55b7d9ef8f573d3ad82759ae96",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OOMM",
@@ -2606,7 +2930,9 @@
                         "label_lon": "57.603686",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0a2acdaf3a73e65d4beb82247b349d54",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OJAC",
@@ -2621,7 +2947,9 @@
                         "label_lon": "36.35",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9f0d49bbdfff2fd74ca09646a5c4a024",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OLBB",
@@ -2636,7 +2964,9 @@
                         "label_lon": "35.758643",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e1e6443ab4d625a0ab3cc96ccfa1df1a",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "HECC",
@@ -2651,7 +2981,9 @@
                         "label_lon": "31.081334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "44ba3e97fa23c4c77844d64602cd09d4",
+                "fssName": "Gulf Control"
             }
         ]
     },
@@ -2672,7 +3004,9 @@
                         "label_lon": "50.275408",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "08a00ee675e2682b688f789ec0aed1a7",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OIIX",
@@ -2687,7 +3021,9 @@
                         "label_lon": "54.182875",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "814c3ec6f89146e28bc06b92575c8449",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OKAC",
@@ -2702,7 +3038,9 @@
                         "label_lon": "48.111389",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "67ba3bde724a165f3fe030e8e8aac716",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OMAE",
@@ -2717,7 +3055,9 @@
                         "label_lon": "54.187345",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8fe71ee8d07e1270a4214c50b773ef7c",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OOMM",
@@ -2732,7 +3072,9 @@
                         "label_lon": "57.603686",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0a2acdaf3a73e65d4beb82247b349d54",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "ORBB",
@@ -2747,7 +3089,9 @@
                         "label_lon": "43.761655",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "94816b27a643ca9eaa64379638d4f1c5",
+                "fssName": "Gulf Control"
             }
         ]
     },
@@ -2768,7 +3112,9 @@
                         "label_lon": "31.081334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "44ba3e97fa23c4c77844d64602cd09d4",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OEJD",
@@ -2783,7 +3129,9 @@
                         "label_lon": "44.107376",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bfa584afb01d722756c866f9d951edce",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OJAC",
@@ -2798,7 +3146,9 @@
                         "label_lon": "36.35",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9f0d49bbdfff2fd74ca09646a5c4a024",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OLBB",
@@ -2813,7 +3163,9 @@
                         "label_lon": "35.758643",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e1e6443ab4d625a0ab3cc96ccfa1df1a",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OSTT",
@@ -2828,7 +3180,9 @@
                         "label_lon": "38.9125",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e64a0e1fc8edba624297078c61e4e159",
+                "fssName": "Gulf Control"
             },
             {
                 "icao": "OYSC",
@@ -2843,7 +3197,9 @@
                         "label_lon": "50.83",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "28a72d55b7d9ef8f573d3ad82759ae96",
+                "fssName": "Gulf Control"
             }
         ]
     },
@@ -2864,7 +3220,9 @@
                         "label_lon": "6.0125",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "887c3173bfe397c02afd5e11913e6f00",
+                "fssName": "France Control"
             },
             {
                 "icao": "LFFF",
@@ -2879,7 +3237,9 @@
                         "label_lon": "2.15",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b11b0b7c6e1835139d6d1417891a954c",
+                "fssName": "France Control"
             },
             {
                 "icao": "LFEE",
@@ -2894,7 +3254,9 @@
                         "label_lon": "5.16",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f599f4260e32eed4fa2f3857a9cafb01",
+                "fssName": "France Control"
             },
             {
                 "icao": "LFBB",
@@ -2909,7 +3271,9 @@
                         "label_lon": "0.628889",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a7d6a01cc0e7a4a8a6cf5b7bb7875aa3",
+                "fssName": "France Control"
             },
             {
                 "icao": "LFRR",
@@ -2924,7 +3288,9 @@
                         "label_lon": "-1.6",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "033131375caed11dc6f44d44bc79c42b",
+                "fssName": "France Control"
             }
         ]
     },
@@ -2950,7 +3316,9 @@
                         "label_lon": "11.55",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "80a483cd5e1a1f485419f579f11e6dfe",
+                "fssName": "Italy Radar"
             },
             {
                 "icao": "LIBB",
@@ -2965,7 +3333,9 @@
                         "label_lon": "16.041666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "7cf873e0398f6d6f6819943bd0931930",
+                "fssName": "Italy Radar"
             },
             {
                 "icao": "LIRR",
@@ -2980,7 +3350,9 @@
                         "label_lon": "13.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a025a0331eb5ace17f4a1293af9133d4",
+                "fssName": "Italy Radar"
             },
             {
                 "icao": "LIPP",
@@ -2995,7 +3367,9 @@
                         "label_lon": "11.55",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "abcfb43d6342648bbc8d6b5689dc0e99",
+                "fssName": "Italy Radar"
             }
         ]
     },
@@ -3016,7 +3390,9 @@
                         "label_lon": "26.2",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "59c2b7cfcfd8fa91712bb2602bc61373",
+                "fssName": "Black Sea West Control"
             },
             {
                 "icao": "LRBB",
@@ -3031,7 +3407,9 @@
                         "label_lon": "25.402153",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3ff9274e2b2bb5e16eb4e76542c4f2c3",
+                "fssName": "Black Sea West Control"
             },
             {
                 "icao": "LUUU",
@@ -3046,7 +3424,9 @@
                         "label_lon": "29.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1ae75a038cabbd0374c51b102c3501da",
+                "fssName": "Black Sea West Control"
             }
         ]
     },
@@ -3067,7 +3447,9 @@
                         "label_lon": "113.29524",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0d7971e47f442b8c90057100a3252e84",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZGZU",
@@ -3082,7 +3464,9 @@
                         "label_lon": "111.341667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f9569f539cb65562479eb076dedc307d",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZJSA",
@@ -3097,7 +3481,9 @@
                         "label_lon": "110.40915",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "5e9604cb5593ff1f6c16931b9438aec4",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZLHW",
@@ -3112,7 +3498,9 @@
                         "label_lon": "107.32085",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "db1dd73b80590de8518075719bdf558c",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZPKM",
@@ -3127,7 +3515,9 @@
                         "label_lon": "98.10727",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0cabd3547c1d29942fec4611da105a5a",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZSHA",
@@ -3142,7 +3532,9 @@
                         "label_lon": "118.17084",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2608d79594bad1161b396fe39568a39e",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZWUQ",
@@ -3157,7 +3549,9 @@
                         "label_lon": "84.3564",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b3c656dc358c7174fc4ed76271ed4e64",
+                "fssName": "Beijing Control"
             },
             {
                 "icao": "ZYSH",
@@ -3172,7 +3566,9 @@
                         "label_lon": "123.03321",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "76603b2611e40f8a6d26dd8cbbc1985c",
+                "fssName": "Beijing Control"
             }
         ]
     },
@@ -3193,7 +3589,9 @@
                         "label_lon": "130.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "253a6cf6025365877951d757a973a873",
+                "fssName": "Eastern Russia Control"
             },
             {
                 "icao": "UHHH",
@@ -3208,7 +3606,9 @@
                         "label_lon": "139.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "fc7ded52873126ab5d461396923ee22f",
+                "fssName": "Eastern Russia Control"
             },
             {
                 "icao": "UHMM",
@@ -3223,7 +3623,9 @@
                         "label_lon": "166.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "365bfd52b0c669e0f9a15cafee0298bb",
+                "fssName": "Eastern Russia Control"
             }
         ]
     },
@@ -3244,7 +3646,9 @@
                         "label_lon": "27.958334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "355f0b3bc5c76ded275b5247e70132e0",
+                "fssName": "Western Russia Control"
             },
             {
                 "icao": "UUWV",
@@ -3259,7 +3663,9 @@
                         "label_lon": "38.841667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9cab31b35a65d089e4bbfeded1ff625e",
+                "fssName": "Western Russia Control"
             },
             {
                 "icao": "UWWW",
@@ -3274,7 +3680,9 @@
                         "label_lon": "51.833333",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ca7f3bf50db6396897c701fa88a1dcc9",
+                "fssName": "Western Russia Control"
             }
         ]
     },
@@ -3295,7 +3703,9 @@
                         "label_lon": "95.66849",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f0839378092247b9789c5f7e72d89137",
+                "fssName": "Siberia Control"
             },
             {
                 "icao": "UNNT",
@@ -3310,7 +3720,9 @@
                         "label_lon": "79.666667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a92283d331f4fa1060b5288426ee20ae",
+                "fssName": "Siberia Control"
             },
             {
                 "icao": "UIII",
@@ -3325,7 +3737,9 @@
                         "label_lon": "111.558333",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2361cdd347b29c8ef72df5a37ed1ccf9",
+                "fssName": "Siberia Control"
             }
         ]
     },
@@ -3346,7 +3760,9 @@
                         "label_lon": "72.033334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c0cce229df8cc4f054a0b6e851d843d8",
+                "fssName": "Western Siberia Control"
             },
             {
                 "icao": "USSV",
@@ -3361,7 +3777,9 @@
                         "label_lon": "55.116667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ba61d10c7ca7db46625898ef1ab2a8dd",
+                "fssName": "Western Siberia Control"
             }
         ]
     },
@@ -3382,7 +3800,9 @@
                         "label_lon": "54.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bea1aeef2139530509659f86fd2dee9f",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UACN",
@@ -3397,7 +3817,9 @@
                         "label_lon": "68.9",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "dbdd4167e304a25c981fa4d40c6a659d",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UAAA",
@@ -3412,7 +3834,9 @@
                         "label_lon": "77.552778",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "377eb384aa3257a1d594eed094b3e4d5",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTAK",
@@ -3427,7 +3851,9 @@
                         "label_lon": "54.558334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4a32b8f719254e739dabe11e202fe712",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTAA",
@@ -3442,7 +3868,9 @@
                         "label_lon": "59.6",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "930ec361a3e5a1bb323f26135b8891e9",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTAT",
@@ -3457,7 +3885,9 @@
                         "label_lon": "58.823281",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "91b9681cbe587a9a8a1bdb1cdd0e2116",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTAV",
@@ -3472,7 +3902,9 @@
                         "label_lon": "63.458334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8f720f7f18fd6148213f7777342a1da6",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTSD",
@@ -3487,7 +3919,9 @@
                         "label_lon": "65.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "63e54ff51d02002460855c84163d3d36",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTTR",
@@ -3502,7 +3936,9 @@
                         "label_lon": "64.291666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "8dbb9c4a2d61027d0ea4c5977f76a792",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UAII",
@@ -3517,7 +3953,9 @@
                         "label_lon": "66.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "d246a4762eda10bb6e3f770befd13b7b",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UCFO",
@@ -3532,7 +3970,9 @@
                         "label_lon": "73.3",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ad0330d8e9bbbbd4aaacb9665337c56a",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UTDD",
@@ -3547,7 +3987,9 @@
                         "label_lon": "71.333333",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "19b31f5c22aea4cc03c297f52dcc14e3",
+                "fssName": "Asia-Center"
             },
             {
                 "icao": "UCFM",
@@ -3562,7 +4004,9 @@
                         "label_lon": "76.1",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "55563d064ca8edf6c6005ef196ea4e02",
+                "fssName": "Asia-Center"
             }
         ]
     },
@@ -3583,7 +4027,9 @@
                         "label_lon": "41.8881",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4d832351076795f1303190e50efb66b2",
+                "fssName": "North Western Russia Control"
             },
             {
                 "icao": "UMKK",
@@ -3598,7 +4044,9 @@
                         "label_lon": "20.215527",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6d55836809a4b35406686f5b3e7b7842",
+                "fssName": "North Western Russia Control"
             }
         ]
     },
@@ -3619,7 +4067,9 @@
                         "label_lon": "43.133334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1b418cc9ae8d0e25638b874f5d94b986",
+                "fssName": "Caucasus-Radar"
             },
             {
                 "icao": "UGGG",
@@ -3634,7 +4084,9 @@
                         "label_lon": "43.441667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "69114c9aa34a3fcaac3e43fdc8f47f7b",
+                "fssName": "Caucasus-Radar"
             },
             {
                 "icao": "UDDD",
@@ -3649,7 +4101,9 @@
                         "label_lon": "45.008334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "bcf0f9335c9f4985eec7f3aec7a03255",
+                "fssName": "Caucasus-Radar"
             },
             {
                 "icao": "UBBA",
@@ -3664,7 +4118,9 @@
                         "label_lon": "48.691666",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "e037d12065134a032a340f38d52de2ec",
+                "fssName": "Caucasus-Radar"
             }
         ]
     },
@@ -3685,7 +4141,9 @@
                         "label_lon": "-83.583334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "cf6707b0439fcbdb882d3cc28da33ba6",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SKED",
@@ -3705,7 +4163,9 @@
                         "label_lon": "-74.208836",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "59d0cc3965c7563afd59aaa31667923e",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SKEC",
@@ -3720,7 +4180,9 @@
                         "label_lon": "-74.208836",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a3ca9b8214b38aca930eae13b0eaf4b7",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "MPZL",
@@ -3735,7 +4197,9 @@
                         "label_lon": "-80.1125",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "f9c84095dc91e29f949c3082bd1edb9c",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "MHCC",
@@ -3750,7 +4214,9 @@
                         "label_lon": "-93.25",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "0aa8512d6dcdfa5051c7219df41a72f1",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SVZM",
@@ -3765,7 +4231,9 @@
                         "label_lon": "-66.600468",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "1aec2a56f65466af02b015fd63f749b8",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SYGC",
@@ -3780,7 +4248,9 @@
                         "label_lon": "-58.936083",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ca5dab6ffc3272294158897e751c642a",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SMPM",
@@ -3795,7 +4265,9 @@
                         "label_lon": "-55.95",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "fa073eb669b1204fa2bb2c06e080e872",
+                "fssName": "South America Control North"
             },
             {
                 "icao": "SOOO",
@@ -3810,7 +4282,9 @@
                         "label_lon": "-44.775",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "c33f787274dbb4d6ab30da012427ce6d",
+                "fssName": "South America Control North"
             }
         ]
     },
@@ -3831,7 +4305,9 @@
                         "label_lon": "-51.104167",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3f5ec7dd68421a53915bb6947b012fe4",
+                "fssName": "South America Control East"
             },
             {
                 "icao": "SBAZ",
@@ -3846,7 +4322,9 @@
                         "label_lon": "-57.65525",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "06fcca7069af98b0fe08f52579c63f24",
+                "fssName": "South America Control East"
             },
             {
                 "icao": "SBRE",
@@ -3861,7 +4339,9 @@
                         "label_lon": "-40.277056",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "437fe8dfab6c65946a62ffb5bed2b9b6",
+                "fssName": "South America Control East"
             },
             {
                 "icao": "SBBS",
@@ -3876,7 +4356,9 @@
                         "label_lon": "-48.416667",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a5aca529e50833248b97a67592ebd1b2",
+                "fssName": "South America Control East"
             }
         ]
     },
@@ -3897,7 +4379,9 @@
                         "label_lon": "-31.6",
                         "oceanic": "1"
                     }
-                ]
+                ],
+                "uniqueId": "566a01643d6604f75b18df928e1c2cc2",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SGFA",
@@ -3912,7 +4396,9 @@
                         "label_lon": "-58.458802",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "14c4fcafc0d5ade692a85c077a8abf1f",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SAEF",
@@ -3927,7 +4413,9 @@
                         "label_lon": "-49.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3853994c708010a33dfe73a09ec11608",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SARR",
@@ -3942,7 +4430,9 @@
                         "label_lon": "-58.9",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "4475212434c4de8c1fc0dd68b6c6a75d",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SACF",
@@ -3957,7 +4447,9 @@
                         "label_lon": "-64.925",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "a4a04e4126e99aaba2261b70f858801a",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SAMF",
@@ -3972,7 +4464,9 @@
                         "label_lon": "-67.5",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "6420928ccba0cd122e3fd34a58d0cd96",
+                "fssName": "South America Control South"
             },
             {
                 "icao": "SAVF",
@@ -3987,7 +4481,9 @@
                         "label_lon": "-49.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "3293694232f4a39ce74f6d1ce836a026",
+                "fssName": "South America Control South"
             }
         ]
     },
@@ -4008,7 +4504,9 @@
                         "label_lon": "-78.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "9104f75b3b20710e6992d2d2d9f0e997",
+                "fssName": "South America Control West"
             },
             {
                 "icao": "SCTZ",
@@ -4023,7 +4521,9 @@
                         "label_lon": "-78.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "5e8dd32ad77bf3cb677f739b8a3da1bc",
+                "fssName": "South America Control West"
             },
             {
                 "icao": "SCCZ",
@@ -4038,7 +4538,9 @@
                         "label_lon": "-77.85",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "2947c329d091201b5d76715ffcd02791",
+                "fssName": "South America Control West"
             },
             {
                 "icao": "SCFZ",
@@ -4053,7 +4555,9 @@
                         "label_lon": "-78.0",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "ec4effc01b259a8fa2dee43fb7df4e00",
+                "fssName": "South America Control West"
             },
             {
                 "icao": "SLLF",
@@ -4068,7 +4572,9 @@
                         "label_lon": "-63.508809",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "fc30d785de8f4b74b03cbf56ed77ee62",
+                "fssName": "South America Control West"
             },
             {
                 "icao": "SPIM",
@@ -4083,7 +4589,9 @@
                         "label_lon": "-79.333334",
                         "oceanic": "0"
                     }
-                ]
+                ],
+                "uniqueId": "b2089dc69de3480ac9877a2aade09568",
+                "fssName": "South America Control West"
             }
         ]
     }

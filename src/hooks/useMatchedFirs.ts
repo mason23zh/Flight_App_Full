@@ -1,10 +1,7 @@
-import GeoJson from "geojson";
 import { useEffect, useState } from "react";
-import { Fss, VatsimControllers } from "../types";
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { SerializedError } from "@reduxjs/toolkit";
+import { Fir, Fss, VatsimControllers } from "../types";
 import { db } from "../database/db";
-import { MergedFirMatching, MergedFssMatching } from "../types";
+import { MergedFirMatching } from "../types";
 
 export interface MatchedFir {
     id: string;
@@ -78,122 +75,114 @@ const useMatchedFirs = (
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isError, setIsError] = useState<boolean>(false);
 
+    const firMap: Map<string, MatchedFir> = new Map();
+
     const cleanCallsign = (callsign: string) => {
-        return (callsign.endsWith("_CTR") || callsign.endsWith("_FSS")) ? callsign.slice(0, -4) : callsign;
+        const suffixes = ["_CTR", "_FSS"];
+        for (const suffix of suffixes) {
+            if (callsign.endsWith(suffix)) {
+                return callsign.slice(0, -suffix.length);
+            }
+        }
+        return callsign;
     };
 
-    async function findMatchingFss(callsign: string, results: MatchedFir[], controller: Fss): Promise<MergedFssMatching | null> {
-        const testResult = await db.fir
-            .filter((f) => {
-                return f.callsignPrefix.toLowerCase()
-                    .includes("edmm_zug");
-            })
-            .toArray();
-        console.log("TEST RESULTS:", testResult);
 
-        const cleanedCallsign = cleanCallsign(callsign);
-        let result = null;
+    async function _findMatchingFss(controller: Fss) {
+        try {
+            const cleanedCallsign = cleanCallsign(controller.callsign);
+            const newController = {
+                name: controller.name,
+                frequency: controller.frequency,
+                logon_time: controller.logon_time,
+                callsign: controller.callsign,
+            };
+            if (fssCallsign.includes(cleanedCallsign)) {
+                const returnedFirList = await db.fss
+                    .where("fssCallsign")
+                    .equalsIgnoreCase(cleanedCallsign)
+                    .first();
+                if (returnedFirList) {
+                    returnedFirList.firs.forEach(fir => {
+                        const uniqueId = fir.uniqueId;
 
-        if (fssCallsign.includes(cleanedCallsign)) {
-            result = await db.fss
-                .where("fssCallsign")
-                .equals(cleanedCallsign)
-                .first();
-
-            if (result) {
-                for (const fir of result.firs) {
-                    // If the FIR has more than one entry, filter by oceanic = "1"
-                    if (fir.entries.length > 1) {
-                        fir.entries = fir.entries.filter(entry => entry.oceanic === "1");
-                    }
-
-                    // Check if the FIR is already in the results
-                    const existingFir = results.find(firEntry => firEntry.id.startsWith(fir.icao));
-
-                    if (existingFir) {
-                        // Mark as in FSS and append the controller
-                        existingFir.isInFss = true;
-                        existingFir.firInfo.isFss = true;
-                        existingFir.firInfo.fssName = result!.fssName;
-                        existingFir.controllers.push({
-                            name: controller.name,
-                            frequency: controller.frequency,
-                            logon_time: controller.logon_time,
-                            callsign: controller.callsign,
-                        });
+                        if (firMap.has(uniqueId)) {
+                            // This means the fir already added
+                            // we need to change the isFss flag and isInFss flag, also add new controller
+                            const existingFir = firMap.get(uniqueId);
+                            existingFir.isInFss = true;
+                            existingFir.controllers.push(newController);
+                        } else {
+                            // add the fir into the map
+                            firMap.set(uniqueId, {
+                                id: fir.uniqueId,
+                                controllers: [newController],
+                                firInfo: fir,
+                                isInFss: false
+                            });
+                        }
+                    });
+                }
+            } else {
+                // Try to find if FIR is FSS
+                const foundFir = await findMatchingFir(controller.callsign);
+                if (foundFir) {
+                    // check if this fir is already in the firMap
+                    // if so, change the isInFss flag
+                    if (firMap.has(foundFir.uniqueId)) {
+                        const firInMap = firMap.get(foundFir.uniqueId);
+                        firInMap.isInFss = true;
+                        firInMap.controllers.push(newController);
                     } else {
-                        // Add as a new FSS FIR with the controller and filtered entries
-                        results.push({
-                            id: `${fir.icao}_${callsign}`,
-                            controllers: [
-                                {
-                                    name: controller.name,
-                                    frequency: controller.frequency,
-                                    logon_time: controller.logon_time,
-                                    callsign: controller.callsign,
-                                }
-                            ],
-                            firInfo: {
-                                ...fir,
-                                isFss: true,
-                                fssName: result!.fssName
-                            },
+                        // add the fir in to the map, and set isFss flag to true
+                        firMap.set(foundFir.uniqueId, {
+                            id: foundFir.uniqueId,
+                            controllers: [newController],
+                            firInfo: foundFir,
                             isInFss: false
                         });
                     }
                 }
             }
-        } else {
-            // If the FIR is not within the FSS, find it separately
-            const matchedFir = await findMatchingFir(callsign);
-            if (matchedFir) {
-                // Check if the FIR is already in the results
-                const existingFir = results.find(firEntry => firEntry.id.startsWith(matchedFir.icao));
+        } catch (e) {
+            console.error(`Failed to match FSS for ${controller.callsign}: `, e);
+        }
+    }
 
-                if (existingFir) {
-                    // Mark as in FSS and append the controller
-                    existingFir.isInFss = true;
-                    existingFir.firInfo.isFss = true;
-                    existingFir.firInfo.fssName = null;
-                    existingFir.controllers.push({
-                        name: controller.name,
-                        frequency: controller.frequency,
-                        logon_time: controller.logon_time,
-                        callsign: controller.callsign,
-                    });
+
+    async function _findMatchingFir(controller: Fir) {
+        try {
+            const newController = {
+                name: controller.name,
+                frequency: controller.frequency,
+                logon_time: controller.logon_time,
+                callsign: controller.callsign,
+            };
+            const foundFir = await findMatchingFir(controller.callsign);
+            if (foundFir) {
+                const uniqueId = foundFir.uniqueId;
+                // find if the fir is already in the firMap
+                if (firMap.has(uniqueId)) {
+                    const firInMap = firMap.get(uniqueId);
+                    firInMap.controllers.push(newController);
                 } else {
-                    // Add as a new FSS FIR with the controller and filtered entries
-                    const entry = matchedFir.entries.length > 1
-                        ? matchedFir.entries.find(e => e.oceanic === "1")
-                        : matchedFir.entries[0];
-
-                    results.push({
-                        id: `${matchedFir.icao}_${callsign}`,
-                        controllers: [
-                            {
-                                name: controller.name,
-                                frequency: controller.frequency,
-                                logon_time: controller.logon_time,
-                                callsign: controller.callsign,
-                            }
-                        ],
-                        firInfo: {
-                            ...matchedFir,
-                            isFss: true,
-                            fssName: null,
-                            entries: entry ? [entry] : []
-                        },
-                        isInFss: false
+                    // If fir not in the map, construct a new fir
+                    firMap.set(uniqueId, {
+                        id: uniqueId,
+                        controllers: [newController],
+                        firInfo: foundFir,
+                        isInFss: false,
                     });
                 }
             }
+        } catch (e) {
+            console.error(`Failed to match FIR for ${controller.callsign}: `, e);
         }
-
-        return result;
     }
 
 
     async function findMatchingFir(callsign: string): Promise<MergedFirMatching | null> {
+        // firMap.clear();
         const cleanedCallsign = cleanCallsign(callsign);
         const parts = cleanedCallsign.split("_");
 
@@ -214,50 +203,23 @@ const useMatchedFirs = (
                 break;
             }
         }
-
         return lastValidMatch;
     }
 
     useEffect(() => {
+        firMap.clear(); //to prevent stale data
         const fetchMatchedFirs = async () => {
             try {
                 setIsLoading(true);
                 setIsError(false);
 
-                const results: MatchedFir[] = [];
-
                 // Handle FIR controllers
-                for (const controller of controllerInfo.fir) {
-                    const matchedFir = await findMatchingFir(controller.callsign);
-
-                    if (matchedFir) {
-                        const entry = matchedFir.entries.find(e => matchedFir.isFss ? e.oceanic === "1" : e.oceanic === "0");
-
-                        results.push({
-                            id: `${matchedFir.icao}_${controller.callsign}`,
-                            controllers: [
-                                {
-                                    name: controller.name,
-                                    frequency: controller.frequency,
-                                    logon_time: controller.logon_time,
-                                    callsign: controller.callsign,
-                                },
-                            ],
-                            firInfo: {
-                                ...matchedFir,
-                                entries: [entry] // Only include the correct entry
-                            },
-                            isInFss: false,
-                        });
-                    }
-                }
+                await Promise.all(controllerInfo.fir.map(fir => _findMatchingFir(fir)));
 
                 // Handle FSS controllers
-                for (const fss of controllerInfo.fss) {
-                    await findMatchingFss(fss.callsign, results, fss);
-                }
+                await Promise.all(controllerInfo.fss.map(fss => _findMatchingFss(fss)));
 
-                setMatchedFirs(results);
+                setMatchedFirs(Array.from(firMap.values()));
             } catch (error) {
                 console.error("Failed to fetch matched FIRs:", error);
                 setIsError(true);

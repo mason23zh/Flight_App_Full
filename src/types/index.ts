@@ -265,7 +265,7 @@ interface AirportResponse {
     data: Array<DbAirport>
 }
 
-interface Fir {
+export interface Fir {
     fir: string,
     firInfo: {
         icao: string,
