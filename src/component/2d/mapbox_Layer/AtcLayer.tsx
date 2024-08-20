@@ -19,7 +19,7 @@ import { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 // import geoJsonData from "../../../assets/vatsim_geoJson/simplified_vatsim_firboundaries.json";
 // import testData from "../../../assets/getvatsimcontrollers-missing-lppo-kzny.json";
 // import testData from "../../../test_data/vatsim-czeg-fss.json";
-import testData from "../../../assets/getvatsimcontrollers-mismatch-edgg-edmm.json";
+import testData from "../../../test_data/getvatsimcontrollers-mismatch-edgg-edmm.json";
 
 const AtcLayer = () => {
     const dispatch = useDispatch();

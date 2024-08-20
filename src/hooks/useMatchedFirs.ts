@@ -83,6 +83,14 @@ const useMatchedFirs = (
     };
 
     async function findMatchingFss(callsign: string, results: MatchedFir[], controller: Fss): Promise<MergedFssMatching | null> {
+        const testResult = await db.fir
+            .filter((f) => {
+                return f.callsignPrefix.toLowerCase()
+                    .includes("edmm_zug");
+            })
+            .toArray();
+        console.log("TEST RESULTS:", testResult);
+
         const cleanedCallsign = cleanCallsign(callsign);
         let result = null;
 
