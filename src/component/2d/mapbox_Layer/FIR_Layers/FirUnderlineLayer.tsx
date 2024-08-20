@@ -6,7 +6,6 @@ import { Layer, Source } from "react-map-gl";
 import { underlineBoundariesLineStyle } from "./firLayerMapStyle";
 
 
-// const tilesetId = "mason-zh.clqudy2fp2ag61nogduw0ofwr-96of0";
 const FirUnderlineLayer = () => {
     return (
         <Source

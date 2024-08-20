@@ -18,6 +18,7 @@ interface Controller {
 }
 
 //!fix: LGA_V_APP
+//TODO: Try to avoid using geoJson
 
 const TraconLayer = ({
     controllerInfo,

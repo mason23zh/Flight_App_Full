@@ -30,6 +30,7 @@ const FirLayer = ({
         isLoading,
         isError
     } = useMatchedFirs(controllerInfo);
+
     console.log("MatchedFIRS:", matchedFIRS);
 
     useEffect(() => {
