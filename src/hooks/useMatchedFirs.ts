@@ -15,6 +15,13 @@ export interface MatchedFir {
     isInFss: boolean;
 }
 
+interface ControllerInfo {
+    name: string;
+    frequency: string;
+    logon_time: string;
+    callsign: string;
+}
+
 interface UseMatchedFirFeaturesReturn {
     matchedFirs: MatchedFir[];
     isLoading: boolean;
@@ -87,11 +94,30 @@ const useMatchedFirs = (
         return callsign;
     };
 
+    const addFirToMap = (uniqueId: string, fir: MergedFirMatching, controller: ControllerInfo, isInFss: boolean) => {
+        if (firMap.has(uniqueId)) {
+            // This means the fir already added
+            const existingFir = firMap.get(uniqueId);
+            // we need to change the isFss flag and isInFss flag, also add new controller
+            existingFir.isInFss = isInFss || existingFir.isInFss;
+            // add new controller
+            existingFir.controllers.push(controller);
+        } else {
+            // if fir not in the firMap, add new fir to the map
+            firMap.set(uniqueId, {
+                id: uniqueId,
+                controllers: [controller],
+                firInfo: fir,
+                isInFss: isInFss
+            });
+        }
+    };
+
 
     async function _findMatchingFss(controller: Fss) {
         try {
             const cleanedCallsign = cleanCallsign(controller.callsign);
-            const newController = {
+            const newController: ControllerInfo = {
                 name: controller.name,
                 frequency: controller.frequency,
                 logon_time: controller.logon_time,
@@ -104,44 +130,14 @@ const useMatchedFirs = (
                     .first();
                 if (returnedFirList) {
                     returnedFirList.firs.forEach(fir => {
-                        const uniqueId = fir.uniqueId;
-
-                        if (firMap.has(uniqueId)) {
-                            // This means the fir already added
-                            // we need to change the isFss flag and isInFss flag, also add new controller
-                            const existingFir = firMap.get(uniqueId);
-                            existingFir.isInFss = true;
-                            existingFir.controllers.push(newController);
-                        } else {
-                            // add the fir into the map
-                            firMap.set(uniqueId, {
-                                id: fir.uniqueId,
-                                controllers: [newController],
-                                firInfo: fir,
-                                isInFss: false
-                            });
-                        }
+                        addFirToMap(fir.uniqueId, fir, newController, true);
                     });
                 }
             } else {
                 // Try to find if FIR is FSS
-                const foundFir = await findMatchingFir(controller.callsign);
+                const foundFir = await findMatchingFir(controller.callsign, true);
                 if (foundFir) {
-                    // check if this fir is already in the firMap
-                    // if so, change the isInFss flag
-                    if (firMap.has(foundFir.uniqueId)) {
-                        const firInMap = firMap.get(foundFir.uniqueId);
-                        firInMap.isInFss = true;
-                        firInMap.controllers.push(newController);
-                    } else {
-                        // add the fir in to the map, and set isFss flag to true
-                        firMap.set(foundFir.uniqueId, {
-                            id: foundFir.uniqueId,
-                            controllers: [newController],
-                            firInfo: foundFir,
-                            isInFss: false
-                        });
-                    }
+                    addFirToMap(foundFir.uniqueId, foundFir, newController, true);
                 }
             }
         } catch (e) {
@@ -158,22 +154,9 @@ const useMatchedFirs = (
                 logon_time: controller.logon_time,
                 callsign: controller.callsign,
             };
-            const foundFir = await findMatchingFir(controller.callsign);
+            const foundFir = await findMatchingFir(controller.callsign, false);
             if (foundFir) {
-                const uniqueId = foundFir.uniqueId;
-                // find if the fir is already in the firMap
-                if (firMap.has(uniqueId)) {
-                    const firInMap = firMap.get(uniqueId);
-                    firInMap.controllers.push(newController);
-                } else {
-                    // If fir not in the map, construct a new fir
-                    firMap.set(uniqueId, {
-                        id: uniqueId,
-                        controllers: [newController],
-                        firInfo: foundFir,
-                        isInFss: false,
-                    });
-                }
+                addFirToMap(foundFir.uniqueId, foundFir, newController, false);
             }
         } catch (e) {
             console.error(`Failed to match FIR for ${controller.callsign}: `, e);
@@ -181,7 +164,7 @@ const useMatchedFirs = (
     }
 
 
-    async function findMatchingFir(callsign: string): Promise<MergedFirMatching | null> {
+    async function findMatchingFir(callsign: string, isFss: boolean): Promise<MergedFirMatching | null> {
         // firMap.clear();
         const cleanedCallsign = cleanCallsign(callsign);
         const parts = cleanedCallsign.split("_");
@@ -195,10 +178,28 @@ const useMatchedFirs = (
             const matchingFir = await db.fir
                 .where("callsignPrefix")
                 .equals(partialCallsign)
-                .first();
+                .toArray();
 
-            if (matchingFir) {
-                lastValidMatch = matchingFir;
+            if (matchingFir && matchingFir.length > 0) {
+                let filteredFirs: MergedFirMatching[];
+
+                if (isFss) {
+                    // Prefer FIRs with oceanic = 1 when isFss is true
+                    filteredFirs = matchingFir.filter(fir => fir.entries.some(entry => entry.oceanic === "1"));
+                    if (filteredFirs.length === 0) {
+                        // Fallback to FIRs with oceanic = 0 if none are found with oceanic = 1
+                        filteredFirs = matchingFir;
+                    }
+                } else {
+                    // Prefer FIRs with oceanic = 0 when isFss is false
+                    filteredFirs = matchingFir.filter(fir => fir.entries.some(entry => entry.oceanic === "0"));
+                    if (filteredFirs.length === 0) {
+                        // Fallback to FIRs with oceanic = 1 if none are found with oceanic = 0
+                        filteredFirs = matchingFir;
+                    }
+                }
+
+                lastValidMatch = filteredFirs[0];
             } else {
                 break;
             }

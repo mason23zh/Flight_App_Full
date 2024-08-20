@@ -4676,7 +4676,7 @@
         "name": "Shanwick & Gander",
         "callsignPrefix": "NAT",
         "firBoundary": "NAT",
-        "isFss": false,
+        "isFss": true,
         "suffix": "Center",
         "entries": [
             {

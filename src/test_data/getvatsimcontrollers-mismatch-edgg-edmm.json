@@ -20,6 +20,24 @@
         },
         {
             "firInfo": {
+                "icao": "EDGG",
+                "name": "Langen",
+                "prefix": "",
+                "fir": "EDGG"
+            },
+            "fir": "NY",
+            "name": "1627359",
+            "cid": 1627359,
+            "facility": 6,
+            "rating": 4,
+            "callsign": "NY_CTR",
+            "frequency": "125.200",
+            "visual_range": 300,
+            "last_updated": "2024-08-18T19:46:30.5921116Z",
+            "logon_time": "2024-08-18T17:00:30.2047613Z"
+        },
+        {
+            "firInfo": {
                 "icao": "ZBPE",
                 "name": "Beijing",
                 "prefix": "",
@@ -25869,6 +25887,42 @@
         ]
     },
     "fss": [
+        {
+            "cid": 1697854,
+            "name": "Alex D",
+            "callsign": "NAT_I_FSS",
+            "frequency": "131.900",
+            "facility": 1,
+            "rating": 5,
+            "server": "USA-WEST",
+            "visual_range": 1500,
+            "text_atis": [
+                "\"Shanwick Radio\" or \"Gander Radio\" | CPDLC (NATX)",
+                "Covering Shanwick (EGGX) and Gander Oceanic (CZQX) OCAs.",
+                "Oceanic Clearance on nattrak.vatsim.net. Clearance not available on CPDLC"
+            ],
+            "last_updated": "2024-08-20T11:24:43.0024119Z",
+            "logon_time": "2024-08-20T11:11:28.668582Z",
+            "firInfo": {}
+        },
+        {
+            "cid": 1199517,
+            "name": "Seungmun Ji",
+            "callsign": "NAT_FSS",
+            "frequency": "131.900",
+            "facility": 1,
+            "rating": 5,
+            "server": "GERMANY2",
+            "visual_range": 1500,
+            "text_atis": [
+                "\"Shanwick Radio\" or \"Gander Radio\" | CPDLC (NATX)",
+                "Covering Shanwick (EGGX) and Gander Oceanic (CZQX) OCAs.",
+                "Oceanic Clearance on nattrak.vatsim.net. Clearance not available on CPDLC"
+            ],
+            "last_updated": "2024-08-20T11:24:43.1798238Z",
+            "logon_time": "2024-08-20T10:18:25.4792686Z",
+            "firInfo": {}
+        },
         {
             "cid": 1058098,
             "name": "1058098",

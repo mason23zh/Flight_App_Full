@@ -113,7 +113,7 @@ const AtcLayer = () => {
         <>
             {underlineFirBoundaries && <FirUnderlineLayer/>}
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={testData} labelVisible={true}/>
+                <FirLayer controllerInfo={controllerData} labelVisible={true}/>
                 <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
                 <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
             </>)
