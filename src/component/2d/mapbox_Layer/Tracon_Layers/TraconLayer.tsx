@@ -3,6 +3,7 @@ import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
+    activeTraconLayerStyle,
     highlightTraconBoundariesLayerStyle,
     traconBoundariesLineLayerStyle
 } from "./traconLayerMapStyle";
@@ -27,48 +28,58 @@ const TraconLayer = ({
 }: Controller) => {
     const dispatch = useDispatch();
 
-    useMatchTracon(controllerInfo);
-
     const {
-        geoJsonFeatures,
-        isLoading,
-        error
-    } = useMatchTraconFeatures(controllerInfo);
-    const {
-        renderedMarkers,
-        hoverTraconCast,
-    } = useRenderTraconLabelMarker(geoJsonFeatures);
+        matchedTracons,
+        isLoading: isTraconLoading,
+        isError: isTraconError
+    } = useMatchTracon(controllerInfo);
 
-    useEffect(() => {
-        if (isLoading) {
-            dispatch(addMessage({
-                location: "TRACON",
-                messageType: "LOADING",
-                content: "Loading Tracon layer..."
-            }));
-        }
+    // const {
+    //     geoJsonFeatures,
+    //     isLoading,
+    //     error
+    // } = useMatchTraconFeatures(controllerInfo);
+    //
+    // if (geoJsonFeatures) {
+    //     console.log("length:", geoJsonFeatures.features.length);
+    // }
 
-        if (error) {
-            dispatch(addMessage({
-                location: "TRACON",
-                messageType: "ERROR",
-                content: "Error loading Tracon layer."
-            }));
-        }
-        if (geoJsonFeatures && !error && !isLoading) {
-            dispatch(removeMessageByLocation({ location: "TRACON" }));
-        }
-    }, [isLoading, error, geoJsonFeatures]);
+    // const {
+    //     renderedMarkers,
+    //     hoverTraconCast,
+    // } = useRenderTraconLabelMarker(geoJsonFeatures);
+
+    // useEffect(() => {
+    //     if (isLoading) {
+    //         dispatch(addMessage({
+    //             location: "TRACON",
+    //             messageType: "LOADING",
+    //             content: "Loading Tracon layer..."
+    //         }));
+    //     }
+    //
+    //     if (error) {
+    //         dispatch(addMessage({
+    //             location: "TRACON",
+    //             messageType: "ERROR",
+    //             content: "Error loading Tracon layer."
+    //         }));
+    //     }
+    //     if (geoJsonFeatures && !error && !isLoading) {
+    //         dispatch(removeMessageByLocation({ location: "TRACON" }));
+    //     }
+    // }, [isLoading, error, geoJsonFeatures]);
 
 
-    if (geoJsonFeatures) {
+    if (matchedTracons) {
+        const activeTraconStyle = activeTraconLayerStyle(matchedTracons);
         return (
             <Source
                 id="active-tracon-layers"
                 type="vector"
                 url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
             >
-                <Layer {...traconBoundariesLineLayerStyle}/>
+                <Layer {...activeTraconStyle}/>
             </Source>
         );
     }

@@ -1,10 +1,9 @@
-import traconMapping from "../assets/Vatsim/vatsim-tracon-mapping.json";
 import { Controller, VatsimControllers, VatsimTraconMapping } from "../types";
 import { useEffect, useState } from "react";
 import { db } from "../database/db";
 
 
-interface MatchedTracon {
+export interface MatchedTracon {
     controllers: {
         name: string;
         frequency: string;
@@ -20,19 +19,12 @@ interface UseMatchTraconReturn {
     matchedTracons: MatchedTracon[];
 }
 
-const useMatchTracon = (controller: VatsimControllers) => {
+const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn => {
     const matchedTraconMap: Map<string, MatchedTracon> = new Map();
     const [matchedTracons, setMatchedTracons] = useState<MatchedTracon[] | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    if (!controller?.tracon || controller.tracon.length === 0) {
-        setIsError(true);
-        return {
-            isLoading: false,
-            isError: true,
-            matchedTracons: []
-        };
-    }
+
 
     const addToMap = (matchedTracon: VatsimTraconMapping, controller: Controller) => {
         const newController = {
@@ -64,14 +56,18 @@ const useMatchTracon = (controller: VatsimControllers) => {
         }
 
         const callsignParts = callsign.split("_");
-        let prefix = callsignParts[0];
-        let partIndex = 1;
+
         let matches: VatsimTraconMapping[] = [];
 
-        while (partIndex <= callsignParts.length) {
+        const stack = [...callsignParts];
+
+        while (stack.length > 0) {
+            const prefix = stack.join("_");
+            console.log("PREFIX:", prefix);
+
             matches = await db.tracon
                 .where("prefix")
-                .startsWith(prefix)
+                .anyOfIgnoreCase(prefix)
                 .toArray();
 
             if (matches.length === 1) {
@@ -82,24 +78,28 @@ const useMatchTracon = (controller: VatsimControllers) => {
                     },
                     controller
                 );
+                break;
             }
 
-            if (partIndex < callsignParts.length) {
-                prefix += `_${callsignParts[partIndex]}`;
-            }
-
-            partIndex++;
+            stack.pop();
         }
     };
 
     useEffect(() => {
         matchedTraconMap.clear();
         const fetcheMatchedTracons = async () => {
+            if (!controllerData || controllerData.tracon.length === 0) {
+                setIsError(true);
+                setIsLoading(false);
+                setMatchedTracons([]);
+                return;
+            }
+
             try {
                 setIsLoading(true);
                 setIsError(false);
 
-                await Promise.all(controller.tracon.map(tracon => findMatchingTracons(tracon)));
+                await Promise.all(controllerData.tracon.map(tracon => findMatchingTracons(tracon)));
                 setMatchedTracons(Array.from(matchedTraconMap.values()));
             } catch (e) {
                 console.error("Failed to fetch matched Tracon:", e);
@@ -110,7 +110,7 @@ const useMatchTracon = (controller: VatsimControllers) => {
         };
 
         fetcheMatchedTracons();
-    }, [controller]);
+    }, [controllerData]);
 
     // TODO: Miss matching here.
     console.log("Matched tracons:", matchedTracons);

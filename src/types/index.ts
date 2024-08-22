@@ -282,7 +282,7 @@ export interface Fir {
     logon_time: string
 }
 
-export interface Controller {
+interface Controller {
     cid: number,
     name: string,
     callsign: string,

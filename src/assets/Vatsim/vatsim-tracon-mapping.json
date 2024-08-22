@@ -2,24 +2,17 @@
     {
         "id": "A80",
         "prefix": [
-            "AHN"
+            "AHN",
+            "CSG",
+            "ATL",
+            "MCN"
         ],
         "name": "Atlanta Approach",
         "coordinate": [
             -83.63917,
             33.45056
-        ]
-    },
-    {
-        "id": "A80",
-        "prefix": [
-            "CSG"
         ],
-        "name": "Atlanta Approach",
-        "coordinate": [
-            -85.775,
-            32.8
-        ]
+        "suffix": null
     },
     {
         "id": "A11",
@@ -30,73 +23,23 @@
         "coordinate": [
             -149.716667,
             61.716667
-        ]
-    },
-    {
-        "id": "A80",
-        "prefix": [
-            "ATL"
         ],
-        "name": "Atlanta Approach",
-        "coordinate": [
-            -84.705556,
-            34.279167
-        ]
+        "suffix": null
     },
     {
         "id": "A90",
         "prefix": [
-            "A90"
+            "A90",
+            "ACK",
+            "BOS",
+            "MHT"
         ],
         "name": "Boston Approach",
         "coordinate": [
             -70.9916667,
             43.4166667
-        ]
-    },
-    {
-        "id": "A80",
-        "prefix": [
-            "MCN"
         ],
-        "name": "Atlanta Approach",
-        "coordinate": [
-            -84.30556,
-            32.98056
-        ]
-    },
-    {
-        "id": "A90",
-        "prefix": [
-            "ACK"
-        ],
-        "name": "Boston Approach",
-        "coordinate": [
-            -69.5,
-            42.0836108
-        ]
-    },
-    {
-        "id": "A90",
-        "prefix": [
-            "BOS"
-        ],
-        "name": "Boston Approach",
-        "coordinate": [
-            -70.8907856,
-            41.7713683
-        ]
-    },
-    {
-        "id": "A90",
-        "prefix": [
-            "MHT"
-        ],
-        "name": "Boston Approach",
-        "coordinate": [
-            -71.3834486,
-            43.7583967
-        ]
+        "suffix": null
     },
     {
         "id": "ABE",
@@ -107,7 +50,8 @@
         "coordinate": [
             -76.1625,
             40.688889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ACT",
@@ -118,7 +62,8 @@
         "coordinate": [
             -97.775,
             31.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ABI",
@@ -129,7 +74,8 @@
         "coordinate": [
             -100.5,
             32.29167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ABQ",
@@ -140,7 +86,8 @@
         "coordinate": [
             -107.34222,
             34.90833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AGS",
@@ -151,7 +98,8 @@
         "coordinate": [
             -82.266389,
             34.066389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ALB",
@@ -162,7 +110,8 @@
         "coordinate": [
             -72.8583333,
             43.1083894
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ACY",
@@ -173,7 +122,8 @@
         "coordinate": [
             -75.311667,
             39.431944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "APN",
@@ -184,7 +134,8 @@
         "coordinate": [
             -82.35,
             44.666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ALO",
@@ -195,7 +146,8 @@
         "coordinate": [
             -93.266667,
             42.6625
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ASE",
@@ -206,7 +158,8 @@
         "coordinate": [
             -107.220556,
             39.563611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AMA",
@@ -217,7 +170,8 @@
         "coordinate": [
             -102.043333,
             34.711389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AVL",
@@ -228,18 +182,20 @@
         "coordinate": [
             -83.133333,
             35.983333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AYNZ",
-        "name": "Nadzab Approach",
         "prefix": [
             "AYNZ"
         ],
+        "name": "Nadzab Approach",
         "coordinate": [
             146.562778,
             -6.096667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AUS",
@@ -250,7 +206,8 @@
         "coordinate": [
             -96.81666667,
             30.15
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AVP",
@@ -261,29 +218,33 @@
         "coordinate": [
             -76.2999808,
             41.5009772
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AZO",
         "prefix": [
-            "AZO"
+            "AZO",
+            "LAN"
         ],
         "name": "Great Lakes Approach",
         "coordinate": [
             -87,
             42.8
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "AYPY",
-        "name": "Jacksons Radar",
         "prefix": [
             "AYPY"
         ],
+        "name": "Jacksons Radar",
         "coordinate": [
             147.219167,
             -8.608611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BFL",
@@ -294,7 +255,8 @@
         "coordinate": [
             -119.7102614,
             35.6774564
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BHM",
@@ -305,18 +267,8 @@
         "coordinate": [
             -86.175,
             34.3875
-        ]
-    },
-    {
-        "id": "AZO",
-        "prefix": [
-            "LAN"
         ],
-        "name": "Great Lakes Approach",
-        "coordinate": [
-            -85.05,
-            42.68333
-        ]
+        "suffix": null
     },
     {
         "id": "BIS",
@@ -327,7 +279,8 @@
         "coordinate": [
             -100.2,
             47.233333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BGM",
@@ -338,7 +291,8 @@
         "coordinate": [
             -76.259722,
             42.454167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BIKF",
@@ -349,7 +303,8 @@
         "coordinate": [
             -21.231666666667,
             63.723611111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BIRK",
@@ -360,7 +315,8 @@
         "coordinate": [
             -22.966666666667,
             64.633333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BIL",
@@ -371,7 +327,8 @@
         "coordinate": [
             -108.624167,
             46.477778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BGR",
@@ -382,7 +339,8 @@
         "coordinate": [
             -68.1448897,
             44.7716667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BOI",
@@ -393,7 +351,8 @@
         "coordinate": [
             -116.920556,
             43.128056
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BNA",
@@ -404,7 +363,8 @@
         "coordinate": [
             -86.933333,
             36.683333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BTR",
@@ -415,7 +375,8 @@
         "coordinate": [
             -91.5,
             30.191667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BTV",
@@ -426,7 +387,8 @@
         "coordinate": [
             -73.25,
             45
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BZN",
@@ -437,7 +399,8 @@
         "coordinate": [
             -111.889722,
             46.1925
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "BUF",
@@ -448,7 +411,8 @@
         "coordinate": [
             -81.21111,
             42
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CAE",
@@ -459,7 +423,8 @@
         "coordinate": [
             -81.233333,
             34.508333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "C90",
@@ -470,7 +435,8 @@
         "coordinate": [
             -88.461111,
             42.5
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CHA",
@@ -481,13 +447,19 @@
         "coordinate": [
             -85.258333,
             35.5375
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CBM",
-        "prefix": "CBM",
+        "prefix": [
+            "C",
+            "B",
+            "M"
+        ],
         "name": "Columbus Approach",
-        "coordinate": -87.986111
+        "coordinate": -87.986111,
+        "suffix": null
     },
     {
         "id": "CHS",
@@ -498,7 +470,8 @@
         "coordinate": [
             -80.664444,
             33.375556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CID",
@@ -509,7 +482,8 @@
         "coordinate": [
             -92.285278,
             42.199167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CLT",
@@ -520,7 +494,8 @@
         "coordinate": [
             -81.232222,
             35.689167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CKB",
@@ -531,7 +506,8 @@
         "coordinate": [
             -80.480556,
             40.027778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CMH",
@@ -542,7 +518,8 @@
         "coordinate": [
             -83.566667,
             40.4
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CLE",
@@ -553,7 +530,8 @@
         "coordinate": [
             -83.65,
             40.7375
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CMI",
@@ -564,7 +542,8 @@
         "coordinate": [
             -89.183333,
             40.016667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CPR",
@@ -575,7 +554,8 @@
         "coordinate": [
             -107.038889,
             43.234722
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "COS",
@@ -586,7 +566,8 @@
         "coordinate": [
             -104.2525,
             39.196667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CPTL",
@@ -597,7 +578,8 @@
         "coordinate": [
             -75.009013611111,
             45.353140555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CRW",
@@ -608,7 +590,8 @@
         "coordinate": [
             -82.23333,
             38.14028
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CVG",
@@ -619,7 +602,8 @@
         "coordinate": [
             -85.500278,
             39.455556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CRP",
@@ -630,7 +614,8 @@
         "coordinate": [
             -97.966667,
             28.033333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CVS",
@@ -641,7 +626,8 @@
         "coordinate": [
             -103.916667,
             34.65
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYBG",
@@ -652,7 +638,8 @@
         "coordinate": [
             -72.123708055556,
             48.335496666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYMJ",
@@ -663,7 +650,8 @@
         "coordinate": [
             -107.27944444444444,
             49.95333333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYHZ",
@@ -674,7 +662,8 @@
         "coordinate": [
             -64.45444444444445,
             45.22527777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYEG",
@@ -685,7 +674,8 @@
         "coordinate": [
             -114.1987489630336,
             53.50153920623929
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYOW",
@@ -696,7 +686,8 @@
         "coordinate": [
             -74.922275277778,
             45.085691388889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYQB",
@@ -707,7 +698,8 @@
         "coordinate": [
             -72.133333333333,
             46.766666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYQM",
@@ -718,7 +710,8 @@
         "coordinate": [
             -67.21666666666667,
             46.2
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYOD",
@@ -730,7 +723,8 @@
             -111.705560592802,
             54.98355949364386,
             0
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYQT",
@@ -741,7 +735,8 @@
         "coordinate": [
             -89.4452425,
             47.79595416666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYSJ",
@@ -752,7 +747,8 @@
         "coordinate": [
             -67.21666666666667,
             46.2
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYQX",
@@ -763,7 +759,8 @@
         "coordinate": [
             -54.583329722222224,
             49.6
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYS",
@@ -774,7 +771,8 @@
         "coordinate": [
             -104.965556,
             40.919444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYUL",
@@ -785,7 +783,8 @@
         "coordinate": [
             -73.633333333333,
             44.8075
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYWG",
@@ -796,7 +795,8 @@
         "coordinate": [
             -98.02709166666666,
             50.21440277777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYXE",
@@ -807,7 +807,8 @@
         "coordinate": [
             -106.89250000000001,
             52.7420575
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYYC",
@@ -819,7 +820,8 @@
             -114.5883579704858,
             51.4642457992322,
             0
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYYR",
@@ -830,7 +832,8 @@
         "coordinate": [
             -60.365833333333335,
             54.788306666666664
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYYT",
@@ -841,7 +844,8 @@
         "coordinate": [
             -52.75,
             48.283339999999995
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYYZ",
@@ -852,18 +856,22 @@
         "coordinate": [
             -79.7297335,
             44.1034579
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "D01",
         "prefix": [
-            "PUB"
+            "PUB",
+            "GJT",
+            "DEN"
         ],
         "name": "Denver Approach",
         "coordinate": [
             -104.075278,
             38.498611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "CYZX",
@@ -874,18 +882,8 @@
         "coordinate": [
             -65.14666666666668,
             44.59388888888889
-        ]
-    },
-    {
-        "id": "D01",
-        "prefix": [
-            "GJT"
         ],
-        "name": "Denver Approach",
-        "coordinate": [
-            -108.687778,
-            39.480833
-        ]
+        "suffix": null
     },
     {
         "id": "CZEG",
@@ -896,7 +894,8 @@
         "coordinate": [
             -114.1970480023385,
             53.50369226450303
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DAB",
@@ -907,18 +906,8 @@
         "coordinate": [
             -81.566667,
             29.823611
-        ]
-    },
-    {
-        "id": "D01",
-        "prefix": [
-            "DEN"
         ],
-        "name": "Denver Approach",
-        "coordinate": [
-            -104.104722,
-            40.440556
-        ]
+        "suffix": null
     },
     {
         "id": "DAY",
@@ -929,7 +918,8 @@
         "coordinate": [
             -85.091667,
             40.3
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "D10",
@@ -940,7 +930,8 @@
         "coordinate": [
             -97.72833,
             32.46889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "D21",
@@ -951,7 +942,8 @@
         "coordinate": [
             -83.8825,
             42.775
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DLH",
@@ -962,7 +954,8 @@
         "coordinate": [
             -92.13333333,
             47.5
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DLF",
@@ -973,7 +966,8 @@
         "coordinate": [
             -101.790278,
             29.778889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DNMM",
@@ -981,12 +975,11 @@
             "DNMM"
         ],
         "name": "Lagos Approach",
-        "label_lat": 3.2322438,
-        "label_lon": 7.682854,
         "coordinate": [
             2.7191205555555555,
             7.641923055555555
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DNA",
@@ -997,7 +990,8 @@
         "coordinate": [
             107.62027611111,
             13.499395833333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DOV",
@@ -1008,7 +1002,8 @@
         "coordinate": [
             -75.836111,
             39.266667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "DSM",
@@ -1019,7 +1014,8 @@
         "coordinate": [
             -93.354167,
             42.216667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EBBR",
@@ -1030,7 +1026,8 @@
         "coordinate": [
             3.478979166666667,
             51.05173194444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EBLG",
@@ -1041,7 +1038,8 @@
         "coordinate": [
             5.117305,
             50.516695
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EBOS",
@@ -1052,7 +1050,8 @@
         "coordinate": [
             2.0006283333333332,
             51.11544555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EBCI",
@@ -1063,7 +1062,8 @@
         "coordinate": [
             3.8135697222222222,
             50.488103333333335
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDB",
@@ -1074,7 +1074,8 @@
         "coordinate": [
             12.183036,
             52.482303
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDG",
@@ -1085,7 +1086,8 @@
         "coordinate": [
             7.26638888888889,
             52.2472222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDH",
@@ -1096,7 +1098,8 @@
         "coordinate": [
             10.883333,
             54.595
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDF",
@@ -1107,7 +1110,8 @@
         "coordinate": [
             7.68027777777778,
             50.1941666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDK",
@@ -1118,7 +1122,8 @@
         "coordinate": [
             6.75583333333333,
             51.09
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDL",
@@ -1129,7 +1134,8 @@
         "coordinate": [
             6.79083333333333,
             51.9336111111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDR",
@@ -1140,7 +1146,8 @@
         "coordinate": [
             8.066666666666666,
             49
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDM",
@@ -1151,7 +1158,8 @@
         "coordinate": [
             11.183333333333334,
             48.669444444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDN",
@@ -1162,7 +1170,8 @@
         "coordinate": [
             10.702777777777778,
             50.6575
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDP",
@@ -1173,7 +1182,8 @@
         "coordinate": [
             12.260833333333334,
             51.780277777777776
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDV",
@@ -1184,7 +1194,8 @@
         "coordinate": [
             10.266666666666667,
             53.05
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDS",
@@ -1195,7 +1206,8 @@
         "coordinate": [
             8.39388888888889,
             49.2352777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDW",
@@ -1206,7 +1218,8 @@
         "coordinate": [
             7.191667,
             53.3
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDFM",
@@ -1217,7 +1230,8 @@
         "coordinate": [
             9.047777777777778,
             49.57638888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDJA",
@@ -1228,7 +1242,8 @@
         "coordinate": [
             9.92361111111111,
             48.302499999999995
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDFH",
@@ -1239,7 +1254,8 @@
         "coordinate": [
             6.38416666666667,
             50.4125
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDLP",
@@ -1250,31 +1266,32 @@
         "coordinate": [
             8.86666666666667,
             51.9
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EETN",
         "prefix": [
             "EETN"
         ],
-        "suffix": "APP",
         "name": "Tallinn Radar",
         "coordinate": [
             22.982499999999998,
             59.474722222222226
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "EETT_H",
         "prefix": [
             "EETT"
         ],
-        "suffix": "H_APP",
         "name": "Tallinn Control",
         "coordinate": [
             25.00916638888889,
             59.89138888888889
-        ]
+        ],
+        "suffix": "H_APP"
     },
     {
         "id": "EDW",
@@ -1285,7 +1302,8 @@
         "coordinate": [
             -118.5833331,
             37.20000000000001
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFHA",
@@ -1296,7 +1314,8 @@
         "coordinate": [
             25.115833333333,
             62.167222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFJY",
@@ -1307,7 +1326,8 @@
         "coordinate": [
             25.664166666666667,
             62.809444444444445
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFHK",
@@ -1318,7 +1338,8 @@
         "coordinate": [
             25.44,
             60.954444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFOU",
@@ -1329,7 +1350,8 @@
         "coordinate": [
             25.183611111111,
             65.405833333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EDDC",
@@ -1340,7 +1362,8 @@
         "coordinate": [
             14.712222222222222,
             51.69833333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFKU",
@@ -1351,7 +1374,8 @@
         "coordinate": [
             27.611111111111,
             63.417222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFPO",
@@ -1362,7 +1386,8 @@
         "coordinate": [
             21.577777777778,
             61.844722222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFRO",
@@ -1373,7 +1398,8 @@
         "coordinate": [
             25.711666666667,
             66.964166666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFTP",
@@ -1384,7 +1410,8 @@
         "coordinate": [
             23.752222222222,
             61.723333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFTU",
@@ -1395,7 +1422,8 @@
         "coordinate": [
             21.350833333333,
             60.554444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EFVA",
@@ -1406,7 +1434,8 @@
         "coordinate": [
             21.58972222222222,
             63.56333333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGAA",
@@ -1417,7 +1446,8 @@
         "coordinate": [
             -5.264822,
             54.951937
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGCC",
@@ -1428,7 +1458,8 @@
         "coordinate": [
             -2.8497222222222,
             53.333611111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGBB",
@@ -1439,7 +1470,8 @@
         "coordinate": [
             -2.1780247222222,
             52.516436111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGGW",
@@ -1450,7 +1482,8 @@
         "coordinate": [
             -0.2516667,
             51.8083333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGGD",
@@ -1461,7 +1494,8 @@
         "coordinate": [
             -2.53577,
             51.286388611111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGFF",
@@ -1472,7 +1506,8 @@
         "coordinate": [
             -3.5347222222222,
             51.559722222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGHH",
@@ -1483,7 +1518,8 @@
         "coordinate": [
             -1.5775,
             50.829444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGHI",
@@ -1494,7 +1530,8 @@
         "coordinate": [
             -1.7833333333333,
             50.532222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGJJ",
@@ -1505,7 +1542,8 @@
         "coordinate": [
             -3,
             50
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGLF",
@@ -1516,7 +1554,8 @@
         "coordinate": [
             -0.9193994,
             51.2853403
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGKK",
@@ -1527,7 +1566,8 @@
         "coordinate": [
             0.23172222222222,
             50.727658055556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGLL",
@@ -1538,7 +1578,8 @@
         "coordinate": [
             0.0348111,
             51.330875
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGNM",
@@ -1549,7 +1590,8 @@
         "coordinate": [
             -1.8166666666667,
             54.043333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGMC",
@@ -1560,7 +1602,8 @@
         "coordinate": [
             1.0705555555556,
             51.614722222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGNT",
@@ -1571,7 +1614,8 @@
         "coordinate": [
             -2.0055555555556,
             55.0625
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGNS",
@@ -1582,7 +1626,8 @@
         "coordinate": [
             -4.1733333333333,
             54.0425
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGPF",
@@ -1593,7 +1638,8 @@
         "coordinate": [
             -4.7015758,
             56.0131478
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGPD",
@@ -1604,7 +1650,8 @@
         "coordinate": [
             -2.8488888888889,
             57.004166666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGSS",
@@ -1615,7 +1662,8 @@
         "coordinate": [
             0.6080556,
             51.7830556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGNX",
@@ -1626,7 +1674,8 @@
         "coordinate": [
             -1.5194444444444,
             53.069444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGPK",
@@ -1637,7 +1686,8 @@
         "coordinate": [
             -4.2338014,
             55.4619097
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EGPH",
@@ -1648,7 +1698,8 @@
         "coordinate": [
             -3.840435,
             56.0716631
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EIDW",
@@ -1659,7 +1710,8 @@
         "coordinate": [
             -6.7586175,
             54.15794333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EINN",
@@ -1670,7 +1722,8 @@
         "coordinate": [
             -9.59278,
             52.41306
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKAH",
@@ -1681,7 +1734,8 @@
         "coordinate": [
             10.481944,
             56.860556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKBI",
@@ -1692,7 +1746,8 @@
         "coordinate": [
             9.915278,
             55.499167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EICK",
@@ -1703,7 +1758,8 @@
         "coordinate": [
             -8.4911111,
             52.2575002
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKCH",
@@ -1714,7 +1770,8 @@
         "coordinate": [
             13.058611,
             55.497222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKKA",
@@ -1725,7 +1782,8 @@
         "coordinate": [
             9.706944,
             56.641111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ELLX",
@@ -1736,7 +1794,8 @@
         "coordinate": [
             5.298418055555556,
             49.67632916666666
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKSP",
@@ -1747,7 +1806,8 @@
         "coordinate": [
             8.448611,
             55.071389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EKYT",
@@ -1758,7 +1818,8 @@
         "coordinate": [
             9.915278,
             56.561944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ELM",
@@ -1769,7 +1830,8 @@
         "coordinate": [
             -76.713889,
             42.738889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ELP",
@@ -1780,67 +1842,68 @@
         "coordinate": [
             -106.11805556,
             32.38833333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ENAN",
         "prefix": [
             "ENAN"
         ],
-        "suffix": "APP",
         "name": "And\u00f8ya Tower",
         "coordinate": [
             16.966666666666665,
             69.08333333333333
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENAT",
         "prefix": [
             "ENAT"
         ],
-        "suffix": "APP",
         "name": "Alta Tower",
         "coordinate": [
             24,
             70.31388888888888
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENBO",
         "prefix": [
             "ENBO"
         ],
-        "suffix": "APP",
         "name": "Bod\u00f8 Approach",
         "coordinate": [
             13.916111111111112,
             67.66555555555556
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENBR",
         "prefix": [
             "ENBR"
         ],
-        "suffix": "APP",
         "name": "Flesland Approach",
         "coordinate": [
             4.5,
             61
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENDU",
         "prefix": [
             "ENDU"
         ],
-        "suffix": "APP",
         "name": "Bardufoss Approach",
         "coordinate": [
             18.15,
             68.68333333333334
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENCN",
@@ -1852,7 +1915,8 @@
         "coordinate": [
             8.781111111111112,
             58.959722222222226
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "END",
@@ -1863,55 +1927,56 @@
         "coordinate": [
             -99.78333,
             36.27917
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ENEV",
         "prefix": [
             "ENEV"
         ],
-        "suffix": "APP",
         "name": "Evenes Approach",
         "coordinate": [
             16.16888888888889,
             68.91944444444445
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENGM",
         "prefix": [
             "ENGM"
         ],
-        "suffix": "APP",
         "name": "Oslo Approach",
         "coordinate": [
             11.072222222222223,
             60.87777777777778
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENNA",
         "prefix": [
             "ENNA"
         ],
-        "suffix": "APP",
         "name": "Banak Tower",
         "coordinate": [
             24,
             70.31388888888888
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENKR",
         "prefix": [
             "ENKR"
         ],
-        "suffix": "APP",
         "name": "Kirkenes Tower",
         "coordinate": [
             30.95,
             70.06666666666666
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENOL",
@@ -1923,31 +1988,32 @@
         "coordinate": [
             10.280277777777778,
             63.76138888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ENTC",
         "prefix": [
             "ENTC"
         ],
-        "suffix": "APP",
         "name": "Troms\u00f8 Approach",
         "coordinate": [
             19.418055555555558,
             69.16027777777778
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ENVA",
         "prefix": [
             "ENVA"
         ],
-        "suffix": "APP",
         "name": "V\u00e6rnes Approach",
         "coordinate": [
             10.855555555555556,
             64.1
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "EPKK",
@@ -1958,19 +2024,20 @@
         "coordinate": [
             18.13050278,
             49.99716667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ENZV",
         "prefix": [
             "ENZV"
         ],
-        "suffix": "APP",
         "name": "Sola Approach",
         "coordinate": [
             4.4991666666666665,
             59.60638888888889
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "EPDE",
@@ -1981,7 +2048,8 @@
         "coordinate": [
             21.450833333333332,
             51.611111111111114
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EPGD",
@@ -1992,7 +2060,8 @@
         "coordinate": [
             15.866666666666667,
             54.916666666666664
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EPPO_N",
@@ -2003,7 +2072,8 @@
         "coordinate": [
             18.108611111111113,
             50.37555555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EPPO_S",
@@ -2014,7 +2084,8 @@
         "coordinate": [
             16,
             51.6175
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESIA",
@@ -2025,7 +2096,8 @@
         "coordinate": [
             14.7966666667,
             58.8283333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESGG",
@@ -2036,7 +2108,8 @@
         "coordinate": [
             12.4975,
             58.7661111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EPWA",
@@ -2047,7 +2120,8 @@
         "coordinate": [
             20.209444444444443,
             51.23972222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESDF",
@@ -2058,7 +2132,8 @@
         "coordinate": [
             15.1161111111,
             56.6888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESPA",
@@ -2069,7 +2144,8 @@
         "coordinate": [
             22.0455555556,
             66.0069444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESPE",
@@ -2080,7 +2156,8 @@
         "coordinate": [
             19.6875,
             66.2152777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESSA",
@@ -2091,7 +2168,8 @@
         "coordinate": [
             17.4569444444,
             58.6163888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESMS",
@@ -2102,7 +2180,8 @@
         "coordinate": [
             15.1352777778,
             54.9166666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESSEX",
@@ -2113,7 +2192,8 @@
         "coordinate": [
             0.6080556,
             51.7830556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESSB",
@@ -2124,7 +2204,8 @@
         "coordinate": [
             17.4569444444,
             58.6163888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESSP",
@@ -2135,7 +2216,8 @@
         "coordinate": [
             16.7077777778,
             59.0119444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESSV",
@@ -2146,7 +2228,8 @@
         "coordinate": [
             18.5608333333,
             58.2541666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETAD",
@@ -2157,7 +2240,8 @@
         "coordinate": [
             6.751666666666667,
             49.916333333333334
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESTA",
@@ -2168,7 +2252,8 @@
         "coordinate": [
             13.2472222222,
             56.7597222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ESTL",
@@ -2179,7 +2264,8 @@
         "coordinate": [
             13.4122222222,
             56.3222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETAR",
@@ -2190,7 +2276,8 @@
         "coordinate": [
             7.2,
             49.583333333333336
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETHF",
@@ -2201,7 +2288,8 @@
         "coordinate": [
             9.004166666666666,
             51.25
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETNN",
@@ -2212,7 +2300,8 @@
         "coordinate": [
             6.445,
             50.42783305555555
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETHN",
@@ -2223,7 +2312,8 @@
         "coordinate": [
             10.127166944444445,
             49.318666944444445
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETNG",
@@ -2234,7 +2324,8 @@
         "coordinate": [
             6.029353333333333,
             51.012081944444446
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ETSB",
@@ -2245,7 +2336,8 @@
         "coordinate": [
             6.898,
             50.362
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EUG",
@@ -2256,7 +2348,8 @@
         "coordinate": [
             -123.5,
             44.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EVRA",
@@ -2267,7 +2360,8 @@
         "coordinate": [
             22.591,
             56.3712
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EVV",
@@ -2278,7 +2372,8 @@
         "coordinate": [
             -88.106667,
             38.808056
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EYPA",
@@ -2289,7 +2384,8 @@
         "coordinate": [
             20.554166666666667,
             55.57333333333334
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EYKA",
@@ -2300,7 +2396,8 @@
         "coordinate": [
             23.8125,
             55.46416666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EYSA",
@@ -2311,7 +2408,8 @@
         "coordinate": [
             24.096944444444443,
             55.695277777777775
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "F11",
@@ -2322,7 +2420,8 @@
         "coordinate": [
             -81.708333,
             29
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FAI",
@@ -2333,7 +2432,8 @@
         "coordinate": [
             -146,
             65.25
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "EYVI",
@@ -2344,7 +2444,8 @@
         "coordinate": [
             24.6369444,
             55.3444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FAR",
@@ -2355,7 +2456,8 @@
         "coordinate": [
             -97.033333,
             46.4375
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FAOR",
@@ -2363,12 +2465,11 @@
             "FAOR"
         ],
         "name": "Johannesburg Radar",
-        "label_lat": -25.040451,
-        "label_lon": 27.738035,
         "coordinate": [
             28.660189166666665,
             -27.455784722222223
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FAT",
@@ -2379,7 +2480,8 @@
         "coordinate": [
             -120.288056,
             36.893889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FARRIS",
@@ -2391,7 +2493,8 @@
         "coordinate": [
             10.529444444444445,
             58.583333333333336
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FAY",
@@ -2402,7 +2505,8 @@
         "coordinate": [
             -80.14722,
             34.85556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FHU",
@@ -2413,7 +2517,8 @@
         "coordinate": [
             -110.76667,
             31.8
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FRI",
@@ -2424,7 +2529,8 @@
         "coordinate": [
             -96.625833,
             39.593611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FLO",
@@ -2435,7 +2541,8 @@
         "coordinate": [
             -79.728056,
             34.713333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FSI",
@@ -2446,7 +2553,8 @@
         "coordinate": [
             -98.766667,
             34.854167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FWA",
@@ -2457,7 +2565,8 @@
         "coordinate": [
             -85.933333,
             41.377778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FSD",
@@ -2468,7 +2577,8 @@
         "coordinate": [
             -96.625,
             44.058333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "FSM",
@@ -2477,29 +2587,21 @@
             "FYV"
         ],
         "name": "Razorback Approach",
-        "coordinate": -94.816667
+        "coordinate": -94.816667,
+        "suffix": null
     },
     {
         "id": "GCCA",
         "prefix": [
-            "GCCA_INB"
+            "GCCA_INB",
+            "GCCA_AAC"
         ],
         "name": "Canarias Approach",
         "coordinate": [
             -17.78333333267115,
             29.999999999965983
-        ]
-    },
-    {
-        "id": "GCCA",
-        "prefix": [
-            "GCCA_AAC"
         ],
-        "name": "Canarias Approach",
-        "coordinate": [
-            -13.76027778,
-            29.52777778
-        ]
+        "suffix": null
     },
     {
         "id": "GCLP",
@@ -2510,7 +2612,8 @@
         "coordinate": [
             -14.91666667,
             28.65
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GCTS",
@@ -2521,7 +2624,8 @@
         "coordinate": [
             -17.366666666578173,
             28.166666667038474
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GCXO",
@@ -2532,18 +2636,22 @@
         "coordinate": [
             -17,
             28.8
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GEG",
         "prefix": [
-            "GEG"
+            "GEG",
+            "PSC",
+            "YKM"
         ],
         "name": "Spokane Approach",
         "coordinate": [
             -118.38333221777054,
             47.60000024699781
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GGG",
@@ -2554,7 +2662,8 @@
         "coordinate": [
             -95.85722,
             32.58944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GMMN",
@@ -2565,7 +2674,8 @@
         "coordinate": [
             -6.933333333333334,
             33
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GMTT",
@@ -2576,7 +2686,8 @@
         "coordinate": [
             -5.501111111111111,
             35.833333333333336
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GMFF",
@@ -2587,7 +2698,8 @@
         "coordinate": [
             -4.781513888888889,
             34.47937777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GMAD",
@@ -2598,7 +2710,8 @@
         "coordinate": [
             -9.383333333333333,
             31.071439166666668
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GMMX",
@@ -2609,7 +2722,8 @@
         "coordinate": [
             -8.500555555555556,
             32.08833333333334
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GPT",
@@ -2620,7 +2734,8 @@
         "coordinate": [
             -88.525,
             30.169444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GRK",
@@ -2631,7 +2746,8 @@
         "coordinate": [
             -98.404167,
             31.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GOOY",
@@ -2639,12 +2755,11 @@
             "GOOY"
         ],
         "name": "Diass Approach",
-        "label_lat": 17.075098,
-        "label_lon": -16.116236,
         "coordinate": [
             -19.992379444444445,
             19.942604444444445
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GRB",
@@ -2655,7 +2770,8 @@
         "coordinate": [
             -89.066667,
             44.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GSB",
@@ -2666,7 +2782,8 @@
         "coordinate": [
             -78.155,
             35.694167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GTB",
@@ -2677,7 +2794,8 @@
         "coordinate": [
             -76.7913889,
             43.6333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GUS",
@@ -2688,7 +2806,8 @@
         "coordinate": [
             -87.40417,
             40.49167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GVSC",
@@ -2696,12 +2815,11 @@
             "GVSC"
         ],
         "name": "Sal Approach",
-        "label_lat": 18.255156,
-        "label_lon": -24.228075,
         "coordinate": [
             -25.785324444444445,
             15.403449444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GTF",
@@ -2712,19 +2830,20 @@
         "coordinate": [
             -111.283333,
             47.941667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HELGELAND",
         "prefix": [
             "ENBN"
         ],
-        "suffix": "APP",
         "name": "Polaris Control (Helgeland)",
         "coordinate": [
             13,
             66.95
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "GUM",
@@ -2736,7 +2855,8 @@
         "coordinate": [
             145.28127,
             13.0112383
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HLN",
@@ -2747,7 +2867,8 @@
         "coordinate": [
             -112.446667,
             46.368333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GSP",
@@ -2758,7 +2879,8 @@
         "coordinate": [
             -82.860833,
             34.353889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HMN",
@@ -2769,7 +2891,8 @@
         "coordinate": [
             -105.73333333,
             33.625
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HST",
@@ -2780,7 +2903,8 @@
         "coordinate": [
             -80.400278,
             25.581389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HNL",
@@ -2791,13 +2915,19 @@
         "coordinate": [
             -158.00901,
             21.76918
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HOP",
-        "prefix": "HOP",
+        "prefix": [
+            "H",
+            "O",
+            "P"
+        ],
         "name": "Campbell Approach",
-        "coordinate": -86.916667
+        "coordinate": -86.916667,
+        "suffix": null
     },
     {
         "id": "HSV",
@@ -2808,7 +2938,8 @@
         "coordinate": [
             -87.366667,
             34.9375
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HUZ",
@@ -2819,7 +2950,8 @@
         "coordinate": [
             -87.25,
             40.3
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "GSO",
@@ -2830,7 +2962,8 @@
         "coordinate": [
             -80.323611,
             36.808333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ICT",
@@ -2841,7 +2974,8 @@
         "coordinate": [
             -98.46667,
             37.83333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "HTZ",
@@ -2852,7 +2986,8 @@
         "coordinate": [
             -83.23889,
             38.77222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "I90",
@@ -2863,19 +2998,20 @@
         "coordinate": [
             -95.81416667,
             30.62111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "INC",
         "prefix": [
             "LTAG"
         ],
-        "suffix": "APP",
         "name": "Incirlik Approach",
         "coordinate": [
             35.34239055555556,
             37.83016222222223
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "IND",
@@ -2886,7 +3022,8 @@
         "coordinate": [
             -86.95,
             40
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ITO",
@@ -2897,7 +3034,8 @@
         "coordinate": [
             -154.93956,
             20.12708
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ILM",
@@ -2908,25 +3046,31 @@
         "coordinate": [
             -78.685,
             34.396944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "IST",
         "prefix": [
             "IST"
         ],
-        "suffix": "APP",
         "name": "Yesilkoy Approach/Radar",
         "coordinate": [
             29.403513801102005,
             42.27422945499911
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "JAN",
-        "prefix": "JAN",
+        "prefix": [
+            "J",
+            "A",
+            "N"
+        ],
         "name": "Jackson Approach",
-        "coordinate": -90.45
+        "coordinate": -90.45,
+        "suffix": null
     },
     {
         "id": "KC",
@@ -2937,7 +3081,8 @@
         "coordinate": [
             -95.238889,
             39.827778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "JST",
@@ -2948,7 +3093,8 @@
         "coordinate": [
             -79.600833,
             40.360278
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "JAX",
@@ -2959,7 +3105,8 @@
         "coordinate": [
             -82.183333,
             31
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LBB",
@@ -2970,7 +3117,8 @@
         "coordinate": [
             -102.483333,
             34.066667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "L30",
@@ -2981,7 +3129,8 @@
         "coordinate": [
             -115.8541667,
             36.3458333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LBBG",
@@ -2992,7 +3141,8 @@
         "coordinate": [
             27.123055555555556,
             43.13805555555555
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LBWN",
@@ -3003,7 +3153,8 @@
         "coordinate": [
             27.123055555555556,
             43.13805555555555
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LBSF",
@@ -3014,7 +3165,8 @@
         "coordinate": [
             24.029444444444444,
             42.52777777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEAB",
@@ -3025,7 +3177,8 @@
         "coordinate": [
             -3.04,
             38.954
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEBB",
@@ -3036,7 +3189,8 @@
         "coordinate": [
             -3.406388889,
             43.68111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LCH",
@@ -3047,7 +3201,8 @@
         "coordinate": [
             -93.716667,
             30.275
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEAL",
@@ -3058,7 +3213,8 @@
         "coordinate": [
             -1.119444444,
             38.99805556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEBL",
@@ -3069,7 +3225,8 @@
         "coordinate": [
             0.753889,
             42.851111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEMG",
@@ -3080,7 +3237,8 @@
         "coordinate": [
             -5.100555556388761,
             37.38333333296305
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LELC",
@@ -3091,7 +3249,8 @@
         "coordinate": [
             -1.744,
             37.284
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEBZ",
@@ -3102,7 +3261,8 @@
         "coordinate": [
             -7.26912503325316,
             38.6687072155414
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEMH",
@@ -3113,7 +3273,8 @@
         "coordinate": [
             4.666666667248088,
             40.28222222196091
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEMD",
@@ -3124,7 +3285,8 @@
         "coordinate": [
             -2.36888888927558,
             41.50166666705732
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEIB",
@@ -3135,7 +3297,8 @@
         "coordinate": [
             0.483333333,
             39.25
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEST",
@@ -3146,7 +3309,8 @@
         "coordinate": [
             -9.404,
             41.93
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEPA",
@@ -3157,7 +3321,8 @@
         "coordinate": [
             3.60111111130076,
             40.14500000003877
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEX",
@@ -3168,7 +3333,8 @@
         "coordinate": [
             -84.966667,
             38.473333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEZG",
@@ -3179,7 +3345,8 @@
         "coordinate": [
             -2.499,
             41.037
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LETO",
@@ -3190,7 +3357,8 @@
         "coordinate": [
             -3.505,
             40.497
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEVC",
@@ -3201,7 +3369,8 @@
         "coordinate": [
             0.483333333,
             38.92408333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEXJ",
@@ -3212,7 +3381,8 @@
         "coordinate": [
             -4.331,
             43.248
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LEZL",
@@ -3223,7 +3393,8 @@
         "coordinate": [
             -4.448333332925378,
             38.19222222198339
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFBO",
@@ -3234,7 +3405,8 @@
         "coordinate": [
             0.870556,
             43.7725
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFBZ",
@@ -3245,7 +3417,8 @@
         "coordinate": [
             -1.7897222222222,
             43.356388888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFPO",
@@ -3256,7 +3429,8 @@
         "coordinate": [
             1.899444,
             48.298333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFT",
@@ -3267,7 +3441,8 @@
         "coordinate": [
             -92.500278,
             30.400278
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFPG",
@@ -3278,7 +3453,8 @@
         "coordinate": [
             1.899444,
             48.298333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFMN",
@@ -3289,7 +3465,8 @@
         "coordinate": [
             6.0219444444444,
             43.176388888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LMT",
@@ -3300,7 +3477,8 @@
         "coordinate": [
             -122.416667,
             42.383333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LFVP",
@@ -3311,7 +3489,8 @@
         "coordinate": [
             -55.95444694444445,
             47.33464861111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LHBP",
@@ -3322,7 +3501,8 @@
         "coordinate": [
             20.2367306,
             47.1570386
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LOWI",
@@ -3333,13 +3513,19 @@
         "coordinate": [
             12.6625,
             47.72472222222223
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LIT",
-        "prefix": "LIT",
+        "prefix": [
+            "L",
+            "I",
+            "T"
+        ],
         "name": "Little Rock Approach",
-        "coordinate": -92.816667
+        "coordinate": -92.816667,
+        "suffix": null
     },
     {
         "id": "LOWG",
@@ -3350,7 +3536,8 @@
         "coordinate": [
             15.891667,
             47.41527777777777
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LOWL",
@@ -3361,7 +3548,8 @@
         "coordinate": [
             15.286667,
             48.69666666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LOWS",
@@ -3372,7 +3560,8 @@
         "coordinate": [
             13.333055,
             47.44972166666666
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LOWK",
@@ -3383,7 +3572,8 @@
         "coordinate": [
             12.584722,
             47.16388888888888
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LPFR",
@@ -3394,7 +3584,8 @@
         "coordinate": [
             -7.958611111,
             37.5975
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LPMA",
@@ -3405,7 +3596,8 @@
         "coordinate": [
             -17.30505833,
             33.183825
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LPPT",
@@ -3416,7 +3608,8 @@
         "coordinate": [
             -10,
             38.9
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LPPR",
@@ -3427,7 +3620,8 @@
         "coordinate": [
             -9.0325,
             41.88561111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LRAR",
@@ -3438,7 +3632,8 @@
         "coordinate": [
             22.675,
             45.54166
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LRCK",
@@ -3449,7 +3644,8 @@
         "coordinate": [
             27.8225,
             44.925
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LRCL",
@@ -3460,7 +3656,8 @@
         "coordinate": [
             23.13577,
             47.25023
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LROP",
@@ -3471,7 +3668,8 @@
         "coordinate": [
             25.19166,
             45.07611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LSV",
@@ -3482,43 +3680,44 @@
         "coordinate": [
             -116.4416661,
             36.6833339
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LTAC",
         "prefix": [
             "LTAC"
         ],
-        "suffix": "APP",
         "name": "Esenboga Approach",
         "coordinate": [
             32.853065,
             40.75844722222222
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTAN",
         "prefix": [
             "LTAN"
         ],
-        "suffix": "APP",
         "name": "Konya Approach",
         "coordinate": [
             32.24944388888889,
             38.33222194444445
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTAI",
         "prefix": [
             "LTAI"
         ],
-        "suffix": "APP",
         "name": "Antalya Approach",
         "coordinate": [
             29.743055555555557,
             36.958333333333336
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LOWW",
@@ -3529,307 +3728,308 @@
         "coordinate": [
             16.902861,
             48.71702777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LTAL",
         "prefix": [
             "LTAL"
         ],
-        "suffix": "TWR",
         "name": "Kastamonu Tower/Appraoch",
         "coordinate": [
             33.45333333333333,
             41.79666666666667
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTAP",
         "prefix": [
             "LTAP"
         ],
-        "suffix": "TWR",
         "name": "Merzifon Tower/Approach",
         "coordinate": [
             35.56611083333333,
             41.49916638888889
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTAT",
         "prefix": [
             "LTAT"
         ],
-        "suffix": "TWR",
         "name": "Erhac Tower/Approach",
         "coordinate": [
             37.15672194444444,
             38.803221944444445
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTAJ",
         "prefix": [
             "LTAJ"
         ],
-        "suffix": "TWR",
         "name": "Gaziantep Tower/Approach",
         "coordinate": [
             37.38542416666667,
             37.19037055555555
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTAZ",
         "prefix": [
             "LTAZ"
         ],
-        "suffix": "TWR",
         "name": "Kapadokya Tower/Approach",
         "coordinate": [
             33.95333333333333,
             38.916666666666664
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTAU",
         "prefix": [
             "LTAU"
         ],
-        "suffix": "APP",
         "name": "Kayseri Approach",
         "coordinate": [
             34.332368055555555,
             39.30700694444444
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTBH",
         "prefix": [
             "LTBH"
         ],
-        "suffix": "APP",
         "name": "Canakkale Approach",
         "coordinate": [
             26.070254444444444,
             40.04336333333333
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTBJ",
         "prefix": [
             "LTBJ"
         ],
-        "suffix": "APP",
         "name": "Menderes Approach",
         "coordinate": [
             26.559412848505435,
             39.2914785946735
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTCC",
         "prefix": [
             "LTCC"
         ],
-        "suffix": "TWR",
         "name": "Diyarbakir Tower/Approach",
         "coordinate": [
             39.422221944444445,
             38.41672194444444
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTBS",
         "prefix": [
             "LTBS"
         ],
-        "suffix": "APP",
         "name": "Dalaman Approach",
         "coordinate": [
             28.209127699625537,
             36.55303614131297
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTCF",
         "prefix": [
             "LTCF"
         ],
-        "suffix": "TWR",
         "name": "Kars Tower/Approach",
         "coordinate": [
             42.51861111111111,
             40.29694444444444
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCB",
         "prefix": [
             "LTCB"
         ],
-        "suffix": "TWR",
         "name": "Ordu Tower/Approach",
         "coordinate": [
             37.7575,
             40.63283333333333
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCA",
         "prefix": [
             "LTCA"
         ],
-        "suffix": "TWR",
         "name": "Elazig Tower/Approach",
         "coordinate": [
             38.90085083333333,
             38.758968055555556
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCG",
         "prefix": [
             "LTCG"
         ],
-        "suffix": "APP",
         "name": "Trabzon Approach",
         "coordinate": [
             39.766666666666666,
             41.49666666666667
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTCI",
         "prefix": [
             "LTCI"
         ],
-        "suffix": "TWR",
         "name": "Van Tower/Approach",
         "coordinate": [
             42.153888888888886,
             38.99444388888889
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCE",
         "prefix": [
             "LTCE"
         ],
-        "suffix": "TWR",
         "name": "Erzurum Tower/Approach",
         "coordinate": [
             41.17862888888889,
             40.37211722222222
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCK",
         "prefix": [
             "LTCK"
         ],
-        "suffix": "TWR",
         "name": "Mus Tower/Approach",
         "coordinate": [
             41.249721944444445,
             38.68222194444444
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCM",
         "prefix": [
             "LTCM"
         ],
-        "suffix": "TWR",
         "name": "Sinop Tower/Approach",
         "coordinate": [
             34.89333333333333,
             42.108333333333334
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCN",
         "prefix": [
             "LTCN"
         ],
-        "suffix": "TWR",
         "name": "Maras Tower/Approach",
         "coordinate": [
             36.48166666666667,
             37.248333333333335
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCT",
         "prefix": [
             "LTCT"
         ],
-        "suffix": "TWR",
         "name": "Igdir Tower/Approach",
         "coordinate": [
             43.597791944444445,
             40.33164694444445
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCS",
         "prefix": [
             "LTCS"
         ],
-        "suffix": "TWR",
         "name": "Urfa Tower/Approach",
         "coordinate": [
             38.884166666666665,
             37.82666666666667
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCU",
         "prefix": [
             "LTCU"
         ],
-        "suffix": "TWR",
         "name": "Bingol Tower/Approach",
         "coordinate": [
             40.60666666666667,
             38.36
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTFE",
         "prefix": [
             "LTFE"
         ],
-        "suffix": "APP",
         "name": "Milas Approach",
         "coordinate": [
             26.983333,
             37.64739733940909
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "LTCV",
         "prefix": [
             "LTCV"
         ],
-        "suffix": "TWR",
         "name": "Sirnak Tower/Approach",
         "coordinate": [
             41.824086111111114,
             37.640411944444445
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTCW",
         "prefix": [
             "LTCW"
         ],
-        "suffix": "TWR",
         "name": "Yuksekova Tower/Approach",
         "coordinate": [
             44.19272833333333,
             37.96338222222222
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTS",
@@ -3840,31 +4040,32 @@
         "coordinate": [
             -99.583333,
             35.079167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LTFO",
         "prefix": [
             "LTFO"
         ],
-        "suffix": "TWR",
         "name": "Rize Tower/Approach",
         "coordinate": [
             40.77504527777778,
             41.50827972222222
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LTFH",
         "prefix": [
             "LTFH"
         ],
-        "suffix": "TWR",
         "name": "Carsamba Tower/Approach",
         "coordinate": [
             36.28447972222222,
             41.70787583333334
-        ]
+        ],
+        "suffix": "TWR"
     },
     {
         "id": "LZKZ",
@@ -3875,7 +4076,8 @@
         "coordinate": [
             21.321944444444444,
             48.95583333333334
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LUF",
@@ -3886,7 +4088,8 @@
         "coordinate": [
             -112.21667,
             32.6
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LZIB",
@@ -3897,7 +4100,8 @@
         "coordinate": [
             17.61388888888889,
             47.818333333333335
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LZSL",
@@ -3908,7 +4112,8 @@
         "coordinate": [
             19.135277777777777,
             48.80833333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LUKK",
@@ -3919,7 +4124,8 @@
         "coordinate": [
             27.85166,
             47.16833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "LZMC",
@@ -3930,7 +4136,8 @@
         "coordinate": [
             17.22861111111111,
             48.3125
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "M98",
@@ -3941,7 +4148,8 @@
         "coordinate": [
             -93.565278,
             45.507222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "M03",
@@ -3952,7 +4160,8 @@
         "coordinate": [
             -90.245833,
             35.695833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MAF",
@@ -3963,7 +4172,8 @@
         "coordinate": [
             -101.688889,
             32.45
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MBPV",
@@ -3974,7 +4184,8 @@
         "coordinate": [
             -72.241111,
             22.786944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MDPC",
@@ -3985,7 +4196,8 @@
         "coordinate": [
             -68.63803705730035,
             19.36508990668711
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MDPP",
@@ -3996,7 +4208,8 @@
         "coordinate": [
             -71.66659681125792,
             20.416661199327
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MDT",
@@ -4007,7 +4220,8 @@
         "coordinate": [
             -76.6890435645189,
             40.9265088508253
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MFR",
@@ -4018,7 +4232,8 @@
         "coordinate": [
             -122.875,
             42.933333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MDSD",
@@ -4029,7 +4244,8 @@
         "coordinate": [
             -69.10970343416385,
             19.07454195033424
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MIB",
@@ -4040,7 +4256,8 @@
         "coordinate": [
             -100.25,
             48.916667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MGM",
@@ -4051,7 +4268,8 @@
         "coordinate": [
             -87,
             32.883333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MIA",
@@ -4062,7 +4280,8 @@
         "coordinate": [
             -79.870833,
             25.354167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MKE",
@@ -4073,7 +4292,8 @@
         "coordinate": [
             -89.370833,
             44.183333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MLI",
@@ -4084,7 +4304,8 @@
         "coordinate": [
             -90.925,
             42
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MLU",
@@ -4095,7 +4316,8 @@
         "coordinate": [
             -92.522222,
             32.108333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMAA",
@@ -4106,7 +4328,8 @@
         "coordinate": [
             -100.416389,
             17.533333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCL",
@@ -4117,7 +4340,8 @@
         "coordinate": [
             -107.401667,
             25.5975
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCE",
@@ -4128,7 +4352,8 @@
         "coordinate": [
             -91.759242,
             19.074219
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCN",
@@ -4139,7 +4364,8 @@
         "coordinate": [
             -109.771881,
             28.225158
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCS",
@@ -4150,7 +4376,8 @@
         "coordinate": [
             -105.688789,
             31.089914
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCV",
@@ -4161,7 +4388,8 @@
         "coordinate": [
             -99.252222,
             24.128611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMCU",
@@ -4172,7 +4400,8 @@
         "coordinate": [
             -105.819819,
             29.875475
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMDO",
@@ -4183,7 +4412,8 @@
         "coordinate": [
             -104.268333,
             25.047222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMGL",
@@ -4194,7 +4424,8 @@
         "coordinate": [
             -103.373333,
             21.523889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMHO",
@@ -4205,7 +4436,8 @@
         "coordinate": [
             -108.936025,
             27.624206
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMLM",
@@ -4216,7 +4448,8 @@
         "coordinate": [
             -109.00715,
             26.512944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMIO",
@@ -4227,7 +4460,8 @@
         "coordinate": [
             -100.909056,
             25.748792
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMLO",
@@ -4238,7 +4472,8 @@
         "coordinate": [
             -101.926944,
             22.640556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMA",
@@ -4249,7 +4484,8 @@
         "coordinate": [
             -97.509122,
             25.935786
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMLP",
@@ -4260,7 +4496,8 @@
         "coordinate": [
             -109.519431,
             24.393844
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMD",
@@ -4271,7 +4508,8 @@
         "coordinate": [
             -90.603614,
             21.702806
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMX",
@@ -4282,7 +4520,8 @@
         "coordinate": [
             -97.998889,
             19.851667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMM",
@@ -4293,7 +4532,8 @@
         "coordinate": [
             -100.920278,
             20.539167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMY",
@@ -4304,7 +4544,8 @@
         "coordinate": [
             -99.376667,
             26.483889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMML",
@@ -4315,7 +4556,8 @@
         "coordinate": [
             -114.775189,
             32.493581
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMNL",
@@ -4326,7 +4568,8 @@
         "coordinate": [
             -100.098056,
             28.1275
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMMZ",
@@ -4337,7 +4580,8 @@
         "coordinate": [
             -107.196583,
             23.755867
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMPR",
@@ -4348,7 +4592,8 @@
         "coordinate": [
             -105.1024,
             21.836375
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMOX",
@@ -4359,7 +4604,8 @@
         "coordinate": [
             -96.118333,
             17.994167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMRX",
@@ -4370,7 +4616,8 @@
         "coordinate": [
             -98.942222,
             26.416944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMSP",
@@ -4381,7 +4628,8 @@
         "coordinate": [
             -101.926944,
             22.640556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMSD",
@@ -4392,7 +4640,8 @@
         "coordinate": [
             -109.960153,
             24.288569
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMQT",
@@ -4403,7 +4652,8 @@
         "coordinate": [
             -100.099167,
             21.617778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMTC",
@@ -4414,7 +4664,8 @@
         "coordinate": [
             -103.327989,
             26.393153
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMTJ",
@@ -4425,7 +4676,8 @@
         "coordinate": [
             -115.9703,
             32.626789
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMTG",
@@ -4436,7 +4688,8 @@
         "coordinate": [
             -92.858433,
             17.071581
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMTM",
@@ -4447,7 +4700,8 @@
         "coordinate": [
             -97.751622,
             23.282939
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMUN",
@@ -4458,7 +4712,8 @@
         "coordinate": [
             -88.09735,
             20.883119
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMVA",
@@ -4469,7 +4724,8 @@
         "coordinate": [
             -92.772481,
             18.412633
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMVR",
@@ -4480,7 +4736,8 @@
         "coordinate": [
             -96.798889,
             18.150278
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMZH",
@@ -4491,7 +4748,8 @@
         "coordinate": [
             -100.899167,
             18.665
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MORE",
@@ -4504,7 +4762,8 @@
         "coordinate": [
             6.645,
             62
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MOB",
@@ -4515,7 +4774,8 @@
         "coordinate": [
             -88.658333,
             30.391667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MMZO",
@@ -4526,31 +4786,22 @@
         "coordinate": [
             -104.323889,
             20.146944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MSK",
         "prefix": [
-            "MSK"
+            "MSK",
+            "MSK_E",
+            "MSK_W"
         ],
         "name": "Moscow Approach",
         "coordinate": [
             35.555277499999995,
             55.54222166666666
-        ]
-    },
-    {
-        "id": "MSK",
-        "prefix": [
-            "MSK_E"
         ],
-        "name": "Moscow Approach",
-        "label_lat": 55.8,
-        "label_lon": 40.3,
-        "coordinate": [
-            37.99527777777778,
-            57.03777722222222
-        ]
+        "suffix": null
     },
     {
         "id": "MSN",
@@ -4561,7 +4812,8 @@
         "coordinate": [
             -89.958333,
             43.644444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MSO",
@@ -4572,20 +4824,8 @@
         "coordinate": [
             -114.770833,
             47.198611
-        ]
-    },
-    {
-        "id": "MSK",
-        "prefix": [
-            "MSK_W"
         ],
-        "name": "Moscow Approach",
-        "label_lat": 55.5,
-        "label_lon": 35.2,
-        "coordinate": [
-            37.71194416666667,
-            57.107777222222225
-        ]
+        "suffix": null
     },
     {
         "id": "MSY",
@@ -4596,7 +4836,8 @@
         "coordinate": [
             -91.114833,
             29.3166
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MTC",
@@ -4607,7 +4848,8 @@
         "coordinate": [
             -83.09111,
             42.86611
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MYNN",
@@ -4618,7 +4860,8 @@
         "coordinate": [
             -77.813889,
             25.633333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MWH",
@@ -4629,7 +4872,8 @@
         "coordinate": [
             -119.925,
             46.733333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MUO",
@@ -4640,7 +4884,8 @@
         "coordinate": [
             -117,
             42.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MYR",
@@ -4651,7 +4896,8 @@
         "coordinate": [
             -79.066667,
             34.434167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MYGF",
@@ -4662,7 +4908,8 @@
         "coordinate": [
             -78.883333,
             27
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "MZU",
@@ -4673,85 +4920,25 @@
         "coordinate": [
             -92.65,
             39.258333
-        ]
-    },
-    {
-        "id": "N90",
-        "prefix": [
-            "ISP"
         ],
-        "name": "New York Approach",
-        "label_lat": 41.1,
-        "label_lon": -72.75,
-        "coordinate": [
-            -73.27281446421199,
-            41.587500000002265
-        ]
+        "suffix": null
     },
     {
         "id": "N90",
         "prefix": [
-            "EWR"
-        ],
-        "name": "New York Approach",
-        "label_lat": 40.69248,
-        "label_lon": -74.33535,
-        "coordinate": [
-            -75.106944,
-            40.525
-        ]
-    },
-    {
-        "id": "N90",
-        "prefix": [
-            "JFK"
-        ],
-        "name": "New York Approach",
-        "label_lat": 40.473263,
-        "label_lon": -73.778694,
-        "coordinate": [
-            -74.2643075,
-            40.7395311
-        ]
-    },
-    {
-        "id": "N90",
-        "prefix": [
-            "NY"
-        ],
-        "name": "New York Approach",
-        "label_lat": 41.4,
-        "label_lon": -73.8,
-        "coordinate": [
-            -73.254167,
-            40.409722
-        ]
-    },
-    {
-        "id": "N90",
-        "prefix": [
-            "LGA"
-        ],
-        "name": "New York Approach",
-        "label_lat": 40.943916,
-        "label_lon": -73.87261,
-        "coordinate": [
-            -75.106944,
-            40.525
-        ]
-    },
-    {
-        "id": "N90",
-        "prefix": [
+            "ISP",
+            "EWR",
+            "JFK",
+            "NY",
+            "LGA",
             "SWF"
         ],
         "name": "New York Approach",
-        "label_lat": 41.670776,
-        "label_lon": -74.104836,
         "coordinate": [
-            -73.3,
-            41.5875
-        ]
+            -73.27281446421199,
+            41.587500000002265
+        ],
+        "suffix": null
     },
     {
         "id": "NBC",
@@ -4762,17 +4949,29 @@
         "coordinate": [
             -80.133056,
             32.504444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NCT",
         "prefix": [
-            "MOD"
+            "MOD",
+            "MRY",
+            "NCT",
+            "OAK",
+            "RNO",
+            "SFO",
+            "SJC",
+            "SMF"
         ],
         "name": "NorCal Approach",
         "coordinate": [
             -120.33028,
             38.2841
+        ],
+        "suffix": [
+            "APP",
+            "DEP"
         ]
     },
     {
@@ -4784,30 +4983,8 @@
         "coordinate": [
             -77.499722,
             34.391944
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "MRY"
         ],
-        "name": "NorCal Approach",
-        "coordinate": [
-            -121.114166,
-            36.408056
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "NCT"
-        ],
-        "suffix": "APP",
-        "name": "NorCal Approach",
-        "coordinate": [
-            -121.086111,
-            39.5
-        ]
+        "suffix": null
     },
     {
         "id": "NCRG",
@@ -4818,102 +4995,8 @@
         "coordinate": [
             -159.81439,
             -20.034873
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "NCT"
         ],
-        "suffix": "DEP",
-        "name": "NorCal Departure",
-        "coordinate": [
-            -122.930278,
-            36.983333
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "OAK"
-        ],
-        "suffix": "APP",
-        "name": "NorCal Approach",
-        "coordinate": [
-            -120.33028,
-            38.2841
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "RNO"
-        ],
-        "name": "NorCal Approach",
-        "coordinate": [
-            -119.63333333,
-            40.08333333
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "SFO"
-        ],
-        "suffix": "APP",
-        "name": "NorCal Approach",
-        "coordinate": [
-            -122.531944,
-            36.392222
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "SFO",
-            "OAK"
-        ],
-        "suffix": "DEP",
-        "name": "NorCal Departure",
-        "coordinate": [
-            -122.930278,
-            36.983333
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "SJC"
-        ],
-        "suffix": "APP",
-        "name": "NorCal Approach",
-        "coordinate": [
-            -120.276111,
-            37.488333
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "SMF"
-        ],
-        "name": "NorCal Approach",
-        "coordinate": [
-            -121.086111,
-            39.5
-        ]
-    },
-    {
-        "id": "NCT",
-        "prefix": [
-            "SJC"
-        ],
-        "suffix": "DEP",
-        "name": "NorCal Departure",
-        "coordinate": [
-            -122.11314,
-            37.40349
-        ]
+        "suffix": null
     },
     {
         "id": "NFL",
@@ -4924,18 +5007,20 @@
         "coordinate": [
             -119.25,
             39.59722
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NFFN",
-        "name": "Nadi Approach",
         "prefix": [
             "NFFN"
         ],
+        "name": "Nadi Approach",
         "coordinate": [
             178.325022,
             -17.449372
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NFTF",
@@ -4946,7 +5031,8 @@
         "coordinate": [
             -175.14859,
             -19.577503
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NLC",
@@ -4957,18 +5043,20 @@
         "coordinate": [
             -120.60806,
             36.66222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NFNA",
-        "name": "Nausori Approach",
         "prefix": [
             "NFNA"
         ],
+        "name": "Nausori Approach",
         "coordinate": [
             178.325022,
             -17.449372
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NHK",
@@ -4979,13 +5067,19 @@
         "coordinate": [
             -76.1925,
             37.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NMM",
-        "prefix": "NMM",
+        "prefix": [
+            "N",
+            "M",
+            "M"
+        ],
         "name": "Meridian Approach",
-        "coordinate": -88.070833
+        "coordinate": -88.070833,
+        "suffix": null
     },
     {
         "id": "NKT",
@@ -4996,7 +5090,8 @@
         "coordinate": [
             -76.014167,
             35.006389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NQI",
@@ -5007,7 +5102,8 @@
         "coordinate": [
             -98.433333,
             27.866667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NQX",
@@ -5018,7 +5114,8 @@
         "coordinate": [
             -81.269444,
             24.483333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NTAA",
@@ -5029,7 +5126,8 @@
         "coordinate": [
             -149.57722,
             -17.61889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NTD",
@@ -5040,7 +5138,8 @@
         "coordinate": [
             -120.5,
             34.0999978
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NTU",
@@ -5051,18 +5150,20 @@
         "coordinate": [
             -75.958333,
             36.975
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NWWW",
-        "name": "Tontouta Approach",
         "prefix": [
             "NWWW"
         ],
+        "name": "Tontouta Approach",
         "coordinate": [
             166.211667,
             -20.005
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NUW",
@@ -5073,7 +5174,8 @@
         "coordinate": [
             -124.00014785988256,
             48.29059175801023
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NYL",
@@ -5084,7 +5186,8 @@
         "coordinate": [
             -115.06666666670003,
             33.516666666700075
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZAA",
@@ -5095,7 +5198,8 @@
         "coordinate": [
             173.66814,
             -36.9852
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZHN",
@@ -5106,7 +5210,8 @@
         "coordinate": [
             174.98117,
             -37.57334
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZCH",
@@ -5117,7 +5222,8 @@
         "coordinate": [
             172.58345,
             -43.73167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZQN",
@@ -5128,7 +5234,8 @@
         "coordinate": [
             167.83136,
             -44.46822
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZOH",
@@ -5139,7 +5246,8 @@
         "coordinate": [
             174.76704,
             -39.79591
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEGN",
@@ -5150,7 +5258,8 @@
         "coordinate": [
             41.85873556013736,
             17.04946312454509
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "NZWN",
@@ -5161,7 +5270,8 @@
         "coordinate": [
             175.27283,
             -40.71069
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEDF",
@@ -5172,7 +5282,8 @@
         "coordinate": [
             50.45900084019596,
             26.57174162389528
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEAB",
@@ -5183,7 +5294,8 @@
         "coordinate": [
             41.04055291824019,
             19.09131561787766
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEGS",
@@ -5191,7 +5303,8 @@
             "OEGS"
         ],
         "name": "Gassim Approach",
-        "coordinate": 44.52071458473008
+        "coordinate": 44.52071458473008,
+        "suffix": null
     },
     {
         "id": "OEPS",
@@ -5202,7 +5315,8 @@
         "coordinate": [
             48.230036979894,
             22.91091423016985
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEHL",
@@ -5213,7 +5327,8 @@
         "coordinate": [
             41.669737,
             28.091171
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEMA",
@@ -5224,7 +5339,8 @@
         "coordinate": [
             40.40196428583263,
             23.4688886660335
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OERK",
@@ -5235,7 +5351,8 @@
         "coordinate": [
             46.740004,
             25.885228
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OETF",
@@ -5246,7 +5363,8 @@
         "coordinate": [
             39.81956430394912,
             21.42072609525025
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OGG",
@@ -5257,7 +5375,8 @@
         "coordinate": [
             -156.85335,
             20.61378
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OETB",
@@ -5268,7 +5387,8 @@
         "coordinate": [
             36.596952,
             29.03081
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OKC",
@@ -5279,7 +5399,8 @@
         "coordinate": [
             -98.216667,
             35.55
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OEJN",
@@ -5290,7 +5411,8 @@
         "coordinate": [
             39.92783255713027,
             21.04109277459114
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ORF",
@@ -5301,7 +5423,8 @@
         "coordinate": [
             -77.21667,
             36.90556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OLBA",
@@ -5312,7 +5435,8 @@
         "coordinate": [
             35.52091333333333,
             34.13925305555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "P50",
@@ -5323,7 +5447,8 @@
         "coordinate": [
             -113.07083,
             34.65694
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "OZR",
@@ -5334,7 +5459,8 @@
         "coordinate": [
             -86.57917,
             31.13333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PAM",
@@ -5345,7 +5471,8 @@
         "coordinate": [
             -85.7,
             30.736111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "P80",
@@ -5356,7 +5483,8 @@
         "coordinate": [
             -122.268611,
             44.969444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PBI",
@@ -5367,51 +5495,25 @@
         "coordinate": [
             -80.925,
             27.93333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PCT",
         "prefix": [
-            "BWI"
+            "BWI",
+            "DCA",
+            "CHO",
+            "IAD",
+            "PCT",
+            "RIC"
         ],
         "name": "Potomac Approach",
         "coordinate": [
             -76.4019758,
             39.8589281
-        ]
-    },
-    {
-        "id": "PCT",
-        "prefix": [
-            "DCA"
         ],
-        "name": "Potomac Approach",
-        "coordinate": [
-            -78.0841203,
-            38.6981414
-        ]
-    },
-    {
-        "id": "PCT",
-        "prefix": [
-            "CHO"
-        ],
-        "name": "Potomac Approach",
-        "coordinate": [
-            -78.0666511,
-            38.4483933
-        ]
-    },
-    {
-        "id": "PCT",
-        "prefix": [
-            "IAD"
-        ],
-        "name": "Potomac Approach",
-        "coordinate": [
-            -78.3750614,
-            39.3481814
-        ]
+        "suffix": null
     },
     {
         "id": "PHL",
@@ -5419,23 +5521,11 @@
             "PHL"
         ],
         "name": "Philadelphia Approach",
-        "label_lat": 40.03875,
-        "label_lon": -75.24066,
         "coordinate": [
             -76.040278,
             39.593611
-        ]
-    },
-    {
-        "id": "PCT",
-        "prefix": [
-            "PCT"
         ],
-        "name": "Potomac Approach",
-        "coordinate": [
-            -75.59,
-            38.705833
-        ]
+        "suffix": null
     },
     {
         "id": "PIT",
@@ -5446,18 +5536,8 @@
         "coordinate": [
             -79.600833,
             40.360278
-        ]
-    },
-    {
-        "id": "PCT",
-        "prefix": [
-            "RIC"
         ],
-        "name": "Potomac Approach",
-        "coordinate": [
-            -77.3791644,
-            38.1749922
-        ]
+        "suffix": null
     },
     {
         "id": "PNS",
@@ -5468,7 +5548,8 @@
         "coordinate": [
             -87.658333,
             30.958333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "POE",
@@ -5479,18 +5560,20 @@
         "coordinate": [
             -93.933333,
             31.116667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PKWA",
-        "name": "Kwaj Approach",
         "prefix": [
             "PKWA"
         ],
+        "name": "Kwaj Approach",
         "coordinate": [
             167.731667,
             10.386667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PMD",
@@ -5501,7 +5584,8 @@
         "coordinate": [
             -118.6194986,
             34.9833336
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PWM",
@@ -5512,7 +5596,8 @@
         "coordinate": [
             -68.8166667,
             44.1000556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "PVD",
@@ -5523,29 +5608,21 @@
         "coordinate": [
             -70.8907856,
             41.7713683
-        ]
-    },
-    {
-        "id": "GEG",
-        "prefix": [
-            "PSC"
         ],
-        "name": "Spokane Approach",
-        "coordinate": [
-            -119.9291820906103,
-            46.73332807934473
-        ]
+        "suffix": null
     },
     {
         "id": "R90",
         "prefix": [
-            "LNK"
+            "LNK",
+            "OMA"
         ],
         "name": "Omaha Approach",
         "coordinate": [
             -97.383333,
             41.058333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RCA",
@@ -5556,18 +5633,8 @@
         "coordinate": [
             -103.116667,
             43.475
-        ]
-    },
-    {
-        "id": "R90",
-        "prefix": [
-            "OMA"
         ],
-        "name": "Omaha Approach",
-        "coordinate": [
-            -96.793056,
-            41.258889
-        ]
+        "suffix": null
     },
     {
         "id": "RDG",
@@ -5578,7 +5645,8 @@
         "coordinate": [
             -76.2353281,
             40.6884306
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RDR",
@@ -5589,7 +5657,8 @@
         "coordinate": [
             -97.633333,
             47.35
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RDU",
@@ -5600,7 +5669,8 @@
         "coordinate": [
             -79.578889,
             35.426111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RFD",
@@ -5611,31 +5681,32 @@
         "coordinate": [
             -90.22917,
             42.14583
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RKPC",
         "prefix": [
             "RKPC"
         ],
-        "suffix": "APP",
         "name": "Jeju Approach",
         "coordinate": [
             125.85103972222221,
             33.003165555555555
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "RKPK",
         "prefix": [
             "RKPK"
         ],
-        "suffix": "APP",
         "name": "Gimhae Approach",
         "coordinate": [
             128.49777749999998,
             35.503055
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ROA",
@@ -5646,19 +5717,20 @@
         "coordinate": [
             -79.2706725,
             37.7813414
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RKSS",
         "prefix": [
             "RKSS"
         ],
-        "suffix": "APP",
         "name": "Seoul Approach",
         "coordinate": [
             125.798055,
             37.269444444444446
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "ROW",
@@ -5669,7 +5741,8 @@
         "coordinate": [
             -104.5,
             33.950833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RST",
@@ -5680,7 +5753,8 @@
         "coordinate": [
             -92.7525,
             44.345556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "RSW",
@@ -5691,7 +5765,8 @@
         "coordinate": [
             -82.308333,
             25.85
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "S46",
@@ -5702,7 +5777,8 @@
         "coordinate": [
             -123.2331319839022,
             46.83051701924943
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SAV",
@@ -5713,7 +5789,8 @@
         "coordinate": [
             -81.025,
             32.5
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ROC",
@@ -5724,7 +5801,8 @@
         "coordinate": [
             -78,
             43.4
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "S56",
@@ -5735,7 +5813,8 @@
         "coordinate": [
             -112.73667,
             41.17917
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SAT",
@@ -5746,7 +5825,8 @@
         "coordinate": [
             -97.65371667,
             28.94255
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBN",
@@ -5757,7 +5837,8 @@
         "coordinate": [
             -87.20194,
             41.35028
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBA",
@@ -5768,7 +5849,8 @@
         "coordinate": [
             -121.2372222,
             35.3716667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWE",
@@ -5779,7 +5861,8 @@
         "coordinate": [
             -40.8336,
             -21.425
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWF",
@@ -5790,7 +5873,8 @@
         "coordinate": [
             -34.2403,
             -8.3481
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWB",
@@ -5801,7 +5885,8 @@
         "coordinate": [
             -48.478667,
             -0.714379
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWG",
@@ -5812,7 +5897,8 @@
         "coordinate": [
             -53.971944,
             -20.349444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWH",
@@ -5823,7 +5909,8 @@
         "coordinate": [
             -43.457575,
             -20.496631
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWJ",
@@ -5834,7 +5921,8 @@
         "coordinate": [
             -44.178888,
             -23.636388
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWI",
@@ -5845,7 +5933,8 @@
         "coordinate": [
             -54.549559,
             -24.915782
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWK",
@@ -5856,7 +5945,8 @@
         "coordinate": [
             -39.3961,
             -15.8448
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWL",
@@ -5867,7 +5957,8 @@
         "coordinate": [
             -39.074333,
             -14.135167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWP",
@@ -5878,7 +5969,8 @@
         "coordinate": [
             -50.624839,
             -30.174833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWM",
@@ -5889,7 +5981,8 @@
         "coordinate": [
             -54.458333,
             -29.619333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWN",
@@ -5900,7 +5993,8 @@
         "coordinate": [
             -60.125,
             -2.366725
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWR",
@@ -5911,7 +6005,8 @@
         "coordinate": [
             -47.733085,
             -16.720589
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWT",
@@ -5922,7 +6017,8 @@
         "coordinate": [
             -48.5489,
             -24.9959
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWQ",
@@ -5933,7 +6029,8 @@
         "coordinate": [
             -60.700853,
             3.521891
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWS",
@@ -5944,7 +6041,8 @@
         "coordinate": [
             -44.267882,
             -1.919808
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWX",
@@ -5955,7 +6053,8 @@
         "coordinate": [
             -54.845379,
             -1.75714
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWU",
@@ -5966,7 +6065,8 @@
         "coordinate": [
             -49.119167,
             -22.962833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWV",
@@ -5977,7 +6077,8 @@
         "coordinate": [
             -63.928642,
             -8.047773
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWY",
@@ -5988,7 +6089,8 @@
         "coordinate": [
             -56.155246,
             -14.98783
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBWZ",
@@ -5999,7 +6101,8 @@
         "coordinate": [
             -38.3008,
             -4.5316
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXA",
@@ -6010,7 +6113,8 @@
         "coordinate": [
             -36.4673,
             -10.6907
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXB",
@@ -6021,7 +6125,8 @@
         "coordinate": [
             -67.892167,
             -9.164738
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXE",
@@ -6032,7 +6137,8 @@
         "coordinate": [
             -42.825133,
             -4.392552
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXF",
@@ -6043,7 +6149,8 @@
         "coordinate": [
             -49.668597,
             -27.374272
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXG",
@@ -6054,7 +6161,8 @@
         "coordinate": [
             -51.676836,
             -22.789098
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXD",
@@ -6065,7 +6173,8 @@
         "coordinate": [
             -49.041172,
             -10.221922
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXJ",
@@ -6076,7 +6185,8 @@
         "coordinate": [
             -49.024267,
             -4.016167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXM",
@@ -6087,7 +6197,8 @@
         "coordinate": [
             -36.393345,
             -9.803888
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXK",
@@ -6098,7 +6209,8 @@
         "coordinate": [
             -51.073113,
             0.638458
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXN",
@@ -6109,7 +6221,8 @@
         "coordinate": [
             -48.602333,
             -15.852833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXO",
@@ -6120,7 +6233,8 @@
         "coordinate": [
             -51.958833,
             -24.059667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXP",
@@ -6131,7 +6245,8 @@
         "coordinate": [
             -47.801675,
             -23.257633
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXQ",
@@ -6142,7 +6257,8 @@
         "coordinate": [
             -46.775333,
             -21.875833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXR",
@@ -6153,7 +6269,8 @@
         "coordinate": [
             -40.0325,
             -19.623667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXS",
@@ -6164,7 +6281,8 @@
         "coordinate": [
             -37.812686,
             -12.963647
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXT",
@@ -6175,7 +6293,8 @@
         "coordinate": [
             -34.7747,
             -6.8447
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXU",
@@ -6186,7 +6305,8 @@
         "coordinate": [
             -48.596667,
             -20.582167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SBXW",
@@ -6197,74 +6317,25 @@
         "coordinate": [
             -48.39467,
             -19.357185
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SCT",
         "prefix": [
-            "BUR"
+            "BUR",
+            "LAX",
+            "ONT",
+            "SAN",
+            "SCT",
+            "SNA"
         ],
         "name": "SoCal Approach",
         "coordinate": [
             -119.1023564,
             34.5127731
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "LAX"
         ],
-        "suffix": "DEP",
-        "name": "SoCal Departure",
-        "coordinate": [
-            -118.9453517,
-            34.1471011
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "LAX"
-        ],
-        "name": "SoCal Approach",
-        "coordinate": [
-            -118.9500292,
-            34.20832
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "ONT"
-        ],
-        "name": "SoCal Approach",
-        "coordinate": [
-            -118.1499594,
-            34.2708
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "SAN"
-        ],
-        "name": "SoCal Approach",
-        "coordinate": [
-            -117.8685439,
-            33.0815172
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "SCT"
-        ],
-        "name": "SoCal Approach",
-        "coordinate": [
-            -119.1023556,
-            34.5127731
-        ]
+        "suffix": "DEP"
     },
     {
         "id": "SDF",
@@ -6275,18 +6346,8 @@
         "coordinate": [
             -86.7125,
             38.608333
-        ]
-    },
-    {
-        "id": "SCT",
-        "prefix": [
-            "SNA"
         ],
-        "name": "SoCal Approach",
-        "coordinate": [
-            -118.2496186,
-            33.25032
-        ]
+        "suffix": null
     },
     {
         "id": "SGF",
@@ -6297,7 +6358,8 @@
         "coordinate": [
             -93.866667,
             37.916667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SHV",
@@ -6308,29 +6370,21 @@
         "coordinate": [
             -93.766667,
             33.033333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SIP",
         "prefix": [
-            "SIP_R"
+            "SIP_R",
+            "SIP"
         ],
         "name": "Simferopol Radar",
         "coordinate": [
             34.123055556,
             45.5
-        ]
-    },
-    {
-        "id": "SIP",
-        "prefix": [
-            "SIP"
         ],
-        "name": "Simferopol Approach",
-        "coordinate": [
-            34.966666667,
-            45.75
-        ]
+        "suffix": null
     },
     {
         "id": "SJT",
@@ -6341,7 +6395,8 @@
         "coordinate": [
             -100.416667,
             31.991667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SJU",
@@ -6352,7 +6407,8 @@
         "coordinate": [
             -64.33278,
             18.95222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKBG",
@@ -6363,7 +6419,8 @@
         "coordinate": [
             -73.24167,
             8.367778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKBO",
@@ -6374,7 +6431,8 @@
         "coordinate": [
             -74.1043664,
             5.9658892
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKBQ",
@@ -6385,7 +6443,8 @@
         "coordinate": [
             -75.4075,
             11.684444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKCC",
@@ -6396,7 +6455,8 @@
         "coordinate": [
             -70.08333,
             7
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKCL",
@@ -6407,7 +6467,8 @@
         "coordinate": [
             -77.04917,
             4.235833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKIP",
@@ -6418,7 +6479,8 @@
         "coordinate": [
             -77.47028,
             0.402222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKLT",
@@ -6429,7 +6491,8 @@
         "coordinate": [
             -69.77444,
             -3.37333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKMD",
@@ -6440,7 +6503,8 @@
         "coordinate": [
             -75.816389,
             7.9875
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKNV",
@@ -6451,7 +6515,8 @@
         "coordinate": [
             -76.12241630941251,
             2.2710412896441037
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKVV",
@@ -6462,7 +6527,8 @@
         "coordinate": [
             -73.56861,
             5.018333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKPE",
@@ -6473,7 +6539,8 @@
         "coordinate": [
             -76.22528,
             5.141111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKSP",
@@ -6484,7 +6551,8 @@
         "coordinate": [
             -82.2525,
             15
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SKYP",
@@ -6495,7 +6563,8 @@
         "coordinate": [
             -72.73444,
             6.215
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SOLENT",
@@ -6506,7 +6575,8 @@
         "coordinate": [
             -2.0958333333333,
             50.823888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SPN",
@@ -6517,7 +6587,8 @@
         "coordinate": [
             146.4109994,
             15.223955
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SPS",
@@ -6528,7 +6599,8 @@
         "coordinate": [
             -99.255,
             34.59333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "STJ",
@@ -6539,7 +6611,8 @@
         "coordinate": [
             -95.916667,
             40.079167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SSC",
@@ -6550,7 +6623,8 @@
         "coordinate": [
             -80.755278,
             34.266944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SUMU",
@@ -6561,7 +6635,8 @@
         "coordinate": [
             -56.883888888889,
             -34.982777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SUU",
@@ -6572,7 +6647,8 @@
         "coordinate": [
             -122.16354,
             38.86641
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SUX",
@@ -6583,19 +6659,20 @@
         "coordinate": [
             -96.291667,
             43
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SWA",
         "prefix": [
             "EDMM"
         ],
-        "suffix": "W_APP",
         "name": "M\u00c3\u00bcnchen Radar (SWA Sector Schwaben)",
         "coordinate": [
             11.966666666666667,
             49.166666666666664
-        ]
+        ],
+        "suffix": "W_APP"
     },
     {
         "id": "SZL",
@@ -6606,18 +6683,22 @@
         "coordinate": [
             -94.025,
             39.008333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "T75",
         "prefix": [
-            "PIA"
+            "PIA",
+            "SPI",
+            "STL"
         ],
         "name": "St. Louis Approach",
         "coordinate": [
             -90.079167,
             41.075
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "SYR",
@@ -6628,18 +6709,8 @@
         "coordinate": [
             -76.791667,
             43.633333
-        ]
-    },
-    {
-        "id": "T75",
-        "prefix": [
-            "SPI"
         ],
-        "name": "St. Louis Approach",
-        "coordinate": [
-            -89.75,
-            40.333333
-        ]
+        "suffix": null
     },
     {
         "id": "TAPA",
@@ -6650,18 +6721,8 @@
         "coordinate": [
             -63,
             17.36667
-        ]
-    },
-    {
-        "id": "T75",
-        "prefix": [
-            "STL"
         ],
-        "name": "St. Louis Approach",
-        "coordinate": [
-            -90.458333,
-            39.402778
-        ]
+        "suffix": null
     },
     {
         "id": "TBPB",
@@ -6672,7 +6733,8 @@
         "coordinate": [
             -59.8,
             14.875
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TFFF",
@@ -6683,7 +6745,8 @@
         "coordinate": [
             -60.3,
             16.16667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TFFR",
@@ -6694,7 +6757,8 @@
         "coordinate": [
             -60.76667,
             17.41667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TGPY",
@@ -6705,7 +6769,8 @@
         "coordinate": [
             -61.96389,
             12.78389
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TKPK",
@@ -6716,7 +6781,8 @@
         "coordinate": [
             -62.738333,
             17.52333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "THAMES",
@@ -6727,7 +6793,8 @@
         "coordinate": [
             0.0552778,
             51.5052778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TLPL",
@@ -6738,7 +6805,8 @@
         "coordinate": [
             -60.866667,
             14.216667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TLH",
@@ -6749,43 +6817,44 @@
         "coordinate": [
             -84.8,
             31.066667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TNCA",
         "prefix": [
             "TNCA"
         ],
-        "suffix": "APP",
         "name": "Beatrix Approach",
         "coordinate": [
             -70.44028,
             12.47444
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "TNCM",
         "prefix": [
             "TNCM"
         ],
-        "suffix": "APP",
         "name": "Juliana Approach",
         "coordinate": [
             -62.86666666666667,
             18.416666666666668
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "TNCC",
         "prefix": [
             "TNCC"
         ],
-        "suffix": "APP",
         "name": "Cura\u00e7ao Terminal",
         "coordinate": [
             -67.49222,
             13.67638
-        ]
+        ],
+        "suffix": "APP"
     },
     {
         "id": "TPA",
@@ -6796,7 +6865,8 @@
         "coordinate": [
             -82.733333,
             27.183333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TOL",
@@ -6807,7 +6877,8 @@
         "coordinate": [
             -84.83333,
             41.625
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TOR",
@@ -6818,7 +6889,8 @@
         "coordinate": [
             -82.169444,
             43.855278
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TRI",
@@ -6829,7 +6901,8 @@
         "coordinate": [
             -83.129167,
             36.761111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TWF",
@@ -6840,7 +6913,8 @@
         "coordinate": [
             -114.9,
             42.75
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TTPP",
@@ -6851,7 +6925,8 @@
         "coordinate": [
             -62.5,
             11
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TUL",
@@ -6862,7 +6937,8 @@
         "coordinate": [
             -96.129167,
             35.627778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TYS",
@@ -6873,7 +6949,8 @@
         "coordinate": [
             -84.666667,
             35.666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "TVSA",
@@ -6884,7 +6961,8 @@
         "coordinate": [
             -61.5,
             13.56667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "U90",
@@ -6895,29 +6973,21 @@
         "coordinate": [
             -110.26,
             31.84055555560002
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UAAA",
         "prefix": [
-            "UAAA"
+            "UAAA",
+            "UAAA_R"
         ],
         "name": "Almaty Approach",
         "coordinate": [
             77.9225,
             44.274722222
-        ]
-    },
-    {
-        "id": "UAAA",
-        "prefix": [
-            "UAAA_R"
         ],
-        "name": "Almaty Radar",
-        "coordinate": [
-            77.032933,
-            43.808514
-        ]
+        "suffix": null
     },
     {
         "id": "UADD",
@@ -6928,29 +6998,21 @@
         "coordinate": [
             71.833611111,
             42.965833333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UACC",
         "prefix": [
-            "UACC"
+            "UACC",
+            "UACC_R"
         ],
         "name": "Astana Approach",
         "coordinate": [
             71.751944444,
             52.086111111
-        ]
-    },
-    {
-        "id": "UACC",
-        "prefix": [
-            "UACC_R"
         ],
-        "name": "Astana Radar",
-        "coordinate": [
-            71.453512,
-            51.472128
-        ]
+        "suffix": null
     },
     {
         "id": "UBBB",
@@ -6961,29 +7023,21 @@
         "coordinate": [
             50.321486388889,
             39.838578333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UCFM",
         "prefix": [
-            "UCFM_R"
+            "UCFM_R",
+            "UCFM"
         ],
         "name": "Bishkek Krug",
         "coordinate": [
             74.19983305555556,
             43.32866638888889
-        ]
-    },
-    {
-        "id": "UCFM",
-        "prefix": [
-            "UCFM"
         ],
-        "name": "Bishkek Approach",
-        "coordinate": [
-            73.908,
-            43.57233277777778
-        ]
+        "suffix": null
     },
     {
         "id": "UCFO",
@@ -6994,51 +7048,34 @@
         "coordinate": [
             72.03591694444444,
             40.244659722222224
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UEEE",
         "prefix": [
-            "UEEE"
+            "UEEE",
+            "UEEE_R"
         ],
         "name": "Yakutsk Approach",
         "coordinate": [
             129.77333,
             63.44534
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UHHH",
         "prefix": [
-            "UHHH"
+            "UHHH",
+            "UHHH_R"
         ],
         "name": "Khabarovsk Approach",
         "coordinate": [
             135.18666694444,
             49.75
-        ]
-    },
-    {
-        "id": "UHHH",
-        "prefix": [
-            "UHHH_R"
         ],
-        "name": "Khabarovsk Radar",
-        "coordinate": [
-            135.66999972222,
-            48.71667
-        ]
-    },
-    {
-        "id": "UEEE",
-        "prefix": [
-            "UEEE_R"
-        ],
-        "name": "Yakutsk Radar",
-        "coordinate": [
-            129.77333,
-            62.544
-        ]
+        "suffix": null
     },
     {
         "id": "UHMP",
@@ -7049,7 +7086,8 @@
         "coordinate": [
             167.87972222,
             69.93
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UHPP",
@@ -7060,7 +7098,8 @@
         "coordinate": [
             158.50416667,
             53.97722222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UHMM",
@@ -7071,7 +7110,8 @@
         "coordinate": [
             150.15333,
             60.57167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UHMA",
@@ -7082,29 +7122,21 @@
         "coordinate": [
             179.61166667,
             64.85027778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UHWW",
         "prefix": [
-            "UHWW"
+            "UHWW",
+            "UHWW_R"
         ],
         "name": "Vladivostok Approach",
         "coordinate": [
             132.595,
             43.828610000000005
-        ]
-    },
-    {
-        "id": "UHWW",
-        "prefix": [
-            "UHWW_R"
         ],
-        "name": "Vladivostok Radar",
-        "coordinate": [
-            132.595,
-            43.82861
-        ]
+        "suffix": null
     },
     {
         "id": "UHSS",
@@ -7115,7 +7147,8 @@
         "coordinate": [
             143.21166667,
             47.42
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UIBB",
@@ -7126,7 +7159,8 @@
         "coordinate": [
             101.69861,
             57.36203
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UIAA",
@@ -7137,7 +7171,8 @@
         "coordinate": [
             114.95333,
             51.67722
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UIUU",
@@ -7148,18 +7183,21 @@
         "coordinate": [
             106.88667,
             52.45167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UIII",
         "prefix": [
-            "UIII"
+            "UIII",
+            "UIII_R"
         ],
         "name": "Irkutsk Approach",
         "coordinate": [
             103.78333,
             53.15
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ULAA",
@@ -7170,18 +7208,8 @@
         "coordinate": [
             41.11907222,
             65.48429944
-        ]
-    },
-    {
-        "id": "UIII",
-        "prefix": [
-            "UIII_R"
         ],
-        "name": "Irkutsk Radar",
-        "coordinate": [
-            103.86333,
-            52.61333
-        ]
+        "suffix": null
     },
     {
         "id": "ULAM",
@@ -7192,7 +7220,8 @@
         "coordinate": [
             51.57694444,
             66.97083333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ULLI",
@@ -7203,7 +7232,8 @@
         "coordinate": [
             29.534167,
             60.0925
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ULLL",
@@ -7214,7 +7244,8 @@
         "coordinate": [
             28.631667,
             60.186667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UMGG",
@@ -7225,7 +7256,8 @@
         "coordinate": [
             31.29039583,
             53.03341333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ULMM",
@@ -7236,7 +7268,8 @@
         "coordinate": [
             32.59694444,
             68.97861111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UMIO",
@@ -7247,7 +7280,8 @@
         "coordinate": [
             29.48138889,
             54.67499972
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UMKK",
@@ -7258,7 +7292,8 @@
         "coordinate": [
             20.643333333333,
             55.373333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UNAA",
@@ -7269,29 +7304,21 @@
         "coordinate": [
             91.65806,
             53.31778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UMMS",
         "prefix": [
-            "UMMS"
+            "UMMS",
+            "UMMS_R"
         ],
         "name": "Minsk Approach",
         "coordinate": [
             26.98565028,
             54.32017167
-        ]
-    },
-    {
-        "id": "UMMS",
-        "prefix": [
-            "UMMS_R"
         ],
-        "name": "Minsk Radar",
-        "coordinate": [
-            28.75027778,
-            53.5225
-        ]
+        "suffix": null
     },
     {
         "id": "UNEE",
@@ -7302,62 +7329,47 @@
         "coordinate": [
             89.08306,
             56.06667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UNKL",
         "prefix": [
-            "UNKL_R"
+            "UNKL_R",
+            "UNKL"
         ],
         "name": "Krasnoyarsk Radar",
         "coordinate": [
             93.21639,
             55.97111
-        ]
-    },
-    {
-        "id": "UNKL",
-        "prefix": [
-            "UNKL"
         ],
-        "name": "Krasnoyarsk Approach",
-        "coordinate": [
-            92.7,
-            57.045
-        ]
+        "suffix": null
     },
     {
         "id": "UNNT",
         "prefix": [
-            "UNNT"
+            "UNNT",
+            "UNNT_R"
         ],
         "name": "Novosibirsk Approach",
         "coordinate": [
             82.26167,
             56.02
-        ]
-    },
-    {
-        "id": "UNNT",
-        "prefix": [
-            "UNNT_R"
         ],
-        "name": "Novosibirsk Radar",
-        "coordinate": [
-            82.96,
-            55.43083
-        ]
+        "suffix": null
     },
     {
         "id": "UNOO",
         "prefix": [
-            "UNOO"
+            "UNOO",
+            "UNOO_R"
         ],
         "name": "Omsk Approach",
         "coordinate": [
             73.92944,
             56.22583
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UNSS",
@@ -7368,18 +7380,8 @@
         "coordinate": [
             77.383333333,
             60.95
-        ]
-    },
-    {
-        "id": "UNOO",
-        "prefix": [
-            "UNOO_R"
         ],
-        "name": "Omsk Radar",
-        "coordinate": [
-            73.15806,
-            55.39
-        ]
+        "suffix": null
     },
     {
         "id": "UNWW",
@@ -7390,7 +7392,8 @@
         "coordinate": [
             87.5,
             54.53306
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UOOO",
@@ -7401,7 +7404,8 @@
         "coordinate": [
             87.61667,
             69.845
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UOII",
@@ -7412,7 +7416,8 @@
         "coordinate": [
             86.62194,
             67.88817
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URKG",
@@ -7423,29 +7428,21 @@
         "coordinate": [
             38.185,
             44.725
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URKK",
         "prefix": [
-            "URKK_R"
+            "URKK_R",
+            "URKK"
         ],
         "name": "Krasnodar Radar",
         "coordinate": [
             39.245,
             45.20833
-        ]
-    },
-    {
-        "id": "URKK",
-        "prefix": [
-            "URKK"
         ],
-        "name": "Krasnodar Approach",
-        "coordinate": [
-            38.655,
-            45.928055555556
-        ]
+        "suffix": null
     },
     {
         "id": "URML",
@@ -7456,7 +7453,8 @@
         "coordinate": [
             48.65667,
             43.135
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URMG",
@@ -7467,7 +7465,8 @@
         "coordinate": [
             46.26167,
             43.56333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URMN",
@@ -7478,7 +7477,8 @@
         "coordinate": [
             43.96667,
             43.84667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URMO",
@@ -7489,7 +7489,8 @@
         "coordinate": [
             45.3,
             43.59972
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URMT",
@@ -7500,7 +7501,8 @@
         "coordinate": [
             41.789166666667,
             45.619444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URMM",
@@ -7511,62 +7513,47 @@
         "coordinate": [
             43.2,
             45.03333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URRP",
         "prefix": [
-            "URRP"
+            "URRP",
+            "URRP_R"
         ],
         "name": "Platov Approach",
         "coordinate": [
             38.33333,
             46.98333
-        ]
-    },
-    {
-        "id": "URRP",
-        "prefix": [
-            "URRP_R"
         ],
-        "name": "Platov Radar",
-        "coordinate": [
-            40.05639,
-            47.78889
-        ]
+        "suffix": null
     },
     {
         "id": "URSS",
         "prefix": [
-            "URSS"
+            "URSS",
+            "URSS_R"
         ],
         "name": "Sochi Approach",
         "coordinate": [
             38.703889,
             44.310556
-        ]
-    },
-    {
-        "id": "URSS",
-        "prefix": [
-            "URSS_R"
         ],
-        "name": "Sochi Radar",
-        "coordinate": [
-            40.13068,
-            43.56504
-        ]
+        "suffix": null
     },
     {
         "id": "USCC",
         "prefix": [
-            "USCC"
+            "USCC",
+            "USCC_R"
         ],
         "name": "Chelyabinsk Approach",
         "coordinate": [
             60.983333,
             55.9071438
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URWA",
@@ -7577,7 +7564,8 @@
         "coordinate": [
             48.996111111111,
             46.428055555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "URWW",
@@ -7588,18 +7576,8 @@
         "coordinate": [
             45.291111111111,
             49.688333333333
-        ]
-    },
-    {
-        "id": "USCC",
-        "prefix": [
-            "USCC_R"
         ],
-        "name": "Chelyabinsk Radar",
-        "coordinate": [
-            61.615277778,
-            55.616944444
-        ]
+        "suffix": null
     },
     {
         "id": "USHB",
@@ -7610,7 +7588,8 @@
         "coordinate": [
             66,
             64.916667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USDD",
@@ -7621,7 +7600,8 @@
         "coordinate": [
             66.590994,
             67.040147
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USHH",
@@ -7632,7 +7612,8 @@
         "coordinate": [
             69.111896,
             61.482091
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USHQ",
@@ -7643,7 +7624,8 @@
         "coordinate": [
             66.685376,
             64.047729
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USMM",
@@ -7654,7 +7636,8 @@
         "coordinate": [
             72.679091,
             65.931813
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USNN",
@@ -7665,7 +7648,8 @@
         "coordinate": [
             76.451387,
             61.39348
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USMU",
@@ -7676,7 +7660,8 @@
         "coordinate": [
             76.499748,
             66.519591
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USKK",
@@ -7687,62 +7672,47 @@
         "coordinate": [
             49.623055556,
             58.928611111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USPP",
         "prefix": [
-            "USPP"
+            "USPP",
+            "USPP_R"
         ],
         "name": "Perm Approach",
         "coordinate": [
             56.585833,
             58.741944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "USRR",
         "prefix": [
-            "USRR"
+            "USRR",
+            "USRR_R"
         ],
         "name": "Surgut Approach",
         "coordinate": [
             75.833333,
             64
-        ]
-    },
-    {
-        "id": "USPP",
-        "prefix": [
-            "USPP_R"
         ],
-        "name": "Perm Radar",
-        "coordinate": [
-            56.006427,
-            58.364036
-        ]
+        "suffix": null
     },
     {
         "id": "USSS",
         "prefix": [
-            "USSS"
+            "USSS",
+            "USSS_R"
         ],
         "name": "Koltsovo Approach",
         "coordinate": [
             61.929722,
             57.336667
-        ]
-    },
-    {
-        "id": "USSS",
-        "prefix": [
-            "USSS_R"
         ],
-        "name": "Koltsovo Radar",
-        "coordinate": [
-            60.78246,
-            57.192925
-        ]
+        "suffix": null
     },
     {
         "id": "UTTT",
@@ -7753,18 +7723,8 @@
         "coordinate": [
             68.2,
             42.033333333
-        ]
-    },
-    {
-        "id": "USRR",
-        "prefix": [
-            "USRR_R"
         ],
-        "name": "Surgut Krug",
-        "coordinate": [
-            73.388978,
-            61.703562
-        ]
+        "suffix": null
     },
     {
         "id": "USTR",
@@ -7775,7 +7735,8 @@
         "coordinate": [
             65.301458,
             57.617925
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UUDD",
@@ -7783,12 +7744,11 @@
             "UUDD"
         ],
         "name": "Domodedovo Radar",
-        "label_lat": 54.78,
-        "label_lon": 38.3,
         "coordinate": [
             38.25222222222222,
             55.92527777777777
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UUMU",
@@ -7799,7 +7759,8 @@
         "coordinate": [
             37.81306,
             56.08861
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UUWW",
@@ -7807,34 +7768,24 @@
             "UUWW"
         ],
         "name": "Vnukovo Radar",
-        "label_lat": 54.87,
-        "label_lon": 37.15,
         "coordinate": [
             36.34166666666667,
             55.69166666666666
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UUYY",
         "prefix": [
-            "UUYW"
+            "UUYW",
+            "UUYY_R"
         ],
         "name": "Vorkuta Podkhod",
         "coordinate": [
             66.7833,
             68.8667
-        ]
-    },
-    {
-        "id": "UUYY",
-        "prefix": [
-            "UUYY_R"
         ],
-        "name": "Sivkar Krug",
-        "coordinate": [
-            51.13451889,
-            62.354285
-        ]
+        "suffix": null
     },
     {
         "id": "UUEE",
@@ -7845,18 +7796,8 @@
         "coordinate": [
             37.62083305555556,
             55.749722222222225
-        ]
-    },
-    {
-        "id": "UUYY",
-        "prefix": [
-            "UUYY_R"
         ],
-        "name": "Sivkar Krug",
-        "coordinate": [
-            51.13451889,
-            62.354285
-        ]
+        "suffix": null
     },
     {
         "id": "UWGG",
@@ -7867,40 +7808,34 @@
         "coordinate": [
             43.722499722222224,
             56.619999722222225
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UWKD",
         "prefix": [
-            "UWKD"
+            "UWKD",
+            "UWKD_R"
         ],
         "name": "Kazan Approach",
         "coordinate": [
             49.82083305555556,
             56.76111111111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UWLL",
         "prefix": [
-            "UWLL"
+            "UWLL",
+            "UWLL_R"
         ],
         "name": "Ulyanovsk Approach",
         "coordinate": [
             48.25,
             54.86666666666667
-        ]
-    },
-    {
-        "id": "UWKD",
-        "prefix": [
-            "UWKD_R"
         ],
-        "name": "Kazan Radar",
-        "coordinate": [
-            49.471111111111114,
-            55.7075
-        ]
+        "suffix": null
     },
     {
         "id": "UWKE",
@@ -7911,31 +7846,21 @@
         "coordinate": [
             52.09249999999997,
             55.924451328639655
-        ]
-    },
-    {
-        "id": "UWLL",
-        "prefix": [
-            "UWLL_R"
         ],
-        "name": "Ulyanovsk Radar",
-        "label_lat": 54.25,
-        "label_lon": 49,
-        "coordinate": [
-            48.25,
-            54.86666666666667
-        ]
+        "suffix": null
     },
     {
         "id": "UWSG",
         "prefix": [
-            "UWSG_R"
+            "UWSG_R",
+            "UWSG"
         ],
         "name": "Gagarin Radar",
         "coordinate": [
             46.93333333333333,
             51.82333305555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UWOO",
@@ -7946,29 +7871,21 @@
         "coordinate": [
             56.204166944444445,
             52.17777805555556
-        ]
-    },
-    {
-        "id": "UWSG",
-        "prefix": [
-            "UWSG"
         ],
-        "name": "Gagarin Approach",
-        "coordinate": [
-            47.13611111111111,
-            52.16722194444444
-        ]
+        "suffix": null
     },
     {
         "id": "UWWW",
         "prefix": [
-            "UWWW"
+            "UWWW",
+            "UWWW_R"
         ],
         "name": "Samara Approach",
         "coordinate": [
             50.32,
             54.394999999999996
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "UWUU",
@@ -7979,7 +7896,8 @@
         "coordinate": [
             55.25055611111111,
             55.39194388888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VAD",
@@ -7990,18 +7908,8 @@
         "coordinate": [
             -84.13333,
             31.11944
-        ]
-    },
-    {
-        "id": "UWWW",
-        "prefix": [
-            "UWWW_R"
         ],
-        "name": "Samara Radar",
-        "coordinate": [
-            50.561411111111106,
-            53.23693111111111
-        ]
+        "suffix": null
     },
     {
         "id": "VHHH",
@@ -8012,7 +7920,8 @@
         "coordinate": [
             113.63111361111,
             22.179688333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VLY",
@@ -8023,7 +7932,8 @@
         "coordinate": [
             -97.1502777778,
             26.93611111109999
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VPS",
@@ -8034,7 +7944,8 @@
         "coordinate": [
             -86.91668861111111,
             30.64613027777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VOK",
@@ -8045,7 +7956,8 @@
         "coordinate": [
             -90.88333,
             44.05
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VRA",
@@ -8056,7 +7968,8 @@
         "coordinate": [
             -97.150278,
             26.936111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "XLLJ",
@@ -8067,7 +7980,8 @@
         "coordinate": [
             29.80370278,
             60.42037778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "WRI",
@@ -8078,7 +7992,8 @@
         "coordinate": [
             -74.691111,
             39.764167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "VVTS",
@@ -8089,7 +8004,8 @@
         "coordinate": [
             106.66072333333,
             9.7374977777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "Y90",
@@ -8100,209 +8016,157 @@
         "coordinate": [
             -71.8333333,
             42.45
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YBBN",
         "prefix": [
-            "BN-C"
+            "BN-C",
+            "BN",
+            "BN-S"
         ],
         "name": "Brisbane Approach Gold Coast",
-        "label_lat": -27.64889,
-        "label_lon": 153.03917,
         "coordinate": [
             153.81,
             -28.590833
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YAMB",
-        "name": "Amberley Approach",
         "prefix": [
             "AM"
         ],
+        "name": "Amberley Approach",
         "coordinate": [
             152.216389,
             -27.074167
-        ]
-    },
-    {
-        "id": "YBBN",
-        "name": "Brisbane Approach (North)",
-        "prefix": [
-            "BN",
-            "BN-S"
         ],
-        "coordinate": [
-            153.304167,
-            -27.845278
-        ]
-    },
-    {
-        "id": "YBBN",
-        "prefix": [
-            "BN",
-            "BN-S"
-        ],
-        "name": "Brisbane Approach North",
-        "label_lat": -27.64889,
-        "label_lon": 153.03917,
-        "coordinate": [
-            153.304167,
-            -27.845278
-        ]
+        "suffix": null
     },
     {
         "id": "YBCS",
-        "name": "Cairns Approach",
         "prefix": [
             "CS"
         ],
+        "name": "Cairns Approach",
         "coordinate": [
             145.743889,
             -16.250278
-        ]
-    },
-    {
-        "id": "GEG",
-        "prefix": [
-            "YKM"
         ],
-        "name": "Spokane Approach",
-        "coordinate": [
-            -120.91242568280288,
-            46.941637814574186
-        ]
+        "suffix": null
     },
     {
         "id": "YBOK",
-        "name": "Oakey Approach",
         "prefix": [
             "OK"
         ],
+        "name": "Oakey Approach",
         "coordinate": [
             151.644444,
             -27.398889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YBMK",
-        "name": "Coral Approach (Mackay)",
         "prefix": [
             "MK"
         ],
+        "name": "Coral Approach (Mackay)",
         "coordinate": [
             149.082778,
             -21.151111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YBTL",
-        "name": "Townsville Approach",
         "prefix": [
             "TL"
         ],
+        "name": "Townsville Approach",
         "coordinate": [
             146.758333,
             -18.644167
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YMES",
-        "name": "East Sale Approach",
         "prefix": [
             "ES"
         ],
+        "name": "East Sale Approach",
         "coordinate": [
             147.149444,
             -37.265556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YBRK",
-        "name": "Coral Approach (Rocky)",
         "prefix": [
             "RK"
         ],
+        "name": "Coral Approach (Rocky)",
         "coordinate": [
             149.8575,
             -23.181944
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YMML",
         "prefix": [
-            "ML-S"
+            "ML-S",
+            "ML"
         ],
-        "suffix": "DEP",
         "name": "Melbourne Departures South",
-        "label_lat": -37.673332,
-        "label_lon": 144.84334,
         "coordinate": [
             144.346944,
             -38.228611
+        ],
+        "suffix": [
+            "DEP"
         ]
     },
     {
         "id": "YMLT",
-        "name": "Launceston Approach",
         "prefix": [
             "LT"
         ],
+        "name": "Launceston Approach",
         "coordinate": [
             147.213056,
             -41.043889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YMHB",
-        "name": "Hobart Approach",
         "prefix": [
             "HB"
         ],
+        "name": "Hobart Approach",
         "coordinate": [
             146.362222,
             -42.172778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YPAD",
         "prefix": [
             "AD"
         ],
-        "suffix": "DEP",
         "name": "Adelaide Departures",
-        "label_lat": -34.947,
-        "label_lon": 138.525,
         "coordinate": [
             139.088056,
             -34.566389
-        ]
-    },
-    {
-        "id": "YMML",
-        "prefix": [
-            "ML"
         ],
-        "name": "Melbourne Approach East",
-        "label_lat": -37.673332,
-        "label_lon": 144.84334,
-        "coordinate": [
-            144.346944,
-            -38.228611
-        ]
-    },
-    {
-        "id": "YMML",
-        "name": "Melbourne Departures (South)",
-        "prefix": [
-            "ML-S"
-        ],
-        "suffix": "DEP",
-        "coordinate": [
-            144.601389,
-            -38.122778
-        ]
+        "suffix": "DEP"
     },
     {
         "id": "YNG",
@@ -8313,76 +8177,70 @@
         "coordinate": [
             -81.10833,
             41.25833
-        ]
-    },
-    {
-        "id": "YPAD",
-        "name": "Adelaide Approach",
-        "prefix": [
-            "AD"
         ],
-        "coordinate": [
-            138.375278,
-            -34.336389
-        ]
+        "suffix": null
     },
     {
         "id": "YPEA",
-        "name": "Pearce Approach",
         "prefix": [
             "PE"
         ],
+        "name": "Pearce Approach",
         "coordinate": [
             115.845278,
             -31.789444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YPDN",
-        "name": "Darwin Approach (East)",
         "prefix": [
             "DN",
             "DN-W"
         ],
+        "name": "Darwin Approach (East)",
         "coordinate": [
             130.906389,
             -11.756667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YPPH",
-        "name": "Perth Approach",
         "prefix": [
             "PH"
         ],
+        "name": "Perth Approach",
         "coordinate": [
             116.415556,
             -32.404444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YSCB",
         "prefix": [
-            "CB-W"
+            "CB-W",
+            "CB"
         ],
         "name": "Canberra Approach West",
-        "label_lat": -35.306946,
-        "label_lon": 149.195,
         "coordinate": [
             149.195,
             -35.677778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YPTN",
-        "name": "Tindal Approach",
         "prefix": [
             "TN"
         ],
+        "name": "Tindal Approach",
         "coordinate": [
             132.377778,
             -14.021111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YQQ",
@@ -8393,36 +8251,11 @@
         "coordinate": [
             -123.5734,
             49.2858
-        ]
-    },
-    {
-        "id": "YSCB",
-        "prefix": [
-            "CB"
         ],
-        "name": "Canberra Approach East",
-        "label_lat": -35.306946,
-        "label_lon": 149.195,
-        "coordinate": [
-            149.195,
-            -35.677778
-        ]
-    },
-    {
-        "id": "YSCB",
-        "name": "Canberra Approach (East)",
-        "prefix": [
-            "CB",
-            "CB-W"
-        ],
-        "coordinate": [
-            148.605278,
-            -35.155556
-        ]
+        "suffix": null
     },
     {
         "id": "YSSY",
-        "name": "Sydney Approach (North)",
         "prefix": [
             "SY",
             "SY-C",
@@ -8430,21 +8263,24 @@
             "SY-DE",
             "SY-S"
         ],
+        "name": "Sydney Approach (North)",
         "coordinate": [
             151.1825,
             -33.193889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YSNW",
-        "name": "Nowra Approach",
         "prefix": [
             "NW"
         ],
+        "name": "Nowra Approach",
         "coordinate": [
             150.718611,
             -34.751667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YVR",
@@ -8455,18 +8291,20 @@
         "coordinate": [
             -123.5734,
             49.2858
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YWLM",
-        "name": "Williamtown Approach",
         "prefix": [
             "WLM"
         ],
+        "name": "Williamtown Approach",
         "coordinate": [
             151.405556,
             -32.866667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBAA",
@@ -8477,7 +8315,8 @@
         "coordinate": [
             115.53055555556,
             40.433333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "YYJ",
@@ -8488,7 +8327,8 @@
         "coordinate": [
             -124.0037,
             49.2523
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBAA_F",
@@ -8499,7 +8339,8 @@
         "coordinate": [
             115.93166666667,
             40.382777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBAD",
@@ -8510,7 +8351,8 @@
         "coordinate": [
             115.98694444444,
             40.019444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBHH",
@@ -8521,7 +8363,8 @@
         "coordinate": [
             111.18333333333,
             41.476666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBSJ",
@@ -8532,7 +8375,8 @@
         "coordinate": [
             113.84527777778,
             38.856388888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBTJ",
@@ -8543,7 +8387,8 @@
         "coordinate": [
             116.67,
             39.291388888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZBYN",
@@ -8554,7 +8399,8 @@
         "coordinate": [
             112.61888888889,
             38.469237222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGHA",
@@ -8565,7 +8411,8 @@
         "coordinate": [
             112.20944444444,
             28.066666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGGG",
@@ -8576,7 +8423,8 @@
         "coordinate": [
             112.43166666667,
             23.638333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGJD",
@@ -8587,7 +8435,8 @@
         "coordinate": [
             113.48333333333,
             22.881666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGKL",
@@ -8598,7 +8447,8 @@
         "coordinate": [
             109.5,
             25.633333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGOW",
@@ -8609,7 +8459,8 @@
         "coordinate": [
             115.25,
             24.1
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGNN",
@@ -8620,7 +8471,8 @@
         "coordinate": [
             107.30361111111,
             22.979166666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZGZJ",
@@ -8631,7 +8483,8 @@
         "coordinate": [
             109.47,
             22.505
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZJHK",
@@ -8642,7 +8495,8 @@
         "coordinate": [
             108.85083333333,
             19.255277777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZHCC",
@@ -8653,7 +8507,8 @@
         "coordinate": [
             112.19166666667,
             34.438333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZHEC",
@@ -8664,7 +8519,8 @@
         "coordinate": [
             114.83111111111,
             30.815555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZHHH",
@@ -8675,7 +8531,8 @@
         "coordinate": [
             112.39888888889,
             31.095833333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZJSY",
@@ -8686,7 +8543,8 @@
         "coordinate": [
             107.18972222222,
             19.267777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZLIC",
@@ -8697,7 +8555,8 @@
         "coordinate": [
             105.08861111111,
             38.735
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZLLL",
@@ -8708,7 +8567,8 @@
         "coordinate": [
             102.04111111111,
             37.438333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZPJH",
@@ -8719,7 +8579,8 @@
         "coordinate": [
             100.7625,
             22.423308055556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZLXY",
@@ -8730,7 +8591,8 @@
         "coordinate": [
             107.77027777778,
             35.211111111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZLXN",
@@ -8741,7 +8603,8 @@
         "coordinate": [
             101.58333333333,
             37.375277777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZPLJ",
@@ -8752,7 +8615,8 @@
         "coordinate": [
             100.24555555556,
             27.129141388889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSAM",
@@ -8763,7 +8627,8 @@
         "coordinate": [
             117.36111111111,
             24.508333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZPPP",
@@ -8774,7 +8639,8 @@
         "coordinate": [
             101.52972222222,
             25.027777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSCN",
@@ -8785,7 +8651,8 @@
         "coordinate": [
             115.55194444444,
             27.509722222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSFZ",
@@ -8796,7 +8663,8 @@
         "coordinate": [
             119.605,
             24.690833333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSHC",
@@ -8807,7 +8675,8 @@
         "coordinate": [
             118.75333333333,
             30.951666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSJN",
@@ -8818,7 +8687,8 @@
         "coordinate": [
             115.42361111111,
             36.000555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSOF",
@@ -8829,7 +8699,8 @@
         "coordinate": [
             115.86444444444,
             30.653333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSNB",
@@ -8840,7 +8711,8 @@
         "coordinate": [
             120.59194444444,
             29.425
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSNJ",
@@ -8851,7 +8723,8 @@
         "coordinate": [
             117.26222222222,
             34.773055555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSQD",
@@ -8862,7 +8735,8 @@
         "coordinate": [
             119.53333333333,
             37.413888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSQZ",
@@ -8873,7 +8747,8 @@
         "coordinate": [
             118.67194444444,
             24.619444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS_F",
@@ -8884,7 +8759,8 @@
         "coordinate": [
             120.8625,
             31.483055555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS",
@@ -8895,7 +8771,8 @@
         "coordinate": [
             119.55694444444,
             32.109444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS_E",
@@ -8906,7 +8783,8 @@
         "coordinate": [
             121.43166666667,
             31.973888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS_PF",
@@ -8917,7 +8795,8 @@
         "coordinate": [
             121.45333333333,
             31.517222222222
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSWX",
@@ -8928,7 +8807,8 @@
         "coordinate": [
             120.31944444444,
             31.589444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSYT",
@@ -8939,7 +8819,8 @@
         "coordinate": [
             120.3425,
             37.863333333333
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS_W",
@@ -8950,7 +8831,8 @@
         "coordinate": [
             119.55694444444,
             32.109444444444
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSSS_S",
@@ -8961,7 +8843,8 @@
         "coordinate": [
             120.92805555556,
             30.485555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZUCK",
@@ -8972,7 +8855,8 @@
         "coordinate": [
             106.41083333333,
             30.738888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZUGY",
@@ -8983,7 +8867,8 @@
         "coordinate": [
             105.91166666667,
             27.747777777778
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZSWZ",
@@ -8994,7 +8879,8 @@
         "coordinate": [
             121.44888888889,
             26.485555555556
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZULS",
@@ -9005,7 +8891,8 @@
         "coordinate": [
             92.795833333333,
             30.711111111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZYHB",
@@ -9016,7 +8903,8 @@
         "coordinate": [
             124.90833333333,
             46.566666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZUUU",
@@ -9027,7 +8915,8 @@
         "coordinate": [
             103.01694444444,
             30.806111111111
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZYCC",
@@ -9038,7 +8927,8 @@
         "coordinate": [
             123.915,
             44.454166666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZWWW",
@@ -9049,7 +8939,8 @@
         "coordinate": [
             86.660555555556,
             44.623888888889
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZYTL",
@@ -9060,7 +8951,8 @@
         "coordinate": [
             121.74666666667,
             39.656666666667
-        ]
+        ],
+        "suffix": null
     },
     {
         "id": "ZYTX",
@@ -9071,6 +8963,7 @@
         "coordinate": [
             124.00777777778,
             42.632777777778
-        ]
+        ],
+        "suffix": null
     }
 ]
