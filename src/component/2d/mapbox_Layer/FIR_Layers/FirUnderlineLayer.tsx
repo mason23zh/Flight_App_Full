@@ -11,7 +11,7 @@ const FirUnderlineLayer = () => {
         <Source
             id="fir-outline-boundaries-source"
             type="vector"
-            url="mapbox://mason-zh.clqudy2fp2ag61nogduw0ofwr-96of0"
+            url="mapbox://mason-zh.cm00590z503li1tlkgyy8e5s3-5pv1b"
         >
             <Layer {...underlineBoundariesLineStyle}/>
         </Source>

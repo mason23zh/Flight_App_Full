@@ -282,7 +282,7 @@ export interface Fir {
     logon_time: string
 }
 
-interface Controller {
+export interface Controller {
     cid: number,
     name: string,
     callsign: string,
@@ -516,6 +516,14 @@ interface MergedFssMatching {
     firs: MergedFirMatching[];
 }
 
+interface VatsimTraconMapping {
+    id: string;
+    prefix: string[];
+    name: string;
+    coordinate: number[];
+    suffix: string;
+}
+
 export type {
     LiveFlightData,
     VatsimMapVisibleState,
@@ -539,5 +547,6 @@ export type {
     MatchedFirs,
     GroupedFlight,
     MergedFirMatching,
-    MergedFssMatching
+    MergedFssMatching,
+    VatsimTraconMapping
 };

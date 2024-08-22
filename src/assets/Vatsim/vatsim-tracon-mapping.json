@@ -1,0 +1,9076 @@
+[
+    {
+        "id": "A80",
+        "prefix": [
+            "AHN"
+        ],
+        "name": "Atlanta Approach",
+        "coordinate": [
+            -83.63917,
+            33.45056
+        ]
+    },
+    {
+        "id": "A80",
+        "prefix": [
+            "CSG"
+        ],
+        "name": "Atlanta Approach",
+        "coordinate": [
+            -85.775,
+            32.8
+        ]
+    },
+    {
+        "id": "A11",
+        "prefix": [
+            "ANC"
+        ],
+        "name": "Anchorage Approach",
+        "coordinate": [
+            -149.716667,
+            61.716667
+        ]
+    },
+    {
+        "id": "A80",
+        "prefix": [
+            "ATL"
+        ],
+        "name": "Atlanta Approach",
+        "coordinate": [
+            -84.705556,
+            34.279167
+        ]
+    },
+    {
+        "id": "A90",
+        "prefix": [
+            "A90"
+        ],
+        "name": "Boston Approach",
+        "coordinate": [
+            -70.9916667,
+            43.4166667
+        ]
+    },
+    {
+        "id": "A80",
+        "prefix": [
+            "MCN"
+        ],
+        "name": "Atlanta Approach",
+        "coordinate": [
+            -84.30556,
+            32.98056
+        ]
+    },
+    {
+        "id": "A90",
+        "prefix": [
+            "ACK"
+        ],
+        "name": "Boston Approach",
+        "coordinate": [
+            -69.5,
+            42.0836108
+        ]
+    },
+    {
+        "id": "A90",
+        "prefix": [
+            "BOS"
+        ],
+        "name": "Boston Approach",
+        "coordinate": [
+            -70.8907856,
+            41.7713683
+        ]
+    },
+    {
+        "id": "A90",
+        "prefix": [
+            "MHT"
+        ],
+        "name": "Boston Approach",
+        "coordinate": [
+            -71.3834486,
+            43.7583967
+        ]
+    },
+    {
+        "id": "ABE",
+        "prefix": [
+            "ABE"
+        ],
+        "name": "Allentown Approach",
+        "coordinate": [
+            -76.1625,
+            40.688889
+        ]
+    },
+    {
+        "id": "ACT",
+        "prefix": [
+            "ACT"
+        ],
+        "name": "Waco Approach",
+        "coordinate": [
+            -97.775,
+            31.75
+        ]
+    },
+    {
+        "id": "ABI",
+        "prefix": [
+            "ABI"
+        ],
+        "name": "Abilene Approach",
+        "coordinate": [
+            -100.5,
+            32.29167
+        ]
+    },
+    {
+        "id": "ABQ",
+        "prefix": [
+            "ABQ"
+        ],
+        "name": "Albuquerque Approach",
+        "coordinate": [
+            -107.34222,
+            34.90833
+        ]
+    },
+    {
+        "id": "AGS",
+        "prefix": [
+            "AGS"
+        ],
+        "name": "Augusta Approach",
+        "coordinate": [
+            -82.266389,
+            34.066389
+        ]
+    },
+    {
+        "id": "ALB",
+        "prefix": [
+            "ALB"
+        ],
+        "name": "Albany Approach",
+        "coordinate": [
+            -72.8583333,
+            43.1083894
+        ]
+    },
+    {
+        "id": "ACY",
+        "prefix": [
+            "ACY"
+        ],
+        "name": "Atlantic City Approach",
+        "coordinate": [
+            -75.311667,
+            39.431944
+        ]
+    },
+    {
+        "id": "APN",
+        "prefix": [
+            "APN"
+        ],
+        "name": "Alpena Approach",
+        "coordinate": [
+            -82.35,
+            44.666667
+        ]
+    },
+    {
+        "id": "ALO",
+        "prefix": [
+            "ALO"
+        ],
+        "name": "Waterloo Approach",
+        "coordinate": [
+            -93.266667,
+            42.6625
+        ]
+    },
+    {
+        "id": "ASE",
+        "prefix": [
+            "ASE"
+        ],
+        "name": "Aspen Approach",
+        "coordinate": [
+            -107.220556,
+            39.563611
+        ]
+    },
+    {
+        "id": "AMA",
+        "prefix": [
+            "AMA"
+        ],
+        "name": "Amarillo Approach",
+        "coordinate": [
+            -102.043333,
+            34.711389
+        ]
+    },
+    {
+        "id": "AVL",
+        "prefix": [
+            "AVL"
+        ],
+        "name": "Asheville Approach",
+        "coordinate": [
+            -83.133333,
+            35.983333
+        ]
+    },
+    {
+        "id": "AYNZ",
+        "name": "Nadzab Approach",
+        "prefix": [
+            "AYNZ"
+        ],
+        "coordinate": [
+            146.562778,
+            -6.096667
+        ]
+    },
+    {
+        "id": "AUS",
+        "prefix": [
+            "AUS"
+        ],
+        "name": "Austin Approach",
+        "coordinate": [
+            -96.81666667,
+            30.15
+        ]
+    },
+    {
+        "id": "AVP",
+        "prefix": [
+            "AVP"
+        ],
+        "name": "Wilkes-Barre Approach",
+        "coordinate": [
+            -76.2999808,
+            41.5009772
+        ]
+    },
+    {
+        "id": "AZO",
+        "prefix": [
+            "AZO"
+        ],
+        "name": "Great Lakes Approach",
+        "coordinate": [
+            -87,
+            42.8
+        ]
+    },
+    {
+        "id": "AYPY",
+        "name": "Jacksons Radar",
+        "prefix": [
+            "AYPY"
+        ],
+        "coordinate": [
+            147.219167,
+            -8.608611
+        ]
+    },
+    {
+        "id": "BFL",
+        "prefix": [
+            "BFL"
+        ],
+        "name": "Bakersfield Approach",
+        "coordinate": [
+            -119.7102614,
+            35.6774564
+        ]
+    },
+    {
+        "id": "BHM",
+        "prefix": [
+            "BHM"
+        ],
+        "name": "Birmingham Approach",
+        "coordinate": [
+            -86.175,
+            34.3875
+        ]
+    },
+    {
+        "id": "AZO",
+        "prefix": [
+            "LAN"
+        ],
+        "name": "Great Lakes Approach",
+        "coordinate": [
+            -85.05,
+            42.68333
+        ]
+    },
+    {
+        "id": "BIS",
+        "prefix": [
+            "BIS"
+        ],
+        "name": "Bismarck Approach",
+        "coordinate": [
+            -100.2,
+            47.233333
+        ]
+    },
+    {
+        "id": "BGM",
+        "prefix": [
+            "BGM"
+        ],
+        "name": "Binghamton Approach",
+        "coordinate": [
+            -76.259722,
+            42.454167
+        ]
+    },
+    {
+        "id": "BIKF",
+        "prefix": [
+            "BIKF"
+        ],
+        "name": "Keflavik Approach",
+        "coordinate": [
+            -21.231666666667,
+            63.723611111111
+        ]
+    },
+    {
+        "id": "BIRK",
+        "prefix": [
+            "BIRK"
+        ],
+        "name": "Reykjavik Approach",
+        "coordinate": [
+            -22.966666666667,
+            64.633333333333
+        ]
+    },
+    {
+        "id": "BIL",
+        "prefix": [
+            "BIL"
+        ],
+        "name": "Billings Approach",
+        "coordinate": [
+            -108.624167,
+            46.477778
+        ]
+    },
+    {
+        "id": "BGR",
+        "prefix": [
+            "BGR"
+        ],
+        "name": "Bangor Approach",
+        "coordinate": [
+            -68.1448897,
+            44.7716667
+        ]
+    },
+    {
+        "id": "BOI",
+        "prefix": [
+            "BOI"
+        ],
+        "name": "Big Sky Approach",
+        "coordinate": [
+            -116.920556,
+            43.128056
+        ]
+    },
+    {
+        "id": "BNA",
+        "prefix": [
+            "BNA"
+        ],
+        "name": "Nashville Approach",
+        "coordinate": [
+            -86.933333,
+            36.683333
+        ]
+    },
+    {
+        "id": "BTR",
+        "prefix": [
+            "BTR"
+        ],
+        "name": "Baton Rouge Approach",
+        "coordinate": [
+            -91.5,
+            30.191667
+        ]
+    },
+    {
+        "id": "BTV",
+        "prefix": [
+            "BTV"
+        ],
+        "name": "Burlington Approach",
+        "coordinate": [
+            -73.25,
+            45
+        ]
+    },
+    {
+        "id": "BZN",
+        "prefix": [
+            "BZN"
+        ],
+        "name": "Big Sky Approach",
+        "coordinate": [
+            -111.889722,
+            46.1925
+        ]
+    },
+    {
+        "id": "BUF",
+        "prefix": [
+            "BUF"
+        ],
+        "name": "Buffalo Approach",
+        "coordinate": [
+            -81.21111,
+            42
+        ]
+    },
+    {
+        "id": "CAE",
+        "prefix": [
+            "CAE"
+        ],
+        "name": "Columbia Approach",
+        "coordinate": [
+            -81.233333,
+            34.508333
+        ]
+    },
+    {
+        "id": "C90",
+        "prefix": [
+            "CHI"
+        ],
+        "name": "Chicago Approach",
+        "coordinate": [
+            -88.461111,
+            42.5
+        ]
+    },
+    {
+        "id": "CHA",
+        "prefix": [
+            "CHA"
+        ],
+        "name": "Chattanooga Approach",
+        "coordinate": [
+            -85.258333,
+            35.5375
+        ]
+    },
+    {
+        "id": "CBM",
+        "prefix": "CBM",
+        "name": "Columbus Approach",
+        "coordinate": -87.986111
+    },
+    {
+        "id": "CHS",
+        "prefix": [
+            "CHS"
+        ],
+        "name": "Charleston Approach",
+        "coordinate": [
+            -80.664444,
+            33.375556
+        ]
+    },
+    {
+        "id": "CID",
+        "prefix": [
+            "CID"
+        ],
+        "name": "Cedar Rapids Approach",
+        "coordinate": [
+            -92.285278,
+            42.199167
+        ]
+    },
+    {
+        "id": "CLT",
+        "prefix": [
+            "CLT"
+        ],
+        "name": "Charlotte Approach",
+        "coordinate": [
+            -81.232222,
+            35.689167
+        ]
+    },
+    {
+        "id": "CKB",
+        "prefix": [
+            "CKB"
+        ],
+        "name": "Clarksburg Approach",
+        "coordinate": [
+            -80.480556,
+            40.027778
+        ]
+    },
+    {
+        "id": "CMH",
+        "prefix": [
+            "CMH"
+        ],
+        "name": "Columbus Approach",
+        "coordinate": [
+            -83.566667,
+            40.4
+        ]
+    },
+    {
+        "id": "CLE",
+        "prefix": [
+            "CLE"
+        ],
+        "name": "Cleveland Approach",
+        "coordinate": [
+            -83.65,
+            40.7375
+        ]
+    },
+    {
+        "id": "CMI",
+        "prefix": [
+            "CMI"
+        ],
+        "name": "Champaign Approach",
+        "coordinate": [
+            -89.183333,
+            40.016667
+        ]
+    },
+    {
+        "id": "CPR",
+        "prefix": [
+            "CPR"
+        ],
+        "name": "Casper Approach",
+        "coordinate": [
+            -107.038889,
+            43.234722
+        ]
+    },
+    {
+        "id": "COS",
+        "prefix": [
+            "COS"
+        ],
+        "name": "Colorado Springs Approach",
+        "coordinate": [
+            -104.2525,
+            39.196667
+        ]
+    },
+    {
+        "id": "CPTL",
+        "prefix": [
+            "CPTL"
+        ],
+        "name": "Ottawa & Quebec Terminals",
+        "coordinate": [
+            -75.009013611111,
+            45.353140555556
+        ]
+    },
+    {
+        "id": "CRW",
+        "prefix": [
+            "CRW"
+        ],
+        "name": "Charleston Approach",
+        "coordinate": [
+            -82.23333,
+            38.14028
+        ]
+    },
+    {
+        "id": "CVG",
+        "prefix": [
+            "CVG"
+        ],
+        "name": "Cincinnati Approach",
+        "coordinate": [
+            -85.500278,
+            39.455556
+        ]
+    },
+    {
+        "id": "CRP",
+        "prefix": [
+            "CRP"
+        ],
+        "name": "Corpus Approach",
+        "coordinate": [
+            -97.966667,
+            28.033333
+        ]
+    },
+    {
+        "id": "CVS",
+        "prefix": [
+            "CVS"
+        ],
+        "name": "Clovis Approach",
+        "coordinate": [
+            -103.916667,
+            34.65
+        ]
+    },
+    {
+        "id": "CYBG",
+        "prefix": [
+            "CYBG"
+        ],
+        "name": "Bagotville Terminal",
+        "coordinate": [
+            -72.123708055556,
+            48.335496666667
+        ]
+    },
+    {
+        "id": "CYMJ",
+        "prefix": [
+            "CYMJ"
+        ],
+        "name": "Moose Jaw Terminal",
+        "coordinate": [
+            -107.27944444444444,
+            49.95333333333333
+        ]
+    },
+    {
+        "id": "CYHZ",
+        "prefix": [
+            "CYHZ"
+        ],
+        "name": "Halifax Arrival/Departure",
+        "coordinate": [
+            -64.45444444444445,
+            45.22527777777778
+        ]
+    },
+    {
+        "id": "CYEG",
+        "prefix": [
+            "CYEG"
+        ],
+        "name": "Edmonton Arrival/Departure",
+        "coordinate": [
+            -114.1987489630336,
+            53.50153920623929
+        ]
+    },
+    {
+        "id": "CYOW",
+        "prefix": [
+            "CYOW"
+        ],
+        "name": "Ottawa Arrival/Departure",
+        "coordinate": [
+            -74.922275277778,
+            45.085691388889
+        ]
+    },
+    {
+        "id": "CYQB",
+        "prefix": [
+            "CYQB"
+        ],
+        "name": "Quebec Terminal",
+        "coordinate": [
+            -72.133333333333,
+            46.766666666667
+        ]
+    },
+    {
+        "id": "CYQM",
+        "prefix": [
+            "CYQM"
+        ],
+        "name": "Moncton Centre",
+        "coordinate": [
+            -67.21666666666667,
+            46.2
+        ]
+    },
+    {
+        "id": "CYOD",
+        "prefix": [
+            "CYOD"
+        ],
+        "name": "Cold Lake Terminal",
+        "coordinate": [
+            -111.705560592802,
+            54.98355949364386,
+            0
+        ]
+    },
+    {
+        "id": "CYQT",
+        "prefix": [
+            "CYQT"
+        ],
+        "name": "Thunder Bay Terminal",
+        "coordinate": [
+            -89.4452425,
+            47.79595416666667
+        ]
+    },
+    {
+        "id": "CYSJ",
+        "prefix": [
+            "CYSJ"
+        ],
+        "name": "Moncton Centre",
+        "coordinate": [
+            -67.21666666666667,
+            46.2
+        ]
+    },
+    {
+        "id": "CYQX",
+        "prefix": [
+            "CYQX"
+        ],
+        "name": "Gander Terminal",
+        "coordinate": [
+            -54.583329722222224,
+            49.6
+        ]
+    },
+    {
+        "id": "CYS",
+        "prefix": [
+            "CYS"
+        ],
+        "name": "Cheyenne Approach",
+        "coordinate": [
+            -104.965556,
+            40.919444
+        ]
+    },
+    {
+        "id": "CYUL",
+        "prefix": [
+            "CYUL"
+        ],
+        "name": "Montreal Arrival/Departure",
+        "coordinate": [
+            -73.633333333333,
+            44.8075
+        ]
+    },
+    {
+        "id": "CYWG",
+        "prefix": [
+            "CYWG"
+        ],
+        "name": "Winnipeg Arrival/Departure",
+        "coordinate": [
+            -98.02709166666666,
+            50.21440277777778
+        ]
+    },
+    {
+        "id": "CYXE",
+        "prefix": [
+            "CYXE"
+        ],
+        "name": "Saskatoon Terminal",
+        "coordinate": [
+            -106.89250000000001,
+            52.7420575
+        ]
+    },
+    {
+        "id": "CYYC",
+        "prefix": [
+            "CYYC"
+        ],
+        "name": "Calgary Arrival/Departure",
+        "coordinate": [
+            -114.5883579704858,
+            51.4642457992322,
+            0
+        ]
+    },
+    {
+        "id": "CYYR",
+        "prefix": [
+            "CYYR"
+        ],
+        "name": "Goose Bay Terminal",
+        "coordinate": [
+            -60.365833333333335,
+            54.788306666666664
+        ]
+    },
+    {
+        "id": "CYYT",
+        "prefix": [
+            "CYYT"
+        ],
+        "name": "Gander Centre",
+        "coordinate": [
+            -52.75,
+            48.283339999999995
+        ]
+    },
+    {
+        "id": "CYYZ",
+        "prefix": [
+            "CYYZ"
+        ],
+        "name": "Toronto Arrival/Departure",
+        "coordinate": [
+            -79.7297335,
+            44.1034579
+        ]
+    },
+    {
+        "id": "D01",
+        "prefix": [
+            "PUB"
+        ],
+        "name": "Denver Approach",
+        "coordinate": [
+            -104.075278,
+            38.498611
+        ]
+    },
+    {
+        "id": "CYZX",
+        "prefix": [
+            "CYZX"
+        ],
+        "name": "Greenwood Terminal",
+        "coordinate": [
+            -65.14666666666668,
+            44.59388888888889
+        ]
+    },
+    {
+        "id": "D01",
+        "prefix": [
+            "GJT"
+        ],
+        "name": "Denver Approach",
+        "coordinate": [
+            -108.687778,
+            39.480833
+        ]
+    },
+    {
+        "id": "CZEG",
+        "prefix": [
+            "CZEG"
+        ],
+        "name": "Calgary-Edmonton Arrival",
+        "coordinate": [
+            -114.1970480023385,
+            53.50369226450303
+        ]
+    },
+    {
+        "id": "DAB",
+        "prefix": [
+            "DAB"
+        ],
+        "name": "Daytona Approach",
+        "coordinate": [
+            -81.566667,
+            29.823611
+        ]
+    },
+    {
+        "id": "D01",
+        "prefix": [
+            "DEN"
+        ],
+        "name": "Denver Approach",
+        "coordinate": [
+            -104.104722,
+            40.440556
+        ]
+    },
+    {
+        "id": "DAY",
+        "prefix": [
+            "DAY"
+        ],
+        "name": "Columbus Approach",
+        "coordinate": [
+            -85.091667,
+            40.3
+        ]
+    },
+    {
+        "id": "D10",
+        "prefix": [
+            "REG"
+        ],
+        "name": "Regional Approach",
+        "coordinate": [
+            -97.72833,
+            32.46889
+        ]
+    },
+    {
+        "id": "D21",
+        "prefix": [
+            "DTW"
+        ],
+        "name": "Detroit Approach",
+        "coordinate": [
+            -83.8825,
+            42.775
+        ]
+    },
+    {
+        "id": "DLH",
+        "prefix": [
+            "DLH"
+        ],
+        "name": "Duluth Approach",
+        "coordinate": [
+            -92.13333333,
+            47.5
+        ]
+    },
+    {
+        "id": "DLF",
+        "prefix": [
+            "DLF"
+        ],
+        "name": "Laughlin Approach",
+        "coordinate": [
+            -101.790278,
+            29.778889
+        ]
+    },
+    {
+        "id": "DNMM",
+        "prefix": [
+            "DNMM"
+        ],
+        "name": "Lagos Approach",
+        "label_lat": 3.2322438,
+        "label_lon": 7.682854,
+        "coordinate": [
+            2.7191205555555555,
+            7.641923055555555
+        ]
+    },
+    {
+        "id": "DNA",
+        "prefix": [
+            "DNA"
+        ],
+        "name": "Da Nang Control",
+        "coordinate": [
+            107.62027611111,
+            13.499395833333
+        ]
+    },
+    {
+        "id": "DOV",
+        "prefix": [
+            "DOV"
+        ],
+        "name": "Dover Approach",
+        "coordinate": [
+            -75.836111,
+            39.266667
+        ]
+    },
+    {
+        "id": "DSM",
+        "prefix": [
+            "DSM"
+        ],
+        "name": "Des Moines Approach",
+        "coordinate": [
+            -93.354167,
+            42.216667
+        ]
+    },
+    {
+        "id": "EBBR",
+        "prefix": [
+            "EBBR"
+        ],
+        "name": "Brussels Arrival",
+        "coordinate": [
+            3.478979166666667,
+            51.05173194444444
+        ]
+    },
+    {
+        "id": "EBLG",
+        "prefix": [
+            "EBLG"
+        ],
+        "name": "Li\u00c3\u00a8ge Approach",
+        "coordinate": [
+            5.117305,
+            50.516695
+        ]
+    },
+    {
+        "id": "EBOS",
+        "prefix": [
+            "EBOS"
+        ],
+        "name": "Ostend Approach",
+        "coordinate": [
+            2.0006283333333332,
+            51.11544555555556
+        ]
+    },
+    {
+        "id": "EBCI",
+        "prefix": [
+            "EBCI"
+        ],
+        "name": "Charleroi Approach",
+        "coordinate": [
+            3.8135697222222222,
+            50.488103333333335
+        ]
+    },
+    {
+        "id": "EDDB",
+        "prefix": [
+            "EDDB"
+        ],
+        "name": "Berlin Approach",
+        "coordinate": [
+            12.183036,
+            52.482303
+        ]
+    },
+    {
+        "id": "EDDG",
+        "prefix": [
+            "EDDG"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            7.26638888888889,
+            52.2472222222222
+        ]
+    },
+    {
+        "id": "EDDH",
+        "prefix": [
+            "EDDH"
+        ],
+        "name": "Bremen Radar",
+        "coordinate": [
+            10.883333,
+            54.595
+        ]
+    },
+    {
+        "id": "EDDF",
+        "prefix": [
+            "EDDF"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            7.68027777777778,
+            50.1941666666667
+        ]
+    },
+    {
+        "id": "EDDK",
+        "prefix": [
+            "EDDK"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            6.75583333333333,
+            51.09
+        ]
+    },
+    {
+        "id": "EDDL",
+        "prefix": [
+            "EDDL"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            6.79083333333333,
+            51.9336111111111
+        ]
+    },
+    {
+        "id": "EDDR",
+        "prefix": [
+            "EDDR"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            8.066666666666666,
+            49
+        ]
+    },
+    {
+        "id": "EDDM",
+        "prefix": [
+            "EDDM"
+        ],
+        "name": "Muenchen Approach",
+        "coordinate": [
+            11.183333333333334,
+            48.669444444444444
+        ]
+    },
+    {
+        "id": "EDDN",
+        "prefix": [
+            "EDDN"
+        ],
+        "name": "Nuernberg Approach",
+        "coordinate": [
+            10.702777777777778,
+            50.6575
+        ]
+    },
+    {
+        "id": "EDDP",
+        "prefix": [
+            "EDDP"
+        ],
+        "name": "Leipzig Approach",
+        "coordinate": [
+            12.260833333333334,
+            51.780277777777776
+        ]
+    },
+    {
+        "id": "EDDV",
+        "prefix": [
+            "EDDV"
+        ],
+        "name": "Bremen Radar",
+        "coordinate": [
+            10.266666666666667,
+            53.05
+        ]
+    },
+    {
+        "id": "EDDS",
+        "prefix": [
+            "EDDS"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            8.39388888888889,
+            49.2352777777778
+        ]
+    },
+    {
+        "id": "EDDW",
+        "prefix": [
+            "EDDW"
+        ],
+        "name": "Bremen Radar",
+        "coordinate": [
+            7.191667,
+            53.3
+        ]
+    },
+    {
+        "id": "EDFM",
+        "prefix": [
+            "EDFM"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            9.047777777777778,
+            49.57638888888889
+        ]
+    },
+    {
+        "id": "EDJA",
+        "prefix": [
+            "EDJA"
+        ],
+        "name": "Memmingen Approach",
+        "coordinate": [
+            9.92361111111111,
+            48.302499999999995
+        ]
+    },
+    {
+        "id": "EDFH",
+        "prefix": [
+            "EDFH"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            6.38416666666667,
+            50.4125
+        ]
+    },
+    {
+        "id": "EDLP",
+        "prefix": [
+            "EDLP"
+        ],
+        "name": "Langen Radar",
+        "coordinate": [
+            8.86666666666667,
+            51.9
+        ]
+    },
+    {
+        "id": "EETN",
+        "prefix": [
+            "EETN"
+        ],
+        "suffix": "APP",
+        "name": "Tallinn Radar",
+        "coordinate": [
+            22.982499999999998,
+            59.474722222222226
+        ]
+    },
+    {
+        "id": "EETT_H",
+        "prefix": [
+            "EETT"
+        ],
+        "suffix": "H_APP",
+        "name": "Tallinn Control",
+        "coordinate": [
+            25.00916638888889,
+            59.89138888888889
+        ]
+    },
+    {
+        "id": "EDW",
+        "prefix": [
+            "EDW"
+        ],
+        "name": "Joshua Approach",
+        "coordinate": [
+            -118.5833331,
+            37.20000000000001
+        ]
+    },
+    {
+        "id": "EFHA",
+        "prefix": [
+            "EFHA"
+        ],
+        "name": "Halli Radar",
+        "coordinate": [
+            25.115833333333,
+            62.167222222222
+        ]
+    },
+    {
+        "id": "EFJY",
+        "prefix": [
+            "EFJY"
+        ],
+        "name": "Jyvaskyla Radar",
+        "coordinate": [
+            25.664166666666667,
+            62.809444444444445
+        ]
+    },
+    {
+        "id": "EFHK",
+        "prefix": [
+            "EFHK"
+        ],
+        "name": "Helsinki Radar",
+        "coordinate": [
+            25.44,
+            60.954444444444
+        ]
+    },
+    {
+        "id": "EFOU",
+        "prefix": [
+            "EFOU"
+        ],
+        "name": "Oulu Radar",
+        "coordinate": [
+            25.183611111111,
+            65.405833333333
+        ]
+    },
+    {
+        "id": "EDDC",
+        "prefix": [
+            "EDDC"
+        ],
+        "name": "Dresden Approach",
+        "coordinate": [
+            14.712222222222222,
+            51.69833333333333
+        ]
+    },
+    {
+        "id": "EFKU",
+        "prefix": [
+            "EFKU"
+        ],
+        "name": "Kuopio Radar",
+        "coordinate": [
+            27.611111111111,
+            63.417222222222
+        ]
+    },
+    {
+        "id": "EFPO",
+        "prefix": [
+            "EFPO"
+        ],
+        "name": "Pori Radar",
+        "coordinate": [
+            21.577777777778,
+            61.844722222222
+        ]
+    },
+    {
+        "id": "EFRO",
+        "prefix": [
+            "EFRO"
+        ],
+        "name": "Rovaniemi Radar",
+        "coordinate": [
+            25.711666666667,
+            66.964166666667
+        ]
+    },
+    {
+        "id": "EFTP",
+        "prefix": [
+            "EFTP"
+        ],
+        "name": "Pirkkala Radar",
+        "coordinate": [
+            23.752222222222,
+            61.723333333333
+        ]
+    },
+    {
+        "id": "EFTU",
+        "prefix": [
+            "EFTU"
+        ],
+        "name": "Turku Radar",
+        "coordinate": [
+            21.350833333333,
+            60.554444444444
+        ]
+    },
+    {
+        "id": "EFVA",
+        "prefix": [
+            "EFVA"
+        ],
+        "name": "Vaasa Radar",
+        "coordinate": [
+            21.58972222222222,
+            63.56333333333333
+        ]
+    },
+    {
+        "id": "EGAA",
+        "prefix": [
+            "EGAA"
+        ],
+        "name": "Aldergrove Radar",
+        "coordinate": [
+            -5.264822,
+            54.951937
+        ]
+    },
+    {
+        "id": "EGCC",
+        "prefix": [
+            "EGCC"
+        ],
+        "name": "Manchester Radar",
+        "coordinate": [
+            -2.8497222222222,
+            53.333611111111
+        ]
+    },
+    {
+        "id": "EGBB",
+        "prefix": [
+            "EGBB"
+        ],
+        "name": "Birmingham Radar",
+        "coordinate": [
+            -2.1780247222222,
+            52.516436111111
+        ]
+    },
+    {
+        "id": "EGGW",
+        "prefix": [
+            "EGGW"
+        ],
+        "name": "Luton Radar",
+        "coordinate": [
+            -0.2516667,
+            51.8083333
+        ]
+    },
+    {
+        "id": "EGGD",
+        "prefix": [
+            "EGGD"
+        ],
+        "name": "Bristol Radar",
+        "coordinate": [
+            -2.53577,
+            51.286388611111
+        ]
+    },
+    {
+        "id": "EGFF",
+        "prefix": [
+            "EGFF"
+        ],
+        "name": "Cardiff Radar",
+        "coordinate": [
+            -3.5347222222222,
+            51.559722222222
+        ]
+    },
+    {
+        "id": "EGHH",
+        "prefix": [
+            "EGHH"
+        ],
+        "name": "Bournemouth Radar",
+        "coordinate": [
+            -1.5775,
+            50.829444444444
+        ]
+    },
+    {
+        "id": "EGHI",
+        "prefix": [
+            "EGHI"
+        ],
+        "name": "Southampton Radar",
+        "coordinate": [
+            -1.7833333333333,
+            50.532222222222
+        ]
+    },
+    {
+        "id": "EGJJ",
+        "prefix": [
+            "EGJJ"
+        ],
+        "name": "Jersey Control",
+        "coordinate": [
+            -3,
+            50
+        ]
+    },
+    {
+        "id": "EGLF",
+        "prefix": [
+            "EGLF"
+        ],
+        "name": "Farnborough Radar",
+        "coordinate": [
+            -0.9193994,
+            51.2853403
+        ]
+    },
+    {
+        "id": "EGKK",
+        "prefix": [
+            "EGKK"
+        ],
+        "name": "Gatwick Director",
+        "coordinate": [
+            0.23172222222222,
+            50.727658055556
+        ]
+    },
+    {
+        "id": "EGLL",
+        "prefix": [
+            "EGLL"
+        ],
+        "name": "Heathrow Director",
+        "coordinate": [
+            0.0348111,
+            51.330875
+        ]
+    },
+    {
+        "id": "EGNM",
+        "prefix": [
+            "EGNM"
+        ],
+        "name": "Leeds Radar",
+        "coordinate": [
+            -1.8166666666667,
+            54.043333333333
+        ]
+    },
+    {
+        "id": "EGMC",
+        "prefix": [
+            "EGMC"
+        ],
+        "name": "Southend Radar",
+        "coordinate": [
+            1.0705555555556,
+            51.614722222222
+        ]
+    },
+    {
+        "id": "EGNT",
+        "prefix": [
+            "EGNT"
+        ],
+        "name": "Newcastle Radar",
+        "coordinate": [
+            -2.0055555555556,
+            55.0625
+        ]
+    },
+    {
+        "id": "EGNS",
+        "prefix": [
+            "EGNS"
+        ],
+        "name": "Ronaldsway Radar",
+        "coordinate": [
+            -4.1733333333333,
+            54.0425
+        ]
+    },
+    {
+        "id": "EGPF",
+        "prefix": [
+            "EGPF"
+        ],
+        "name": "Glasgow Radar",
+        "coordinate": [
+            -4.7015758,
+            56.0131478
+        ]
+    },
+    {
+        "id": "EGPD",
+        "prefix": [
+            "EGPD"
+        ],
+        "name": "Aberdeen Radar",
+        "coordinate": [
+            -2.8488888888889,
+            57.004166666667
+        ]
+    },
+    {
+        "id": "EGSS",
+        "prefix": [
+            "EGSS"
+        ],
+        "name": "Stansted Radar",
+        "coordinate": [
+            0.6080556,
+            51.7830556
+        ]
+    },
+    {
+        "id": "EGNX",
+        "prefix": [
+            "EGNX"
+        ],
+        "name": "East Midlands Radar",
+        "coordinate": [
+            -1.5194444444444,
+            53.069444444444
+        ]
+    },
+    {
+        "id": "EGPK",
+        "prefix": [
+            "EGPK"
+        ],
+        "name": "Prestwick Radar",
+        "coordinate": [
+            -4.2338014,
+            55.4619097
+        ]
+    },
+    {
+        "id": "EGPH",
+        "prefix": [
+            "EGPH"
+        ],
+        "name": "Edinburgh Radar",
+        "coordinate": [
+            -3.840435,
+            56.0716631
+        ]
+    },
+    {
+        "id": "EIDW",
+        "prefix": [
+            "EIDW"
+        ],
+        "name": "Dublin Approach",
+        "coordinate": [
+            -6.7586175,
+            54.15794333
+        ]
+    },
+    {
+        "id": "EINN",
+        "prefix": [
+            "EINN"
+        ],
+        "name": "Shannon Approach",
+        "coordinate": [
+            -9.59278,
+            52.41306
+        ]
+    },
+    {
+        "id": "EKAH",
+        "prefix": [
+            "EKAH"
+        ],
+        "name": "Aarhus Approach",
+        "coordinate": [
+            10.481944,
+            56.860556
+        ]
+    },
+    {
+        "id": "EKBI",
+        "prefix": [
+            "EKBI"
+        ],
+        "name": "Billund Approach",
+        "coordinate": [
+            9.915278,
+            55.499167
+        ]
+    },
+    {
+        "id": "EICK",
+        "prefix": [
+            "EICK"
+        ],
+        "name": "Cork Approach",
+        "coordinate": [
+            -8.4911111,
+            52.2575002
+        ]
+    },
+    {
+        "id": "EKCH",
+        "prefix": [
+            "EKCH"
+        ],
+        "name": "Copenhagen Approach",
+        "coordinate": [
+            13.058611,
+            55.497222
+        ]
+    },
+    {
+        "id": "EKKA",
+        "prefix": [
+            "EKKA"
+        ],
+        "name": "Karup Approach",
+        "coordinate": [
+            9.706944,
+            56.641111
+        ]
+    },
+    {
+        "id": "ELLX",
+        "prefix": [
+            "ELLX"
+        ],
+        "name": "Luxembourg Approach",
+        "coordinate": [
+            5.298418055555556,
+            49.67632916666666
+        ]
+    },
+    {
+        "id": "EKSP",
+        "prefix": [
+            "EKSP"
+        ],
+        "name": "Skrydstrup Approach",
+        "coordinate": [
+            8.448611,
+            55.071389
+        ]
+    },
+    {
+        "id": "EKYT",
+        "prefix": [
+            "EKYT"
+        ],
+        "name": "Aalborg Approach",
+        "coordinate": [
+            9.915278,
+            56.561944
+        ]
+    },
+    {
+        "id": "ELM",
+        "prefix": [
+            "ELM"
+        ],
+        "name": "Elmira Approach",
+        "coordinate": [
+            -76.713889,
+            42.738889
+        ]
+    },
+    {
+        "id": "ELP",
+        "prefix": [
+            "ELP"
+        ],
+        "name": "El Paso Approach",
+        "coordinate": [
+            -106.11805556,
+            32.38833333
+        ]
+    },
+    {
+        "id": "ENAN",
+        "prefix": [
+            "ENAN"
+        ],
+        "suffix": "APP",
+        "name": "And\u00f8ya Tower",
+        "coordinate": [
+            16.966666666666665,
+            69.08333333333333
+        ]
+    },
+    {
+        "id": "ENAT",
+        "prefix": [
+            "ENAT"
+        ],
+        "suffix": "APP",
+        "name": "Alta Tower",
+        "coordinate": [
+            24,
+            70.31388888888888
+        ]
+    },
+    {
+        "id": "ENBO",
+        "prefix": [
+            "ENBO"
+        ],
+        "suffix": "APP",
+        "name": "Bod\u00f8 Approach",
+        "coordinate": [
+            13.916111111111112,
+            67.66555555555556
+        ]
+    },
+    {
+        "id": "ENBR",
+        "prefix": [
+            "ENBR"
+        ],
+        "suffix": "APP",
+        "name": "Flesland Approach",
+        "coordinate": [
+            4.5,
+            61
+        ]
+    },
+    {
+        "id": "ENDU",
+        "prefix": [
+            "ENDU"
+        ],
+        "suffix": "APP",
+        "name": "Bardufoss Approach",
+        "coordinate": [
+            18.15,
+            68.68333333333334
+        ]
+    },
+    {
+        "id": "ENCN",
+        "prefix": [
+            "ENCN",
+            "ENRC"
+        ],
+        "name": "Kjevik Approach",
+        "coordinate": [
+            8.781111111111112,
+            58.959722222222226
+        ]
+    },
+    {
+        "id": "END",
+        "prefix": [
+            "END"
+        ],
+        "name": "Vance Approach",
+        "coordinate": [
+            -99.78333,
+            36.27917
+        ]
+    },
+    {
+        "id": "ENEV",
+        "prefix": [
+            "ENEV"
+        ],
+        "suffix": "APP",
+        "name": "Evenes Approach",
+        "coordinate": [
+            16.16888888888889,
+            68.91944444444445
+        ]
+    },
+    {
+        "id": "ENGM",
+        "prefix": [
+            "ENGM"
+        ],
+        "suffix": "APP",
+        "name": "Oslo Approach",
+        "coordinate": [
+            11.072222222222223,
+            60.87777777777778
+        ]
+    },
+    {
+        "id": "ENNA",
+        "prefix": [
+            "ENNA"
+        ],
+        "suffix": "APP",
+        "name": "Banak Tower",
+        "coordinate": [
+            24,
+            70.31388888888888
+        ]
+    },
+    {
+        "id": "ENKR",
+        "prefix": [
+            "ENKR"
+        ],
+        "suffix": "APP",
+        "name": "Kirkenes Tower",
+        "coordinate": [
+            30.95,
+            70.06666666666666
+        ]
+    },
+    {
+        "id": "ENOL",
+        "prefix": [
+            "ENOL",
+            "ENRC"
+        ],
+        "name": "\u00d8rland Approach",
+        "coordinate": [
+            10.280277777777778,
+            63.76138888888889
+        ]
+    },
+    {
+        "id": "ENTC",
+        "prefix": [
+            "ENTC"
+        ],
+        "suffix": "APP",
+        "name": "Troms\u00f8 Approach",
+        "coordinate": [
+            19.418055555555558,
+            69.16027777777778
+        ]
+    },
+    {
+        "id": "ENVA",
+        "prefix": [
+            "ENVA"
+        ],
+        "suffix": "APP",
+        "name": "V\u00e6rnes Approach",
+        "coordinate": [
+            10.855555555555556,
+            64.1
+        ]
+    },
+    {
+        "id": "EPKK",
+        "prefix": [
+            "EPKK"
+        ],
+        "name": "Krakow Approach",
+        "coordinate": [
+            18.13050278,
+            49.99716667
+        ]
+    },
+    {
+        "id": "ENZV",
+        "prefix": [
+            "ENZV"
+        ],
+        "suffix": "APP",
+        "name": "Sola Approach",
+        "coordinate": [
+            4.4991666666666665,
+            59.60638888888889
+        ]
+    },
+    {
+        "id": "EPDE",
+        "prefix": [
+            "EPDE"
+        ],
+        "name": "Deblin Approach",
+        "coordinate": [
+            21.450833333333332,
+            51.611111111111114
+        ]
+    },
+    {
+        "id": "EPGD",
+        "prefix": [
+            "EPGD"
+        ],
+        "name": "Gdansk Approach",
+        "coordinate": [
+            15.866666666666667,
+            54.916666666666664
+        ]
+    },
+    {
+        "id": "EPPO_N",
+        "prefix": [
+            "EPPO_N"
+        ],
+        "name": "Poznan Approach North",
+        "coordinate": [
+            18.108611111111113,
+            50.37555555555556
+        ]
+    },
+    {
+        "id": "EPPO_S",
+        "prefix": [
+            "EPPO_S"
+        ],
+        "name": "Poznan Approach South",
+        "coordinate": [
+            16,
+            51.6175
+        ]
+    },
+    {
+        "id": "ESIA",
+        "prefix": [
+            "ESIA"
+        ],
+        "name": "Karlsborg Approach",
+        "coordinate": [
+            14.7966666667,
+            58.8283333333
+        ]
+    },
+    {
+        "id": "ESGG",
+        "prefix": [
+            "ESGG"
+        ],
+        "name": "Goteborg Approach",
+        "coordinate": [
+            12.4975,
+            58.7661111111
+        ]
+    },
+    {
+        "id": "EPWA",
+        "prefix": [
+            "EPWA"
+        ],
+        "name": "Warszawa Approach",
+        "coordinate": [
+            20.209444444444443,
+            51.23972222222222
+        ]
+    },
+    {
+        "id": "ESDF",
+        "prefix": [
+            "ESDF"
+        ],
+        "name": "Ronneby Approach",
+        "coordinate": [
+            15.1161111111,
+            56.6888888889
+        ]
+    },
+    {
+        "id": "ESPA",
+        "prefix": [
+            "ESPA"
+        ],
+        "name": "Kallax Approach",
+        "coordinate": [
+            22.0455555556,
+            66.0069444444
+        ]
+    },
+    {
+        "id": "ESPE",
+        "prefix": [
+            "ESPE"
+        ],
+        "name": "Vidsel Approach",
+        "coordinate": [
+            19.6875,
+            66.2152777778
+        ]
+    },
+    {
+        "id": "ESSA",
+        "prefix": [
+            "ESSA"
+        ],
+        "name": "Stockholm Approach",
+        "coordinate": [
+            17.4569444444,
+            58.6163888889
+        ]
+    },
+    {
+        "id": "ESMS",
+        "prefix": [
+            "ESMS"
+        ],
+        "name": "Sweden Control",
+        "coordinate": [
+            15.1352777778,
+            54.9166666667
+        ]
+    },
+    {
+        "id": "ESSEX",
+        "prefix": [
+            "ESSEX"
+        ],
+        "name": "Stansted Radar",
+        "coordinate": [
+            0.6080556,
+            51.7830556
+        ]
+    },
+    {
+        "id": "ESSB",
+        "prefix": [
+            "ESSB"
+        ],
+        "name": "Stockholm Approach",
+        "coordinate": [
+            17.4569444444,
+            58.6163888889
+        ]
+    },
+    {
+        "id": "ESSP",
+        "prefix": [
+            "ESSP"
+        ],
+        "name": "Ostgota Approach",
+        "coordinate": [
+            16.7077777778,
+            59.0119444444
+        ]
+    },
+    {
+        "id": "ESSV",
+        "prefix": [
+            "ESSV"
+        ],
+        "name": "Visby Approach",
+        "coordinate": [
+            18.5608333333,
+            58.2541666667
+        ]
+    },
+    {
+        "id": "ETAD",
+        "prefix": [
+            "ETAD"
+        ],
+        "name": "Spangdahlem GCA",
+        "coordinate": [
+            6.751666666666667,
+            49.916333333333334
+        ]
+    },
+    {
+        "id": "ESTA",
+        "prefix": [
+            "ESTA"
+        ],
+        "name": "Angelholm Approach",
+        "coordinate": [
+            13.2472222222,
+            56.7597222222
+        ]
+    },
+    {
+        "id": "ESTL",
+        "prefix": [
+            "ESTL"
+        ],
+        "name": "Ljungbyhed Approach",
+        "coordinate": [
+            13.4122222222,
+            56.3222222222
+        ]
+    },
+    {
+        "id": "ETAR",
+        "prefix": [
+            "ETAR"
+        ],
+        "name": "Ramstein GCA",
+        "coordinate": [
+            7.2,
+            49.583333333333336
+        ]
+    },
+    {
+        "id": "ETHF",
+        "prefix": [
+            "ETHF"
+        ],
+        "name": "Fritzlar Radar",
+        "coordinate": [
+            9.004166666666666,
+            51.25
+        ]
+    },
+    {
+        "id": "ETNN",
+        "prefix": [
+            "ETNN"
+        ],
+        "name": "Noervenich Radar",
+        "coordinate": [
+            6.445,
+            50.42783305555555
+        ]
+    },
+    {
+        "id": "ETHN",
+        "prefix": [
+            "ETHN"
+        ],
+        "name": "Stetten Radar",
+        "coordinate": [
+            10.127166944444445,
+            49.318666944444445
+        ]
+    },
+    {
+        "id": "ETNG",
+        "prefix": [
+            "ETNG"
+        ],
+        "name": "Frisbee Radar",
+        "coordinate": [
+            6.029353333333333,
+            51.012081944444446
+        ]
+    },
+    {
+        "id": "ETSB",
+        "prefix": [
+            "ETSB"
+        ],
+        "name": "Buechel Radar",
+        "coordinate": [
+            6.898,
+            50.362
+        ]
+    },
+    {
+        "id": "EUG",
+        "prefix": [
+            "EUG"
+        ],
+        "name": "Eugene Approach",
+        "coordinate": [
+            -123.5,
+            44.75
+        ]
+    },
+    {
+        "id": "EVRA",
+        "prefix": [
+            "EVRA"
+        ],
+        "name": "Riga Approach",
+        "coordinate": [
+            22.591,
+            56.3712
+        ]
+    },
+    {
+        "id": "EVV",
+        "prefix": [
+            "EVV"
+        ],
+        "name": "Evansville Approach",
+        "coordinate": [
+            -88.106667,
+            38.808056
+        ]
+    },
+    {
+        "id": "EYPA",
+        "prefix": [
+            "EYPA"
+        ],
+        "name": "Palanga Tower",
+        "coordinate": [
+            20.554166666666667,
+            55.57333333333334
+        ]
+    },
+    {
+        "id": "EYKA",
+        "prefix": [
+            "EYKA"
+        ],
+        "name": "Kaunas Tower",
+        "coordinate": [
+            23.8125,
+            55.46416666666667
+        ]
+    },
+    {
+        "id": "EYSA",
+        "prefix": [
+            "EYSA"
+        ],
+        "name": "Siauliai Tower",
+        "coordinate": [
+            24.096944444444443,
+            55.695277777777775
+        ]
+    },
+    {
+        "id": "F11",
+        "prefix": [
+            "MCO"
+        ],
+        "name": "Orlando Approach",
+        "coordinate": [
+            -81.708333,
+            29
+        ]
+    },
+    {
+        "id": "FAI",
+        "prefix": [
+            "FAI"
+        ],
+        "name": "Fairbanks Approach",
+        "coordinate": [
+            -146,
+            65.25
+        ]
+    },
+    {
+        "id": "EYVI",
+        "prefix": [
+            "EYVI"
+        ],
+        "name": "Vilnius Approach",
+        "coordinate": [
+            24.6369444,
+            55.3444444
+        ]
+    },
+    {
+        "id": "FAR",
+        "prefix": [
+            "FAR"
+        ],
+        "name": "Fargo Approach",
+        "coordinate": [
+            -97.033333,
+            46.4375
+        ]
+    },
+    {
+        "id": "FAOR",
+        "prefix": [
+            "FAOR"
+        ],
+        "name": "Johannesburg Radar",
+        "label_lat": -25.040451,
+        "label_lon": 27.738035,
+        "coordinate": [
+            28.660189166666665,
+            -27.455784722222223
+        ]
+    },
+    {
+        "id": "FAT",
+        "prefix": [
+            "FAT"
+        ],
+        "name": "Fresno Approach",
+        "coordinate": [
+            -120.288056,
+            36.893889
+        ]
+    },
+    {
+        "id": "FARRIS",
+        "prefix": [
+            "ENTO",
+            "ENRC"
+        ],
+        "name": "Farris Approach",
+        "coordinate": [
+            10.529444444444445,
+            58.583333333333336
+        ]
+    },
+    {
+        "id": "FAY",
+        "prefix": [
+            "FAY"
+        ],
+        "name": "Fayetteville Approach",
+        "coordinate": [
+            -80.14722,
+            34.85556
+        ]
+    },
+    {
+        "id": "FHU",
+        "prefix": [
+            "FHU"
+        ],
+        "name": "Libby Approach",
+        "coordinate": [
+            -110.76667,
+            31.8
+        ]
+    },
+    {
+        "id": "FRI",
+        "prefix": [
+            "FRI"
+        ],
+        "name": "Fort Riley Approach",
+        "coordinate": [
+            -96.625833,
+            39.593611
+        ]
+    },
+    {
+        "id": "FLO",
+        "prefix": [
+            "FLO"
+        ],
+        "name": "Florence Approach",
+        "coordinate": [
+            -79.728056,
+            34.713333
+        ]
+    },
+    {
+        "id": "FSI",
+        "prefix": [
+            "FSI"
+        ],
+        "name": "Fort Stockton Approach",
+        "coordinate": [
+            -98.766667,
+            34.854167
+        ]
+    },
+    {
+        "id": "FWA",
+        "prefix": [
+            "FWA"
+        ],
+        "name": "Fort Wayne Approach",
+        "coordinate": [
+            -85.933333,
+            41.377778
+        ]
+    },
+    {
+        "id": "FSD",
+        "prefix": [
+            "FSD"
+        ],
+        "name": "Sioux Falls Approach",
+        "coordinate": [
+            -96.625,
+            44.058333
+        ]
+    },
+    {
+        "id": "FSM",
+        "prefix": [
+            "FSM",
+            "FYV"
+        ],
+        "name": "Razorback Approach",
+        "coordinate": -94.816667
+    },
+    {
+        "id": "GCCA",
+        "prefix": [
+            "GCCA_INB"
+        ],
+        "name": "Canarias Approach",
+        "coordinate": [
+            -17.78333333267115,
+            29.999999999965983
+        ]
+    },
+    {
+        "id": "GCCA",
+        "prefix": [
+            "GCCA_AAC"
+        ],
+        "name": "Canarias Approach",
+        "coordinate": [
+            -13.76027778,
+            29.52777778
+        ]
+    },
+    {
+        "id": "GCLP",
+        "prefix": [
+            "GCLP"
+        ],
+        "name": "Gran Canaria Approach",
+        "coordinate": [
+            -14.91666667,
+            28.65
+        ]
+    },
+    {
+        "id": "GCTS",
+        "prefix": [
+            "GCTS"
+        ],
+        "name": "Tenerife Sur Approach",
+        "coordinate": [
+            -17.366666666578173,
+            28.166666667038474
+        ]
+    },
+    {
+        "id": "GCXO",
+        "prefix": [
+            "GCXO"
+        ],
+        "name": "Tenerife Approach",
+        "coordinate": [
+            -17,
+            28.8
+        ]
+    },
+    {
+        "id": "GEG",
+        "prefix": [
+            "GEG"
+        ],
+        "name": "Spokane Approach",
+        "coordinate": [
+            -118.38333221777054,
+            47.60000024699781
+        ]
+    },
+    {
+        "id": "GGG",
+        "prefix": [
+            "GGG"
+        ],
+        "name": "Longview Approach",
+        "coordinate": [
+            -95.85722,
+            32.58944
+        ]
+    },
+    {
+        "id": "GMMN",
+        "prefix": [
+            "GMMN"
+        ],
+        "name": "Mohammed V Approach",
+        "coordinate": [
+            -6.933333333333334,
+            33
+        ]
+    },
+    {
+        "id": "GMTT",
+        "prefix": [
+            "GMTT"
+        ],
+        "name": "Ibn Batouta Approach",
+        "coordinate": [
+            -5.501111111111111,
+            35.833333333333336
+        ]
+    },
+    {
+        "id": "GMFF",
+        "prefix": [
+            "GMFF"
+        ],
+        "name": "Saiss Approach",
+        "coordinate": [
+            -4.781513888888889,
+            34.47937777777778
+        ]
+    },
+    {
+        "id": "GMAD",
+        "prefix": [
+            "GMAD"
+        ],
+        "name": "Al Massira Approach",
+        "coordinate": [
+            -9.383333333333333,
+            31.071439166666668
+        ]
+    },
+    {
+        "id": "GMMX",
+        "prefix": [
+            "GMMX"
+        ],
+        "name": "Menara Approach",
+        "coordinate": [
+            -8.500555555555556,
+            32.08833333333334
+        ]
+    },
+    {
+        "id": "GPT",
+        "prefix": [
+            "GPT"
+        ],
+        "name": "Gulfport Approach",
+        "coordinate": [
+            -88.525,
+            30.169444
+        ]
+    },
+    {
+        "id": "GRK",
+        "prefix": [
+            "GRK"
+        ],
+        "name": "Gray Approach",
+        "coordinate": [
+            -98.404167,
+            31.75
+        ]
+    },
+    {
+        "id": "GOOY",
+        "prefix": [
+            "GOOY"
+        ],
+        "name": "Diass Approach",
+        "label_lat": 17.075098,
+        "label_lon": -16.116236,
+        "coordinate": [
+            -19.992379444444445,
+            19.942604444444445
+        ]
+    },
+    {
+        "id": "GRB",
+        "prefix": [
+            "GRB"
+        ],
+        "name": "Green Bay Approach",
+        "coordinate": [
+            -89.066667,
+            44.75
+        ]
+    },
+    {
+        "id": "GSB",
+        "prefix": [
+            "GSB"
+        ],
+        "name": "Seymour Johnson Approach",
+        "coordinate": [
+            -78.155,
+            35.694167
+        ]
+    },
+    {
+        "id": "GTB",
+        "prefix": [
+            "GTB"
+        ],
+        "name": "Wheeler-Sack Approach",
+        "coordinate": [
+            -76.7913889,
+            43.6333333
+        ]
+    },
+    {
+        "id": "GUS",
+        "prefix": [
+            "GUS"
+        ],
+        "name": "Grissom Approach",
+        "coordinate": [
+            -87.40417,
+            40.49167
+        ]
+    },
+    {
+        "id": "GVSC",
+        "prefix": [
+            "GVSC"
+        ],
+        "name": "Sal Approach",
+        "label_lat": 18.255156,
+        "label_lon": -24.228075,
+        "coordinate": [
+            -25.785324444444445,
+            15.403449444444444
+        ]
+    },
+    {
+        "id": "GTF",
+        "prefix": [
+            "GTF"
+        ],
+        "name": "Great Falls Approach",
+        "coordinate": [
+            -111.283333,
+            47.941667
+        ]
+    },
+    {
+        "id": "HELGELAND",
+        "prefix": [
+            "ENBN"
+        ],
+        "suffix": "APP",
+        "name": "Polaris Control (Helgeland)",
+        "coordinate": [
+            13,
+            66.95
+        ]
+    },
+    {
+        "id": "GUM",
+        "prefix": [
+            "GUM_E",
+            "GUM_W"
+        ],
+        "name": "Guam Approach",
+        "coordinate": [
+            145.28127,
+            13.0112383
+        ]
+    },
+    {
+        "id": "HLN",
+        "prefix": [
+            "HLN"
+        ],
+        "name": "Helena Approach",
+        "coordinate": [
+            -112.446667,
+            46.368333
+        ]
+    },
+    {
+        "id": "GSP",
+        "prefix": [
+            "GSP"
+        ],
+        "name": "Greer Approach",
+        "coordinate": [
+            -82.860833,
+            34.353889
+        ]
+    },
+    {
+        "id": "HMN",
+        "prefix": [
+            "HMN"
+        ],
+        "name": "Holloman Approach",
+        "coordinate": [
+            -105.73333333,
+            33.625
+        ]
+    },
+    {
+        "id": "HST",
+        "prefix": [
+            "HST"
+        ],
+        "name": "Homestead Approach",
+        "coordinate": [
+            -80.400278,
+            25.581389
+        ]
+    },
+    {
+        "id": "HNL",
+        "prefix": [
+            "HNL"
+        ],
+        "name": "HCF Approach",
+        "coordinate": [
+            -158.00901,
+            21.76918
+        ]
+    },
+    {
+        "id": "HOP",
+        "prefix": "HOP",
+        "name": "Campbell Approach",
+        "coordinate": -86.916667
+    },
+    {
+        "id": "HSV",
+        "prefix": [
+            "HSV"
+        ],
+        "name": "Huntsville Approach",
+        "coordinate": [
+            -87.366667,
+            34.9375
+        ]
+    },
+    {
+        "id": "HUZ",
+        "prefix": [
+            "HUF"
+        ],
+        "name": "Hulman Approach",
+        "coordinate": [
+            -87.25,
+            40.3
+        ]
+    },
+    {
+        "id": "GSO",
+        "prefix": [
+            "GSO"
+        ],
+        "name": "Greensboro Approach",
+        "coordinate": [
+            -80.323611,
+            36.808333
+        ]
+    },
+    {
+        "id": "ICT",
+        "prefix": [
+            "ICT"
+        ],
+        "name": "Wichita Approach",
+        "coordinate": [
+            -98.46667,
+            37.83333
+        ]
+    },
+    {
+        "id": "HTZ",
+        "prefix": [
+            "HTS"
+        ],
+        "name": "Huntington Approach",
+        "coordinate": [
+            -83.23889,
+            38.77222
+        ]
+    },
+    {
+        "id": "I90",
+        "prefix": [
+            "I90"
+        ],
+        "name": "Houston Approach",
+        "coordinate": [
+            -95.81416667,
+            30.62111111
+        ]
+    },
+    {
+        "id": "INC",
+        "prefix": [
+            "LTAG"
+        ],
+        "suffix": "APP",
+        "name": "Incirlik Approach",
+        "coordinate": [
+            35.34239055555556,
+            37.83016222222223
+        ]
+    },
+    {
+        "id": "IND",
+        "prefix": [
+            "IND"
+        ],
+        "name": "Indianapolis Approach",
+        "coordinate": [
+            -86.95,
+            40
+        ]
+    },
+    {
+        "id": "ITO",
+        "prefix": [
+            "ITO"
+        ],
+        "name": "Hilo Approach",
+        "coordinate": [
+            -154.93956,
+            20.12708
+        ]
+    },
+    {
+        "id": "ILM",
+        "prefix": [
+            "ILM"
+        ],
+        "name": "Wilmington Approach",
+        "coordinate": [
+            -78.685,
+            34.396944
+        ]
+    },
+    {
+        "id": "IST",
+        "prefix": [
+            "IST"
+        ],
+        "suffix": "APP",
+        "name": "Yesilkoy Approach/Radar",
+        "coordinate": [
+            29.403513801102005,
+            42.27422945499911
+        ]
+    },
+    {
+        "id": "JAN",
+        "prefix": "JAN",
+        "name": "Jackson Approach",
+        "coordinate": -90.45
+    },
+    {
+        "id": "KC",
+        "prefix": [
+            "KC"
+        ],
+        "name": "Kansas City Approach",
+        "coordinate": [
+            -95.238889,
+            39.827778
+        ]
+    },
+    {
+        "id": "JST",
+        "prefix": [
+            "JST"
+        ],
+        "name": "Johnstown Approach",
+        "coordinate": [
+            -79.600833,
+            40.360278
+        ]
+    },
+    {
+        "id": "JAX",
+        "prefix": [
+            "JAX"
+        ],
+        "name": "Jacksonville Approach",
+        "coordinate": [
+            -82.183333,
+            31
+        ]
+    },
+    {
+        "id": "LBB",
+        "prefix": [
+            "LBB"
+        ],
+        "name": "Lubbock Approach",
+        "coordinate": [
+            -102.483333,
+            34.066667
+        ]
+    },
+    {
+        "id": "L30",
+        "prefix": [
+            "LAS"
+        ],
+        "name": "Las Vegas Approach",
+        "coordinate": [
+            -115.8541667,
+            36.3458333
+        ]
+    },
+    {
+        "id": "LBBG",
+        "prefix": [
+            "LBBG"
+        ],
+        "name": "Burgas Approach",
+        "coordinate": [
+            27.123055555555556,
+            43.13805555555555
+        ]
+    },
+    {
+        "id": "LBWN",
+        "prefix": [
+            "LBWN"
+        ],
+        "name": "Varna Approach",
+        "coordinate": [
+            27.123055555555556,
+            43.13805555555555
+        ]
+    },
+    {
+        "id": "LBSF",
+        "prefix": [
+            "LBSF"
+        ],
+        "name": "Sofia Radar",
+        "coordinate": [
+            24.029444444444444,
+            42.52777777777778
+        ]
+    },
+    {
+        "id": "LEAB",
+        "prefix": [
+            "LEAB"
+        ],
+        "name": "Albacete Approach",
+        "coordinate": [
+            -3.04,
+            38.954
+        ]
+    },
+    {
+        "id": "LEBB",
+        "prefix": [
+            "LEBB"
+        ],
+        "name": "Bilbao Approach",
+        "coordinate": [
+            -3.406388889,
+            43.68111111
+        ]
+    },
+    {
+        "id": "LCH",
+        "prefix": [
+            "LCH"
+        ],
+        "name": "Lake Charles Approach",
+        "coordinate": [
+            -93.716667,
+            30.275
+        ]
+    },
+    {
+        "id": "LEAL",
+        "prefix": [
+            "LEAL"
+        ],
+        "name": "Valencia Control (Alicante)",
+        "coordinate": [
+            -1.119444444,
+            38.99805556
+        ]
+    },
+    {
+        "id": "LEBL",
+        "prefix": [
+            "LEBL"
+        ],
+        "name": "Barcelona Approach",
+        "coordinate": [
+            0.753889,
+            42.851111
+        ]
+    },
+    {
+        "id": "LEMG",
+        "prefix": [
+            "LEMG"
+        ],
+        "name": "M\u00e1laga Approach",
+        "coordinate": [
+            -5.100555556388761,
+            37.38333333296305
+        ]
+    },
+    {
+        "id": "LELC",
+        "prefix": [
+            "LELC"
+        ],
+        "name": "San Javier Approach",
+        "coordinate": [
+            -1.744,
+            37.284
+        ]
+    },
+    {
+        "id": "LEBZ",
+        "prefix": [
+            "LEBZ"
+        ],
+        "name": "Talavera Approach",
+        "coordinate": [
+            -7.26912503325316,
+            38.6687072155414
+        ]
+    },
+    {
+        "id": "LEMH",
+        "prefix": [
+            "LEMH"
+        ],
+        "name": "Palma Control (Menorca)",
+        "coordinate": [
+            4.666666667248088,
+            40.28222222196091
+        ]
+    },
+    {
+        "id": "LEMD",
+        "prefix": [
+            "LEMD"
+        ],
+        "name": "Madrid Approach",
+        "coordinate": [
+            -2.36888888927558,
+            41.50166666705732
+        ]
+    },
+    {
+        "id": "LEIB",
+        "prefix": [
+            "LEIB"
+        ],
+        "name": "Palma Control (Ibiza)",
+        "coordinate": [
+            0.483333333,
+            39.25
+        ]
+    },
+    {
+        "id": "LEST",
+        "prefix": [
+            "LECG"
+        ],
+        "name": "Santiago Approach",
+        "coordinate": [
+            -9.404,
+            41.93
+        ]
+    },
+    {
+        "id": "LEPA",
+        "prefix": [
+            "LEPA"
+        ],
+        "name": "Palma Approach",
+        "coordinate": [
+            3.60111111130076,
+            40.14500000003877
+        ]
+    },
+    {
+        "id": "LEX",
+        "prefix": [
+            "LEX"
+        ],
+        "name": "Lexington Approach",
+        "coordinate": [
+            -84.966667,
+            38.473333
+        ]
+    },
+    {
+        "id": "LEZG",
+        "prefix": [
+            "LEZG"
+        ],
+        "name": "Zaragoza Approach",
+        "coordinate": [
+            -2.499,
+            41.037
+        ]
+    },
+    {
+        "id": "LETO",
+        "prefix": [
+            "LETO"
+        ],
+        "name": "Torrejon Approach",
+        "coordinate": [
+            -3.505,
+            40.497
+        ]
+    },
+    {
+        "id": "LEVC",
+        "prefix": [
+            "LEVC"
+        ],
+        "name": "Valencia Control",
+        "coordinate": [
+            0.483333333,
+            38.92408333
+        ]
+    },
+    {
+        "id": "LEXJ",
+        "prefix": [
+            "LEXJ"
+        ],
+        "name": "Santander Tower",
+        "coordinate": [
+            -4.331,
+            43.248
+        ]
+    },
+    {
+        "id": "LEZL",
+        "prefix": [
+            "LEZL"
+        ],
+        "name": "Sevilla Approach",
+        "coordinate": [
+            -4.448333332925378,
+            38.19222222198339
+        ]
+    },
+    {
+        "id": "LFBO",
+        "prefix": [
+            "LFBO"
+        ],
+        "name": "Blagnac Approach",
+        "coordinate": [
+            0.870556,
+            43.7725
+        ]
+    },
+    {
+        "id": "LFBZ",
+        "prefix": [
+            "LFBZ"
+        ],
+        "name": "Biarritz Approach",
+        "coordinate": [
+            -1.7897222222222,
+            43.356388888889
+        ]
+    },
+    {
+        "id": "LFPO",
+        "prefix": [
+            "LFPO"
+        ],
+        "name": "Orly Approach",
+        "coordinate": [
+            1.899444,
+            48.298333
+        ]
+    },
+    {
+        "id": "LFT",
+        "prefix": [
+            "LFT"
+        ],
+        "name": "Lafayette Approach",
+        "coordinate": [
+            -92.500278,
+            30.400278
+        ]
+    },
+    {
+        "id": "LFPG",
+        "prefix": [
+            "LFPG"
+        ],
+        "name": "Charles de Gaulle Approach",
+        "coordinate": [
+            1.899444,
+            48.298333
+        ]
+    },
+    {
+        "id": "LFMN",
+        "prefix": [
+            "LFMN"
+        ],
+        "name": "Nice Approach",
+        "coordinate": [
+            6.0219444444444,
+            43.176388888889
+        ]
+    },
+    {
+        "id": "LMT",
+        "prefix": [
+            "LMT"
+        ],
+        "name": "Klamath Falls Approach",
+        "coordinate": [
+            -122.416667,
+            42.383333
+        ]
+    },
+    {
+        "id": "LFVP",
+        "prefix": [
+            "LFVP"
+        ],
+        "name": "Saint Pierre Approach",
+        "coordinate": [
+            -55.95444694444445,
+            47.33464861111111
+        ]
+    },
+    {
+        "id": "LHBP",
+        "prefix": [
+            "LHBP"
+        ],
+        "name": "Budapest Approach",
+        "coordinate": [
+            20.2367306,
+            47.1570386
+        ]
+    },
+    {
+        "id": "LOWI",
+        "prefix": [
+            "LOWI"
+        ],
+        "name": "Innsbruck Radar",
+        "coordinate": [
+            12.6625,
+            47.72472222222223
+        ]
+    },
+    {
+        "id": "LIT",
+        "prefix": "LIT",
+        "name": "Little Rock Approach",
+        "coordinate": -92.816667
+    },
+    {
+        "id": "LOWG",
+        "prefix": [
+            "LOWG"
+        ],
+        "name": "Graz Radar",
+        "coordinate": [
+            15.891667,
+            47.41527777777777
+        ]
+    },
+    {
+        "id": "LOWL",
+        "prefix": [
+            "LOWL"
+        ],
+        "name": "Linz Radar",
+        "coordinate": [
+            15.286667,
+            48.69666666666667
+        ]
+    },
+    {
+        "id": "LOWS",
+        "prefix": [
+            "LOWS"
+        ],
+        "name": "Salzburg Radar",
+        "coordinate": [
+            13.333055,
+            47.44972166666666
+        ]
+    },
+    {
+        "id": "LOWK",
+        "prefix": [
+            "LOWK"
+        ],
+        "name": "Klagenfurt Radar",
+        "coordinate": [
+            12.584722,
+            47.16388888888888
+        ]
+    },
+    {
+        "id": "LPFR",
+        "prefix": [
+            "LPFR"
+        ],
+        "name": "Faro Approach",
+        "coordinate": [
+            -7.958611111,
+            37.5975
+        ]
+    },
+    {
+        "id": "LPMA",
+        "prefix": [
+            "LPMA"
+        ],
+        "name": "Madeira Approach",
+        "coordinate": [
+            -17.30505833,
+            33.183825
+        ]
+    },
+    {
+        "id": "LPPT",
+        "prefix": [
+            "LPPT"
+        ],
+        "name": "Lisboa Approach",
+        "coordinate": [
+            -10,
+            38.9
+        ]
+    },
+    {
+        "id": "LPPR",
+        "prefix": [
+            "LPPR"
+        ],
+        "name": "Porto Approach",
+        "coordinate": [
+            -9.0325,
+            41.88561111
+        ]
+    },
+    {
+        "id": "LRAR",
+        "prefix": [
+            "LRAR"
+        ],
+        "name": "Arad Approach",
+        "coordinate": [
+            22.675,
+            45.54166
+        ]
+    },
+    {
+        "id": "LRCK",
+        "prefix": [
+            "LRCK"
+        ],
+        "name": "Constanta Approach",
+        "coordinate": [
+            27.8225,
+            44.925
+        ]
+    },
+    {
+        "id": "LRCL",
+        "prefix": [
+            "LRCL"
+        ],
+        "name": "NAPOC Approach",
+        "coordinate": [
+            23.13577,
+            47.25023
+        ]
+    },
+    {
+        "id": "LROP",
+        "prefix": [
+            "LROP"
+        ],
+        "name": "Bucharest Approach",
+        "coordinate": [
+            25.19166,
+            45.07611
+        ]
+    },
+    {
+        "id": "LSV",
+        "prefix": [
+            "LSV"
+        ],
+        "name": "Nellis Approach",
+        "coordinate": [
+            -116.4416661,
+            36.6833339
+        ]
+    },
+    {
+        "id": "LTAC",
+        "prefix": [
+            "LTAC"
+        ],
+        "suffix": "APP",
+        "name": "Esenboga Approach",
+        "coordinate": [
+            32.853065,
+            40.75844722222222
+        ]
+    },
+    {
+        "id": "LTAN",
+        "prefix": [
+            "LTAN"
+        ],
+        "suffix": "APP",
+        "name": "Konya Approach",
+        "coordinate": [
+            32.24944388888889,
+            38.33222194444445
+        ]
+    },
+    {
+        "id": "LTAI",
+        "prefix": [
+            "LTAI"
+        ],
+        "suffix": "APP",
+        "name": "Antalya Approach",
+        "coordinate": [
+            29.743055555555557,
+            36.958333333333336
+        ]
+    },
+    {
+        "id": "LOWW",
+        "prefix": [
+            "LOWW"
+        ],
+        "name": "Wien Radar",
+        "coordinate": [
+            16.902861,
+            48.71702777777778
+        ]
+    },
+    {
+        "id": "LTAL",
+        "prefix": [
+            "LTAL"
+        ],
+        "suffix": "TWR",
+        "name": "Kastamonu Tower/Appraoch",
+        "coordinate": [
+            33.45333333333333,
+            41.79666666666667
+        ]
+    },
+    {
+        "id": "LTAP",
+        "prefix": [
+            "LTAP"
+        ],
+        "suffix": "TWR",
+        "name": "Merzifon Tower/Approach",
+        "coordinate": [
+            35.56611083333333,
+            41.49916638888889
+        ]
+    },
+    {
+        "id": "LTAT",
+        "prefix": [
+            "LTAT"
+        ],
+        "suffix": "TWR",
+        "name": "Erhac Tower/Approach",
+        "coordinate": [
+            37.15672194444444,
+            38.803221944444445
+        ]
+    },
+    {
+        "id": "LTAJ",
+        "prefix": [
+            "LTAJ"
+        ],
+        "suffix": "TWR",
+        "name": "Gaziantep Tower/Approach",
+        "coordinate": [
+            37.38542416666667,
+            37.19037055555555
+        ]
+    },
+    {
+        "id": "LTAZ",
+        "prefix": [
+            "LTAZ"
+        ],
+        "suffix": "TWR",
+        "name": "Kapadokya Tower/Approach",
+        "coordinate": [
+            33.95333333333333,
+            38.916666666666664
+        ]
+    },
+    {
+        "id": "LTAU",
+        "prefix": [
+            "LTAU"
+        ],
+        "suffix": "APP",
+        "name": "Kayseri Approach",
+        "coordinate": [
+            34.332368055555555,
+            39.30700694444444
+        ]
+    },
+    {
+        "id": "LTBH",
+        "prefix": [
+            "LTBH"
+        ],
+        "suffix": "APP",
+        "name": "Canakkale Approach",
+        "coordinate": [
+            26.070254444444444,
+            40.04336333333333
+        ]
+    },
+    {
+        "id": "LTBJ",
+        "prefix": [
+            "LTBJ"
+        ],
+        "suffix": "APP",
+        "name": "Menderes Approach",
+        "coordinate": [
+            26.559412848505435,
+            39.2914785946735
+        ]
+    },
+    {
+        "id": "LTCC",
+        "prefix": [
+            "LTCC"
+        ],
+        "suffix": "TWR",
+        "name": "Diyarbakir Tower/Approach",
+        "coordinate": [
+            39.422221944444445,
+            38.41672194444444
+        ]
+    },
+    {
+        "id": "LTBS",
+        "prefix": [
+            "LTBS"
+        ],
+        "suffix": "APP",
+        "name": "Dalaman Approach",
+        "coordinate": [
+            28.209127699625537,
+            36.55303614131297
+        ]
+    },
+    {
+        "id": "LTCF",
+        "prefix": [
+            "LTCF"
+        ],
+        "suffix": "TWR",
+        "name": "Kars Tower/Approach",
+        "coordinate": [
+            42.51861111111111,
+            40.29694444444444
+        ]
+    },
+    {
+        "id": "LTCB",
+        "prefix": [
+            "LTCB"
+        ],
+        "suffix": "TWR",
+        "name": "Ordu Tower/Approach",
+        "coordinate": [
+            37.7575,
+            40.63283333333333
+        ]
+    },
+    {
+        "id": "LTCA",
+        "prefix": [
+            "LTCA"
+        ],
+        "suffix": "TWR",
+        "name": "Elazig Tower/Approach",
+        "coordinate": [
+            38.90085083333333,
+            38.758968055555556
+        ]
+    },
+    {
+        "id": "LTCG",
+        "prefix": [
+            "LTCG"
+        ],
+        "suffix": "APP",
+        "name": "Trabzon Approach",
+        "coordinate": [
+            39.766666666666666,
+            41.49666666666667
+        ]
+    },
+    {
+        "id": "LTCI",
+        "prefix": [
+            "LTCI"
+        ],
+        "suffix": "TWR",
+        "name": "Van Tower/Approach",
+        "coordinate": [
+            42.153888888888886,
+            38.99444388888889
+        ]
+    },
+    {
+        "id": "LTCE",
+        "prefix": [
+            "LTCE"
+        ],
+        "suffix": "TWR",
+        "name": "Erzurum Tower/Approach",
+        "coordinate": [
+            41.17862888888889,
+            40.37211722222222
+        ]
+    },
+    {
+        "id": "LTCK",
+        "prefix": [
+            "LTCK"
+        ],
+        "suffix": "TWR",
+        "name": "Mus Tower/Approach",
+        "coordinate": [
+            41.249721944444445,
+            38.68222194444444
+        ]
+    },
+    {
+        "id": "LTCM",
+        "prefix": [
+            "LTCM"
+        ],
+        "suffix": "TWR",
+        "name": "Sinop Tower/Approach",
+        "coordinate": [
+            34.89333333333333,
+            42.108333333333334
+        ]
+    },
+    {
+        "id": "LTCN",
+        "prefix": [
+            "LTCN"
+        ],
+        "suffix": "TWR",
+        "name": "Maras Tower/Approach",
+        "coordinate": [
+            36.48166666666667,
+            37.248333333333335
+        ]
+    },
+    {
+        "id": "LTCT",
+        "prefix": [
+            "LTCT"
+        ],
+        "suffix": "TWR",
+        "name": "Igdir Tower/Approach",
+        "coordinate": [
+            43.597791944444445,
+            40.33164694444445
+        ]
+    },
+    {
+        "id": "LTCS",
+        "prefix": [
+            "LTCS"
+        ],
+        "suffix": "TWR",
+        "name": "Urfa Tower/Approach",
+        "coordinate": [
+            38.884166666666665,
+            37.82666666666667
+        ]
+    },
+    {
+        "id": "LTCU",
+        "prefix": [
+            "LTCU"
+        ],
+        "suffix": "TWR",
+        "name": "Bingol Tower/Approach",
+        "coordinate": [
+            40.60666666666667,
+            38.36
+        ]
+    },
+    {
+        "id": "LTFE",
+        "prefix": [
+            "LTFE"
+        ],
+        "suffix": "APP",
+        "name": "Milas Approach",
+        "coordinate": [
+            26.983333,
+            37.64739733940909
+        ]
+    },
+    {
+        "id": "LTCV",
+        "prefix": [
+            "LTCV"
+        ],
+        "suffix": "TWR",
+        "name": "Sirnak Tower/Approach",
+        "coordinate": [
+            41.824086111111114,
+            37.640411944444445
+        ]
+    },
+    {
+        "id": "LTCW",
+        "prefix": [
+            "LTCW"
+        ],
+        "suffix": "TWR",
+        "name": "Yuksekova Tower/Approach",
+        "coordinate": [
+            44.19272833333333,
+            37.96338222222222
+        ]
+    },
+    {
+        "id": "LTS",
+        "prefix": [
+            "LTS"
+        ],
+        "name": "Altus Approach",
+        "coordinate": [
+            -99.583333,
+            35.079167
+        ]
+    },
+    {
+        "id": "LTFO",
+        "prefix": [
+            "LTFO"
+        ],
+        "suffix": "TWR",
+        "name": "Rize Tower/Approach",
+        "coordinate": [
+            40.77504527777778,
+            41.50827972222222
+        ]
+    },
+    {
+        "id": "LTFH",
+        "prefix": [
+            "LTFH"
+        ],
+        "suffix": "TWR",
+        "name": "Carsamba Tower/Approach",
+        "coordinate": [
+            36.28447972222222,
+            41.70787583333334
+        ]
+    },
+    {
+        "id": "LZKZ",
+        "prefix": [
+            "LZKZ"
+        ],
+        "name": "Kosice Radar",
+        "coordinate": [
+            21.321944444444444,
+            48.95583333333334
+        ]
+    },
+    {
+        "id": "LUF",
+        "prefix": [
+            "LUF"
+        ],
+        "name": "Luke Approach",
+        "coordinate": [
+            -112.21667,
+            32.6
+        ]
+    },
+    {
+        "id": "LZIB",
+        "prefix": [
+            "LZIB"
+        ],
+        "name": "Stefanik Radar",
+        "coordinate": [
+            17.61388888888889,
+            47.818333333333335
+        ]
+    },
+    {
+        "id": "LZSL",
+        "prefix": [
+            "LZSL"
+        ],
+        "name": "Sliac Radar",
+        "coordinate": [
+            19.135277777777777,
+            48.80833333333333
+        ]
+    },
+    {
+        "id": "LUKK",
+        "prefix": [
+            "LUKK"
+        ],
+        "name": "Chisinau Approach",
+        "coordinate": [
+            27.85166,
+            47.16833
+        ]
+    },
+    {
+        "id": "LZMC",
+        "prefix": [
+            "LZMC"
+        ],
+        "name": "Malacky Approach",
+        "coordinate": [
+            17.22861111111111,
+            48.3125
+        ]
+    },
+    {
+        "id": "M98",
+        "prefix": [
+            "MSP"
+        ],
+        "name": "Minneapolis Approach",
+        "coordinate": [
+            -93.565278,
+            45.507222
+        ]
+    },
+    {
+        "id": "M03",
+        "prefix": [
+            "MEM"
+        ],
+        "name": "Memphis Approach",
+        "coordinate": [
+            -90.245833,
+            35.695833
+        ]
+    },
+    {
+        "id": "MAF",
+        "prefix": [
+            "MAF"
+        ],
+        "name": "Midland Approach",
+        "coordinate": [
+            -101.688889,
+            32.45
+        ]
+    },
+    {
+        "id": "MBPV",
+        "prefix": [
+            "MBPV"
+        ],
+        "name": "Providenciales Approach",
+        "coordinate": [
+            -72.241111,
+            22.786944
+        ]
+    },
+    {
+        "id": "MDPC",
+        "prefix": [
+            "MDPC"
+        ],
+        "name": "Punta Cana Approach",
+        "coordinate": [
+            -68.63803705730035,
+            19.36508990668711
+        ]
+    },
+    {
+        "id": "MDPP",
+        "prefix": [
+            "MDPP"
+        ],
+        "name": "Cibao Approach",
+        "coordinate": [
+            -71.66659681125792,
+            20.416661199327
+        ]
+    },
+    {
+        "id": "MDT",
+        "prefix": [
+            "MDT"
+        ],
+        "name": "Harrisburg Approach",
+        "coordinate": [
+            -76.6890435645189,
+            40.9265088508253
+        ]
+    },
+    {
+        "id": "MFR",
+        "prefix": [
+            "MFR"
+        ],
+        "name": "Cascade Approach",
+        "coordinate": [
+            -122.875,
+            42.933333
+        ]
+    },
+    {
+        "id": "MDSD",
+        "prefix": [
+            "MDSD"
+        ],
+        "name": "Las Americas Approach",
+        "coordinate": [
+            -69.10970343416385,
+            19.07454195033424
+        ]
+    },
+    {
+        "id": "MIB",
+        "prefix": [
+            "MIB"
+        ],
+        "name": "Minot Approach",
+        "coordinate": [
+            -100.25,
+            48.916667
+        ]
+    },
+    {
+        "id": "MGM",
+        "prefix": [
+            "MGM"
+        ],
+        "name": "Montgomery Approach",
+        "coordinate": [
+            -87,
+            32.883333
+        ]
+    },
+    {
+        "id": "MIA",
+        "prefix": [
+            "MIA"
+        ],
+        "name": "Miami Approach",
+        "coordinate": [
+            -79.870833,
+            25.354167
+        ]
+    },
+    {
+        "id": "MKE",
+        "prefix": [
+            "MKE"
+        ],
+        "name": "Milwaukee Approach",
+        "coordinate": [
+            -89.370833,
+            44.183333
+        ]
+    },
+    {
+        "id": "MLI",
+        "prefix": [
+            "MLI"
+        ],
+        "name": "Quad Cities Approach",
+        "coordinate": [
+            -90.925,
+            42
+        ]
+    },
+    {
+        "id": "MLU",
+        "prefix": [
+            "MLU"
+        ],
+        "name": "Monroe Approach",
+        "coordinate": [
+            -92.522222,
+            32.108333
+        ]
+    },
+    {
+        "id": "MMAA",
+        "prefix": [
+            "MMAA"
+        ],
+        "name": "Acapulco TMA",
+        "coordinate": [
+            -100.416389,
+            17.533333
+        ]
+    },
+    {
+        "id": "MMCL",
+        "prefix": [
+            "MMCL"
+        ],
+        "name": "Culiacan TMA",
+        "coordinate": [
+            -107.401667,
+            25.5975
+        ]
+    },
+    {
+        "id": "MMCE",
+        "prefix": [
+            "MMCE"
+        ],
+        "name": "Ciudad Del Carmen TMA",
+        "coordinate": [
+            -91.759242,
+            19.074219
+        ]
+    },
+    {
+        "id": "MMCN",
+        "prefix": [
+            "MMCN"
+        ],
+        "name": "Ciudad Obregon TMA",
+        "coordinate": [
+            -109.771881,
+            28.225158
+        ]
+    },
+    {
+        "id": "MMCS",
+        "prefix": [
+            "MMCS"
+        ],
+        "name": "Ciudad Juarez TMA",
+        "coordinate": [
+            -105.688789,
+            31.089914
+        ]
+    },
+    {
+        "id": "MMCV",
+        "prefix": [
+            "MMCV"
+        ],
+        "name": "Ciudad Victoria TMA",
+        "coordinate": [
+            -99.252222,
+            24.128611
+        ]
+    },
+    {
+        "id": "MMCU",
+        "prefix": [
+            "MMCU"
+        ],
+        "name": "Chihuahua TMA",
+        "coordinate": [
+            -105.819819,
+            29.875475
+        ]
+    },
+    {
+        "id": "MMDO",
+        "prefix": [
+            "MMDO"
+        ],
+        "name": "Durango TMA",
+        "coordinate": [
+            -104.268333,
+            25.047222
+        ]
+    },
+    {
+        "id": "MMGL",
+        "prefix": [
+            "MMGL"
+        ],
+        "name": "Guadalajara TMA",
+        "coordinate": [
+            -103.373333,
+            21.523889
+        ]
+    },
+    {
+        "id": "MMHO",
+        "prefix": [
+            "MMHO"
+        ],
+        "name": "Hermosillo TMA",
+        "coordinate": [
+            -108.936025,
+            27.624206
+        ]
+    },
+    {
+        "id": "MMLM",
+        "prefix": [
+            "MMLM"
+        ],
+        "name": "LosMochis TMA",
+        "coordinate": [
+            -109.00715,
+            26.512944
+        ]
+    },
+    {
+        "id": "MMIO",
+        "prefix": [
+            "MMIO"
+        ],
+        "name": "Saltillo TMA",
+        "coordinate": [
+            -100.909056,
+            25.748792
+        ]
+    },
+    {
+        "id": "MMLO",
+        "prefix": [
+            "MMLO"
+        ],
+        "name": "Leon TMA",
+        "coordinate": [
+            -101.926944,
+            22.640556
+        ]
+    },
+    {
+        "id": "MMMA",
+        "prefix": [
+            "MMMA"
+        ],
+        "name": "Matamoros TMA",
+        "coordinate": [
+            -97.509122,
+            25.935786
+        ]
+    },
+    {
+        "id": "MMLP",
+        "prefix": [
+            "MMLP"
+        ],
+        "name": "La Paz TMA",
+        "coordinate": [
+            -109.519431,
+            24.393844
+        ]
+    },
+    {
+        "id": "MMMD",
+        "prefix": [
+            "MMMD"
+        ],
+        "name": "Merida TMA",
+        "coordinate": [
+            -90.603614,
+            21.702806
+        ]
+    },
+    {
+        "id": "MMMX",
+        "prefix": [
+            "MMMX"
+        ],
+        "name": "Mexico TMA",
+        "coordinate": [
+            -97.998889,
+            19.851667
+        ]
+    },
+    {
+        "id": "MMMM",
+        "prefix": [
+            "MMMM"
+        ],
+        "name": "Morelia TMA",
+        "coordinate": [
+            -100.920278,
+            20.539167
+        ]
+    },
+    {
+        "id": "MMMY",
+        "prefix": [
+            "MMMY"
+        ],
+        "name": "Monterrey TMA",
+        "coordinate": [
+            -99.376667,
+            26.483889
+        ]
+    },
+    {
+        "id": "MMML",
+        "prefix": [
+            "MMML"
+        ],
+        "name": "Mexicali TMA",
+        "coordinate": [
+            -114.775189,
+            32.493581
+        ]
+    },
+    {
+        "id": "MMNL",
+        "prefix": [
+            "MMNL"
+        ],
+        "name": "Nuevo Laredo TMA",
+        "coordinate": [
+            -100.098056,
+            28.1275
+        ]
+    },
+    {
+        "id": "MMMZ",
+        "prefix": [
+            "MMMZ"
+        ],
+        "name": "Mazatlan TMA",
+        "coordinate": [
+            -107.196583,
+            23.755867
+        ]
+    },
+    {
+        "id": "MMPR",
+        "prefix": [
+            "MMPR"
+        ],
+        "name": "Vallarta TMA",
+        "coordinate": [
+            -105.1024,
+            21.836375
+        ]
+    },
+    {
+        "id": "MMOX",
+        "prefix": [
+            "MMOX"
+        ],
+        "name": "Oaxaca TMA",
+        "coordinate": [
+            -96.118333,
+            17.994167
+        ]
+    },
+    {
+        "id": "MMRX",
+        "prefix": [
+            "MMRX"
+        ],
+        "name": "Reynosa TMA",
+        "coordinate": [
+            -98.942222,
+            26.416944
+        ]
+    },
+    {
+        "id": "MMSP",
+        "prefix": [
+            "MMSP"
+        ],
+        "name": "Potosi TMA",
+        "coordinate": [
+            -101.926944,
+            22.640556
+        ]
+    },
+    {
+        "id": "MMSD",
+        "prefix": [
+            "MMSD"
+        ],
+        "name": "Cabos TMA",
+        "coordinate": [
+            -109.960153,
+            24.288569
+        ]
+    },
+    {
+        "id": "MMQT",
+        "prefix": [
+            "MMQT"
+        ],
+        "name": "Queretaro TMA",
+        "coordinate": [
+            -100.099167,
+            21.617778
+        ]
+    },
+    {
+        "id": "MMTC",
+        "prefix": [
+            "MMTC"
+        ],
+        "name": "Torreon TMA",
+        "coordinate": [
+            -103.327989,
+            26.393153
+        ]
+    },
+    {
+        "id": "MMTJ",
+        "prefix": [
+            "MMTJ"
+        ],
+        "name": "Tijuana TMA",
+        "coordinate": [
+            -115.9703,
+            32.626789
+        ]
+    },
+    {
+        "id": "MMTG",
+        "prefix": [
+            "MMTG"
+        ],
+        "name": "Tuxtla Gutierrez TMA",
+        "coordinate": [
+            -92.858433,
+            17.071581
+        ]
+    },
+    {
+        "id": "MMTM",
+        "prefix": [
+            "MMTM"
+        ],
+        "name": "Tampico TMA",
+        "coordinate": [
+            -97.751622,
+            23.282939
+        ]
+    },
+    {
+        "id": "MMUN",
+        "prefix": [
+            "MMUN"
+        ],
+        "name": "Cancun TMA",
+        "coordinate": [
+            -88.09735,
+            20.883119
+        ]
+    },
+    {
+        "id": "MMVA",
+        "prefix": [
+            "MMVA"
+        ],
+        "name": "Villahermosa TMA",
+        "coordinate": [
+            -92.772481,
+            18.412633
+        ]
+    },
+    {
+        "id": "MMVR",
+        "prefix": [
+            "MMVR"
+        ],
+        "name": "Veracruz TMA",
+        "coordinate": [
+            -96.798889,
+            18.150278
+        ]
+    },
+    {
+        "id": "MMZH",
+        "prefix": [
+            "MMZH"
+        ],
+        "name": "Zihuatanejo TMA",
+        "coordinate": [
+            -100.899167,
+            18.665
+        ]
+    },
+    {
+        "id": "MORE",
+        "prefix": [
+            "ENAL",
+            "ENKB",
+            "ENRC"
+        ],
+        "name": "M\u00f8re Approach",
+        "coordinate": [
+            6.645,
+            62
+        ]
+    },
+    {
+        "id": "MOB",
+        "prefix": [
+            "MOB"
+        ],
+        "name": "Mobile Approach",
+        "coordinate": [
+            -88.658333,
+            30.391667
+        ]
+    },
+    {
+        "id": "MMZO",
+        "prefix": [
+            "MMZO"
+        ],
+        "name": "Manzanillo TMA",
+        "coordinate": [
+            -104.323889,
+            20.146944
+        ]
+    },
+    {
+        "id": "MSK",
+        "prefix": [
+            "MSK"
+        ],
+        "name": "Moscow Approach",
+        "coordinate": [
+            35.555277499999995,
+            55.54222166666666
+        ]
+    },
+    {
+        "id": "MSK",
+        "prefix": [
+            "MSK_E"
+        ],
+        "name": "Moscow Approach",
+        "label_lat": 55.8,
+        "label_lon": 40.3,
+        "coordinate": [
+            37.99527777777778,
+            57.03777722222222
+        ]
+    },
+    {
+        "id": "MSN",
+        "prefix": [
+            "MSN"
+        ],
+        "name": "Madison Approach",
+        "coordinate": [
+            -89.958333,
+            43.644444
+        ]
+    },
+    {
+        "id": "MSO",
+        "prefix": [
+            "MSO"
+        ],
+        "name": "Spokane Approach",
+        "coordinate": [
+            -114.770833,
+            47.198611
+        ]
+    },
+    {
+        "id": "MSK",
+        "prefix": [
+            "MSK_W"
+        ],
+        "name": "Moscow Approach",
+        "label_lat": 55.5,
+        "label_lon": 35.2,
+        "coordinate": [
+            37.71194416666667,
+            57.107777222222225
+        ]
+    },
+    {
+        "id": "MSY",
+        "prefix": [
+            "MSY"
+        ],
+        "name": "New Orleans Approach",
+        "coordinate": [
+            -91.114833,
+            29.3166
+        ]
+    },
+    {
+        "id": "MTC",
+        "prefix": [
+            "MTC"
+        ],
+        "name": "Selfridge Approach",
+        "coordinate": [
+            -83.09111,
+            42.86611
+        ]
+    },
+    {
+        "id": "MYNN",
+        "prefix": [
+            "MYNN"
+        ],
+        "name": "Nassau Approach",
+        "coordinate": [
+            -77.813889,
+            25.633333
+        ]
+    },
+    {
+        "id": "MWH",
+        "prefix": [
+            "MWH"
+        ],
+        "name": "Grant County Approach",
+        "coordinate": [
+            -119.925,
+            46.733333
+        ]
+    },
+    {
+        "id": "MUO",
+        "prefix": [
+            "MUO"
+        ],
+        "name": "Mountain Home Approach",
+        "coordinate": [
+            -117,
+            42.75
+        ]
+    },
+    {
+        "id": "MYR",
+        "prefix": [
+            "MYR"
+        ],
+        "name": "Myrtle Beach Approach",
+        "coordinate": [
+            -79.066667,
+            34.434167
+        ]
+    },
+    {
+        "id": "MYGF",
+        "prefix": [
+            "MYGF"
+        ],
+        "name": "Freeport Approach",
+        "coordinate": [
+            -78.883333,
+            27
+        ]
+    },
+    {
+        "id": "MZU",
+        "prefix": [
+            "MZU"
+        ],
+        "name": "Mizzou Approach",
+        "coordinate": [
+            -92.65,
+            39.258333
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "ISP"
+        ],
+        "name": "New York Approach",
+        "label_lat": 41.1,
+        "label_lon": -72.75,
+        "coordinate": [
+            -73.27281446421199,
+            41.587500000002265
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "EWR"
+        ],
+        "name": "New York Approach",
+        "label_lat": 40.69248,
+        "label_lon": -74.33535,
+        "coordinate": [
+            -75.106944,
+            40.525
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "JFK"
+        ],
+        "name": "New York Approach",
+        "label_lat": 40.473263,
+        "label_lon": -73.778694,
+        "coordinate": [
+            -74.2643075,
+            40.7395311
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "NY"
+        ],
+        "name": "New York Approach",
+        "label_lat": 41.4,
+        "label_lon": -73.8,
+        "coordinate": [
+            -73.254167,
+            40.409722
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "LGA"
+        ],
+        "name": "New York Approach",
+        "label_lat": 40.943916,
+        "label_lon": -73.87261,
+        "coordinate": [
+            -75.106944,
+            40.525
+        ]
+    },
+    {
+        "id": "N90",
+        "prefix": [
+            "SWF"
+        ],
+        "name": "New York Approach",
+        "label_lat": 41.670776,
+        "label_lon": -74.104836,
+        "coordinate": [
+            -73.3,
+            41.5875
+        ]
+    },
+    {
+        "id": "NBC",
+        "prefix": [
+            "NBC"
+        ],
+        "name": "Beaufort Approach",
+        "coordinate": [
+            -80.133056,
+            32.504444
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "MOD"
+        ],
+        "name": "NorCal Approach",
+        "coordinate": [
+            -120.33028,
+            38.2841
+        ]
+    },
+    {
+        "id": "NCA",
+        "prefix": [
+            "NCA"
+        ],
+        "name": "Cherry Point Approach",
+        "coordinate": [
+            -77.499722,
+            34.391944
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "MRY"
+        ],
+        "name": "NorCal Approach",
+        "coordinate": [
+            -121.114166,
+            36.408056
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "NCT"
+        ],
+        "suffix": "APP",
+        "name": "NorCal Approach",
+        "coordinate": [
+            -121.086111,
+            39.5
+        ]
+    },
+    {
+        "id": "NCRG",
+        "prefix": [
+            "NCRG"
+        ],
+        "name": "Rarotonga Approach",
+        "coordinate": [
+            -159.81439,
+            -20.034873
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "NCT"
+        ],
+        "suffix": "DEP",
+        "name": "NorCal Departure",
+        "coordinate": [
+            -122.930278,
+            36.983333
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "OAK"
+        ],
+        "suffix": "APP",
+        "name": "NorCal Approach",
+        "coordinate": [
+            -120.33028,
+            38.2841
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "RNO"
+        ],
+        "name": "NorCal Approach",
+        "coordinate": [
+            -119.63333333,
+            40.08333333
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "SFO"
+        ],
+        "suffix": "APP",
+        "name": "NorCal Approach",
+        "coordinate": [
+            -122.531944,
+            36.392222
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "SFO",
+            "OAK"
+        ],
+        "suffix": "DEP",
+        "name": "NorCal Departure",
+        "coordinate": [
+            -122.930278,
+            36.983333
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "SJC"
+        ],
+        "suffix": "APP",
+        "name": "NorCal Approach",
+        "coordinate": [
+            -120.276111,
+            37.488333
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "SMF"
+        ],
+        "name": "NorCal Approach",
+        "coordinate": [
+            -121.086111,
+            39.5
+        ]
+    },
+    {
+        "id": "NCT",
+        "prefix": [
+            "SJC"
+        ],
+        "suffix": "DEP",
+        "name": "NorCal Departure",
+        "coordinate": [
+            -122.11314,
+            37.40349
+        ]
+    },
+    {
+        "id": "NFL",
+        "prefix": [
+            "NFL"
+        ],
+        "name": "Fallon Approach",
+        "coordinate": [
+            -119.25,
+            39.59722
+        ]
+    },
+    {
+        "id": "NFFN",
+        "name": "Nadi Approach",
+        "prefix": [
+            "NFFN"
+        ],
+        "coordinate": [
+            178.325022,
+            -17.449372
+        ]
+    },
+    {
+        "id": "NFTF",
+        "prefix": [
+            "NFTF"
+        ],
+        "name": "Fua'amotu Control",
+        "coordinate": [
+            -175.14859,
+            -19.577503
+        ]
+    },
+    {
+        "id": "NLC",
+        "prefix": [
+            "NLC"
+        ],
+        "name": "Lemoore Approach",
+        "coordinate": [
+            -120.60806,
+            36.66222
+        ]
+    },
+    {
+        "id": "NFNA",
+        "name": "Nausori Approach",
+        "prefix": [
+            "NFNA"
+        ],
+        "coordinate": [
+            178.325022,
+            -17.449372
+        ]
+    },
+    {
+        "id": "NHK",
+        "prefix": [
+            "NHK"
+        ],
+        "name": "Patuxent Approach",
+        "coordinate": [
+            -76.1925,
+            37.75
+        ]
+    },
+    {
+        "id": "NMM",
+        "prefix": "NMM",
+        "name": "Meridian Approach",
+        "coordinate": -88.070833
+    },
+    {
+        "id": "NKT",
+        "prefix": [
+            "NKT"
+        ],
+        "name": "Cherry Point Approach",
+        "coordinate": [
+            -76.014167,
+            35.006389
+        ]
+    },
+    {
+        "id": "NQI",
+        "prefix": [
+            "NQI"
+        ],
+        "name": "Kingsville Approach",
+        "coordinate": [
+            -98.433333,
+            27.866667
+        ]
+    },
+    {
+        "id": "NQX",
+        "prefix": [
+            "NQX"
+        ],
+        "name": "Navy Key West Approach",
+        "coordinate": [
+            -81.269444,
+            24.483333
+        ]
+    },
+    {
+        "id": "NTAA",
+        "prefix": [
+            "NTAA"
+        ],
+        "name": "Tahiti Approach",
+        "coordinate": [
+            -149.57722,
+            -17.61889
+        ]
+    },
+    {
+        "id": "NTD",
+        "prefix": [
+            "NTD"
+        ],
+        "name": "Point Mugu Approach",
+        "coordinate": [
+            -120.5,
+            34.0999978
+        ]
+    },
+    {
+        "id": "NTU",
+        "prefix": [
+            "NTU"
+        ],
+        "name": "Oceana Approach",
+        "coordinate": [
+            -75.958333,
+            36.975
+        ]
+    },
+    {
+        "id": "NWWW",
+        "name": "Tontouta Approach",
+        "prefix": [
+            "NWWW"
+        ],
+        "coordinate": [
+            166.211667,
+            -20.005
+        ]
+    },
+    {
+        "id": "NUW",
+        "prefix": [
+            "NUW"
+        ],
+        "name": "Whidbey Approach",
+        "coordinate": [
+            -124.00014785988256,
+            48.29059175801023
+        ]
+    },
+    {
+        "id": "NYL",
+        "prefix": [
+            "NYL"
+        ],
+        "name": "Yuma Approach",
+        "coordinate": [
+            -115.06666666670003,
+            33.516666666700075
+        ]
+    },
+    {
+        "id": "NZAA",
+        "prefix": [
+            "NZAA"
+        ],
+        "name": "Auckland Approach",
+        "coordinate": [
+            173.66814,
+            -36.9852
+        ]
+    },
+    {
+        "id": "NZHN",
+        "prefix": [
+            "NZHN"
+        ],
+        "name": "Bay Approach",
+        "coordinate": [
+            174.98117,
+            -37.57334
+        ]
+    },
+    {
+        "id": "NZCH",
+        "prefix": [
+            "NZCH"
+        ],
+        "name": "Christchurch Approach",
+        "coordinate": [
+            172.58345,
+            -43.73167
+        ]
+    },
+    {
+        "id": "NZQN",
+        "prefix": [
+            "NZQN"
+        ],
+        "name": "Queenstown Approach",
+        "coordinate": [
+            167.83136,
+            -44.46822
+        ]
+    },
+    {
+        "id": "NZOH",
+        "prefix": [
+            "NZOH"
+        ],
+        "name": "Ohakea Approach",
+        "coordinate": [
+            174.76704,
+            -39.79591
+        ]
+    },
+    {
+        "id": "OEGN",
+        "prefix": [
+            "OEGN"
+        ],
+        "name": "Jazan Approach",
+        "coordinate": [
+            41.85873556013736,
+            17.04946312454509
+        ]
+    },
+    {
+        "id": "NZWN",
+        "prefix": [
+            "NZWN"
+        ],
+        "name": "Wellington Approach",
+        "coordinate": [
+            175.27283,
+            -40.71069
+        ]
+    },
+    {
+        "id": "OEDF",
+        "prefix": [
+            "OEDF"
+        ],
+        "name": "Dammam Approach",
+        "coordinate": [
+            50.45900084019596,
+            26.57174162389528
+        ]
+    },
+    {
+        "id": "OEAB",
+        "prefix": [
+            "OEAB"
+        ],
+        "name": "Abha Approach",
+        "coordinate": [
+            41.04055291824019,
+            19.09131561787766
+        ]
+    },
+    {
+        "id": "OEGS",
+        "prefix": [
+            "OEGS"
+        ],
+        "name": "Gassim Approach",
+        "coordinate": 44.52071458473008
+    },
+    {
+        "id": "OEPS",
+        "prefix": [
+            "OEPS"
+        ],
+        "name": "Sultan Approach",
+        "coordinate": [
+            48.230036979894,
+            22.91091423016985
+        ]
+    },
+    {
+        "id": "OEHL",
+        "prefix": [
+            "OEHL"
+        ],
+        "name": "Hail Approach",
+        "coordinate": [
+            41.669737,
+            28.091171
+        ]
+    },
+    {
+        "id": "OEMA",
+        "prefix": [
+            "OEMA"
+        ],
+        "name": "Madinah Approach",
+        "coordinate": [
+            40.40196428583263,
+            23.4688886660335
+        ]
+    },
+    {
+        "id": "OERK",
+        "prefix": [
+            "OERK"
+        ],
+        "name": "Riyadh Approach",
+        "coordinate": [
+            46.740004,
+            25.885228
+        ]
+    },
+    {
+        "id": "OETF",
+        "prefix": [
+            "OETF"
+        ],
+        "name": "Taif Approach",
+        "coordinate": [
+            39.81956430394912,
+            21.42072609525025
+        ]
+    },
+    {
+        "id": "OGG",
+        "prefix": [
+            "OGG"
+        ],
+        "name": "HCF Approach",
+        "coordinate": [
+            -156.85335,
+            20.61378
+        ]
+    },
+    {
+        "id": "OETB",
+        "prefix": [
+            "OETB"
+        ],
+        "name": "Tabuk Approach",
+        "coordinate": [
+            36.596952,
+            29.03081
+        ]
+    },
+    {
+        "id": "OKC",
+        "prefix": [
+            "OKC"
+        ],
+        "name": "Oklahoma City Approach",
+        "coordinate": [
+            -98.216667,
+            35.55
+        ]
+    },
+    {
+        "id": "OEJN",
+        "prefix": [
+            "OEJN"
+        ],
+        "name": "Jeddah Approach",
+        "coordinate": [
+            39.92783255713027,
+            21.04109277459114
+        ]
+    },
+    {
+        "id": "ORF",
+        "prefix": [
+            "ORF"
+        ],
+        "name": "Norfolk Approach",
+        "coordinate": [
+            -77.21667,
+            36.90556
+        ]
+    },
+    {
+        "id": "OLBA",
+        "prefix": [
+            "OLBA"
+        ],
+        "name": "Beirut Approach",
+        "coordinate": [
+            35.52091333333333,
+            34.13925305555556
+        ]
+    },
+    {
+        "id": "P50",
+        "prefix": [
+            "PHX"
+        ],
+        "name": "Phoenix Approach",
+        "coordinate": [
+            -113.07083,
+            34.65694
+        ]
+    },
+    {
+        "id": "OZR",
+        "prefix": [
+            "OZR"
+        ],
+        "name": "Cairns Approach",
+        "coordinate": [
+            -86.57917,
+            31.13333
+        ]
+    },
+    {
+        "id": "PAM",
+        "prefix": [
+            "PAM"
+        ],
+        "name": "Tyndall Approach",
+        "coordinate": [
+            -85.7,
+            30.736111
+        ]
+    },
+    {
+        "id": "P80",
+        "prefix": [
+            "PDX"
+        ],
+        "name": "Portland Approach",
+        "coordinate": [
+            -122.268611,
+            44.969444
+        ]
+    },
+    {
+        "id": "PBI",
+        "prefix": [
+            "PBI"
+        ],
+        "name": "Palm Beach Approach",
+        "coordinate": [
+            -80.925,
+            27.93333
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "BWI"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -76.4019758,
+            39.8589281
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "DCA"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -78.0841203,
+            38.6981414
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "CHO"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -78.0666511,
+            38.4483933
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "IAD"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -78.3750614,
+            39.3481814
+        ]
+    },
+    {
+        "id": "PHL",
+        "prefix": [
+            "PHL"
+        ],
+        "name": "Philadelphia Approach",
+        "label_lat": 40.03875,
+        "label_lon": -75.24066,
+        "coordinate": [
+            -76.040278,
+            39.593611
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "PCT"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -75.59,
+            38.705833
+        ]
+    },
+    {
+        "id": "PIT",
+        "prefix": [
+            "PIT"
+        ],
+        "name": "Pittsburgh Approach",
+        "coordinate": [
+            -79.600833,
+            40.360278
+        ]
+    },
+    {
+        "id": "PCT",
+        "prefix": [
+            "RIC"
+        ],
+        "name": "Potomac Approach",
+        "coordinate": [
+            -77.3791644,
+            38.1749922
+        ]
+    },
+    {
+        "id": "PNS",
+        "prefix": [
+            "PNS"
+        ],
+        "name": "Pensacola Approach",
+        "coordinate": [
+            -87.658333,
+            30.958333
+        ]
+    },
+    {
+        "id": "POE",
+        "prefix": [
+            "POE"
+        ],
+        "name": "Polk Approach",
+        "coordinate": [
+            -93.933333,
+            31.116667
+        ]
+    },
+    {
+        "id": "PKWA",
+        "name": "Kwaj Approach",
+        "prefix": [
+            "PKWA"
+        ],
+        "coordinate": [
+            167.731667,
+            10.386667
+        ]
+    },
+    {
+        "id": "PMD",
+        "prefix": [
+            "PMD"
+        ],
+        "name": "Joshua Approach",
+        "coordinate": [
+            -118.6194986,
+            34.9833336
+        ]
+    },
+    {
+        "id": "PWM",
+        "prefix": [
+            "PWM"
+        ],
+        "name": "Portland Approach",
+        "coordinate": [
+            -68.8166667,
+            44.1000556
+        ]
+    },
+    {
+        "id": "PVD",
+        "prefix": [
+            "PVD"
+        ],
+        "name": "Providence Approach",
+        "coordinate": [
+            -70.8907856,
+            41.7713683
+        ]
+    },
+    {
+        "id": "GEG",
+        "prefix": [
+            "PSC"
+        ],
+        "name": "Spokane Approach",
+        "coordinate": [
+            -119.9291820906103,
+            46.73332807934473
+        ]
+    },
+    {
+        "id": "R90",
+        "prefix": [
+            "LNK"
+        ],
+        "name": "Omaha Approach",
+        "coordinate": [
+            -97.383333,
+            41.058333
+        ]
+    },
+    {
+        "id": "RCA",
+        "prefix": [
+            "RCA"
+        ],
+        "name": "Ellsworth Approach",
+        "coordinate": [
+            -103.116667,
+            43.475
+        ]
+    },
+    {
+        "id": "R90",
+        "prefix": [
+            "OMA"
+        ],
+        "name": "Omaha Approach",
+        "coordinate": [
+            -96.793056,
+            41.258889
+        ]
+    },
+    {
+        "id": "RDG",
+        "prefix": [
+            "RDG"
+        ],
+        "name": "Reading Approach",
+        "coordinate": [
+            -76.2353281,
+            40.6884306
+        ]
+    },
+    {
+        "id": "RDR",
+        "prefix": [
+            "RDR"
+        ],
+        "name": "Grand Forks Approach",
+        "coordinate": [
+            -97.633333,
+            47.35
+        ]
+    },
+    {
+        "id": "RDU",
+        "prefix": [
+            "RDU"
+        ],
+        "name": "Raleigh Approach",
+        "coordinate": [
+            -79.578889,
+            35.426111
+        ]
+    },
+    {
+        "id": "RFD",
+        "prefix": [
+            "RFD"
+        ],
+        "name": "Rockford Approach",
+        "coordinate": [
+            -90.22917,
+            42.14583
+        ]
+    },
+    {
+        "id": "RKPC",
+        "prefix": [
+            "RKPC"
+        ],
+        "suffix": "APP",
+        "name": "Jeju Approach",
+        "coordinate": [
+            125.85103972222221,
+            33.003165555555555
+        ]
+    },
+    {
+        "id": "RKPK",
+        "prefix": [
+            "RKPK"
+        ],
+        "suffix": "APP",
+        "name": "Gimhae Approach",
+        "coordinate": [
+            128.49777749999998,
+            35.503055
+        ]
+    },
+    {
+        "id": "ROA",
+        "prefix": [
+            "ROA"
+        ],
+        "name": "Roanoke Approach",
+        "coordinate": [
+            -79.2706725,
+            37.7813414
+        ]
+    },
+    {
+        "id": "RKSS",
+        "prefix": [
+            "RKSS"
+        ],
+        "suffix": "APP",
+        "name": "Seoul Approach",
+        "coordinate": [
+            125.798055,
+            37.269444444444446
+        ]
+    },
+    {
+        "id": "ROW",
+        "prefix": [
+            "ROW"
+        ],
+        "name": "Roswell Approach",
+        "coordinate": [
+            -104.5,
+            33.950833
+        ]
+    },
+    {
+        "id": "RST",
+        "prefix": [
+            "RST"
+        ],
+        "name": "Rochester Approach",
+        "coordinate": [
+            -92.7525,
+            44.345556
+        ]
+    },
+    {
+        "id": "RSW",
+        "prefix": [
+            "RSW"
+        ],
+        "name": "Fort Myers Approach",
+        "coordinate": [
+            -82.308333,
+            25.85
+        ]
+    },
+    {
+        "id": "S46",
+        "prefix": [
+            "SEA"
+        ],
+        "name": "Seattle Approach",
+        "coordinate": [
+            -123.2331319839022,
+            46.83051701924943
+        ]
+    },
+    {
+        "id": "SAV",
+        "prefix": [
+            "SAV"
+        ],
+        "name": "Savannah Approach",
+        "coordinate": [
+            -81.025,
+            32.5
+        ]
+    },
+    {
+        "id": "ROC",
+        "prefix": [
+            "ROC"
+        ],
+        "name": "Rochester Approach",
+        "coordinate": [
+            -78,
+            43.4
+        ]
+    },
+    {
+        "id": "S56",
+        "prefix": [
+            "SLC"
+        ],
+        "name": "Salt Lake Approach",
+        "coordinate": [
+            -112.73667,
+            41.17917
+        ]
+    },
+    {
+        "id": "SAT",
+        "prefix": [
+            "SAT"
+        ],
+        "name": "San Antonio Approach",
+        "coordinate": [
+            -97.65371667,
+            28.94255
+        ]
+    },
+    {
+        "id": "SBN",
+        "prefix": [
+            "SBN"
+        ],
+        "name": "South Bend Approach",
+        "coordinate": [
+            -87.20194,
+            41.35028
+        ]
+    },
+    {
+        "id": "SBA",
+        "prefix": [
+            "SBA"
+        ],
+        "name": "Santa Barbara Approach",
+        "coordinate": [
+            -121.2372222,
+            35.3716667
+        ]
+    },
+    {
+        "id": "SBWE",
+        "prefix": [
+            "SBWE"
+        ],
+        "name": "Macae Control",
+        "coordinate": [
+            -40.8336,
+            -21.425
+        ]
+    },
+    {
+        "id": "SBWF",
+        "prefix": [
+            "SBWF"
+        ],
+        "name": "Recife Control",
+        "coordinate": [
+            -34.2403,
+            -8.3481
+        ]
+    },
+    {
+        "id": "SBWB",
+        "prefix": [
+            "SBWB"
+        ],
+        "name": "Belem Control",
+        "coordinate": [
+            -48.478667,
+            -0.714379
+        ]
+    },
+    {
+        "id": "SBWG",
+        "prefix": [
+            "SBWG"
+        ],
+        "name": "Campo Grande Control",
+        "coordinate": [
+            -53.971944,
+            -20.349444
+        ]
+    },
+    {
+        "id": "SBWH",
+        "prefix": [
+            "SBWH"
+        ],
+        "name": "Belo Horizonte Control",
+        "coordinate": [
+            -43.457575,
+            -20.496631
+        ]
+    },
+    {
+        "id": "SBWJ",
+        "prefix": [
+            "SBWJ"
+        ],
+        "name": "Rio de Janeiro Control",
+        "coordinate": [
+            -44.178888,
+            -23.636388
+        ]
+    },
+    {
+        "id": "SBWI",
+        "prefix": [
+            "SBWI"
+        ],
+        "name": "Foz Control",
+        "coordinate": [
+            -54.549559,
+            -24.915782
+        ]
+    },
+    {
+        "id": "SBWK",
+        "prefix": [
+            "SBWK"
+        ],
+        "name": "Porto Seguro Control",
+        "coordinate": [
+            -39.3961,
+            -15.8448
+        ]
+    },
+    {
+        "id": "SBWL",
+        "prefix": [
+            "SBWL"
+        ],
+        "name": "Ilheus Control",
+        "coordinate": [
+            -39.074333,
+            -14.135167
+        ]
+    },
+    {
+        "id": "SBWP",
+        "prefix": [
+            "SBWP"
+        ],
+        "name": "Porto Alegre Control",
+        "coordinate": [
+            -50.624839,
+            -30.174833
+        ]
+    },
+    {
+        "id": "SBWM",
+        "prefix": [
+            "SBWM"
+        ],
+        "name": "Santa Maria Control",
+        "coordinate": [
+            -54.458333,
+            -29.619333
+        ]
+    },
+    {
+        "id": "SBWN",
+        "prefix": [
+            "SBWN"
+        ],
+        "name": "Manaus Control",
+        "coordinate": [
+            -60.125,
+            -2.366725
+        ]
+    },
+    {
+        "id": "SBWR",
+        "prefix": [
+            "SBWR"
+        ],
+        "name": "Brasilia Control",
+        "coordinate": [
+            -47.733085,
+            -16.720589
+        ]
+    },
+    {
+        "id": "SBWT",
+        "prefix": [
+            "SBWT"
+        ],
+        "name": "Curitiba Control",
+        "coordinate": [
+            -48.5489,
+            -24.9959
+        ]
+    },
+    {
+        "id": "SBWQ",
+        "prefix": [
+            "SBWQ"
+        ],
+        "name": "Boa Vista Control",
+        "coordinate": [
+            -60.700853,
+            3.521891
+        ]
+    },
+    {
+        "id": "SBWS",
+        "prefix": [
+            "SBWS"
+        ],
+        "name": "Sao Luiz Control",
+        "coordinate": [
+            -44.267882,
+            -1.919808
+        ]
+    },
+    {
+        "id": "SBWX",
+        "prefix": [
+            "SBWX"
+        ],
+        "name": "Santarem Control",
+        "coordinate": [
+            -54.845379,
+            -1.75714
+        ]
+    },
+    {
+        "id": "SBWU",
+        "prefix": [
+            "SBWU"
+        ],
+        "name": "Bauru Control",
+        "coordinate": [
+            -49.119167,
+            -22.962833
+        ]
+    },
+    {
+        "id": "SBWV",
+        "prefix": [
+            "SBWV"
+        ],
+        "name": "Porto Velho Control",
+        "coordinate": [
+            -63.928642,
+            -8.047773
+        ]
+    },
+    {
+        "id": "SBWY",
+        "prefix": [
+            "SBWY"
+        ],
+        "name": "Cuiaba Control",
+        "coordinate": [
+            -56.155246,
+            -14.98783
+        ]
+    },
+    {
+        "id": "SBWZ",
+        "prefix": [
+            "SBWZ"
+        ],
+        "name": "Fortaleza Control",
+        "coordinate": [
+            -38.3008,
+            -4.5316
+        ]
+    },
+    {
+        "id": "SBXA",
+        "prefix": [
+            "SBXA"
+        ],
+        "name": "Aracaju Control",
+        "coordinate": [
+            -36.4673,
+            -10.6907
+        ]
+    },
+    {
+        "id": "SBXB",
+        "prefix": [
+            "SBXB"
+        ],
+        "name": "Rio Branco Control",
+        "coordinate": [
+            -67.892167,
+            -9.164738
+        ]
+    },
+    {
+        "id": "SBXE",
+        "prefix": [
+            "SBXE"
+        ],
+        "name": "Teresina Control",
+        "coordinate": [
+            -42.825133,
+            -4.392552
+        ]
+    },
+    {
+        "id": "SBXF",
+        "prefix": [
+            "SBXF"
+        ],
+        "name": "Florianopolis Control",
+        "coordinate": [
+            -49.668597,
+            -27.374272
+        ]
+    },
+    {
+        "id": "SBXG",
+        "prefix": [
+            "SBXG"
+        ],
+        "name": "Prudente Control",
+        "coordinate": [
+            -51.676836,
+            -22.789098
+        ]
+    },
+    {
+        "id": "SBXD",
+        "prefix": [
+            "SBXD"
+        ],
+        "name": "Palmas Control",
+        "coordinate": [
+            -49.041172,
+            -10.221922
+        ]
+    },
+    {
+        "id": "SBXJ",
+        "prefix": [
+            "SBXJ"
+        ],
+        "name": "Maraba Control",
+        "coordinate": [
+            -49.024267,
+            -4.016167
+        ]
+    },
+    {
+        "id": "SBXM",
+        "prefix": [
+            "SBXM"
+        ],
+        "name": "Maceio Control",
+        "coordinate": [
+            -36.393345,
+            -9.803888
+        ]
+    },
+    {
+        "id": "SBXK",
+        "prefix": [
+            "SBXK"
+        ],
+        "name": "Macapa Control",
+        "coordinate": [
+            -51.073113,
+            0.638458
+        ]
+    },
+    {
+        "id": "SBXN",
+        "prefix": [
+            "SBXN"
+        ],
+        "name": "Anapolis Control",
+        "coordinate": [
+            -48.602333,
+            -15.852833
+        ]
+    },
+    {
+        "id": "SBXO",
+        "prefix": [
+            "SBXO"
+        ],
+        "name": "Londrina Control",
+        "coordinate": [
+            -51.958833,
+            -24.059667
+        ]
+    },
+    {
+        "id": "SBXP",
+        "prefix": [
+            "SBXP"
+        ],
+        "name": "Sao Paulo Control",
+        "coordinate": [
+            -47.801675,
+            -23.257633
+        ]
+    },
+    {
+        "id": "SBXQ",
+        "prefix": [
+            "SBXQ"
+        ],
+        "name": "Academia Control",
+        "coordinate": [
+            -46.775333,
+            -21.875833
+        ]
+    },
+    {
+        "id": "SBXR",
+        "prefix": [
+            "SBXR"
+        ],
+        "name": "Vitoria Control",
+        "coordinate": [
+            -40.0325,
+            -19.623667
+        ]
+    },
+    {
+        "id": "SBXS",
+        "prefix": [
+            "SBXS"
+        ],
+        "name": "Salvador Control",
+        "coordinate": [
+            -37.812686,
+            -12.963647
+        ]
+    },
+    {
+        "id": "SBXT",
+        "prefix": [
+            "SBXT"
+        ],
+        "name": "Natal Control",
+        "coordinate": [
+            -34.7747,
+            -6.8447
+        ]
+    },
+    {
+        "id": "SBXU",
+        "prefix": [
+            "SBXU"
+        ],
+        "name": "Uberaba Control",
+        "coordinate": [
+            -48.596667,
+            -20.582167
+        ]
+    },
+    {
+        "id": "SBXW",
+        "prefix": [
+            "SBXW"
+        ],
+        "name": "Uberlandia Control",
+        "coordinate": [
+            -48.39467,
+            -19.357185
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "BUR"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -119.1023564,
+            34.5127731
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "LAX"
+        ],
+        "suffix": "DEP",
+        "name": "SoCal Departure",
+        "coordinate": [
+            -118.9453517,
+            34.1471011
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "LAX"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -118.9500292,
+            34.20832
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "ONT"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -118.1499594,
+            34.2708
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "SAN"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -117.8685439,
+            33.0815172
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "SCT"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -119.1023556,
+            34.5127731
+        ]
+    },
+    {
+        "id": "SDF",
+        "prefix": [
+            "SDF"
+        ],
+        "name": "Louisville Approach",
+        "coordinate": [
+            -86.7125,
+            38.608333
+        ]
+    },
+    {
+        "id": "SCT",
+        "prefix": [
+            "SNA"
+        ],
+        "name": "SoCal Approach",
+        "coordinate": [
+            -118.2496186,
+            33.25032
+        ]
+    },
+    {
+        "id": "SGF",
+        "prefix": [
+            "SGF"
+        ],
+        "name": "Springfield Approach",
+        "coordinate": [
+            -93.866667,
+            37.916667
+        ]
+    },
+    {
+        "id": "SHV",
+        "prefix": [
+            "SHV"
+        ],
+        "name": "Shreveport Approach",
+        "coordinate": [
+            -93.766667,
+            33.033333
+        ]
+    },
+    {
+        "id": "SIP",
+        "prefix": [
+            "SIP_R"
+        ],
+        "name": "Simferopol Radar",
+        "coordinate": [
+            34.123055556,
+            45.5
+        ]
+    },
+    {
+        "id": "SIP",
+        "prefix": [
+            "SIP"
+        ],
+        "name": "Simferopol Approach",
+        "coordinate": [
+            34.966666667,
+            45.75
+        ]
+    },
+    {
+        "id": "SJT",
+        "prefix": [
+            "SJT"
+        ],
+        "name": "San Angelo Approach",
+        "coordinate": [
+            -100.416667,
+            31.991667
+        ]
+    },
+    {
+        "id": "SJU",
+        "prefix": [
+            "SJU"
+        ],
+        "name": "San Juan Approach",
+        "coordinate": [
+            -64.33278,
+            18.95222
+        ]
+    },
+    {
+        "id": "SKBG",
+        "prefix": [
+            "SKBG"
+        ],
+        "name": "Bucaramanga Approach",
+        "coordinate": [
+            -73.24167,
+            8.367778
+        ]
+    },
+    {
+        "id": "SKBO",
+        "prefix": [
+            "SKBO"
+        ],
+        "name": "Bogota Approach",
+        "coordinate": [
+            -74.1043664,
+            5.9658892
+        ]
+    },
+    {
+        "id": "SKBQ",
+        "prefix": [
+            "SKBQ"
+        ],
+        "name": "Baranquilla Approach",
+        "coordinate": [
+            -75.4075,
+            11.684444
+        ]
+    },
+    {
+        "id": "SKCC",
+        "prefix": [
+            "SKCC"
+        ],
+        "name": "Cucuta Approach",
+        "coordinate": [
+            -70.08333,
+            7
+        ]
+    },
+    {
+        "id": "SKCL",
+        "prefix": [
+            "SKCL"
+        ],
+        "name": "Cali Approach",
+        "coordinate": [
+            -77.04917,
+            4.235833
+        ]
+    },
+    {
+        "id": "SKIP",
+        "prefix": [
+            "SKIP"
+        ],
+        "name": "Andes Approach",
+        "coordinate": [
+            -77.47028,
+            0.402222
+        ]
+    },
+    {
+        "id": "SKLT",
+        "prefix": [
+            "SKLT"
+        ],
+        "name": "Amazonas Approach",
+        "coordinate": [
+            -69.77444,
+            -3.37333
+        ]
+    },
+    {
+        "id": "SKMD",
+        "prefix": [
+            "SKMD"
+        ],
+        "name": "Medellin Approach",
+        "coordinate": [
+            -75.816389,
+            7.9875
+        ]
+    },
+    {
+        "id": "SKNV",
+        "prefix": [
+            "SKNV"
+        ],
+        "name": "Neiva Approach",
+        "coordinate": [
+            -76.12241630941251,
+            2.2710412896441037
+        ]
+    },
+    {
+        "id": "SKVV",
+        "prefix": [
+            "SKVV"
+        ],
+        "name": "Villavicencio Approach",
+        "coordinate": [
+            -73.56861,
+            5.018333
+        ]
+    },
+    {
+        "id": "SKPE",
+        "prefix": [
+            "SKPE"
+        ],
+        "name": "Pereira Approach",
+        "coordinate": [
+            -76.22528,
+            5.141111
+        ]
+    },
+    {
+        "id": "SKSP",
+        "prefix": [
+            "SKSP"
+        ],
+        "name": "San Andres Approach",
+        "coordinate": [
+            -82.2525,
+            15
+        ]
+    },
+    {
+        "id": "SKYP",
+        "prefix": [
+            "SKYP"
+        ],
+        "name": "El Yopal Approach",
+        "coordinate": [
+            -72.73444,
+            6.215
+        ]
+    },
+    {
+        "id": "SOLENT",
+        "prefix": [
+            "SOLENT"
+        ],
+        "name": "Solent Radar",
+        "coordinate": [
+            -2.0958333333333,
+            50.823888888889
+        ]
+    },
+    {
+        "id": "SPN",
+        "prefix": [
+            "GUM_S"
+        ],
+        "name": "Saipan Approach",
+        "coordinate": [
+            146.4109994,
+            15.223955
+        ]
+    },
+    {
+        "id": "SPS",
+        "prefix": [
+            "SPS"
+        ],
+        "name": "Sheppard Approach",
+        "coordinate": [
+            -99.255,
+            34.59333
+        ]
+    },
+    {
+        "id": "STJ",
+        "prefix": [
+            "STJ"
+        ],
+        "name": "St. Joseph Approach",
+        "coordinate": [
+            -95.916667,
+            40.079167
+        ]
+    },
+    {
+        "id": "SSC",
+        "prefix": [
+            "SSC"
+        ],
+        "name": "Shaw Approach",
+        "coordinate": [
+            -80.755278,
+            34.266944
+        ]
+    },
+    {
+        "id": "SUMU",
+        "prefix": [
+            "SUMU"
+        ],
+        "name": "Carrasco Approach",
+        "coordinate": [
+            -56.883888888889,
+            -34.982777777778
+        ]
+    },
+    {
+        "id": "SUU",
+        "prefix": [
+            "SUU"
+        ],
+        "name": "Travis Approach",
+        "coordinate": [
+            -122.16354,
+            38.86641
+        ]
+    },
+    {
+        "id": "SUX",
+        "prefix": [
+            "SUX"
+        ],
+        "name": "Sioux City Approach",
+        "coordinate": [
+            -96.291667,
+            43
+        ]
+    },
+    {
+        "id": "SWA",
+        "prefix": [
+            "EDMM"
+        ],
+        "suffix": "W_APP",
+        "name": "M\u00c3\u00bcnchen Radar (SWA Sector Schwaben)",
+        "coordinate": [
+            11.966666666666667,
+            49.166666666666664
+        ]
+    },
+    {
+        "id": "SZL",
+        "prefix": [
+            "SZL"
+        ],
+        "name": "Whiteman Approach",
+        "coordinate": [
+            -94.025,
+            39.008333
+        ]
+    },
+    {
+        "id": "T75",
+        "prefix": [
+            "PIA"
+        ],
+        "name": "St. Louis Approach",
+        "coordinate": [
+            -90.079167,
+            41.075
+        ]
+    },
+    {
+        "id": "SYR",
+        "prefix": [
+            "SYR"
+        ],
+        "name": "Syracuse Approach",
+        "coordinate": [
+            -76.791667,
+            43.633333
+        ]
+    },
+    {
+        "id": "T75",
+        "prefix": [
+            "SPI"
+        ],
+        "name": "St. Louis Approach",
+        "coordinate": [
+            -89.75,
+            40.333333
+        ]
+    },
+    {
+        "id": "TAPA",
+        "prefix": [
+            "TAPA"
+        ],
+        "name": "VC Bird Approach",
+        "coordinate": [
+            -63,
+            17.36667
+        ]
+    },
+    {
+        "id": "T75",
+        "prefix": [
+            "STL"
+        ],
+        "name": "St. Louis Approach",
+        "coordinate": [
+            -90.458333,
+            39.402778
+        ]
+    },
+    {
+        "id": "TBPB",
+        "prefix": [
+            "TBPB"
+        ],
+        "name": "Adams Approach",
+        "coordinate": [
+            -59.8,
+            14.875
+        ]
+    },
+    {
+        "id": "TFFF",
+        "prefix": [
+            "TFFF"
+        ],
+        "name": "Martinique Approach",
+        "coordinate": [
+            -60.3,
+            16.16667
+        ]
+    },
+    {
+        "id": "TFFR",
+        "prefix": [
+            "TFFR"
+        ],
+        "name": "Raizet Approach",
+        "coordinate": [
+            -60.76667,
+            17.41667
+        ]
+    },
+    {
+        "id": "TGPY",
+        "prefix": [
+            "TGPY"
+        ],
+        "name": "Maurice Bishop Approach",
+        "coordinate": [
+            -61.96389,
+            12.78389
+        ]
+    },
+    {
+        "id": "TKPK",
+        "prefix": [
+            "TKPK"
+        ],
+        "name": "Bradshaw Approach",
+        "coordinate": [
+            -62.738333,
+            17.52333
+        ]
+    },
+    {
+        "id": "THAMES",
+        "prefix": [
+            "THAMES"
+        ],
+        "name": "Thames Director",
+        "coordinate": [
+            0.0552778,
+            51.5052778
+        ]
+    },
+    {
+        "id": "TLPL",
+        "prefix": [
+            "TLPL"
+        ],
+        "name": "St Lucia Approach",
+        "coordinate": [
+            -60.866667,
+            14.216667
+        ]
+    },
+    {
+        "id": "TLH",
+        "prefix": [
+            "TLH"
+        ],
+        "name": "Tallahassee Approach",
+        "coordinate": [
+            -84.8,
+            31.066667
+        ]
+    },
+    {
+        "id": "TNCA",
+        "prefix": [
+            "TNCA"
+        ],
+        "suffix": "APP",
+        "name": "Beatrix Approach",
+        "coordinate": [
+            -70.44028,
+            12.47444
+        ]
+    },
+    {
+        "id": "TNCM",
+        "prefix": [
+            "TNCM"
+        ],
+        "suffix": "APP",
+        "name": "Juliana Approach",
+        "coordinate": [
+            -62.86666666666667,
+            18.416666666666668
+        ]
+    },
+    {
+        "id": "TNCC",
+        "prefix": [
+            "TNCC"
+        ],
+        "suffix": "APP",
+        "name": "Cura\u00e7ao Terminal",
+        "coordinate": [
+            -67.49222,
+            13.67638
+        ]
+    },
+    {
+        "id": "TPA",
+        "prefix": [
+            "TPA"
+        ],
+        "name": "Tampa Approach",
+        "coordinate": [
+            -82.733333,
+            27.183333
+        ]
+    },
+    {
+        "id": "TOL",
+        "prefix": [
+            "TOL"
+        ],
+        "name": "Toledo Approach",
+        "coordinate": [
+            -84.83333,
+            41.625
+        ]
+    },
+    {
+        "id": "TOR",
+        "prefix": [
+            "TOR"
+        ],
+        "name": "Toronto Centre",
+        "coordinate": [
+            -82.169444,
+            43.855278
+        ]
+    },
+    {
+        "id": "TRI",
+        "prefix": [
+            "TRI"
+        ],
+        "name": "Tri City Approach",
+        "coordinate": [
+            -83.129167,
+            36.761111
+        ]
+    },
+    {
+        "id": "TWF",
+        "prefix": [
+            "TWF"
+        ],
+        "name": "Twin Falls Approach",
+        "coordinate": [
+            -114.9,
+            42.75
+        ]
+    },
+    {
+        "id": "TTPP",
+        "prefix": [
+            "TTPP"
+        ],
+        "name": "Picaro Approach",
+        "coordinate": [
+            -62.5,
+            11
+        ]
+    },
+    {
+        "id": "TUL",
+        "prefix": [
+            "TUL"
+        ],
+        "name": "Tulsa Approach",
+        "coordinate": [
+            -96.129167,
+            35.627778
+        ]
+    },
+    {
+        "id": "TYS",
+        "prefix": [
+            "TYS"
+        ],
+        "name": "Knoxville Approach",
+        "coordinate": [
+            -84.666667,
+            35.666667
+        ]
+    },
+    {
+        "id": "TVSA",
+        "prefix": [
+            "TVSA"
+        ],
+        "name": "Argyle Approach",
+        "coordinate": [
+            -61.5,
+            13.56667
+        ]
+    },
+    {
+        "id": "U90",
+        "prefix": [
+            "TUS"
+        ],
+        "name": "Tucson Approach",
+        "coordinate": [
+            -110.26,
+            31.84055555560002
+        ]
+    },
+    {
+        "id": "UAAA",
+        "prefix": [
+            "UAAA"
+        ],
+        "name": "Almaty Approach",
+        "coordinate": [
+            77.9225,
+            44.274722222
+        ]
+    },
+    {
+        "id": "UAAA",
+        "prefix": [
+            "UAAA_R"
+        ],
+        "name": "Almaty Radar",
+        "coordinate": [
+            77.032933,
+            43.808514
+        ]
+    },
+    {
+        "id": "UADD",
+        "prefix": [
+            "UADD"
+        ],
+        "name": "Taraz Approach",
+        "coordinate": [
+            71.833611111,
+            42.965833333
+        ]
+    },
+    {
+        "id": "UACC",
+        "prefix": [
+            "UACC"
+        ],
+        "name": "Astana Approach",
+        "coordinate": [
+            71.751944444,
+            52.086111111
+        ]
+    },
+    {
+        "id": "UACC",
+        "prefix": [
+            "UACC_R"
+        ],
+        "name": "Astana Radar",
+        "coordinate": [
+            71.453512,
+            51.472128
+        ]
+    },
+    {
+        "id": "UBBB",
+        "prefix": [
+            "UBBB"
+        ],
+        "name": "Baku Arrival",
+        "coordinate": [
+            50.321486388889,
+            39.838578333333
+        ]
+    },
+    {
+        "id": "UCFM",
+        "prefix": [
+            "UCFM_R"
+        ],
+        "name": "Bishkek Krug",
+        "coordinate": [
+            74.19983305555556,
+            43.32866638888889
+        ]
+    },
+    {
+        "id": "UCFM",
+        "prefix": [
+            "UCFM"
+        ],
+        "name": "Bishkek Approach",
+        "coordinate": [
+            73.908,
+            43.57233277777778
+        ]
+    },
+    {
+        "id": "UCFO",
+        "prefix": [
+            "UCFO"
+        ],
+        "name": "Osh Approach",
+        "coordinate": [
+            72.03591694444444,
+            40.244659722222224
+        ]
+    },
+    {
+        "id": "UEEE",
+        "prefix": [
+            "UEEE"
+        ],
+        "name": "Yakutsk Approach",
+        "coordinate": [
+            129.77333,
+            63.44534
+        ]
+    },
+    {
+        "id": "UHHH",
+        "prefix": [
+            "UHHH"
+        ],
+        "name": "Khabarovsk Approach",
+        "coordinate": [
+            135.18666694444,
+            49.75
+        ]
+    },
+    {
+        "id": "UHHH",
+        "prefix": [
+            "UHHH_R"
+        ],
+        "name": "Khabarovsk Radar",
+        "coordinate": [
+            135.66999972222,
+            48.71667
+        ]
+    },
+    {
+        "id": "UEEE",
+        "prefix": [
+            "UEEE_R"
+        ],
+        "name": "Yakutsk Radar",
+        "coordinate": [
+            129.77333,
+            62.544
+        ]
+    },
+    {
+        "id": "UHMP",
+        "prefix": [
+            "UHMP_R"
+        ],
+        "name": "Pevek Krug",
+        "coordinate": [
+            167.87972222,
+            69.93
+        ]
+    },
+    {
+        "id": "UHPP",
+        "prefix": [
+            "UHPP"
+        ],
+        "name": "Petropavlovsk Radar",
+        "coordinate": [
+            158.50416667,
+            53.97722222
+        ]
+    },
+    {
+        "id": "UHMM",
+        "prefix": [
+            "UHMM"
+        ],
+        "name": "Magadan Approach",
+        "coordinate": [
+            150.15333,
+            60.57167
+        ]
+    },
+    {
+        "id": "UHMA",
+        "prefix": [
+            "UHMA"
+        ],
+        "name": "Anadyr Approach",
+        "coordinate": [
+            179.61166667,
+            64.85027778
+        ]
+    },
+    {
+        "id": "UHWW",
+        "prefix": [
+            "UHWW"
+        ],
+        "name": "Vladivostok Approach",
+        "coordinate": [
+            132.595,
+            43.828610000000005
+        ]
+    },
+    {
+        "id": "UHWW",
+        "prefix": [
+            "UHWW_R"
+        ],
+        "name": "Vladivostok Radar",
+        "coordinate": [
+            132.595,
+            43.82861
+        ]
+    },
+    {
+        "id": "UHSS",
+        "prefix": [
+            "UHSS_R"
+        ],
+        "name": "Yuzhno-Sakhalinsk Radar",
+        "coordinate": [
+            143.21166667,
+            47.42
+        ]
+    },
+    {
+        "id": "UIBB",
+        "prefix": [
+            "UIBB"
+        ],
+        "name": "Bratsk Approach",
+        "coordinate": [
+            101.69861,
+            57.36203
+        ]
+    },
+    {
+        "id": "UIAA",
+        "prefix": [
+            "UIAA"
+        ],
+        "name": "Chita Approach",
+        "coordinate": [
+            114.95333,
+            51.67722
+        ]
+    },
+    {
+        "id": "UIUU",
+        "prefix": [
+            "UIUU"
+        ],
+        "name": "Ulan-Ude Approach",
+        "coordinate": [
+            106.88667,
+            52.45167
+        ]
+    },
+    {
+        "id": "UIII",
+        "prefix": [
+            "UIII"
+        ],
+        "name": "Irkutsk Approach",
+        "coordinate": [
+            103.78333,
+            53.15
+        ]
+    },
+    {
+        "id": "ULAA",
+        "prefix": [
+            "ULAA"
+        ],
+        "name": "Arkhangelsk Approach",
+        "coordinate": [
+            41.11907222,
+            65.48429944
+        ]
+    },
+    {
+        "id": "UIII",
+        "prefix": [
+            "UIII_R"
+        ],
+        "name": "Irkutsk Radar",
+        "coordinate": [
+            103.86333,
+            52.61333
+        ]
+    },
+    {
+        "id": "ULAM",
+        "prefix": [
+            "ULAM"
+        ],
+        "name": "Naryan Mar Podkhod",
+        "coordinate": [
+            51.57694444,
+            66.97083333
+        ]
+    },
+    {
+        "id": "ULLI",
+        "prefix": [
+            "ULLI"
+        ],
+        "name": "Pulkovo Radar",
+        "coordinate": [
+            29.534167,
+            60.0925
+        ]
+    },
+    {
+        "id": "ULLL",
+        "prefix": [
+            "ULLL"
+        ],
+        "name": "Peterburg Approach",
+        "coordinate": [
+            28.631667,
+            60.186667
+        ]
+    },
+    {
+        "id": "UMGG",
+        "prefix": [
+            "UMGG"
+        ],
+        "name": "Homiel Approach",
+        "coordinate": [
+            31.29039583,
+            53.03341333
+        ]
+    },
+    {
+        "id": "ULMM",
+        "prefix": [
+            "ULMM_R"
+        ],
+        "name": "Murmansk Radar",
+        "coordinate": [
+            32.59694444,
+            68.97861111
+        ]
+    },
+    {
+        "id": "UMIO",
+        "prefix": [
+            "UMIO"
+        ],
+        "name": "Orsha Approach",
+        "coordinate": [
+            29.48138889,
+            54.67499972
+        ]
+    },
+    {
+        "id": "UMKK",
+        "prefix": [
+            "UMKK"
+        ],
+        "name": "Kaliningrad Approach",
+        "coordinate": [
+            20.643333333333,
+            55.373333333333
+        ]
+    },
+    {
+        "id": "UNAA",
+        "prefix": [
+            "UNAA"
+        ],
+        "name": "Abakan Radar",
+        "coordinate": [
+            91.65806,
+            53.31778
+        ]
+    },
+    {
+        "id": "UMMS",
+        "prefix": [
+            "UMMS"
+        ],
+        "name": "Minsk Approach",
+        "coordinate": [
+            26.98565028,
+            54.32017167
+        ]
+    },
+    {
+        "id": "UMMS",
+        "prefix": [
+            "UMMS_R"
+        ],
+        "name": "Minsk Radar",
+        "coordinate": [
+            28.75027778,
+            53.5225
+        ]
+    },
+    {
+        "id": "UNEE",
+        "prefix": [
+            "UNEE"
+        ],
+        "name": "Kemerovo Approach",
+        "coordinate": [
+            89.08306,
+            56.06667
+        ]
+    },
+    {
+        "id": "UNKL",
+        "prefix": [
+            "UNKL_R"
+        ],
+        "name": "Krasnoyarsk Radar",
+        "coordinate": [
+            93.21639,
+            55.97111
+        ]
+    },
+    {
+        "id": "UNKL",
+        "prefix": [
+            "UNKL"
+        ],
+        "name": "Krasnoyarsk Approach",
+        "coordinate": [
+            92.7,
+            57.045
+        ]
+    },
+    {
+        "id": "UNNT",
+        "prefix": [
+            "UNNT"
+        ],
+        "name": "Novosibirsk Approach",
+        "coordinate": [
+            82.26167,
+            56.02
+        ]
+    },
+    {
+        "id": "UNNT",
+        "prefix": [
+            "UNNT_R"
+        ],
+        "name": "Novosibirsk Radar",
+        "coordinate": [
+            82.96,
+            55.43083
+        ]
+    },
+    {
+        "id": "UNOO",
+        "prefix": [
+            "UNOO"
+        ],
+        "name": "Omsk Approach",
+        "coordinate": [
+            73.92944,
+            56.22583
+        ]
+    },
+    {
+        "id": "UNSS",
+        "prefix": [
+            "UNSS"
+        ],
+        "name": "Karavay Krug",
+        "coordinate": [
+            77.383333333,
+            60.95
+        ]
+    },
+    {
+        "id": "UNOO",
+        "prefix": [
+            "UNOO_R"
+        ],
+        "name": "Omsk Radar",
+        "coordinate": [
+            73.15806,
+            55.39
+        ]
+    },
+    {
+        "id": "UNWW",
+        "prefix": [
+            "UNWW"
+        ],
+        "name": "Novokuznetsk Approach",
+        "coordinate": [
+            87.5,
+            54.53306
+        ]
+    },
+    {
+        "id": "UOOO",
+        "prefix": [
+            "UOOO_R"
+        ],
+        "name": "Norilsk Krug",
+        "coordinate": [
+            87.61667,
+            69.845
+        ]
+    },
+    {
+        "id": "UOII",
+        "prefix": [
+            "UOII"
+        ],
+        "name": "Igarka Podkhod",
+        "coordinate": [
+            86.62194,
+            67.88817
+        ]
+    },
+    {
+        "id": "URKG",
+        "prefix": [
+            "URKG_R"
+        ],
+        "name": "Gelendzhik Tower",
+        "coordinate": [
+            38.185,
+            44.725
+        ]
+    },
+    {
+        "id": "URKK",
+        "prefix": [
+            "URKK_R"
+        ],
+        "name": "Krasnodar Radar",
+        "coordinate": [
+            39.245,
+            45.20833
+        ]
+    },
+    {
+        "id": "URKK",
+        "prefix": [
+            "URKK"
+        ],
+        "name": "Krasnodar Approach",
+        "coordinate": [
+            38.655,
+            45.928055555556
+        ]
+    },
+    {
+        "id": "URML",
+        "prefix": [
+            "URML"
+        ],
+        "name": "Makhachkala Approach",
+        "coordinate": [
+            48.65667,
+            43.135
+        ]
+    },
+    {
+        "id": "URMG",
+        "prefix": [
+            "URMG_R"
+        ],
+        "name": "Grozny Tower",
+        "coordinate": [
+            46.26167,
+            43.56333
+        ]
+    },
+    {
+        "id": "URMN",
+        "prefix": [
+            "URMN"
+        ],
+        "name": "Nalchik Approach",
+        "coordinate": [
+            43.96667,
+            43.84667
+        ]
+    },
+    {
+        "id": "URMO",
+        "prefix": [
+            "URMO_R"
+        ],
+        "name": "Vladikavkaz Krug",
+        "coordinate": [
+            45.3,
+            43.59972
+        ]
+    },
+    {
+        "id": "URMT",
+        "prefix": [
+            "URMT"
+        ],
+        "name": "Stavropol Approach",
+        "coordinate": [
+            41.789166666667,
+            45.619444444444
+        ]
+    },
+    {
+        "id": "URMM",
+        "prefix": [
+            "URMM"
+        ],
+        "name": "Mineralnyye-Vody Approach",
+        "coordinate": [
+            43.2,
+            45.03333
+        ]
+    },
+    {
+        "id": "URRP",
+        "prefix": [
+            "URRP"
+        ],
+        "name": "Platov Approach",
+        "coordinate": [
+            38.33333,
+            46.98333
+        ]
+    },
+    {
+        "id": "URRP",
+        "prefix": [
+            "URRP_R"
+        ],
+        "name": "Platov Radar",
+        "coordinate": [
+            40.05639,
+            47.78889
+        ]
+    },
+    {
+        "id": "URSS",
+        "prefix": [
+            "URSS"
+        ],
+        "name": "Sochi Approach",
+        "coordinate": [
+            38.703889,
+            44.310556
+        ]
+    },
+    {
+        "id": "URSS",
+        "prefix": [
+            "URSS_R"
+        ],
+        "name": "Sochi Radar",
+        "coordinate": [
+            40.13068,
+            43.56504
+        ]
+    },
+    {
+        "id": "USCC",
+        "prefix": [
+            "USCC"
+        ],
+        "name": "Chelyabinsk Approach",
+        "coordinate": [
+            60.983333,
+            55.9071438
+        ]
+    },
+    {
+        "id": "URWA",
+        "prefix": [
+            "URWA"
+        ],
+        "name": "Astrakhan Approach",
+        "coordinate": [
+            48.996111111111,
+            46.428055555556
+        ]
+    },
+    {
+        "id": "URWW",
+        "prefix": [
+            "URWW"
+        ],
+        "name": "Volgograd Approach",
+        "coordinate": [
+            45.291111111111,
+            49.688333333333
+        ]
+    },
+    {
+        "id": "USCC",
+        "prefix": [
+            "USCC_R"
+        ],
+        "name": "Chelyabinsk Radar",
+        "coordinate": [
+            61.615277778,
+            55.616944444
+        ]
+    },
+    {
+        "id": "USHB",
+        "prefix": [
+            "USHB"
+        ],
+        "name": "Berezovo Approach",
+        "coordinate": [
+            66,
+            64.916667
+        ]
+    },
+    {
+        "id": "USDD",
+        "prefix": [
+            "USDD"
+        ],
+        "name": "Salekhard Krug",
+        "coordinate": [
+            66.590994,
+            67.040147
+        ]
+    },
+    {
+        "id": "USHH",
+        "prefix": [
+            "USHH"
+        ],
+        "name": "Khantym Radar",
+        "coordinate": [
+            69.111896,
+            61.482091
+        ]
+    },
+    {
+        "id": "USHQ",
+        "prefix": [
+            "USHQ"
+        ],
+        "name": "Beloyarskiy Krug",
+        "coordinate": [
+            66.685376,
+            64.047729
+        ]
+    },
+    {
+        "id": "USMM",
+        "prefix": [
+            "USMM"
+        ],
+        "name": "Nadym Radar",
+        "coordinate": [
+            72.679091,
+            65.931813
+        ]
+    },
+    {
+        "id": "USNN",
+        "prefix": [
+            "USNN"
+        ],
+        "name": "Nizhnevartovsk Radar",
+        "coordinate": [
+            76.451387,
+            61.39348
+        ]
+    },
+    {
+        "id": "USMU",
+        "prefix": [
+            "USMU"
+        ],
+        "name": "Novy Urengoy Radar",
+        "coordinate": [
+            76.499748,
+            66.519591
+        ]
+    },
+    {
+        "id": "USKK",
+        "prefix": [
+            "USKK"
+        ],
+        "name": "Kirov Approach",
+        "coordinate": [
+            49.623055556,
+            58.928611111
+        ]
+    },
+    {
+        "id": "USPP",
+        "prefix": [
+            "USPP"
+        ],
+        "name": "Perm Approach",
+        "coordinate": [
+            56.585833,
+            58.741944
+        ]
+    },
+    {
+        "id": "USRR",
+        "prefix": [
+            "USRR"
+        ],
+        "name": "Surgut Approach",
+        "coordinate": [
+            75.833333,
+            64
+        ]
+    },
+    {
+        "id": "USPP",
+        "prefix": [
+            "USPP_R"
+        ],
+        "name": "Perm Radar",
+        "coordinate": [
+            56.006427,
+            58.364036
+        ]
+    },
+    {
+        "id": "USSS",
+        "prefix": [
+            "USSS"
+        ],
+        "name": "Koltsovo Approach",
+        "coordinate": [
+            61.929722,
+            57.336667
+        ]
+    },
+    {
+        "id": "USSS",
+        "prefix": [
+            "USSS_R"
+        ],
+        "name": "Koltsovo Radar",
+        "coordinate": [
+            60.78246,
+            57.192925
+        ]
+    },
+    {
+        "id": "UTTT",
+        "prefix": [
+            "UTTT"
+        ],
+        "name": "Tashkent Approach",
+        "coordinate": [
+            68.2,
+            42.033333333
+        ]
+    },
+    {
+        "id": "USRR",
+        "prefix": [
+            "USRR_R"
+        ],
+        "name": "Surgut Krug",
+        "coordinate": [
+            73.388978,
+            61.703562
+        ]
+    },
+    {
+        "id": "USTR",
+        "prefix": [
+            "USTR"
+        ],
+        "name": "Tyumen Radar",
+        "coordinate": [
+            65.301458,
+            57.617925
+        ]
+    },
+    {
+        "id": "UUDD",
+        "prefix": [
+            "UUDD"
+        ],
+        "name": "Domodedovo Radar",
+        "label_lat": 54.78,
+        "label_lon": 38.3,
+        "coordinate": [
+            38.25222222222222,
+            55.92527777777777
+        ]
+    },
+    {
+        "id": "UUMU",
+        "prefix": [
+            "UUMU"
+        ],
+        "name": "Chkalovskiy",
+        "coordinate": [
+            37.81306,
+            56.08861
+        ]
+    },
+    {
+        "id": "UUWW",
+        "prefix": [
+            "UUWW"
+        ],
+        "name": "Vnukovo Radar",
+        "label_lat": 54.87,
+        "label_lon": 37.15,
+        "coordinate": [
+            36.34166666666667,
+            55.69166666666666
+        ]
+    },
+    {
+        "id": "UUYY",
+        "prefix": [
+            "UUYW"
+        ],
+        "name": "Vorkuta Podkhod",
+        "coordinate": [
+            66.7833,
+            68.8667
+        ]
+    },
+    {
+        "id": "UUYY",
+        "prefix": [
+            "UUYY_R"
+        ],
+        "name": "Sivkar Krug",
+        "coordinate": [
+            51.13451889,
+            62.354285
+        ]
+    },
+    {
+        "id": "UUEE",
+        "prefix": [
+            "UUEE"
+        ],
+        "name": "Sheremetyevo Radar",
+        "coordinate": [
+            37.62083305555556,
+            55.749722222222225
+        ]
+    },
+    {
+        "id": "UUYY",
+        "prefix": [
+            "UUYY_R"
+        ],
+        "name": "Sivkar Krug",
+        "coordinate": [
+            51.13451889,
+            62.354285
+        ]
+    },
+    {
+        "id": "UWGG",
+        "prefix": [
+            "UWGG"
+        ],
+        "name": "Nizhniy Approach",
+        "coordinate": [
+            43.722499722222224,
+            56.619999722222225
+        ]
+    },
+    {
+        "id": "UWKD",
+        "prefix": [
+            "UWKD"
+        ],
+        "name": "Kazan Approach",
+        "coordinate": [
+            49.82083305555556,
+            56.76111111111111
+        ]
+    },
+    {
+        "id": "UWLL",
+        "prefix": [
+            "UWLL"
+        ],
+        "name": "Ulyanovsk Approach",
+        "coordinate": [
+            48.25,
+            54.86666666666667
+        ]
+    },
+    {
+        "id": "UWKD",
+        "prefix": [
+            "UWKD_R"
+        ],
+        "name": "Kazan Radar",
+        "coordinate": [
+            49.471111111111114,
+            55.7075
+        ]
+    },
+    {
+        "id": "UWKE",
+        "prefix": [
+            "UWKE_R"
+        ],
+        "name": "Begishevo Radar",
+        "coordinate": [
+            52.09249999999997,
+            55.924451328639655
+        ]
+    },
+    {
+        "id": "UWLL",
+        "prefix": [
+            "UWLL_R"
+        ],
+        "name": "Ulyanovsk Radar",
+        "label_lat": 54.25,
+        "label_lon": 49,
+        "coordinate": [
+            48.25,
+            54.86666666666667
+        ]
+    },
+    {
+        "id": "UWSG",
+        "prefix": [
+            "UWSG_R"
+        ],
+        "name": "Gagarin Radar",
+        "coordinate": [
+            46.93333333333333,
+            51.82333305555556
+        ]
+    },
+    {
+        "id": "UWOO",
+        "prefix": [
+            "UWOO_R"
+        ],
+        "name": "Orenburg Radar",
+        "coordinate": [
+            56.204166944444445,
+            52.17777805555556
+        ]
+    },
+    {
+        "id": "UWSG",
+        "prefix": [
+            "UWSG"
+        ],
+        "name": "Gagarin Approach",
+        "coordinate": [
+            47.13611111111111,
+            52.16722194444444
+        ]
+    },
+    {
+        "id": "UWWW",
+        "prefix": [
+            "UWWW"
+        ],
+        "name": "Samara Approach",
+        "coordinate": [
+            50.32,
+            54.394999999999996
+        ]
+    },
+    {
+        "id": "UWUU",
+        "prefix": [
+            "UWUU"
+        ],
+        "name": "Ufa Approach",
+        "coordinate": [
+            55.25055611111111,
+            55.39194388888889
+        ]
+    },
+    {
+        "id": "VAD",
+        "prefix": [
+            "VAD"
+        ],
+        "name": "Valdosta Approach",
+        "coordinate": [
+            -84.13333,
+            31.11944
+        ]
+    },
+    {
+        "id": "UWWW",
+        "prefix": [
+            "UWWW_R"
+        ],
+        "name": "Samara Radar",
+        "coordinate": [
+            50.561411111111106,
+            53.23693111111111
+        ]
+    },
+    {
+        "id": "VHHH",
+        "prefix": [
+            "VHHH"
+        ],
+        "name": "Hong Kong Approach",
+        "coordinate": [
+            113.63111361111,
+            22.179688333333
+        ]
+    },
+    {
+        "id": "VLY",
+        "prefix": [
+            "VLY"
+        ],
+        "name": "Valley Approach",
+        "coordinate": [
+            -97.1502777778,
+            26.93611111109999
+        ]
+    },
+    {
+        "id": "VPS",
+        "prefix": [
+            "VPS"
+        ],
+        "name": "Eglin Approach",
+        "coordinate": [
+            -86.91668861111111,
+            30.64613027777778
+        ]
+    },
+    {
+        "id": "VOK",
+        "prefix": [
+            "VOK"
+        ],
+        "name": "Volk Approach",
+        "coordinate": [
+            -90.88333,
+            44.05
+        ]
+    },
+    {
+        "id": "VRA",
+        "prefix": [
+            "VLY"
+        ],
+        "name": "Valley Approach",
+        "coordinate": [
+            -97.150278,
+            26.936111
+        ]
+    },
+    {
+        "id": "XLLJ",
+        "prefix": [
+            "XLLJ"
+        ],
+        "name": "Gromovo Approach",
+        "coordinate": [
+            29.80370278,
+            60.42037778
+        ]
+    },
+    {
+        "id": "WRI",
+        "prefix": [
+            "WRI"
+        ],
+        "name": "McGuire Approach",
+        "coordinate": [
+            -74.691111,
+            39.764167
+        ]
+    },
+    {
+        "id": "VVTS",
+        "prefix": [
+            "VVTS"
+        ],
+        "name": "Tan Son Nhat Terminal",
+        "coordinate": [
+            106.66072333333,
+            9.7374977777778
+        ]
+    },
+    {
+        "id": "Y90",
+        "prefix": [
+            "BDL"
+        ],
+        "name": "Bradley Approach",
+        "coordinate": [
+            -71.8333333,
+            42.45
+        ]
+    },
+    {
+        "id": "YBBN",
+        "prefix": [
+            "BN-C"
+        ],
+        "name": "Brisbane Approach Gold Coast",
+        "label_lat": -27.64889,
+        "label_lon": 153.03917,
+        "coordinate": [
+            153.81,
+            -28.590833
+        ]
+    },
+    {
+        "id": "YAMB",
+        "name": "Amberley Approach",
+        "prefix": [
+            "AM"
+        ],
+        "coordinate": [
+            152.216389,
+            -27.074167
+        ]
+    },
+    {
+        "id": "YBBN",
+        "name": "Brisbane Approach (North)",
+        "prefix": [
+            "BN",
+            "BN-S"
+        ],
+        "coordinate": [
+            153.304167,
+            -27.845278
+        ]
+    },
+    {
+        "id": "YBBN",
+        "prefix": [
+            "BN",
+            "BN-S"
+        ],
+        "name": "Brisbane Approach North",
+        "label_lat": -27.64889,
+        "label_lon": 153.03917,
+        "coordinate": [
+            153.304167,
+            -27.845278
+        ]
+    },
+    {
+        "id": "YBCS",
+        "name": "Cairns Approach",
+        "prefix": [
+            "CS"
+        ],
+        "coordinate": [
+            145.743889,
+            -16.250278
+        ]
+    },
+    {
+        "id": "GEG",
+        "prefix": [
+            "YKM"
+        ],
+        "name": "Spokane Approach",
+        "coordinate": [
+            -120.91242568280288,
+            46.941637814574186
+        ]
+    },
+    {
+        "id": "YBOK",
+        "name": "Oakey Approach",
+        "prefix": [
+            "OK"
+        ],
+        "coordinate": [
+            151.644444,
+            -27.398889
+        ]
+    },
+    {
+        "id": "YBMK",
+        "name": "Coral Approach (Mackay)",
+        "prefix": [
+            "MK"
+        ],
+        "coordinate": [
+            149.082778,
+            -21.151111
+        ]
+    },
+    {
+        "id": "YBTL",
+        "name": "Townsville Approach",
+        "prefix": [
+            "TL"
+        ],
+        "coordinate": [
+            146.758333,
+            -18.644167
+        ]
+    },
+    {
+        "id": "YMES",
+        "name": "East Sale Approach",
+        "prefix": [
+            "ES"
+        ],
+        "coordinate": [
+            147.149444,
+            -37.265556
+        ]
+    },
+    {
+        "id": "YBRK",
+        "name": "Coral Approach (Rocky)",
+        "prefix": [
+            "RK"
+        ],
+        "coordinate": [
+            149.8575,
+            -23.181944
+        ]
+    },
+    {
+        "id": "YMML",
+        "prefix": [
+            "ML-S"
+        ],
+        "suffix": "DEP",
+        "name": "Melbourne Departures South",
+        "label_lat": -37.673332,
+        "label_lon": 144.84334,
+        "coordinate": [
+            144.346944,
+            -38.228611
+        ]
+    },
+    {
+        "id": "YMLT",
+        "name": "Launceston Approach",
+        "prefix": [
+            "LT"
+        ],
+        "coordinate": [
+            147.213056,
+            -41.043889
+        ]
+    },
+    {
+        "id": "YMHB",
+        "name": "Hobart Approach",
+        "prefix": [
+            "HB"
+        ],
+        "coordinate": [
+            146.362222,
+            -42.172778
+        ]
+    },
+    {
+        "id": "YPAD",
+        "prefix": [
+            "AD"
+        ],
+        "suffix": "DEP",
+        "name": "Adelaide Departures",
+        "label_lat": -34.947,
+        "label_lon": 138.525,
+        "coordinate": [
+            139.088056,
+            -34.566389
+        ]
+    },
+    {
+        "id": "YMML",
+        "prefix": [
+            "ML"
+        ],
+        "name": "Melbourne Approach East",
+        "label_lat": -37.673332,
+        "label_lon": 144.84334,
+        "coordinate": [
+            144.346944,
+            -38.228611
+        ]
+    },
+    {
+        "id": "YMML",
+        "name": "Melbourne Departures (South)",
+        "prefix": [
+            "ML-S"
+        ],
+        "suffix": "DEP",
+        "coordinate": [
+            144.601389,
+            -38.122778
+        ]
+    },
+    {
+        "id": "YNG",
+        "prefix": [
+            "YNG"
+        ],
+        "name": "Youngstown Approach",
+        "coordinate": [
+            -81.10833,
+            41.25833
+        ]
+    },
+    {
+        "id": "YPAD",
+        "name": "Adelaide Approach",
+        "prefix": [
+            "AD"
+        ],
+        "coordinate": [
+            138.375278,
+            -34.336389
+        ]
+    },
+    {
+        "id": "YPEA",
+        "name": "Pearce Approach",
+        "prefix": [
+            "PE"
+        ],
+        "coordinate": [
+            115.845278,
+            -31.789444
+        ]
+    },
+    {
+        "id": "YPDN",
+        "name": "Darwin Approach (East)",
+        "prefix": [
+            "DN",
+            "DN-W"
+        ],
+        "coordinate": [
+            130.906389,
+            -11.756667
+        ]
+    },
+    {
+        "id": "YPPH",
+        "name": "Perth Approach",
+        "prefix": [
+            "PH"
+        ],
+        "coordinate": [
+            116.415556,
+            -32.404444
+        ]
+    },
+    {
+        "id": "YSCB",
+        "prefix": [
+            "CB-W"
+        ],
+        "name": "Canberra Approach West",
+        "label_lat": -35.306946,
+        "label_lon": 149.195,
+        "coordinate": [
+            149.195,
+            -35.677778
+        ]
+    },
+    {
+        "id": "YPTN",
+        "name": "Tindal Approach",
+        "prefix": [
+            "TN"
+        ],
+        "coordinate": [
+            132.377778,
+            -14.021111
+        ]
+    },
+    {
+        "id": "YQQ",
+        "prefix": [
+            "CYQQ"
+        ],
+        "name": "Comox Terminal",
+        "coordinate": [
+            -123.5734,
+            49.2858
+        ]
+    },
+    {
+        "id": "YSCB",
+        "prefix": [
+            "CB"
+        ],
+        "name": "Canberra Approach East",
+        "label_lat": -35.306946,
+        "label_lon": 149.195,
+        "coordinate": [
+            149.195,
+            -35.677778
+        ]
+    },
+    {
+        "id": "YSCB",
+        "name": "Canberra Approach (East)",
+        "prefix": [
+            "CB",
+            "CB-W"
+        ],
+        "coordinate": [
+            148.605278,
+            -35.155556
+        ]
+    },
+    {
+        "id": "YSSY",
+        "name": "Sydney Approach (North)",
+        "prefix": [
+            "SY",
+            "SY-C",
+            "SY-D",
+            "SY-DE",
+            "SY-S"
+        ],
+        "coordinate": [
+            151.1825,
+            -33.193889
+        ]
+    },
+    {
+        "id": "YSNW",
+        "name": "Nowra Approach",
+        "prefix": [
+            "NW"
+        ],
+        "coordinate": [
+            150.718611,
+            -34.751667
+        ]
+    },
+    {
+        "id": "YVR",
+        "prefix": [
+            "CYVR"
+        ],
+        "name": "Vancouver Arrival",
+        "coordinate": [
+            -123.5734,
+            49.2858
+        ]
+    },
+    {
+        "id": "YWLM",
+        "name": "Williamtown Approach",
+        "prefix": [
+            "WLM"
+        ],
+        "coordinate": [
+            151.405556,
+            -32.866667
+        ]
+    },
+    {
+        "id": "ZBAA",
+        "prefix": [
+            "ZBAA"
+        ],
+        "name": "Beijing Approach",
+        "coordinate": [
+            115.53055555556,
+            40.433333333333
+        ]
+    },
+    {
+        "id": "YYJ",
+        "prefix": [
+            "CYYJ"
+        ],
+        "name": "Victoria Terminal",
+        "coordinate": [
+            -124.0037,
+            49.2523
+        ]
+    },
+    {
+        "id": "ZBAA_F",
+        "prefix": [
+            "ZBAA_F"
+        ],
+        "name": "Capital Approach",
+        "coordinate": [
+            115.93166666667,
+            40.382777777778
+        ]
+    },
+    {
+        "id": "ZBAD",
+        "prefix": [
+            "ZBAD"
+        ],
+        "name": "Daxing Approach",
+        "coordinate": [
+            115.98694444444,
+            40.019444444444
+        ]
+    },
+    {
+        "id": "ZBHH",
+        "prefix": [
+            "ZBHH"
+        ],
+        "name": "Hohhot Approach",
+        "coordinate": [
+            111.18333333333,
+            41.476666666667
+        ]
+    },
+    {
+        "id": "ZBSJ",
+        "prefix": [
+            "ZBSJ"
+        ],
+        "name": "Shijiazhuang Approach",
+        "coordinate": [
+            113.84527777778,
+            38.856388888889
+        ]
+    },
+    {
+        "id": "ZBTJ",
+        "prefix": [
+            "ZBTJ"
+        ],
+        "name": "Tianjin Approach",
+        "coordinate": [
+            116.67,
+            39.291388888889
+        ]
+    },
+    {
+        "id": "ZBYN",
+        "prefix": [
+            "ZBYN"
+        ],
+        "name": "Taiyuan Approach",
+        "coordinate": [
+            112.61888888889,
+            38.469237222222
+        ]
+    },
+    {
+        "id": "ZGHA",
+        "prefix": [
+            "ZGHA"
+        ],
+        "name": "Changsha Approach",
+        "coordinate": [
+            112.20944444444,
+            28.066666666667
+        ]
+    },
+    {
+        "id": "ZGGG",
+        "prefix": [
+            "ZGGG"
+        ],
+        "name": "Guangzhou Approach",
+        "coordinate": [
+            112.43166666667,
+            23.638333333333
+        ]
+    },
+    {
+        "id": "ZGJD",
+        "prefix": [
+            "ZGJD"
+        ],
+        "name": "Zhuhai Approach",
+        "coordinate": [
+            113.48333333333,
+            22.881666666667
+        ]
+    },
+    {
+        "id": "ZGKL",
+        "prefix": [
+            "ZGKL"
+        ],
+        "name": "Guilin Approach",
+        "coordinate": [
+            109.5,
+            25.633333333333
+        ]
+    },
+    {
+        "id": "ZGOW",
+        "prefix": [
+            "ZGOW"
+        ],
+        "name": "Shantou Approach",
+        "coordinate": [
+            115.25,
+            24.1
+        ]
+    },
+    {
+        "id": "ZGNN",
+        "prefix": [
+            "ZGNN"
+        ],
+        "name": "Nanning Approach",
+        "coordinate": [
+            107.30361111111,
+            22.979166666667
+        ]
+    },
+    {
+        "id": "ZGZJ",
+        "prefix": [
+            "ZGZJ"
+        ],
+        "name": "Zhanjiang Approach",
+        "coordinate": [
+            109.47,
+            22.505
+        ]
+    },
+    {
+        "id": "ZJHK",
+        "prefix": [
+            "ZJHK"
+        ],
+        "name": "Haikou Approach",
+        "coordinate": [
+            108.85083333333,
+            19.255277777778
+        ]
+    },
+    {
+        "id": "ZHCC",
+        "prefix": [
+            "ZHCC"
+        ],
+        "name": "Zhengzhou Approach",
+        "coordinate": [
+            112.19166666667,
+            34.438333333333
+        ]
+    },
+    {
+        "id": "ZHEC",
+        "prefix": [
+            "ZHEC"
+        ],
+        "name": "Ezhou Approach",
+        "coordinate": [
+            114.83111111111,
+            30.815555555556
+        ]
+    },
+    {
+        "id": "ZHHH",
+        "prefix": [
+            "ZHHH"
+        ],
+        "name": "Wuhan Approach",
+        "coordinate": [
+            112.39888888889,
+            31.095833333333
+        ]
+    },
+    {
+        "id": "ZJSY",
+        "prefix": [
+            "ZJSY"
+        ],
+        "name": "Sanya Approach",
+        "coordinate": [
+            107.18972222222,
+            19.267777777778
+        ]
+    },
+    {
+        "id": "ZLIC",
+        "prefix": [
+            "ZLIC"
+        ],
+        "name": "Yinchuan Approach",
+        "coordinate": [
+            105.08861111111,
+            38.735
+        ]
+    },
+    {
+        "id": "ZLLL",
+        "prefix": [
+            "ZLLL"
+        ],
+        "name": "Lanzhou Approach",
+        "coordinate": [
+            102.04111111111,
+            37.438333333333
+        ]
+    },
+    {
+        "id": "ZPJH",
+        "prefix": [
+            "ZPJH"
+        ],
+        "name": "Banna Approach",
+        "coordinate": [
+            100.7625,
+            22.423308055556
+        ]
+    },
+    {
+        "id": "ZLXY",
+        "prefix": [
+            "ZLXY"
+        ],
+        "name": "Xi'an Approach",
+        "coordinate": [
+            107.77027777778,
+            35.211111111111
+        ]
+    },
+    {
+        "id": "ZLXN",
+        "prefix": [
+            "ZLXN"
+        ],
+        "name": "Xining Approach",
+        "coordinate": [
+            101.58333333333,
+            37.375277777778
+        ]
+    },
+    {
+        "id": "ZPLJ",
+        "prefix": [
+            "ZPLJ"
+        ],
+        "name": "Lijiang Approach",
+        "coordinate": [
+            100.24555555556,
+            27.129141388889
+        ]
+    },
+    {
+        "id": "ZSAM",
+        "prefix": [
+            "ZSAM"
+        ],
+        "name": "Xiamen Approach",
+        "coordinate": [
+            117.36111111111,
+            24.508333333333
+        ]
+    },
+    {
+        "id": "ZPPP",
+        "prefix": [
+            "ZPPP"
+        ],
+        "name": "Kunming Approach",
+        "coordinate": [
+            101.52972222222,
+            25.027777777778
+        ]
+    },
+    {
+        "id": "ZSCN",
+        "prefix": [
+            "ZSCN"
+        ],
+        "name": "Nanchang Approach",
+        "coordinate": [
+            115.55194444444,
+            27.509722222222
+        ]
+    },
+    {
+        "id": "ZSFZ",
+        "prefix": [
+            "ZSFZ"
+        ],
+        "name": "Fuzhou Approach",
+        "coordinate": [
+            119.605,
+            24.690833333333
+        ]
+    },
+    {
+        "id": "ZSHC",
+        "prefix": [
+            "ZSHC"
+        ],
+        "name": "Hangzhou Approach",
+        "coordinate": [
+            118.75333333333,
+            30.951666666667
+        ]
+    },
+    {
+        "id": "ZSJN",
+        "prefix": [
+            "ZSJN"
+        ],
+        "name": "Jinan Approach",
+        "coordinate": [
+            115.42361111111,
+            36.000555555556
+        ]
+    },
+    {
+        "id": "ZSOF",
+        "prefix": [
+            "ZSOF"
+        ],
+        "name": "Hefei Approach",
+        "coordinate": [
+            115.86444444444,
+            30.653333333333
+        ]
+    },
+    {
+        "id": "ZSNB",
+        "prefix": [
+            "ZSNB"
+        ],
+        "name": "Ningbo Approach",
+        "coordinate": [
+            120.59194444444,
+            29.425
+        ]
+    },
+    {
+        "id": "ZSNJ",
+        "prefix": [
+            "ZSNJ"
+        ],
+        "name": "Nanjing Approach",
+        "coordinate": [
+            117.26222222222,
+            34.773055555556
+        ]
+    },
+    {
+        "id": "ZSQD",
+        "prefix": [
+            "ZSQD"
+        ],
+        "name": "Qingdao Approach",
+        "coordinate": [
+            119.53333333333,
+            37.413888888889
+        ]
+    },
+    {
+        "id": "ZSQZ",
+        "prefix": [
+            "ZSQZ"
+        ],
+        "name": "Quanzhou Approach",
+        "coordinate": [
+            118.67194444444,
+            24.619444444444
+        ]
+    },
+    {
+        "id": "ZSSS_F",
+        "prefix": [
+            "ZSSS_F"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            120.8625,
+            31.483055555556
+        ]
+    },
+    {
+        "id": "ZSSS",
+        "prefix": [
+            "ZSSS"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            119.55694444444,
+            32.109444444444
+        ]
+    },
+    {
+        "id": "ZSSS_E",
+        "prefix": [
+            "ZSSS_E"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            121.43166666667,
+            31.973888888889
+        ]
+    },
+    {
+        "id": "ZSSS_PF",
+        "prefix": [
+            "ZSSS_PF"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            121.45333333333,
+            31.517222222222
+        ]
+    },
+    {
+        "id": "ZSWX",
+        "prefix": [
+            "ZSWX"
+        ],
+        "name": "Wuxi Approach",
+        "coordinate": [
+            120.31944444444,
+            31.589444444444
+        ]
+    },
+    {
+        "id": "ZSYT",
+        "prefix": [
+            "ZSYT"
+        ],
+        "name": "Yantai Approach",
+        "coordinate": [
+            120.3425,
+            37.863333333333
+        ]
+    },
+    {
+        "id": "ZSSS_W",
+        "prefix": [
+            "ZSSS_W"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            119.55694444444,
+            32.109444444444
+        ]
+    },
+    {
+        "id": "ZSSS_S",
+        "prefix": [
+            "ZSSS_S"
+        ],
+        "name": "Shanghai Approach",
+        "coordinate": [
+            120.92805555556,
+            30.485555555556
+        ]
+    },
+    {
+        "id": "ZUCK",
+        "prefix": [
+            "ZUCK"
+        ],
+        "name": "Chongqing Approach",
+        "coordinate": [
+            106.41083333333,
+            30.738888888889
+        ]
+    },
+    {
+        "id": "ZUGY",
+        "prefix": [
+            "ZUGY"
+        ],
+        "name": "Guiyang Approach",
+        "coordinate": [
+            105.91166666667,
+            27.747777777778
+        ]
+    },
+    {
+        "id": "ZSWZ",
+        "prefix": [
+            "ZSWZ"
+        ],
+        "name": "Wenzhou Approach",
+        "coordinate": [
+            121.44888888889,
+            26.485555555556
+        ]
+    },
+    {
+        "id": "ZULS",
+        "prefix": [
+            "ZULS"
+        ],
+        "name": "Lhasa Approach",
+        "coordinate": [
+            92.795833333333,
+            30.711111111111
+        ]
+    },
+    {
+        "id": "ZYHB",
+        "prefix": [
+            "ZYHB"
+        ],
+        "name": "Harbin Approach",
+        "coordinate": [
+            124.90833333333,
+            46.566666666667
+        ]
+    },
+    {
+        "id": "ZUUU",
+        "prefix": [
+            "ZUUU"
+        ],
+        "name": "Chengdu Approach",
+        "coordinate": [
+            103.01694444444,
+            30.806111111111
+        ]
+    },
+    {
+        "id": "ZYCC",
+        "prefix": [
+            "ZYCC"
+        ],
+        "name": "Changchun Approach",
+        "coordinate": [
+            123.915,
+            44.454166666667
+        ]
+    },
+    {
+        "id": "ZWWW",
+        "prefix": [
+            "ZWWW"
+        ],
+        "name": "Urumqi Approach",
+        "coordinate": [
+            86.660555555556,
+            44.623888888889
+        ]
+    },
+    {
+        "id": "ZYTL",
+        "prefix": [
+            "ZYTL"
+        ],
+        "name": "Dalian Approach",
+        "coordinate": [
+            121.74666666667,
+            39.656666666667
+        ]
+    },
+    {
+        "id": "ZYTX",
+        "prefix": [
+            "ZYTX"
+        ],
+        "name": "Shenyang Approach",
+        "coordinate": [
+            124.00777777778,
+            42.632777777778
+        ]
+    }
+]

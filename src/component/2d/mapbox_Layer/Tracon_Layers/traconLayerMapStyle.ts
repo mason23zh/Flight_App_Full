@@ -10,11 +10,23 @@ export const highlightTraconBoundariesLayerStyle: FillLayer = {
     }
 };
 
+// export const traconBoundariesLineLayerStyle: LineLayer = {
+//     id: "tracon-boundaries-line-layer",
+//     type: "line",
+//     paint: {
+//         "line-color": "#04BDFF",
+//         "line-width": 2
+//     }
+// };
+
 export const traconBoundariesLineLayerStyle: LineLayer = {
     id: "tracon-boundaries-line-layer",
+    source: "active-tracon-layers",
+    "source-layer": "latest_tracon_boundaries",
     type: "line",
     paint: {
         "line-color": "#04BDFF",
         "line-width": 2
     }
 };
+

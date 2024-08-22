@@ -11,6 +11,7 @@ import TraconLabelPopup from "./TraconLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
 import { isFeatureCollection } from "../util/helpers";
+import useMatchTracon from "../../../../hooks/useMatchTracon";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -25,6 +26,8 @@ const TraconLayer = ({
     labelVisible
 }: Controller) => {
     const dispatch = useDispatch();
+
+    useMatchTracon(controllerInfo);
 
     const {
         geoJsonFeatures,
@@ -60,18 +63,30 @@ const TraconLayer = ({
 
     if (geoJsonFeatures) {
         return (
-            <Source type="geojson" data={geoJsonFeatures}>
+            <Source
+                id="active-tracon-layers"
+                type="vector"
+                url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
+            >
                 <Layer {...traconBoundariesLineLayerStyle}/>
-                {(hoverTraconCast && labelVisible && isFeatureCollection(hoverTraconCast)) &&
-                    <Source type="geojson" data={hoverTraconCast}>
-                        <Layer {...highlightTraconBoundariesLayerStyle}/>
-                        <TraconLabelPopup hoverTracon={hoverTraconCast}/>
-                    </Source>
-                }
-                {labelVisible && renderedMarkers}
             </Source>
         );
     }
+    //
+    // if (geoJsonFeatures) {
+    //     return (
+    //         <Source type="geojson" data={geoJsonFeatures}>
+    //             <Layer {...traconBoundariesLineLayerStyle}/>
+    //             {(hoverTraconCast && labelVisible && isFeatureCollection(hoverTraconCast)) &&
+    //                 <Source type="geojson" data={hoverTraconCast}>
+    //                     <Layer {...highlightTraconBoundariesLayerStyle}/>
+    //                     <TraconLabelPopup hoverTracon={hoverTraconCast}/>
+    //                 </Source>
+    //             }
+    //             {labelVisible && renderedMarkers}
+    //         </Source>
+    //     );
+    // }
 };
 
 export default React.memo(TraconLayer);

@@ -1,12 +1,14 @@
 import Dexie, { Table } from "dexie";
 import aircraftData from "../assets/aircraft_data/aircraft.json";
 import { LocalDbAirport, MergedFirMatching, MergedFssMatching, VatsimFlight } from "../types";
+import { VatsimTraconMapping } from "../types";
 
 class VatsimLocalDB extends Dexie {
     vatsimTraffic!: Table<VatsimFlight, number>;
     airports!: Table<LocalDbAirport, string>;
     fir!: Table<MergedFirMatching, string>;
     fss!: Table<MergedFssMatching, string>;
+    tracon!: Table<VatsimTraconMapping, string>;
 
     constructor() {
         super("LocalVatsimDB");
@@ -36,6 +38,8 @@ class VatsimLocalDB extends Dexie {
                         firBoundary`,
                     fss: `&fssCallsign, 
                           fssName`,
+                    tracon: `&id,
+                            *prefix`
                 },
             );
     }
@@ -91,6 +95,12 @@ class VatsimLocalDB extends Dexie {
         const validFssData = newData.filter(fss => fss.fssCallsign);
         await this.fss.clear();
         await this.fss.bulkPut(validFssData);
+    }
+
+    async loadTracon(newData: VatsimTraconMapping[]) {
+        const validTraconData = newData.filter(tracon => tracon.id);
+        await this.tracon.clear();
+        await this.tracon.bulkPut(validTraconData);
     }
 }
 

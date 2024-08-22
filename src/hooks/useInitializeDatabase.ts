@@ -5,7 +5,7 @@
 
 import { db } from "../database/db";
 import { useEffect, useState } from "react";
-import { LocalDbAirport, MergedFirMatching, MergedFssMatching } from "../types";
+import { LocalDbAirport, MergedFirMatching, MergedFssMatching, VatsimTraconMapping } from "../types";
 
 export const useInitializeDatabase = () => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false);
@@ -46,6 +46,18 @@ export const useInitializeDatabase = () => {
                         await db.loadFss(fssData as unknown as MergedFssMatching[]);
                     } else {
                         throw new Error("Invalid fss data format");
+                    }
+                }
+
+                //import tracon
+                const traconCount = await db.tracon.count();
+                if (traconCount === 0) {
+                    console.log("Import tracon to local db.");
+                    const { default: traconData } = await import ("../assets/Vatsim/vatsim-tracon-mapping.json");
+                    if (Array.isArray(traconData)) {
+                        await db.loadTracon(traconData as unknown as VatsimTraconMapping[]);
+                    } else {
+                        throw new Error("Invalid tracon data format");
                     }
                 }
 

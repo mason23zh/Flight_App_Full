@@ -36,7 +36,7 @@ export const activeFirLayerStyle = (matchedFirs: {
 export const underlineBoundariesLineStyle: LineLayer = {
     id: "fir-underline-boundaries-line-layer",
     source: "fir-outline-boundaries-source",
-    "source-layer": "firboundaries",
+    "source-layer": "latest_fir_boundaries",
     type: "line",
     paint: {
         "line-color": "#9499a8",
