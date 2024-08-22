@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
-import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
-    activeTraconLayerStyle,
-    highlightTraconBoundariesLayerStyle,
-    traconBoundariesLineLayerStyle
+    activeTraconFillLayerStyle,
+    activeTraconLineLayerStyle,
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
-import { isFeatureCollection } from "../util/helpers";
 import useMatchTracon from "../../../../hooks/useMatchTracon";
 
 interface Controller {
@@ -34,70 +31,56 @@ const TraconLayer = ({
         isError: isTraconError
     } = useMatchTracon(controllerInfo);
 
-    // const {
-    //     geoJsonFeatures,
-    //     isLoading,
-    //     error
-    // } = useMatchTraconFeatures(controllerInfo);
-    //
-    // if (geoJsonFeatures) {
-    //     console.log("length:", geoJsonFeatures.features.length);
-    // }
+    const {
+        renderedMarkers,
+        hoverTraconCast,
+    } = useRenderTraconLabelMarker(matchedTracons);
 
-    // const {
-    //     renderedMarkers,
-    //     hoverTraconCast,
-    // } = useRenderTraconLabelMarker(geoJsonFeatures);
+    console.log("Hover info:", hoverTraconCast);
 
-    // useEffect(() => {
-    //     if (isLoading) {
-    //         dispatch(addMessage({
-    //             location: "TRACON",
-    //             messageType: "LOADING",
-    //             content: "Loading Tracon layer..."
-    //         }));
-    //     }
-    //
-    //     if (error) {
-    //         dispatch(addMessage({
-    //             location: "TRACON",
-    //             messageType: "ERROR",
-    //             content: "Error loading Tracon layer."
-    //         }));
-    //     }
-    //     if (geoJsonFeatures && !error && !isLoading) {
-    //         dispatch(removeMessageByLocation({ location: "TRACON" }));
-    //     }
-    // }, [isLoading, error, geoJsonFeatures]);
+    useEffect(() => {
+        if (isTraconLoading) {
+            dispatch(addMessage({
+                location: "TRACON",
+                messageType: "LOADING",
+                content: "Loading Tracon layer..."
+            }));
+        }
+
+        if (isTraconError) {
+            dispatch(addMessage({
+                location: "TRACON",
+                messageType: "ERROR",
+                content: "Error loading Tracon layer."
+            }));
+        }
+        if (matchedTracons && !isTraconError && !isTraconLoading) {
+            dispatch(removeMessageByLocation({ location: "TRACON" }));
+        }
+    }, [isTraconError, isTraconLoading, controllerInfo]);
 
 
     if (matchedTracons) {
-        const activeTraconStyle = activeTraconLayerStyle(matchedTracons);
+        const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
+        const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoverTraconCast);
         return (
             <Source
                 id="active-tracon-layers"
                 type="vector"
                 url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
             >
-                <Layer {...activeTraconStyle}/>
+                <Layer {...activeTraconOutlineStyle}/>
+                {(hoverTraconCast && labelVisible) && (
+                    <>
+                        <Layer {...activeHoverTraconLayerStyle} />
+                        <TraconLabelPopup hoverTracon={hoverTraconCast}/>
+                    </>
+                )
+                }
+                {labelVisible && renderedMarkers}
             </Source>
         );
     }
-    //
-    // if (geoJsonFeatures) {
-    //     return (
-    //         <Source type="geojson" data={geoJsonFeatures}>
-    //             <Layer {...traconBoundariesLineLayerStyle}/>
-    //             {(hoverTraconCast && labelVisible && isFeatureCollection(hoverTraconCast)) &&
-    //                 <Source type="geojson" data={hoverTraconCast}>
-    //                     <Layer {...highlightTraconBoundariesLayerStyle}/>
-    //                     <TraconLabelPopup hoverTracon={hoverTraconCast}/>
-    //                 </Source>
-    //             }
-    //             {labelVisible && renderedMarkers}
-    //         </Source>
-    //     );
-    // }
 };
 
 export default React.memo(TraconLayer);

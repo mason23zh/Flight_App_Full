@@ -1,27 +1,27 @@
 import React from "react";
-import GeoJson from "geojson";
 import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
+import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 interface Props {
-    hoverTracon: GeoJson.FeatureCollection;
+    hoverTracon: MatchedTracon;
 }
 
 const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const darkMode = useTheme();
     let lon: number;
     let lat: number;
-    if ("coordinates" in hoverTracon.features[0].geometry) {
-        lon = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][0]);
-        lat = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][1]);
+    if (hoverTracon.traconInfo.coordinate.length == 2) {
+        lon = Number(hoverTracon.traconInfo.coordinate[0]);
+        lat = Number(hoverTracon.traconInfo.coordinate[1]);
     }
 
-    const traconName = hoverTracon.features[0].properties.name;
+    const traconName = hoverTracon.traconInfo.name;
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
-    const renderControllersData = hoverTracon.features[0].properties.controllers.map((c) => {
+    const renderControllersData = hoverTracon.controllers.map((c) => {
         const uniqueKey = c.name + c.callsign;
         const {
             hour,

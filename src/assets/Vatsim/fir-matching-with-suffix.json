@@ -1730,6 +1730,22 @@
     {
         "icao": "EPWW",
         "name": "Warszawa",
+        "callsignPrefix": "EPWW",
+        "firBoundary": "EPWW",
+        "isFss": false,
+        "suffix": "Radar",
+        "entries": [
+            {
+                "label_lat": "52.433334",
+                "label_lon": "19.15",
+                "oceanic": "0"
+            }
+        ],
+        "uniqueId": "d7a4881234dcefe41ff9430b028f9fdb"
+    },
+    {
+        "icao": "EPWW",
+        "name": "Warszawa",
         "callsignPrefix": "EPWA",
         "firBoundary": "EPWW",
         "isFss": false,
@@ -7214,6 +7230,22 @@
             }
         ],
         "uniqueId": "6d55836809a4b35406686f5b3e7b7842"
+    },
+    {
+        "icao": "UMMV",
+        "name": "Minsk",
+        "callsignPrefix": "UMMV",
+        "firBoundary": "UMMV",
+        "isFss": false,
+        "suffix": "Control",
+        "entries": [
+            {
+                "label_lat": "53.78",
+                "label_lon": "27.958334",
+                "oceanic": "0"
+            }
+        ],
+        "uniqueId": "315f0b3bc5c76ded275b5247e70132e0"
     },
     {
         "icao": "UMMV",
