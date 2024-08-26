@@ -1,3 +1,5 @@
+import { Feature, FeatureCollection, Geometry } from "geojson";
+
 interface Barometer {
     hg: string,
     hpa: string,
@@ -523,6 +525,19 @@ interface VatsimTraconMapping {
     coordinate: number[];
     suffix: string;
 }
+
+export interface FirProperties {
+    id: string;
+    oceanic: string;
+    label_lon: string;
+    label_lat: string;
+    region: string;
+    division: string;
+}
+
+export type FirFeature = Feature<Geometry, FirProperties>;
+
+export type FirFeatureCollection = FeatureCollection<Geometry, FirProperties>;
 
 export type {
     LiveFlightData,

@@ -63,7 +63,6 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
 
         while (stack.length > 0) {
             const prefix = stack.join("_");
-            console.log("PREFIX:", prefix);
 
             matches = await db.tracon
                 .where("prefix")
@@ -113,7 +112,7 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
     }, [controllerData]);
 
     // TODO: Miss matching here.
-    console.log("Matched tracons:", matchedTracons);
+    // console.log("Matched tracons:", matchedTracons);
 
     return {
         matchedTracons,

@@ -1,11 +1,10 @@
 import { MVTLayer } from "@deck.gl/geo-layers";
 
-const tileURL = "https://api.mapbox.com/v4/mason-zh.clqudy2fp2ag61nogduw0ofwr-96of0/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
-
-
+const tileURL = "https://api.mapbox.com/v4/mason-zh.cm00590z503li1tlkgyy8e5s3-5pv1b/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoibWFzb24temgiLCJhIjoiY2xweDcyZGFlMDdmbTJscXR1NndoZHlhZyJ9.bbbDy93rmFT6ppFe00o3DA";
+// const tileURL = "mapbox://mason-zh.cm00590z503li1tlkgyy8e5s3-5pv1b";
 const firTileLayer = new MVTLayer({
     id: "fir-boundaries",
-    data: tileURL,
+    data: [tileURL],
     minZoom: 0,
     maxZoom: 30,
     // stroked: true,

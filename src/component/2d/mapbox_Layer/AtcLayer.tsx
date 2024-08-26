@@ -36,7 +36,7 @@ const AtcLayer = () => {
 
     //update controller info every 60 seconds
     const {
-        data: controllerData,
+        data: NewControllerData,
         error: controllerError,
         isLoading: controllerLoading
     } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
@@ -64,7 +64,7 @@ const AtcLayer = () => {
             }));
         }
 
-        if (controllerData &&
+        if (NewControllerData &&
                 geoJsonData &&
                 !controllerLoading &&
                 !controllerError &&
@@ -72,7 +72,7 @@ const AtcLayer = () => {
                 !geoJsonError) {
             dispatch(removeMessageByLocation({ location: "ATC" }));
         }
-    }, [controllerError, controllerLoading, controllerData]);
+    }, [controllerError, controllerLoading, NewControllerData]);
 
     const currentBounds = useMemo(() => {
         return new WebMercatorViewport({
@@ -108,6 +108,8 @@ const AtcLayer = () => {
     const memoFilteredGeoJsonData = useMemo(() => filteredGeoJsonData,
         [filteredGeoJsonData?.features.length]
     );
+
+    const controllerData = useMemo(() => NewControllerData, [JSON.stringify(NewControllerData)]);
 
     return (
         <>

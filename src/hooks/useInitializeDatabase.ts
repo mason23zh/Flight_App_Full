@@ -5,7 +5,13 @@
 
 import { db } from "../database/db";
 import { useEffect, useState } from "react";
-import { LocalDbAirport, MergedFirMatching, MergedFssMatching, VatsimTraconMapping } from "../types";
+import {
+    FirFeatureCollection,
+    LocalDbAirport,
+    MergedFirMatching,
+    MergedFssMatching,
+    VatsimTraconMapping
+} from "../types";
 
 export const useInitializeDatabase = () => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false);
@@ -61,9 +67,22 @@ export const useInitializeDatabase = () => {
                     }
                 }
 
+                //import fir boundaries
+                const firBoundariesCount = await db.firBoundaries.count();
+                if (firBoundariesCount === 0) {
+                    console.log("Import fir boundaries to local db");
+                    try {
+                        const { default: firBoundariesData } = await import("../assets/Vatsim/fir-boundaries.json");
+
+                        await db.loadFirBoundaries(firBoundariesData as unknown as FirFeatureCollection);
+                    } catch (e) {
+                        console.error("Error import fir boundaries", e);
+                    }
+                }
+
                 setIsInitialized(true);
             } catch (e) {
-                console.error("Failed to load airport into Local db:", e);
+                console.error("Failed to load local data into Local db:", e);
             }
         };
 

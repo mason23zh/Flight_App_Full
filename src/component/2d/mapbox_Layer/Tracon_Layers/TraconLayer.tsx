@@ -17,7 +17,6 @@ interface Controller {
 }
 
 //!fix: LGA_V_APP
-//TODO: Try to avoid using geoJson
 
 const TraconLayer = ({
     controllerInfo,
@@ -35,8 +34,6 @@ const TraconLayer = ({
         renderedMarkers,
         hoverTraconCast,
     } = useRenderTraconLabelMarker(matchedTracons);
-
-    console.log("Hover info:", hoverTraconCast);
 
     useEffect(() => {
         if (isTraconLoading) {

@@ -76,7 +76,7 @@ const fssCallsign = [
 
 
 const useMatchedFirs = (
-    controllerInfo: VatsimControllers,
+    controllerInfo: VatsimControllers | null,
 ): UseMatchedFirFeaturesReturn => {
     const [matchedFirs, setMatchedFirs] = useState<MatchedFir[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -208,6 +208,7 @@ const useMatchedFirs = (
     }
 
     useEffect(() => {
+        if (!controllerInfo) return;
         firMap.clear(); //to prevent stale data
         const fetchMatchedFirs = async () => {
             try {
@@ -215,10 +216,10 @@ const useMatchedFirs = (
                 setIsError(false);
 
                 // Handle FIR controllers
-                await Promise.all(controllerInfo.fir.map(fir => _findMatchingFir(fir)));
+                await Promise.all(controllerInfo?.fir.map(fir => _findMatchingFir(fir)));
 
                 // Handle FSS controllers
-                await Promise.all(controllerInfo.fss.map(fss => _findMatchingFss(fss)));
+                await Promise.all(controllerInfo?.fss.map(fss => _findMatchingFss(fss)));
 
                 setMatchedFirs(Array.from(firMap.values()));
             } catch (error) {

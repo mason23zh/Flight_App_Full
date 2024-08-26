@@ -15,7 +15,7 @@ import {
     setSelectedTraffic,
     RootState,
     closeTrafficDetail,
-    openTrafficDetail
+    openTrafficDetail, useFetchVatsimControllersDataQuery
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
@@ -132,8 +132,6 @@ const MainTrafficLayer = ({
 
     const { flightData } = useWebSocketContext();
 
-    // const matchedFirIds = useMatchedFirIds(controllerData);
-
     const trafficLayer3D = useMemo(() => {
         if (terrainEnable && trafficLayerVisible) {
             return trafficLayer_3D(filteredTrafficData, true);
@@ -146,9 +144,6 @@ const MainTrafficLayer = ({
         return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 
-    // const activeFir = useMemo(() => {
-    //     return selectedFirLayer(matchedFirIds);
-    // }, [controllerData]);
 
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
@@ -206,8 +201,8 @@ const MainTrafficLayer = ({
         }
     }, [selectTraffic]);
 
+
     const layers = useMemo(() => [
-        // activeFir,
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
         localTrafficLayer

@@ -1,6 +1,13 @@
 import Dexie, { Table } from "dexie";
 import aircraftData from "../assets/aircraft_data/aircraft.json";
-import { LocalDbAirport, MergedFirMatching, MergedFssMatching, VatsimFlight } from "../types";
+import {
+    FirFeature,
+    FirFeatureCollection,
+    LocalDbAirport,
+    MergedFirMatching,
+    MergedFssMatching,
+    VatsimFlight
+} from "../types";
 import { VatsimTraconMapping } from "../types";
 
 class VatsimLocalDB extends Dexie {
@@ -9,6 +16,7 @@ class VatsimLocalDB extends Dexie {
     fir!: Table<MergedFirMatching, string>;
     fss!: Table<MergedFssMatching, string>;
     tracon!: Table<VatsimTraconMapping, string>;
+    firBoundaries!: Table<FirFeature, string>;
 
     constructor() {
         super("LocalVatsimDB");
@@ -39,7 +47,8 @@ class VatsimLocalDB extends Dexie {
                     fss: `&fssCallsign, 
                           fssName`,
                     tracon: `&id,
-                            *prefix`
+                            *prefix`,
+                    firBoundaries: "&[properties.id+properties.oceanic]"
                 },
             );
     }
@@ -101,6 +110,25 @@ class VatsimLocalDB extends Dexie {
         const validTraconData = newData.filter(tracon => tracon.id);
         await this.tracon.clear();
         await this.tracon.bulkPut(validTraconData);
+    }
+
+    async loadFirBoundaries(newData: FirFeatureCollection) {
+        const features = newData.features.filter((feature) => {
+            console.log("Features:", feature);
+            if (feature.properties.id && feature.properties.oceanic) {
+                // const id = feature.properties.id + Math.random();
+                return {
+                    ...feature
+                };
+            }
+        });
+
+        try {
+            await this.firBoundaries.clear();
+            await this.firBoundaries.bulkPut(features);
+        } catch (e) {
+            console.log("failed to import, ", e);
+        }
     }
 }
 

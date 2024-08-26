@@ -50,7 +50,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
         bearing: 0,
         width: 0,
         height: 0,
-        isDragging: false
+        isDragging: false,
+        mapRef: mapRef
     });
 
 
