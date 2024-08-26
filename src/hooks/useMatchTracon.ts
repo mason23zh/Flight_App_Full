@@ -86,7 +86,7 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
 
     useEffect(() => {
         matchedTraconMap.clear();
-        const fetcheMatchedTracons = async () => {
+        const fetchMatchedTracons = async () => {
             if (!controllerData || controllerData.tracon.length === 0) {
                 setIsError(true);
                 setIsLoading(false);
@@ -108,11 +108,11 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
             }
         };
 
-        fetcheMatchedTracons();
+        fetchMatchedTracons();
     }, [controllerData]);
 
     // TODO: Miss matching here.
-    // console.log("Matched tracons:", matchedTracons);
+    console.log("Matched tracons:", matchedTracons);
 
     return {
         matchedTracons,

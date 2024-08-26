@@ -1,15 +1,6 @@
 import { FillLayer, LineLayer } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
-export const _activeFirLayerStyle: FillLayer = {
-    id: "fir-boundaries-layer",
-    type: "fill",
-    paint: {
-        "fill-color": "#9499a8",
-        "fill-opacity": 0.2,
-    }
-};
-
 export const activeFirLayerStyle = (matchedFirs: {
     id: string,
     oceanic: string,
@@ -22,14 +13,11 @@ export const activeFirLayerStyle = (matchedFirs: {
         ["==", ["get", "oceanic"], fir.oceanic]
     ]);
 
-
-    console.log("active fir layer style run.");
-
     return {
         id: "fir-boundaries-layer",
         type: "fill",
         source: "active-fir-layers",
-        // "source-layer": "latest_fir_boundaries",
+        "source-layer": "latest_fir_boundaries",
         paint: {
             "fill-color": "#9499a8",
             "fill-opacity": [
@@ -47,11 +35,10 @@ export const activeFirLayerStyle = (matchedFirs: {
     };
 };
 
-
 export const underlineBoundariesLineStyle: LineLayer = {
     id: "fir-underline-boundaries-line-layer",
     source: "fir-outline-boundaries-source",
-    // "source-layer": "latest_fir_boundaries",
+    "source-layer": "latest_fir_boundaries",
     type: "line",
     paint: {
         "line-color": "#9499a8",

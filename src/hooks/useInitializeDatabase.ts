@@ -6,7 +6,6 @@
 import { db } from "../database/db";
 import { useEffect, useState } from "react";
 import {
-    FirFeatureCollection,
     LocalDbAirport,
     MergedFirMatching,
     MergedFssMatching,
@@ -64,19 +63,6 @@ export const useInitializeDatabase = () => {
                         await db.loadTracon(traconData as unknown as VatsimTraconMapping[]);
                     } else {
                         throw new Error("Invalid tracon data format");
-                    }
-                }
-
-                //import fir boundaries
-                const firBoundariesCount = await db.firBoundaries.count();
-                if (firBoundariesCount === 0) {
-                    console.log("Import fir boundaries to local db");
-                    try {
-                        const { default: firBoundariesData } = await import("../assets/Vatsim/fir-boundaries.json");
-
-                        await db.loadFirBoundaries(firBoundariesData as unknown as FirFeatureCollection);
-                    } catch (e) {
-                        console.error("Error import fir boundaries", e);
                     }
                 }
 

@@ -24,7 +24,6 @@ interface ControllerInfo {
 
 interface UseMatchedFirFeaturesReturn {
     matchedFirs: MatchedFir[];
-    isLoading: boolean;
     isError: boolean;
 }
 
@@ -79,7 +78,6 @@ const useMatchedFirs = (
     controllerInfo: VatsimControllers | null,
 ): UseMatchedFirFeaturesReturn => {
     const [matchedFirs, setMatchedFirs] = useState<MatchedFir[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isError, setIsError] = useState<boolean>(false);
 
     const firMap: Map<string, MatchedFir> = new Map();
@@ -178,6 +176,8 @@ const useMatchedFirs = (
             const matchingFir = await db.fir
                 .where("callsignPrefix")
                 .equals(partialCallsign)
+                .or("icao")
+                .equals(partialCallsign)
                 .toArray();
 
             if (matchingFir && matchingFir.length > 0) {
@@ -209,12 +209,9 @@ const useMatchedFirs = (
 
     useEffect(() => {
         if (!controllerInfo) return;
-        firMap.clear(); //to prevent stale data
+        // firMap.clear(); //to prevent stale data
         const fetchMatchedFirs = async () => {
             try {
-                setIsLoading(true);
-                setIsError(false);
-
                 // Handle FIR controllers
                 await Promise.all(controllerInfo?.fir.map(fir => _findMatchingFir(fir)));
 
@@ -225,8 +222,6 @@ const useMatchedFirs = (
             } catch (error) {
                 console.error("Failed to fetch matched FIRs:", error);
                 setIsError(true);
-            } finally {
-                setIsLoading(false);
             }
         };
 
@@ -234,7 +229,6 @@ const useMatchedFirs = (
     }, [controllerInfo]);
     return {
         matchedFirs,
-        isLoading,
         isError
     };
 };
