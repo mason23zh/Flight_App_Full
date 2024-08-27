@@ -73,7 +73,8 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
                 addToMap(
                     {
                         ...matches[0],
-                        suffix: isAppSuffix ? "APP" : "DEP"
+                        suffix: isAppSuffix ? "APP" : "DEP",
+                        callsignPrefix: prefix,
                     },
                     controller
                 );

@@ -2,17 +2,18 @@ import { FillLayer, LineLayer } from "react-map-gl";
 import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
-    // const filterConditions = ["any", ...matchedTracon.map(tracon => ["==", ["get", "id"], tracon.traconInfo.id])];
-
-    const filterConditions = ["any", ...matchedTracon.map(tracon => {
-        // Check if the controller's callsign contains any of the prefixes
-        return tracon.traconInfo.prefix.map(prefix => [
-            "all",
-            ["==", ["get", "id"], tracon.traconInfo.id],
-            ["in", prefix, ["get", "prefix"]]
-        ]);
-    })
-        .flat()];
+    // const filterConditions = matchedTracon.map(tracon => {
+    //     return [
+    //         "all",
+    //         ["==", ["get", "id"], tracon.traconInfo.id],
+    //         ["in", tracon.traconInfo.callsignPrefix, ["get", "prefix"]]
+    //     ];
+    // });
+    const filterConditions = matchedTracon.map(tracon => [
+        "all",
+        ["==", ["get", "id"], tracon.traconInfo.id],
+        ["in", tracon.traconInfo.callsignPrefix, ["get", "prefix"]]
+    ]);
 
     return {
         id: "tracon-boundaries-layer",
@@ -23,7 +24,7 @@ export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): Line
             "line-color": "#04BDFF",
             "line-width": 2,
         },
-        filter: filterConditions
+        filter: ["any", ...filterConditions]
     };
 };
 

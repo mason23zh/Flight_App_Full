@@ -7,8 +7,8 @@
         "name": "Atlanta Approach",
         "uniqueId": "A80-AHN",
         "coordinates": [
-            "-83.63917",
-            "33.45056"
+            "-84.138088",
+            "34.441282"
         ]
     },
     {
@@ -19,8 +19,8 @@
         "name": "Atlanta Approach",
         "uniqueId": "A80-CSG",
         "coordinates": [
-            "-85.775",
-            "32.8"
+            "-85.225",
+            "33.34583"
         ]
     },
     {
@@ -43,8 +43,8 @@
         "name": "Atlanta Approach",
         "uniqueId": "A80-ATL",
         "coordinates": [
-            "-84.705556",
-            "34.279167"
+            "-84.158333",
+            "34.333333"
         ]
     },
     {
@@ -55,8 +55,8 @@
         "name": "Boston Approach",
         "uniqueId": "A90-A90",
         "coordinates": [
-            "-70.9916667",
-            "43.4166667"
+            "-71.3834486",
+            "43.7583967"
         ]
     },
     {
@@ -67,8 +67,8 @@
         "name": "Atlanta Approach",
         "uniqueId": "A80-MCN",
         "coordinates": [
-            "-84.30556",
-            "32.98056"
+            "-83.08194",
+            "33.49806"
         ]
     },
     {
@@ -79,8 +79,8 @@
         "name": "Boston Approach",
         "uniqueId": "A90-ACK",
         "coordinates": [
-            "-69.5",
-            "42.0836108"
+            "-70.3166681",
+            "42.0999989"
         ]
     },
     {
@@ -91,8 +91,8 @@
         "name": "Boston Approach",
         "uniqueId": "A90-BOS",
         "coordinates": [
-            "-70.8907856",
-            "41.7713683"
+            "-71.1111675",
+            "42.8583333"
         ]
     },
     {
@@ -115,8 +115,8 @@
         "name": "Allentown Approach",
         "uniqueId": "ABE-ABE",
         "coordinates": [
-            "-76.1625",
-            "40.688889"
+            "-75.1608169",
+            "41.3086281"
         ]
     },
     {
@@ -127,8 +127,8 @@
         "name": "Waco Approach",
         "uniqueId": "ACT-ACT",
         "coordinates": [
-            "-97.775",
-            "31.75"
+            "-97.33917",
+            "32.28333"
         ]
     },
     {
@@ -139,8 +139,8 @@
         "name": "Abilene Approach",
         "uniqueId": "ABI-ABI",
         "coordinates": [
-            "-100.5",
-            "32.29167"
+            "-99.68889",
+            "33.11111"
         ]
     },
     {
@@ -151,8 +151,8 @@
         "name": "Albuquerque Approach",
         "uniqueId": "ABQ-ABQ",
         "coordinates": [
-            "-107.34222",
-            "34.90833"
+            "-106.64944",
+            "35.43806"
         ]
     },
     {
@@ -163,8 +163,8 @@
         "name": "Augusta Approach",
         "uniqueId": "AGS-AGS",
         "coordinates": [
-            "-82.266389",
-            "34.066389"
+            "-81.891667",
+            "34.083333"
         ]
     },
     {
@@ -175,8 +175,8 @@
         "name": "Albany Approach",
         "uniqueId": "ALB-ALB",
         "coordinates": [
-            "-72.8583333",
-            "43.1083894"
+            "-73.75",
+            "43.5361111"
         ]
     },
     {
@@ -187,8 +187,8 @@
         "name": "Atlantic City Approach",
         "uniqueId": "ACY-ACY",
         "coordinates": [
-            "-75.311667",
-            "39.431944"
+            "-74.394444",
+            "39.749167"
         ]
     },
     {
@@ -199,8 +199,8 @@
         "name": "Alpena Approach",
         "uniqueId": "APN-APN",
         "coordinates": [
-            "-82.35",
-            "44.666667"
+            "-84.315833",
+            "45.8675"
         ]
     },
     {
@@ -211,8 +211,8 @@
         "name": "Waterloo Approach",
         "uniqueId": "ALO-ALO",
         "coordinates": [
-            "-93.266667",
-            "42.6625"
+            "-92.266667",
+            "43.275"
         ]
     },
     {
@@ -223,8 +223,8 @@
         "name": "Aspen Approach",
         "uniqueId": "ASE-ASE",
         "coordinates": [
-            "-107.220556",
-            "39.563611"
+            "-106.539444",
+            "39.621389"
         ]
     },
     {
@@ -235,8 +235,8 @@
         "name": "Amarillo Approach",
         "uniqueId": "AMA-AMA",
         "coordinates": [
-            "-102.043333",
-            "34.711389"
+            "-101.786111",
+            "35.81"
         ]
     },
     {
@@ -247,8 +247,8 @@
         "name": "Asheville Approach",
         "uniqueId": "AVL-AVL",
         "coordinates": [
-            "-83.133333",
-            "35.983333"
+            "-82.123056",
+            "36.059167"
         ]
     },
     {
@@ -271,8 +271,8 @@
         "name": "Austin Approach",
         "uniqueId": "AUS-AUS",
         "coordinates": [
-            "-96.81666667",
-            "30.15"
+            "-98.08333333",
+            "30.8"
         ]
     },
     {
@@ -283,8 +283,8 @@
         "name": "Wilkes-Barre Approach",
         "uniqueId": "AVP-AVP",
         "coordinates": [
-            "-76.2999808",
-            "41.5009772"
+            "-75.113333",
+            "41.82"
         ]
     },
     {
@@ -296,7 +296,7 @@
         "uniqueId": "AZO-AZO",
         "coordinates": [
             "-87",
-            "42.8"
+            "43.685"
         ]
     },
     {
@@ -319,8 +319,8 @@
         "name": "Bakersfield Approach",
         "uniqueId": "BFL-BFL",
         "coordinates": [
-            "-119.7102614",
-            "35.6774564"
+            "-119.1711111",
+            "36.1333328"
         ]
     },
     {
@@ -343,8 +343,8 @@
         "name": "Great Lakes Approach",
         "uniqueId": "AZO-LAN",
         "coordinates": [
-            "-85.05",
-            "42.68333"
+            "-84.12333",
+            "44.16389"
         ]
     },
     {
@@ -355,8 +355,8 @@
         "name": "Bismarck Approach",
         "uniqueId": "BIS-BIS",
         "coordinates": [
-            "-100.2",
-            "47.233333"
+            "-100.833333",
+            "47.358333"
         ]
     },
     {
@@ -367,8 +367,8 @@
         "name": "Binghamton Approach",
         "uniqueId": "BGM-BGM",
         "coordinates": [
-            "-76.259722",
-            "42.454167"
+            "-76.186111",
+            "42.55"
         ]
     },
     {
@@ -379,8 +379,8 @@
         "name": "Keflavik Approach",
         "uniqueId": "BIKF-BIKF",
         "coordinates": [
-            "-21.231666666667",
-            "63.723611111111"
+            "-22.870833055556",
+            "64.785833055556"
         ]
     },
     {
@@ -391,8 +391,8 @@
         "name": "Reykjavik Approach",
         "uniqueId": "BIRK-BIRK",
         "coordinates": [
-            "-22.966666666667",
-            "64.633333333333"
+            "-22.870833055556",
+            "64.785833055556"
         ]
     },
     {
@@ -403,8 +403,8 @@
         "name": "Billings Approach",
         "uniqueId": "BIL-BIL",
         "coordinates": [
-            "-108.624167",
-            "46.477778"
+            "-108.533333",
+            "46.483056"
         ]
     },
     {
@@ -415,8 +415,8 @@
         "name": "Bangor Approach",
         "uniqueId": "BGR-BGR",
         "coordinates": [
-            "-68.1448897",
-            "44.7716667"
+            "-68.6333333",
+            "45.2833333"
         ]
     },
     {
@@ -427,8 +427,8 @@
         "name": "Big Sky Approach",
         "uniqueId": "BOI-BOI",
         "coordinates": [
-            "-116.920556",
-            "43.128056"
+            "-116.229444",
+            "44.216111"
         ]
     },
     {
@@ -451,8 +451,8 @@
         "name": "Baton Rouge Approach",
         "uniqueId": "BTR-BTR",
         "coordinates": [
-            "-91.5",
-            "30.191667"
+            "-91.608333",
+            "31.197222"
         ]
     },
     {
@@ -463,7 +463,7 @@
         "name": "Burlington Approach",
         "uniqueId": "BTV-BTV",
         "coordinates": [
-            "-73.25",
+            "-73.975",
             "45"
         ]
     },
@@ -475,8 +475,8 @@
         "name": "Big Sky Approach",
         "uniqueId": "BZN-BZN",
         "coordinates": [
-            "-111.889722",
-            "46.1925"
+            "-111.601389",
+            "46.268611"
         ]
     },
     {
@@ -487,8 +487,8 @@
         "name": "Buffalo Approach",
         "uniqueId": "BUF-BUF",
         "coordinates": [
-            "-81.21111",
-            "42"
+            "-78.67778",
+            "43.63333"
         ]
     },
     {
@@ -499,8 +499,8 @@
         "name": "Columbia Approach",
         "uniqueId": "CAE-CAE",
         "coordinates": [
-            "-81.233333",
-            "34.508333"
+            "-80.851667",
+            "34.592222"
         ]
     },
     {
@@ -523,8 +523,8 @@
         "name": "Chattanooga Approach",
         "uniqueId": "CHA-CHA",
         "coordinates": [
-            "-85.258333",
-            "35.5375"
+            "-84.844444",
+            "35.583333"
         ]
     },
     {
@@ -535,8 +535,8 @@
         "name": "Columbus Approach",
         "uniqueId": "CBM-CBM",
         "coordinates": [
-            "-87.986111",
-            "33.043056"
+            "-88.75",
+            "34.383333"
         ]
     },
     {
@@ -547,8 +547,8 @@
         "name": "Charleston Approach",
         "uniqueId": "CHS-CHS",
         "coordinates": [
-            "-80.664444",
-            "33.375556"
+            "-79.975",
+            "33.4125"
         ]
     },
     {
@@ -559,8 +559,8 @@
         "name": "Cedar Rapids Approach",
         "uniqueId": "CID-CID",
         "coordinates": [
-            "-92.285278",
-            "42.199167"
+            "-91.15",
+            "42.341667"
         ]
     },
     {
@@ -571,8 +571,8 @@
         "name": "Charlotte Approach",
         "uniqueId": "CLT-CLT",
         "coordinates": [
-            "-81.232222",
-            "35.689167"
+            "-80.591667",
+            "35.808333"
         ]
     },
     {
@@ -583,8 +583,8 @@
         "name": "Clarksburg Approach",
         "uniqueId": "CKB-CKB",
         "coordinates": [
-            "-80.480556",
-            "40.027778"
+            "-79.813611",
+            "40.107222"
         ]
     },
     {
@@ -595,8 +595,8 @@
         "name": "Columbus Approach",
         "uniqueId": "CMH-CMH",
         "coordinates": [
-            "-83.566667",
-            "40.4"
+            "-82.344444",
+            "40.573611"
         ]
     },
     {
@@ -607,8 +607,8 @@
         "name": "Cleveland Approach",
         "uniqueId": "CLE-CLE",
         "coordinates": [
-            "-83.65",
-            "40.7375"
+            "-81.21111",
+            "42"
         ]
     },
     {
@@ -619,8 +619,8 @@
         "name": "Champaign Approach",
         "uniqueId": "CMI-CMI",
         "coordinates": [
-            "-89.183333",
-            "40.016667"
+            "-88.0875",
+            "40.508333"
         ]
     },
     {
@@ -631,8 +631,8 @@
         "name": "Casper Approach",
         "uniqueId": "CPR-CPR",
         "coordinates": [
-            "-107.038889",
-            "43.234722"
+            "-106.441111",
+            "43.508333"
         ]
     },
     {
@@ -655,8 +655,8 @@
         "name": "Ottawa & Quebec Terminals",
         "uniqueId": "CPTL-CPTL",
         "coordinates": [
-            "-75.009013611111",
-            "45.353140555556"
+            "-71.389333333333",
+            "47.206"
         ]
     },
     {
@@ -667,8 +667,8 @@
         "name": "Charleston Approach",
         "uniqueId": "CRW-CRW",
         "coordinates": [
-            "-82.23333",
-            "38.14028"
+            "-80.99167",
+            "38.94167"
         ]
     },
     {
@@ -679,8 +679,8 @@
         "name": "Cincinnati Approach",
         "uniqueId": "CVG-CVG",
         "coordinates": [
-            "-85.500278",
-            "39.455556"
+            "-84.725",
+            "39.583333"
         ]
     },
     {
@@ -691,8 +691,8 @@
         "name": "Corpus Approach",
         "uniqueId": "CRP-CRP",
         "coordinates": [
-            "-97.966667",
-            "28.033333"
+            "-97.191667",
+            "28.283333"
         ]
     },
     {
@@ -703,8 +703,8 @@
         "name": "Clovis Approach",
         "uniqueId": "CVS-CVS",
         "coordinates": [
-            "-103.916667",
-            "34.65"
+            "-102.983333",
+            "35.1375"
         ]
     },
     {
@@ -715,8 +715,8 @@
         "name": "Bagotville Terminal",
         "uniqueId": "CYBG-CYBG",
         "coordinates": [
-            "-72.123708055556",
-            "48.335496666667"
+            "-70.9804125",
+            "49.079958333333"
         ]
     },
     {
@@ -727,8 +727,8 @@
         "name": "Moose Jaw Terminal",
         "uniqueId": "CYMJ-CYMJ",
         "coordinates": [
-            "-107.27944444444444",
-            "49.95333333333333"
+            "-105.45833333333334",
+            "50.50833333333333"
         ]
     },
     {
@@ -739,8 +739,8 @@
         "name": "Halifax Arrival/Departure",
         "uniqueId": "CYHZ-CYHZ",
         "coordinates": [
-            "-64.45444444444445",
-            "45.22527777777778"
+            "-63.564166666666665",
+            "45.54472222222222"
         ]
     },
     {
@@ -751,8 +751,8 @@
         "name": "Edmonton Arrival/Departure",
         "uniqueId": "CYEG-CYEG",
         "coordinates": [
-            "-114.1987489630336",
-            "53.50153920623929"
+            "-113.8531985307552",
+            "53.91721625207309"
         ]
     },
     {
@@ -763,8 +763,8 @@
         "name": "Ottawa Arrival/Departure",
         "uniqueId": "CYOW-CYOW",
         "coordinates": [
-            "-74.922275277778",
-            "45.085691388889"
+            "-76.266666666667",
+            "45.8375"
         ]
     },
     {
@@ -775,8 +775,8 @@
         "name": "Quebec Terminal",
         "uniqueId": "CYQB-CYQB",
         "coordinates": [
-            "-72.133333333333",
-            "46.766666666667"
+            "-71.389333333333",
+            "47.206"
         ]
     },
     {
@@ -787,8 +787,8 @@
         "name": "Moncton Centre",
         "uniqueId": "CYQM-CYQM",
         "coordinates": [
-            "-67.21666666666667",
-            "46.2"
+            "-62.95027777777778",
+            "46.84666666666667"
         ]
     },
     {
@@ -799,9 +799,8 @@
         "name": "Cold Lake Terminal",
         "uniqueId": "CYOD-CYOD",
         "coordinates": [
-            "-111.705560592802",
-            "54.98355949364386",
-            "0"
+            "-110.3276945188769",
+            "55.38321966075831"
         ]
     },
     {
@@ -812,8 +811,8 @@
         "name": "Thunder Bay Terminal",
         "uniqueId": "CYQT-CYQT",
         "coordinates": [
-            "-89.4452425",
-            "47.79595416666667"
+            "-89.34862194444445",
+            "48.95567166666667"
         ]
     },
     {
@@ -824,8 +823,8 @@
         "name": "Moncton Centre",
         "uniqueId": "CYSJ-CYSJ",
         "coordinates": [
-            "-67.21666666666667",
-            "46.2"
+            "-62.95027777777778",
+            "46.84666666666667"
         ]
     },
     {
@@ -848,8 +847,8 @@
         "name": "Cheyenne Approach",
         "uniqueId": "CYS-CYS",
         "coordinates": [
-            "-104.965556",
-            "40.919444"
+            "-104.85",
+            "41.5"
         ]
     },
     {
@@ -860,8 +859,8 @@
         "name": "Montreal Arrival/Departure",
         "uniqueId": "CYUL-CYUL",
         "coordinates": [
-            "-73.633333333333",
-            "44.8075"
+            "-73.566666666667",
+            "46.066666666667"
         ]
     },
     {
@@ -872,8 +871,8 @@
         "name": "Winnipeg Arrival/Departure",
         "uniqueId": "CYWG-CYWG",
         "coordinates": [
-            "-98.02709166666666",
-            "50.21440277777778"
+            "-97.25527972222223",
+            "50.50989805555555"
         ]
     },
     {
@@ -884,8 +883,8 @@
         "name": "Saskatoon Terminal",
         "uniqueId": "CYXE-CYXE",
         "coordinates": [
-            "-106.89250000000001",
-            "52.7420575"
+            "-106.72587666666666",
+            "52.75373555555556"
         ]
     },
     {
@@ -896,9 +895,8 @@
         "name": "Calgary Arrival/Departure",
         "uniqueId": "CYYC-CYYC",
         "coordinates": [
-            "-114.5883579704858",
-            "51.4642457992322",
-            "0"
+            "-114.0197616383765",
+            "51.61264013816832"
         ]
     },
     {
@@ -933,8 +931,8 @@
         "name": "Toronto Arrival/Departure",
         "uniqueId": "CYYZ-CYYZ",
         "coordinates": [
-            "-79.7297335",
-            "44.1034579"
+            "-79.6280635",
+            "44.1094405"
         ]
     },
     {
@@ -945,8 +943,8 @@
         "name": "Denver Approach",
         "uniqueId": "D01-PUB",
         "coordinates": [
-            "-104.075278",
-            "38.498611"
+            "-105.324444",
+            "38.501389"
         ]
     },
     {
@@ -957,8 +955,8 @@
         "name": "Greenwood Terminal",
         "uniqueId": "CYZX-CYZX",
         "coordinates": [
-            "-65.14666666666668",
-            "44.59388888888889"
+            "-64.9277775",
+            "45.396895"
         ]
     },
     {
@@ -981,8 +979,8 @@
         "name": "Calgary-Edmonton Arrival",
         "uniqueId": "CZEG-CZEG",
         "coordinates": [
-            "-114.1970480023385",
-            "53.50369226450303"
+            "-113.8523102735229",
+            "53.91796944860673"
         ]
     },
     {
@@ -993,8 +991,8 @@
         "name": "Daytona Approach",
         "uniqueId": "DAB-DAB",
         "coordinates": [
-            "-81.566667",
-            "29.823611"
+            "-81.033889",
+            "29.854167"
         ]
     },
     {
@@ -1005,8 +1003,8 @@
         "name": "Denver Approach",
         "uniqueId": "D01-DEN",
         "coordinates": [
-            "-104.104722",
-            "40.440556"
+            "-104.965556",
+            "40.919444"
         ]
     },
     {
@@ -1017,8 +1015,8 @@
         "name": "Columbus Approach",
         "uniqueId": "DAY-DAY",
         "coordinates": [
-            "-85.091667",
-            "40.3"
+            "-84.347222",
+            "40.863056"
         ]
     },
     {
@@ -1029,8 +1027,8 @@
         "name": "Regional Approach",
         "uniqueId": "D10-REG",
         "coordinates": [
-            "-97.72833",
-            "32.46889"
+            "-97.35389",
+            "33.5"
         ]
     },
     {
@@ -1041,8 +1039,8 @@
         "name": "Detroit Approach",
         "uniqueId": "D21-DTW",
         "coordinates": [
-            "-83.8825",
-            "42.775"
+            "-83.200556",
+            "42.886111"
         ]
     },
     {
@@ -1053,8 +1051,8 @@
         "name": "Duluth Approach",
         "uniqueId": "DLH-DLH",
         "coordinates": [
-            "-92.13333333",
-            "47.5"
+            "-93",
+            "47.7"
         ]
     },
     {
@@ -1065,8 +1063,8 @@
         "name": "Laughlin Approach",
         "uniqueId": "DLF-DLF",
         "coordinates": [
-            "-101.790278",
-            "29.778889"
+            "-100.731111",
+            "30.613333"
         ]
     },
     {
@@ -1077,8 +1075,8 @@
         "name": "Lagos Approach",
         "uniqueId": "DNMM-DNMM",
         "coordinates": [
-            "2.7191205555555555",
-            "7.641923055555555"
+            "3.288568611111111",
+            "7.823980833333333"
         ]
     },
     {
@@ -1089,8 +1087,8 @@
         "name": "Da Nang Control",
         "uniqueId": "DNA-DNA",
         "coordinates": [
-            "107.62027611111",
-            "13.499395833333"
+            "108.74329111111",
+            "17.419437222222"
         ]
     },
     {
@@ -1101,8 +1099,8 @@
         "name": "Dover Approach",
         "uniqueId": "DOV-DOV",
         "coordinates": [
-            "-75.836111",
-            "39.266667"
+            "-75.213056",
+            "39.360833"
         ]
     },
     {
@@ -1125,8 +1123,8 @@
         "name": "Brussels Arrival",
         "uniqueId": "EBBR-EBBR",
         "coordinates": [
-            "3.478979166666667",
-            "51.05173194444444"
+            "4.501588888888889",
+            "51.48442277777778"
         ]
     },
     {
@@ -1137,8 +1135,8 @@
         "name": "LiÃ¨ge Approach",
         "uniqueId": "EBLG-EBLG",
         "coordinates": [
-            "5.117305",
-            "50.516695"
+            "5.566860833333333",
+            "50.87283055555556"
         ]
     },
     {
@@ -1149,8 +1147,8 @@
         "name": "Ostend Approach",
         "uniqueId": "EBOS-EBOS",
         "coordinates": [
-            "2.0006283333333332",
-            "51.11544555555556"
+            "2.001590277777778",
+            "51.499006111111115"
         ]
     },
     {
@@ -1161,8 +1159,8 @@
         "name": "Charleroi Approach",
         "uniqueId": "EBCI-EBCI",
         "coordinates": [
-            "3.8135697222222222",
-            "50.488103333333335"
+            "4.6349608333333325",
+            "50.680385"
         ]
     },
     {
@@ -1173,8 +1171,8 @@
         "name": "Berlin Approach",
         "uniqueId": "EDDB-EDDB",
         "coordinates": [
-            "12.183036",
-            "52.482303"
+            "13.613889",
+            "52.971111"
         ]
     },
     {
@@ -1185,8 +1183,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDDG-EDDG",
         "coordinates": [
-            "7.26638888888889",
-            "52.2472222222222"
+            "8.3975",
+            "52.3269444444445"
         ]
     },
     {
@@ -1209,8 +1207,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDDF-EDDF",
         "coordinates": [
-            "7.68027777777778",
-            "50.1941666666667"
+            "9.37083333333333",
+            "50.5202777777778"
         ]
     },
     {
@@ -1221,8 +1219,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDDK-EDDK",
         "coordinates": [
-            "6.75583333333333",
-            "51.09"
+            "7.82916666666667",
+            "51.1322222222222"
         ]
     },
     {
@@ -1245,8 +1243,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDDR-EDDR",
         "coordinates": [
-            "8.066666666666666",
-            "49"
+            "7.695833333333334",
+            "49.83222222222223"
         ]
     },
     {
@@ -1269,8 +1267,8 @@
         "name": "Nuernberg Approach",
         "uniqueId": "EDDN-EDDN",
         "coordinates": [
-            "10.702777777777778",
-            "50.6575"
+            "12.114444444444445",
+            "50.69083333333333"
         ]
     },
     {
@@ -1293,8 +1291,8 @@
         "name": "Bremen Radar",
         "uniqueId": "EDDV-EDDV",
         "coordinates": [
-            "10.266666666666667",
-            "53.05"
+            "10.1",
+            "53.09166666666667"
         ]
     },
     {
@@ -1305,8 +1303,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDDS-EDDS",
         "coordinates": [
-            "8.39388888888889",
-            "49.2352777777778"
+            "10.3722222222222",
+            "49.3222222222222"
         ]
     },
     {
@@ -1317,8 +1315,8 @@
         "name": "Bremen Radar",
         "uniqueId": "EDDW-EDDW",
         "coordinates": [
-            "7.191667",
-            "53.3"
+            "8.938889",
+            "53.580556"
         ]
     },
     {
@@ -1329,8 +1327,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDFM-EDFM",
         "coordinates": [
-            "9.047777777777778",
-            "49.57638888888889"
+            "8.960555555555555",
+            "49.71611111111111"
         ]
     },
     {
@@ -1353,8 +1351,8 @@
         "name": "Langen Radar",
         "uniqueId": "EDFH-EDFH",
         "coordinates": [
-            "6.38416666666667",
-            "50.4125"
+            "7.46666666666667",
+            "50.5166666666667"
         ]
     },
     {
@@ -1377,8 +1375,8 @@
         "name": "Tallinn Radar",
         "uniqueId": "EETN-EETN",
         "coordinates": [
-            "22.982499999999998",
-            "59.474722222222226"
+            "25.333333333333332",
+            "59.90833333333333"
         ]
     },
     {
@@ -1389,8 +1387,8 @@
         "name": "Tallinn Control",
         "uniqueId": "EETT_H-EETT",
         "coordinates": [
-            "25.00916638888889",
-            "59.89138888888889"
+            "25.333333333333332",
+            "59.90833333333333"
         ]
     },
     {
@@ -1521,8 +1519,8 @@
         "name": "Turku Radar",
         "uniqueId": "EFTU-EFTU",
         "coordinates": [
-            "21.350833333333",
-            "60.554444444444"
+            "22.133611111111",
+            "60.774166666667"
         ]
     },
     {
@@ -1557,8 +1555,8 @@
         "name": "Manchester Radar",
         "uniqueId": "EGCC-EGCC",
         "coordinates": [
-            "-2.8497222222222",
-            "53.333611111111"
+            "-2.3491666666667",
+            "53.668888888889"
         ]
     },
     {
@@ -1569,8 +1567,8 @@
         "name": "Birmingham Radar",
         "uniqueId": "EGBB-EGBB",
         "coordinates": [
-            "-2.1780247222222",
-            "52.516436111111"
+            "-1.8772222222222",
+            "52.728333333333"
         ]
     },
     {
@@ -1581,8 +1579,8 @@
         "name": "Luton Radar",
         "uniqueId": "EGGW-EGGW",
         "coordinates": [
-            "-0.2516667",
-            "51.8083333"
+            "-0.6172222",
+            "52.4422222"
         ]
     },
     {
@@ -1593,8 +1591,8 @@
         "name": "Bristol Radar",
         "uniqueId": "EGGD-EGGD",
         "coordinates": [
-            "-2.53577",
-            "51.286388611111"
+            "-2.6630152777778",
+            "51.743731666667"
         ]
     },
     {
@@ -1605,8 +1603,8 @@
         "name": "Cardiff Radar",
         "uniqueId": "EGFF-EGFF",
         "coordinates": [
-            "-3.5347222222222",
-            "51.559722222222"
+            "-3.3734722222222",
+            "52.049444444444"
         ]
     },
     {
@@ -1617,8 +1615,8 @@
         "name": "Bournemouth Radar",
         "uniqueId": "EGHH-EGHH",
         "coordinates": [
-            "-1.5775",
-            "50.829444444444"
+            "-1.6258175",
+            "50.932429444444"
         ]
     },
     {
@@ -1629,8 +1627,8 @@
         "name": "Southampton Radar",
         "uniqueId": "EGHI-EGHI",
         "coordinates": [
-            "-1.7833333333333",
-            "50.532222222222"
+            "-1.3244444444444",
+            "51.141111111111"
         ]
     },
     {
@@ -1653,8 +1651,8 @@
         "name": "Farnborough Radar",
         "uniqueId": "EGLF-EGLF",
         "coordinates": [
-            "-0.9193994",
-            "51.2853403"
+            "-0.7166022",
+            "51.3521356"
         ]
     },
     {
@@ -1665,8 +1663,8 @@
         "name": "Gatwick Director",
         "uniqueId": "EGKK-EGKK",
         "coordinates": [
-            "0.23172222222222",
-            "50.727658055556"
+            "-0.071666666666667",
+            "51.249444444444"
         ]
     },
     {
@@ -1677,8 +1675,8 @@
         "name": "Heathrow Director",
         "uniqueId": "EGLL-EGLL",
         "coordinates": [
-            "0.0348111",
-            "51.330875"
+            "-0.5497222",
+            "51.7261111"
         ]
     },
     {
@@ -1701,8 +1699,8 @@
         "name": "Southend Radar",
         "uniqueId": "EGMC-EGMC",
         "coordinates": [
-            "1.0705555555556",
-            "51.614722222222"
+            "0.94861111111111",
+            "51.827777777778"
         ]
     },
     {
@@ -1713,8 +1711,8 @@
         "name": "Newcastle Radar",
         "uniqueId": "EGNT-EGNT",
         "coordinates": [
-            "-2.0055555555556",
-            "55.0625"
+            "-1.3630555555556",
+            "55.227222222222"
         ]
     },
     {
@@ -1725,8 +1723,8 @@
         "name": "Ronaldsway Radar",
         "uniqueId": "EGNS-EGNS",
         "coordinates": [
-            "-4.1733333333333",
-            "54.0425"
+            "-5.0058333333333",
+            "54.269166666667"
         ]
     },
     {
@@ -1737,8 +1735,8 @@
         "name": "Glasgow Radar",
         "uniqueId": "EGPF-EGPF",
         "coordinates": [
-            "-4.7015758",
-            "56.0131478"
+            "-4.1571889",
+            "56.2334792"
         ]
     },
     {
@@ -1749,8 +1747,8 @@
         "name": "Aberdeen Radar",
         "uniqueId": "EGPD-EGPD",
         "coordinates": [
-            "-2.8488888888889",
-            "57.004166666667"
+            "-2.2726222222222",
+            "57.4757875"
         ]
     },
     {
@@ -1761,8 +1759,8 @@
         "name": "Stansted Radar",
         "uniqueId": "EGSS-EGSS",
         "coordinates": [
-            "0.6080556",
-            "51.7830556"
+            "0.8052778",
+            "52.2058333"
         ]
     },
     {
@@ -1773,8 +1771,8 @@
         "name": "East Midlands Radar",
         "uniqueId": "EGNX-EGNX",
         "coordinates": [
-            "-1.5194444444444",
-            "53.069444444444"
+            "-1.5994444444444",
+            "53.195833333333"
         ]
     },
     {
@@ -1785,8 +1783,8 @@
         "name": "Prestwick Radar",
         "uniqueId": "EGPK-EGPK",
         "coordinates": [
-            "-4.2338014",
-            "55.4619097"
+            "-4.9996344",
+            "55.7261425"
         ]
     },
     {
@@ -1797,8 +1795,8 @@
         "name": "Edinburgh Radar",
         "uniqueId": "EGPH-EGPH",
         "coordinates": [
-            "-3.840435",
-            "56.0716631"
+            "-3.5497275",
+            "56.2333278"
         ]
     },
     {
@@ -1821,8 +1819,8 @@
         "name": "Shannon Approach",
         "uniqueId": "EINN-EINN",
         "coordinates": [
-            "-9.59278",
-            "52.41306"
+            "-8.73734",
+            "53.18764"
         ]
     },
     {
@@ -1845,8 +1843,8 @@
         "name": "Billund Approach",
         "uniqueId": "EKBI-EKBI",
         "coordinates": [
-            "9.915278",
-            "55.499167"
+            "8.077778",
+            "56.088333"
         ]
     },
     {
@@ -1869,8 +1867,8 @@
         "name": "Copenhagen Approach",
         "uniqueId": "EKCH-EKCH",
         "coordinates": [
-            "13.058611",
-            "55.497222"
+            "12.412778",
+            "56.156389"
         ]
     },
     {
@@ -1881,7 +1879,7 @@
         "name": "Karup Approach",
         "uniqueId": "EKKA-EKKA",
         "coordinates": [
-            "9.706944",
+            "8.793056",
             "56.641111"
         ]
     },
@@ -1893,8 +1891,8 @@
         "name": "Luxembourg Approach",
         "uniqueId": "ELLX-ELLX",
         "coordinates": [
-            "5.298418055555556",
-            "49.67632916666666"
+            "6.073295277777778",
+            "50.176183055555555"
         ]
     },
     {
@@ -1905,8 +1903,8 @@
         "name": "Skrydstrup Approach",
         "uniqueId": "EKSP-EKSP",
         "coordinates": [
-            "8.448611",
-            "55.071389"
+            "9.915278",
+            "55.499167"
         ]
     },
     {
@@ -1917,8 +1915,8 @@
         "name": "Aalborg Approach",
         "uniqueId": "EKYT-EKYT",
         "coordinates": [
-            "9.915278",
-            "56.561944"
+            "10.123611",
+            "57.649444"
         ]
     },
     {
@@ -1929,8 +1927,8 @@
         "name": "Elmira Approach",
         "uniqueId": "ELM-ELM",
         "coordinates": [
-            "-76.713889",
-            "42.738889"
+            "-76.708333",
+            "42.775"
         ]
     },
     {
@@ -1941,8 +1939,8 @@
         "name": "El Paso Approach",
         "uniqueId": "ELP-ELP",
         "coordinates": [
-            "-106.11805556",
-            "32.38833333"
+            "-106.15055556",
+            "32.41333333"
         ]
     },
     {
@@ -1953,8 +1951,8 @@
         "name": "Andøya Tower",
         "uniqueId": "ENAN-ENAN",
         "coordinates": [
-            "16.966666666666665",
-            "69.08333333333333"
+            "16",
+            "69.66666666666667"
         ]
     },
     {
@@ -1965,8 +1963,8 @@
         "name": "Alta Tower",
         "uniqueId": "ENAT-ENAT",
         "coordinates": [
-            "24",
-            "70.31388888888888"
+            "22.916666666666668",
+            "70.315"
         ]
     },
     {
@@ -2001,8 +1999,8 @@
         "name": "Bardufoss Approach",
         "uniqueId": "ENDU-ENDU",
         "coordinates": [
-            "18.15",
-            "68.68333333333334"
+            "17.583333333333332",
+            "69.41666666666667"
         ]
     },
     {
@@ -2014,8 +2012,8 @@
         "name": "Kjevik Approach",
         "uniqueId": "ENCN-ENCN-ENRC",
         "coordinates": [
-            "8.781111111111112",
-            "58.959722222222226"
+            "9.05638888888889",
+            "58.96527777777778"
         ]
     },
     {
@@ -2026,8 +2024,8 @@
         "name": "Vance Approach",
         "uniqueId": "END-END",
         "coordinates": [
-            "-99.78333",
-            "36.27917"
+            "-98.95028",
+            "37.36667"
         ]
     },
     {
@@ -2038,8 +2036,8 @@
         "name": "Evenes Approach",
         "uniqueId": "ENEV-ENEV",
         "coordinates": [
-            "16.16888888888889",
-            "68.91944444444445"
+            "16.966666666666665",
+            "69.08333333333333"
         ]
     },
     {
@@ -2050,8 +2048,8 @@
         "name": "Oslo Approach",
         "uniqueId": "ENGM-ENGM",
         "coordinates": [
-            "11.072222222222223",
-            "60.87777777777778"
+            "10.950000000000001",
+            "60.93888888888888"
         ]
     },
     {
@@ -2062,8 +2060,8 @@
         "name": "Banak Tower",
         "uniqueId": "ENNA-ENNA",
         "coordinates": [
-            "24",
-            "70.31388888888888"
+            "25",
+            "70.58333333333333"
         ]
     },
     {
@@ -2074,8 +2072,8 @@
         "name": "Kirkenes Tower",
         "uniqueId": "ENKR-ENKR",
         "coordinates": [
-            "30.95",
-            "70.06666666666666"
+            "29.333333333333332",
+            "70.25"
         ]
     },
     {
@@ -2087,8 +2085,8 @@
         "name": "Ørland Approach",
         "uniqueId": "ENOL-ENOL-ENRC",
         "coordinates": [
-            "10.280277777777778",
-            "63.76138888888889"
+            "10.2",
+            "64.43333333333334"
         ]
     },
     {
@@ -2099,8 +2097,8 @@
         "name": "Tromsø Approach",
         "uniqueId": "ENTC-ENTC",
         "coordinates": [
-            "19.418055555555558",
-            "69.16027777777778"
+            "18.75",
+            "70.25"
         ]
     },
     {
@@ -2123,8 +2121,8 @@
         "name": "Krakow Approach",
         "uniqueId": "EPKK-EPKK",
         "coordinates": [
-            "18.13050278",
-            "49.99716667"
+            "19.952222222222222",
+            "51.01555555555556"
         ]
     },
     {
@@ -2135,8 +2133,8 @@
         "name": "Sola Approach",
         "uniqueId": "ENZV-ENZV",
         "coordinates": [
-            "4.4991666666666665",
-            "59.60638888888889"
+            "6.206666666666667",
+            "59.68527777777778"
         ]
     },
     {
@@ -2147,8 +2145,8 @@
         "name": "Deblin Approach",
         "uniqueId": "EPDE-EPDE",
         "coordinates": [
-            "21.450833333333332",
-            "51.611111111111114"
+            "21.815",
+            "51.83833333333334"
         ]
     },
     {
@@ -2159,8 +2157,8 @@
         "name": "Gdansk Approach",
         "uniqueId": "EPGD-EPGD",
         "coordinates": [
-            "15.866666666666667",
-            "54.916666666666664"
+            "18.387453681915343",
+            "55.28904079966153"
         ]
     },
     {
@@ -2171,8 +2169,8 @@
         "name": "Poznan Approach North",
         "uniqueId": "EPPO_N-EPPO_N",
         "coordinates": [
-            "18.108611111111113",
-            "50.37555555555556"
+            "17.348333333333333",
+            "53.23083333333334"
         ]
     },
     {
@@ -2183,8 +2181,8 @@
         "name": "Poznan Approach South",
         "uniqueId": "EPPO_S-EPPO_S",
         "coordinates": [
-            "16",
-            "51.6175"
+            "18.17",
+            "51.78361111111111"
         ]
     },
     {
@@ -2219,8 +2217,8 @@
         "name": "Warszawa Approach",
         "uniqueId": "EPWA-EPWA",
         "coordinates": [
-            "20.209444444444443",
-            "51.23972222222222"
+            "20.25722222222222",
+            "52.85444444444445"
         ]
     },
     {
@@ -2267,8 +2265,8 @@
         "name": "Stockholm Approach",
         "uniqueId": "ESSA-ESSA",
         "coordinates": [
-            "17.4569444444",
-            "58.6163888889"
+            "17.8280555556",
+            "60.2580555556"
         ]
     },
     {
@@ -2279,8 +2277,8 @@
         "name": "Sweden Control",
         "uniqueId": "ESMS-ESMS",
         "coordinates": [
-            "15.1352777778",
-            "54.9166666667"
+            "15.1177777778",
+            "56.6280555556"
         ]
     },
     {
@@ -2291,8 +2289,8 @@
         "name": "Stansted Radar",
         "uniqueId": "ESSEX-ESSEX",
         "coordinates": [
-            "0.6080556",
-            "51.7830556"
+            "-0.6172222",
+            "52.4422222"
         ]
     },
     {
@@ -2303,8 +2301,8 @@
         "name": "Stockholm Approach",
         "uniqueId": "ESSB-ESSB",
         "coordinates": [
-            "17.4569444444",
-            "58.6163888889"
+            "17.5209391667",
+            "59.5384972222"
         ]
     },
     {
@@ -2339,8 +2337,8 @@
         "name": "Spangdahlem GCA",
         "uniqueId": "ETAD-ETAD",
         "coordinates": [
-            "6.751666666666667",
-            "49.916333333333334"
+            "6.726388888888889",
+            "50.46666666666667"
         ]
     },
     {
@@ -2375,8 +2373,8 @@
         "name": "Ramstein GCA",
         "uniqueId": "ETAR-ETAR",
         "coordinates": [
-            "7.2",
-            "49.583333333333336"
+            "7.516666666666667",
+            "49.6"
         ]
     },
     {
@@ -2399,8 +2397,8 @@
         "name": "Noervenich Radar",
         "uniqueId": "ETNN-ETNN",
         "coordinates": [
-            "6.445",
-            "50.42783305555555"
+            "6.633833333333333",
+            "51.002833333333335"
         ]
     },
     {
@@ -2411,8 +2409,8 @@
         "name": "Stetten Radar",
         "uniqueId": "ETHN-ETHN",
         "coordinates": [
-            "10.127166944444445",
-            "49.318666944444445"
+            "10.3",
+            "49.833333055555556"
         ]
     },
     {
@@ -2435,8 +2433,8 @@
         "name": "Buechel Radar",
         "uniqueId": "ETSB-ETSB",
         "coordinates": [
-            "6.898",
-            "50.362"
+            "7.172166666666667",
+            "50.516666666666666"
         ]
     },
     {
@@ -2447,8 +2445,8 @@
         "name": "Eugene Approach",
         "uniqueId": "EUG-EUG",
         "coordinates": [
-            "-123.5",
-            "44.75"
+            "-123.202778",
+            "44.7625"
         ]
     },
     {
@@ -2459,8 +2457,8 @@
         "name": "Riga Approach",
         "uniqueId": "EVRA-EVRA",
         "coordinates": [
-            "22.591",
-            "56.3712"
+            "24.26111083",
+            "57.91722167"
         ]
     },
     {
@@ -2483,8 +2481,8 @@
         "name": "Palanga Tower",
         "uniqueId": "EYPA-EYPA",
         "coordinates": [
-            "20.554166666666667",
-            "55.57333333333334"
+            "21.850555555555555",
+            "56.36972222222222"
         ]
     },
     {
@@ -2507,8 +2505,8 @@
         "name": "Siauliai Tower",
         "uniqueId": "EYSA-EYSA",
         "coordinates": [
-            "24.096944444444443",
-            "55.695277777777775"
+            "23.366666666666667",
+            "56.38333333333333"
         ]
     },
     {
@@ -2519,8 +2517,8 @@
         "name": "Orlando Approach",
         "uniqueId": "F11-MCO",
         "coordinates": [
-            "-81.708333",
-            "29"
+            "-80.201667",
+            "29.007778"
         ]
     },
     {
@@ -2543,8 +2541,8 @@
         "name": "Vilnius Approach",
         "uniqueId": "EYVI-EYVI",
         "coordinates": [
-            "24.6369444",
-            "55.3444444"
+            "24.9777778",
+            "55.4797222"
         ]
     },
     {
@@ -2555,8 +2553,8 @@
         "name": "Fargo Approach",
         "uniqueId": "FAR-FAR",
         "coordinates": [
-            "-97.033333",
-            "46.4375"
+            "-96.425",
+            "47.483333"
         ]
     },
     {
@@ -2567,8 +2565,8 @@
         "name": "Johannesburg Radar",
         "uniqueId": "FAOR-FAOR",
         "coordinates": [
-            "28.660189166666665",
-            "-27.455784722222223"
+            "28.739431944444444",
+            "-24.251416666666668"
         ]
     },
     {
@@ -2579,8 +2577,8 @@
         "name": "Fresno Approach",
         "uniqueId": "FAT-FAT",
         "coordinates": [
-            "-120.288056",
-            "36.893889"
+            "-120.091667",
+            "37.180556"
         ]
     },
     {
@@ -2592,8 +2590,8 @@
         "name": "Farris Approach",
         "uniqueId": "FARRIS-ENTO-ENRC",
         "coordinates": [
-            "10.529444444444445",
-            "58.583333333333336"
+            "9.000027777777778",
+            "59.89694444444444"
         ]
     },
     {
@@ -2604,8 +2602,8 @@
         "name": "Fayetteville Approach",
         "uniqueId": "FAY-FAY",
         "coordinates": [
-            "-80.14722",
-            "34.85556"
+            "-79.08361",
+            "35.53444"
         ]
     },
     {
@@ -2616,8 +2614,8 @@
         "name": "Libby Approach",
         "uniqueId": "FHU-FHU",
         "coordinates": [
-            "-110.76667",
-            "31.8"
+            "-110",
+            "31.9"
         ]
     },
     {
@@ -2640,8 +2638,8 @@
         "name": "Florence Approach",
         "uniqueId": "FLO-FLO",
         "coordinates": [
-            "-79.728056",
-            "34.713333"
+            "-80.147222",
+            "34.855556"
         ]
     },
     {
@@ -2652,8 +2650,8 @@
         "name": "Fort Stockton Approach",
         "uniqueId": "FSI-FSI",
         "coordinates": [
-            "-98.766667",
-            "34.854167"
+            "-98.145833",
+            "35.079167"
         ]
     },
     {
@@ -2664,8 +2662,8 @@
         "name": "Fort Wayne Approach",
         "uniqueId": "FWA-FWA",
         "coordinates": [
-            "-85.933333",
-            "41.377778"
+            "-85.470833",
+            "41.670833"
         ]
     },
     {
@@ -2689,8 +2687,8 @@
         "name": "Razorback Approach",
         "uniqueId": "FSM-FSM-FYV",
         "coordinates": [
-            "-94.816667",
-            "34.755556"
+            "-94.05",
+            "36.75"
         ]
     },
     {
@@ -2725,7 +2723,7 @@
         "name": "Gran Canaria Approach",
         "uniqueId": "GCLP-GCLP",
         "coordinates": [
-            "-14.91666667",
+            "-15.68333333",
             "28.65"
         ]
     },
@@ -2737,8 +2735,8 @@
         "name": "Tenerife Sur Approach",
         "uniqueId": "GCTS-GCTS",
         "coordinates": [
-            "-17.366666666578173",
-            "28.166666667038474"
+            "-16.79166666663328",
+            "28.291666666780788"
         ]
     },
     {
@@ -2749,8 +2747,8 @@
         "name": "Tenerife Approach",
         "uniqueId": "GCXO-GCXO",
         "coordinates": [
-            "-17",
-            "28.8"
+            "-16",
+            "29"
         ]
     },
     {
@@ -2761,8 +2759,8 @@
         "name": "Spokane Approach",
         "uniqueId": "GEG-GEG",
         "coordinates": [
-            "-118.38333221777054",
-            "47.60000024699781"
+            "-117.15941775838819",
+            "48.24076774251346"
         ]
     },
     {
@@ -2773,8 +2771,8 @@
         "name": "Longview Approach",
         "uniqueId": "GGG-GGG",
         "coordinates": [
-            "-95.85722",
-            "32.58944"
+            "-95.35556",
+            "33"
         ]
     },
     {
@@ -2785,8 +2783,8 @@
         "name": "Mohammed V Approach",
         "uniqueId": "GMMN-GMMN",
         "coordinates": [
-            "-6.933333333333334",
-            "33"
+            "-7.015",
+            "34.60055555555556"
         ]
     },
     {
@@ -2797,7 +2795,7 @@
         "name": "Ibn Batouta Approach",
         "uniqueId": "GMTT-GMTT",
         "coordinates": [
-            "-5.501111111111111",
+            "-6.279166666666667",
             "35.833333333333336"
         ]
     },
@@ -2833,8 +2831,8 @@
         "name": "Menara Approach",
         "uniqueId": "GMMX-GMMX",
         "coordinates": [
-            "-8.500555555555556",
-            "32.08833333333334"
+            "-8.121944444444445",
+            "32.13444444444444"
         ]
     },
     {
@@ -2845,8 +2843,8 @@
         "name": "Gulfport Approach",
         "uniqueId": "GPT-GPT",
         "coordinates": [
-            "-88.525",
-            "30.169444"
+            "-88.866667",
+            "31.008333"
         ]
     },
     {
@@ -2881,8 +2879,8 @@
         "name": "Green Bay Approach",
         "uniqueId": "GRB-GRB",
         "coordinates": [
-            "-89.066667",
-            "44.75"
+            "-88.416667",
+            "45.166667"
         ]
     },
     {
@@ -2905,8 +2903,8 @@
         "name": "Wheeler-Sack Approach",
         "uniqueId": "GTB-GTB",
         "coordinates": [
-            "-76.7913889",
-            "43.6333333"
+            "-75.73948911740946",
+            "44.53330823909748"
         ]
     },
     {
@@ -2917,8 +2915,8 @@
         "name": "Grissom Approach",
         "uniqueId": "GUS-GUS",
         "coordinates": [
-            "-87.40417",
-            "40.49167"
+            "-86.84389",
+            "41.13861"
         ]
     },
     {
@@ -2929,8 +2927,8 @@
         "name": "Sal Approach",
         "uniqueId": "GVSC-GVSC",
         "coordinates": [
-            "-25.785324444444445",
-            "15.403449444444444"
+            "-25.097430555555555",
+            "18.106294444444448"
         ]
     },
     {
@@ -2941,7 +2939,7 @@
         "name": "Great Falls Approach",
         "uniqueId": "GTF-GTF",
         "coordinates": [
-            "-111.283333",
+            "-111.538889",
             "47.941667"
         ]
     },
@@ -2966,8 +2964,8 @@
         "name": "Guam Approach",
         "uniqueId": "GUM-GUM_E-GUM_W",
         "coordinates": [
-            "145.28127",
-            "13.0112383"
+            "144.9327439",
+            "14.2534514"
         ]
     },
     {
@@ -2978,8 +2976,8 @@
         "name": "Helena Approach",
         "uniqueId": "HLN-HLN",
         "coordinates": [
-            "-112.446667",
-            "46.368333"
+            "-111.976667",
+            "47.24"
         ]
     },
     {
@@ -2990,8 +2988,8 @@
         "name": "Greer Approach",
         "uniqueId": "GSP-GSP",
         "coordinates": [
-            "-82.860833",
-            "34.353889"
+            "-81.679167",
+            "35.431667"
         ]
     },
     {
@@ -3002,8 +3000,8 @@
         "name": "Holloman Approach",
         "uniqueId": "HMN-HMN",
         "coordinates": [
-            "-105.73333333",
-            "33.625"
+            "-106.75555556",
+            "33.82916667"
         ]
     },
     {
@@ -3038,8 +3036,8 @@
         "name": "Campbell Approach",
         "uniqueId": "HOP-HOP",
         "coordinates": [
-            "-86.916667",
-            "37.288889"
+            "-87.793056",
+            "37.47"
         ]
     },
     {
@@ -3050,8 +3048,8 @@
         "name": "Huntsville Approach",
         "uniqueId": "HSV-HSV",
         "coordinates": [
-            "-87.366667",
-            "34.9375"
+            "-86.766667",
+            "35.133333"
         ]
     },
     {
@@ -3086,8 +3084,8 @@
         "name": "Wichita Approach",
         "uniqueId": "ICT-ICT",
         "coordinates": [
-            "-98.46667",
-            "37.83333"
+            "-97.28056",
+            "38.18333"
         ]
     },
     {
@@ -3098,8 +3096,8 @@
         "name": "Huntington Approach",
         "uniqueId": "HTZ-HTS",
         "coordinates": [
-            "-83.23889",
-            "38.77222"
+            "-82.05417",
+            "39.20833"
         ]
     },
     {
@@ -3110,8 +3108,8 @@
         "name": "Houston Approach",
         "uniqueId": "I90-I90",
         "coordinates": [
-            "-95.81416667",
-            "30.62111111"
+            "-96.26666667",
+            "31.35833333"
         ]
     },
     {
@@ -3122,8 +3120,8 @@
         "name": "Incirlik Approach",
         "uniqueId": "INC-LTAG",
         "coordinates": [
-            "35.34239055555556",
-            "37.83016222222223"
+            "35.43333305555555",
+            "37.833333333333336"
         ]
     },
     {
@@ -3134,8 +3132,8 @@
         "name": "Indianapolis Approach",
         "uniqueId": "IND-IND",
         "coordinates": [
-            "-86.95",
-            "40"
+            "-85.504167",
+            "40.558333"
         ]
     },
     {
@@ -3158,8 +3156,8 @@
         "name": "Wilmington Approach",
         "uniqueId": "ILM-ILM",
         "coordinates": [
-            "-78.685",
-            "34.396944"
+            "-77.496111",
+            "35.1025"
         ]
     },
     {
@@ -3206,8 +3204,8 @@
         "name": "Johnstown Approach",
         "uniqueId": "JST-JST",
         "coordinates": [
-            "-79.600833",
-            "40.360278"
+            "-78.5",
+            "40.841667"
         ]
     },
     {
@@ -3230,8 +3228,8 @@
         "name": "Lubbock Approach",
         "uniqueId": "LBB-LBB",
         "coordinates": [
-            "-102.483333",
-            "34.066667"
+            "-101.785278",
+            "34.333889"
         ]
     },
     {
@@ -3242,8 +3240,8 @@
         "name": "Las Vegas Approach",
         "uniqueId": "L30-LAS",
         "coordinates": [
-            "-115.8541667",
-            "36.3458333"
+            "-114.3083333",
+            "36.3977778"
         ]
     },
     {
@@ -3266,8 +3264,8 @@
         "name": "Varna Approach",
         "uniqueId": "LBWN-LBWN",
         "coordinates": [
-            "27.123055555555556",
-            "43.13805555555555"
+            "27.379444444444445",
+            "43.72138888888889"
         ]
     },
     {
@@ -3278,8 +3276,8 @@
         "name": "Sofia Radar",
         "uniqueId": "LBSF-LBSF",
         "coordinates": [
-            "24.029444444444444",
-            "42.52777777777778"
+            "22.4923",
+            "43.56649972222222"
         ]
     },
     {
@@ -3290,8 +3288,8 @@
         "name": "Albacete Approach",
         "uniqueId": "LEAB-LEAB",
         "coordinates": [
-            "-3.04",
-            "38.954"
+            "-1.834",
+            "39.452"
         ]
     },
     {
@@ -3302,8 +3300,8 @@
         "name": "Bilbao Approach",
         "uniqueId": "LEBB-LEBB",
         "coordinates": [
-            "-3.406388889",
-            "43.68111111"
+            "-2.590555556",
+            "43.68333333"
         ]
     },
     {
@@ -3314,8 +3312,8 @@
         "name": "Lake Charles Approach",
         "uniqueId": "LCH-LCH",
         "coordinates": [
-            "-93.716667",
-            "30.275"
+            "-93.783333",
+            "30.558333"
         ]
     },
     {
@@ -3362,8 +3360,8 @@
         "name": "San Javier Approach",
         "uniqueId": "LELC-LELC",
         "coordinates": [
-            "-1.744",
-            "37.284"
+            "-0.469",
+            "38.117"
         ]
     },
     {
@@ -3374,8 +3372,8 @@
         "name": "Talavera Approach",
         "uniqueId": "LEBZ-LEBZ",
         "coordinates": [
-            "-7.26912503325316",
-            "38.6687072155414"
+            "-6.707",
+            "39.299"
         ]
     },
     {
@@ -3386,8 +3384,8 @@
         "name": "Palma Control (Menorca)",
         "uniqueId": "LEMH-LEMH",
         "coordinates": [
-            "4.666666667248088",
-            "40.28222222196091"
+            "3.991469443793478",
+            "40.5013333332445"
         ]
     },
     {
@@ -3410,8 +3408,8 @@
         "name": "Palma Control (Ibiza)",
         "uniqueId": "LEIB-LEIB",
         "coordinates": [
-            "0.483333333",
-            "39.25"
+            "3.178888889",
+            "39.32472222"
         ]
     },
     {
@@ -3422,8 +3420,8 @@
         "name": "Santiago Approach",
         "uniqueId": "LEST-LECG",
         "coordinates": [
-            "-9.404",
-            "41.93"
+            "-8.431",
+            "43.765"
         ]
     },
     {
@@ -3434,8 +3432,8 @@
         "name": "Palma Approach",
         "uniqueId": "LEPA-LEPA",
         "coordinates": [
-            "3.60111111130076",
-            "40.14500000003877"
+            "2.9089555556929283",
+            "40.500005556301105"
         ]
     },
     {
@@ -3458,8 +3456,8 @@
         "name": "Zaragoza Approach",
         "uniqueId": "LEZG-LEZG",
         "coordinates": [
-            "-2.499",
-            "41.037"
+            "-1.634",
+            "42.605"
         ]
     },
     {
@@ -3470,8 +3468,8 @@
         "name": "Torrejon Approach",
         "uniqueId": "LETO-LETO",
         "coordinates": [
-            "-3.505",
-            "40.497"
+            "-2.967",
+            "40.941"
         ]
     },
     {
@@ -3482,8 +3480,8 @@
         "name": "Valencia Control",
         "uniqueId": "LEVC-LEVC",
         "coordinates": [
-            "0.483333333",
-            "38.92408333"
+            "-0.4",
+            "40.57777778"
         ]
     },
     {
@@ -3494,8 +3492,8 @@
         "name": "Santander Tower",
         "uniqueId": "LEXJ-LEXJ",
         "coordinates": [
-            "-4.331",
-            "43.248"
+            "-4.334",
+            "43.767"
         ]
     },
     {
@@ -3506,8 +3504,8 @@
         "name": "Sevilla Approach",
         "uniqueId": "LEZL-LEZL",
         "coordinates": [
-            "-4.448333332925378",
-            "38.19222222198339"
+            "-4.675833333325401",
+            "38.32833333324145"
         ]
     },
     {
@@ -3518,8 +3516,8 @@
         "name": "Blagnac Approach",
         "uniqueId": "LFBO-LFBO",
         "coordinates": [
-            "0.870556",
-            "43.7725"
+            "1.706667",
+            "44.499444"
         ]
     },
     {
@@ -3530,8 +3528,8 @@
         "name": "Biarritz Approach",
         "uniqueId": "LFBZ-LFBZ",
         "coordinates": [
-            "-1.7897222222222",
-            "43.356388888889"
+            "-0.90777777777778",
+            "44.205277777778"
         ]
     },
     {
@@ -3542,8 +3540,8 @@
         "name": "Orly Approach",
         "uniqueId": "LFPO-LFPO",
         "coordinates": [
-            "1.899444",
-            "48.298333"
+            "2.550278",
+            "48.883333"
         ]
     },
     {
@@ -3554,8 +3552,8 @@
         "name": "Lafayette Approach",
         "uniqueId": "LFT-LFT",
         "coordinates": [
-            "-92.500278",
-            "30.400278"
+            "-92.25",
+            "30.8"
         ]
     },
     {
@@ -3566,8 +3564,8 @@
         "name": "Charles de Gaulle Approach",
         "uniqueId": "LFPG-LFPG",
         "coordinates": [
-            "1.899444",
-            "48.298333"
+            "2.890278",
+            "49.785556"
         ]
     },
     {
@@ -3578,8 +3576,8 @@
         "name": "Nice Approach",
         "uniqueId": "LFMN-LFMN",
         "coordinates": [
-            "6.0219444444444",
-            "43.176388888889"
+            "7.0183333333333",
+            "44.236666666667"
         ]
     },
     {
@@ -3590,8 +3588,8 @@
         "name": "Klamath Falls Approach",
         "uniqueId": "LMT-LMT",
         "coordinates": [
-            "-122.416667",
-            "42.383333"
+            "-121.643056",
+            "42.651944"
         ]
     },
     {
@@ -3602,8 +3600,8 @@
         "name": "Saint Pierre Approach",
         "uniqueId": "LFVP-LFVP",
         "coordinates": [
-            "-55.95444694444445",
-            "47.33464861111111"
+            "-56.13966277777778",
+            "47.35205444444445"
         ]
     },
     {
@@ -3614,8 +3612,8 @@
         "name": "Budapest Approach",
         "uniqueId": "LHBP-LHBP",
         "coordinates": [
-            "20.2367306",
-            "47.1570386"
+            "19.6353149",
+            "48.2438248"
         ]
     },
     {
@@ -3638,8 +3636,8 @@
         "name": "Little Rock Approach",
         "uniqueId": "LIT-LIT",
         "coordinates": [
-            "-92.816667",
-            "34.291667"
+            "-91.5",
+            "35.433333"
         ]
     },
     {
@@ -3650,8 +3648,8 @@
         "name": "Graz Radar",
         "uniqueId": "LOWG-LOWG",
         "coordinates": [
-            "15.891667",
-            "47.41527777777777"
+            "14.811389",
+            "47.7063888888889"
         ]
     },
     {
@@ -3662,8 +3660,8 @@
         "name": "Linz Radar",
         "uniqueId": "LOWL-LOWL",
         "coordinates": [
-            "15.286667",
-            "48.69666666666667"
+            "14.4475",
+            "48.97194444444445"
         ]
     },
     {
@@ -3674,8 +3672,8 @@
         "name": "Salzburg Radar",
         "uniqueId": "LOWS-LOWS",
         "coordinates": [
-            "13.333055",
-            "47.44972166666666"
+            "12.697222222222223",
+            "48.26638888888889"
         ]
     },
     {
@@ -3686,8 +3684,8 @@
         "name": "Klagenfurt Radar",
         "uniqueId": "LOWK-LOWK",
         "coordinates": [
-            "12.584722",
-            "47.16388888888888"
+            "13.333055",
+            "47.44972222222222"
         ]
     },
     {
@@ -3710,8 +3708,8 @@
         "name": "Madeira Approach",
         "uniqueId": "LPMA-LPMA",
         "coordinates": [
-            "-17.30505833",
-            "33.183825"
+            "-16.35055611",
+            "33.75575361"
         ]
     },
     {
@@ -3722,8 +3720,8 @@
         "name": "Lisboa Approach",
         "uniqueId": "LPPT-LPPT",
         "coordinates": [
-            "-10",
-            "38.9"
+            "-8.492777778",
+            "40.03197528"
         ]
     },
     {
@@ -3734,8 +3732,8 @@
         "name": "Porto Approach",
         "uniqueId": "LPPR-LPPR",
         "coordinates": [
-            "-9.0325",
-            "41.88561111"
+            "-8.186111111",
+            "42.14722222"
         ]
     },
     {
@@ -3746,8 +3744,8 @@
         "name": "Arad Approach",
         "uniqueId": "LRAR-LRAR",
         "coordinates": [
-            "22.675",
-            "45.54166"
+            "21.31666",
+            "46.61666"
         ]
     },
     {
@@ -3770,8 +3768,8 @@
         "name": "NAPOC Approach",
         "uniqueId": "LRCL-LRCL",
         "coordinates": [
-            "23.13577",
-            "47.25023"
+            "23.14611",
+            "47.61166"
         ]
     },
     {
@@ -3794,8 +3792,8 @@
         "name": "Nellis Approach",
         "uniqueId": "LSV-LSV",
         "coordinates": [
-            "-116.4416661",
-            "36.6833339"
+            "-115.0508331",
+            "36.7166667"
         ]
     },
     {
@@ -3806,8 +3804,8 @@
         "name": "Esenboga Approach",
         "uniqueId": "LTAC-LTAC",
         "coordinates": [
-            "32.853065",
-            "40.75844722222222"
+            "32.93277805555555",
+            "40.76111111111111"
         ]
     },
     {
@@ -3818,8 +3816,8 @@
         "name": "Konya Approach",
         "uniqueId": "LTAN-LTAN",
         "coordinates": [
-            "32.24944388888889",
-            "38.33222194444445"
+            "32.64944388888889",
+            "38.39888888888889"
         ]
     },
     {
@@ -3830,8 +3828,8 @@
         "name": "Antalya Approach",
         "uniqueId": "LTAI-LTAI",
         "coordinates": [
-            "29.743055555555557",
-            "36.958333333333336"
+            "31.270555555555553",
+            "38.323888888888895"
         ]
     },
     {
@@ -3842,8 +3840,8 @@
         "name": "Wien Radar",
         "uniqueId": "LOWW-LOWW",
         "coordinates": [
-            "16.902861",
-            "48.71702777777778"
+            "15.116361",
+            "48.89802222222222"
         ]
     },
     {
@@ -3854,8 +3852,8 @@
         "name": "Kastamonu Tower/Appraoch",
         "uniqueId": "LTAL-LTAL",
         "coordinates": [
-            "33.45333333333333",
-            "41.79666666666667"
+            "34.413333333333334",
+            "41.79833333333333"
         ]
     },
     {
@@ -3890,8 +3888,8 @@
         "name": "Gaziantep Tower/Approach",
         "uniqueId": "LTAJ-LTAJ",
         "coordinates": [
-            "37.38542416666667",
-            "37.19037055555555"
+            "37.46638888888889",
+            "37.19888888888889"
         ]
     },
     {
@@ -3902,8 +3900,8 @@
         "name": "Kapadokya Tower/Approach",
         "uniqueId": "LTAZ-LTAZ",
         "coordinates": [
-            "33.95333333333333",
-            "38.916666666666664"
+            "34.235",
+            "39.04833333333333"
         ]
     },
     {
@@ -3926,8 +3924,8 @@
         "name": "Canakkale Approach",
         "uniqueId": "LTBH-LTBH",
         "coordinates": [
-            "26.070254444444444",
-            "40.04336333333333"
+            "26.704213055555556",
+            "40.381146666666666"
         ]
     },
     {
@@ -3938,8 +3936,8 @@
         "name": "Menderes Approach",
         "uniqueId": "LTBJ-LTBJ",
         "coordinates": [
-            "26.559412848505435",
-            "39.2914785946735"
+            "28.183333333333334",
+            "39.93944444444444"
         ]
     },
     {
@@ -3962,8 +3960,8 @@
         "name": "Dalaman Approach",
         "uniqueId": "LTBS-LTBS",
         "coordinates": [
-            "28.209127699625537",
-            "36.55303614131297"
+            "28.733565555555558",
+            "37.689971944444444"
         ]
     },
     {
@@ -3974,8 +3972,8 @@
         "name": "Kars Tower/Approach",
         "uniqueId": "LTCF-LTCF",
         "coordinates": [
-            "42.51861111111111",
-            "40.29694444444444"
+            "43.09138888888889",
+            "40.80833333333333"
         ]
     },
     {
@@ -3986,8 +3984,8 @@
         "name": "Ordu Tower/Approach",
         "uniqueId": "LTCB-LTCB",
         "coordinates": [
-            "37.7575",
-            "40.63283333333333"
+            "38.0495",
+            "41.382"
         ]
     },
     {
@@ -3998,8 +3996,8 @@
         "name": "Elazig Tower/Approach",
         "uniqueId": "LTCA-LTCA",
         "coordinates": [
-            "38.90085083333333",
-            "38.758968055555556"
+            "39.21638888888889",
+            "38.96555611111111"
         ]
     },
     {
@@ -4034,8 +4032,8 @@
         "name": "Erzurum Tower/Approach",
         "uniqueId": "LTCE-LTCE",
         "coordinates": [
-            "41.17862888888889",
-            "40.37211722222222"
+            "41.20666694444445",
+            "40.37305555555555"
         ]
     },
     {
@@ -4046,8 +4044,8 @@
         "name": "Mus Tower/Approach",
         "uniqueId": "LTCK-LTCK",
         "coordinates": [
-            "41.249721944444445",
-            "38.68222194444444"
+            "41.64482972222222",
+            "39.07798027777778"
         ]
     },
     {
@@ -4058,8 +4056,8 @@
         "name": "Sinop Tower/Approach",
         "uniqueId": "LTCM-LTCM",
         "coordinates": [
-            "34.89333333333333",
-            "42.108333333333334"
+            "35.085",
+            "42.18666666666666"
         ]
     },
     {
@@ -4070,8 +4068,8 @@
         "name": "Maras Tower/Approach",
         "uniqueId": "LTCN-LTCN",
         "coordinates": [
-            "36.48166666666667",
-            "37.248333333333335"
+            "36.98833333333334",
+            "37.835"
         ]
     },
     {
@@ -4082,8 +4080,8 @@
         "name": "Igdir Tower/Approach",
         "uniqueId": "LTCT-LTCT",
         "coordinates": [
-            "43.597791944444445",
-            "40.33164694444445"
+            "43.65045490829049",
+            "40.370320945643066"
         ]
     },
     {
@@ -4106,8 +4104,8 @@
         "name": "Bingol Tower/Approach",
         "uniqueId": "LTCU-LTCU",
         "coordinates": [
-            "40.60666666666667",
-            "38.36"
+            "40.681666666666665",
+            "39.35666666666667"
         ]
     },
     {
@@ -4130,8 +4128,8 @@
         "name": "Sirnak Tower/Approach",
         "uniqueId": "LTCV-LTCV",
         "coordinates": [
-            "41.824086111111114",
-            "37.640411944444445"
+            "42.075739444444444",
+            "37.69696444444444"
         ]
     },
     {
@@ -4154,8 +4152,8 @@
         "name": "Altus Approach",
         "uniqueId": "LTS-LTS",
         "coordinates": [
-            "-99.583333",
-            "35.079167"
+            "-99.755278",
+            "35.165278"
         ]
     },
     {
@@ -4166,8 +4164,8 @@
         "name": "Rize Tower/Approach",
         "uniqueId": "LTFO-LTFO",
         "coordinates": [
-            "40.77504527777778",
-            "41.50827972222222"
+            "40.852338055555556",
+            "41.51288861111111"
         ]
     },
     {
@@ -4178,8 +4176,8 @@
         "name": "Carsamba Tower/Approach",
         "uniqueId": "LTFH-LTFH",
         "coordinates": [
-            "36.28447972222222",
-            "41.70787583333334"
+            "36.56555611111111",
+            "41.75472194444445"
         ]
     },
     {
@@ -4190,8 +4188,8 @@
         "name": "Kosice Radar",
         "uniqueId": "LZKZ-LZKZ",
         "coordinates": [
-            "21.321944444444444",
-            "48.95583333333334"
+            "21.25583333333333",
+            "49.13916666666667"
         ]
     },
     {
@@ -4202,8 +4200,8 @@
         "name": "Luke Approach",
         "uniqueId": "LUF-LUF",
         "coordinates": [
-            "-112.21667",
-            "32.6"
+            "-112.59306",
+            "34.16417"
         ]
     },
     {
@@ -4214,8 +4212,8 @@
         "name": "Stefanik Radar",
         "uniqueId": "LZIB-LZIB",
         "coordinates": [
-            "17.61388888888889",
-            "47.818333333333335"
+            "17.20264583333333",
+            "48.87797666666667"
         ]
     },
     {
@@ -4226,8 +4224,8 @@
         "name": "Sliac Radar",
         "uniqueId": "LZSL-LZSL",
         "coordinates": [
-            "19.135277777777777",
-            "48.80833333333333"
+            "18.923055555555557",
+            "48.812777777777775"
         ]
     },
     {
@@ -4238,8 +4236,8 @@
         "name": "Chisinau Approach",
         "uniqueId": "LUKK-LUKK",
         "coordinates": [
-            "27.85166",
-            "47.16833"
+            "29.06666",
+            "47.57444"
         ]
     },
     {
@@ -4250,8 +4248,8 @@
         "name": "Malacky Approach",
         "uniqueId": "LZMC-LZMC",
         "coordinates": [
-            "17.22861111111111",
-            "48.3125"
+            "17.06222222222222",
+            "48.772777777777776"
         ]
     },
     {
@@ -4274,8 +4272,8 @@
         "name": "Memphis Approach",
         "uniqueId": "M03-MEM",
         "coordinates": [
-            "-90.245833",
-            "35.695833"
+            "-89.933333",
+            "35.729167"
         ]
     },
     {
@@ -4322,8 +4320,8 @@
         "name": "Cibao Approach",
         "uniqueId": "MDPP-MDPP",
         "coordinates": [
-            "-71.66659681125792",
-            "20.416661199327"
+            "-70.483784970077",
+            "20.41677109507869"
         ]
     },
     {
@@ -4334,8 +4332,8 @@
         "name": "Harrisburg Approach",
         "uniqueId": "MDT-MDT",
         "coordinates": [
-            "-76.6890435645189",
-            "40.9265088508253"
+            "-77.0435422",
+            "40.9434447"
         ]
     },
     {
@@ -4346,7 +4344,7 @@
         "name": "Cascade Approach",
         "uniqueId": "MFR-MFR",
         "coordinates": [
-            "-122.875",
+            "-123.083333",
             "42.933333"
         ]
     },
@@ -4358,8 +4356,8 @@
         "name": "Las Americas Approach",
         "uniqueId": "MDSD-MDSD",
         "coordinates": [
-            "-69.10970343416385",
-            "19.07454195033424"
+            "-69.5379017929012",
+            "19.25681737700457"
         ]
     },
     {
@@ -4370,7 +4368,7 @@
         "name": "Minot Approach",
         "uniqueId": "MIB-MIB",
         "coordinates": [
-            "-100.25",
+            "-102.1",
             "48.916667"
         ]
     },
@@ -4382,8 +4380,8 @@
         "name": "Montgomery Approach",
         "uniqueId": "MGM-MGM",
         "coordinates": [
-            "-87",
-            "32.883333"
+            "-86.180556",
+            "33.072222"
         ]
     },
     {
@@ -4394,8 +4392,8 @@
         "name": "Miami Approach",
         "uniqueId": "MIA-MIA",
         "coordinates": [
-            "-79.870833",
-            "25.354167"
+            "-80.655833",
+            "26.513889"
         ]
     },
     {
@@ -4406,8 +4404,8 @@
         "name": "Milwaukee Approach",
         "uniqueId": "MKE-MKE",
         "coordinates": [
-            "-89.370833",
-            "44.183333"
+            "-89.076111",
+            "44.225"
         ]
     },
     {
@@ -4418,8 +4416,8 @@
         "name": "Quad Cities Approach",
         "uniqueId": "MLI-MLI",
         "coordinates": [
-            "-90.925",
-            "42"
+            "-90.229167",
+            "42.145833"
         ]
     },
     {
@@ -4430,8 +4428,8 @@
         "name": "Monroe Approach",
         "uniqueId": "MLU-MLU",
         "coordinates": [
-            "-92.522222",
-            "32.108333"
+            "-91.9",
+            "33.004167"
         ]
     },
     {
@@ -4442,8 +4440,8 @@
         "name": "Acapulco TMA",
         "uniqueId": "MMAA-MMAA",
         "coordinates": [
-            "-100.416389",
-            "17.533333"
+            "-99.753889",
+            "17.755706"
         ]
     },
     {
@@ -4454,8 +4452,8 @@
         "name": "Culiacan TMA",
         "uniqueId": "MMCL-MMCL",
         "coordinates": [
-            "-107.401667",
-            "25.5975"
+            "-107.174444",
+            "25.901944"
         ]
     },
     {
@@ -4466,8 +4464,8 @@
         "name": "Ciudad Del Carmen TMA",
         "uniqueId": "MMCE-MMCE",
         "coordinates": [
-            "-91.759242",
-            "19.074219"
+            "-91.2356",
+            "19.305631"
         ]
     },
     {
@@ -4478,8 +4476,8 @@
         "name": "Ciudad Obregon TMA",
         "uniqueId": "MMCN-MMCN",
         "coordinates": [
-            "-109.771881",
-            "28.225158"
+            "-109.820919",
+            "28.227061"
         ]
     },
     {
@@ -4490,8 +4488,8 @@
         "name": "Ciudad Juarez TMA",
         "uniqueId": "MMCS-MMCS",
         "coordinates": [
-            "-105.688789",
-            "31.089914"
+            "-107.388644",
+            "31.786097"
         ]
     },
     {
@@ -4502,8 +4500,8 @@
         "name": "Ciudad Victoria TMA",
         "uniqueId": "MMCV-MMCV",
         "coordinates": [
-            "-99.252222",
-            "24.128611"
+            "-99.513889",
+            "24.375833"
         ]
     },
     {
@@ -4514,8 +4512,8 @@
         "name": "Chihuahua TMA",
         "uniqueId": "MMCU-MMCU",
         "coordinates": [
-            "-105.819819",
-            "29.875475"
+            "-105.958731",
+            "29.881858"
         ]
     },
     {
@@ -4550,8 +4548,8 @@
         "name": "Hermosillo TMA",
         "uniqueId": "MMHO-MMHO",
         "coordinates": [
-            "-108.936025",
-            "27.624206"
+            "-110.735736",
+            "31.333086"
         ]
     },
     {
@@ -4562,8 +4560,8 @@
         "name": "LosMochis TMA",
         "uniqueId": "MMLM-MMLM",
         "coordinates": [
-            "-109.00715",
-            "26.512944"
+            "-109.055461",
+            "26.514847"
         ]
     },
     {
@@ -4574,8 +4572,8 @@
         "name": "Saltillo TMA",
         "uniqueId": "MMIO-MMIO",
         "coordinates": [
-            "-100.909056",
-            "25.748792"
+            "-100.932217",
+            "25.749522"
         ]
     },
     {
@@ -4586,8 +4584,8 @@
         "name": "Leon TMA",
         "uniqueId": "MMLO-MMLO",
         "coordinates": [
-            "-101.926944",
-            "22.640556"
+            "-102.317775",
+            "22.704219"
         ]
     },
     {
@@ -4598,8 +4596,8 @@
         "name": "Matamoros TMA",
         "uniqueId": "MMMA-MMMA",
         "coordinates": [
-            "-97.509122",
-            "25.935786"
+            "-97.528458",
+            "25.936394"
         ]
     },
     {
@@ -4610,8 +4608,8 @@
         "name": "La Paz TMA",
         "uniqueId": "MMLP-MMLP",
         "coordinates": [
-            "-109.519431",
-            "24.393844"
+            "-109.70195",
+            "25.073633"
         ]
     },
     {
@@ -4622,8 +4620,8 @@
         "name": "Merida TMA",
         "uniqueId": "MMMD-MMMD",
         "coordinates": [
-            "-90.603614",
-            "21.702806"
+            "-90.446739",
+            "21.847033"
         ]
     },
     {
@@ -4634,8 +4632,8 @@
         "name": "Mexico TMA",
         "uniqueId": "MMMX-MMMX",
         "coordinates": [
-            "-97.998889",
-            "19.851667"
+            "-99.516389",
+            "20.453889"
         ]
     },
     {
@@ -4658,8 +4656,8 @@
         "name": "Monterrey TMA",
         "uniqueId": "MMMY-MMMY",
         "coordinates": [
-            "-99.376667",
-            "26.483889"
+            "-100.096667",
+            "26.679444"
         ]
     },
     {
@@ -4670,8 +4668,8 @@
         "name": "Mexicali TMA",
         "uniqueId": "MMML-MMML",
         "coordinates": [
-            "-114.775189",
-            "32.493581"
+            "-114.718608",
+            "32.718331"
         ]
     },
     {
@@ -4682,8 +4680,8 @@
         "name": "Nuevo Laredo TMA",
         "uniqueId": "MMNL-MMNL",
         "coordinates": [
-            "-100.098056",
-            "28.1275"
+            "-100.043783",
+            "28.171739"
         ]
     },
     {
@@ -4694,8 +4692,8 @@
         "name": "Mazatlan TMA",
         "uniqueId": "MMMZ-MMMZ",
         "coordinates": [
-            "-107.196583",
-            "23.755867"
+            "-106.657717",
+            "24.394283"
         ]
     },
     {
@@ -4706,8 +4704,8 @@
         "name": "Vallarta TMA",
         "uniqueId": "MMPR-MMPR",
         "coordinates": [
-            "-105.1024",
-            "21.836375"
+            "-105.232431",
+            "21.844883"
         ]
     },
     {
@@ -4718,8 +4716,8 @@
         "name": "Oaxaca TMA",
         "uniqueId": "MMOX-MMOX",
         "coordinates": [
-            "-96.118333",
-            "17.994167"
+            "-96.798889",
+            "18.150278"
         ]
     },
     {
@@ -4742,8 +4740,8 @@
         "name": "Potosi TMA",
         "uniqueId": "MMSP-MMSP",
         "coordinates": [
-            "-101.926944",
-            "22.640556"
+            "-100.930833",
+            "23.252853"
         ]
     },
     {
@@ -4754,8 +4752,8 @@
         "name": "Cabos TMA",
         "uniqueId": "MMSD-MMSD",
         "coordinates": [
-            "-109.960153",
-            "24.288569"
+            "-109.461283",
+            "24.568225"
         ]
     },
     {
@@ -4778,8 +4776,8 @@
         "name": "Torreon TMA",
         "uniqueId": "MMTC-MMTC",
         "coordinates": [
-            "-103.327989",
-            "26.393153"
+            "-103.424508",
+            "26.396194"
         ]
     },
     {
@@ -4802,8 +4800,8 @@
         "name": "Tuxtla Gutierrez TMA",
         "uniqueId": "MMTG-MMTG",
         "coordinates": [
-            "-92.858433",
-            "17.071581"
+            "-93.692717",
+            "17.361064"
         ]
     },
     {
@@ -4814,8 +4812,8 @@
         "name": "Tampico TMA",
         "uniqueId": "MMTM-MMTM",
         "coordinates": [
-            "-97.751622",
-            "23.282939"
+            "-97.864444",
+            "23.288411"
         ]
     },
     {
@@ -4826,8 +4824,8 @@
         "name": "Cancun TMA",
         "uniqueId": "MMUN-MMUN",
         "coordinates": [
-            "-88.09735",
-            "20.883119"
+            "-87.223647",
+            "22.139275"
         ]
     },
     {
@@ -4838,8 +4836,8 @@
         "name": "Villahermosa TMA",
         "uniqueId": "MMVA-MMVA",
         "coordinates": [
-            "-92.772481",
-            "18.412633"
+            "-92.215664",
+            "18.514514"
         ]
     },
     {
@@ -4850,8 +4848,8 @@
         "name": "Veracruz TMA",
         "uniqueId": "MMVR-MMVR",
         "coordinates": [
-            "-96.798889",
-            "18.150278"
+            "-96.1875",
+            "20.1444"
         ]
     },
     {
@@ -4862,8 +4860,8 @@
         "name": "Zihuatanejo TMA",
         "uniqueId": "MMZH-MMZH",
         "coordinates": [
-            "-100.899167",
-            "18.665"
+            "-101.59",
+            "18.786389"
         ]
     },
     {
@@ -4876,8 +4874,8 @@
         "name": "Møre Approach",
         "uniqueId": "MORE-ENAL-ENKB-ENRC",
         "coordinates": [
-            "6.645",
-            "62"
+            "8",
+            "63.56666666666667"
         ]
     },
     {
@@ -4888,8 +4886,8 @@
         "name": "Mobile Approach",
         "uniqueId": "MOB-MOB",
         "coordinates": [
-            "-88.658333",
-            "30.391667"
+            "-88.2",
+            "31.258333"
         ]
     },
     {
@@ -4912,8 +4910,8 @@
         "name": "Moscow Approach",
         "uniqueId": "MSK-MSK",
         "coordinates": [
-            "35.555277499999995",
-            "55.54222166666666"
+            "37.71194416666667",
+            "57.107777222222225"
         ]
     },
     {
@@ -4936,8 +4934,8 @@
         "name": "Madison Approach",
         "uniqueId": "MSN-MSN",
         "coordinates": [
-            "-89.958333",
-            "43.644444"
+            "-89.770833",
+            "43.666667"
         ]
     },
     {
@@ -4948,8 +4946,8 @@
         "name": "Spokane Approach",
         "uniqueId": "MSO-MSO",
         "coordinates": [
-            "-114.770833",
-            "47.198611"
+            "-114.470833",
+            "47.388889"
         ]
     },
     {
@@ -4972,8 +4970,8 @@
         "name": "New Orleans Approach",
         "uniqueId": "MSY-MSY",
         "coordinates": [
-            "-91.114833",
-            "29.3166"
+            "-90.6416",
+            "30.8666"
         ]
     },
     {
@@ -4984,8 +4982,8 @@
         "name": "Selfridge Approach",
         "uniqueId": "MTC-MTC",
         "coordinates": [
-            "-83.09111",
-            "42.86611"
+            "-82.70972",
+            "43.18889"
         ]
     },
     {
@@ -5008,8 +5006,8 @@
         "name": "Grant County Approach",
         "uniqueId": "MWH-MWH",
         "coordinates": [
-            "-119.925",
-            "46.733333"
+            "-119.425",
+            "47.683333"
         ]
     },
     {
@@ -5020,8 +5018,8 @@
         "name": "Mountain Home Approach",
         "uniqueId": "MUO-MUO",
         "coordinates": [
-            "-117",
-            "42.75"
+            "-116.033478",
+            "43.284756"
         ]
     },
     {
@@ -5032,8 +5030,8 @@
         "name": "Myrtle Beach Approach",
         "uniqueId": "MYR-MYR",
         "coordinates": [
-            "-79.066667",
-            "34.434167"
+            "-78.75",
+            "34.444444"
         ]
     },
     {
@@ -5056,8 +5054,8 @@
         "name": "Mizzou Approach",
         "uniqueId": "MZU-MZU",
         "coordinates": [
-            "-92.65",
-            "39.258333"
+            "-91.892778",
+            "39.563611"
         ]
     },
     {
@@ -5068,8 +5066,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-ISP",
         "coordinates": [
-            "-73.27281446421199",
-            "41.587500000002265"
+            "-73",
+            "41.594444"
         ]
     },
     {
@@ -5080,8 +5078,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-EWR",
         "coordinates": [
-            "-75.106944",
-            "40.525"
+            "-74.344444",
+            "41.483333"
         ]
     },
     {
@@ -5092,8 +5090,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-JFK",
         "coordinates": [
-            "-74.2643075",
-            "40.7395311"
+            "-74.1576892",
+            "41.0033117"
         ]
     },
     {
@@ -5104,8 +5102,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-NY",
         "coordinates": [
-            "-73.254167",
-            "40.409722"
+            "-74.3",
+            "42.175"
         ]
     },
     {
@@ -5116,8 +5114,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-LGA",
         "coordinates": [
-            "-75.106944",
-            "40.525"
+            "-73.5182678",
+            "41.6045864"
         ]
     },
     {
@@ -5128,8 +5126,8 @@
         "name": "New York Approach",
         "uniqueId": "N90-SWF",
         "coordinates": [
-            "-73.3",
-            "41.5875"
+            "-74.3",
+            "42.175"
         ]
     },
     {
@@ -5140,8 +5138,8 @@
         "name": "Beaufort Approach",
         "uniqueId": "NBC-NBC",
         "coordinates": [
-            "-80.133056",
-            "32.504444"
+            "-80.953611",
+            "32.907778"
         ]
     },
     {
@@ -5152,8 +5150,8 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-MOD",
         "coordinates": [
-            "-120.33028",
-            "38.2841"
+            "-120.79994",
+            "38.34698"
         ]
     },
     {
@@ -5164,8 +5162,8 @@
         "name": "Cherry Point Approach",
         "uniqueId": "NCA-NCA",
         "coordinates": [
-            "-77.499722",
-            "34.391944"
+            "-77.387222",
+            "34.915833"
         ]
     },
     {
@@ -5176,8 +5174,8 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-MRY",
         "coordinates": [
-            "-121.114166",
-            "36.408056"
+            "-122.21394",
+            "37.11827"
         ]
     },
     {
@@ -5188,7 +5186,7 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-NCT",
         "coordinates": [
-            "-121.086111",
+            "-121.616666",
             "39.5"
         ]
     },
@@ -5212,8 +5210,8 @@
         "name": "NorCal Departure",
         "uniqueId": "NCT-NCT",
         "coordinates": [
-            "-122.930278",
-            "36.983333"
+            "-121.801111",
+            "38.377778"
         ]
     },
     {
@@ -5224,8 +5222,8 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-OAK",
         "coordinates": [
-            "-120.33028",
-            "38.2841"
+            "-120.79994",
+            "38.34698"
         ]
     },
     {
@@ -5248,8 +5246,8 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-SFO",
         "coordinates": [
-            "-122.531944",
-            "36.392222"
+            "-120.79737",
+            "37.77104"
         ]
     },
     {
@@ -5261,8 +5259,8 @@
         "name": "NorCal Departure",
         "uniqueId": "NCT-SFO-OAK",
         "coordinates": [
-            "-122.930278",
-            "36.983333"
+            "-121.801111",
+            "38.377778"
         ]
     },
     {
@@ -5273,8 +5271,8 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-SJC",
         "coordinates": [
-            "-120.276111",
-            "37.488333"
+            "-122.04493",
+            "37.53448"
         ]
     },
     {
@@ -5285,7 +5283,7 @@
         "name": "NorCal Approach",
         "uniqueId": "NCT-SMF",
         "coordinates": [
-            "-121.086111",
+            "-121.616666",
             "39.5"
         ]
     },
@@ -5297,8 +5295,8 @@
         "name": "NorCal Departure",
         "uniqueId": "NCT-SJC",
         "coordinates": [
-            "-122.11314",
-            "37.40349"
+            "-122.04493",
+            "37.53448"
         ]
     },
     {
@@ -5309,8 +5307,8 @@
         "name": "Fallon Approach",
         "uniqueId": "NFL-NFL",
         "coordinates": [
-            "-119.25",
-            "39.59722"
+            "-117.73222",
+            "40.12111"
         ]
     },
     {
@@ -5321,8 +5319,8 @@
         "name": "Nadi Approach",
         "uniqueId": "NFFN-NFFN",
         "coordinates": [
-            "178.325022",
-            "-17.449372"
+            "177.443611",
+            "-17.089722"
         ]
     },
     {
@@ -5345,8 +5343,8 @@
         "name": "Lemoore Approach",
         "uniqueId": "NLC-NLC",
         "coordinates": [
-            "-120.60806",
-            "36.66222"
+            "-120.18972",
+            "36.73611"
         ]
     },
     {
@@ -5369,8 +5367,8 @@
         "name": "Patuxent Approach",
         "uniqueId": "NHK-NHK",
         "coordinates": [
-            "-76.1925",
-            "37.75"
+            "-75.59",
+            "38.705833"
         ]
     },
     {
@@ -5381,8 +5379,8 @@
         "name": "Meridian Approach",
         "uniqueId": "NMM-NMM",
         "coordinates": [
-            "-88.070833",
-            "32.255556"
+            "-88.825",
+            "33.222222"
         ]
     },
     {
@@ -5393,8 +5391,8 @@
         "name": "Cherry Point Approach",
         "uniqueId": "NKT-NKT",
         "coordinates": [
-            "-76.014167",
-            "35.006389"
+            "-75.911944",
+            "36.178889"
         ]
     },
     {
@@ -5405,8 +5403,8 @@
         "name": "Kingsville Approach",
         "uniqueId": "NQI-NQI",
         "coordinates": [
-            "-98.433333",
-            "27.866667"
+            "-98.354167",
+            "28.216667"
         ]
     },
     {
@@ -5417,8 +5415,8 @@
         "name": "Navy Key West Approach",
         "uniqueId": "NQX-NQX",
         "coordinates": [
-            "-81.269444",
-            "24.483333"
+            "-82",
+            "24.966667"
         ]
     },
     {
@@ -5429,8 +5427,8 @@
         "name": "Tahiti Approach",
         "uniqueId": "NTAA-NTAA",
         "coordinates": [
-            "-149.57722",
-            "-17.61889"
+            "-149.6015",
+            "-16.713787"
         ]
     },
     {
@@ -5441,8 +5439,8 @@
         "name": "Point Mugu Approach",
         "uniqueId": "NTD-NTD",
         "coordinates": [
-            "-120.5",
-            "34.0999978"
+            "-119.4694981",
+            "34.5250019"
         ]
     },
     {
@@ -5477,8 +5475,8 @@
         "name": "Whidbey Approach",
         "uniqueId": "NUW-NUW",
         "coordinates": [
-            "-124.00014785988256",
-            "48.29059175801023"
+            "-123.025",
+            "48.64167"
         ]
     },
     {
@@ -5489,8 +5487,8 @@
         "name": "Yuma Approach",
         "uniqueId": "NYL-NYL",
         "coordinates": [
-            "-115.06666666670003",
-            "33.516666666700075"
+            "-115.56388888890001",
+            "33.54444444440014"
         ]
     },
     {
@@ -5501,8 +5499,8 @@
         "name": "Auckland Approach",
         "uniqueId": "NZAA-NZAA",
         "coordinates": [
-            "173.66814",
-            "-36.9852"
+            "174.51923",
+            "-35.95766"
         ]
     },
     {
@@ -5513,8 +5511,8 @@
         "name": "Bay Approach",
         "uniqueId": "NZHN-NZHN",
         "coordinates": [
-            "174.98117",
-            "-37.57334"
+            "175.32083",
+            "-37.51323"
         ]
     },
     {
@@ -5525,8 +5523,8 @@
         "name": "Christchurch Approach",
         "uniqueId": "NZCH-NZCH",
         "coordinates": [
-            "172.58345",
-            "-43.73167"
+            "172.53368",
+            "-42.83716"
         ]
     },
     {
@@ -5537,8 +5535,8 @@
         "name": "Queenstown Approach",
         "uniqueId": "NZQN-NZQN",
         "coordinates": [
-            "167.83136",
-            "-44.46822"
+            "168.36475",
+            "-44.18575"
         ]
     },
     {
@@ -5549,8 +5547,8 @@
         "name": "Ohakea Approach",
         "uniqueId": "NZOH-NZOH",
         "coordinates": [
-            "174.76704",
-            "-39.79591"
+            "174.91791",
+            "-39.6909"
         ]
     },
     {
@@ -5561,8 +5559,8 @@
         "name": "Jazan Approach",
         "uniqueId": "OEGN-OEGN",
         "coordinates": [
-            "41.85873556013736",
-            "17.04946312454509"
+            "42.18523331824121",
+            "17.53610677796278"
         ]
     },
     {
@@ -5573,8 +5571,8 @@
         "name": "Wellington Approach",
         "uniqueId": "NZWN-NZWN",
         "coordinates": [
-            "175.27283",
-            "-40.71069"
+            "174.87544",
+            "-40.63161"
         ]
     },
     {
@@ -5585,8 +5583,8 @@
         "name": "Dammam Approach",
         "uniqueId": "OEDF-OEDF",
         "coordinates": [
-            "50.45900084019596",
-            "26.57174162389528"
+            "48.99795473228018",
+            "28.07104895728239"
         ]
     },
     {
@@ -5597,8 +5595,8 @@
         "name": "Abha Approach",
         "uniqueId": "OEAB-OEAB",
         "coordinates": [
-            "41.04055291824019",
-            "19.09131561787766"
+            "44.9599750893709",
+            "20.15805071411732"
         ]
     },
     {
@@ -5609,8 +5607,8 @@
         "name": "Gassim Approach",
         "uniqueId": "OEGS-OEGS",
         "coordinates": [
-            "44.52071458473008",
-            "25.30498654082552"
+            "43.74988840344626",
+            "26.96749280730747"
         ]
     },
     {
@@ -5621,8 +5619,8 @@
         "name": "Sultan Approach",
         "uniqueId": "OEPS-OEPS",
         "coordinates": [
-            "48.230036979894",
-            "22.91091423016985"
+            "48.20284164108512",
+            "24.62488291683853"
         ]
     },
     {
@@ -5633,8 +5631,8 @@
         "name": "Hail Approach",
         "uniqueId": "OEHL-OEHL",
         "coordinates": [
-            "41.669737",
-            "28.091171"
+            "41.682917",
+            "28.091273"
         ]
     },
     {
@@ -5645,8 +5643,8 @@
         "name": "Madinah Approach",
         "uniqueId": "OEMA-OEMA",
         "coordinates": [
-            "40.40196428583263",
-            "23.4688886660335"
+            "39.73036669389232",
+            "25.81617130668671"
         ]
     },
     {
@@ -5657,8 +5655,8 @@
         "name": "Riyadh Approach",
         "uniqueId": "OERK-OERK",
         "coordinates": [
-            "46.740004",
-            "25.885228"
+            "46.759389",
+            "25.885382"
         ]
     },
     {
@@ -5669,8 +5667,8 @@
         "name": "Taif Approach",
         "uniqueId": "OETF-OETF",
         "coordinates": [
-            "39.81956430394912",
-            "21.42072609525025"
+            "41.20726981352761",
+            "22.49512103968822"
         ]
     },
     {
@@ -5681,8 +5679,8 @@
         "name": "HCF Approach",
         "uniqueId": "OGG-OGG",
         "coordinates": [
-            "-156.85335",
-            "20.61378"
+            "-156.42404",
+            "21.31615"
         ]
     },
     {
@@ -5693,8 +5691,8 @@
         "name": "Tabuk Approach",
         "uniqueId": "OETB-OETB",
         "coordinates": [
-            "36.596952",
-            "29.03081"
+            "36.61025",
+            "29.030912"
         ]
     },
     {
@@ -5705,8 +5703,8 @@
         "name": "Oklahoma City Approach",
         "uniqueId": "OKC-OKC",
         "coordinates": [
-            "-98.216667",
-            "35.55"
+            "-97.583611",
+            "36.033333"
         ]
     },
     {
@@ -5717,8 +5715,8 @@
         "name": "Jeddah Approach",
         "uniqueId": "OEJN-OEJN",
         "coordinates": [
-            "39.92783255713027",
-            "21.04109277459114"
+            "39.09410080302573",
+            "22.71068425588432"
         ]
     },
     {
@@ -5729,8 +5727,8 @@
         "name": "Norfolk Approach",
         "uniqueId": "ORF-ORF",
         "coordinates": [
-            "-77.21667",
-            "36.90556"
+            "-76.39167",
+            "37.75"
         ]
     },
     {
@@ -5741,8 +5739,8 @@
         "name": "Beirut Approach",
         "uniqueId": "OLBA-OLBA",
         "coordinates": [
-            "35.52091333333333",
-            "34.13925305555556"
+            "35.48597222222222",
+            "34.140525555555556"
         ]
     },
     {
@@ -5753,8 +5751,8 @@
         "name": "Phoenix Approach",
         "uniqueId": "P50-PHX",
         "coordinates": [
-            "-113.07083",
-            "34.65694"
+            "-111.15111",
+            "35.40111"
         ]
     },
     {
@@ -5765,8 +5763,8 @@
         "name": "Cairns Approach",
         "uniqueId": "OZR-OZR",
         "coordinates": [
-            "-86.57917",
-            "31.13333"
+            "-85.69583",
+            "32.00833"
         ]
     },
     {
@@ -5789,8 +5787,8 @@
         "name": "Portland Approach",
         "uniqueId": "P80-PDX",
         "coordinates": [
-            "-122.268611",
-            "44.969444"
+            "-122.283333",
+            "46.1"
         ]
     },
     {
@@ -5801,8 +5799,8 @@
         "name": "Palm Beach Approach",
         "uniqueId": "PBI-PBI",
         "coordinates": [
-            "-80.925",
-            "27.93333"
+            "-80.16667",
+            "28.01667"
         ]
     },
     {
@@ -5813,8 +5811,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-BWI",
         "coordinates": [
-            "-76.4019758",
-            "39.8589281"
+            "-76.5333453",
+            "39.8847461"
         ]
     },
     {
@@ -5825,8 +5823,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-DCA",
         "coordinates": [
-            "-78.0841203",
-            "38.6981414"
+            "-78.1641658",
+            "39.2474992"
         ]
     },
     {
@@ -5837,8 +5835,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-CHO",
         "coordinates": [
-            "-78.0666511",
-            "38.4483933"
+            "-78.3233253",
+            "38.5468594"
         ]
     },
     {
@@ -5849,8 +5847,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-IAD",
         "coordinates": [
-            "-78.3750614",
-            "39.3481814"
+            "-77.1591872",
+            "39.8806236"
         ]
     },
     {
@@ -5861,8 +5859,8 @@
         "name": "Philadelphia Approach",
         "uniqueId": "PHL-PHL",
         "coordinates": [
-            "-76.040278",
-            "39.593611"
+            "-75.066667",
+            "40.483333"
         ]
     },
     {
@@ -5873,8 +5871,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-PCT",
         "coordinates": [
-            "-75.59",
-            "38.705833"
+            "-76.5333453",
+            "39.8847461"
         ]
     },
     {
@@ -5885,8 +5883,8 @@
         "name": "Pittsburgh Approach",
         "uniqueId": "PIT-PIT",
         "coordinates": [
-            "-79.600833",
-            "40.360278"
+            "-80.232778",
+            "40.991667"
         ]
     },
     {
@@ -5897,8 +5895,8 @@
         "name": "Potomac Approach",
         "uniqueId": "PCT-RIC",
         "coordinates": [
-            "-77.3791644",
-            "38.1749922"
+            "-75.59",
+            "38.705833"
         ]
     },
     {
@@ -5909,8 +5907,8 @@
         "name": "Pensacola Approach",
         "uniqueId": "PNS-PNS",
         "coordinates": [
-            "-87.658333",
-            "30.958333"
+            "-87",
+            "31.166667"
         ]
     },
     {
@@ -5921,8 +5919,8 @@
         "name": "Polk Approach",
         "uniqueId": "POE-POE",
         "coordinates": [
-            "-93.933333",
-            "31.116667"
+            "-92.8625",
+            "32.191667"
         ]
     },
     {
@@ -5945,8 +5943,8 @@
         "name": "Joshua Approach",
         "uniqueId": "PMD-PMD",
         "coordinates": [
-            "-118.6194986",
-            "34.9833336"
+            "-118.4666667",
+            "35.0916667"
         ]
     },
     {
@@ -5957,8 +5955,8 @@
         "name": "Portland Approach",
         "uniqueId": "PWM-PWM",
         "coordinates": [
-            "-68.8166667",
-            "44.1000556"
+            "-69.6788889",
+            "44.8480556"
         ]
     },
     {
@@ -5969,8 +5967,8 @@
         "name": "Providence Approach",
         "uniqueId": "PVD-PVD",
         "coordinates": [
-            "-70.8907856",
-            "41.7713683"
+            "-71.6457803",
+            "42.0628408"
         ]
     },
     {
@@ -5993,8 +5991,8 @@
         "name": "Omaha Approach",
         "uniqueId": "R90-LNK",
         "coordinates": [
-            "-97.383333",
-            "41.058333"
+            "-96.793056",
+            "41.258889"
         ]
     },
     {
@@ -6005,8 +6003,8 @@
         "name": "Ellsworth Approach",
         "uniqueId": "RCA-RCA",
         "coordinates": [
-            "-103.116667",
-            "43.475"
+            "-102.883333",
+            "44.783333"
         ]
     },
     {
@@ -6017,8 +6015,8 @@
         "name": "Omaha Approach",
         "uniqueId": "R90-OMA",
         "coordinates": [
-            "-96.793056",
-            "41.258889"
+            "-95.783333",
+            "41.883333"
         ]
     },
     {
@@ -6029,8 +6027,8 @@
         "name": "Reading Approach",
         "uniqueId": "RDG-RDG",
         "coordinates": [
-            "-76.2353281",
-            "40.6884306"
+            "-76.1625",
+            "40.688889"
         ]
     },
     {
@@ -6041,8 +6039,8 @@
         "name": "Grand Forks Approach",
         "uniqueId": "RDR-RDR",
         "coordinates": [
-            "-97.633333",
-            "47.35"
+            "-97.3",
+            "48.5"
         ]
     },
     {
@@ -6053,8 +6051,8 @@
         "name": "Raleigh Approach",
         "uniqueId": "RDU-RDU",
         "coordinates": [
-            "-79.578889",
-            "35.426111"
+            "-78.688889",
+            "36.466667"
         ]
     },
     {
@@ -6065,8 +6063,8 @@
         "name": "Rockford Approach",
         "uniqueId": "RFD-RFD",
         "coordinates": [
-            "-90.22917",
-            "42.14583"
+            "-88.81667",
+            "42.86667"
         ]
     },
     {
@@ -6077,8 +6075,8 @@
         "name": "Jeju Approach",
         "uniqueId": "RKPC-RKPC",
         "coordinates": [
-            "125.85103972222221",
-            "33.003165555555555"
+            "127.33138888888888",
+            "34.25333305555556"
         ]
     },
     {
@@ -6113,8 +6111,8 @@
         "name": "Seoul Approach",
         "uniqueId": "RKSS-RKSS",
         "coordinates": [
-            "125.798055",
-            "37.269444444444446"
+            "127.66444416666667",
+            "37.96944416666667"
         ]
     },
     {
@@ -6149,8 +6147,8 @@
         "name": "Fort Myers Approach",
         "uniqueId": "RSW-RSW",
         "coordinates": [
-            "-82.308333",
-            "25.85"
+            "-81.85",
+            "27.116667"
         ]
     },
     {
@@ -6161,8 +6159,8 @@
         "name": "Seattle Approach",
         "uniqueId": "S46-SEA",
         "coordinates": [
-            "-123.2331319839022",
-            "46.83051701924943"
+            "-121.97250584503492",
+            "48.243194342368106"
         ]
     },
     {
@@ -6173,8 +6171,8 @@
         "name": "Savannah Approach",
         "uniqueId": "SAV-SAV",
         "coordinates": [
-            "-81.025",
-            "32.5"
+            "-81.4625",
+            "32.633333"
         ]
     },
     {
@@ -6197,8 +6195,8 @@
         "name": "Salt Lake Approach",
         "uniqueId": "S56-SLC",
         "coordinates": [
-            "-112.73667",
-            "41.17917"
+            "-112.03917",
+            "41.63972"
         ]
     },
     {
@@ -6209,8 +6207,8 @@
         "name": "San Antonio Approach",
         "uniqueId": "SAT-SAT",
         "coordinates": [
-            "-97.65371667",
-            "28.94255"
+            "-98.675",
+            "30.11666667"
         ]
     },
     {
@@ -6221,8 +6219,8 @@
         "name": "South Bend Approach",
         "uniqueId": "SBN-SBN",
         "coordinates": [
-            "-87.20194",
-            "41.35028"
+            "-86.01389",
+            "42.38889"
         ]
     },
     {
@@ -6233,8 +6231,8 @@
         "name": "Santa Barbara Approach",
         "uniqueId": "SBA-SBA",
         "coordinates": [
-            "-121.2372222",
-            "35.3716667"
+            "-120.85",
+            "35.5333333"
         ]
     },
     {
@@ -6245,8 +6243,8 @@
         "name": "Macae Control",
         "uniqueId": "SBWE-SBWE",
         "coordinates": [
-            "-40.8336",
-            "-21.425"
+            "-41.3003",
+            "-21.3617"
         ]
     },
     {
@@ -6257,8 +6255,8 @@
         "name": "Recife Control",
         "uniqueId": "SBWF-SBWF",
         "coordinates": [
-            "-34.2403",
-            "-8.3481"
+            "-34.7747",
+            "-6.8447"
         ]
     },
     {
@@ -6281,8 +6279,8 @@
         "name": "Campo Grande Control",
         "uniqueId": "SBWG-SBWG",
         "coordinates": [
-            "-53.971944",
-            "-20.349444"
+            "-54.671333",
+            "-19.799673"
         ]
     },
     {
@@ -6293,8 +6291,8 @@
         "name": "Belo Horizonte Control",
         "uniqueId": "SBWH-SBWH",
         "coordinates": [
-            "-43.457575",
-            "-20.496631"
+            "-43.692019",
+            "-18.934789"
         ]
     },
     {
@@ -6305,8 +6303,8 @@
         "name": "Rio de Janeiro Control",
         "uniqueId": "SBWJ-SBWJ",
         "coordinates": [
-            "-44.178888",
-            "-23.636388"
+            "-43.698611",
+            "-21.951944"
         ]
     },
     {
@@ -6317,8 +6315,8 @@
         "name": "Foz Control",
         "uniqueId": "SBWI-SBWI",
         "coordinates": [
-            "-54.549559",
-            "-24.915782"
+            "-54.488157",
+            "-24.914615"
         ]
     },
     {
@@ -6329,8 +6327,8 @@
         "name": "Porto Seguro Control",
         "uniqueId": "SBWK-SBWK",
         "coordinates": [
-            "-39.3961",
-            "-15.8448"
+            "-39.3747",
+            "-15.61"
         ]
     },
     {
@@ -6341,8 +6339,8 @@
         "name": "Ilheus Control",
         "uniqueId": "SBWL-SBWL",
         "coordinates": [
-            "-39.074333",
-            "-14.135167"
+            "-38.931333",
+            "-13.757667"
         ]
     },
     {
@@ -6353,8 +6351,8 @@
         "name": "Porto Alegre Control",
         "uniqueId": "SBWP-SBWP",
         "coordinates": [
-            "-50.624839",
-            "-30.174833"
+            "-50.9581",
+            "-28.800114"
         ]
     },
     {
@@ -6365,8 +6363,8 @@
         "name": "Santa Maria Control",
         "uniqueId": "SBWM-SBWM",
         "coordinates": [
-            "-54.458333",
-            "-29.619333"
+            "-53.698263",
+            "-29.046072"
         ]
     },
     {
@@ -6389,8 +6387,8 @@
         "name": "Brasilia Control",
         "uniqueId": "SBWR-SBWR",
         "coordinates": [
-            "-47.733085",
-            "-16.720589"
+            "-48.077167",
+            "-14.965"
         ]
     },
     {
@@ -6401,8 +6399,8 @@
         "name": "Curitiba Control",
         "uniqueId": "SBWT-SBWT",
         "coordinates": [
-            "-48.5489",
-            "-24.9959"
+            "-48.9343",
+            "-24.8075"
         ]
     },
     {
@@ -6425,8 +6423,8 @@
         "name": "Sao Luiz Control",
         "uniqueId": "SBWS-SBWS",
         "coordinates": [
-            "-44.267882",
-            "-1.919808"
+            "-44.226056",
+            "-1.919367"
         ]
     },
     {
@@ -6449,8 +6447,8 @@
         "name": "Bauru Control",
         "uniqueId": "SBWU-SBWU",
         "coordinates": [
-            "-49.119167",
-            "-22.962833"
+            "-49.733667",
+            "-21.6635"
         ]
     },
     {
@@ -6473,8 +6471,8 @@
         "name": "Cuiaba Control",
         "uniqueId": "SBWY-SBWY",
         "coordinates": [
-            "-56.155246",
-            "-14.98783"
+            "-56.097576",
+            "-14.986659"
         ]
     },
     {
@@ -6485,8 +6483,8 @@
         "name": "Fortaleza Control",
         "uniqueId": "SBWZ-SBWZ",
         "coordinates": [
-            "-38.3008",
-            "-4.5316"
+            "-38.2423",
+            "-2.9585"
         ]
     },
     {
@@ -6497,8 +6495,8 @@
         "name": "Aracaju Control",
         "uniqueId": "SBXA-SBXA",
         "coordinates": [
-            "-36.4673",
-            "-10.6907"
+            "-36.6362",
+            "-10.074"
         ]
     },
     {
@@ -6533,8 +6531,8 @@
         "name": "Florianopolis Control",
         "uniqueId": "SBXF-SBXF",
         "coordinates": [
-            "-49.668597",
-            "-27.374272"
+            "-48.157125",
+            "-26.009903"
         ]
     },
     {
@@ -6545,8 +6543,8 @@
         "name": "Prudente Control",
         "uniqueId": "SBXG-SBXG",
         "coordinates": [
-            "-51.676836",
-            "-22.789098"
+            "-51.504667",
+            "-21.335667"
         ]
     },
     {
@@ -6557,8 +6555,8 @@
         "name": "Palmas Control",
         "uniqueId": "SBXD-SBXD",
         "coordinates": [
-            "-49.041172",
-            "-10.221922"
+            "-48.367743",
+            "-9.621393"
         ]
     },
     {
@@ -6581,8 +6579,8 @@
         "name": "Maceio Control",
         "uniqueId": "SBXM-SBXM",
         "coordinates": [
-            "-36.393345",
-            "-9.803888"
+            "-35.589786",
+            "-8.689574"
         ]
     },
     {
@@ -6605,8 +6603,8 @@
         "name": "Anapolis Control",
         "uniqueId": "SBXN-SBXN",
         "coordinates": [
-            "-48.602333",
-            "-15.852833"
+            "-48.936167",
+            "-15.723167"
         ]
     },
     {
@@ -6617,8 +6615,8 @@
         "name": "Londrina Control",
         "uniqueId": "SBXO-SBXO",
         "coordinates": [
-            "-51.958833",
-            "-24.059667"
+            "-51.1125",
+            "-22.67057"
         ]
     },
     {
@@ -6629,8 +6627,8 @@
         "name": "Sao Paulo Control",
         "uniqueId": "SBXP-SBXP",
         "coordinates": [
-            "-47.801675",
-            "-23.257633"
+            "-46.985292",
+            "-22.461406"
         ]
     },
     {
@@ -6641,8 +6639,8 @@
         "name": "Academia Control",
         "uniqueId": "SBXQ-SBXQ",
         "coordinates": [
-            "-46.775333",
-            "-21.875833"
+            "-47.856",
+            "-20.543667"
         ]
     },
     {
@@ -6653,8 +6651,8 @@
         "name": "Vitoria Control",
         "uniqueId": "SBXR-SBXR",
         "coordinates": [
-            "-40.0325",
-            "-19.623667"
+            "-40.331509",
+            "-19.591222"
         ]
     },
     {
@@ -6665,8 +6663,8 @@
         "name": "Salvador Control",
         "uniqueId": "SBXS-SBXS",
         "coordinates": [
-            "-37.812686",
-            "-12.963647"
+            "-37.9215",
+            "-11.7975"
         ]
     },
     {
@@ -6677,8 +6675,8 @@
         "name": "Natal Control",
         "uniqueId": "SBXT-SBXT",
         "coordinates": [
-            "-34.7747",
-            "-6.8447"
+            "-36.0306",
+            "-5.1206"
         ]
     },
     {
@@ -6689,8 +6687,8 @@
         "name": "Uberaba Control",
         "uniqueId": "SBXU-SBXU",
         "coordinates": [
-            "-48.596667",
-            "-20.582167"
+            "-47.148978",
+            "-19.155514"
         ]
     },
     {
@@ -6701,8 +6699,8 @@
         "name": "Uberlandia Control",
         "uniqueId": "SBXW-SBXW",
         "coordinates": [
-            "-48.39467",
-            "-19.357185"
+            "-48.248108",
+            "-18.207853"
         ]
     },
     {
@@ -6713,8 +6711,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-BUR",
         "coordinates": [
-            "-119.1023564",
-            "34.5127731"
+            "-118.4333361",
+            "34.5972028"
         ]
     },
     {
@@ -6737,8 +6735,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-LAX",
         "coordinates": [
-            "-118.9500292",
-            "34.20832"
+            "-117.3629069",
+            "34.2516556"
         ]
     },
     {
@@ -6749,8 +6747,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-ONT",
         "coordinates": [
-            "-118.1499594",
-            "34.2708"
+            "-117.6563042",
+            "34.5440339"
         ]
     },
     {
@@ -6761,8 +6759,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-SAN",
         "coordinates": [
-            "-117.8685439",
-            "33.0815172"
+            "-117.2791767",
+            "33.4583522"
         ]
     },
     {
@@ -6773,8 +6771,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-SCT",
         "coordinates": [
-            "-119.1023556",
-            "34.5127731"
+            "-118.4333353",
+            "34.5972028"
         ]
     },
     {
@@ -6785,8 +6783,8 @@
         "name": "Louisville Approach",
         "uniqueId": "SDF-SDF",
         "coordinates": [
-            "-86.7125",
-            "38.608333"
+            "-85.461667",
+            "38.833333"
         ]
     },
     {
@@ -6797,8 +6795,8 @@
         "name": "SoCal Approach",
         "uniqueId": "SCT-SNA",
         "coordinates": [
-            "-118.2496186",
-            "33.25032"
+            "-117.9054486",
+            "33.9167278"
         ]
     },
     {
@@ -6809,8 +6807,8 @@
         "name": "Springfield Approach",
         "uniqueId": "SGF-SGF",
         "coordinates": [
-            "-93.866667",
-            "37.916667"
+            "-93.033333",
+            "37.975"
         ]
     },
     {
@@ -6821,7 +6819,7 @@
         "name": "Shreveport Approach",
         "uniqueId": "SHV-SHV",
         "coordinates": [
-            "-93.766667",
+            "-93.816667",
             "33.033333"
         ]
     },
@@ -6845,8 +6843,8 @@
         "name": "Simferopol Approach",
         "uniqueId": "SIP-SIP",
         "coordinates": [
-            "34.966666667",
-            "45.75"
+            "33.628888889",
+            "46.228888889"
         ]
     },
     {
@@ -6893,8 +6891,8 @@
         "name": "Bogota Approach",
         "uniqueId": "SKBO-SKBO",
         "coordinates": [
-            "-74.1043664",
-            "5.9658892"
+            "-73.8236311",
+            "6.0301247"
         ]
     },
     {
@@ -6917,8 +6915,8 @@
         "name": "Cucuta Approach",
         "uniqueId": "SKCC-SKCC",
         "coordinates": [
-            "-70.08333",
-            "7"
+            "-72.65472",
+            "8.630556"
         ]
     },
     {
@@ -6929,8 +6927,8 @@
         "name": "Cali Approach",
         "uniqueId": "SKCL-SKCL",
         "coordinates": [
-            "-77.04917",
-            "4.235833"
+            "-75.49673970453114",
+            "4.780907098831093"
         ]
     },
     {
@@ -6941,8 +6939,8 @@
         "name": "Andes Approach",
         "uniqueId": "SKIP-SKIP",
         "coordinates": [
-            "-77.47028",
-            "0.402222"
+            "-77.67306",
+            "1.359722"
         ]
     },
     {
@@ -6953,8 +6951,8 @@
         "name": "Amazonas Approach",
         "uniqueId": "SKLT-SKLT",
         "coordinates": [
-            "-69.77444",
-            "-3.37333"
+            "-69.91667",
+            "-3.35694"
         ]
     },
     {
@@ -6977,8 +6975,8 @@
         "name": "Neiva Approach",
         "uniqueId": "SKNV-SKNV",
         "coordinates": [
-            "-76.12241630941251",
-            "2.2710412896441037"
+            "-74.2659122",
+            "3.8692231"
         ]
     },
     {
@@ -7037,8 +7035,8 @@
         "name": "Solent Radar",
         "uniqueId": "SOLENT-SOLENT",
         "coordinates": [
-            "-2.0958333333333",
-            "50.823888888889"
+            "-1.3244444444444",
+            "51.141111111111"
         ]
     },
     {
@@ -7049,8 +7047,8 @@
         "name": "Saipan Approach",
         "uniqueId": "SPN-GUM_S",
         "coordinates": [
-            "146.4109994",
-            "15.223955"
+            "145.7326797",
+            "15.7897239"
         ]
     },
     {
@@ -7061,8 +7059,8 @@
         "name": "Sheppard Approach",
         "uniqueId": "SPS-SPS",
         "coordinates": [
-            "-99.255",
-            "34.59333"
+            "-97.94833",
+            "34.77444"
         ]
     },
     {
@@ -7073,8 +7071,8 @@
         "name": "St. Joseph Approach",
         "uniqueId": "STJ-STJ",
         "coordinates": [
-            "-95.916667",
-            "40.079167"
+            "-94.5",
+            "40.350556"
         ]
     },
     {
@@ -7085,8 +7083,8 @@
         "name": "Shaw Approach",
         "uniqueId": "SSC-SSC",
         "coordinates": [
-            "-80.755278",
-            "34.266944"
+            "-80.578333",
+            "34.703333"
         ]
     },
     {
@@ -7097,8 +7095,8 @@
         "name": "Carrasco Approach",
         "uniqueId": "SUMU-SUMU",
         "coordinates": [
-            "-56.883888888889",
-            "-34.982777777778"
+            "-56.025277777778",
+            "-34.332836944444"
         ]
     },
     {
@@ -7121,7 +7119,7 @@
         "name": "Sioux City Approach",
         "uniqueId": "SUX-SUX",
         "coordinates": [
-            "-96.291667",
+            "-96.766667",
             "43"
         ]
     },
@@ -7145,8 +7143,8 @@
         "name": "Whiteman Approach",
         "uniqueId": "SZL-SZL",
         "coordinates": [
-            "-94.025",
-            "39.008333"
+            "-93.991667",
+            "39.166667"
         ]
     },
     {
@@ -7157,8 +7155,8 @@
         "name": "St. Louis Approach",
         "uniqueId": "T75-PIA",
         "coordinates": [
-            "-90.079167",
-            "41.075"
+            "-89.795833",
+            "41.141667"
         ]
     },
     {
@@ -7169,8 +7167,8 @@
         "name": "Syracuse Approach",
         "uniqueId": "SYR-SYR",
         "coordinates": [
-            "-76.791667",
-            "43.633333"
+            "-75.9",
+            "43.675"
         ]
     },
     {
@@ -7193,8 +7191,8 @@
         "name": "VC Bird Approach",
         "uniqueId": "TAPA-TAPA",
         "coordinates": [
-            "-63",
-            "17.36667"
+            "-62",
+            "18"
         ]
     },
     {
@@ -7205,8 +7203,8 @@
         "name": "St. Louis Approach",
         "uniqueId": "T75-STL",
         "coordinates": [
-            "-90.458333",
-            "39.402778"
+            "-89.795833",
+            "41.141667"
         ]
     },
     {
@@ -7277,8 +7275,8 @@
         "name": "Thames Director",
         "uniqueId": "THAMES-THAMES",
         "coordinates": [
-            "0.0552778",
-            "51.5052778"
+            "1.6119444444444",
+            "51.7475"
         ]
     },
     {
@@ -7301,8 +7299,8 @@
         "name": "Tallahassee Approach",
         "uniqueId": "TLH-TLH",
         "coordinates": [
-            "-84.8",
-            "31.066667"
+            "-84.133333",
+            "31.119444"
         ]
     },
     {
@@ -7313,8 +7311,8 @@
         "name": "Beatrix Approach",
         "uniqueId": "TNCA-TNCA",
         "coordinates": [
-            "-70.44028",
-            "12.47444"
+            "-70.01523083333333",
+            "12.91776861111111"
         ]
     },
     {
@@ -7325,7 +7323,7 @@
         "name": "Juliana Approach",
         "uniqueId": "TNCM-TNCM",
         "coordinates": [
-            "-62.86666666666667",
+            "-63.666666666666664",
             "18.416666666666668"
         ]
     },
@@ -7337,8 +7335,8 @@
         "name": "Curaçao Terminal",
         "uniqueId": "TNCC-TNCC",
         "coordinates": [
-            "-67.49222",
-            "13.67638"
+            "-70.02083",
+            "14.16721"
         ]
     },
     {
@@ -7349,8 +7347,8 @@
         "name": "Tampa Approach",
         "uniqueId": "TPA-TPA",
         "coordinates": [
-            "-82.733333",
-            "27.183333"
+            "-82.716667",
+            "28.741667"
         ]
     },
     {
@@ -7361,8 +7359,8 @@
         "name": "Toledo Approach",
         "uniqueId": "TOL-TOL",
         "coordinates": [
-            "-84.83333",
-            "41.625"
+            "-84.33861",
+            "42.01"
         ]
     },
     {
@@ -7373,8 +7371,8 @@
         "name": "Toronto Centre",
         "uniqueId": "TOR-TOR",
         "coordinates": [
-            "-82.169444",
-            "43.855278"
+            "-79.511667",
+            "44.304722"
         ]
     },
     {
@@ -7385,8 +7383,8 @@
         "name": "Tri City Approach",
         "uniqueId": "TRI-TRI",
         "coordinates": [
-            "-83.129167",
-            "36.761111"
+            "-81.933333",
+            "37.033333"
         ]
     },
     {
@@ -7397,8 +7395,8 @@
         "name": "Twin Falls Approach",
         "uniqueId": "TWF-TWF",
         "coordinates": [
-            "-114.9",
-            "42.75"
+            "-113.9",
+            "42.833333"
         ]
     },
     {
@@ -7409,8 +7407,8 @@
         "name": "Picaro Approach",
         "uniqueId": "TTPP-TTPP",
         "coordinates": [
-            "-62.5",
-            "11"
+            "-60.88333",
+            "11.65"
         ]
     },
     {
@@ -7421,8 +7419,8 @@
         "name": "Tulsa Approach",
         "uniqueId": "TUL-TUL",
         "coordinates": [
-            "-96.129167",
-            "35.627778"
+            "-95.720833",
+            "36.695833"
         ]
     },
     {
@@ -7433,8 +7431,8 @@
         "name": "Knoxville Approach",
         "uniqueId": "TYS-TYS",
         "coordinates": [
-            "-84.666667",
-            "35.666667"
+            "-83.375",
+            "36.358333"
         ]
     },
     {
@@ -7457,8 +7455,8 @@
         "name": "Tucson Approach",
         "uniqueId": "U90-TUS",
         "coordinates": [
-            "-110.26",
-            "31.84055555560002"
+            "-111.48888888889996",
+            "32.57083333329996"
         ]
     },
     {
@@ -7469,8 +7467,8 @@
         "name": "Almaty Approach",
         "uniqueId": "UAAA-UAAA",
         "coordinates": [
-            "77.9225",
-            "44.274722222"
+            "77.438333333",
+            "44.423333333"
         ]
     },
     {
@@ -7481,8 +7479,8 @@
         "name": "Almaty Radar",
         "uniqueId": "UAAA-UAAA_R",
         "coordinates": [
-            "77.032933",
-            "43.808514"
+            "77.043889",
+            "43.808583"
         ]
     },
     {
@@ -7493,8 +7491,8 @@
         "name": "Taraz Approach",
         "uniqueId": "UADD-UADD",
         "coordinates": [
-            "71.833611111",
-            "42.965833333"
+            "71.254444444",
+            "43.546666667"
         ]
     },
     {
@@ -7517,8 +7515,8 @@
         "name": "Astana Radar",
         "uniqueId": "UACC-UACC_R",
         "coordinates": [
-            "71.453512",
-            "51.472128"
+            "71.466111",
+            "51.472197"
         ]
     },
     {
@@ -7529,8 +7527,8 @@
         "name": "Baku Arrival",
         "uniqueId": "UBBB-UBBB",
         "coordinates": [
-            "50.321486388889",
-            "39.838578333333"
+            "50.050833333333",
+            "41.1387175"
         ]
     },
     {
@@ -7565,8 +7563,8 @@
         "name": "Osh Approach",
         "uniqueId": "UCFO-UCFO",
         "coordinates": [
-            "72.03591694444444",
-            "40.244659722222224"
+            "72.95900027777778",
+            "41.32083277777778"
         ]
     },
     {
@@ -7601,8 +7599,8 @@
         "name": "Khabarovsk Radar",
         "uniqueId": "UHHH-UHHH_R",
         "coordinates": [
-            "135.66999972222",
-            "48.71667"
+            "135.32166694444",
+            "48.883333333333"
         ]
     },
     {
@@ -7625,8 +7623,8 @@
         "name": "Pevek Krug",
         "uniqueId": "UHMP-UHMP_R",
         "coordinates": [
-            "167.87972222",
-            "69.93"
+            "170.55000003",
+            "70.15000003"
         ]
     },
     {
@@ -7661,8 +7659,8 @@
         "name": "Anadyr Approach",
         "uniqueId": "UHMA-UHMA",
         "coordinates": [
-            "179.61166667",
-            "64.85027778"
+            "177.705",
+            "65.54583333"
         ]
     },
     {
@@ -7673,8 +7671,8 @@
         "name": "Vladivostok Approach",
         "uniqueId": "UHWW-UHWW",
         "coordinates": [
-            "132.595",
-            "43.828610000000005"
+            "132.59653",
+            "43.83006"
         ]
     },
     {
@@ -7685,8 +7683,8 @@
         "name": "Vladivostok Radar",
         "uniqueId": "UHWW-UHWW_R",
         "coordinates": [
-            "132.595",
-            "43.82861"
+            "132.59653",
+            "43.83006"
         ]
     },
     {
@@ -7697,8 +7695,8 @@
         "name": "Yuzhno-Sakhalinsk Radar",
         "uniqueId": "UHSS-UHSS_R",
         "coordinates": [
-            "143.21166667",
-            "47.42"
+            "142.67083333",
+            "47.51833333"
         ]
     },
     {
@@ -7721,8 +7719,8 @@
         "name": "Chita Approach",
         "uniqueId": "UIAA-UIAA",
         "coordinates": [
-            "114.95333",
-            "51.67722"
+            "113.23284",
+            "53.10683"
         ]
     },
     {
@@ -7745,7 +7743,7 @@
         "name": "Irkutsk Approach",
         "uniqueId": "UIII-UIII",
         "coordinates": [
-            "103.78333",
+            "103.66667",
             "53.15"
         ]
     },
@@ -7757,8 +7755,8 @@
         "name": "Arkhangelsk Approach",
         "uniqueId": "ULAA-ULAA",
         "coordinates": [
-            "41.11907222",
-            "65.48429944"
+            "40.75498694",
+            "65.50071333"
         ]
     },
     {
@@ -7769,8 +7767,8 @@
         "name": "Irkutsk Radar",
         "uniqueId": "UIII-UIII_R",
         "coordinates": [
-            "103.86333",
-            "52.61333"
+            "104.38372",
+            "52.62769"
         ]
     },
     {
@@ -7781,8 +7779,8 @@
         "name": "Naryan Mar Podkhod",
         "uniqueId": "ULAM-ULAM",
         "coordinates": [
-            "51.57694444",
-            "66.97083333"
+            "53.16299972",
+            "68.54083278"
         ]
     },
     {
@@ -7805,8 +7803,8 @@
         "name": "Peterburg Approach",
         "uniqueId": "ULLL-ULLL",
         "coordinates": [
-            "28.631667",
-            "60.186667"
+            "29.802222",
+            "60.338889"
         ]
     },
     {
@@ -7841,8 +7839,8 @@
         "name": "Orsha Approach",
         "uniqueId": "UMIO-UMIO",
         "coordinates": [
-            "29.48138889",
-            "54.67499972"
+            "30.83611056",
+            "54.91666639"
         ]
     },
     {
@@ -7865,8 +7863,8 @@
         "name": "Abakan Radar",
         "uniqueId": "UNAA-UNAA",
         "coordinates": [
-            "91.65806",
-            "53.31778"
+            "91.34333",
+            "54.19167"
         ]
     },
     {
@@ -7877,8 +7875,8 @@
         "name": "Minsk Approach",
         "uniqueId": "UMMS-UMMS",
         "coordinates": [
-            "26.98565028",
-            "54.32017167"
+            "27.69472194",
+            "54.58805583"
         ]
     },
     {
@@ -7889,8 +7887,8 @@
         "name": "Minsk Radar",
         "uniqueId": "UMMS-UMMS_R",
         "coordinates": [
-            "28.75027778",
-            "53.5225"
+            "27.85583306",
+            "54.38888861"
         ]
     },
     {
@@ -7901,8 +7899,8 @@
         "name": "Kemerovo Approach",
         "uniqueId": "UNEE-UNEE",
         "coordinates": [
-            "89.08306",
-            "56.06667"
+            "86",
+            "56.8306"
         ]
     },
     {
@@ -7913,8 +7911,8 @@
         "name": "Krasnoyarsk Radar",
         "uniqueId": "UNKL-UNKL_R",
         "coordinates": [
-            "93.21639",
-            "55.97111"
+            "92.525",
+            "56.62194"
         ]
     },
     {
@@ -7937,8 +7935,8 @@
         "name": "Novosibirsk Approach",
         "uniqueId": "UNNT-UNNT",
         "coordinates": [
-            "82.26167",
-            "56.02"
+            "83.2",
+            "56.18333"
         ]
     },
     {
@@ -7949,8 +7947,8 @@
         "name": "Novosibirsk Radar",
         "uniqueId": "UNNT-UNNT_R",
         "coordinates": [
-            "82.96",
-            "55.43083"
+            "82.58528",
+            "55.48389"
         ]
     },
     {
@@ -7997,8 +7995,8 @@
         "name": "Novokuznetsk Approach",
         "uniqueId": "UNWW-UNWW",
         "coordinates": [
-            "87.5",
-            "54.53306"
+            "87.91667",
+            "54.55"
         ]
     },
     {
@@ -8033,8 +8031,8 @@
         "name": "Gelendzhik Tower",
         "uniqueId": "URKG-URKG_R",
         "coordinates": [
-            "38.185",
-            "44.725"
+            "37.670833333333",
+            "44.763055555556"
         ]
     },
     {
@@ -8069,8 +8067,8 @@
         "name": "Makhachkala Approach",
         "uniqueId": "URML-URML",
         "coordinates": [
-            "48.65667",
-            "43.135"
+            "47.5",
+            "43.61833"
         ]
     },
     {
@@ -8081,8 +8079,8 @@
         "name": "Grozny Tower",
         "uniqueId": "URMG-URMG_R",
         "coordinates": [
-            "46.26167",
-            "43.56333"
+            "45.42528",
+            "43.73639"
         ]
     },
     {
@@ -8105,7 +8103,7 @@
         "name": "Vladikavkaz Krug",
         "uniqueId": "URMO-URMO_R",
         "coordinates": [
-            "45.3",
+            "45.13056",
             "43.59972"
         ]
     },
@@ -8141,8 +8139,8 @@
         "name": "Platov Approach",
         "uniqueId": "URRP-URRP",
         "coordinates": [
-            "38.33333",
-            "46.98333"
+            "39.86333",
+            "48.51833"
         ]
     },
     {
@@ -8165,8 +8163,8 @@
         "name": "Sochi Approach",
         "uniqueId": "URSS-URSS",
         "coordinates": [
-            "38.703889",
-            "44.310556"
+            "39.955",
+            "44.381944"
         ]
     },
     {
@@ -8177,8 +8175,8 @@
         "name": "Sochi Radar",
         "uniqueId": "URSS-URSS_R",
         "coordinates": [
-            "40.13068",
-            "43.56504"
+            "39.337777777778",
+            "43.910277777778"
         ]
     },
     {
@@ -8249,8 +8247,8 @@
         "name": "Salekhard Krug",
         "uniqueId": "USDD-USDD",
         "coordinates": [
-            "66.590994",
-            "67.040147"
+            "66.611111",
+            "67.040216"
         ]
     },
     {
@@ -8261,8 +8259,8 @@
         "name": "Khantym Radar",
         "uniqueId": "USHH-USHH",
         "coordinates": [
-            "69.111896",
-            "61.482091"
+            "69.128333",
+            "61.482161"
         ]
     },
     {
@@ -8273,8 +8271,8 @@
         "name": "Beloyarskiy Krug",
         "uniqueId": "USHQ-USHQ",
         "coordinates": [
-            "66.685376",
-            "64.047729"
+            "66.699722",
+            "64.047784"
         ]
     },
     {
@@ -8285,8 +8283,8 @@
         "name": "Nadym Radar",
         "uniqueId": "USMM-USMM",
         "coordinates": [
-            "72.679091",
-            "65.931813"
+            "72.698333",
+            "65.931883"
         ]
     },
     {
@@ -8297,8 +8295,8 @@
         "name": "Nizhnevartovsk Radar",
         "uniqueId": "USNN-USNN",
         "coordinates": [
-            "76.451387",
-            "61.39348"
+            "76.467778",
+            "61.39355"
         ]
     },
     {
@@ -8309,8 +8307,8 @@
         "name": "Novy Urengoy Radar",
         "uniqueId": "USMU-USMU",
         "coordinates": [
-            "76.499748",
-            "66.519591"
+            "76.519444",
+            "66.519661"
         ]
     },
     {
@@ -8357,8 +8355,8 @@
         "name": "Perm Radar",
         "uniqueId": "USPP-USPP_R",
         "coordinates": [
-            "56.006427",
-            "58.364036"
+            "56.021389",
+            "58.364105"
         ]
     },
     {
@@ -8381,8 +8379,8 @@
         "name": "Koltsovo Radar",
         "uniqueId": "USSS-USSS_R",
         "coordinates": [
-            "60.78246",
-            "57.192925"
+            "60.796944",
+            "57.192994"
         ]
     },
     {
@@ -8405,8 +8403,8 @@
         "name": "Surgut Krug",
         "uniqueId": "USRR-USRR_R",
         "coordinates": [
-            "73.388978",
-            "61.703562"
+            "73.402222",
+            "61.703618"
         ]
     },
     {
@@ -8417,8 +8415,8 @@
         "name": "Tyumen Radar",
         "uniqueId": "USTR-USTR",
         "coordinates": [
-            "65.301458",
-            "57.617925"
+            "65.316111",
+            "57.617994"
         ]
     },
     {
@@ -8441,8 +8439,8 @@
         "name": "Chkalovskiy",
         "uniqueId": "UUMU-UUMU",
         "coordinates": [
-            "37.81306",
-            "56.08861"
+            "38.08064",
+            "56.13105"
         ]
     },
     {
@@ -8453,8 +8451,8 @@
         "name": "Vnukovo Radar",
         "uniqueId": "UUWW-UUWW",
         "coordinates": [
-            "36.34166666666667",
-            "55.69166666666666"
+            "36.86666666666667",
+            "55.769999999999996"
         ]
     },
     {
@@ -8477,8 +8475,8 @@
         "name": "Sivkar Krug",
         "uniqueId": "UUYY-UUYY_R",
         "coordinates": [
-            "51.13451889",
-            "62.354285"
+            "50.87148056",
+            "62.36741444"
         ]
     },
     {
@@ -8489,8 +8487,8 @@
         "name": "Sheremetyevo Radar",
         "uniqueId": "UUEE-UUEE",
         "coordinates": [
-            "37.62083305555556",
-            "55.749722222222225"
+            "37.72138833333334",
+            "56.56388888888888"
         ]
     },
     {
@@ -8501,8 +8499,8 @@
         "name": "Sivkar Krug",
         "uniqueId": "UUYY-UUYY_R",
         "coordinates": [
-            "51.13451889",
-            "62.354285"
+            "50.87148056",
+            "62.36741444"
         ]
     },
     {
@@ -8513,8 +8511,8 @@
         "name": "Nizhniy Approach",
         "uniqueId": "UWGG-UWGG",
         "coordinates": [
-            "43.722499722222224",
-            "56.619999722222225"
+            "44.93138888888889",
+            "56.64999944444445"
         ]
     },
     {
@@ -8525,8 +8523,8 @@
         "name": "Kazan Approach",
         "uniqueId": "UWKD-UWKD",
         "coordinates": [
-            "49.82083305555556",
-            "56.76111111111111"
+            "47.916666944444444",
+            "57.3"
         ]
     },
     {
@@ -8549,8 +8547,8 @@
         "name": "Kazan Radar",
         "uniqueId": "UWKD-UWKD_R",
         "coordinates": [
-            "49.471111111111114",
-            "55.7075"
+            "49.075",
+            "55.87166694444444"
         ]
     },
     {
@@ -8585,8 +8583,8 @@
         "name": "Gagarin Radar",
         "uniqueId": "UWSG-UWSG_R",
         "coordinates": [
-            "46.93333333333333",
-            "51.82333305555556"
+            "46.42333305555555",
+            "52.01166694444444"
         ]
     },
     {
@@ -8597,8 +8595,8 @@
         "name": "Orenburg Radar",
         "uniqueId": "UWOO-UWOO_R",
         "coordinates": [
-            "56.204166944444445",
-            "52.17777805555556"
+            "55.54416694444444",
+            "52.23083305555556"
         ]
     },
     {
@@ -8609,8 +8607,8 @@
         "name": "Gagarin Approach",
         "uniqueId": "UWSG-UWSG",
         "coordinates": [
-            "47.13611111111111",
-            "52.16722194444444"
+            "46.835278055555555",
+            "52.5025"
         ]
     },
     {
@@ -8633,8 +8631,8 @@
         "name": "Ufa Approach",
         "uniqueId": "UWUU-UWUU",
         "coordinates": [
-            "55.25055611111111",
-            "55.39194388888889"
+            "54.78277805555555",
+            "55.39944388888889"
         ]
     },
     {
@@ -8645,8 +8643,8 @@
         "name": "Valdosta Approach",
         "uniqueId": "VAD-VAD",
         "coordinates": [
-            "-84.13333",
-            "31.11944"
+            "-83.63333",
+            "31.59167"
         ]
     },
     {
@@ -8657,8 +8655,8 @@
         "name": "Samara Radar",
         "uniqueId": "UWWW-UWWW_R",
         "coordinates": [
-            "50.561411111111106",
-            "53.23693111111111"
+            "50.140095",
+            "53.861018055555554"
         ]
     },
     {
@@ -8669,8 +8667,8 @@
         "name": "Hong Kong Approach",
         "uniqueId": "VHHH-VHHH",
         "coordinates": [
-            "113.63111361111",
-            "22.179688333333"
+            "114.38411916667",
+            "22.613924722222"
         ]
     },
     {
@@ -8681,8 +8679,8 @@
         "name": "Valley Approach",
         "uniqueId": "VLY-VLY",
         "coordinates": [
-            "-97.1502777778",
-            "26.93611111109999"
+            "-97.77166666670001",
+            "26.969444444399983"
         ]
     },
     {
@@ -8693,8 +8691,8 @@
         "name": "Eglin Approach",
         "uniqueId": "VPS-VPS",
         "coordinates": [
-            "-86.91668861111111",
-            "30.64613027777778"
+            "-86.40017806184197",
+            "31.133267164656324"
         ]
     },
     {
@@ -8705,8 +8703,8 @@
         "name": "Volk Approach",
         "uniqueId": "VOK-VOK",
         "coordinates": [
-            "-90.88333",
-            "44.05"
+            "-90.18333",
+            "44.3"
         ]
     },
     {
@@ -8717,8 +8715,8 @@
         "name": "Valley Approach",
         "uniqueId": "VRA-VLY",
         "coordinates": [
-            "-97.150278",
-            "26.936111"
+            "-97.771667",
+            "26.969444"
         ]
     },
     {
@@ -8729,8 +8727,8 @@
         "name": "Gromovo Approach",
         "uniqueId": "XLLJ-XLLJ",
         "coordinates": [
-            "29.80370278",
-            "60.42037778"
+            "30.34629167",
+            "61.15416944"
         ]
     },
     {
@@ -8741,8 +8739,8 @@
         "name": "McGuire Approach",
         "uniqueId": "WRI-WRI",
         "coordinates": [
-            "-74.691111",
-            "39.764167"
+            "-74.333333",
+            "40.25"
         ]
     },
     {
@@ -8753,8 +8751,8 @@
         "name": "Tan Son Nhat Terminal",
         "uniqueId": "VVTS-VVTS",
         "coordinates": [
-            "106.66072333333",
-            "9.7374977777778"
+            "106.65988694444",
+            "11.902674722222"
         ]
     },
     {
@@ -8765,8 +8763,8 @@
         "name": "Bradley Approach",
         "uniqueId": "Y90-BDL",
         "coordinates": [
-            "-71.8333333",
-            "42.45"
+            "-72.9997997",
+            "42.6328719"
         ]
     },
     {
@@ -8777,8 +8775,8 @@
         "name": "Brisbane Approach Gold Coast",
         "uniqueId": "YBBN-BN-C",
         "coordinates": [
-            "153.81",
-            "-28.590833"
+            "153.643056",
+            "-27.588611"
         ]
     },
     {
@@ -8802,8 +8800,8 @@
         "name": "Brisbane Approach (North)",
         "uniqueId": "YBBN-BN-BN-S",
         "coordinates": [
-            "153.304167",
-            "-27.845278"
+            "153.139167",
+            "-26.865833"
         ]
     },
     {
@@ -8815,8 +8813,8 @@
         "name": "Brisbane Approach North",
         "uniqueId": "YBBN-BN-BN-S",
         "coordinates": [
-            "153.304167",
-            "-27.845278"
+            "153.139167",
+            "-26.865833"
         ]
     },
     {
@@ -8851,8 +8849,8 @@
         "name": "Oakey Approach",
         "uniqueId": "YBOK-OK",
         "coordinates": [
-            "151.644444",
-            "-27.398889"
+            "151.738056",
+            "-27.016389"
         ]
     },
     {
@@ -8863,8 +8861,8 @@
         "name": "Coral Approach (Mackay)",
         "uniqueId": "YBMK-MK",
         "coordinates": [
-            "149.082778",
-            "-21.151111"
+            "149.205833",
+            "-20.805"
         ]
     },
     {
@@ -8899,8 +8897,8 @@
         "name": "Coral Approach (Rocky)",
         "uniqueId": "YBRK-RK",
         "coordinates": [
-            "149.8575",
-            "-23.181944"
+            "150.471667",
+            "-22.782778"
         ]
     },
     {
@@ -8911,8 +8909,8 @@
         "name": "Melbourne Departures South",
         "uniqueId": "YMML-ML-S",
         "coordinates": [
-            "144.346944",
-            "-38.228611"
+            "144.842222",
+            "-37.16"
         ]
     },
     {
@@ -8935,8 +8933,8 @@
         "name": "Hobart Approach",
         "uniqueId": "YMHB-HB",
         "coordinates": [
-            "146.362222",
-            "-42.172778"
+            "147.799444",
+            "-41.7825"
         ]
     },
     {
@@ -8959,8 +8957,8 @@
         "name": "Melbourne Approach East",
         "uniqueId": "YMML-ML",
         "coordinates": [
-            "144.346944",
-            "-38.228611"
+            "144.842222",
+            "-37.16"
         ]
     },
     {
@@ -8971,8 +8969,8 @@
         "name": "Melbourne Departures (South)",
         "uniqueId": "YMML-ML-S",
         "coordinates": [
-            "144.601389",
-            "-38.122778"
+            "144.842222",
+            "-37.16"
         ]
     },
     {
@@ -8983,8 +8981,8 @@
         "name": "Youngstown Approach",
         "uniqueId": "YNG-YNG",
         "coordinates": [
-            "-81.10833",
-            "41.25833"
+            "-80.375",
+            "41.67778"
         ]
     },
     {
@@ -8995,8 +8993,8 @@
         "name": "Adelaide Approach",
         "uniqueId": "YPAD-AD",
         "coordinates": [
-            "138.375278",
-            "-34.336389"
+            "138.524444",
+            "-34.113611"
         ]
     },
     {
@@ -9007,8 +9005,8 @@
         "name": "Pearce Approach",
         "uniqueId": "YPEA-PE",
         "coordinates": [
-            "115.845278",
-            "-31.789444"
+            "115.959444",
+            "-31.345"
         ]
     },
     {
@@ -9032,8 +9030,8 @@
         "name": "Perth Approach",
         "uniqueId": "YPPH-PH",
         "coordinates": [
-            "116.415556",
-            "-32.404444"
+            "115.959444",
+            "-31.345"
         ]
     },
     {
@@ -9044,8 +9042,8 @@
         "name": "Canberra Approach West",
         "uniqueId": "YSCB-CB-W",
         "coordinates": [
-            "149.195",
-            "-35.677778"
+            "149.193889",
+            "-34.873333"
         ]
     },
     {
@@ -9068,8 +9066,8 @@
         "name": "Comox Terminal",
         "uniqueId": "YQQ-CYQQ",
         "coordinates": [
-            "-123.5734",
-            "49.2858"
+            "-126.0918",
+            "50.5951"
         ]
     },
     {
@@ -9080,8 +9078,8 @@
         "name": "Canberra Approach East",
         "uniqueId": "YSCB-CB",
         "coordinates": [
-            "149.195",
-            "-35.677778"
+            "149.537222",
+            "-34.866667"
         ]
     },
     {
@@ -9093,8 +9091,8 @@
         "name": "Canberra Approach (East)",
         "uniqueId": "YSCB-CB-CB-W",
         "coordinates": [
-            "148.605278",
-            "-35.155556"
+            "149.537222",
+            "-34.866667"
         ]
     },
     {
@@ -9121,8 +9119,8 @@
         "name": "Nowra Approach",
         "uniqueId": "YSNW-NW",
         "coordinates": [
-            "150.718611",
-            "-34.751667"
+            "150.85",
+            "-34.675"
         ]
     },
     {
@@ -9133,8 +9131,8 @@
         "name": "Vancouver Arrival",
         "uniqueId": "YVR-CYVR",
         "coordinates": [
-            "-123.5734",
-            "49.2858"
+            "-123.1148",
+            "49.5644"
         ]
     },
     {
@@ -9145,8 +9143,8 @@
         "name": "Williamtown Approach",
         "uniqueId": "YWLM-WLM",
         "coordinates": [
-            "151.405556",
-            "-32.866667"
+            "151.851111",
+            "-32.379722"
         ]
     },
     {
@@ -9157,8 +9155,8 @@
         "name": "Beijing Approach",
         "uniqueId": "ZBAA-ZBAA",
         "coordinates": [
-            "115.53055555556",
-            "40.433333333333"
+            "116.56666666667",
+            "40.777777777778"
         ]
     },
     {
@@ -9181,8 +9179,8 @@
         "name": "Capital Approach",
         "uniqueId": "ZBAA_F-ZBAA_F",
         "coordinates": [
-            "115.93166666667",
-            "40.382777777778"
+            "116.85722222222",
+            "40.458333333333"
         ]
     },
     {
@@ -9193,8 +9191,8 @@
         "name": "Daxing Approach",
         "uniqueId": "ZBAD-ZBAD",
         "coordinates": [
-            "115.98694444444",
-            "40.019444444444"
+            "116.32722222222",
+            "40.05"
         ]
     },
     {
@@ -9217,8 +9215,8 @@
         "name": "Shijiazhuang Approach",
         "uniqueId": "ZBSJ-ZBSJ",
         "coordinates": [
-            "113.84527777778",
-            "38.856388888889"
+            "114.59833333333",
+            "39.143333333333"
         ]
     },
     {
@@ -9229,8 +9227,8 @@
         "name": "Tianjin Approach",
         "uniqueId": "ZBTJ-ZBTJ",
         "coordinates": [
-            "116.67",
-            "39.291388888889"
+            "117.31305555556",
+            "39.426666666667"
         ]
     },
     {
@@ -9253,8 +9251,8 @@
         "name": "Changsha Approach",
         "uniqueId": "ZGHA-ZGHA",
         "coordinates": [
-            "112.20944444444",
-            "28.066666666667"
+            "113.06833333333",
+            "28.816666666667"
         ]
     },
     {
@@ -9265,8 +9263,8 @@
         "name": "Guangzhou Approach",
         "uniqueId": "ZGGG-ZGGG",
         "coordinates": [
-            "112.43166666667",
-            "23.638333333333"
+            "113.04916666667",
+            "24.386944444444"
         ]
     },
     {
@@ -9277,8 +9275,8 @@
         "name": "Zhuhai Approach",
         "uniqueId": "ZGJD-ZGJD",
         "coordinates": [
-            "113.48333333333",
-            "22.881666666667"
+            "114.11",
+            "23.036666666667"
         ]
     },
     {
@@ -9289,8 +9287,8 @@
         "name": "Guilin Approach",
         "uniqueId": "ZGKL-ZGKL",
         "coordinates": [
-            "109.5",
-            "25.633333333333"
+            "109.73333333333",
+            "25.933333333333"
         ]
     },
     {
@@ -9301,8 +9299,8 @@
         "name": "Shantou Approach",
         "uniqueId": "ZGOW-ZGOW",
         "coordinates": [
-            "115.25",
-            "24.1"
+            "115.875",
+            "24.566666666667"
         ]
     },
     {
@@ -9313,8 +9311,8 @@
         "name": "Nanning Approach",
         "uniqueId": "ZGNN-ZGNN",
         "coordinates": [
-            "107.30361111111",
-            "22.979166666667"
+            "108.12138888889",
+            "23.430555555556"
         ]
     },
     {
@@ -9337,8 +9335,8 @@
         "name": "Haikou Approach",
         "uniqueId": "ZJHK-ZJHK",
         "coordinates": [
-            "108.85083333333",
-            "19.255277777778"
+            "109.25",
+            "20.5"
         ]
     },
     {
@@ -9349,8 +9347,8 @@
         "name": "Zhengzhou Approach",
         "uniqueId": "ZHCC-ZHCC",
         "coordinates": [
-            "112.19166666667",
-            "34.438333333333"
+            "114.25",
+            "35.5225"
         ]
     },
     {
@@ -9361,8 +9359,8 @@
         "name": "Ezhou Approach",
         "uniqueId": "ZHEC-ZHEC",
         "coordinates": [
-            "114.83111111111",
-            "30.815555555556"
+            "115.18666666667",
+            "30.971666666667"
         ]
     },
     {
@@ -9373,8 +9371,8 @@
         "name": "Wuhan Approach",
         "uniqueId": "ZHHH-ZHHH",
         "coordinates": [
-            "112.39888888889",
-            "31.095833333333"
+            "115.83361111111",
+            "32.917222222222"
         ]
     },
     {
@@ -9397,8 +9395,8 @@
         "name": "Yinchuan Approach",
         "uniqueId": "ZLIC-ZLIC",
         "coordinates": [
-            "105.08861111111",
-            "38.735"
+            "107.43333333333",
+            "39"
         ]
     },
     {
@@ -9409,8 +9407,8 @@
         "name": "Lanzhou Approach",
         "uniqueId": "ZLLL-ZLLL",
         "coordinates": [
-            "102.04111111111",
-            "37.438333333333"
+            "104.01558333333",
+            "37.61675"
         ]
     },
     {
@@ -9433,8 +9431,8 @@
         "name": "Xi'an Approach",
         "uniqueId": "ZLXY-ZLXY",
         "coordinates": [
-            "107.77027777778",
-            "35.211111111111"
+            "109.13972222222",
+            "35.845833333333"
         ]
     },
     {
@@ -9445,8 +9443,8 @@
         "name": "Xining Approach",
         "uniqueId": "ZLXN-ZLXN",
         "coordinates": [
-            "101.58333333333",
-            "37.375277777778"
+            "103.01638888889",
+            "37.520833333333"
         ]
     },
     {
@@ -9469,8 +9467,8 @@
         "name": "Xiamen Approach",
         "uniqueId": "ZSAM-ZSAM",
         "coordinates": [
-            "117.36111111111",
-            "24.508333333333"
+            "118.29166666667",
+            "25.316666666667"
         ]
     },
     {
@@ -9481,8 +9479,8 @@
         "name": "Kunming Approach",
         "uniqueId": "ZPPP-ZPPP",
         "coordinates": [
-            "101.52972222222",
-            "25.027777777778"
+            "103.29416666667",
+            "26.500833333333"
         ]
     },
     {
@@ -9493,8 +9491,8 @@
         "name": "Nanchang Approach",
         "uniqueId": "ZSCN-ZSCN",
         "coordinates": [
-            "115.55194444444",
-            "27.509722222222"
+            "115.93333333333",
+            "30.083333333333"
         ]
     },
     {
@@ -9505,8 +9503,8 @@
         "name": "Fuzhou Approach",
         "uniqueId": "ZSFZ-ZSFZ",
         "coordinates": [
-            "119.605",
-            "24.690833333333"
+            "118.13333333333",
+            "28.283333333333"
         ]
     },
     {
@@ -9517,8 +9515,8 @@
         "name": "Hangzhou Approach",
         "uniqueId": "ZSHC-ZSHC",
         "coordinates": [
-            "118.75333333333",
-            "30.951666666667"
+            "119.43833333333",
+            "31.22"
         ]
     },
     {
@@ -9529,8 +9527,8 @@
         "name": "Jinan Approach",
         "uniqueId": "ZSJN-ZSJN",
         "coordinates": [
-            "115.42361111111",
-            "36.000555555556"
+            "118.21638888889",
+            "37.711944444444"
         ]
     },
     {
@@ -9541,8 +9539,8 @@
         "name": "Hefei Approach",
         "uniqueId": "ZSOF-ZSOF",
         "coordinates": [
-            "115.86444444444",
-            "30.653333333333"
+            "117.25861111111",
+            "32.712777777778"
         ]
     },
     {
@@ -9553,8 +9551,8 @@
         "name": "Ningbo Approach",
         "uniqueId": "ZSNB-ZSNB",
         "coordinates": [
-            "120.59194444444",
-            "29.425"
+            "121.11472222222",
+            "30.338333333333"
         ]
     },
     {
@@ -9565,8 +9563,8 @@
         "name": "Nanjing Approach",
         "uniqueId": "ZSNJ-ZSNJ",
         "coordinates": [
-            "117.26222222222",
-            "34.773055555556"
+            "119.91111111111",
+            "35.141666666667"
         ]
     },
     {
@@ -9577,8 +9575,8 @@
         "name": "Qingdao Approach",
         "uniqueId": "ZSQD-ZSQD",
         "coordinates": [
-            "119.53333333333",
-            "37.413888888889"
+            "120.33305555556",
+            "37.521666666667"
         ]
     },
     {
@@ -9589,8 +9587,8 @@
         "name": "Quanzhou Approach",
         "uniqueId": "ZSQZ-ZSQZ",
         "coordinates": [
-            "118.67194444444",
-            "24.619444444444"
+            "118.38138888889",
+            "24.963055555556"
         ]
     },
     {
@@ -9601,8 +9599,8 @@
         "name": "Shanghai Approach",
         "uniqueId": "ZSSS_F-ZSSS_F",
         "coordinates": [
-            "120.8625",
-            "31.483055555556"
+            "121.45333333333",
+            "31.517222222222"
         ]
     },
     {
@@ -9613,8 +9611,8 @@
         "name": "Shanghai Approach",
         "uniqueId": "ZSSS-ZSSS",
         "coordinates": [
-            "119.55694444444",
-            "32.109444444444"
+            "119.87305555556",
+            "32.335277777778"
         ]
     },
     {
@@ -9637,8 +9635,8 @@
         "name": "Shanghai Approach",
         "uniqueId": "ZSSS_PF-ZSSS_PF",
         "coordinates": [
-            "121.45333333333",
-            "31.517222222222"
+            "122.31944444444",
+            "31.567777777778"
         ]
     },
     {
@@ -9649,8 +9647,8 @@
         "name": "Wuxi Approach",
         "uniqueId": "ZSWX-ZSWX",
         "coordinates": [
-            "120.31944444444",
-            "31.589444444444"
+            "120.41611111111",
+            "31.719166666667"
         ]
     },
     {
@@ -9661,8 +9659,8 @@
         "name": "Yantai Approach",
         "uniqueId": "ZSYT-ZSYT",
         "coordinates": [
-            "120.3425",
-            "37.863333333333"
+            "121.025",
+            "38.066666666667"
         ]
     },
     {
@@ -9673,8 +9671,8 @@
         "name": "Shanghai Approach",
         "uniqueId": "ZSSS_W-ZSSS_W",
         "coordinates": [
-            "119.55694444444",
-            "32.109444444444"
+            "119.87305555556",
+            "32.335277777778"
         ]
     },
     {
@@ -9685,8 +9683,8 @@
         "name": "Shanghai Approach",
         "uniqueId": "ZSSS_S-ZSSS_S",
         "coordinates": [
-            "120.92805555556",
-            "30.485555555556"
+            "122.18333333333",
+            "30.8"
         ]
     },
     {
@@ -9709,8 +9707,8 @@
         "name": "Guiyang Approach",
         "uniqueId": "ZUGY-ZUGY",
         "coordinates": [
-            "105.91166666667",
-            "27.747777777778"
+            "107.44",
+            "28.188333333333"
         ]
     },
     {
@@ -9721,8 +9719,8 @@
         "name": "Wenzhou Approach",
         "uniqueId": "ZSWZ-ZSWZ",
         "coordinates": [
-            "121.44888888889",
-            "26.485555555556"
+            "120.71666666667",
+            "28.866666666667"
         ]
     },
     {
@@ -9757,8 +9755,8 @@
         "name": "Chengdu Approach",
         "uniqueId": "ZUUU-ZUUU",
         "coordinates": [
-            "103.01694444444",
-            "30.806111111111"
+            "105.16833333333",
+            "31.800833333333"
         ]
     },
     {
@@ -9769,8 +9767,8 @@
         "name": "Changchun Approach",
         "uniqueId": "ZYCC-ZYCC",
         "coordinates": [
-            "123.915",
-            "44.454166666667"
+            "125.77305555556",
+            "44.546111111111"
         ]
     },
     {
@@ -9781,8 +9779,8 @@
         "name": "Urumqi Approach",
         "uniqueId": "ZWWW-ZWWW",
         "coordinates": [
-            "86.660555555556",
-            "44.623888888889"
+            "88.3175",
+            "44.748611111111"
         ]
     },
     {

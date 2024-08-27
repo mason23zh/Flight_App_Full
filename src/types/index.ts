@@ -525,6 +525,7 @@ interface VatsimTraconMapping {
     name: string;
     coordinates: number[];
     suffix?: string;
+    callsignPrefix?: string;
 }
 
 export interface FirProperties {
