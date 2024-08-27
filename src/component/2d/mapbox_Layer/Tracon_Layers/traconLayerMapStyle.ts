@@ -3,6 +3,7 @@ import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
 
+    //TODO: Wrong filter.
     const filterConditions = matchedTracon.map(tracon => [
         "all",
         ["==", ["get", "id"], tracon.traconInfo.id],
@@ -45,6 +46,7 @@ export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): Fil
 
 export const fallBackHighlightTraconFillLayerStyle: FillLayer = {
     id: "fallback-highlight-tracon-boundaries-layer",
+    source: "fallback-tracon-geojson",
     type: "fill",
     paint: {
         "fill-color": "#27aef5",
@@ -54,6 +56,7 @@ export const fallBackHighlightTraconFillLayerStyle: FillLayer = {
 
 export const fallbackTraconBoundariesLineLayerStyle: LineLayer = {
     id: "fallback-tracon-boundaries-line-layer",
+    source: "fallback-tracon-geojson",
     type: "line",
     paint: {
         "line-color": "#04BDFF",

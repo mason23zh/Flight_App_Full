@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../database/db";
 import { calculateEdgeCoordinates } from "../util/calculateEdgeCoordinates";
 import { createMultiPolygonCircle } from "../component/2d/mapbox_Layer/util/createMultiPolygonCircle";
-import { GeoJSON } from "geojson";
+import { Feature, GeoJSON, MultiPolygon, Polygon } from "geojson";
 
 export interface MatchedTracon {
     controllers: {
@@ -23,7 +23,7 @@ interface UseMatchTraconReturn {
     matchedFallbackTracons: FallbackTracon[] | null;
 }
 
-interface FallbackTracon {
+export interface FallbackTracon {
     center: number[];
     radius: number;
     controllers: Controller[],
@@ -33,7 +33,7 @@ interface FallbackTracon {
 const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn => {
     const matchedTraconMap: Map<string, MatchedTracon> = new Map();
     const fallbackTraconMap: Map<string, FallbackTracon> = new Map();
-    const fallbackTraconGeoJsonMap: Map<string, GeoJSON.Feature> = new Map();
+    const fallbackTraconGeoJsonMap: Map<string, Feature<Polygon | MultiPolygon>> = new Map();
     const [matchedFallbackTracons, setMatchedFallbackTracons] = useState<FallbackTracon[] | null>(null);
     const [matchedTracons, setMatchedTracons] = useState<MatchedTracon[] | null>(null);
     const [fallbackGeoJson, setFallbackGeoJson] = useState<GeoJSON.FeatureCollection | null>(null);
@@ -64,14 +64,18 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         } else {
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
             const radius = Number(controller.visual_range || 120);
+
+            const edgeCoordinates = fallbackTraconGeoJsonMap
+                .get(callsignPrefix)?.geometry?.coordinates[0][0][0] as number[] ||
+                    calculateEdgeCoordinates(center, radius);
+
             const tempFallbackObj: FallbackTracon = {
                 center: center,
                 radius: radius,
                 controllers: [controller],
-                edgeCoordinates: calculateEdgeCoordinates(center, radius)
+                edgeCoordinates: edgeCoordinates
             };
             fallbackTraconMap.set(callsignPrefix, tempFallbackObj);
-            // addToFallbackGeoJsonMap(controller);
         }
     };
 
@@ -132,8 +136,8 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         }
 
         if (!matched) {
-            addToFallbackTraconMap(controller);
             addToFallbackGeoJsonMap(controller);
+            addToFallbackTraconMap(controller);
         }
     };
 

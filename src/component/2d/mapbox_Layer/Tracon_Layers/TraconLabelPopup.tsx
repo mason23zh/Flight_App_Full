@@ -2,22 +2,34 @@ import React from "react";
 import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
-import { MatchedTracon } from "../../../../hooks/useMatchTracon";
+import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 interface Props {
-    hoverTracon: MatchedTracon;
+    hoverTracon: MatchedTracon | FallbackTracon;
 }
+
 
 const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const darkMode = useTheme();
     let lon: number;
     let lat: number;
-    if (hoverTracon.traconInfo.coordinates.length == 2) {
-        lon = Number(hoverTracon.traconInfo.coordinates[0]);
-        lat = Number(hoverTracon.traconInfo.coordinates[1]);
+    let traconName: string;
+
+    if ("traconInfo" in hoverTracon) {
+        if (hoverTracon.traconInfo.coordinates.length == 2) {
+            lon = Number(hoverTracon.traconInfo.coordinates[0]);
+            lat = Number(hoverTracon.traconInfo.coordinates[1]);
+        }
+        traconName = hoverTracon.traconInfo.name;
+    } else {
+        if (hoverTracon.edgeCoordinates.length !== 0) {
+            lon = Number(hoverTracon.edgeCoordinates[0]);
+            lat = Number(hoverTracon.edgeCoordinates[1]);
+        }
+        traconName = hoverTracon.controllers[0].airport.name + "App/Dep";
     }
 
-    const traconName = hoverTracon.traconInfo.name;
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
@@ -56,7 +68,7 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
         >
             <div className={`w-full p-2 rounded-lg border-0 font-Rubik ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-max">
-                    <div className="text-lg font-bold">
+                    <div className="text-sm font-bold">
                         {traconName}
                     </div>
                 </div>

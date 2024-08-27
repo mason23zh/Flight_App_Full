@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import GeoJson from "geojson";
 import { AirportService, AirportResponse } from "../types";
 import { MatchedFir } from "./useMatchedFirs";
-import { MatchedTracon } from "./useMatchTracon";
+import { FallbackTracon, MatchedTracon } from "./useMatchTracon";
 
 interface AirportResponseWithDepartureOriginType {
     type: "DEPARTURE" | "ARRIVAL";
@@ -18,6 +18,7 @@ const useDelayHoverLabel = () => {
             AirportResponseWithDepartureOriginType |
             MatchedFir |
             MatchedTracon |
+            FallbackTracon |
             null
     >(null);
     const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
@@ -40,6 +41,7 @@ const useDelayHoverLabel = () => {
                             AirportResponseWithDepartureOriginType |
                             MatchedTracon |
                             MatchedFir |
+                            FallbackTracon |
                             null,
         entering: boolean,
         enterDelay: number,

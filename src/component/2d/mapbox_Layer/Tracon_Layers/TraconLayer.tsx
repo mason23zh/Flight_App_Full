@@ -4,14 +4,15 @@ import { Layer, Source } from "react-map-gl";
 import {
     activeTraconFillLayerStyle,
     activeTraconLineLayerStyle,
-    fallbackHighlightTraconBoundariesLayerStyle,
-    fallBackHighlightTraconBoundariesLayerStyle, fallbackTraconBoundariesLineLayerStyle,
+    fallBackHighlightTraconFillLayerStyle,
+    fallbackTraconBoundariesLineLayerStyle,
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
 import { useDispatch } from "react-redux";
 import { addMessage, removeMessageByLocation } from "../../../../store";
 import useMatchTracon from "../../../../hooks/useMatchTracon";
+import useRenderUnMatchedTraconLabelMarkers from "../../../../hooks/useRenderUnMatchedTraconLabelMarkers";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -34,15 +35,16 @@ const TraconLayer = ({
         isError: isTraconError
     } = useMatchTracon(controllerInfo);
 
-    if (fallbackGeoJson && matchedFallbackTracons) {
-        console.log("FALL BACK:", fallbackGeoJson);
-        console.log("FALL BACK data:", matchedFallbackTracons);
-    }
-
     const {
         renderedMarkers,
         hoverTraconCast,
     } = useRenderTraconLabelMarker(matchedTracons);
+
+    const {
+        renderedMarkers: fallbackMarkers,
+        hoverTraconCast: fallbackHover
+    } = useRenderUnMatchedTraconLabelMarkers(matchedFallbackTracons);
+
 
     useEffect(() => {
         if (isTraconLoading) {
@@ -95,6 +97,13 @@ const TraconLayer = ({
                                     data={fallbackGeoJson}
                                 >
                                     <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
+                                    {(fallbackHover && labelVisible) && (
+                                        <>
+                                            <Layer {...fallBackHighlightTraconFillLayerStyle}/>
+                                            <TraconLabelPopup hoverTracon={fallbackHover}/>
+                                        </>
+                                    )}
+                                    {labelVisible && fallbackMarkers}
                                 </Source>
                             )
                 }

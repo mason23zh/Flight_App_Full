@@ -2,9 +2,9 @@
 // This will handle the case if no tracon GeoJson been found, and we would use controller visual range to
 // generate a GeoJson multipolygon circle
 import * as turf from "@turf/turf";
-import { GeoJSON } from "geojson";
+import { Feature, MultiPolygon } from "geojson";
 
-export const createMultiPolygonCircle = (center, radius, options, controllerInfo): GeoJSON.Feature => {
+export const createMultiPolygonCircle = (center, radius, options, controllerInfo): Feature<MultiPolygon> => {
     const circle = turf.circle(center, radius, options);
 
     return {
