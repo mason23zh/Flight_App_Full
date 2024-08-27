@@ -519,11 +519,12 @@ interface MergedFssMatching {
 }
 
 interface VatsimTraconMapping {
+    uniqueId: string;
     id: string;
     prefix: string[];
     name: string;
-    coordinate: number[];
-    suffix: string;
+    coordinates: number[];
+    suffix?: string;
 }
 
 export interface FirProperties {

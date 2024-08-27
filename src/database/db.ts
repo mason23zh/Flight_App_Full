@@ -45,7 +45,7 @@ class VatsimLocalDB extends Dexie {
                         firBoundary`,
                     fss: `&fssCallsign, 
                           fssName`,
-                    tracon: `&id,
+                    tracon: `&uniqueId,id,
                             *prefix`,
                 },
             );
@@ -105,7 +105,7 @@ class VatsimLocalDB extends Dexie {
     }
 
     async loadTracon(newData: VatsimTraconMapping[]) {
-        const validTraconData = newData.filter(tracon => tracon.id);
+        const validTraconData = newData.filter(tracon => tracon.uniqueId);
         await this.tracon.clear();
         await this.tracon.bulkPut(validTraconData);
     }

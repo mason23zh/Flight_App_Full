@@ -10,13 +10,13 @@ const useRenderTraconLabelMarker = (matchedTracon: MatchedTracon[]) => {
     const renderMarkers = (matchedTracon: MatchedTracon[]) => {
         if (matchedTracon && matchedTracon.length !== 0) {
             return matchedTracon.map((tracon) => {
-                if (tracon.traconInfo.coordinate.length > 1) {
-                    const lon = tracon.traconInfo.coordinate[0];
-                    const lat = tracon.traconInfo.coordinate[1];
+                if (tracon.traconInfo.coordinates.length > 1) {
+                    const lon = tracon.traconInfo.coordinates[0];
+                    const lat = tracon.traconInfo.coordinates[1];
                     return (
                         <Marker
                             style={{ zIndex: 30 }}
-                            key={tracon.traconInfo.id}
+                            key={tracon.traconInfo.uniqueId}
                             longitude={Number(lon)}
                             latitude={Number(lat)}
                         >

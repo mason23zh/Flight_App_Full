@@ -12,9 +12,9 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
     const darkMode = useTheme();
     let lon: number;
     let lat: number;
-    if (hoverTracon.traconInfo.coordinate.length == 2) {
-        lon = Number(hoverTracon.traconInfo.coordinate[0]);
-        lat = Number(hoverTracon.traconInfo.coordinate[1]);
+    if (hoverTracon.traconInfo.coordinates.length == 2) {
+        lon = Number(hoverTracon.traconInfo.coordinates[0]);
+        lat = Number(hoverTracon.traconInfo.coordinates[1]);
     }
 
     const traconName = hoverTracon.traconInfo.name;
@@ -44,7 +44,6 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
                 </div>
             </div>
         );
-        // }
     });
 
     return (

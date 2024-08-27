@@ -41,7 +41,7 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
                 controllers: [newController],
                 traconInfo: matchedTracon,
             };
-            matchedTraconMap.set(matchedTracon.id, newMatchedTraconObj);
+            matchedTraconMap.set(matchedTracon.uniqueId, newMatchedTraconObj);
         }
     };
 
