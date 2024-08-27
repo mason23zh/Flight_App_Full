@@ -3,7 +3,9 @@ import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
     activeTraconFillLayerStyle,
-    activeTraconLineLayerStyle, fallBackHighlightTraconBoundariesLayerStyle,
+    activeTraconLineLayerStyle,
+    fallbackHighlightTraconBoundariesLayerStyle,
+    fallBackHighlightTraconBoundariesLayerStyle, fallbackTraconBoundariesLineLayerStyle,
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
@@ -92,7 +94,7 @@ const TraconLayer = ({
                                     type="geojson"
                                     data={fallbackGeoJson}
                                 >
-                                    <Layer {...fallBackHighlightTraconBoundariesLayerStyle}/>
+                                    <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
                                 </Source>
                             )
                 }
