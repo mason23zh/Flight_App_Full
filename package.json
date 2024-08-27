@@ -33,6 +33,7 @@
         "eslint-plugin-jsx": "^0.1.0",
         "framer-motion": "^10.12.18",
         "http-proxy-middleware": "^2.0.6",
+        "immer": "^10.1.1",
         "leaflet": "^1.9.4",
         "lodash": "^4.17.21",
         "mapbox-gl": "^3.0.1",

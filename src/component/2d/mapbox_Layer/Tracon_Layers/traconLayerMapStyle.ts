@@ -2,13 +2,7 @@ import { FillLayer, LineLayer } from "react-map-gl";
 import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
-    // const filterConditions = matchedTracon.map(tracon => {
-    //     return [
-    //         "all",
-    //         ["==", ["get", "id"], tracon.traconInfo.id],
-    //         ["in", tracon.traconInfo.callsignPrefix, ["get", "prefix"]]
-    //     ];
-    // });
+
     const filterConditions = matchedTracon.map(tracon => [
         "all",
         ["==", ["get", "id"], tracon.traconInfo.id],
@@ -49,4 +43,11 @@ export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): Fil
     };
 };
 
-
+export const fallBackHighlightTraconBoundariesLayerStyle: FillLayer = {
+    id: "fallback-highlight-tracon-boundaries-layer",
+    type: "fill",
+    paint: {
+        "fill-color": "#27aef5",
+        "fill-opacity": 0.4,
+    }
+};

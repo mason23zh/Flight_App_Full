@@ -3,7 +3,7 @@ import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
     activeTraconFillLayerStyle,
-    activeTraconLineLayerStyle,
+    activeTraconLineLayerStyle, fallBackHighlightTraconBoundariesLayerStyle,
 } from "./traconLayerMapStyle";
 import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
 import TraconLabelPopup from "./TraconLabelPopup";
@@ -26,9 +26,16 @@ const TraconLayer = ({
 
     const {
         matchedTracons,
+        fallbackGeoJson, //fallback GeoJSON data
+        matchedFallbackTracons, // fallback controller info
         isLoading: isTraconLoading,
         isError: isTraconError
     } = useMatchTracon(controllerInfo);
+
+    if (fallbackGeoJson && matchedFallbackTracons) {
+        console.log("FALL BACK:", fallbackGeoJson);
+        console.log("FALL BACK data:", matchedFallbackTracons);
+    }
 
     const {
         renderedMarkers,
@@ -61,21 +68,35 @@ const TraconLayer = ({
         const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
         const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoverTraconCast);
         return (
-            <Source
-                id="active-tracon-layers"
-                type="vector"
-                url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
-            >
-                <Layer {...activeTraconOutlineStyle}/>
-                {(hoverTraconCast && labelVisible) && (
-                    <>
-                        <Layer {...activeHoverTraconLayerStyle} />
-                        <TraconLabelPopup hoverTracon={hoverTraconCast}/>
-                    </>
-                )
+            <>
+                <Source
+                    id="active-tracon-layers"
+                    type="vector"
+                    url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
+                >
+                    <Layer {...activeTraconOutlineStyle}/>
+                    {(hoverTraconCast && labelVisible) && (
+                        <>
+                            <Layer {...activeHoverTraconLayerStyle} />
+                            <TraconLabelPopup hoverTracon={hoverTraconCast}/>
+                        </>
+                    )
+                    }
+                    {labelVisible && renderedMarkers}
+                </Source>
+
+                {fallbackGeoJson && matchedFallbackTracons && fallbackGeoJson.features.length > 0 &&
+                            (
+                                <Source
+                                    id="fallback-tracon-geojson"
+                                    type="geojson"
+                                    data={fallbackGeoJson}
+                                >
+                                    <Layer {...fallBackHighlightTraconBoundariesLayerStyle}/>
+                                </Source>
+                            )
                 }
-                {labelVisible && renderedMarkers}
-            </Source>
+            </>
         );
     }
 };
