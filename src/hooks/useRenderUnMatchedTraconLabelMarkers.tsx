@@ -26,7 +26,9 @@ const useRenderUnMatchedTraconLabelMarkers = (fallbackTracon: FallbackTracon[]) 
                                 onMouseEnter={() => handleMouse(tracon, true, 150, 10)}
                                 onMouseLeave={() => handleMouse(null, false, 150, 10)}
                             >
-                                {tracon.controllers[0].callsign || tracon.center[0]}
+                                {
+                                    tracon.controllers[0].callsign.slice(0, -4)
+                                }
                             </div>
                         </Marker>
                     );

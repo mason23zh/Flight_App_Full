@@ -3,7 +3,6 @@ import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
-import { hover } from "@testing-library/user-event/dist/hover";
 
 interface Props {
     hoverTracon: MatchedTracon | FallbackTracon;
@@ -27,7 +26,7 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
             lon = Number(hoverTracon.edgeCoordinates[0]);
             lat = Number(hoverTracon.edgeCoordinates[1]);
         }
-        traconName = hoverTracon.controllers[0].airport.name + "App/Dep";
+        traconName = hoverTracon.controllers[0].airport.name + " APP/DEP";
     }
 
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
