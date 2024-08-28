@@ -89,7 +89,9 @@ const TraconLayer = ({
                     {labelVisible && renderedMarkers}
                 </Source>
 
-                {fallbackGeoJson && matchedFallbackTracons && fallbackGeoJson.features.length > 0 &&
+                {fallbackGeoJson &&
+                            matchedFallbackTracons &&
+                            fallbackGeoJson.features.length > 0 &&
                             (
                                 <Source
                                     id="fallback-tracon-geojson"

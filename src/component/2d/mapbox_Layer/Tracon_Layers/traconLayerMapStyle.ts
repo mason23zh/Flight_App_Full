@@ -2,8 +2,6 @@ import { FillLayer, LineLayer } from "react-map-gl";
 import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
-
-    //TODO: Wrong filter.
     const filterConditions = matchedTracon.map(tracon => [
         "all",
         ["==", ["get", "id"], tracon.traconInfo.id],
@@ -25,6 +23,8 @@ export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): Line
 
 export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): FillLayer => {
     const hoverTraconId = hoverInfo ? hoverInfo.traconInfo.id : null;
+    const hoverCallsignPrefix = hoverInfo ? hoverInfo.traconInfo.callsignPrefix : null;
+
     return {
         id: "tracon-fill-layer",
         type: "fill",
@@ -32,15 +32,22 @@ export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): Fil
         "source-layer": "latest_tracon_boundaries",
         paint: {
             "fill-color": "#27aef5",
-            // "fill-opacity": 0.4
             "fill-opacity": [
                 "case",
-                ["==", ["get", "id"], hoverTraconId],
+                ["all",
+                    ["==", ["get", "id"], hoverTraconId],
+                    ["in", hoverCallsignPrefix, ["get", "prefix"]]
+                ],
                 0.4,
                 0
             ]
         },
-        filter: hoverTraconId ? ["==", ["get", "id"], hoverTraconId] : ["has", "id"]
+        filter: hoverTraconId && hoverCallsignPrefix
+            ? ["all",
+                ["==", ["get", "id"], hoverTraconId],
+                ["in", hoverCallsignPrefix, ["get", "prefix"]]
+            ]
+            : ["has", "id"]
     };
 };
 
