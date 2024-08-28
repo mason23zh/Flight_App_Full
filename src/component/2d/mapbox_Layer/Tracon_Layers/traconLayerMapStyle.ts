@@ -1,5 +1,5 @@
 import { FillLayer, LineLayer } from "react-map-gl";
-import { MatchedTracon } from "../../../../hooks/useMatchTracon";
+import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
     const filterConditions = matchedTracon.map(tracon => [
@@ -51,14 +51,35 @@ export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): Fil
     };
 };
 
-export const fallBackHighlightTraconFillLayerStyle: FillLayer = {
-    id: "fallback-highlight-tracon-boundaries-layer",
-    source: "fallback-tracon-geojson",
-    type: "fill",
-    paint: {
-        "fill-color": "#27aef5",
-        "fill-opacity": 0.4,
-    }
+// export const fallBackHighlightTraconFillLayerStyle: FillLayer = {
+//     id: "fallback-highlight-tracon-boundaries-layer",
+//     source: "fallback-tracon-geojson",
+//     type: "fill",
+//     paint: {
+//         "fill-color": "#27aef5",
+//         "fill-opacity": 0.4,
+//     }
+// };
+
+export const fallBackHighlightTraconFillLayerStyle = (hoverCast: FallbackTracon): FillLayer => {
+    if (!hoverCast) return null;
+    const hoverId = hoverCast.controllers.length > 0 ? hoverCast.controllers[0].callsign : null;
+
+    return {
+        id: "fallback-highlight-tracon-boundaries-layer",
+        source: "fallback-tracon-geojson",
+        type: "fill",
+        paint: {
+            "fill-color": "#27aef5",
+            "fill-opacity": [
+                "case",
+                ["==", ["get", "id"], hoverId],
+                0.4,
+                0
+            ]
+        },
+        filter: hoverId ? ["==", ["get", "id"], hoverId] : ["has", "id"]
+    };
 };
 
 export const fallbackTraconBoundariesLineLayerStyle: LineLayer = {

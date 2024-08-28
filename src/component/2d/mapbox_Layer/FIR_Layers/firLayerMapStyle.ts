@@ -16,6 +16,7 @@ export const activeFirLayerStyle = (matchedFirs: {
     return {
         id: "fir-boundaries-layer",
         type: "fill",
+        maxzoom: 10,
         source: "active-fir-layers",
         "source-layer": "latest_fir_boundaries",
         paint: {

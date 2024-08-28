@@ -149,6 +149,10 @@ const MainTrafficLayer = ({
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
     }, [movingMap, flightData, terrainEnable]);
 
+    useEffect(() => {
+        setSelectTraffic(null);
+    }, []);
+
     // This useEffect will display the FlightInfo panel to the
     // traffic that selected via the search box
     useEffect(() => {

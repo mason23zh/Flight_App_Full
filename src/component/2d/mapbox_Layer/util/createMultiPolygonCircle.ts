@@ -5,6 +5,9 @@ import * as turf from "@turf/turf";
 import { Feature, MultiPolygon } from "geojson";
 
 export const createMultiPolygonCircle = (center, radius, options, controllerInfo): Feature<MultiPolygon> => {
+    if (isNaN(center[0]) || isNaN(center[1])) return;
+
+
     const circle = turf.circle(center, radius, options);
 
     return {

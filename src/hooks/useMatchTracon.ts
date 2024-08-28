@@ -4,6 +4,7 @@ import { db } from "../database/db";
 import { calculateEdgeCoordinates } from "../util/calculateEdgeCoordinates";
 import { createMultiPolygonCircle } from "../component/2d/mapbox_Layer/util/createMultiPolygonCircle";
 import { Feature, GeoJSON, MultiPolygon, Polygon } from "geojson";
+import _ from "lodash";
 
 export interface MatchedTracon {
     controllers: {
@@ -45,6 +46,7 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         if (fallbackTraconGeoJsonMap.has(callsignPrefix)) {
             return;
         } else {
+            if (_.isEmpty(controller.airport) || controller.coordinates.length === 0) return;
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
             const radius = Number(controller.visual_range || 120);
             const option = {
@@ -62,6 +64,8 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
             const existingTracon = fallbackTraconMap.get(callsignPrefix);
             existingTracon.controllers.push(controller);
         } else {
+            if (_.isEmpty(controller.airport) || controller.coordinates.length === 0) return;
+            
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
             const radius = Number(controller.visual_range || 120);
 

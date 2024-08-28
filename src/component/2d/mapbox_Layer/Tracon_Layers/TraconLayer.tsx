@@ -19,8 +19,6 @@ interface Controller {
     labelVisible: boolean;
 }
 
-//!fix: LGA_V_APP
-
 const TraconLayer = ({
     controllerInfo,
     labelVisible
@@ -71,6 +69,7 @@ const TraconLayer = ({
     if (matchedTracons) {
         const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
         const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoverTraconCast);
+        const fallbackHoverTraconFillStyle = fallBackHighlightTraconFillLayerStyle(fallbackHover);
         return (
             <>
                 <Source
@@ -99,9 +98,10 @@ const TraconLayer = ({
                                     data={fallbackGeoJson}
                                 >
                                     <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
+
                                     {(fallbackHover && labelVisible) && (
                                         <>
-                                            <Layer {...fallBackHighlightTraconFillLayerStyle}/>
+                                            <Layer {...fallbackHoverTraconFillStyle}/>
                                             <TraconLabelPopup hoverTracon={fallbackHover}/>
                                         </>
                                     )}
