@@ -83,17 +83,6 @@ function Home() {
                 <div className={darkTheme}>
                     <div
                         className="text-2xl md:text-3xl"
-                        id="popular-airports"
-                    >
-                        Popular Airports
-                    </div>
-                </div>
-                <div>
-                    {renderedAirport}
-                </div>
-                <div className={darkTheme}>
-                    <div
-                        className="text-2xl md:text-3xl"
                         id="popular-vatsim-airports"
                     >
                         Popular Vatsim Airports
@@ -101,6 +90,17 @@ function Home() {
                 </div>
                 <div>
                     {renderVatsimAirports}
+                </div>
+                <div className={darkTheme}>
+                    <div
+                        className="text-2xl md:text-3xl"
+                        id="popular-airports"
+                    >
+                        Popular Airports
+                    </div>
+                </div>
+                <div>
+                    {renderedAirport}
                 </div>
                 <div className={darkTheme}>
                     <div
