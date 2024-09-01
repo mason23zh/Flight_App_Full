@@ -6,7 +6,7 @@ import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import flightPathLayer from "./deckGL_Layer/flightPathLayer";
 import trafficLayer_3D from "./deckGL_Layer/trafficLayer_3D";
-import { VatsimControllers, VatsimFlight } from "../../types";
+import { AirportService, VatsimControllers, VatsimFlight } from "../../types";
 import { PickingInfo } from "@deck.gl/core/typed";
 import {
     addMessage,
@@ -35,6 +35,10 @@ import firIconLayer from "./deckGL_Layer/firIconLayer";
 import traconIconLayer from "./deckGL_Layer/traconIconLayer";
 import { MatchedFir } from "../../hooks/useMatchedFirs";
 import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
+import ControllerMarkerPopup from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerPopup";
+import { debounce } from "lodash";
+import TraconLabelPopup, { HoverTracon } from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import FirLabelPopup from "./mapbox_Layer/FIR_Layers/FirLabelPopup";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -82,6 +86,10 @@ const MainDeckGlLayer = ({
 
     const dispatch = useDispatch();
     let isHovering = false;
+    //TODO: debounce the state update
+    const [hoverControllerIcon, setHoverControllerIcon] = useState<AirportService | null>(null);
+    const [hoverTraconIcon, setHoverTraconIcon] = useState<HoverTracon | null>(null);
+    const [hoverFirIcon, setHoverFirIcon] = useState<MatchedFir | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
@@ -265,9 +273,45 @@ const MainDeckGlLayer = ({
         }
     }, [selectTraffic]);
 
-    const controllerMarkerLayer = useMemo(() => controllerIconLayer(controllerData), [controllerError, controllerLoading, controllerData]);
-    const firLabelLayer = firIconLayer(matchedFirs);
-    const traconLabelLayer = traconIconLayer(matchedTracons, matchedFallbackTracons);
+    const debouncedSetHoverControllerIcon = useCallback(
+        debounce((icon) => {
+            setHoverControllerIcon(icon);
+        }, 200),
+        []
+    );
+
+    const debouncedSetMatchedHoverTraconIcon = useCallback(
+        debounce((icon) => {
+            setHoverTraconIcon(icon);
+        }, 200),
+        []
+    );
+
+    const debouncedSetHoverFirIcon = useCallback(
+        debounce((icon) => {
+            setHoverFirIcon(icon);
+        }, 200),
+        []
+    );
+
+
+    if (hoverTraconIcon) {
+        console.log("matched hover tracon:", hoverTraconIcon);
+    }
+
+    const controllerMarkerLayer = useMemo(() => controllerIconLayer(controllerData, debouncedSetHoverControllerIcon), [controllerError, controllerLoading, controllerData]);
+    const firLabelLayer = firIconLayer(matchedFirs, debouncedSetHoverFirIcon);
+    const traconLabelLayer =
+            traconIconLayer(
+                matchedTracons,
+                matchedFallbackTracons,
+                debouncedSetMatchedHoverTraconIcon,
+            );
+
+
+    if (hoverControllerIcon) {
+        console.log("Hover data:", hoverControllerIcon);
+    }
 
     // const controllerMarkerLayer = controllerIconLayer();
 
@@ -285,37 +329,51 @@ const MainDeckGlLayer = ({
     const isTouchScreen = useIsTouchScreen();
 
     return (
-        <DeckGlOverlay
-            interleaved={true}
-            onClick={(info: PickedTraffic) => deckOnClick(info)}
-            layers={layers}
-            pickingRadius={10}
-            getTooltip={isTouchScreen ? undefined : ({ object }) => {
-                if (object) {
-                    const bgColor = "rgba(39, 40, 45, 0.9)";
-                    return {
-                        text: object && `${object.callsign}
+        <>
+            <DeckGlOverlay
+                interleaved={true}
+                onClick={(info: PickedTraffic) => deckOnClick(info)}
+                layers={layers}
+                pickingRadius={10}
+                getTooltip={isTouchScreen ? undefined : ({ object }) => {
+                    if (object) {
+                        const bgColor = "rgba(39, 40, 45, 0.9)";
+                        return {
+                            text: object && `${object.callsign}
                                       ${object?.flight_plan?.departure || "N/A"} - ${object?.flight_plan?.arrival
-                                || "N/A"}`,
-                        style: {
-                            fontStyle: "bold",
-                            width: "auto",
-                            height: "50px",
-                            padding: "4px",
-                            borderRadius: "10px",
-                            textAlign: "center",
-                            backgroundColor: bgColor,
-                            color: "white",
-                            marginLeft: "15px",
-                            marginBottom: "5px",
-                            zIndex: "100",
-                        }
-                    };
-                }
-            }}
-            onHover={({ object }) => (isHovering = Boolean(object))}
-            getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
-        />
+                                    || "N/A"}`,
+                            style: {
+                                fontStyle: "bold",
+                                width: "auto",
+                                height: "50px",
+                                padding: "4px",
+                                borderRadius: "10px",
+                                textAlign: "center",
+                                backgroundColor: bgColor,
+                                color: "white",
+                                marginLeft: "15px",
+                                marginBottom: "5px",
+                                zIndex: "100",
+                            }
+                        };
+                    }
+                }}
+                onHover={({ object }) => (isHovering = Boolean(object))}
+                getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
+            />
+
+            {hoverControllerIcon &&
+                <ControllerMarkerPopup hoverInfo={hoverControllerIcon}/>
+            }
+
+            {(hoverTraconIcon) &&
+                <TraconLabelPopup hoverTracon={hoverTraconIcon}/>
+            }
+
+            {(hoverFirIcon) &&
+                <FirLabelPopup hoverFir={hoverFirIcon}/>
+            }
+        </>
     );
 };
 

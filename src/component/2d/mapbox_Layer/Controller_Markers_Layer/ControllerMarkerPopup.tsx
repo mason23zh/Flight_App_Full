@@ -46,7 +46,6 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const popupRef = useRef<mapboxgl.Popup | null>(null);
 
-
     if (hoverInfo.services && hoverInfo.services.length > 0) {
         renderServices = hoverInfo.services
             .filter(serviceInfo => serviceInfo.facility !== 5)
@@ -68,7 +67,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                 popupRef.current.setOffset(markerOffsetObject);
 
             } else {
-                popupRef.current.setOffset([0, -40]);
+                popupRef.current.setOffset([0, -30]);
             }
         }
     }, [popupRef.current]);

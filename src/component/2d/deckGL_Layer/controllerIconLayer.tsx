@@ -2,6 +2,8 @@ import { IconLayer } from "@deck.gl/layers/typed";
 import generateControllerMarkerIcon from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Services } from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { VatsimControllers } from "../../../types";
+import { DomEvent } from "leaflet";
+import on = DomEvent.on;
 
 interface Service {
     airport: { name: string, icao: string },
@@ -67,7 +69,10 @@ const facilities = [
 ];
 
 //TODO: Add function to make controller info into IconLayer
-const controllerIconLayer = (controllerData: VatsimControllers) => {
+const controllerIconLayer = (
+    controllerData: VatsimControllers,
+    onHoverCallback: (airportService: AirportService) => void
+) => {
     if (!controllerData || !controllerData?.other) return null;
 
     function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
@@ -122,7 +127,7 @@ const controllerIconLayer = (controllerData: VatsimControllers) => {
             Number(service.coordinates[1]),
         ];
 
-        const serviceTypes = service.services.map((s) => s.serviceType);
+        const serviceTypes = [...new Set(service.services.map((s) => s.serviceType))];
 
         return {
             position: coordinates,
@@ -130,9 +135,9 @@ const controllerIconLayer = (controllerData: VatsimControllers) => {
             serviceInfo: service
         };
     });
-
+    //TODO: Debounce 
     return new IconLayer({
-        id: "test-icon-layer",
+        id: "controller-icon-layer",
         data: iconData,
         pickable: true,
         getPosition: d => d.position,
@@ -145,6 +150,16 @@ const controllerIconLayer = (controllerData: VatsimControllers) => {
         }),
         sizeScale: 1,
         getSize: () => 29,
+        // onHover: d => onHoverCallback(d.serviceInfo),
+        onHover: ({
+            object,
+        }) => {
+            if (object) {
+                onHoverCallback(object.serviceInfo);
+            } else {
+                onHoverCallback(null);
+            }
+        },
         // getColor: () => [0, 0, 0, 255],
         parameters: { depthTest: false }
     });

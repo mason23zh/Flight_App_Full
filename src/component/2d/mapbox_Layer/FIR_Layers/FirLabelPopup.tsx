@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
 import GeoJson from "geojson";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
-import { hover } from "@testing-library/user-event/dist/hover";
+import mapboxgl from "mapbox-gl";
 
 interface Props {
     hoverFir: MatchedFir,
@@ -17,6 +17,18 @@ const FirLabelPopup = ({
 
     let tempFirName: string;
     const darkMode = useTheme();
+    const popupRef = useRef<mapboxgl.Popup | null>(null);
+
+    useEffect(() => {
+        if (popupRef.current) {
+            if (hoverFir?.firInfo.isFss) {
+                // Since the FSS fir icon is taller, we need to set up a bigger offset
+                popupRef.current.setOffset([0, -30]);
+            } else {
+                popupRef.current.setOffset([0, -20]);
+            }
+        }
+    }, [popupRef?.current]);
 
     if (hoverFir.firInfo.name && hoverFir.firInfo.suffix) {
         tempFirName = hoverFir.firInfo.name + " " + hoverFir.firInfo.suffix;
@@ -55,6 +67,7 @@ const FirLabelPopup = ({
 
     return (
         <Popup
+            ref={popupRef}
             style={{
                 zIndex: 100,
             }}

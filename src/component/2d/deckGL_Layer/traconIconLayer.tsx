@@ -1,33 +1,64 @@
 import { IconLayer } from "@deck.gl/layers/typed";
 import generateTraconIcon from "../mapbox_Layer/util/generateTraconIcon";
 import { FallbackTracon, MatchedTracon } from "../../../hooks/useMatchTracon";
+import { HoverTracon } from "../mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 
-const traconIconLayer = (matchedTracon: MatchedTracon[], matchedFallbackTracon: FallbackTracon[]) => {
-    if (!matchedTracon && !matchedFallbackTracon) return null;
-    const matchedMatchedIconData = matchedTracon.map((tracon) => {
-        if (tracon.traconInfo.coordinates.length > 1) {
-            const lon = tracon.traconInfo.coordinates[0];
-            const lat = tracon.traconInfo.coordinates[1];
+const traconIconLayer = (
+    matchedTracon: MatchedTracon[],
+    matchedFallbackTracon: FallbackTracon[],
+    onMatchedHoverCallback: (traconInfo: HoverTracon) => void,
+) => {
+    // if (!matchedTracon && !matchedFallbackTracon) return null;
 
-            return {
-                position: [Number(lon), Number(lat)],
-                iconUrl: generateTraconIcon(tracon.traconInfo.id)
-            };
-        }
-    });
+    const matchedMatchedIconData = (!matchedTracon || matchedTracon.length === 0)
+        ? []
+        : matchedTracon.map((tracon) => {
+            if (tracon.traconInfo.coordinates.length > 1) {
+                const lon = tracon.traconInfo.coordinates[0];
+                const lat = tracon.traconInfo.coordinates[1];
+                const name = tracon.traconInfo.name;
 
-    const fallBackIconData = matchedFallbackTracon.length === 0 ?
-        [] :
-        matchedFallbackTracon.map((tracon) => {
+                const traconHoverObj: HoverTracon = {
+                    controllers: tracon.controllers,
+                    traconInfo: {
+                        name: name,
+                        coordinates: [lon, lat],
+                    }
+                };
+
+                return {
+                    position: [Number(lon), Number(lat)],
+                    iconUrl: generateTraconIcon(tracon.traconInfo.id),
+                    traconInfo: traconHoverObj
+                };
+            }
+        });
+
+
+    const fallBackIconData = (!matchedFallbackTracon || matchedFallbackTracon.length === 0)
+        ? []
+        : matchedFallbackTracon.map((tracon) => {
             const lon = tracon.edgeCoordinates[0];
             const lat = tracon.edgeCoordinates[1];
+            const name = (tracon.controllers && tracon.controllers.length !== 0) ?
+                tracon.controllers[0].airport.name + " APP/DEP" : "-";
+
+            const traconHoverObj: HoverTracon = {
+                controllers: tracon.controllers,
+                traconInfo: {
+                    name: name,
+                    coordinates: [lon, lat],
+                }
+            };
 
             return {
-                position: [Number[lon], Number(lat)],
-                iconUrl: generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4))
+                position: [lon, lat],
+                iconUrl: generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4)),
+                traconInfo: traconHoverObj,
             };
         });
 
+    //"traconInfo" in hoverTracon
     return new IconLayer({
         id: "tracon-icon-layer",
         data: [...matchedMatchedIconData, ...fallBackIconData],
@@ -42,8 +73,15 @@ const traconIconLayer = (matchedTracon: MatchedTracon[], matchedFallbackTracon: 
         }),
         sizeScale: 0.8,
         getSize: () => 28,
+        onHover: ({ object }) => {
+            if (object) {
+                onMatchedHoverCallback(object.traconInfo);
+            } else {
+                onMatchedHoverCallback(null);
+            }
+        },
         // getColor: () => [0, 0, 0, 255],
-        parameters: { depthTest: false }
+        // parameters: { depthTest: false }
     });
 };
 

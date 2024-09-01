@@ -3,7 +3,10 @@ import generateFirIcon from "../mapbox_Layer/util/generateFirIcon";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
 
 
-const firIconLayer = (matchedFirs: MatchedFir[]) => {
+const firIconLayer = (
+    matchedFirs: MatchedFir[],
+    onHoverFirCallback: (firInfo: MatchedFir) => void) => {
+
     if (!matchedFirs || matchedFirs.length === 0) return null;
 
     const iconData = matchedFirs.map((feature) => {
@@ -11,13 +14,15 @@ const firIconLayer = (matchedFirs: MatchedFir[]) => {
         if (feature.isInFss || feature.firInfo.isFss) {
             return {
                 position: coordinates,
-                iconUrl: generateFirIcon(feature.firInfo.firBoundary, true)
+                iconUrl: generateFirIcon(feature.firInfo.firBoundary, true),
+                firInfo: feature,
             };
         }
 
         return {
             position: coordinates,
-            iconUrl: generateFirIcon(feature.firInfo.firBoundary, false)
+            iconUrl: generateFirIcon(feature.firInfo.firBoundary, false),
+            firInfo: feature
         };
     });
 
@@ -35,6 +40,13 @@ const firIconLayer = (matchedFirs: MatchedFir[]) => {
         }),
         sizeScale: 1,
         getSize: () => 30,
+        onHover: ({ object }) => {
+            if (object) {
+                onHoverFirCallback(object.firInfo);
+            } else {
+                onHoverFirCallback(null);
+            }
+        },
         // getColor: () => [0, 0, 0, 255],
         parameters: { depthTest: false }
     });

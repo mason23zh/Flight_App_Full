@@ -14,7 +14,6 @@ import AirportDepartureArrivalDisplay
     from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 import { CustomProvider } from "rsuite";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
-import generateControllerMarkerIcon from "./util/generateControllerMarkerIcon";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 
@@ -100,12 +99,6 @@ const MainMap = () => {
         isError: isTraconError
     } = useMatchTracon(controllerData);
 
-    if (controllerLoading || controllerError) {
-        return <div>Loading...</div>;
-    }
-
-    console.log("matchedFirs", matchedFirs);
-    console.log("matched tracons:", matchedTracons);
 
     return (
         <CustomProvider theme="light">
