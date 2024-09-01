@@ -13,7 +13,7 @@ const ControllerMarkerLayer = ({
     controllerInfo,
     labelVisible,
 }: Controller) => {
-
+    console.log("Cointroller marker layer run.");
     const {
         renderedMarkers,
         hoverInfo
@@ -24,9 +24,9 @@ const ControllerMarkerLayer = ({
     return (
         <>
             {labelVisible && renderedMarkers}
-            {hoverInfo && isAirportService(hoverInfoCast) &&
-                <ControllerMarkerPopup hoverInfo={hoverInfoCast}/>
-            }
+            {/* {hoverInfo && isAirportService(hoverInfoCast) && */}
+            {/*     <ControllerMarkerPopup hoverInfo={hoverInfoCast}/> */}
+            {/* } */}
         </>
     );
 };

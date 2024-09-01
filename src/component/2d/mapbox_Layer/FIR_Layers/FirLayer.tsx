@@ -80,7 +80,7 @@ const FirLayer = ({
                 {(hoverFirCast && labelVisible) &&
                     <FirLabelPopup hoverFir={hoverFirCast}/>
                 }
-                {labelVisible && renderedMarkers}
+                {/* {labelVisible && renderedMarkers} */}
             </Source>
         );
     }

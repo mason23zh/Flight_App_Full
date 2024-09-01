@@ -85,7 +85,7 @@ const TraconLayer = ({
                         </>
                     )
                     }
-                    {labelVisible && renderedMarkers}
+                    {/* {labelVisible && renderedMarkers} */}
                 </Source>
 
                 {fallbackGeoJson &&
@@ -105,7 +105,7 @@ const TraconLayer = ({
                                             <TraconLabelPopup hoverTracon={fallbackHover}/>
                                         </>
                                     )}
-                                    {labelVisible && fallbackMarkers}
+                                    {/* {labelVisible && fallbackMarkers} */}
                                 </Source>
                             )
                 }

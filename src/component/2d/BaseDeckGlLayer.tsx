@@ -6,7 +6,7 @@ import {
     setMapSearchSelectedAircraft,
     useFetchVatsimPilotsDataQuery
 } from "../../store";
-import MainTrafficLayer from "./MainTrafficLayer";
+import MainDeckGlLayer from "./MainDeckGlLayer";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
@@ -15,11 +15,30 @@ import {
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
 import { useViewState } from "./viewStateContext";
+import { useMapRefContext } from "./MapRefContext";
+import { VatsimControllers } from "../../types";
+import { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { MatchedFir } from "../../hooks/useMatchedFirs";
+import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 
+interface BaseDeckGlLayerProps {
+    matchedFirs: MatchedFir[];
+    matchedTracons: MatchedTracon[];
+    matchedFallbackTracons: FallbackTracon[];
+    matchedFirError: boolean;
+    matchedTraconError: boolean;
+}
 
-const BaseTrafficLayer = () => {
+const BaseDeckGlLayer = ({
+    matchedFirs,
+    matchedTracons,
+    matchedFallbackTracons,
+    matchedFirError,
+    matchedTraconError
+}: BaseDeckGlLayerProps) => {
     const dispatch = useDispatch();
-    const viewState = useViewState();
+    // const viewState = useViewState();
 
     const {
         trafficLayerVisible,
@@ -42,11 +61,6 @@ const BaseTrafficLayer = () => {
         isLoading: vatsimPilotsLoading
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
-    // const {
-    //     data: controllerData,
-    //     error: controllerError,
-    //     isLoading: controllerLoading
-    // } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
 
     // Import vatsim pilots into Dexie
     useEffect(() => {
@@ -79,7 +93,13 @@ const BaseTrafficLayer = () => {
             dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
         }
 
-    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
+    }, [vatsimPilotsLoading,
+        vatsimPilotsError,
+        vatsimPilots,
+        matchedFirError,
+        matchedTraconError,
+        matchedFirs,
+        dispatch]);
 
     /*
     * This useLiveQuery will control what traffic to display on the map,
@@ -109,13 +129,15 @@ const BaseTrafficLayer = () => {
 
     const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
     return (
-        <MainTrafficLayer
+        <MainDeckGlLayer
             vatsimPilots={memoizedVatsimPilotToDisplay}
+            matchedFirs={matchedFirs}
+            matchedTracons={matchedTracons}
+            matchedFallbackTracons={matchedFallbackTracons}
             movingMap={movingMap}
             trafficLayerVisible={trafficLayerVisible}
-            viewState={viewState}
         />
     );
 };
 
-export default BaseTrafficLayer;
+export default BaseDeckGlLayer;

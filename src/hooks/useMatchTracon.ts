@@ -48,12 +48,13 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         } else {
             if (_.isEmpty(controller.airport) || controller.coordinates.length === 0) return;
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
-            const radius = Number(controller.visual_range || 120);
+            console.log("Visual range:", controller.visual_range);
+            // const radius = Number(controller.visual_range || 120) / 2 * 1.6;
             const option = {
-                steps: 40,
+                steps: 30,
                 units: "kilometers"
             };
-            fallbackTraconGeoJsonMap.set(callsignPrefix, createMultiPolygonCircle(center, radius, option, controller));
+            fallbackTraconGeoJsonMap.set(callsignPrefix, createMultiPolygonCircle(center, 40, option, controller));
         }
     };
 
@@ -65,7 +66,7 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
             existingTracon.controllers.push(controller);
         } else {
             if (_.isEmpty(controller.airport) || controller.coordinates.length === 0) return;
-            
+
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
             const radius = Number(controller.visual_range || 120);
 

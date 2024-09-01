@@ -1,12 +1,12 @@
 import React from "react";
 import BaseMap from "./BaseMap";
 import AtcLayer from "./AtcLayer";
-import BaseTrafficLayer from "../BaseTrafficLayer";
+import BaseDeckGlLayer from "../BaseDeckGlLayer";
 import NexradLayer from "./Nexrad_Layer/NxradLayer";
 import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
 import FlightInfo from "../detail_flight_info_panel/FlightInfo";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { RootState, useFetchVatsimControllersDataQuery } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
@@ -14,6 +14,9 @@ import AirportDepartureArrivalDisplay
     from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 import { CustomProvider } from "rsuite";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
+import generateControllerMarkerIcon from "./util/generateControllerMarkerIcon";
+import useMatchTracon from "../../../hooks/useMatchTracon";
+import useMatchedFirs from "../../../hooks/useMatchedFirs";
 
 //TODO: High memory usage
 const MainMap = () => {
@@ -35,8 +38,8 @@ const MainMap = () => {
         trafficDetailVisible
     } = useSelector((state: RootState) => state.mapDisplayPanel);
 
-    useInitializeDatabase();
 
+    useInitializeDatabase();
 
     if (!window.WebGLRenderingContext) {
         return (
@@ -76,13 +79,51 @@ const MainMap = () => {
         }
         return null;
     };
+
+    const {
+        data: controllerData,
+        error: controllerError,
+        isLoading: controllerLoading
+    } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
+
+
+    const {
+        matchedFirs,
+        isError: isFirError
+    } = useMatchedFirs(controllerData);
+
+    const {
+        matchedTracons,
+        fallbackGeoJson, //fallback GeoJSON data
+        matchedFallbackTracons, // fallback controller info
+        isLoading: isTraconLoading,
+        isError: isTraconError
+    } = useMatchTracon(controllerData);
+
+    if (controllerLoading || controllerError) {
+        return <div>Loading...</div>;
+    }
+
+    console.log("matchedFirs", matchedFirs);
+    console.log("matched tracons:", matchedTracons);
+
     return (
         <CustomProvider theme="light">
             <div>
                 <BaseMap>
                     <MapErrorMessageStack/>
-                    <AtcLayer/>
-                    <BaseTrafficLayer/>
+                    <AtcLayer
+                        controllerData={controllerData}
+                        controllerLoading={controllerLoading}
+                        controllerError={controllerError}
+                    />
+                    <BaseDeckGlLayer
+                        matchedFirs={matchedFirs}
+                        matchedTracons={matchedTracons}
+                        matchedFallbackTracons={matchedFallbackTracons}
+                        matchedFirError={isFirError}
+                        matchedTraconError={isTraconError}
+                    />
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
                     {renderFlightInfoPanel()}

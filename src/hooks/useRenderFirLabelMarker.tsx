@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Marker } from "react-map-gl";
 import useDelayHoverLabel from "./useDelayHoverLabel";
 import { MatchedFir } from "./useMatchedFirs";
@@ -7,13 +7,21 @@ const useRenderFirLabelMarker = (matchedFir: MatchedFir[]) => {
     let renderedMarkers: JSX.Element[];
     const [hoverFir, handleMouse] = useDelayHoverLabel();
 
-    const handleMouseEnter = (feature: MatchedFir) => {
-        handleMouse(feature, true, 150, 10);
-    };
+    // const handleMouseEnter = (feature: MatchedFir) => {
+    //     handleMouse(feature, true, 150, 10);
+    // };
+    //
+    // const handleMouseLeave = () => {
+    //     handleMouse(null, false, 150, 10);
+    // };
 
-    const handleMouseLeave = () => {
+    const handleMouseEnter = useCallback((feature: MatchedFir) => {
+        handleMouse(feature, true, 150, 10);
+    }, [handleMouse]);
+
+    const handleMouseLeave = useCallback(() => {
         handleMouse(null, false, 150, 10);
-    };
+    }, [handleMouse]);
 
     renderedMarkers = useMemo(() => {
         if (matchedFir && matchedFir.length > 0) {
@@ -63,7 +71,7 @@ const useRenderFirLabelMarker = (matchedFir: MatchedFir[]) => {
                 .filter(marker => marker !== null);
         }
         return renderedMarkers;
-    }, [matchedFir]);
+    }, [matchedFir, handleMouseEnter, handleMouseLeave]);
 
     return {
         renderedMarkers,

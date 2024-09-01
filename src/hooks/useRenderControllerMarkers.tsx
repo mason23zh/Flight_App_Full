@@ -1,5 +1,5 @@
 import { VatsimControllers } from "../types";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Marker } from "react-map-gl";
 import useDelayHoverLabel from "./useDelayHoverLabel";
 import { useViewState } from "../component/2d/viewStateContext";
@@ -88,82 +88,58 @@ const colClassMap = {
 const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
     const [data, setData] = useState<Array<AirportService>>([]);
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
-    const [renderedMarkers, setRenderedMarkers] = useState<JSX.Element[]>([]);
-    const viewState = useViewState();
-
-    const getViewBounds = (viewState: Viewport) => {
-        const {
-            latitude,
-            longitude,
-            zoom,
-            width,
-            height
-        } = viewState;
-        return new WebMercatorViewport({
-            longitude,
-            latitude,
-            zoom,
-            width,
-            height
-        }).getBounds();
-    };
-
-
-    function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
-        if (!controllers || controllers.length === 0) return [];
-        const facilityMap = facilities.reduce((map, f) => {
-            map[f.id] = f.short;
-            return map;
-        }, {});
-
-        const combinedData = {};
-
-        // Helper function to add service data to the combinedData object
-        function addServiceData(airportCode, serviceType, data) {
-            if (!combinedData[airportCode]) {
-                combinedData[airportCode] = {
-                    airportName: data.airport.name,
-                    icao: airportCode,
-                    coordinates: data.coordinates,
-                    services: []
-                };
-            }
-
-            combinedData[airportCode].services.push({
-                ...data,
-                serviceType,
-                //coordinates: undefined // Remove coordinates from individual service
-            });
-        }
-
-        // Process controllers array
-        controllers.forEach(controller => {
-            const airportCode = controller.airport.icao;
-            const serviceType = facilityMap[controller.facility]; // Use facility id to get service type
-            addServiceData(airportCode, serviceType, controller);
-        });
-
-        // Process atis array
-        atis.forEach(atisData => {
-            const airportCode = atisData.airport.icao;
-            const serviceType = "ATIS"; // ATIS is a special case
-            addServiceData(airportCode, serviceType, atisData);
-        });
-
-        // Convert combinedData to an array of objects
-        return Object.values(combinedData);
-    }
-
-
-    const combinedData = useMemo(() => {
-        return combineAirportServices(controllerInfo?.other?.controllers, controllerInfo?.other?.atis, facilities);
-    }, [controllerInfo, facilities]);
 
     useEffect(() => {
-        if (combinedData) {
-            setData(combinedData);
+        function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
+            const facilityMap = facilities.reduce((map, f) => {
+                map[f.id] = f.short;
+                return map;
+            }, {});
+
+            const combinedData = {};
+
+            // Helper function to add service data to the combinedData object
+            function addServiceData(airportCode, serviceType, data) {
+                if (!combinedData[airportCode]) {
+                    combinedData[airportCode] = {
+                        airportName: data.airport.name,
+                        icao: airportCode,
+                        coordinates: data.coordinates,
+                        services: []
+                    };
+                }
+
+                combinedData[airportCode].services.push({
+                    ...data,
+                    serviceType,
+                    //coordinates: undefined // Remove coordinates from individual service
+                });
+            }
+
+            // Process controllers array
+            controllers.forEach(controller => {
+                const airportCode = controller.airport.icao;
+                const serviceType = facilityMap[controller.facility]; // Use facility id to get service type
+                addServiceData(airportCode, serviceType, controller);
+            });
+
+            // Process atis array
+            atis.forEach(atisData => {
+                const airportCode = atisData.airport.icao;
+                const serviceType = "ATIS"; // ATIS is a special case
+                addServiceData(airportCode, serviceType, atisData);
+            });
+
+            // Convert combinedData to an array of objects
+            return Object.values(combinedData);
         }
-    }, [combinedData]);
+
+        if (controllerInfo) {
+            const temp = combineAirportServices(controllerInfo.other.controllers, controllerInfo.other.atis, facilities);
+            setData(temp);
+        }
+
+    }, [controllerInfo]);
 
     const generateServiceLabels = (services: Array<Service>) => {
         let delIcon = null;
@@ -215,54 +191,40 @@ const useRenderControllerMarkers = (controllerInfo: VatsimControllers) => {
         );
     };
 
-    const renderMarkers = useMemo(() => {
-        if (!viewState || !data.length) return renderedMarkers;
-        if (viewState.isDragging) {
-            return renderedMarkers;
-        }
-        const bounds = getViewBounds(viewState);
-        const [minLng, minLat, maxLng, maxLat] = bounds;
 
-        const newMarkers = data
-            .filter(a => {
-                const lon = Number(a.coordinates[0]);
-                const lat = Number(a.coordinates[1]);
-                return (
-                    lon >= minLng &&
-                            lon <= maxLng &&
-                            lat >= minLat &&
-                            lat <= maxLat
-                );
-            })
-            .map(a => {
-                const serviceIcons = generateServiceLabels(a.services);
-                const icao = <div className="font-semibold opacity-80 text-gray-50">{a.icao}</div>;
+    const renderMarkers = useCallback(() => {
+        return data.map((a) => {
+            const serviceIcons = generateServiceLabels(a.services);
+            const icao = <div className="font-semibold opacity-80 text-gray-50">
+                {a.icao}
+            </div>;
 
-                return (
-                    <Marker
-                        key={a.icao}
-                        longitude={Number(a.coordinates[0])}
-                        latitude={Number(a.coordinates[1])}
-                        anchor="bottom"
-                        scale={0.5}
+            return (
+                <Marker
+                    style={{ zIndex: 10 }}
+                    longitude={Number(a.coordinates[0])}
+                    latitude={Number(a.coordinates[1])}
+                    scale={0.5}
+                    key={a.icao}
+                    anchor="bottom">
+                    <div
+                        // onMouseEnter={() => handleMouse(a, true, 150, 10)}
+                        // onMouseLeave={() => handleMouse(null, false, 150, 10)}
+                        className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
                     >
-                        <div
-                            onMouseEnter={() => handleMouse(a, true, 150, 10)}
-                            onMouseLeave={() => handleMouse(null, false, 150, 10)}
-                            className="grid grid-cols-1 text-center text-[9px] text-gray-50 bg-gray-500 px-0.5"
-                        >
-                            {icao}
-                            {serviceIcons}
-                        </div>
-                    </Marker>
-                );
-            });
-        setRenderedMarkers(newMarkers);
-        return newMarkers;
-    }, [data, viewState, handleMouse]);
+                        {icao}
+                        {serviceIcons}
+                    </div>
+                </Marker>
+            );
+        });
+    }, [data]);
+
+    const renderedMarkers = useMemo(() => renderMarkers(), [data]);
+
 
     return {
-        renderedMarkers: renderMarkers,
+        renderedMarkers,
         hoverInfo
     };
 };
