@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BaseMap from "./BaseMap";
 import AtcLayer from "./AtcLayer";
 import BaseDeckGlLayer from "../BaseDeckGlLayer";
 import NexradLayer from "./Nexrad_Layer/NxradLayer";
 import MapErrorMessageStack from "../map_error_loading/MapErrorMessageStack";
 import FlightInfo from "../detail_flight_info_panel/FlightInfo";
-import { useSelector } from "react-redux";
-import { RootState, useFetchVatsimControllersDataQuery } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    RootState, setFallbackGeoJson,
+    setMatchedFallbackTracons,
+    setMatchedFirs, setMatchedFirsError, setMatchedTraconError, setMatchedTraconLoading,
+    setMatchedTracons,
+    useFetchVatsimControllersDataQuery
+} from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
@@ -19,6 +25,7 @@ import useMatchedFirs from "../../../hooks/useMatchedFirs";
 
 //TODO: High memory usage
 const MainMap = () => {
+    const dispatch = useDispatch();
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
 
@@ -99,6 +106,45 @@ const MainMap = () => {
         isError: isTraconError
     } = useMatchTracon(controllerData);
 
+    useEffect(() => {
+        if (controllerLoading) {
+            dispatch(setMatchedTraconLoading(true));
+        } else if (controllerError) {
+            dispatch(setMatchedTraconError(true));
+        } else {
+            dispatch(setMatchedTraconLoading(false));
+            dispatch(setMatchedTraconError(false));
+        }
+    }, [controllerLoading, controllerError, dispatch]);
+
+    useEffect(() => {
+        if (matchedFirs) {
+            dispatch(setMatchedFirs(matchedFirs));
+        } else if (isFirError) {
+            dispatch(setMatchedFirsError(isFirError)); // This will clear Fir array
+        }
+    }, [matchedFirs, isFirError, dispatch]);
+
+    useEffect(() => {
+        if (matchedTracons) {
+            dispatch(setMatchedTracons(matchedTracons));
+        }
+        if (matchedFallbackTracons) {
+            dispatch(setMatchedFallbackTracons(matchedFallbackTracons));
+        }
+        if (fallbackGeoJson) {
+            dispatch(setFallbackGeoJson(fallbackGeoJson));
+        }
+        if (isTraconLoading) {
+            dispatch(setMatchedTraconLoading(true));
+        } else {
+            dispatch(setMatchedTraconLoading(false));
+        }
+        if (isTraconError) {
+            dispatch(setMatchedTraconError(isTraconError));
+        }
+    }, [matchedTracons, matchedFallbackTracons, fallbackGeoJson, isTraconLoading, isTraconError, dispatch]);
+
 
     return (
         <CustomProvider theme="light">
@@ -111,11 +157,9 @@ const MainMap = () => {
                         controllerError={controllerError}
                     />
                     <BaseDeckGlLayer
-                        matchedFirs={matchedFirs}
-                        matchedTracons={matchedTracons}
-                        matchedFallbackTracons={matchedFallbackTracons}
-                        matchedFirError={isFirError}
-                        matchedTraconError={isTraconError}
+                        controllerData={controllerData}
+                        controllerDataLoading={controllerLoading}
+                        controllerDataError={controllerError}
                     />
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}

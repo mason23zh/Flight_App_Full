@@ -8,6 +8,7 @@ const firIconLayer = (
     onHoverFirCallback: (firInfo: MatchedFir) => void) => {
 
     if (!matchedFirs || matchedFirs.length === 0) return null;
+    console.log("fur icon layer run.");
 
     const iconData = matchedFirs.map((feature) => {
         const coordinates = [Number(feature.firInfo?.entries[0]?.label_lon), Number(feature.firInfo?.entries[0]?.label_lat)];

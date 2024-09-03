@@ -39,6 +39,9 @@ import ControllerMarkerPopup from "./mapbox_Layer/Controller_Markers_Layer/Contr
 import { debounce } from "lodash";
 import TraconLabelPopup, { HoverTracon } from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 import FirLabelPopup from "./mapbox_Layer/FIR_Layers/FirLabelPopup";
+import AtcLayerComponent from "./deckGL_Layer/AtcLayerComponent";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -61,9 +64,9 @@ interface Viewport {
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
-    matchedFirs: MatchedFir[];
-    matchedTracons: MatchedTracon[];
-    matchedFallbackTracons: FallbackTracon[];
+    controllerData: VatsimControllers;
+    controllerDataLoading: boolean;
+    controllerDataError: FetchBaseQueryError | SerializedError;
     movingMap: boolean;
     trafficLayerVisible: boolean;
 }
@@ -75,15 +78,15 @@ interface PickedTraffic extends PickingInfo {
 //TODO: Selected traffic state might be redundent
 const MainDeckGlLayer = ({
     vatsimPilots,
-    matchedFirs,
-    matchedTracons,
-    matchedFallbackTracons,
+    controllerData,
+    controllerDataError,
+    controllerDataLoading,
     trafficLayerVisible,
     movingMap,
 }:
         MainTrafficLayerProps) => {
 
-
+    const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
     let isHovering = false;
     //TODO: debounce the state update
@@ -152,11 +155,11 @@ const MainDeckGlLayer = ({
         skip: !selectTraffic
     });
 
-    const {
-        data: controllerData,
-        error: controllerError,
-        isLoading: controllerLoading
-    } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
+    // const {
+    //     data: controllerData,
+    //     error: controllerError,
+    //     isLoading: controllerLoading
+    // } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
 
     const currentZoom = useMemo(() => {
         return mapRef.current?.getMap()
@@ -273,60 +276,23 @@ const MainDeckGlLayer = ({
         }
     }, [selectTraffic]);
 
-    const debouncedSetHoverControllerIcon = useCallback(
-        debounce((icon) => {
-            setHoverControllerIcon(icon);
-        }, 200),
-        []
-    );
-
-    const debouncedSetMatchedHoverTraconIcon = useCallback(
-        debounce((icon) => {
-            setHoverTraconIcon(icon);
-        }, 200),
-        []
-    );
-
-    const debouncedSetHoverFirIcon = useCallback(
-        debounce((icon) => {
-            setHoverFirIcon(icon);
-        }, 200),
-        []
-    );
-
-
-    if (hoverTraconIcon) {
-        console.log("matched hover tracon:", hoverTraconIcon);
-    }
-
-    const controllerMarkerLayer = useMemo(() => controllerIconLayer(controllerData, debouncedSetHoverControllerIcon), [controllerError, controllerLoading, controllerData]);
-    const firLabelLayer = firIconLayer(matchedFirs, debouncedSetHoverFirIcon);
-    const traconLabelLayer =
-            traconIconLayer(
-                matchedTracons,
-                matchedFallbackTracons,
-                debouncedSetMatchedHoverTraconIcon,
-            );
-
-
-    if (hoverControllerIcon) {
-        console.log("Hover data:", hoverControllerIcon);
-    }
-
-    // const controllerMarkerLayer = controllerIconLayer();
+    const atcLayer = AtcLayerComponent({
+        controllerData,
+        isControllerDataLoading: controllerDataLoading,
+        isControllerDataError: controllerDataError,
+        setHoverControllerIcon: setHoverControllerIcon,
+        setHoverTraconIcon: setHoverTraconIcon,
+        setHoverFirIcon: setHoverFirIcon
+    });
 
     const layers = useMemo(() => [
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
         localTrafficLayer,
-        controllerMarkerLayer,
-        traconLabelLayer,
-        firLabelLayer
+        atcLayer
     ].filter(Boolean),
     [trackData, trafficLayer3D, trafficLayer2D, terrainEnable,
         selectTraffic, movingMap, flightData, trafficLayerVisible]);
-
-    const isTouchScreen = useIsTouchScreen();
 
     return (
         <>
@@ -337,6 +303,7 @@ const MainDeckGlLayer = ({
                 pickingRadius={10}
                 getTooltip={isTouchScreen ? undefined : ({ object }) => {
                     if (object) {
+                        if (object?.iconUrl) return null;
                         const bgColor = "rgba(39, 40, 45, 0.9)";
                         return {
                             text: object && `${object.callsign}

@@ -14,28 +14,20 @@ import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-import { useViewState } from "./viewStateContext";
-import { useMapRefContext } from "./MapRefContext";
 import { VatsimControllers } from "../../types";
 import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { MatchedFir } from "../../hooks/useMatchedFirs";
-import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 
 interface BaseDeckGlLayerProps {
-    matchedFirs: MatchedFir[];
-    matchedTracons: MatchedTracon[];
-    matchedFallbackTracons: FallbackTracon[];
-    matchedFirError: boolean;
-    matchedTraconError: boolean;
+    controllerData: VatsimControllers;
+    controllerDataError: FetchBaseQueryError | SerializedError;
+    controllerDataLoading: boolean;
 }
 
 const BaseDeckGlLayer = ({
-    matchedFirs,
-    matchedTracons,
-    matchedFallbackTracons,
-    matchedFirError,
-    matchedTraconError
+    controllerData,
+    controllerDataError,
+    controllerDataLoading
 }: BaseDeckGlLayerProps) => {
     const dispatch = useDispatch();
     // const viewState = useViewState();
@@ -96,9 +88,6 @@ const BaseDeckGlLayer = ({
     }, [vatsimPilotsLoading,
         vatsimPilotsError,
         vatsimPilots,
-        matchedFirError,
-        matchedTraconError,
-        matchedFirs,
         dispatch]);
 
     /*
@@ -131,9 +120,9 @@ const BaseDeckGlLayer = ({
     return (
         <MainDeckGlLayer
             vatsimPilots={memoizedVatsimPilotToDisplay}
-            matchedFirs={matchedFirs}
-            matchedTracons={matchedTracons}
-            matchedFallbackTracons={matchedFallbackTracons}
+            controllerData={controllerData}
+            controllerDataError={controllerDataError}
+            controllerDataLoading={controllerDataLoading}
             movingMap={movingMap}
             trafficLayerVisible={trafficLayerVisible}
         />

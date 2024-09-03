@@ -30,7 +30,7 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
         getColor: () => [228, 235, 10],
         getSize: (d: VatsimFlight) => {
             return getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738");
-        }
+        },
     });
 };
 
