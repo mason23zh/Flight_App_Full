@@ -1,5 +1,6 @@
 import { FillLayer, LineLayer } from "react-map-gl";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
+import { HoverTracon } from "./TraconLabelPopup";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
     const filterConditions = matchedTracon.map(tracon => [
@@ -21,10 +22,10 @@ export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): Line
     };
 };
 
-export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): FillLayer => {
+export const activeTraconFillLayerStyle = (hoverInfo: HoverTracon | null): FillLayer => {
     const hoverTraconId = hoverInfo ? hoverInfo.traconInfo.id : null;
     const hoverCallsignPrefix = hoverInfo ? hoverInfo.traconInfo.callsignPrefix : null;
-
+ 
     return {
         id: "tracon-fill-layer",
         type: "fill",
@@ -61,7 +62,7 @@ export const activeTraconFillLayerStyle = (hoverInfo: MatchedTracon | null): Fil
 //     }
 // };
 
-export const fallBackHighlightTraconFillLayerStyle = (hoverCast: FallbackTracon): FillLayer => {
+export const fallBackHighlightTraconFillLayerStyle = (hoverCast: HoverTracon): FillLayer => {
     if (!hoverCast) return null;
     const hoverId = hoverCast.controllers.length > 0 ? hoverCast.controllers[0].callsign : null;
 

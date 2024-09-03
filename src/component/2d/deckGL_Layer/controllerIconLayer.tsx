@@ -2,6 +2,7 @@ import { IconLayer } from "@deck.gl/layers/typed";
 import generateControllerMarkerIcon from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Services } from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { VatsimControllers } from "../../../types";
+import { useDispatch } from "react-redux";
 
 interface Service {
     airport: { name: string, icao: string },
@@ -71,6 +72,7 @@ const controllerIconLayer = (
     onHoverCallback: (airportService: AirportService) => void,
     visible: boolean,
 ) => {
+    const dispatch = useDispatch();
     if (!controllerData || !controllerData?.other || !visible) return null;
 
     console.log("Controller icon layer run.");
@@ -137,6 +139,7 @@ const controllerIconLayer = (
             serviceInfo: service
         };
     });
+
 
     return new IconLayer({
         id: "controller-icon-layer",

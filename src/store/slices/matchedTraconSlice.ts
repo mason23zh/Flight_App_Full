@@ -1,11 +1,13 @@
 import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { GeoJSON } from "geojson";
+import { HoverTracon } from "../../component/2d/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 
 interface MatchedTraconsSlice {
     matchedTracons: MatchedTracon[] | [];
     matchedFallbackTracons: FallbackTracon[] | [];
     fallbackGeoJson: GeoJSON.FeatureCollection | null;
+    hoveredTracon: HoverTracon | null;
     isLoading: boolean;
     isError: boolean;
 }
@@ -13,6 +15,7 @@ interface MatchedTraconsSlice {
 const initialState: MatchedTraconsSlice = {
     matchedTracons: [],
     matchedFallbackTracons: [],
+    hoveredTracon: null,
     fallbackGeoJson: null,
     isLoading: false,
     isError: false,
@@ -22,6 +25,9 @@ const matchedTraconSlice = createSlice({
     name: "matchedTracons",
     initialState,
     reducers: {
+        setHoveredTracon: (state, action: PayloadAction<HoverTracon>) => {
+            state.hoveredTracon = action.payload;
+        },
         setMatchedTracons: (state, action: PayloadAction<MatchedTracon[]>) => {
             state.matchedTracons = action.payload;
             state.isError = false;
@@ -50,6 +56,7 @@ export const {
     setMatchedTracons,
     setMatchedFallbackTracons,
     setFallbackGeoJson,
+    setHoveredTracon,
     setMatchedTraconError,
     setMatchedTraconLoading
 } = matchedTraconSlice.actions;

@@ -14,6 +14,8 @@ interface HoverTraconControllers {
 export interface HoverTracon {
     controllers: HoverTraconControllers[];
     traconInfo: {
+        id?: string;
+        callsignPrefix?: string;
         name: string;
         coordinates: number[];
     };

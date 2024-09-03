@@ -2,6 +2,9 @@ import { IconLayer } from "@deck.gl/layers/typed";
 import generateTraconIcon from "../mapbox_Layer/util/generateTraconIcon";
 import { FallbackTracon, MatchedTracon } from "../../../hooks/useMatchTracon";
 import { HoverTracon } from "../mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import { useDispatch } from "react-redux";
+import { debounce } from "lodash";
+import { setHoveredTracon } from "../../../store";
 
 const traconIconLayer = (
     matchedTracon: MatchedTracon[],
@@ -9,8 +12,7 @@ const traconIconLayer = (
     onMatchedHoverCallback: (traconInfo: HoverTracon) => void,
     visible: boolean
 ) => {
-    // if (!matchedTracon && !matchedFallbackTracon) return null;
-
+    const dispatch = useDispatch();
     if ((matchedTracon.length === 0 && matchedFallbackTracon.length === 0) || !visible) return null;
 
     const matchedMatchedIconData = (!matchedTracon || matchedTracon.length === 0)
@@ -24,6 +26,8 @@ const traconIconLayer = (
                 const traconHoverObj: HoverTracon = {
                     controllers: tracon.controllers,
                     traconInfo: {
+                        id: tracon.traconInfo.id,
+                        callsignPrefix: tracon.traconInfo.callsignPrefix,
                         name: name,
                         coordinates: [lon, lat],
                     }
@@ -61,6 +65,10 @@ const traconIconLayer = (
             };
         });
 
+    const debouncedHoverTracon = debounce((hoverTracon: HoverTracon) => {
+        dispatch(setHoveredTracon(hoverTracon));
+    }, 300);
+
     //"traconInfo" in hoverTracon
     return new IconLayer({
         id: "tracon-icon-layer",
@@ -78,9 +86,9 @@ const traconIconLayer = (
         getSize: () => 28,
         onHover: ({ object }) => {
             if (object) {
-                onMatchedHoverCallback(object.traconInfo);
+                debouncedHoverTracon(object.traconInfo);
             } else {
-                onMatchedHoverCallback(null);
+                debouncedHoverTracon(null);
             }
         },
         // getColor: () => [0, 0, 0, 255],

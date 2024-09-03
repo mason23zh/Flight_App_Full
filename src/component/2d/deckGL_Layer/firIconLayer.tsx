@@ -1,12 +1,16 @@
 import { IconLayer } from "@deck.gl/layers/typed";
 import generateFirIcon from "../mapbox_Layer/util/generateFirIcon";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
+import { debounce } from "lodash";
+import { useDispatch } from "react-redux";
+import { setHoveredFir } from "../../../store";
 
 
 const firIconLayer = (
     matchedFirs: MatchedFir[],
     onHoverFirCallback: (firInfo: MatchedFir) => void,
     visible: boolean) => {
+    const dispatch = useDispatch();
 
     if (!matchedFirs || matchedFirs.length === 0 || !visible) return null;
 
@@ -27,6 +31,10 @@ const firIconLayer = (
         };
     });
 
+    const debouncedDispatchHover = debounce((firInfo: MatchedFir | null) => {
+        dispatch(setHoveredFir(firInfo));
+    }, 300);
+
     return new IconLayer({
         id: "fir-icon-layer",
         data: iconData,
@@ -43,9 +51,9 @@ const firIconLayer = (
         getSize: () => 30,
         onHover: ({ object }) => {
             if (object) {
-                onHoverFirCallback(object.firInfo);
+                debouncedDispatchHover(object.firInfo);
             } else {
-                onHoverFirCallback(null);
+                debouncedDispatchHover(null);
             }
         },
         // getColor: () => [0, 0, 0, 255],

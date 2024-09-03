@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface MatchedFirSlice {
     matchedFirs: MatchedFir[] | [];
+    hoveredFir: MatchedFir | null;
     isError: boolean;
 }
 
 const initialState: MatchedFirSlice = {
     matchedFirs: [],
+    hoveredFir: null,
     isError: false
 };
 
@@ -15,6 +17,9 @@ const matchedFirSlice = createSlice({
     name: "matchedFirs",
     initialState,
     reducers: {
+        setHoveredFir(state, action: PayloadAction<MatchedFir>) {
+            state.hoveredFir = action.payload;
+        },
         setMatchedFirs(state, action: PayloadAction<MatchedFir[]>) {
             state.matchedFirs = action.payload;
             state.isError = false;
@@ -35,7 +40,8 @@ const matchedFirSlice = createSlice({
 export const {
     setMatchedFirs,
     setMatchedFirsError,
-    resetMatchedFirs
+    resetMatchedFirs,
+    setHoveredFir
 } = matchedFirSlice.actions;
 
 export const matchedFirsReducer = matchedFirSlice.reducer;

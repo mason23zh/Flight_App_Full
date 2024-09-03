@@ -7,12 +7,8 @@ import {
     fallBackHighlightTraconFillLayerStyle,
     fallbackTraconBoundariesLineLayerStyle,
 } from "./traconLayerMapStyle";
-import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
-import TraconLabelPopup from "./TraconLabelPopup";
-import { useDispatch } from "react-redux";
-import { addMessage, removeMessageByLocation } from "../../../../store";
-import useMatchTracon from "../../../../hooks/useMatchTracon";
-import useRenderUnMatchedTraconLabelMarkers from "../../../../hooks/useRenderUnMatchedTraconLabelMarkers";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage, removeMessageByLocation, RootState } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
@@ -25,24 +21,14 @@ const TraconLayer = ({
     labelVisible
 }: Controller) => {
     const dispatch = useDispatch();
-
     const {
+        matchedFallbackTracons,
         matchedTracons,
-        fallbackGeoJson, //fallback GeoJSON data
-        matchedFallbackTracons, // fallback controller info
+        fallbackGeoJson,
+        hoveredTracon,
         isLoading: isTraconLoading,
         isError: isTraconError
-    } = useMatchTracon(controllerInfo);
-
-    const {
-        renderedMarkers,
-        hoverTraconCast,
-    } = useRenderTraconLabelMarker(matchedTracons);
-
-    const {
-        renderedMarkers: fallbackMarkers,
-        hoverTraconCast: fallbackHover
-    } = useRenderUnMatchedTraconLabelMarkers(matchedFallbackTracons);
+    } = useSelector((state: RootState) => state.matchedTracons);
 
 
     useEffect(() => {
@@ -69,8 +55,8 @@ const TraconLayer = ({
 
     if (matchedTracons) {
         const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
-        const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoverTraconCast);
-        const fallbackHoverTraconFillStyle = fallBackHighlightTraconFillLayerStyle(fallbackHover);
+        const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoveredTracon);
+        const fallbackHoverTraconFillStyle = fallBackHighlightTraconFillLayerStyle(hoveredTracon);
         return (
             <>
                 <Source
@@ -79,14 +65,7 @@ const TraconLayer = ({
                     url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
                 >
                     <Layer {...activeTraconOutlineStyle}/>
-                    {(hoverTraconCast && labelVisible) && (
-                        <>
-                            <Layer {...activeHoverTraconLayerStyle} />
-                            <TraconLabelPopup hoverTracon={hoverTraconCast}/>
-                        </>
-                    )
-                    }
-                    {/* {labelVisible && renderedMarkers} */}
+                    {hoveredTracon && <Layer {...activeHoverTraconLayerStyle}/>}
                 </Source>
 
                 {fallbackGeoJson &&
@@ -99,14 +78,7 @@ const TraconLayer = ({
                                     data={fallbackGeoJson}
                                 >
                                     <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
-
-                                    {(fallbackHover && labelVisible) && (
-                                        <>
-                                            <Layer {...fallbackHoverTraconFillStyle}/>
-                                            {/* <TraconLabelPopup hoverTracon={fallbackHover}/> */}
-                                        </>
-                                    )}
-                                    {/* {labelVisible && fallbackMarkers} */}
+                                    {hoveredTracon && <Layer {...fallbackHoverTraconFillStyle}/>}
                                 </Source>
                             )
                 }

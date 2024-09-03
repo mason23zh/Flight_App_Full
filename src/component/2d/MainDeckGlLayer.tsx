@@ -112,6 +112,7 @@ const MainDeckGlLayer = ({
 
     const {
         matchedFirs,
+        hoveredFir,
         isError: errorMatchedFirs
     } = useSelector((state: RootState) => state.matchedFirs);
 
@@ -119,6 +120,7 @@ const MainDeckGlLayer = ({
     const {
         matchedFallbackTracons,
         matchedTracons,
+        hoveredTracon,
         isLoading: isTraconLoading,
         isError: isTraconError
     } = useSelector((state: RootState) => state.matchedTracons);
@@ -378,12 +380,12 @@ const MainDeckGlLayer = ({
                 <ControllerMarkerPopup hoverInfo={hoverControllerIcon}/>
             }
 
-            {(hoverTraconIcon) &&
-                <TraconLabelPopup hoverTracon={hoverTraconIcon}/>
+            {(hoveredTracon) &&
+                <TraconLabelPopup hoverTracon={hoveredTracon}/>
             }
 
-            {(hoverFirIcon) &&
-                <FirLabelPopup hoverFir={hoverFirIcon}/>
+            {(hoveredFir) &&
+                <FirLabelPopup hoverFir={hoveredFir}/>
             }
         </>
     );

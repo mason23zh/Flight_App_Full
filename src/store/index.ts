@@ -104,6 +104,7 @@ import {
 import {
     setMatchedFirsError,
     setMatchedFirs,
+    setHoveredFir,
     matchedFirsReducer
 } from "./slices/matchedFirSlice";
 
@@ -111,6 +112,7 @@ import {
     setMatchedTracons,
     setMatchedFallbackTracons,
     setFallbackGeoJson,
+    setHoveredTracon,
     setMatchedTraconError,
     setMatchedTraconLoading,
     matchedTraconsReducer
@@ -280,12 +282,14 @@ export {
     setMatchedTraconLoading,
     setMatchedFallbackTracons,
     setFallbackGeoJson,
+    setHoveredTracon,
     setMatchedTracons,
     setMatchedTraconError
 };
 
 export {
     setMatchedFirs,
+    setHoveredFir,
     setMatchedFirsError
 };
 
