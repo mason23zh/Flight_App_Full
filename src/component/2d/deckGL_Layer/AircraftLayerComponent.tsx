@@ -4,6 +4,7 @@ import { RootState, useFetchVatsimPilotsDataQuery } from "../../../store";
 import { useMemo } from "react";
 import trafficLayer_3D from "./trafficLayer_3D";
 
+//TODO: Move aircraft layer into this component
 interface AircraftLayerComponentProps {
     vatsimPilots: VatsimFlight[];
     terrainEnable: boolean;

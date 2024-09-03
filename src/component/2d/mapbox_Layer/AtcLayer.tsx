@@ -3,25 +3,19 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    useFetchVatsimControllersDataQuery,
     useFetchVatsimFirBoundariesQuery
 } from "../../../store";
 import FirLayer from "./FIR_Layers/FirLayer";
 import TraconLayer from "./Tracon_Layers/TraconLayer";
-import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
 // import { useViewState } from "../viewStateContext";
 import { useMapRefContext } from "../MapRefContext";
-import { WebMercatorViewport } from "@deck.gl/core/typed";
-import filterFirGeoJsonInViewport from "../filterFirGeoJsonInViewport";
-import { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 // import geoJsonData from "../../../assets/vatsim_geoJson/simplified_vatsim_firboundaries.json";
 // import testData from "../../../assets/getvatsimcontrollers-missing-lppo-kzny.json";
 // import testData from "../../../test_data/vatsim-czeg-fss.json";
 import testData from "../../../test_data/getvatsimcontrollers-mismatch-edgg-edmm.json";
-import { useMap } from "react-map-gl";
 import { VatsimControllers } from "../../../types";
 import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
@@ -50,7 +44,7 @@ const AtcLayer = ({
         underlineFirBoundaries
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-
+ 
     //update controller info every 60 seconds
     // const {
     //     data: NewControllerData,
@@ -172,7 +166,6 @@ const AtcLayer = ({
             {allAtcLayerVisible && (<>
                 <FirLayer controllerInfo={newControllerData} labelVisible={true}/>
                 <TraconLayer controllerInfo={newControllerData} labelVisible={true}/>
-                {/* <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/> */}
             </>)
             }
         </>

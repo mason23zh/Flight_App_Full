@@ -115,15 +115,16 @@ const MainMap = () => {
             dispatch(setMatchedTraconLoading(false));
             dispatch(setMatchedTraconError(false));
         }
-    }, [controllerLoading, controllerError, dispatch]);
+    }, [controllerLoading, controllerError, dispatch, controllerData]);
 
     useEffect(() => {
-        if (matchedFirs) {
+        if (matchedFirs.length !== 0) {
+            console.log("Matched firs recevned");
             dispatch(setMatchedFirs(matchedFirs));
         } else if (isFirError) {
             dispatch(setMatchedFirsError(isFirError)); // This will clear Fir array
         }
-    }, [matchedFirs, isFirError, dispatch]);
+    }, [matchedFirs, isFirError, dispatch, controllerData, controllerError, controllerLoading]);
 
     useEffect(() => {
         if (matchedTracons) {
@@ -143,7 +144,7 @@ const MainMap = () => {
         if (isTraconError) {
             dispatch(setMatchedTraconError(isTraconError));
         }
-    }, [matchedTracons, matchedFallbackTracons, fallbackGeoJson, isTraconLoading, isTraconError, dispatch]);
+    }, [matchedTracons, matchedFallbackTracons, fallbackGeoJson, isTraconLoading, isTraconError, dispatch, controllerData, controllerError, controllerLoading]);
 
 
     return (

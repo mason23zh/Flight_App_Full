@@ -2,8 +2,6 @@ import { IconLayer } from "@deck.gl/layers/typed";
 import generateControllerMarkerIcon from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Services } from "../mapbox_Layer/util/generateControllerMarkerIcon";
 import { VatsimControllers } from "../../../types";
-import { DomEvent } from "leaflet";
-import on = DomEvent.on;
 
 interface Service {
     airport: { name: string, icao: string },
@@ -68,7 +66,6 @@ const facilities = [
     }
 ];
 
-//TODO: Add function to make controller info into IconLayer
 const controllerIconLayer = (
     controllerData: VatsimControllers,
     onHoverCallback: (airportService: AirportService) => void,
@@ -76,7 +73,10 @@ const controllerIconLayer = (
 ) => {
     if (!controllerData || !controllerData?.other || !visible) return null;
 
+    console.log("Controller icon layer run.");
+
     function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
+        console.log("combine airport service run.");
         const facilityMap = facilities.reduce((map, f) => {
             map[f.id] = f.short;
             return map;
@@ -130,13 +130,14 @@ const controllerIconLayer = (
 
         const serviceTypes = [...new Set(service.services.map((s) => s.serviceType))];
 
+        //TODO: Add cache to avoid generate new marker icon
         return {
             position: coordinates,
             iconUrl: generateControllerMarkerIcon(service.icao, serviceTypes),
             serviceInfo: service
         };
     });
-    //TODO: Debounce 
+
     return new IconLayer({
         id: "controller-icon-layer",
         data: iconData,

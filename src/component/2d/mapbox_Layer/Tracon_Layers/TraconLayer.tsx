@@ -19,6 +19,7 @@ interface Controller {
     labelVisible: boolean;
 }
 
+//TODO: Clean up here, add hover state in redux.
 const TraconLayer = ({
     controllerInfo,
     labelVisible
@@ -102,7 +103,7 @@ const TraconLayer = ({
                                     {(fallbackHover && labelVisible) && (
                                         <>
                                             <Layer {...fallbackHoverTraconFillStyle}/>
-                                            <TraconLabelPopup hoverTracon={fallbackHover}/>
+                                            {/* <TraconLabelPopup hoverTracon={fallbackHover}/> */}
                                         </>
                                     )}
                                     {/* {labelVisible && fallbackMarkers} */}

@@ -6,8 +6,8 @@ import { Layer, Source } from "react-map-gl";
 import { activeFirLayerStyle } from "./firLayerMapStyle";
 import useRenderFirLabelMarker from "../../../../hooks/useRenderFirLabelMarker";
 import FirLabelPopup from "./FirLabelPopup";
-import { useDispatch } from "react-redux";
-import { addMessage, removeMessageByLocation } from "../../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage, removeMessageByLocation, RootState } from "../../../../store";
 import useMatchedFirs, { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
 interface Controller {
@@ -21,11 +21,10 @@ const FirLayer = ({
 }: Controller) => {
 
     const dispatch = useDispatch();
-
     const {
         matchedFirs: matchedFIRS,
-        isError: matchFirError
-    } = useMatchedFirs(controllerInfo);
+        isError: errorMatchedFirs
+    } = useSelector((state: RootState) => state.matchedFirs);
 
 
     useEffect(() => {
@@ -37,7 +36,7 @@ const FirLayer = ({
         //     }));
         // }
 
-        if (matchFirError) {
+        if (errorMatchedFirs) {
             dispatch(addMessage({
                 location: "FIR",
                 messageType: "ERROR",
@@ -45,10 +44,10 @@ const FirLayer = ({
             }));
         }
 
-        if (matchedFIRS?.length > 0 && !matchFirError) {
+        if (matchedFIRS?.length > 0 && !errorMatchedFirs) {
             dispatch(removeMessageByLocation({ location: "FIR" }));
         }
-    }, [matchFirError, matchedFIRS]);
+    }, [errorMatchedFirs, matchedFIRS]);
 
     const {
         renderedMarkers,
@@ -65,7 +64,7 @@ const FirLayer = ({
         [matchedFirs, hoverFirCast]
     );
 
-    if (!controllerInfo || matchFirError) {
+    if (!controllerInfo || errorMatchedFirs) {
         return null;
     }
 

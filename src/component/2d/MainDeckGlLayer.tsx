@@ -39,9 +39,9 @@ import ControllerMarkerPopup from "./mapbox_Layer/Controller_Markers_Layer/Contr
 import { debounce } from "lodash";
 import TraconLabelPopup, { HoverTracon } from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 import FirLabelPopup from "./mapbox_Layer/FIR_Layers/FirLabelPopup";
-import AtcLayerComponent from "./deckGL_Layer/AtcLayerComponent";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
+import getAtcLayers from "./deckGL_Layer/getAtcLayers";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -101,12 +101,28 @@ const MainDeckGlLayer = ({
 
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
+
     // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
     const [previousViewBounds, setPreivousViewBounds] = useState<[number, number, number, number] | null>(null);
     const [previousZoom, setPreviousZoom] = useState<number>(null);
     const mapRef = useMapRefContext();
     const { current: map } = useMap();
     const deckRef = useRef<DeckGLRef | null>(null);
+
+
+    const {
+        matchedFirs,
+        isError: errorMatchedFirs
+    } = useSelector((state: RootState) => state.matchedFirs);
+
+
+    const {
+        matchedFallbackTracons,
+        matchedTracons,
+        isLoading: isTraconLoading,
+        isError: isTraconError
+    } = useSelector((state: RootState) => state.matchedTracons);
+
 
     /*
     * The currentViewBounds is the coordinates of viewport edge of current viewport
@@ -273,24 +289,55 @@ const MainDeckGlLayer = ({
         }
     }, [selectTraffic]);
 
-    const atcLayer = AtcLayerComponent({
-        atcLayerVisible: allAtcLayerVisible,
+
+    const atcLayer = useMemo(() => {
+        if (controllerDataLoading || controllerDataError || isTraconLoading || isTraconError || errorMatchedFirs) {
+            return [];
+        }
+        return getAtcLayers({
+            atcLayerVisible: allAtcLayerVisible,
+            matchedFirs,
+            matchedFallbackTracons: matchedFallbackTracons,
+            matchedTracons,
+            controllerData,
+            setHoverControllerIcon: setHoverControllerIcon,
+            setHoverTraconIcon: setHoverTraconIcon,
+            setHoverFirIcon: setHoverFirIcon
+        });
+    },
+    [
+        allAtcLayerVisible,
+        matchedFirs,
+        errorMatchedFirs,
+        matchedFallbackTracons,
+        matchedTracons,
+        isTraconLoading,
+        isTraconError,
         controllerData,
-        isControllerDataLoading: controllerDataLoading,
-        isControllerDataError: controllerDataError,
-        setHoverControllerIcon: setHoverControllerIcon,
-        setHoverTraconIcon: setHoverTraconIcon,
-        setHoverFirIcon: setHoverFirIcon
-    });
+        controllerDataLoading,
+        controllerDataError
+    ]);
+
 
     const layers = useMemo(() => [
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
         localTrafficLayer,
-        allAtcLayerVisible && atcLayer
+        atcLayer
     ].filter(Boolean),
-    [trackData, trafficLayer3D, trafficLayer2D, terrainEnable,
-        selectTraffic, movingMap, flightData, trafficLayerVisible, allAtcLayerVisible]);
+    [trackData,
+        trafficLayer3D,
+        trafficLayer2D,
+        terrainEnable,
+        selectTraffic,
+        movingMap,
+        flightData,
+        trafficLayerVisible,
+        allAtcLayerVisible,
+        matchedFirs,
+        controllerData,
+        matchedTracons
+    ]);
 
     return (
         <>

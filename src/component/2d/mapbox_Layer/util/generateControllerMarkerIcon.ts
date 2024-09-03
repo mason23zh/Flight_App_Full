@@ -7,6 +7,8 @@ export const enum Services {
     GND = "GND"
 }
 
+//TODO: Move this function into worker
+//TODO: text out of bounds
 function generateControllerMarkerIcon(icao: string, services: string[]): string {
     // Create a canvas element
     const canvas = createCanvas(100, 60); //width and height
@@ -141,9 +143,8 @@ function generateControllerMarkerIcon(icao: string, services: string[]): string 
 
     // Convert the canvas to a base64-encoded image (data URL)
     const iconURL = canvas.toDataURL();
-    console.log(iconURL);
     return iconURL;
 }
 
- 
+
 export default generateControllerMarkerIcon;
