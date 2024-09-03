@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from "react";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
-import { FallbackTracon, MatchedTracon } from "../../../hooks/useMatchTracon";
 import { AirportService, VatsimControllers } from "../../../types";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
@@ -13,6 +12,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 interface AtcLayerComponentProps {
+    atcLayerVisible: boolean;
     controllerData: VatsimControllers;
     isControllerDataLoading: boolean;
     isControllerDataError: FetchBaseQueryError | SerializedError;
@@ -22,6 +22,7 @@ interface AtcLayerComponentProps {
 }
 
 const AtcLayerComponent = ({
+    atcLayerVisible,
     controllerData,
     isControllerDataError,
     isControllerDataLoading,
@@ -29,6 +30,8 @@ const AtcLayerComponent = ({
     setHoverTraconIcon,
     setHoverFirIcon
 }: AtcLayerComponentProps) => {
+
+
     const {
         matchedFirs,
         isError: errorMatchedFirs
@@ -65,14 +68,15 @@ const AtcLayerComponent = ({
     const controllerMarkerLayer = useMemo(() =>
         controllerIconLayer(
             controllerData,
-            debouncedSetHoverControllerIcon
+            debouncedSetHoverControllerIcon,
+            atcLayerVisible
         ),
-    [isControllerDataError, isControllerDataLoading, controllerData]
+    [isControllerDataError, isControllerDataLoading, controllerData, atcLayerVisible]
     );
 
     const firLabelLayer = useMemo(() =>
-        firIconLayer(matchedFirs, debouncedSetHoverFirIcon),
-    [matchedFirs, errorMatchedFirs]
+        firIconLayer(matchedFirs, debouncedSetHoverFirIcon, atcLayerVisible),
+    [matchedFirs, errorMatchedFirs, atcLayerVisible]
     );
 
     const traconLabelLayer = useMemo(() =>
@@ -80,7 +84,9 @@ const AtcLayerComponent = ({
             matchedTracons,
             matchedFallbackTracons,
             debouncedSetMatchedHoverTraconIcon,
-        ), [matchedFirs, matchedFallbackTracons, isTraconError, isTraconLoading]);
+            atcLayerVisible
+        ), [matchedFirs, matchedFallbackTracons, isTraconError, isTraconLoading, atcLayerVisible]);
+
 
     return [controllerMarkerLayer, traconLabelLayer, firLabelLayer];
 };

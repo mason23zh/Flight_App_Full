@@ -4,6 +4,14 @@ import { RootState, useFetchVatsimPilotsDataQuery } from "../../../store";
 import { useMemo } from "react";
 import trafficLayer_3D from "./trafficLayer_3D";
 
+interface AircraftLayerComponentProps {
+    vatsimPilots: VatsimFlight[];
+    terrainEnable: boolean;
+    trafficLayerVisible: boolean;
+    searchResultsVisible: boolean;
+
+}
+
 const AircraftLayerComponent = ({
     selectTraffic,
     setSelectTraffic

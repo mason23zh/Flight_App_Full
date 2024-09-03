@@ -71,9 +71,10 @@ const facilities = [
 //TODO: Add function to make controller info into IconLayer
 const controllerIconLayer = (
     controllerData: VatsimControllers,
-    onHoverCallback: (airportService: AirportService) => void
+    onHoverCallback: (airportService: AirportService) => void,
+    visible: boolean,
 ) => {
-    if (!controllerData || !controllerData?.other) return null;
+    if (!controllerData || !controllerData?.other || !visible) return null;
 
     function combineAirportServices(controllers, atis, facilities): Array<AirportService> {
         const facilityMap = facilities.reduce((map, f) => {

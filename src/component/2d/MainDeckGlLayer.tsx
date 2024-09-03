@@ -97,6 +97,8 @@ const MainDeckGlLayer = ({
     const {
         terrainEnable,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
     // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
@@ -155,11 +157,6 @@ const MainDeckGlLayer = ({
         skip: !selectTraffic
     });
 
-    // const {
-    //     data: controllerData,
-    //     error: controllerError,
-    //     isLoading: controllerLoading
-    // } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
 
     const currentZoom = useMemo(() => {
         return mapRef.current?.getMap()
@@ -277,6 +274,7 @@ const MainDeckGlLayer = ({
     }, [selectTraffic]);
 
     const atcLayer = AtcLayerComponent({
+        atcLayerVisible: allAtcLayerVisible,
         controllerData,
         isControllerDataLoading: controllerDataLoading,
         isControllerDataError: controllerDataError,
@@ -289,10 +287,10 @@ const MainDeckGlLayer = ({
         trackLayer, // Always included
         terrainEnable ? trafficLayer3D : trafficLayer2D,
         localTrafficLayer,
-        atcLayer
+        allAtcLayerVisible && atcLayer
     ].filter(Boolean),
     [trackData, trafficLayer3D, trafficLayer2D, terrainEnable,
-        selectTraffic, movingMap, flightData, trafficLayerVisible]);
+        selectTraffic, movingMap, flightData, trafficLayerVisible, allAtcLayerVisible]);
 
     return (
         <>

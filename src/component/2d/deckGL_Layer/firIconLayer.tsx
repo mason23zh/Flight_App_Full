@@ -5,10 +5,10 @@ import { MatchedFir } from "../../../hooks/useMatchedFirs";
 
 const firIconLayer = (
     matchedFirs: MatchedFir[],
-    onHoverFirCallback: (firInfo: MatchedFir) => void) => {
+    onHoverFirCallback: (firInfo: MatchedFir) => void,
+    visible: boolean) => {
 
-    if (!matchedFirs || matchedFirs.length === 0) return null;
-    console.log("fur icon layer run.");
+    if (!matchedFirs || matchedFirs.length === 0 || !visible) return null;
 
     const iconData = matchedFirs.map((feature) => {
         const coordinates = [Number(feature.firInfo?.entries[0]?.label_lon), Number(feature.firInfo?.entries[0]?.label_lat)];

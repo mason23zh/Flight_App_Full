@@ -7,8 +7,11 @@ const traconIconLayer = (
     matchedTracon: MatchedTracon[],
     matchedFallbackTracon: FallbackTracon[],
     onMatchedHoverCallback: (traconInfo: HoverTracon) => void,
+    visible: boolean
 ) => {
     // if (!matchedTracon && !matchedFallbackTracon) return null;
+
+    if ((matchedTracon.length === 0 && matchedFallbackTracon.length === 0) || !visible) return null;
 
     const matchedMatchedIconData = (!matchedTracon || matchedTracon.length === 0)
         ? []
