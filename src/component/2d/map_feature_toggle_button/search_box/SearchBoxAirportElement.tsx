@@ -22,9 +22,7 @@ const SearchBoxAirportElement = ({
     index
 }: Props) => {
     const dispatch = useDispatch();
-    const map = useMap()
-        .current
-        .getMap();
+    const { current: mapRef } = useMap();
     const rowRef = useRef<HTMLDivElement>();
     useEffect(() => {
         if (rowRef.current) {
@@ -47,11 +45,14 @@ const SearchBoxAirportElement = ({
         dispatch(setTrafficTracking(false));
         // move the map to the airport
         // dispatch(setAirportTracking(true));
-        if (map) {
-            map.flyTo({
-                center: [Number(airport.coordinates.split(",")[0]), Number(airport.coordinates.split(",")[1])],
-                zoom: 13
-            });
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            if (map) {
+                map.flyTo({
+                    center: [Number(airport.coordinates.split(",")[0]), Number(airport.coordinates.split(",")[1])],
+                    zoom: 13
+                });
+            }
         }
     };
 

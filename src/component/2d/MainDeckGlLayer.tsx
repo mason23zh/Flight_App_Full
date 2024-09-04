@@ -34,25 +34,11 @@ import { SerializedError } from "@reduxjs/toolkit";
 import useFirIconLayer from "../../hooks/useFirIconLayer";
 import useTraconIconLayer from "../../hooks/useTraconIconLayer";
 import useControllerIconLayer from "../../hooks/useControllerIconLayer";
+import mapboxgl from "mapbox-gl";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
 
-interface Viewport {
-    longitude: number;
-    latitude: number;
-    zoom: number;
-    width: number;
-    height: number;
-    pitch: number;
-    bearing: number;
-    isDragging: boolean;
-}
-
-//
-// interface ChildProps {
-//     viewState: Viewport;
-// }
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -80,6 +66,8 @@ const MainDeckGlLayer = ({
 
     const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
+    const { current: mapRef } = useMap();
+
     let isHovering = false;
     //TODO: debounce the state update
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
@@ -92,10 +80,10 @@ const MainDeckGlLayer = ({
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
-    const [previousViewBounds, setPreivousViewBounds] = useState<[number, number, number, number] | null>(null);
-    const [previousZoom, setPreviousZoom] = useState<number>(null);
-    const { current: map } = useMap();
-    const deckRef = useRef<DeckGLRef | null>(null);
+    const [currentViewBounds, setCurrentViewBounds] = useState<[number, number, number, number] | null>(null);
+    // const [previousZoom, setPreviousZoom] = useState<number>(null);
+
+    const [map, setMap] = useState<mapboxgl.Map>(null);
 
 
     const {
@@ -115,58 +103,53 @@ const MainDeckGlLayer = ({
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
+    const getViewPort = (map: mapboxgl.Map) => {
+        const viewport = new WebMercatorViewport({
+            longitude: map.getCenter().lng,
+            latitude: map.getCenter().lat,
+            zoom: map.getZoom(),
+            width: map.getCanvas().width,
+            height: map.getCanvas().height,
+        });
+        const bounds = viewport.getBounds(); // [west, south, east, north]
+        return bounds;
+    };
 
-    /*
-    * The currentViewBounds is the coordinates of viewport edge of current viewport
-    * This will update if viewState changes
-    * */
-    // const currentViewBounds = useMemo(() => {
-    //     const viewportBounds = new WebMercatorViewport({
-    //         longitude: viewState.longitude,
-    //         latitude: viewState.latitude,
-    //         zoom: viewState.zoom,
-    //         width: viewState.width,
-    //         height: viewState.height
-    //     }).getBounds();
-    //     return viewportBounds;
-    // }, [viewState]);
-    // const currentViewBounds = useMemo(() => {
-    //     if (!mapRef.current) return null;
-    //     const map = mapRef.current.getMap();
-    //     const bounds = map.getBounds();
-    //     const viewBounds = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
-    //     console.log("Bounds main traffic::", viewBounds);
-    //
-    //     return [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()] as [number, number, number, number];
-    // }, [mapRef]);
-    //
-    //
-
-    const testHandleDragEnd = () => {
-        console.log("test handle drag end");
+    const handleMapMovementEnd = () => {
+        if (map) {
+            const bounds = getViewPort(map);
+            setCurrentViewBounds(bounds);
+        }
     };
 
     useEffect(() => {
-        if (map) {
-            map.on("dragend", testHandleDragEnd);
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            setMap(map);
         }
-        return () => {
-            map.off("dragend", testHandleDragEnd);
-        };
-    }, [map]);
+    }, [mapRef]);
 
     useEffect(() => {
-        if (deckRef.current) {
-            console.log("DECK REF:", deckRef);
+        if (map) {
+            const bounds = getViewPort(map);
+            setCurrentViewBounds(bounds);
         }
-    }, [deckRef]);
+    }, [map]);
 
-    const currentViewBounds = useMemo(() => {
-        if (!map) return [];
-        const bounds = map.getBounds();
-        const viewBounds = [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
-        console.log(viewBounds);
-        return [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()] as [number, number, number, number];
+
+    useEffect(() => {
+        if (map) {
+            // map.on("dragend", handleMapMovementEnd);
+            // map.on("zoomend", handleMapMovementEnd);
+            map.on("moveend", handleMapMovementEnd);
+        }
+        return () => {
+            if (map) {
+                // map.off("dragend", handleMapMovementEnd);
+                // map.off("zoomend", handleMapMovementEnd);
+                map.off("moveend", handleMapMovementEnd);
+            }
+        };
     }, [map]);
 
 
@@ -179,57 +162,25 @@ const MainDeckGlLayer = ({
     });
 
 
-    // const currentZoom = useMemo(() => {
-    //     return mapRef.current?.getMap()
-    //         .getZoom() ?? null;
-    // }, [mapRef]);
-
-    // const isDragging = mapRef.current?.isDragging ?? false;
-
-    /*
-    * Return filtered traffic data based on the map zoom state, view location
-    * The filtered data length will trigger trafficLayer_2D or trafficLayer_3D function to run.
-    * */
-    // const filteredTrafficData = useMemo(() => {
-    //     if (!currentViewBounds || currentViewBounds.length === 0) return [];
-    //     const data =
-    //                     filterTrafficDataInViewport(
-    //                         vatsimPilots,
-    //                         currentViewBounds,
-    //                         previousViewBounds,
-    //                         currentZoom,
-    //                         previousZoom,
-    //                         isDragging
-    //                     );
-    //     // Update previousBounds after filtering
-    //     if (!isDragging || (previousZoom && (previousZoom !== currentZoom))) {
-    //         setPreviousZoom(currentZoom);
-    //         setPreivousViewBounds(currentViewBounds);
-    //     }
-    //
-    //     return data;
-    // },
-    // [
-    //     vatsimPilots,
-    //     currentViewBounds,
-    //     previousViewBounds,
-    //     previousZoom
-    // ]);
+    const filteredTrafficData = useMemo(() => {
+        if (!currentViewBounds || !vatsimPilots || vatsimPilots.length === 0) return [];
+        return filterTrafficDataInViewport(vatsimPilots, currentViewBounds);
+    }, [currentViewBounds, vatsimPilots]);
 
 
     const { flightData } = useWebSocketContext();
 
     const trafficLayer3D = useMemo(() => {
         if (terrainEnable && trafficLayerVisible) {
-            return trafficLayer_3D(vatsimPilots, true);
+            return trafficLayer_3D(filteredTrafficData, true);
         }
         return null;
-    }, [terrainEnable, trafficLayerVisible, vatsimPilots.length]);
+    }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
 
 
     const trafficLayer2D = useMemo(() => {
-        return trafficLayer_2D(vatsimPilots, !terrainEnable && trafficLayerVisible);
-    }, [terrainEnable, vatsimPilots.length, trafficLayerVisible]);
+        return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 
 
     const localTrafficLayer = useMemo(() => {
@@ -298,28 +249,15 @@ const MainDeckGlLayer = ({
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
 
 
-    const layers = [trafficLayer2D, controllerIconLayer, traconIconLayer, firIconLayer];
-
-    // const layers = useMemo(() => [
-    //     trackLayer, // Always included
-    //     terrainEnable ? trafficLayer3D : trafficLayer2D,
-    //     localTrafficLayer,
-    //     atcLayer
-    // ].filter(Boolean),
-    // [trackData,
-    //     trafficLayer3D,
-    //     trafficLayer2D,
-    //     terrainEnable,
-    //     selectTraffic,
-    //     movingMap,
-    //     flightData,
-    //     trafficLayerVisible,
-    //     allAtcLayerVisible,
-    //     matchedFirs,
-    //     controllerData,
-    //     matchedTracons
-    // ]);
-
+    const layers = [
+        trackLayer,
+        trafficLayer2D,
+        trafficLayer3D,
+        localTrafficLayer,
+        controllerIconLayer,
+        traconIconLayer,
+        firIconLayer
+    ];
 
     return (
         <>

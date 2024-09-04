@@ -100,9 +100,9 @@ const TogglePanel = () => {
             }
 
             // Remove the source after terrain has been removed
-            if (map.getSource("mapbox-dem")) {
-                map.removeSource("mapbox-dem");
-            }
+            // if (map.getSource("mapbox-dem")) {
+            //     map.removeSource("mapbox-dem");
+            // }
         };
 
         if (terrainEnable) {

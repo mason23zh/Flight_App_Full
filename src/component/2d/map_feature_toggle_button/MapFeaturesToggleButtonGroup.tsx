@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMap } from "react-map-gl";
 import switchMapLabels from "../switchMapLabels";
 import switchMapRoads from "../switchMapRoads";
@@ -32,9 +32,10 @@ const MapFeaturesToggleButtonGroup = ({
     isTouchScreen
 }: Props) => {
     const dispatch = useDispatch();
-    const map = useMap()
-        .current
-        .getMap();
+    const { current: mapRef } = useMap();
+
+    const [map, setMap] = useState<mapboxgl.Map>(null);
+
     const {
         mapLabelVisible,
         airportVisible,
@@ -42,11 +43,17 @@ const MapFeaturesToggleButtonGroup = ({
         mapRoadVisible,
         underlineFirBoundaries,
         dayNightTerminator,
-
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
+    useEffect(() => {
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            setMap(map);
+        }
+    }, [mapRef]);
+
     const setMapFeatures = (map: mapboxgl.Map, flag: boolean, tag: Tag) => {
-        if (map) {
+        if (mapRef) {
             switch (tag) {
             case "LABEL":
                 switchMapLabels(map, flag);

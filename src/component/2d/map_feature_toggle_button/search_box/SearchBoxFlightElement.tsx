@@ -5,9 +5,10 @@ import {
     openTrafficDetail,
     setAircraftListDisplay,
     setAirportDepartureArrivalDisplay, setAirportTracking,
-    setMapSearchSelectedTraffic, setSelectedTraffic, setTrafficTracking
+    setMapSearchSelectedTraffic, setSelectedTraffic
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
+import { useMap } from "react-map-gl";
 
 interface Props {
     flight: VatsimFlight;
@@ -25,6 +26,7 @@ const SearchBoxFlightElement = ({
     index,
 }: Props) => {
     const dispatch = useDispatch();
+    const { current: mapRef } = useMap();
     const rowRef = useRef<HTMLDivElement>();
 
     // Dispatch the flight data to be used in the MainTrafficLayer to trigger the Flight Info Panel
@@ -38,7 +40,16 @@ const SearchBoxFlightElement = ({
         dispatch(setAirportTracking(false));
         // set selected traffic to current traffic and move the map focus on this traffic
         dispatch(setSelectedTraffic(flight));
-        dispatch(setTrafficTracking(true));
+        // dispatch(setTrafficTracking(true)); 
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            if (map) {
+                map.flyTo({
+                    center: [flight.longitude, flight.latitude],
+                    zoom: 10
+                });
+            }
+        }
         onSelect(flight);
     };
 

@@ -94,17 +94,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [flightData, mapFollowTraffic]);
 
-    // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
-    // useEffect(() => {
-    //     if (!terrainEnable) {
-    //         setViewState(currentState => ({
-    //             ...currentState,
-    //             pitch: 0,
-    //             bearing: 0
-    //         }));
-    //     }
-    // }, [terrainEnable]);
-
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
@@ -115,43 +104,43 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
     // Change navigation position based on the screen size when component mounted
-    // useEffect(() => {
-    //     const updateNavigationPosition = () => {
-    //         const mapElement = document.getElementById("mainMap");
-    //         if (mapElement && mapElement.clientWidth <= 640) {
-    //             setNavigationPosition("top-left");
-    //         } else {
-    //             setNavigationPosition("bottom-left");
-    //         }
-    //     };
-    //
-    //     updateNavigationPosition();
-    //     window.addEventListener("resize", updateNavigationPosition);
-    //
-    //     return () => {
-    //         window.removeEventListener("resize", updateNavigationPosition);
-    //     };
-    // }, []);
+    useEffect(() => {
+        const updateNavigationPosition = () => {
+            const mapElement = document.getElementById("mainMap");
+            if (mapElement && mapElement.clientWidth <= 640) {
+                setNavigationPosition("top-left");
+            } else {
+                setNavigationPosition("bottom-left");
+            }
+        };
+
+        updateNavigationPosition();
+        window.addEventListener("resize", updateNavigationPosition);
+
+        return () => {
+            window.removeEventListener("resize", updateNavigationPosition);
+        };
+    }, []);
 
 
     // adjust map height
-    useEffect(() => {
-        const updateMapHeight = () => {
-            const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
-            const mapHeight = `calc(100vh - ${navbarHeight}px)`;
-            setMapStyle(prevStyle => ({
-                ...prevStyle,
-                height: mapHeight
-            }));
-        };
-
-        updateMapHeight();
-        window.addEventListener("resize", updateMapHeight);
-
-        return () => {
-            window.removeEventListener("resize", updateMapHeight);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const updateMapHeight = () => {
+    //         const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
+    //         const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+    //         setMapStyle(prevStyle => ({
+    //             ...prevStyle,
+    //             height: mapHeight
+    //         }));
+    //     };
+    //
+    //     updateMapHeight();
+    //     window.addEventListener("resize", updateMapHeight);
+    //
+    //     return () => {
+    //         window.removeEventListener("resize", updateMapHeight);
+    //     };
+    // }, []);
 
 
     /*
@@ -160,10 +149,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     * ViewStateProvider will pass the viewState to BaseTrafficLayer,
     * the viewState will help filter out the traffic that not within the viewport.
     */
-    // {...viewState}
-
-
-    // onLoad={(e) => initializeTerrainSource(e.target)}
     return (
         <MapProvider>
             <div

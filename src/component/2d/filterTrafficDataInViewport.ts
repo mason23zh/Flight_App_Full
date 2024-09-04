@@ -6,21 +6,14 @@ import { wrapLongitudeForBounds } from "../../util/wrapLongitudeForViewportBound
 
 const filterTrafficDataInViewport = (
     trafficData: VatsimFlight[],
-    currentBounds: [number, number, number, number],
-    previousBounds: [number, number, number, number] | null,
-    currentZoom: number,
-    previousZoom: number | null,
-    isDragging: boolean
+    currentBounds: [number, number, number, number] | null,
 ): VatsimFlight[] => {
-    // const [minLng, minLat, maxLng, maxLat] = currentBounds;
 
-    if (trafficData.length === 0) return [];
+    if (trafficData.length === 0 || !currentBounds) return [];
 
-    const zoomChanged = previousZoom === null || currentZoom !== previousZoom;
 
     // Need to wrap the longitude to display traffic from both east and west hemisphere
     const currentBoundsWrapped = wrapLongitudeForBounds(currentBounds);
-    const previousBoundsWrapped = wrapLongitudeForBounds(previousBounds);
 
     const filterDataInBounds = (
         bounds: [number, number, number, number],
@@ -55,11 +48,8 @@ const filterTrafficDataInViewport = (
             });
         }
     };
-    if (!zoomChanged && isDragging && previousBounds) {
-        return filterDataInBounds(previousBoundsWrapped, trafficData);
-    } else {
-        return filterDataInBounds(currentBoundsWrapped, trafficData);
-    }
+
+    return filterDataInBounds(currentBoundsWrapped, trafficData);
 };
 
 export default filterTrafficDataInViewport;
