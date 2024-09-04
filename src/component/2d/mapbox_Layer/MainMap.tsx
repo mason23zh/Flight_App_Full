@@ -22,10 +22,12 @@ import { CustomProvider } from "rsuite";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
+import { MapProvider, useMap } from "react-map-gl";
 
 //TODO: High memory usage
 const MainMap = () => {
     const dispatch = useDispatch();
+
     const traffic = useSelector<RootState, VatsimFlight>(
         state => state.vatsimMapTraffic.selectedTraffic || null);
 
@@ -35,6 +37,7 @@ const MainMap = () => {
 
     const {
         dayNightTerminator,
+        terrainEnable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {

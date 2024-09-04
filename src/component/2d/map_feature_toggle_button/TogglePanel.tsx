@@ -24,10 +24,11 @@ import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
+import mapboxgl from "mapbox-gl";
 
 
 const TogglePanel = () => {
-    const { current: map } = useMap();
+    const { current: mapRef } = useMap();
     const {
         allAtcLayerVisible,
         trafficLayerVisible,
@@ -60,11 +61,67 @@ const TogglePanel = () => {
         }
     };
 
+    //TODO: issue adding and removing terrain.
+    useEffect(() => {
+        const map = mapRef?.getMap();
+        if (!map) return;
+
+        const addTerrainSource = (map: mapboxgl.Map) => {
+            map.addSource("mapbox-dem", {
+                "type": "raster-dem",
+                "url": "mapbox://mapbox.mapbox-terrain-dem-v1",
+                "tileSize": 512,
+                "maxzoom": 14
+            });
+            // add the DEM source as a terrain layer with exaggerated height
+            map.setTerrain({
+                "source": "mapbox-dem",
+                "exaggeration": 1.5
+            });
+        };
+
+        const addTerrainLayer = () => {
+            try {
+                addTerrainSource(map);
+            } catch (e) {
+                map.on("style.load", () => {
+                    addTerrainSource(map);
+                });
+            }
+        };
+
+        const removeTerrainLayer = () => {
+            map.setPitch(0);
+            map.setBearing(0);
+
+            // Remove terrain first if it exists
+            if (map.getTerrain()) {
+                map.setTerrain(null);
+            }
+
+            // Remove the source after terrain has been removed
+            if (map.getSource("mapbox-dem")) {
+                map.removeSource("mapbox-dem");
+            }
+        };
+
+        if (terrainEnable) {
+            addTerrainLayer();
+        } else {
+            removeTerrainLayer();
+        }
+
+        return () => {
+            removeTerrainLayer();
+        };
+
+    }, [terrainEnable, mapRef]);
+
 
     // Map loading state/error notification
     useEffect(() => {
         // const map = mapRef.current?.getMap();
-        if (!map) {
+        if (!mapRef) {
             console.warn("Map reference not found");
             dispatch(addMessage({
                 location: "BASE_MAP",
@@ -79,12 +136,12 @@ const TogglePanel = () => {
             setIsMapLoaded(true);
         };
 
-        map.on("load", handleMapLoad);
+        mapRef.on("load", handleMapLoad);
 
         return () => {
-            map.off("load", handleMapLoad);
+            mapRef.off("load", handleMapLoad);
         };
-    }, [map]);
+    }, [mapRef]);
 
     useEffect(() => {
         if (!isMapLoaded) {

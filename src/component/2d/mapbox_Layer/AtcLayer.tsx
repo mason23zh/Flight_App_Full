@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
     addMessage,
     removeMessageByLocation,
@@ -73,8 +73,8 @@ const AtcLayer = ({
         <>
             {underlineFirBoundaries && <FirUnderlineLayer/>}
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={newControllerData} labelVisible={true}/>
-                <TraconLayer controllerInfo={newControllerData} labelVisible={true}/>
+                <FirLayer controllerInfo={newControllerData}/>
+                <TraconLayer controllerInfo={newControllerData}/>
             </>)
             }
         </>

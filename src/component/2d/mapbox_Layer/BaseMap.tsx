@@ -54,30 +54,30 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
 
     // To move the map view to the tracked traffic
-    useEffect(() => {
-        if (trafficTracking && traffic) {
-            setViewState((prevState) => ({
-                ...prevState,
-                zoom: 10.0,
-                longitude: traffic.longitude,
-                latitude: traffic.latitude
-            }));
-            dispatch(setTrafficTracking(false));
-        }
-
-        if (airportTracking && mapSearchSelectedAirport) {
-            const lng = Number(mapSearchSelectedAirport.coordinates.split(",")[0]);
-            const lat = Number(mapSearchSelectedAirport.coordinates.split(",")[1]);
-            setViewState((prevState) => ({
-                ...prevState,
-                zoom: 13.0,
-                longitude: lng,
-                latitude: lat
-            }));
-            dispatch(setAirportTracking(false));
-        }
-
-    }, [trafficTracking, traffic, airportTracking, mapSearchSelectedAirport]);
+    // useEffect(() => {
+    //     if (trafficTracking && traffic) {
+    //         setViewState((prevState) => ({
+    //             ...prevState,
+    //             zoom: 10.0,
+    //             longitude: traffic.longitude,
+    //             latitude: traffic.latitude
+    //         }));
+    //         dispatch(setTrafficTracking(false));
+    //     }
+    //
+    //     if (airportTracking && mapSearchSelectedAirport) {
+    //         const lng = Number(mapSearchSelectedAirport.coordinates.split(",")[0]);
+    //         const lat = Number(mapSearchSelectedAirport.coordinates.split(",")[1]);
+    //         setViewState((prevState) => ({
+    //             ...prevState,
+    //             zoom: 13.0,
+    //             longitude: lng,
+    //             latitude: lat
+    //         }));
+    //         dispatch(setAirportTracking(false));
+    //     }
+    //
+    // }, [trafficTracking, traffic, airportTracking, mapSearchSelectedAirport]);
 
     // To make map view to follow local user traffic
     useEffect(() => {
@@ -95,15 +95,15 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, [flightData, mapFollowTraffic]);
 
     // This will ensure that the pitch and bearing is set to 0 when terrain is disabled
-    useEffect(() => {
-        if (!terrainEnable) {
-            setViewState(currentState => ({
-                ...currentState,
-                pitch: 0,
-                bearing: 0
-            }));
-        }
-    }, [terrainEnable]);
+    // useEffect(() => {
+    //     if (!terrainEnable) {
+    //         setViewState(currentState => ({
+    //             ...currentState,
+    //             pitch: 0,
+    //             bearing: 0
+    //         }));
+    //     }
+    // }, [terrainEnable]);
 
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
@@ -154,27 +154,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, []);
 
 
-    // const initializeTerrainSource = useCallback((map) => {
-    //     if (!terrainEnable) {
-    //         map.setTerrain(undefined);
-    //         return;
-    //     }
-    //
-    //     if (!map.getSource("mapbox-dem")) {
-    //         map.addSource("mapbox-dem", {
-    //             type: "raster-dem",
-    //             url: "mapbox://mapbox.mapbox-terrain-dem-v1",
-    //             tileSize: 512,
-    //             maxzoom: 14
-    //         });
-    //     }
-    //
-    //     map.setTerrain({
-    //         source: "mapbox-dem",
-    //         exaggeration: 1.5
-    //     });
-    // }, [terrainEnable]);
-
     /*
     * Default Projection: mercator
     * Unable to use globe as Projection due to mapbox api limitation.
@@ -194,7 +173,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     id="mainMap"
                     projection={{ name: "mercator" }}
                     cursor={"auto"}
-                    // to reset the pitch and bearing
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                     mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
@@ -205,15 +183,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     renderWorldCopies={true} //prevent map wrapping
                     logoPosition={"bottom-right"}
                 >
-                    {terrainEnable &&
-                        <Source
-                            id="mapbox-dem"
-                            type="raster-dem"
-                            url="mapbox://mapbox.mapbox-terrain-dem-v1"
-                            tileSize={512}
-                            maxzoom={14}
-                        />
-                    }
                     <TogglePanel/>
                     <TelemetryPanel/>
                     <NavigationControl position={navigationPosition}/>

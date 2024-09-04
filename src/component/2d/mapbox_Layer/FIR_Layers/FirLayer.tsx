@@ -9,7 +9,6 @@ import { addMessage, removeMessageByLocation, RootState } from "../../../../stor
 
 interface Controller {
     controllerInfo: VatsimControllers;
-    labelVisible: boolean;
 }
 
 const FirLayer = ({

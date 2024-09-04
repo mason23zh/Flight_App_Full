@@ -12,13 +12,10 @@ import { addMessage, removeMessageByLocation, RootState } from "../../../../stor
 
 interface Controller {
     controllerInfo: VatsimControllers;
-    labelVisible: boolean;
 }
 
-//TODO: Clean up here, add hover state in redux.
 const TraconLayer = ({
     controllerInfo,
-    labelVisible
 }: Controller) => {
     const dispatch = useDispatch();
     const {
@@ -50,7 +47,7 @@ const TraconLayer = ({
         if (matchedTracons && !isTraconError && !isTraconLoading) {
             dispatch(removeMessageByLocation({ location: "TRACON" }));
         }
-    }, [isTraconError, isTraconLoading, controllerInfo]);
+    }, [isTraconError, isTraconLoading, controllerInfo, matchedTracons, matchedFallbackTracons]);
 
 
     if (matchedTracons) {
