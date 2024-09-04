@@ -15,7 +15,7 @@ import {
     setSelectedTraffic,
     RootState,
     closeTrafficDetail,
-    openTrafficDetail, useFetchVatsimControllersDataQuery
+    openTrafficDetail,
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
@@ -26,22 +26,14 @@ import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
 import { useMapRefContext } from "./MapRefContext";
 import { useMap } from "react-map-gl";
 import type { DeckGLRef } from "@deck.gl/react";
-import { IconLayer } from "@deck.gl/layers/typed";
-import generateControllerMarkerIcon from "./mapbox_Layer/util/generateControllerMarkerIcon";
-import controllerIconLayer from "./deckGL_Layer/controllerIconLayer";
-import ControllerIconLayer from "./deckGL_Layer/controllerIconLayer";
-import generateFirIcon from "./mapbox_Layer/util/generateFirIcon";
-import firIconLayer from "./deckGL_Layer/firIconLayer";
-import traconIconLayer from "./deckGL_Layer/traconIconLayer";
-import { MatchedFir } from "../../hooks/useMatchedFirs";
-import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 import ControllerMarkerPopup from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerPopup";
-import { debounce } from "lodash";
-import TraconLabelPopup, { HoverTracon } from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import TraconLabelPopup from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 import FirLabelPopup from "./mapbox_Layer/FIR_Layers/FirLabelPopup";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
-import getAtcLayers from "./deckGL_Layer/getAtcLayers";
+import useFirIconLayer from "./deckGL_Layer/useFirIconLayer";
+import useTraconIconLayer from "./deckGL_Layer/useTraconIconLayer";
+import useControllerIconLayer from "./deckGL_Layer/useControllerIconLayer";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -91,8 +83,6 @@ const MainDeckGlLayer = ({
     let isHovering = false;
     //TODO: debounce the state update
     const [hoverControllerIcon, setHoverControllerIcon] = useState<AirportService | null>(null);
-    const [hoverTraconIcon, setHoverTraconIcon] = useState<HoverTracon | null>(null);
-    const [hoverFirIcon, setHoverFirIcon] = useState<MatchedFir | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
@@ -124,6 +114,8 @@ const MainDeckGlLayer = ({
         isLoading: isTraconLoading,
         isError: isTraconError
     } = useSelector((state: RootState) => state.matchedTracons);
+
+    const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
 
     /*
@@ -279,7 +271,8 @@ const MainDeckGlLayer = ({
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
-        if (info.layer && info.object && (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))) {
+        console.log("onClick info:", info);
+        if (info.layer && info.layer.id === "aircraft-icon-layer" && info.object && (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
             // dispatch(setAirportDepartureArrivalDisplay(false));
@@ -291,55 +284,33 @@ const MainDeckGlLayer = ({
         }
     }, [selectTraffic]);
 
-
-    const atcLayer = useMemo(() => {
-        if (controllerDataLoading || controllerDataError || isTraconLoading || isTraconError || errorMatchedFirs) {
-            return [];
-        }
-        return getAtcLayers({
-            atcLayerVisible: allAtcLayerVisible,
-            matchedFirs,
-            matchedFallbackTracons: matchedFallbackTracons,
-            matchedTracons,
-            controllerData,
-            setHoverControllerIcon: setHoverControllerIcon,
-            setHoverTraconIcon: setHoverTraconIcon,
-            setHoverFirIcon: setHoverFirIcon
-        });
-    },
-    [
-        allAtcLayerVisible,
-        matchedFirs,
-        errorMatchedFirs,
-        matchedFallbackTracons,
-        matchedTracons,
-        isTraconLoading,
-        isTraconError,
-        controllerData,
-        controllerDataLoading,
-        controllerDataError
-    ]);
+    const firIconLayer = useFirIconLayer(matchedFirs, allAtcLayerVisible);
+    const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
+    const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
 
 
-    const layers = useMemo(() => [
-        trackLayer, // Always included
-        terrainEnable ? trafficLayer3D : trafficLayer2D,
-        localTrafficLayer,
-        atcLayer
-    ].filter(Boolean),
-    [trackData,
-        trafficLayer3D,
-        trafficLayer2D,
-        terrainEnable,
-        selectTraffic,
-        movingMap,
-        flightData,
-        trafficLayerVisible,
-        allAtcLayerVisible,
-        matchedFirs,
-        controllerData,
-        matchedTracons
-    ]);
+    const layers = [trafficLayer2D, controllerIconLayer, traconIconLayer, firIconLayer];
+
+    // const layers = useMemo(() => [
+    //     trackLayer, // Always included
+    //     terrainEnable ? trafficLayer3D : trafficLayer2D,
+    //     localTrafficLayer,
+    //     atcLayer
+    // ].filter(Boolean),
+    // [trackData,
+    //     trafficLayer3D,
+    //     trafficLayer2D,
+    //     terrainEnable,
+    //     selectTraffic,
+    //     movingMap,
+    //     flightData,
+    //     trafficLayerVisible,
+    //     allAtcLayerVisible,
+    //     matchedFirs,
+    //     controllerData,
+    //     matchedTracons
+    // ]);
+
 
     return (
         <>
@@ -376,8 +347,8 @@ const MainDeckGlLayer = ({
                 getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
             />
 
-            {hoverControllerIcon &&
-                <ControllerMarkerPopup hoverInfo={hoverControllerIcon}/>
+            {hoveredController &&
+                <ControllerMarkerPopup hoverInfo={hoveredController}/>
             }
 
             {(hoveredTracon) &&
@@ -387,6 +358,7 @@ const MainDeckGlLayer = ({
             {(hoveredFir) &&
                 <FirLabelPopup hoverFir={hoveredFir}/>
             }
+
         </>
     );
 };

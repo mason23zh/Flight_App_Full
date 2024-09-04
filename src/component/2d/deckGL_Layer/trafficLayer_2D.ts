@@ -9,7 +9,7 @@ import aircraftSpriteSheetMapping from "../../../assets/mapbox/aircraft_sprite_m
 import aircraftSpriteSheetPNG from "../../../assets/mapbox/aircraft_sprite_mapping-0.png";
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
-    if (!visible || !data) return null;
+    if (!data) return null;
     //TODO: Need to update sprite mapping file
     return new IconLayer({
         id: "aircraft-icon-layer",
