@@ -14,7 +14,7 @@ const trafficLayer_3D = (
     data: Array<VatsimFlight>,
     visible: boolean) => {
 
-    if (!visible || !data) return null;
+    if (!data) return null;
 
     return new ScenegraphLayer({
         id: "traffics-layer",

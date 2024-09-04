@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useCallback, useEffect, useMemo } from "react";
 import { debounce } from "lodash";
-import { setHoveredFir } from "../../../store";
-import generateFirIcon from "../mapbox_Layer/util/generateFirIcon";
+import { setHoveredFir } from "../store";
+import generateFirIcon from "../component/2d/mapbox_Layer/util/generateFirIcon";
 import { IconLayer } from "@deck.gl/layers/typed";
-import { MatchedFir } from "../../../hooks/useMatchedFirs";
+import { MatchedFir } from "./useMatchedFirs";
 
 const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
     const dispatch = useDispatch();

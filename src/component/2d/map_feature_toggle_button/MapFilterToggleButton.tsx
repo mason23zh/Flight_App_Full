@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MapRef } from "react-map-gl";
+import { MapRef, useMap } from "react-map-gl";
 import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,12 +7,10 @@ import { RootState, toggleMapFilterButton } from "../../../store";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
-    mapRef: React.RefObject<MapRef>;
     isTouchScreen: boolean;
 }
 
 const MapFilterToggleButton = ({
-    mapRef,
     isTouchScreen
 }: Props) => {
     const dispatch = useDispatch();
@@ -69,7 +67,7 @@ const MapFilterToggleButton = ({
                 ${mapFilterButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
                 style={{ visibility: mapFilterButtonToggle ? "visible" : "hidden" }}
             >
-                <MapFeaturesToggleButtonGroup mapRef={mapRef} isTouchScreen={isTouchScreen}/>
+                <MapFeaturesToggleButtonGroup isTouchScreen={isTouchScreen}/>
             </div>
             {(tooltipVisible && !buttonClick && !isTouchScreen) &&
                 <div

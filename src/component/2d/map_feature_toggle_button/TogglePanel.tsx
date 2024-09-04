@@ -18,19 +18,16 @@ import { CgTerrain } from "react-icons/cg";
 import { MdNavigation } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { IoSpeedometerOutline } from "react-icons/io5";
-
-import { MapRef } from "react-map-gl";
+import { useMap } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
 
-interface Props {
-    mapRef: React.RefObject<MapRef>;
-}
 
-const TogglePanel = ({ mapRef }: Props) => {
+const TogglePanel = () => {
+    const { current: map } = useMap();
     const {
         allAtcLayerVisible,
         trafficLayerVisible,
@@ -66,7 +63,7 @@ const TogglePanel = ({ mapRef }: Props) => {
 
     // Map loading state/error notification
     useEffect(() => {
-        const map = mapRef.current?.getMap();
+        // const map = mapRef.current?.getMap();
         if (!map) {
             console.warn("Map reference not found");
             dispatch(addMessage({
@@ -87,7 +84,7 @@ const TogglePanel = ({ mapRef }: Props) => {
         return () => {
             map.off("load", handleMapLoad);
         };
-    }, [mapRef]);
+    }, [map]);
 
     useEffect(() => {
         if (!isMapLoaded) {
@@ -177,9 +174,9 @@ const TogglePanel = ({ mapRef }: Props) => {
                         </>
                     }
 
-                    <MapStyleToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
+                    <MapStyleToggleButton isTouchScreen={isTouchScreen}/>
 
-                    <MapFilterToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
+                    <MapFilterToggleButton isTouchScreen={isTouchScreen}/>
 
                 </div>
             </div>

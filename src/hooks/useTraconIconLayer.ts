@@ -1,10 +1,10 @@
-import { FallbackTracon, MatchedTracon } from "../../../hooks/useMatchTracon";
+import { FallbackTracon, MatchedTracon } from "./useMatchTracon";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { useCallback, useEffect, useMemo } from "react";
-import { HoverTracon } from "../mapbox_Layer/Tracon_Layers/TraconLabelPopup";
-import generateTraconIcon from "../mapbox_Layer/util/generateTraconIcon";
+import { HoverTracon } from "../component/2d/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import generateTraconIcon from "../component/2d/mapbox_Layer/util/generateTraconIcon";
 import { debounce } from "lodash";
-import { setHoveredTracon } from "../../../store";
+import { setHoveredTracon } from "../store";
 import { useDispatch } from "react-redux";
 
 const useTraconIconLayer = (

@@ -3,22 +3,23 @@ import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
-import { MapRef } from "react-map-gl";
+import { MapRef, useMap } from "react-map-gl";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 interface Props {
-    mapRef: React.RefObject<MapRef>;
     isTouchScreen: boolean;
 }
 
 const MapStyleToggleButton = ({
-    mapRef,
     isTouchScreen
 }: Props) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
+    const map = useMap()
+        .current
+        .getMap();
     // when user click the button, tooltip will disappear
     const [buttonClick, setButtonClick] = useState(false);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
@@ -68,8 +69,8 @@ const MapStyleToggleButton = ({
     };
 
     const setMapStyle = (mapName: MapStyle) => {
-        if (mapRef.current) {
-            const map = mapRef.current.getMap();
+        if (map) {
+
             let styleUrl: string;
             switch (mapName) {
             case "DEFAULT":

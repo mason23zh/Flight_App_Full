@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
-import { Map, MapRef, NavigationControl, Source } from "react-map-gl";
+import { Map, NavigationControl, Source, MapProvider } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,6 @@ import { RootState, setAirportTracking, setTrafficTracking } from "../../../stor
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { VatsimFlight } from "../../../types";
-import { ViewStateProvider } from "../viewStateContext";
-import { ExtendedMapRef, MapProvider, MapRefProvider, useMapContext } from "../MapRefContext";
 
 interface BaseMapProps {
     children: React.ReactNode;
@@ -16,7 +14,6 @@ interface BaseMapProps {
 
 const BaseMap = ({ children }: BaseMapProps) => {
     // const localMapRef = useRef<ExtendedMapRef | null>(null);
-    const localMapRef = useRef<ExtendedMapRef | null>({} as ExtendedMapRef);
     // const mapContainerRef = document.getElementById("mainMap").client;
     const [navigationPosition, setNavigationPosition] = useState<"bottom-left" | "top-left">("bottom-left");
     const dispatch = useDispatch();
@@ -53,8 +50,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         bearing: 0,
         width: 0,
         height: 0,
-        isDragging: false,
-        mapRef: localMapRef
     });
 
 
@@ -159,61 +154,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, []);
 
 
-    // set map width and height in the viewState when component mount
-    // useEffect(() => {
-    //     const updateMapDimensions = () => {
-    //         const mapElement = document.getElementById("mainMap");
-    //         if (mapElement) {
-    //             const mapHeight = mapElement.clientHeight || 0;
-    //             const mapWidth = mapElement.clientWidth || 0;
-    //             setViewState((prevState) => ({
-    //                 ...prevState,
-    //                 width: mapWidth,
-    //                 height: mapHeight
-    //             }));
-    //         }
-    //     };
-    //
-    //     updateMapDimensions();
-    //     window.addEventListener("resize", updateMapDimensions);
-    //
-    //     return () => {
-    //         window.removeEventListener("resize", updateMapDimensions);
-    //     };
-    // }, []);
-
-
-    // change map view, update map height and width
-    const onMove = useCallback(({ viewState }) => {
-        const mapElement = document.getElementById("mainMap");
-        const mapHeight = mapElement?.clientHeight || 0;
-        const mapWidth = mapElement?.clientWidth || 0;
-        setViewState(prevState => {
-            if (
-                prevState.longitude === viewState.longitude &&
-                    prevState.latitude === viewState.latitude &&
-                    prevState.zoom === viewState.zoom
-            ) {
-                return prevState; // No changes needed
-            }
-            return {
-                ...viewState,
-                height: mapHeight,
-                width: mapWidth,
-                isDragging: true,
-            };
-        });
-        // setViewState({
-        //     longitude: viewState.longitude,
-        //     latitude: viewState,
-        //     height: mapHeight,
-        //     width: mapWidth,
-        //     isDragging: true, //reset isDragging to true when map start moving
-        //     ...viewState
-        // });
-    }, []);
-
-
     // const initializeTerrainSource = useCallback((map) => {
     //     if (!terrainEnable) {
     //         map.setTerrain(undefined);
@@ -235,58 +175,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     //     });
     // }, [terrainEnable]);
 
-    // To initialize the terrain mode when map load
-    // if terrain is enabled
-    // useEffect(() => {
-    //     const map = localMapRef.current?.getMap();
-    //     if (map) {
-    //         initializeTerrainSource(map);
-    //     }
-    // }, [initializeTerrainSource]);
-
-    // To remove the terrain if mode switch to 2d
-    // useEffect(() => {
-    //     const map = localMapRef.current?.getMap();
-    //     if (map && !terrainEnable && map.getSource("mapbox-dem")) {
-    //         map.setTerrain(undefined);
-    //         map.removeSource("mapbox-dem");
-    //     }
-    // }, [terrainEnable]);
-
-    // const handleDragEnd = useCallback(() => {
-    //     setViewState(prevState => ({
-    //         ...prevState,
-    //         isDragging: false
-    //     }));
-    // }, []);
-    //
-    // const handOnMoveEnd = useCallback(() => {
-    //     setViewState(prevState => ({
-    //         ...prevState,
-    //         isDragging: false
-    //     }));
-    // }, []);
-
-
-    // const handleMove = useCallback(() => {
-    //     if (mapRef.current) {
-    //         const map = mapRef.current.getMap();
-    //         console.log("Map center:", map.getCenter());
-    //     }
-    // }, []);
-
-    // useEffect(() => {
-    //     if (mapRef.current) {
-    //         const map = mapRef.current.getMap();
-    //         map.on("move", handleMove);
-    //
-    //         // Clean up
-    //         return () => {
-    //             map.off("move", handleMove);
-    //         };
-    //     }
-    // }, [handleMove]);
-
     /*
     * Default Projection: mercator
     * Unable to use globe as Projection due to mapbox api limitation.
@@ -295,75 +183,15 @@ const BaseMap = ({ children }: BaseMapProps) => {
     */
     // {...viewState}
 
-    const handleMapLoad = useCallback(() => {
-        if (localMapRef.current) {
-            const mapElement = document.getElementById("mainMap");
-            if (mapElement) {
-                localMapRef.current.screenHeight = mapElement.clientHeight;
-                localMapRef.current.screenWidth = mapElement.clientWidth;
-            }
 
-            // Access the Mapbox GL JS map instance
-            const mapInstance = localMapRef.current.getMap();
-
-            const handleMapMove = () => {
-                if (localMapRef.current) {
-                    const map = localMapRef.current.getMap();
-                    const bounds = map.getBounds();
-                    console.log("Bounds::", bounds);
-
-                    localMapRef.current = {
-                        ...localMapRef.current,
-                        screenHeight: map.getContainer().clientHeight,
-                        screenWidth: map.getContainer().clientWidth,
-                        isDragging: true,
-                        getBounds: () => bounds,
-                        getZoom: () => map.getZoom(),
-                        getCenter: () => map.getCenter()
-                    };
-                } else {
-                    console.log("failed bounds");
-                }
-            };
-
-
-            // Attach event handlers directly to the map instance
-            const handleMoveEnd = () => {
-                localMapRef.current!.isDragging = false; // Update isDragging state
-            };
-
-            const handleDragEnd = () => {
-                localMapRef.current!.isDragging = false; // Update isDragging state
-            };
-
-            // Register event listeners
-            mapInstance.on("moveend", handleMoveEnd);
-            mapInstance.on("dragend", handleDragEnd);
-            // mapInstance.on("move", handleMapMove);
-            mapInstance.on("move", handleMapMove);
-
-            // Cleanup event listeners on unmount
-            return () => {
-                mapInstance.off("moveend", handleMoveEnd);
-                mapInstance.off("dragend", handleDragEnd);
-                // mapInstance.off("move", handleMapMove);
-                mapInstance.off("move", handleMapMove);
-            };
-        }
-    }, [localMapRef]);
-
-    const handleViewStateChangetest = ({ viewState }) => {
-        console.log("Change viewstate", viewState);
-    };
     // onLoad={(e) => initializeTerrainSource(e.target)}
     return (
-        <MapRefProvider value={localMapRef}>
+        <MapProvider>
             <div
                 onContextMenu={evt => evt.preventDefault()}
             >
                 <Map
                     id="mainMap"
-                    ref={localMapRef}
                     projection={{ name: "mercator" }}
                     cursor={"auto"}
                     // to reset the pitch and bearing
@@ -373,12 +201,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     initialViewState={viewState}
                     maxPitch={70}
                     style={mapStyle}
-                    onMove={handleViewStateChangetest}
-                    // onMove={onMove}
-                    // onMoveEnd={handOnMoveEnd}
                     dragPan={true}
-                    onLoad={handleMapLoad}
-                    // onDragEnd={handleDragEnd}
                     renderWorldCopies={true} //prevent map wrapping
                     logoPosition={"bottom-right"}
                 >
@@ -391,14 +214,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
                             maxzoom={14}
                         />
                     }
-                    <TogglePanel mapRef={localMapRef}/>
+                    <TogglePanel/>
                     <TelemetryPanel/>
                     <NavigationControl position={navigationPosition}/>
                     {AirportLayers}
                     {children}
                 </Map>
             </div>
-        </MapRefProvider>
+        </MapProvider>
     );
 };
 
