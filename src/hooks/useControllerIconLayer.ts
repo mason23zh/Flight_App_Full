@@ -160,7 +160,7 @@ const useControllerIconLayer = (
         // getColor: () => [0, 0, 0, 255],
         parameters: { depthTest: false },
         updateTriggers: {
-            getIcon: iconData.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
+            getIcon: iconData?.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
                 .join(",")}`)
                 .join("-"),
         }

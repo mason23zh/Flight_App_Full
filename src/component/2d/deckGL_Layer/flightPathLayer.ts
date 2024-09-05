@@ -2,7 +2,7 @@ import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
 import { LineLayer } from "@deck.gl/layers/typed";
 import { VatsimFlight, VatsimTrackTraffic } from "../../../types";
 
-
+//TODO: flight path layer refactor
 const flightPathLayer = (
     data: VatsimTrackTraffic,
     selectTraffic: VatsimFlight,

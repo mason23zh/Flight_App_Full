@@ -35,6 +35,8 @@ import useFirIconLayer from "../../hooks/useFirIconLayer";
 import useTraconIconLayer from "../../hooks/useTraconIconLayer";
 import useControllerIconLayer from "../../hooks/useControllerIconLayer";
 import mapboxgl from "mapbox-gl";
+import useFlightPathLayer from "../../hooks/useFlightPathLayer";
+import useTrafficLayer2D from "../../hooks/useTrafficLayer2D";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -178,11 +180,12 @@ const MainDeckGlLayer = ({
     }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
 
 
-    const trafficLayer2D = useMemo(() => {
-        return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
-    }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
+    // const trafficLayer2D = useMemo(() => {
+    //     return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    // }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 
-
+    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+ 
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
     }, [movingMap, flightData, terrainEnable]);
@@ -216,18 +219,20 @@ const MainDeckGlLayer = ({
         }
     }, [trackData, trackError, trackLoading]);
 
-    const trackLayer = useMemo(() => {
-        // this will clean up the path if user already pick a traffic on the map
-        // but open the search list result panel. Because selectTraffic haven't change,
-        // the path will reamin on the map.
-        if (searchResultsVisible) {
-            setSelectTraffic(null);
-        }
+    // const trackLayer = useMemo(() => {
+    //     // this will clean up the path if user already pick a traffic on the map
+    //     // but open the search list result panel. Because selectTraffic haven't change,
+    //     // the path will reamin on the map.
+    //     if (searchResultsVisible) {
+    //         setSelectTraffic(null);
+    //     }
+    //
+    //     if (trackData && !trackLoading && !trackError) {
+    //         return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
+    //     }
+    // }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
 
-        if (trackData && !trackLoading && !trackError) {
-            return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
-        }
-    }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
+    const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {

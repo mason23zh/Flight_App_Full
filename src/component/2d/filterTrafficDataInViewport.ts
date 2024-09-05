@@ -8,7 +8,7 @@ const filterTrafficDataInViewport = (
     trafficData: VatsimFlight[],
     currentBounds: [number, number, number, number] | null,
 ): VatsimFlight[] => {
-
+    //TODO: Bug in the wrapLongitudeForBounds function, if zoom number too small the wrapping is wrong.
     if (trafficData.length === 0 || !currentBounds) return [];
 
 
