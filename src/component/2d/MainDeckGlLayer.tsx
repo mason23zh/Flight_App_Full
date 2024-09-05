@@ -140,6 +140,13 @@ const MainDeckGlLayer = ({
         }
     }, [map]);
 
+    //DISPLAY TEST DATA
+    useEffect(() => {
+        if (map) {
+            map.on("move", () => console.log(map.getZoom()));
+        }
+    }, []);
+
 
     useEffect(() => {
         if (map) {

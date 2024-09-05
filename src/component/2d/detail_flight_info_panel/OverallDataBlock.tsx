@@ -8,7 +8,6 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { BiTargetLock } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { setTrafficTracking } from "../../../store";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useMap } from "react-map-gl";
 
@@ -24,7 +23,6 @@ const OverallDataBlock = ({
     progress
 }) => {
     const isTouchScreen = useIsTouchScreen();
-    const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
     const { current: mapRef } = useMap();
 
@@ -50,7 +48,6 @@ const OverallDataBlock = ({
                 zoom: 10
             });
         }
-        dispatch(setTrafficTracking(true));
     };
 
     return (

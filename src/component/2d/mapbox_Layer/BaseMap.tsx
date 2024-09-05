@@ -16,8 +16,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     // const localMapRef = useRef<ExtendedMapRef | null>(null);
     // const mapContainerRef = document.getElementById("mainMap").client;
     const [navigationPosition, setNavigationPosition] = useState<"bottom-left" | "top-left">("bottom-left");
-    const dispatch = useDispatch();
-
 
     const {
         flightData,
@@ -29,16 +27,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         mapFollowTraffic,
         movingMap,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-
-    const { tracking: trafficTracking } = useSelector((state: RootState) => state.flightInfo);
-    const {
-        tracking: airportTracking,
-        selectedAirport: mapSearchSelectedAirport
-    }
-            = useSelector((state: RootState) => state.mapSearchAirport);
-
-    const traffic = useSelector<RootState, VatsimFlight>(
-        state => state.vatsimMapTraffic.selectedTraffic || null);
 
 
     // Default view point
@@ -52,32 +40,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         height: 0,
     });
 
-
-    // To move the map view to the tracked traffic
-    // useEffect(() => {
-    //     if (trafficTracking && traffic) {
-    //         setViewState((prevState) => ({
-    //             ...prevState,
-    //             zoom: 10.0,
-    //             longitude: traffic.longitude,
-    //             latitude: traffic.latitude
-    //         }));
-    //         dispatch(setTrafficTracking(false));
-    //     }
-    //
-    //     if (airportTracking && mapSearchSelectedAirport) {
-    //         const lng = Number(mapSearchSelectedAirport.coordinates.split(",")[0]);
-    //         const lat = Number(mapSearchSelectedAirport.coordinates.split(",")[1]);
-    //         setViewState((prevState) => ({
-    //             ...prevState,
-    //             zoom: 13.0,
-    //             longitude: lng,
-    //             latitude: lat
-    //         }));
-    //         dispatch(setAirportTracking(false));
-    //     }
-    //
-    // }, [trafficTracking, traffic, airportTracking, mapSearchSelectedAirport]);
 
     // To make map view to follow local user traffic
     useEffect(() => {
@@ -124,23 +86,23 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
 
     // adjust map height
-    // useEffect(() => {
-    //     const updateMapHeight = () => {
-    //         const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
-    //         const mapHeight = `calc(100vh - ${navbarHeight}px)`;
-    //         setMapStyle(prevStyle => ({
-    //             ...prevStyle,
-    //             height: mapHeight
-    //         }));
-    //     };
-    //
-    //     updateMapHeight();
-    //     window.addEventListener("resize", updateMapHeight);
-    //
-    //     return () => {
-    //         window.removeEventListener("resize", updateMapHeight);
-    //     };
-    // }, []);
+    useEffect(() => {
+        const updateMapHeight = () => {
+            const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
+            const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+            setMapStyle(prevStyle => ({
+                ...prevStyle,
+                height: mapHeight
+            }));
+        };
+
+        updateMapHeight();
+        window.addEventListener("resize", updateMapHeight);
+
+        return () => {
+            window.removeEventListener("resize", updateMapHeight);
+        };
+    }, []);
 
 
     /*
@@ -158,6 +120,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     id="mainMap"
                     projection={{ name: "mercator" }}
                     cursor={"auto"}
+                    // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
+                    minZoom={1.9}
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                     mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
