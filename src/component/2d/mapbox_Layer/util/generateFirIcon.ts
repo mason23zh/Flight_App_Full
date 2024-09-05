@@ -2,7 +2,7 @@ import { createCanvas, CanvasRenderingContext2D } from "canvas"; // Ensure you h
 
 function generateFirIcon(icao: string, isFss: boolean): string {
     // Fixed dimensions for the canvas
-    const canvasWidth = 130;  // Fixed width for Deck.gl IconLayer compatibility
+    const canvasWidth = 160;  // Fixed width for Deck.gl IconLayer compatibility
     const canvasHeight = 70;  // Fixed height to accommodate both ICAO and FSS consistently
     const cornerRadius = 8;  // Rounded corner radius for sections
     const minTextPadding = 10;  // Minimum padding for text in the background
@@ -117,7 +117,7 @@ function generateFirIcon(icao: string, isFss: boolean): string {
 
     // Draw ICAO Code in the center of the remaining area
     ctx.fillStyle = "#000000"; // Black color for ICAO text
-    ctx.font = "bold 25px Arial";  // Updated font size for ICAO
+    ctx.font = "bold 24px Arial";  // Updated font size for ICAO
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";  // Vertically center the text
     ctx.fillText(icao, canvasWidth / 2, icaoY + icaoHeight / 2);  // Center ICAO text vertically

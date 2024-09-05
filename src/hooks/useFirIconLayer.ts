@@ -47,7 +47,7 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
 
     const getIcon = useCallback((d) => ({
         url: d.iconUrl,
-        width: 130,
+        width: 160,
         height: 70,
         anchorY: 70,
     }), []);
