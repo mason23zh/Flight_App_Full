@@ -83,9 +83,7 @@ const MainDeckGlLayer = ({
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
 
-    // the previsouViewBounds will keep tracking a viewBounds that before user click the mouse to drag the map view
     const [currentViewBounds, setCurrentViewBounds] = useState<[number, number, number, number] | null>(null);
-    // const [previousZoom, setPreviousZoom] = useState<number>(null);
 
     const [map, setMap] = useState<mapboxgl.Map>(null);
 
@@ -141,11 +139,13 @@ const MainDeckGlLayer = ({
     }, [map]);
 
     //DISPLAY TEST DATA
-    useEffect(() => {
-        if (map) {
-            map.on("move", () => console.log(map.getZoom()));
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (map) {
+    //         map.on("dragstart", () => {
+    //             map.getCanvas().style.cursor = "pointer";
+    //         });
+    //     }
+    // }, [map]);
 
 
     useEffect(() => {
@@ -214,6 +214,7 @@ const MainDeckGlLayer = ({
         }
     }, [mapSearchSelectedTraffic]);
 
+    //TODO: Complete the error stack display
     useEffect(() => {
         if (trackError) {
             dispatch(addMessage({

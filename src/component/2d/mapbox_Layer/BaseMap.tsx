@@ -1,20 +1,17 @@
-import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
-import { Map, NavigationControl, Source, MapProvider } from "react-map-gl";
+import React, { CSSProperties, useEffect, useState } from "react";
+import { Map, NavigationControl, MapProvider } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, setAirportTracking, setTrafficTracking } from "../../../store";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
-import { VatsimFlight } from "../../../types";
 
 interface BaseMapProps {
     children: React.ReactNode;
 }
 
 const BaseMap = ({ children }: BaseMapProps) => {
-    // const localMapRef = useRef<ExtendedMapRef | null>(null);
-    // const mapContainerRef = document.getElementById("mainMap").client;
     const [navigationPosition, setNavigationPosition] = useState<"bottom-left" | "top-left">("bottom-left");
 
     const {
@@ -41,7 +38,9 @@ const BaseMap = ({ children }: BaseMapProps) => {
     });
 
 
+    //TODO: Fix the local traffic tracking issue.
     // To make map view to follow local user traffic
+    // This won't work in the current setup
     useEffect(() => {
         if (movingMap &&
                 liveTrafficAvailable &&
@@ -108,8 +107,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     /*
     * Default Projection: mercator
     * Unable to use globe as Projection due to mapbox api limitation.
-    * ViewStateProvider will pass the viewState to BaseTrafficLayer,
-    * the viewState will help filter out the traffic that not within the viewport.
     */
     return (
         <MapProvider>
@@ -119,9 +116,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 <Map
                     id="mainMap"
                     projection={{ name: "mercator" }}
-                    cursor={"auto"}
+                    // cursor={"auto"}
                     // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
-                    minZoom={1.9}
+                    // Set 1.92 for safe
+                    minZoom={1.92}
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                     mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
