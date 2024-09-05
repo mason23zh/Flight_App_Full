@@ -12,7 +12,7 @@ const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
     if (!data) return null;
     //TODO: Need to update sprite mapping file
     return new IconLayer({
-        id: "aircraft-icon-layer",
+        id: "traffic-layer-2d",
         data: data,
         pickable: true,
         visible: visible,

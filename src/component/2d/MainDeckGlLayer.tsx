@@ -37,6 +37,7 @@ import useControllerIconLayer from "../../hooks/useControllerIconLayer";
 import mapboxgl from "mapbox-gl";
 import useFlightPathLayer from "../../hooks/useFlightPathLayer";
 import useTrafficLayer2D from "../../hooks/useTrafficLayer2D";
+import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -172,20 +173,19 @@ const MainDeckGlLayer = ({
 
     const { flightData } = useWebSocketContext();
 
-    const trafficLayer3D = useMemo(() => {
-        if (terrainEnable && trafficLayerVisible) {
-            return trafficLayer_3D(filteredTrafficData, true);
-        }
-        return null;
-    }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
+    // const trafficLayer3D = useMemo(() => {
+    //     if (terrainEnable && trafficLayerVisible) {
+    //         return trafficLayer_3D(filteredTrafficData, true);
+    //     }
+    //     return null;
+    // }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
 
 
     // const trafficLayer2D = useMemo(() => {
     //     return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     // }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
 
-    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
- 
+
     const localTrafficLayer = useMemo(() => {
         return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
     }, [movingMap, flightData, terrainEnable]);
@@ -232,12 +232,14 @@ const MainDeckGlLayer = ({
     //     }
     // }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
 
-    const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
-
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
         console.log("onClick info:", info);
-        if (info.layer && info.layer.id === "aircraft-icon-layer" && info.object && (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))) {
+        if (info.layer &&
+                (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&
+                info.object &&
+                (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))
+        ) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
             // dispatch(setAirportDepartureArrivalDisplay(false));
@@ -252,7 +254,9 @@ const MainDeckGlLayer = ({
     const firIconLayer = useFirIconLayer(matchedFirs, allAtcLayerVisible);
     const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
-
+    const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
+    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
+    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
 
     const layers = [
         trackLayer,

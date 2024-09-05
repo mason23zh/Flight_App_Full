@@ -1,20 +1,24 @@
-/*
-* Using ScenegraphLayer to render all vatsim traffic with 3D object
-*/
-
+import { VatsimFlight } from "../types";
+import airplane_model from "../assets/models/airplane.glb";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
-import { VatsimFlight } from "../../../types";
-import airplane_model from "../../../assets/models/airplane.glb";
+
 
 const ANIMATIONS = {
     "*": { speed: 1 },
 };
 
-const trafficLayer_3D = (
+const useTrafficLayer3D = (
     data: Array<VatsimFlight>,
-    visible: boolean) => {
+    visible: boolean
+) => {
+    if (!data || data.length === 0) return null;
 
-    if (!data) return null;
+    const updateTriggers = {
+        getPosition: data.map(d => `${d.longitude},${d.latitude}`)
+            .join("-"),
+        getOrientation: data.map(d => d.heading)
+            .join("-"),
+    };
 
     return new ScenegraphLayer({
         id: "traffic-layer-3d",
@@ -33,8 +37,8 @@ const trafficLayer_3D = (
             d.groundspeed < 50 ? 0 : d.altitude,
         ],
         getOrientation: (d) => [0, -d.heading || 0, 90],
+        updateTriggers,
     });
-
 };
 
-export default trafficLayer_3D;
+export default useTrafficLayer3D;

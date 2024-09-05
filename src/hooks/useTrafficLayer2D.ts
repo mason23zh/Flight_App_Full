@@ -9,7 +9,6 @@ const useTrafficLayer2D = (
     visible: boolean
 ) => {
     if (!data || data.length === 0) return null;
-    console.log("Traffic layter 2d hooks run.", data.length);
 
     const updateTriggers = {
         getPosition: data.map(d => `${d.longitude},${d.latitude}`)
@@ -23,7 +22,7 @@ const useTrafficLayer2D = (
     };
 
     return new IconLayer({
-        id: "aircraft-icon-layer",
+        id: "traffic-layer-2d",
         data: data,
         pickable: true,
         visible: visible,
