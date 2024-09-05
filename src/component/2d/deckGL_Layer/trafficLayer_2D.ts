@@ -10,7 +10,6 @@ import aircraftSpriteSheetPNG from "../../../assets/mapbox/aircraft_sprite_mappi
 
 const trafficLayer_2D = (data: Array<VatsimFlight>, visible: boolean) => {
     if (!data) return null;
-    console.log("traffic 2d run.");
     //TODO: Need to update sprite mapping file
     return new IconLayer({
         id: "aircraft-icon-layer",

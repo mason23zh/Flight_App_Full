@@ -53,7 +53,7 @@ const useControllerIconLayer = (
     const debouncedHover = useCallback(
         debounce((data) => {
             dispatch(setHoveredController(data));
-        }, 300),
+        }, 250),
         [dispatch]
     );
     // Clean up the debounce function when the component unmounts
@@ -158,7 +158,12 @@ const useControllerIconLayer = (
             }
         },
         // getColor: () => [0, 0, 0, 255],
-        parameters: { depthTest: false }
+        parameters: { depthTest: false },
+        updateTriggers: {
+            getIcon: iconData.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
+                .join(",")}`)
+                .join("-"),
+        }
     });
 
 };

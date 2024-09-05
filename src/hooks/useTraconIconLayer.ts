@@ -71,7 +71,7 @@ const useTraconIconLayer = (
     const debouncedHover = useCallback(
         debounce((data) => {
             dispatch(setHoveredTracon(data));
-        }, 300),
+        }, 250),
         [dispatch]
     );
 
@@ -82,6 +82,13 @@ const useTraconIconLayer = (
         };
     }, [debouncedHover]);
 
+    const getIcon = useCallback((d) => ({
+        url: d.iconUrl,
+        width: 130,
+        height: 50,
+        anchorY: 50,
+    }), []);
+
 
     return new IconLayer({
         id: "tracon-icon-layer",
@@ -89,13 +96,7 @@ const useTraconIconLayer = (
         pickable: true,
         visible: visible,
         getPosition: d => d.position,
-        getIcon: d => ({
-            url: d.iconUrl,
-            width: 130,
-            height: 50,
-            anchorY: 50,
-            // anchorX: 50,
-        }),
+        getIcon,
         sizeScale: 0.8,
         getSize: () => 28,
         onHover: ({ object }) => {
@@ -104,6 +105,14 @@ const useTraconIconLayer = (
             } else {
                 debouncedHover(null);
             }
+        },
+        updateTriggers: {
+            getIcon: {
+                matched: matchedTracon.map((tracon) => tracon.traconInfo.id)
+                    .join("-"),
+                fallback: matchedFallbackTracon.map((tracon) => tracon.controllers[0]?.callsign.slice(0, -4))
+                    .join("-"),
+            },
         },
         // getColor: () => [0, 0, 0, 255],
         // parameters: { depthTest: false }

@@ -6,7 +6,7 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     const canvasHeight = 70;  // Fixed height to accommodate both ICAO and FSS consistently
     const cornerRadius = 8;  // Rounded corner radius for sections
     const minTextPadding = 10;  // Minimum padding for text in the background
-    const maxTextWidth = canvasWidth - (minTextPadding * 2);  // Maximum text width with padding
+    const maxBackgroundWidth = canvasWidth - 20;  // Max background width with padding
 
     // Create the canvas element with fixed width and height
     const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -63,8 +63,8 @@ function generateFirIcon(icao: string, isFss: boolean): string {
 
     // Calculate text width and adjust background width dynamically
     ctx.font = "bold 25px Arial";  // Font for calculating text width
-    const icaoTextWidth = Math.min(ctx.measureText(icao).width + minTextPadding * 2, maxTextWidth);
-    const fssTextWidth = Math.min(ctx.measureText("FSS").width + minTextPadding * 2, maxTextWidth);
+    const icaoTextWidth = Math.min(ctx.measureText(icao).width + minTextPadding * 2, maxBackgroundWidth);
+    const fssTextWidth = Math.min(ctx.measureText("FSS").width + minTextPadding * 2, maxBackgroundWidth);
     const backgroundWidth = Math.max(icaoTextWidth, fssTextWidth);
 
     // Center align the backgrounds on the canvas
@@ -128,5 +128,6 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     const iconURL = canvas.toDataURL();
     return iconURL;
 }
+
 
 export default generateFirIcon;

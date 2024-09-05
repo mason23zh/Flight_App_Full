@@ -13,7 +13,7 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
     const debouncedHover = useCallback(
         debounce((data) => {
             dispatch(setHoveredFir(data));
-        }, 300),
+        }, 250),
         [dispatch]
     );
 
@@ -45,18 +45,20 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
         });
     }, [matchedFirs]);
 
+    const getIcon = useCallback((d) => ({
+        url: d.iconUrl,
+        width: 130,
+        height: 70,
+        anchorY: 70,
+    }), []);
+
     return new IconLayer({
         id: "fir-icon-layer",
         data: iconData,
         pickable: true,
         visible,
         getPosition: (d) => d.position,
-        getIcon: (d) => ({
-            url: d.iconUrl,
-            width: 130,
-            height: 70,
-            anchorY: 70,
-        }),
+        getIcon,
         sizeScale: 1,
         getSize: () => 30,
         onHover: ({ object }) => {
@@ -67,6 +69,10 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
             }
         },
         parameters: { depthTest: false },
+        updateTriggers: {
+            getIcon: matchedFirs.map(fir => fir.firInfo.firBoundary)
+                .join("-")
+        },
     });
 };
 
