@@ -56,6 +56,7 @@ interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
+// TODO: error handle 
 //TODO: Selected traffic state might be redundent
 const MainDeckGlLayer = ({
     vatsimPilots,

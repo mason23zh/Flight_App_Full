@@ -74,6 +74,7 @@ const FlightInfo = () => {
                         <div className="bg-gray-500">
                             <OverallDataBlock
                                 aircraft={traffic.flight_plan?.aircraft_faa}
+                                position={[traffic.longitude, traffic.latitude]}
                                 callsign={traffic.callsign}
                                 depAirport={departureAirport}
                                 arrAirport={arrivalAirport}

@@ -10,10 +10,12 @@ import { BiTargetLock } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { setTrafficTracking } from "../../../store";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
+import { useMap } from "react-map-gl";
 
 
 const OverallDataBlock = ({
     aircraft,
+    position,
     callsign,
     depAirport,
     arrAirport,
@@ -24,6 +26,7 @@ const OverallDataBlock = ({
     const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
+    const { current: mapRef } = useMap();
 
     const {
         handleMouseEnter,
@@ -40,6 +43,13 @@ const OverallDataBlock = ({
     } = useDisplayTooltip(200);
 
     const handleTrackingClick = () => {
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            map.flyTo({
+                center: position,
+                zoom: 10
+            });
+        }
         dispatch(setTrafficTracking(true));
     };
 
