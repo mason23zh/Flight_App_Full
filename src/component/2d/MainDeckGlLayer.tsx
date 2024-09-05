@@ -38,6 +38,7 @@ import mapboxgl from "mapbox-gl";
 import useFlightPathLayer from "../../hooks/useFlightPathLayer";
 import useTrafficLayer2D from "../../hooks/useTrafficLayer2D";
 import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
+import useLocalTrackFlightLayer from "../../hooks/useLocalTrackFlightLayer";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
@@ -77,8 +78,11 @@ const MainDeckGlLayer = ({
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
+        mapFollowTraffic
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        allAtcLayerVisible,
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
     const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
@@ -87,7 +91,7 @@ const MainDeckGlLayer = ({
 
     const [map, setMap] = useState<mapboxgl.Map>(null);
 
-
+ 
     const {
         matchedFirs,
         hoveredFir,
@@ -181,22 +185,15 @@ const MainDeckGlLayer = ({
 
     const { flightData } = useWebSocketContext();
 
-    // const trafficLayer3D = useMemo(() => {
-    //     if (terrainEnable && trafficLayerVisible) {
-    //         return trafficLayer_3D(filteredTrafficData, true);
-    //     }
-    //     return null;
-    // }, [terrainEnable, trafficLayerVisible, filteredTrafficData.length]);
+    useEffect(() => {
+        if (movingMap && flightData && mapFollowTraffic) {
+            if (map) {
+                const position = [flightData?.longitude, flightData?.latitude] as [number, number];
+                map.easeTo({ center: position });
+            }
+        }
+    }, [movingMap, flightData, terrainEnable, map, mapFollowTraffic]);
 
-
-    // const trafficLayer2D = useMemo(() => {
-    //     return trafficLayer_2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
-    // }, [terrainEnable, filteredTrafficData.length, trafficLayerVisible]);
-
-
-    const localTrafficLayer = useMemo(() => {
-        return renderLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
-    }, [movingMap, flightData, terrainEnable]);
 
     useEffect(() => {
         setSelectTraffic(null);
@@ -228,19 +225,6 @@ const MainDeckGlLayer = ({
         }
     }, [trackData, trackError, trackLoading]);
 
-    // const trackLayer = useMemo(() => {
-    //     // this will clean up the path if user already pick a traffic on the map
-    //     // but open the search list result panel. Because selectTraffic haven't change,
-    //     // the path will reamin on the map.
-    //     if (searchResultsVisible) {
-    //         setSelectTraffic(null);
-    //     }
-    //
-    //     if (trackData && !trackLoading && !trackError) {
-    //         return flightPathLayer(trackData.data, selectTraffic, vatsimPilots, true, terrainEnable);
-    //     }
-    // }, [trackData, trackLoading, trackError, selectTraffic, terrainEnable, searchResultsVisible]);
-
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
         console.log("onClick info:", info);
@@ -260,21 +244,23 @@ const MainDeckGlLayer = ({
         }
     }, [selectTraffic]);
 
+
     const firIconLayer = useFirIconLayer(matchedFirs, allAtcLayerVisible);
     const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
     const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
     const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
     const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
     const layers = [
         trackLayer,
         trafficLayer2D,
         trafficLayer3D,
-        localTrafficLayer,
         controllerIconLayer,
         traconIconLayer,
-        firIconLayer
+        firIconLayer,
+        localFlightLayer //localFlightLayer will on top
     ];
 
     return (
