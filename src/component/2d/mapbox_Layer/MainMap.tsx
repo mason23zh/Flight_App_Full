@@ -23,7 +23,6 @@ import AircraftDisplay from "../map_feature_toggle_button/search_box/search_resu
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 
-//TODO: High memory usage
 const MainMap = () => {
     const dispatch = useDispatch();
 
@@ -126,7 +125,7 @@ const MainMap = () => {
             dispatch(setMatchedFirsError(isFirError)); // This will clear Fir array
         }
     }, [matchedFirs, isFirError, dispatch, controllerData, controllerError, controllerLoading]);
-
+ 
     useEffect(() => {
         if (matchedTracons) {
             dispatch(setMatchedTracons(matchedTracons));

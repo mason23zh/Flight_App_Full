@@ -74,7 +74,6 @@ const MainDeckGlLayer = ({
     const { current: mapRef } = useMap();
 
     let isHovering = false;
-    //TODO: debounce the state update
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
@@ -85,13 +84,14 @@ const MainDeckGlLayer = ({
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
-    const { searchResultsVisible } = useSelector((state: RootState) => state.mapDisplayPanel);
 
     const [currentViewBounds, setCurrentViewBounds] = useState<[number, number, number, number] | null>(null);
 
-    const [map, setMap] = useState<mapboxgl.Map>(null);
+    const { flightData } = useWebSocketContext();
 
- 
+    const [map, setMap] = useState<mapboxgl.Map | null>(null);
+
+
     const {
         matchedFirs,
         hoveredFir,
@@ -107,9 +107,21 @@ const MainDeckGlLayer = ({
         isError: isTraconError
     } = useSelector((state: RootState) => state.matchedTracons);
 
+    //DISPLAY TEST DATA
+    // useEffect(() => {
+    //     if (map) {
+    //         map.on("dragstart", () => {
+    //             map.getCanvas().style.cursor = "pointer";
+    //         });
+    //     }
+    // }, [map]);
+
+
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
     const getViewPort = (map: mapboxgl.Map) => {
+        //Need to check canvas here, because the canvas will be gone after Map unmount.
+        if (!map || !map?.getCanvas()) return null;
         const viewport = new WebMercatorViewport({
             longitude: map.getCenter().lng,
             latitude: map.getCenter().lat,
@@ -117,8 +129,7 @@ const MainDeckGlLayer = ({
             width: map.getCanvas().width,
             height: map.getCanvas().height,
         });
-        const bounds = viewport.getBounds(); // [west, south, east, north]
-        return bounds;
+        return viewport.getBounds(); // [west, south, east, north]
     };
 
     const handleMapMovementEnd = () => {
@@ -142,16 +153,6 @@ const MainDeckGlLayer = ({
         }
     }, [map]);
 
-    //DISPLAY TEST DATA
-    // useEffect(() => {
-    //     if (map) {
-    //         map.on("dragstart", () => {
-    //             map.getCanvas().style.cursor = "pointer";
-    //         });
-    //     }
-    // }, [map]);
-
-
     useEffect(() => {
         if (map) {
             // map.on("dragend", handleMapMovementEnd);
@@ -167,7 +168,6 @@ const MainDeckGlLayer = ({
         };
     }, [map]);
 
-
     const {
         data: trackData,
         error: trackError,
@@ -176,14 +176,11 @@ const MainDeckGlLayer = ({
         skip: !selectTraffic
     });
 
-
     const filteredTrafficData = useMemo(() => {
         if (!currentViewBounds || !vatsimPilots || vatsimPilots.length === 0) return [];
         return filterTrafficDataInViewport(vatsimPilots, currentViewBounds);
     }, [currentViewBounds, vatsimPilots]);
 
-
-    const { flightData } = useWebSocketContext();
 
     useEffect(() => {
         if (movingMap && flightData && mapFollowTraffic) {
@@ -227,7 +224,6 @@ const MainDeckGlLayer = ({
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
-        console.log("onClick info:", info);
         if (info.layer &&
                 (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&
                 info.object &&

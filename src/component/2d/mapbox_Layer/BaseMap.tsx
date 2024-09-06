@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { CSSProperties, useCallback, useEffect, useState } from "react";
 import { Map, NavigationControl, MapProvider } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { useWebSocketContext } from "../WebSocketContext";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
+import mapboxgl from "mapbox-gl";
 
 interface BaseMapProps {
     children: React.ReactNode;
@@ -13,6 +14,7 @@ interface BaseMapProps {
 
 const BaseMap = ({ children }: BaseMapProps) => {
     const [navigationPosition, setNavigationPosition] = useState<"bottom-left" | "top-left">("bottom-left");
+
 
     const {
         flightData,
@@ -36,25 +38,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         width: 0,
         height: 0,
     });
-
-
-    //TODO: Fix the local traffic tracking issue.
-    // To make map view to follow local user traffic
-    // This won't work in the current setup
-    useEffect(() => {
-        if (movingMap &&
-                liveTrafficAvailable &&
-                mapFollowTraffic &&
-                flightData.latitude &&
-                flightData.longitude) {
-            setViewState((prevState) => ({
-                ...prevState,
-                longitude: flightData.longitude,
-                latitude: flightData.latitude,
-            }));
-        }
-    }, [flightData, mapFollowTraffic]);
-
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
@@ -102,8 +85,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             window.removeEventListener("resize", updateMapHeight);
         };
     }, []);
-
-
+ 
     /*
     * Default Projection: mercator
     * Unable to use globe as Projection due to mapbox api limitation.
@@ -129,6 +111,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     dragPan={true}
                     renderWorldCopies={true} //prevent map wrapping
                     logoPosition={"bottom-right"}
+                    onLoad={(e) => onMapLoad(e)}
                 >
                     <TogglePanel/>
                     <TelemetryPanel/>
