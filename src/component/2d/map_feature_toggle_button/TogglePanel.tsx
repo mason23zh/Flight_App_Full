@@ -61,7 +61,6 @@ const TogglePanel = () => {
         }
     };
 
-    //TODO: issue adding and removing terrain.
     useEffect(() => {
         const map = mapRef?.getMap();
         if (!map) return;

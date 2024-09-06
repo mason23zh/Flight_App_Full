@@ -71,7 +71,6 @@ export const MapRefProvider: React.FC<{
     }, []);
 
     if (mapRef.current) {
-        console.log("Map initialized::", mapRef.current);
         mapRef.current.isDragging = false;
     } else {
         console.log("failed");

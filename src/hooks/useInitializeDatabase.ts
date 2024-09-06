@@ -11,7 +11,8 @@ import {
     MergedFssMatching,
     VatsimTraconMapping
 } from "../types";
-
+//TODO: Add data base version number.
+// If client is using the older number, delete the database from the client and upload the new data.
 export const useInitializeDatabase = () => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false);
 

@@ -21,7 +21,6 @@ const FirLayer = ({
         hoveredFir,
         isError: errorMatchedFirs
     } = useSelector((state: RootState) => state.matchedFirs);
-    console.log("Hover fir:", hoveredFir);
 
 
     useEffect(() => {

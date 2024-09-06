@@ -48,7 +48,6 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         } else {
             if (_.isEmpty(controller.airport) || controller.coordinates.length === 0) return;
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
-            console.log("Visual range:", controller.visual_range);
             // const radius = Number(controller.visual_range || 120) / 2 * 1.6;
             const option = {
                 steps: 30,

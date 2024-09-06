@@ -1,12 +1,10 @@
 /**
  * Use to render the DeckGL overlay
  * */
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
-import flightPathLayer from "./deckGL_Layer/flightPathLayer";
-import trafficLayer_3D from "./deckGL_Layer/trafficLayer_3D";
-import { AirportService, VatsimControllers, VatsimFlight } from "../../types";
+import { VatsimControllers, VatsimFlight } from "../../types";
 import { PickingInfo } from "@deck.gl/core/typed";
 import {
     addMessage,
@@ -18,14 +16,10 @@ import {
     openTrafficDetail,
 } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
-import trafficLayer_2D from "./deckGL_Layer/trafficLayer_2D";
-import renderLocalTrackFlightLayer from "./renderLocalTrackFlightLayer";
 import useIsTouchScreen from "../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "./WebSocketContext";
 import filterTrafficDataInViewport from "./filterTrafficDataInViewport";
-import { useMapRefContext } from "./MapRefContext";
 import { useMap } from "react-map-gl";
-import type { DeckGLRef } from "@deck.gl/react";
 import ControllerMarkerPopup from "./mapbox_Layer/Controller_Markers_Layer/ControllerMarkerPopup";
 import TraconLabelPopup from "./mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 import FirLabelPopup from "./mapbox_Layer/FIR_Layers/FirLabelPopup";
@@ -249,6 +243,7 @@ const MainDeckGlLayer = ({
     const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
+    //TODO: Change flight path to top
     const layers = [
         trackLayer,
         trafficLayer2D,

@@ -45,6 +45,8 @@ const MainMap = () => {
     } = useSelector((state: RootState) => state.mapDisplayPanel);
 
 
+    //TODO: After indexDB delete, the data won't received
+    //need useEffect or data load event listener to re-apply the data.
     useInitializeDatabase();
 
     if (!window.WebGLRenderingContext) {
@@ -119,13 +121,12 @@ const MainMap = () => {
 
     useEffect(() => {
         if (matchedFirs.length !== 0) {
-            console.log("Matched firs recevned");
             dispatch(setMatchedFirs(matchedFirs));
         } else if (isFirError) {
             dispatch(setMatchedFirsError(isFirError)); // This will clear Fir array
         }
     }, [matchedFirs, isFirError, dispatch, controllerData, controllerError, controllerLoading]);
- 
+
     useEffect(() => {
         if (matchedTracons) {
             dispatch(setMatchedTracons(matchedTracons));

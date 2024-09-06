@@ -188,8 +188,7 @@ function ChangeLog() {
                     <div>
                         Beta 0.5.2 <br/>
                         - Fixed the text encoding issue (backend and frontend fix) <br/>
-                        - Improve the Map performance by using the vector tile to render instead of GeoJSON
-                        directly <br/>
+                        - Improve the Map performance directly <br/>
                     </div>
                 </div>
             </div>

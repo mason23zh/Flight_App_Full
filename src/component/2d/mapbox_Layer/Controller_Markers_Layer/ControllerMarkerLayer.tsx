@@ -13,7 +13,6 @@ const ControllerMarkerLayer = ({
     controllerInfo,
     labelVisible,
 }: Controller) => {
-    console.log("Cointroller marker layer run.");
     const {
         renderedMarkers,
         hoverInfo

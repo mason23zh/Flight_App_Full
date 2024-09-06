@@ -67,7 +67,6 @@ const useControllerIconLayer = (
     const iconData = useMemo(() => {
         if (!controllerData) return null;
         const combineAirportServices = (controllers, atis, facilities): Array<AirportService> => {
-            console.log("combine airport service run.");
             const facilityMap = facilities.reduce((map, f) => {
                 map[f.id] = f.short;
                 return map;
