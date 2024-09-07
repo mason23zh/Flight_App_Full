@@ -19,7 +19,7 @@ class VatsimLocalDB extends Dexie {
 
     constructor() {
         super("LocalVatsimDB");
-        this.version(1)
+        this.version(2)
             .stores(
                 {
                     vatsimTraffic: `&cid, 

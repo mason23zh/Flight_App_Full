@@ -5,7 +5,6 @@ import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
-import mapboxgl from "mapbox-gl";
 
 interface BaseMapProps {
     children: React.ReactNode;
