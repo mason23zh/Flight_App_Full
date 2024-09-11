@@ -3,10 +3,12 @@ import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_sprite_mapping
 import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_sprite_mapping-0.png";
 import { getAircraftSizeCategory } from "../util/getAircraftCategory";
 import { IconLayer } from "@deck.gl/layers/typed";
+import { PickingInfo } from "@deck.gl/core/typed";
 
 const useTrafficLayer2D = (
     data: Array<VatsimFlight>,
-    visible: boolean
+    visible: boolean,
+    onHover: (info: PickingInfo) => void
 ) => {
     if (!data || data.length === 0) return null;
 
@@ -20,6 +22,7 @@ const useTrafficLayer2D = (
         getSize: data.map(d => getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738"))
             .join("-"),  // Trigger update if sizes change
     };
+
 
     return new IconLayer({
         id: "traffic-layer-2d",
@@ -35,6 +38,14 @@ const useTrafficLayer2D = (
         iconAtlas: aircraftSpriteSheetPNG,
         iconMapping: aircraftSpriteSheetMapping,
         sizeScale: 5,
+        onHover: (info: PickingInfo) => {
+            if (info.object) {
+                console.log("Hover info layer:", info);
+                onHover(info);
+            } else {
+                onHover(null);
+            }
+        },
         getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, 0], //traffic always at 0 feet in 2d view
         getAngle: (d: VatsimFlight) => -d.heading,
         getColor: () => [228, 235, 10],

@@ -33,9 +33,16 @@ import useFlightPathLayer from "../../hooks/useFlightPathLayer";
 import useTrafficLayer2D from "../../hooks/useTrafficLayer2D";
 import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
 import useLocalTrackFlightLayer from "../../hooks/useLocalTrackFlightLayer";
+import { debounce } from "lodash";
+import HoveredTrafficTooltip from "./HoveredTrafficTooltip";
 
 
 //TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
+
+type HoverTrafficType = {
+    position: [longitude: number, latitude: number];
+    info: VatsimFlight | null;
+}
 
 
 interface MainTrafficLayerProps {
@@ -67,7 +74,12 @@ const MainDeckGlLayer = ({
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
 
-    let isHovering = false;
+    // let isHovering = false;
+
+    const [isHovering, setIsHovering] = useState<boolean>(false);
+    const [hoverInfo, setHoverInfo] =
+            useState<{ object: VatsimFlight | null; x: number; y: number } | null>(null);
+    const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
         terrainEnable,
@@ -112,6 +124,16 @@ const MainDeckGlLayer = ({
 
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
+
+    const [hoveredObject, setHoveredObject] = useState<VatsimFlight | null>(null);
+    // State for tooltip position
+    const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
+
+
+    const handleHover = (info: PickingInfo) => {
+        setHoveredTraffic(info);
+    };
+
 
     const getViewPort = (map: mapboxgl.Map) => {
         //Need to check canvas here, because the canvas will be gone after Map unmount.
@@ -202,19 +224,50 @@ const MainDeckGlLayer = ({
         }
     }, [mapSearchSelectedTraffic]);
 
-    //TODO: Complete the error stack display
+
+    const debouncedErrorDispatch = debounce(() => {
+        dispatch(addMessage({
+            location: "MAIN_DECK_GL",
+            messageType: "ERROR",
+            content: "Error loading map features"
+        }));
+    }, 800);  // 500ms delay before dispatching error message
+
     useEffect(() => {
-        if (trackError) {
+        const isLoading = trackLoading || isTraconLoading || controllerDataLoading;
+        const isError = Boolean(trackError) || Boolean(controllerDataError) || errorMatchedFirs || isTraconError;
+
+        if (isError) {
+            debouncedErrorDispatch();
+        } else {
+            debouncedErrorDispatch.cancel();
+            dispatch(removeMessageByLocation({ location: "MAIN_DECK_GL" }));
+        }
+
+        if (isLoading) {
             dispatch(addMessage({
-                location: "TRAFFIC_TRACK",
-                messageType: "ERROR",
-                content: "Error loading track data for selected traffic."
+                location: "MAIN_DECK_GL",
+                messageType: "LOADING",
+                content: "Loading map features"
             }));
+        } else {
+            dispatch(removeMessageByLocation({ location: "MAIN_DECK_GL" }));
         }
-        if (trackData) {
-            dispatch(removeMessageByLocation({ location: "TRAFFIC_TRACK" }));
-        }
-    }, [trackData, trackError, trackLoading]);
+
+        // Cleanup function
+        return () => {
+            debouncedErrorDispatch.cancel();  // Cancel debounced function on cleanup
+        };
+    }, [
+        trackError,
+        trackLoading,
+        controllerDataError,
+        controllerDataLoading,
+        errorMatchedFirs,
+        isTraconLoading,
+        isTraconError
+    ]
+    );
 
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
@@ -240,7 +293,7 @@ const MainDeckGlLayer = ({
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
     const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
     const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
-    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible, handleHover);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
     //TODO: Change flight path to top
@@ -254,6 +307,8 @@ const MainDeckGlLayer = ({
         localFlightLayer //localFlightLayer will on top
     ];
 
+    console.log("Hover info:", hoveredObject);
+
     return (
         <>
             <DeckGlOverlay
@@ -261,33 +316,29 @@ const MainDeckGlLayer = ({
                 onClick={(info: PickedTraffic) => deckOnClick(info)}
                 layers={layers}
                 pickingRadius={10}
-                getTooltip={isTouchScreen ? undefined : ({ object }) => {
-                    if (object) {
-                        if (object?.iconUrl) return null;
-                        const bgColor = "rgba(39, 40, 45, 0.9)";
-                        return {
-                            text: object && `${object.callsign}
-                                      ${object?.flight_plan?.departure || "N/A"} - ${object?.flight_plan?.arrival
-                                    || "N/A"}`,
-                            style: {
-                                fontStyle: "bold",
-                                width: "auto",
-                                height: "50px",
-                                padding: "4px",
-                                borderRadius: "10px",
-                                textAlign: "center",
-                                backgroundColor: bgColor,
-                                color: "white",
-                                marginLeft: "15px",
-                                marginBottom: "5px",
-                                zIndex: "100",
-                            }
-                        };
-                    }
-                }}
-                onHover={({ object }) => (isHovering = Boolean(object))}
+                // getTooltip={isTouchScreen ? undefined : debouncedGetTooltip}
+                // onHover={({ object }) => {
+                //     setIsHovering(Boolean(object));
+                // }}
+                // onHover={({ object }) => (isHovering = Boolean(object))}
+                // onHover={(info, event) => {
+                //     console.log("HOver info:", info);
+                //     console.log("Hover event:", event);
+                // }}
                 getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
             />
+
+            {(hoveredTraffic && hoveredTraffic.object) && (
+                <div
+                    className="absolute z-10 pointer-events-none text-xs"
+                    style={{
+                        left: hoveredTraffic.x + 10,
+                        top: hoveredTraffic.y + 10
+                    }}
+                >
+                    {<HoveredTrafficTooltip info={hoveredTraffic.object}/>}
+                </div>
+            )}
 
             {hoveredController &&
                 <ControllerMarkerPopup hoverInfo={hoveredController}/>
