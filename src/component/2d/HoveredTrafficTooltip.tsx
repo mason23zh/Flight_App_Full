@@ -7,30 +7,49 @@ interface HoveredTrafficTooltipProps {
 
 const HoveredTrafficTooltip = ({ info }: HoveredTrafficTooltipProps) => {
     return (
-        <div className="flex flex-col p-1 bg-gray-500 text-gray-100">
-            <div className="flex gap-2 items-center justify-between border-b">
-                <div>
-                    {info.callsign}
+        <div className="w-64 rounded-lg bg-gray-900 p-4 text-white shadow-md">
+            <div className="mb-2 flex items-center justify-between">
+                <p className="text-lg font-bold text-blue-500">CAA123</p>
+                <p className="text-sm text-gray-400">B77W</p>
+            </div>
+
+            <hr className="my-2 border-gray-700"/>
+
+
+            <div className="mb-4 grid grid-cols-3 items-center gap-3">
+                <div className="text-center">
+                    <p className="text-sm font-bold">EGLL</p>
+                    <p className="text-xs text-gray-400">London asdfasdf asdf</p>
                 </div>
-                <div>
-                    |
-                </div>
-                <div>
-                    {info?.flight_plan?.aircraft_short || "-"}
+
+                <hr className="my-5 border-gray-700"/>
+
+                <div className="text-center">
+                    <p className="text-sm font-bold">EGKK</p>
+                    <p className="text-xs text-gray-400">Frankfurt</p>
                 </div>
             </div>
 
 
-            <div className="flex gap-2">
-                <div>
-                    {info?.flight_plan?.departure}
+            <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="rounded bg-gray-800 p-2">
+                    <p className="text-sm font-bold">GS</p>
+                    <p className="text-sm">420 kts</p>
                 </div>
-                <div>-</div>
-                <div>
-                    {info?.flight_plan?.arrival}
+
+                <div className="rounded bg-gray-800 p-2">
+                    <p className="text-sm font-bold">Altitude</p>
+                    <p className="text-sm">20000 ft</p>
+                </div>
+
+                <div className="rounded bg-gray-800 p-2">
+                    <p className="text-sm font-bold">Heading</p>
+                    <p className="text-sm">050°</p>
                 </div>
             </div>
         </div>
+
+
     );
 };
 
