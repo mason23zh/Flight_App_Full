@@ -77,8 +77,7 @@ const MainDeckGlLayer = ({
     // let isHovering = false;
 
     const [isHovering, setIsHovering] = useState<boolean>(false);
-    const [hoverInfo, setHoverInfo] =
-            useState<{ object: VatsimFlight | null; x: number; y: number } | null>(null);
+
     const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
@@ -113,27 +112,14 @@ const MainDeckGlLayer = ({
         isError: isTraconError
     } = useSelector((state: RootState) => state.matchedTracons);
 
-    //DISPLAY TEST DATA
-    // useEffect(() => {
-    //     if (map) {
-    //         map.on("dragstart", () => {
-    //             map.getCanvas().style.cursor = "pointer";
-    //         });
-    //     }
-    // }, [map]);
-
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
     const [hoveredObject, setHoveredObject] = useState<VatsimFlight | null>(null);
-    // State for tooltip position
-    const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
-
 
     const handleHover = (info: PickingInfo) => {
         setHoveredTraffic(info);
     };
-
 
     const getViewPort = (map: mapboxgl.Map) => {
         //Need to check canvas here, because the canvas will be gone after Map unmount.
@@ -316,15 +302,6 @@ const MainDeckGlLayer = ({
                 onClick={(info: PickedTraffic) => deckOnClick(info)}
                 layers={layers}
                 pickingRadius={10}
-                // getTooltip={isTouchScreen ? undefined : debouncedGetTooltip}
-                // onHover={({ object }) => {
-                //     setIsHovering(Boolean(object));
-                // }}
-                // onHover={({ object }) => (isHovering = Boolean(object))}
-                // onHover={(info, event) => {
-                //     console.log("HOver info:", info);
-                //     console.log("Hover event:", event);
-                // }}
                 getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
             />
 

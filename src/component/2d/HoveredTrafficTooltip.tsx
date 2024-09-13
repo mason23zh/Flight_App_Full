@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { VatsimFlight } from "../../types";
+import calculateFlightProgress from "../../util/calculateFlightProgressBasedOnTime";
+import HoveredTrafficTooltipFlightProgressBar from "./HoveredTrafficTooltipFlightProgressBar";
 
 interface HoveredTrafficTooltipProps {
     info: VatsimFlight;
 }
 
 const HoveredTrafficTooltip = ({ info }: HoveredTrafficTooltipProps) => {
+    const progress = useMemo(() => calculateFlightProgress(info), [info?.callsign]);
+
     return (
         <div className="w-64 rounded-lg bg-gray-900 p-4 text-white shadow-md">
             <div className="mb-2 flex items-center justify-between">
@@ -15,7 +19,6 @@ const HoveredTrafficTooltip = ({ info }: HoveredTrafficTooltipProps) => {
 
             <hr className="my-2 border-gray-700"/>
 
-
             <div className="mb-4 grid grid-cols-3 items-center gap-3">
                 <div className="text-center">
                     <p className="text-sm font-bold">
@@ -23,7 +26,10 @@ const HoveredTrafficTooltip = ({ info }: HoveredTrafficTooltipProps) => {
                     </p>
                 </div>
 
-                <hr className="my-5 border-gray-700"/>
+                {/* <hr className="my-5 border-gray-700"/> */}
+                <div className="w-full">
+                    <HoveredTrafficTooltipFlightProgressBar progress={progress}/>
+                </div>
 
                 <div className="text-center">
                     <p className="text-sm font-bold">
