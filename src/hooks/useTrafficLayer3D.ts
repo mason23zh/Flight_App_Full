@@ -1,6 +1,7 @@
 import { VatsimFlight } from "../types";
 import airplane_model from "../assets/models/airplane.glb";
 import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
+import { PickingInfo } from "@deck.gl/core/typed";
 
 
 const ANIMATIONS = {
@@ -9,7 +10,8 @@ const ANIMATIONS = {
 
 const useTrafficLayer3D = (
     data: Array<VatsimFlight>,
-    visible: boolean
+    visible: boolean,
+    onHover: (info: PickingInfo) => void
 ) => {
     if (!data || data.length === 0) return null;
 
@@ -25,6 +27,13 @@ const useTrafficLayer3D = (
         data,
         pickable: true,
         sizeScale: 20,
+        onHover: (info: PickingInfo) => {
+            if (info.object) {
+                onHover(info);
+            } else {
+                onHover(null);
+            }
+        },
         scenegraph: airplane_model,
         _animations: ANIMATIONS,
         sizeMinPixels: 0.3,

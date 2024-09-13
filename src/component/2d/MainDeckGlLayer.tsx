@@ -76,8 +76,6 @@ const MainDeckGlLayer = ({
 
     // let isHovering = false;
 
-    const [isHovering, setIsHovering] = useState<boolean>(false);
-
     const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
@@ -114,8 +112,6 @@ const MainDeckGlLayer = ({
 
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
-
-    const [hoveredObject, setHoveredObject] = useState<VatsimFlight | null>(null);
 
     const handleHover = (info: PickingInfo) => {
         setHoveredTraffic(info);
@@ -278,7 +274,7 @@ const MainDeckGlLayer = ({
     const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
     const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
-    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
+    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible, handleHover);
     const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible, handleHover);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
@@ -293,8 +289,6 @@ const MainDeckGlLayer = ({
         localFlightLayer //localFlightLayer will on top
     ];
 
-    console.log("Hover info:", hoveredObject);
-
     return (
         <>
             <DeckGlOverlay
@@ -302,10 +296,10 @@ const MainDeckGlLayer = ({
                 onClick={(info: PickedTraffic) => deckOnClick(info)}
                 layers={layers}
                 pickingRadius={10}
-                getCursor={({ isDragging }) => (isDragging ? "auto" : (isHovering ? "pointer" : "grab"))}
+                getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
-            {(hoveredTraffic && hoveredTraffic.object) && (
+            {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (
                 <div
                     className="absolute z-10 pointer-events-none text-xs"
                     style={{

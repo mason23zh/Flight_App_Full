@@ -40,7 +40,6 @@ const useTrafficLayer2D = (
         sizeScale: 5,
         onHover: (info: PickingInfo) => {
             if (info.object) {
-                console.log("Hover info layer:", info);
                 onHover(info);
             } else {
                 onHover(null);
