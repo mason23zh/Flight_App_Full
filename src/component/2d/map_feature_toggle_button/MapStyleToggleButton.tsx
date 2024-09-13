@@ -105,7 +105,7 @@ const MapStyleToggleButton = ({
 
     useEffect(() => {
         setMapStyle(mapStyles);
-    }, [mapStyles]);
+    }, [mapStyles, map]);
 
     const inactiveButtonClass = isTouchScreen ?
         "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :

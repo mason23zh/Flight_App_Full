@@ -39,9 +39,7 @@ const calculateFlightProgress = (flight: VatsimFlight): number => {
 
     // Calculate progress percentage
     const progress = Math.min(Math.max((elapsedTime / totalFlightDuration) * 100, 0), 100); // Ensure it stays between 0-100%
-
-    console.log("Progress:", progress);
-
+ 
     return progress;
 };
 export default calculateFlightProgress;
