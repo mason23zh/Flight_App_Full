@@ -27,7 +27,7 @@ const FlightPlanPanel = ({
 
     return (
         <div className="bg-gray-500/30 p-3 backdrop-blur-lg
-        font-Rubik text-sm text-white text-center max-w-screen-xl
+        text-sm text-white text-center max-w-screen-xl
         max-h-[400px] mx-auto overflow-y-auto">
             <div className="grid grid-rows-1 gap-5 h-auto">
                 <div className="grid grid-cols-[min-content_1fr] gap-8 items-start">
