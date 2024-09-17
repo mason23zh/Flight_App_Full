@@ -34,7 +34,9 @@ function VatsimEventsList({
     }
 
     return (
-        <div className="flex flex-col gap-2 overflow-y-auto h-[calc(100vh-100px)] p-3 min-w-[280px] sm:min-w-[350px]">
+        <div className="flex flex-col 
+        gap-2 overflow-y-auto 
+        p-3 min-w-[280px] sm:min-w-[350px] h-[calc(100vh-80px)] max-h-full">
             {eventsList}
         </div>
     );

@@ -37,15 +37,15 @@ function VatsimEventDetail({ onlyDetail }) {
     const renderEventJumpBackButton = () => {
         if (onlyDetail) {
             return (
-                    <div
-                            onClick={handleClick}
-                            className="flex items-center gap-1 ml-5 p-1 mt-3 text-lg hover:text-cyan-600 hover:cursor-pointer"
-                    >
-                        <div>
-                            <HiOutlineArrowNarrowLeft size={20}/>
-                        </div>
-                        <div className="font-bold">Events</div>
+                <div
+                    onClick={handleClick}
+                    className="flex items-center gap-1 ml-5 p-1 mt-3 text-lg hover:text-cyan-600 hover:cursor-pointer"
+                >
+                    <div>
+                        <HiOutlineArrowNarrowLeft size={20}/>
                     </div>
+                    <div className="font-bold">Events</div>
+                </div>
             );
         }
         return <></>;
@@ -54,80 +54,80 @@ function VatsimEventDetail({ onlyDetail }) {
     const renderTime = (startTime, endTime, utcFlag) => {
         if (startTime && endTime && utcFlag) {
             return (
-                    <div>{moment(startTime)
-                            .utc()
-                            .format("D MMM")} @ {moment(startTime)
-                            .utc()
-                            .format("HH:mm")} to {moment(endTime)
-                            .utc()
-                            .format("HH:mm")} (UTC)
-                    </div>
+                <div>{moment(startTime)
+                    .utc()
+                    .format("D MMM")} @ {moment(startTime)
+                    .utc()
+                    .format("HH:mm")} to {moment(endTime)
+                    .utc()
+                    .format("HH:mm")} (UTC)
+                </div>
             );
         }
         if (startTime && endTime && !utcFlag) {
             return (
-                    <div>{moment(startTime)
-                            .format("D MMM")} @ {moment(startTime)
-                            .format("HH:mm")} to {moment(endTime)
-                            .format("HH:mm")} (Local)
-                    </div>
+                <div>{moment(startTime)
+                    .format("D MMM")} @ {moment(startTime)
+                    .format("HH:mm")} to {moment(endTime)
+                    .format("HH:mm")} (Local)
+                </div>
             );
         }
         return (<></>);
     };
 
     const renderImage = (
-            <div>
-                <img className="w-[810px] rounded-xl" src={event.banner} alt={event.name}/>
-            </div>
+        <div>
+            <img className="w-[810px] rounded-xl" src={event.banner} alt={event.name}/>
+        </div>
     );
 
     if (!_.isEmpty(event)) {
         renderAirportList = event.airports.map((airport) => (
-                <div key={airport.icao}>
-                    <div className="rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1">
-                        <a href={`airport/detail/${airport.icao}`}>
-                            {airport.icao}
-                        </a>
-                    </div>
+            <div key={airport.icao}>
+                <div className="rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1">
+                    <a href={`airport/detail/${airport.icao}`}>
+                        {airport.icao}
+                    </a>
                 </div>
+            </div>
         ));
     }
 
     return (
-            <CustomProvider theme={darkTheme ? "dark" : "light"}>
-                {renderEventJumpBackButton()}
-                <div className="flex justify-center">
-                    <div className="p-10 grid grid-cols-1 lg:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
-                        <div className="col-span-3">
-                            <div className="grid grid-cols-1 gap-3">
-                                <div className="text-3xl sm:text-5xl justify-self-start font-bold">
-                                    {event.name}
-                                </div>
-                                <div className="text-md sm:text-xl justify-self-start">
-                                    {renderTime(event.start_time, event.end_time, false)}
-                                </div>
-                                <div className="flex gap-1 justify-self-start">
-                                    {renderAirportList}
-                                </div>
-                                <div className="justify-self-start">
-                                    {renderImage}
-                                </div>
+        <CustomProvider theme={darkTheme ? "dark" : "light"}>
+            {renderEventJumpBackButton()}
+            <div className="flex justify-center">
+                <div className="p-10 grid grid-cols-1 lg:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
+                    <div className="col-span-3">
+                        <div className="grid grid-cols-1 gap-3">
+                            <div className="text-3xl sm:text-5xl justify-self-start font-bold">
+                                {event.name}
+                            </div>
+                            <div className="text-md sm:text-xl justify-self-start">
+                                {renderTime(event.start_time, event.end_time, false)}
+                            </div>
+                            <div className="flex gap-1 justify-self-start">
+                                {renderAirportList}
+                            </div>
+                            <div className="justify-self-start">
+                                {renderImage}
                             </div>
                         </div>
-                        <div className="col-span-2">
-                            <div className="grid grid-cols-1 gap-2">
-                                <div className="text-xl sm:text-2xl justify-self-start font-bold">
-                                    DESCRIPTION
-                                </div>
-                                <div className="text-md sm:text-xl overflow-hidden">
-                                    <div dangerouslySetInnerHTML={{ __html: event.description }}/>
-                                </div>
+                    </div>
+                    <div className="col-span-2">
+                        <div className="grid grid-cols-1 gap-2">
+                            <div className="text-xl sm:text-2xl justify-self-start font-bold">
+                                DESCRIPTION
+                            </div>
+                            <div className="text-md sm:text-xl overflow-hidden">
+                                <div dangerouslySetInnerHTML={{ __html: event.description }}/>
                             </div>
                         </div>
                     </div>
                 </div>
-            </CustomProvider>
+            </div>
+        </CustomProvider>
     );
 }
 

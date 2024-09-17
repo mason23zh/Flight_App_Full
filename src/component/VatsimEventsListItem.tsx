@@ -23,22 +23,26 @@ function VatsimEventsListItem({
         if (darkMode && (storeEvent.id === currentEvent.id)) {
             generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-500 rounded-xl relative "
                     + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-300 duration-300";
+                    + "hover:scale-100 hover:bg-indigo-400 duration-300";
         } else if (darkMode && (storeEvent.id !== currentEvent.id)) {
-            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-400 rounded-xl relative "
-                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-500 duration-300";
-        } else if (!darkMode && (storeEvent.id === currentEvent.id)) {
-            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-400 rounded-xl relative "
+            generatedTheme = "grid grid-cols-1 p-3 border-[1px] bg-gray-500 rounded-xl relative "
                     + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
                     + "hover:scale-100 hover:bg-indigo-400 duration-300";
+        } else if (!darkMode && (storeEvent.id === currentEvent.id)) {
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-400 rounded-xl relative "
+                    + "transition ease-in-out delay-50 bg-blue-400 hover:-translate-y-1 "
+                    + "hover:scale-100 hover:bg-indigo-400 duration-300 text-gray-100";
         } else if (!darkMode && (storeEvent.id !== currentEvent.id)) {
-            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-200 rounded-xl relative "
+            generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-300 rounded-xl relative "
                     + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-500 duration-300";
+                    + "hover:scale-100 hover:bg-indigo-300 duration-300";
         }
         return generatedTheme;
     };
+
+    const airportIconStyle = darkMode
+        ? "rounded-xl border-2 bg-blue-500 border-blue-200 opacity-90 p-1"
+        : "rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1";
 
     const {
         name,
@@ -88,7 +92,7 @@ function VatsimEventsListItem({
     if (event.airports && event.airports.length !== 0) {
         renderAirportList = event.airports.map((airport) => (
             <div key={Math.random()}>
-                <div className="rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1">
+                <div className={airportIconStyle}>
                     <Link to={`/airport/detail/${airport.icao}`}>
                         {airport.icao}
                     </Link>

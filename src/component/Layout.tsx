@@ -5,7 +5,8 @@ import Navbar from "./Navbar";
 
 function Layout() {
     const location = useLocation();
-    const showFooter = location.pathname !== "/map";
+    const showFooter = (location.pathname !== "/map") && (location.pathname !== "/vatsim/events");
+    // const showFooter = location.pathname !== "/vatsim/events";
     // const showFooter = true;
 
     return (
