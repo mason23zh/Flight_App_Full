@@ -11,10 +11,15 @@ import { Event } from "../types";
 interface PartialEvent extends Partial<Event> {
 }
 
+interface Props {
+    event: Event,
+    onClick: (e: Event) => void,
+}
+
 function VatsimEventsListItem({
     event,
-    onClick
-}) {
+    onClick,
+}: Props) {
     const darkMode = useTheme();
     const dispatch = useDispatch();
     const e: PartialEvent = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);
@@ -89,7 +94,7 @@ function VatsimEventsListItem({
         return (<></>);
     };
 
-    if (event.airports && event.airports.length !== 0) {
+    if (event.airports && event.airports.length) {
         renderAirportList = event.airports.map((airport) => (
             <div key={Math.random()}>
                 <div className={airportIconStyle}>
@@ -121,8 +126,12 @@ function VatsimEventsListItem({
         onClick(event);
     };
 
+
     return (
-        <div className={generateTheme(e, event)} onClick={handleClick}>
+        <div
+            className={generateTheme(e, event)}
+            onClick={handleClick}
+        >
             {renderInProgress(start_time, end_time)}
 
             <div className="justify-self-start">
