@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Event, VatsimControllers, VatsimFlight, VatsimTrackTraffic } from "../../types/";
 
 
-interface EventResponse {
+export interface EventResponse {
     result: number,
     events: [Event]
 }

@@ -82,10 +82,14 @@ function VatsimEventDetail({ onlyDetail }) {
         </div>
     );
 
+    const airportStyle = darkTheme
+        ? "rounded-xl border-2 bg-blue-500 border-blue-200 opacity-90 p-1"
+        : "rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1";
+
     if (!_.isEmpty(event)) {
         renderAirportList = event.airports.map((airport) => (
             <div key={airport.icao}>
-                <div className="rounded-xl border-2 bg-blue-400 border-blue-200 opacity-90 p-1">
+                <div className={airportStyle}>
                     <a href={`airport/detail/${airport.icao}`}>
                         {airport.icao}
                     </a>

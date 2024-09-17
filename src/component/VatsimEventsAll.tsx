@@ -50,6 +50,14 @@ function VatsimEventsAll() {
         eventsList = <div>Error Loading Vatsim Events</div>;
     }
 
+    const scrollBarStyle = darkTheme
+        ?
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        :
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
             <div className={`h-[calc(100vh-56px)] flex flex-col ${darkTheme ? "bg-gray-900" : "bg-gray-200"}`}>
@@ -78,7 +86,7 @@ function VatsimEventsAll() {
                         {eventsList}
                     </div>
                     {/* Event Details Section */}
-                    <div className="w-full md:w-2/3 p-4 overflow-y-auto">
+                    <div className={`w-full md:w-2/3 p-4 overflow-y-auto ${scrollBarStyle}`}>
                         <VatsimEventDetail onlyDetail={false}/>
                     </div>
                 </div>
