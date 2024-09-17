@@ -78,7 +78,7 @@ const FirLabelPopup = ({
             anchor="bottom"
         >
 
-            <div className={`w-full p-2 font-Rubik rounded-xl ${colorTheme}`}>
+            <div className={`w-full p-2 rounded-xl ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
                     <div className="text-[17px] font-bold">
                         {hoverFir.firInfo.icao}

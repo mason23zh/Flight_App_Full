@@ -15,7 +15,7 @@ const OtherDataBlock = ({
 }: OtherDataBlockProps) => {
     if (!flight_plan) {
         return (
-            <div className="font-Rubik text-sm text-white text-center"
+            <div className="text-sm text-white text-center"
             >
                 No Flight Plan Available For This Flight
             </div>

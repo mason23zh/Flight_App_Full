@@ -83,7 +83,7 @@ const OverallDataBlock = ({
                     {
                         airlinerInfo &&
                         <div
-                            className="text-white text-xs md:text-sm font-Rubik flex items-center gap-1">
+                            className="text-white text-xs md:text-sm flex items-center gap-1">
                             {airlinerInfo.name}
 
                             <div

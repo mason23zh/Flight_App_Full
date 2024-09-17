@@ -77,7 +77,7 @@ const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
             closeButton={false}
             anchor="bottom"
         >
-            <div className={`w-full p-2 rounded-lg border-0 font-Rubik ${colorTheme}`}>
+            <div className={`w-full p-2 rounded-lg border-0 ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-max">
                     <div className="text-sm font-bold">
                         {traconName}

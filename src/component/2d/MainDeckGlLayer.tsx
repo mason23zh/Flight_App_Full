@@ -278,14 +278,13 @@ const MainDeckGlLayer = ({
     const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible, handleHover);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
-    //TODO: Change flight path to top
     const layers = [
-        trackLayer,
         trafficLayer2D,
         trafficLayer3D,
         controllerIconLayer,
         traconIconLayer,
         firIconLayer,
+        trackLayer,
         localFlightLayer //localFlightLayer will on top
     ];
 

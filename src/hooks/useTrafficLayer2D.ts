@@ -35,6 +35,7 @@ const useTrafficLayer2D = (
             return aircraftSpriteSheetMapping[icon] ? icon : "CL60";
         },
         autoHighlight: true,
+        // highlightColor: [255, 128, 0],
         iconAtlas: aircraftSpriteSheetPNG,
         iconMapping: aircraftSpriteSheetMapping,
         sizeScale: 5,

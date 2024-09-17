@@ -86,7 +86,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             // offset={markerOffsetObject}
         >
             <div className={`grid grid-cols-1 justify-center items-center
-            gap-1 p-1 sm:p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
+            gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}
             >
                 <div className="justify-self-start italic
                 font-bold text-sm sm:text-lg">

@@ -90,7 +90,7 @@ function ExpandableContentAirportInfo({
     const airportTransAltitude = airportData.transitionAltitude;
 
     const renderedRunways = airportData.runways.map((runways) => (
-        <div key={runways.runway_id} className="p-3 flex flex-col font-Rubik">
+        <div key={runways.runway_id} className="p-3 flex flex-col">
             <div className="italic font-bold">
                 Runway {runways.runway_id}
             </div>
@@ -131,7 +131,7 @@ function ExpandableContentAirportInfo({
     };
 
     return (
-        <div className="text-sm p-3 md:text-lg">
+        <div className="text-sm p-3 md:text-lg font-Rubik">
             <div className="flex flex-col justify-center items-center gap-2">
                 <div>
                     {row.raw_text}

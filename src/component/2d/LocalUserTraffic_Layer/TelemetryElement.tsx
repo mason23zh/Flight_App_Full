@@ -12,7 +12,7 @@ const TelemetryElement = ({
     telemetryUnit
 }: TelemetryElementProps) => {
     return (
-        <div className="font-Rubik px-2 py-1 w-full grid grid-rows-2 justify-center
+        <div className="px-2 py-1 w-full grid grid-rows-2 justify-center
         bg-gray-500 text-gray-100 rounded-lg items-center">
             <div className="text-xs">{telemetryName}</div>
             <div className="justify-self-center">

@@ -18,7 +18,7 @@ const FlightStatusFlag = ({ progress }) => {
 
     return (
         <div className="absolute top-0 right-0 rounded-bl-md
-        bg-blue-400 px-3 text-md font-Rubik font-bold">
+        bg-blue-400 px-3 text-md font-bold">
             {status}
         </div>
     );

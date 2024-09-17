@@ -53,7 +53,7 @@ const MapFeaturesToggleButtonGroup = ({
     }, [mapRef]);
 
     const setMapFeatures = (map: mapboxgl.Map, flag: boolean, tag: Tag) => {
-        if (mapRef) {
+        if (map) {
             switch (tag) {
             case "LABEL":
                 switchMapLabels(map, flag);

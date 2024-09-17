@@ -65,7 +65,7 @@ const SearchBoxAirportElement = ({
                        hover:bg-gray-600 hover:rounded-lg border-b
                        border-slate-400"
             >
-                <div className="flex items-center text-[16px] font-Rubik">
+                <div className="flex items-center text-[16px]">
                     <div>
                         {airport.ident}
                     </div>

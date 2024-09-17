@@ -30,7 +30,7 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
 
     return (
         <div
-            className="grid grid-cols-4 items-center font-Rubik">
+            className="grid grid-cols-4 items-center">
             <div className="col-span-3 grid grid-cols-1 justify-self-start gap-1">
                 <div className="text-[15px] pl-1">
                     {airport.name}

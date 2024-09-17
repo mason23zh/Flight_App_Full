@@ -1,11 +1,10 @@
 import { VatsimFlight } from "../types";
 import airplane_model from "../assets/models/airplane.glb";
-import { ScenegraphLayer } from "@deck.gl/mesh-layers/typed";
+import { ScenegraphLayer, ScenegraphLayerProps } from "@deck.gl/mesh-layers/typed";
 import { PickingInfo } from "@deck.gl/core/typed";
 
-
-const ANIMATIONS = {
-    "*": { speed: 1 },
+const ANIMATIONS: ScenegraphLayerProps["_animations"] = {
+    "*": { speed: 1 }
 };
 
 const useTrafficLayer3D = (

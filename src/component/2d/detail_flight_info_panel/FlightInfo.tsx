@@ -64,7 +64,7 @@ const FlightInfo = () => {
             progress = Math.round((1 - (toGoDistance / totalDistance)) * 100);
         }
 
-        const style = "z-[200] font-Rubik absolute left-1/2 top-0 translate-x-[-50%] " +
+        const style = "z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
                 "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
                 "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
 
