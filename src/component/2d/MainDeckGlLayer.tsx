@@ -37,14 +37,6 @@ import { debounce } from "lodash";
 import HoveredTrafficTooltip from "./HoveredTrafficTooltip";
 
 
-//TODO: clear the selected tracffic if comoponet first mountede, or navigated from other page
-
-type HoverTrafficType = {
-    position: [longitude: number, latitude: number];
-    info: VatsimFlight | null;
-}
-
-
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
     controllerData: VatsimControllers;
@@ -74,7 +66,6 @@ const MainDeckGlLayer = ({
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
 
-    // let isHovering = false;
 
     const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
@@ -279,12 +270,12 @@ const MainDeckGlLayer = ({
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
     const layers = [
+        trackLayer,
         trafficLayer2D,
         trafficLayer3D,
         controllerIconLayer,
         traconIconLayer,
         firIconLayer,
-        trackLayer,
         localFlightLayer //localFlightLayer will on top
     ];
 
