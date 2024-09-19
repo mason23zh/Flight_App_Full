@@ -19,6 +19,14 @@ export const useInitializeDatabase = () => {
     useEffect(() => {
         const initializeDatabase = async () => {
             try {
+                db.on("versionchange", (event) => {
+                    console.log(`Database version change detected. Old version: ${event.oldVersion}`);
+                    db.delete()
+                        .then(() => {
+                            console.log("Old database deleted. Reloading the page with new version.");
+                        });
+                });
+
                 // import airport
                 const airportCount = await db.airports.count();
                 if (airportCount === 0) {
@@ -74,6 +82,10 @@ export const useInitializeDatabase = () => {
         };
 
         initializeDatabase();
+
+        return () => {
+            db.on("versionchange", null);
+        };
     }, []);
 
     return isInitialized;
