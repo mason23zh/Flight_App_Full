@@ -1,10 +1,13 @@
-import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import { Map, NavigationControl, MapProvider, MapRef } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
+import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
+import GeneralLoading from "../../GeneralLoading";
+import { useTheme } from "../../../hooks/ThemeContext";
 
 interface BaseMapProps {
     children: React.ReactNode;
@@ -12,6 +15,9 @@ interface BaseMapProps {
 
 const BaseMap = ({ children }: BaseMapProps) => {
     const mapRef = useRef<MapRef | null>(null);
+    const darkMode = useTheme();
+    const isDatabaseInitialized = useInitializeDatabase();
+    console.log("is database initialized:", isDatabaseInitialized);
 
     const {
         terrainEnable,
@@ -66,6 +72,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
         };
     }, []);
 
+
+    if (!isDatabaseInitialized) {
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
+    }
 
     /*
     * Default Projection: mercator

@@ -62,7 +62,7 @@ const TraconLayer = ({
                     url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
                 >
                     <Layer {...activeTraconOutlineStyle}/>
-                    {hoveredTracon && <Layer {...activeHoverTraconLayerStyle}/>}
+                    {(hoveredTracon && hoveredTracon.traconInfo.id) && <Layer {...activeHoverTraconLayerStyle}/>}
                 </Source>
 
                 {fallbackGeoJson &&

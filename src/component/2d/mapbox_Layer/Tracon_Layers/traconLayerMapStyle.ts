@@ -25,7 +25,7 @@ export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): Line
 export const activeTraconFillLayerStyle = (hoverInfo: HoverTracon | null): FillLayer => {
     const hoverTraconId = hoverInfo ? hoverInfo.traconInfo.id : null;
     const hoverCallsignPrefix = hoverInfo ? hoverInfo.traconInfo.callsignPrefix : null;
- 
+
     return {
         id: "tracon-fill-layer",
         type: "fill",
@@ -61,9 +61,9 @@ export const activeTraconFillLayerStyle = (hoverInfo: HoverTracon | null): FillL
 //         "fill-opacity": 0.4,
 //     }
 // };
-
 export const fallBackHighlightTraconFillLayerStyle = (hoverCast: HoverTracon): FillLayer => {
     if (!hoverCast) return null;
+    console.log("Fallback tracon hoverCast:", hoverCast);
     const hoverId = hoverCast.controllers.length > 0 ? hoverCast.controllers[0].callsign : null;
 
     return {

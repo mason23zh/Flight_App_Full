@@ -15,10 +15,8 @@ import {
 } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
-import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import AirportDepartureArrivalDisplay
     from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
-import { CustomProvider } from "rsuite";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
@@ -44,10 +42,6 @@ const MainMap = () => {
         trafficDetailVisible
     } = useSelector((state: RootState) => state.mapDisplayPanel);
 
-
-    //TODO: After indexDB delete, the data won't received
-    //need useEffect or data load event listener to re-apply the data.
-    useInitializeDatabase();
 
     if (!window.WebGLRenderingContext) {
         return (
@@ -149,28 +143,26 @@ const MainMap = () => {
 
 
     return (
-        <CustomProvider theme="light">
-            <div>
-                <BaseMap>
-                    <MapErrorMessageStack/>
-                    <AtcLayer
-                        controllerData={controllerData}
-                        controllerLoading={controllerLoading}
-                        controllerError={controllerError}
-                    />
-                    <BaseDeckGlLayer
-                        controllerData={controllerData}
-                        controllerDataLoading={controllerLoading}
-                        controllerDataError={controllerError}
-                    />
-                    <NexradLayer/>
-                    {dayNightTerminator && <DayNightLayer/>}
-                    {renderFlightInfoPanel()}
-                    {renderAircraftDepartureArrivalDisplayPanel()}
-                    {renderAircraftDisplayPanel()}
-                </BaseMap>
-            </div>
-        </CustomProvider>
+        <div>
+            <BaseMap>
+                <MapErrorMessageStack/>
+                <AtcLayer
+                    controllerData={controllerData}
+                    controllerLoading={controllerLoading}
+                    controllerError={controllerError}
+                />
+                <BaseDeckGlLayer
+                    controllerData={controllerData}
+                    controllerDataLoading={controllerLoading}
+                    controllerDataError={controllerError}
+                />
+                <NexradLayer/>
+                {dayNightTerminator && <DayNightLayer/>}
+                {renderFlightInfoPanel()}
+                {renderAircraftDepartureArrivalDisplayPanel()}
+                {renderAircraftDisplayPanel()}
+            </BaseMap>
+        </div>
     );
 };
 
