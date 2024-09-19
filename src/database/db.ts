@@ -51,6 +51,15 @@ class VatsimLocalDB extends Dexie {
             );
     }
 
+    chunkArray(array: VatsimFlight[], size: number) {
+        const result = [];
+        for (let i = 0; i < array.length; i += size) {
+            result.push(array.slice(i, i + size));
+        }
+
+        return result;
+    }
+
     async syncVatsimTraffic(newData: VatsimFlight[]) {
         const currentKeys = await this.vatsimTraffic.toCollection()
             .primaryKeys();
@@ -80,10 +89,14 @@ class VatsimLocalDB extends Dexie {
             }
         });
 
-        await this.transaction("rw", this.vatsimTraffic, async () => {
-            await this.vatsimTraffic.bulkPut(updatedData);
-            await this.vatsimTraffic.bulkDelete(keysToRemove);
-        });
+        const chunks = this.chunkArray(updatedData, 500);
+
+        for (const chunk of chunks) {
+            await this.transaction("rw", this.vatsimTraffic, async () => {
+                await this.vatsimTraffic.bulkPut(chunk);
+                await this.vatsimTraffic.bulkDelete(keysToRemove);
+            });
+        }
     }
 
     async loadAirports(newData: LocalDbAirport[]) {

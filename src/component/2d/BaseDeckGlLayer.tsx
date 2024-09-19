@@ -56,13 +56,27 @@ const BaseDeckGlLayer = ({
 
     // Import vatsim pilots into Dexie
     useEffect(() => {
-        if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading) {
-            db.syncVatsimTraffic(vatsimPilots.data.pilots)
-                .catch(err => {
-                    console.log("Failed to import vatsim traffic to db:", err);
-                });
-        }
+        let isMounted = true;
+
+        const syncTraffic = async () => {
+            if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading && isMounted) {
+                try {
+                    await db.syncVatsimTraffic(vatsimPilots.data.pilots);
+                } catch (err) {
+                    if (isMounted) {
+                        console.log("Failed to import VATSIM traffic to db:", err);
+                    }
+                }
+            }
+        };
+
+        syncTraffic();
+
+        return () => {
+            isMounted = false;
+        };
     }, [vatsimPilotsLoading, vatsimPilots, vatsimPilotsError]);
+
 
     useEffect(() => {
         if (vatsimPilotsError) {
