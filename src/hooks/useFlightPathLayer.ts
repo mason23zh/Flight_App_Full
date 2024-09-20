@@ -44,31 +44,34 @@ const useFlightPathLayer = (
         return track;
     }, [data, selectTraffic, trafficData, terrainEnable]);
 
-    return new LineLayer({
-        id: "flight-path",
-        data: formatTrack,
-        getColor: () => [255, 140, 0],
-        getSourcePosition: (d) => d.from.coordinates,
-        getTargetPosition: (d) => d.to.coordinates,
-        getWidth: 3,
-        widthMaxPixels: Number.MAX_SAFE_INTEGER,
-        widthMinPixels: 0,
-        widthScale: 1,
-        widthUnits: "pixels",
-        // autoHighlight: false,
-        // coordinateOrigin: [0, 0, 0],
-        coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
-        highlightColor: [0, 0, 128, 128],
-        modelMatrix: null,
-        opacity: 1,
-        pickable: false,
-        visible: visible,
-        wrapLongitude: true,
-        updateTriggers: {
-            getSourcePosition: formatTrack.map(t => t.from.coordinates.join(",")),  // Trigger update when track changes
-            getTargetPosition: formatTrack.map(t => t.to.coordinates.join(",")),  // Trigger update when track changes
-        }
-    });
+    return useMemo(() => {
+
+        return new LineLayer({
+            id: "flight-path",
+            data: formatTrack,
+            getColor: () => [255, 140, 0],
+            getSourcePosition: (d) => d.from.coordinates,
+            getTargetPosition: (d) => d.to.coordinates,
+            getWidth: 3,
+            widthMaxPixels: Number.MAX_SAFE_INTEGER,
+            widthMinPixels: 0,
+            widthScale: 1,
+            widthUnits: "pixels",
+            // autoHighlight: false,
+            // coordinateOrigin: [0, 0, 0],
+            coordinateSystem: COORDINATE_SYSTEM.LNGLAT,
+            highlightColor: [0, 0, 128, 128],
+            modelMatrix: null,
+            opacity: 1,
+            pickable: false,
+            visible: visible,
+            wrapLongitude: true,
+            updateTriggers: {
+                getSourcePosition: formatTrack.map(t => t.from.coordinates.join(",")),  // Trigger update when track changes
+                getTargetPosition: formatTrack.map(t => t.to.coordinates.join(",")),  // Trigger update when track changes
+            }
+        });
+    }, [data, selectTraffic, trafficData, terrainEnable]);
 };
 
 export default useFlightPathLayer;

@@ -131,40 +131,41 @@ const useControllerIconLayer = (
     }, [controllerData]);
 
 
-    return new IconLayer({
-        id: "controller-icon-layer",
-        data: iconData,
-        pickable: true,
-        visible: visible,
-        getPosition: d => d.position,
-        getIcon: d => ({
-            url: d.iconUrl,
-            width: 130,
-            height: 80,
-            anchorY: 60,
-            anchorX: 50,
-        }),
-        sizeScale: 1,
-        getSize: () => 29,
-        // onHover: d => onHoverCallback(d.serviceInfo),
-        onHover: ({
-            object,
-        }) => {
-            if (object) {
-                debouncedHover(object.serviceInfo);
-            } else {
-                debouncedHover(null);
+    return useMemo(() => {
+        return new IconLayer({
+            id: "controller-icon-layer",
+            data: iconData,
+            pickable: true,
+            visible: visible,
+            getPosition: d => d.position,
+            getIcon: d => ({
+                url: d.iconUrl,
+                width: 130,
+                height: 80,
+                anchorY: 60,
+                anchorX: 50,
+            }),
+            sizeScale: 1,
+            getSize: () => 29,
+            // onHover: d => onHoverCallback(d.serviceInfo),
+            onHover: ({
+                object,
+            }) => {
+                if (object) {
+                    debouncedHover(object.serviceInfo);
+                } else {
+                    debouncedHover(null);
+                }
+            },
+            // getColor: () => [0, 0, 0, 255],
+            parameters: { depthTest: false },
+            updateTriggers: {
+                getIcon: iconData?.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
+                    .join(",")}`)
+                    .join("-"),
             }
-        },
-        // getColor: () => [0, 0, 0, 255],
-        parameters: { depthTest: false },
-        updateTriggers: {
-            getIcon: iconData?.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
-                .join(",")}`)
-                .join("-"),
-        }
-    });
-
+        });
+    }, [controllerData, visible]);
 };
 
 export default useControllerIconLayer;

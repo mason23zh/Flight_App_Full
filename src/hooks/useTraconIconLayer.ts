@@ -13,8 +13,6 @@ const useTraconIconLayer = (
     visible: boolean) => {
     const dispatch = useDispatch();
 
-    console.log("use tracon icon layer run.");
-
     const matchedIconData = useMemo(() => {
         const data = (!matchedTracon || matchedTracon.length === 0)
             ? []
@@ -92,33 +90,35 @@ const useTraconIconLayer = (
     }), []);
 
 
-    return new IconLayer({
-        id: "tracon-icon-layer",
-        data: [...matchedIconData, ...fallBackIconData],
-        pickable: true,
-        visible: visible,
-        getPosition: d => d.position,
-        getIcon,
-        sizeScale: 0.8,
-        getSize: () => 28,
-        onHover: ({ object }) => {
-            if (object) {
-                debouncedHover(object.traconInfo);
-            } else {
-                debouncedHover(null);
-            }
-        },
-        updateTriggers: {
-            getIcon: {
-                matched: matchedTracon.map((tracon) => tracon.traconInfo.id)
-                    .join("-"),
-                fallback: matchedFallbackTracon.map((tracon) => tracon.controllers[0]?.callsign.slice(0, -4))
-                    .join("-"),
+    return useMemo(() => {
+        return new IconLayer({
+            id: "tracon-icon-layer",
+            data: [...matchedIconData, ...fallBackIconData],
+            pickable: true,
+            visible: visible,
+            getPosition: d => d.position,
+            getIcon,
+            sizeScale: 0.8,
+            getSize: () => 28,
+            onHover: ({ object }) => {
+                if (object) {
+                    debouncedHover(object.traconInfo);
+                } else {
+                    debouncedHover(null);
+                }
             },
-        },
-        // getColor: () => [0, 0, 0, 255],
-        // parameters: { depthTest: false }
-    });
+            updateTriggers: {
+                getIcon: {
+                    matched: matchedTracon.map((tracon) => tracon.traconInfo.id)
+                        .join("-"),
+                    fallback: matchedFallbackTracon.map((tracon) => tracon.controllers[0]?.callsign.slice(0, -4))
+                        .join("-"),
+                },
+            },
+            // getColor: () => [0, 0, 0, 255],
+            // parameters: { depthTest: false }
+        });
+    }, [matchedTracon, fallBackIconData, visible]);
 };
 
 export default useTraconIconLayer;

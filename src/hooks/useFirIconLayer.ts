@@ -53,28 +53,30 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
         anchorY: 70,
     }), []);
 
-    return new IconLayer({
-        id: "fir-icon-layer",
-        data: iconData,
-        pickable: true,
-        visible,
-        getPosition: (d) => d.position,
-        getIcon,
-        sizeScale: 1,
-        getSize: () => 30,
-        onHover: ({ object }) => {
-            if (object) {
-                debouncedHover(object.firInfo);
-            } else {
-                debouncedHover(null);
-            }
-        },
-        parameters: { depthTest: false },
-        updateTriggers: {
-            getIcon: matchedFirs.map(fir => fir.firInfo.firBoundary)
-                .join("-")
-        },
-    });
+    return useMemo(() => {
+        return new IconLayer({
+            id: "fir-icon-layer",
+            data: iconData,
+            pickable: true,
+            visible,
+            getPosition: (d) => d.position,
+            getIcon,
+            sizeScale: 1,
+            getSize: () => 30,
+            onHover: ({ object }) => {
+                if (object) {
+                    debouncedHover(object.firInfo);
+                } else {
+                    debouncedHover(null);
+                }
+            },
+            parameters: { depthTest: false },
+            updateTriggers: {
+                getIcon: matchedFirs.map(fir => fir.firInfo.firBoundary)
+                    .join("-")
+            },
+        });
+    }, [matchedFirs, visible]);
 };
 
 export default useFirIconLayer;

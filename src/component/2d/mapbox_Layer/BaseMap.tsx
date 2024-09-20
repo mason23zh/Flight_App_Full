@@ -17,7 +17,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const mapRef = useRef<MapRef | null>(null);
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
-    console.log("is database initialized:", isDatabaseInitialized);
 
     const {
         terrainEnable,

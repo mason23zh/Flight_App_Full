@@ -280,7 +280,8 @@ const MainDeckGlLayer = ({
     ];
 
     const handleHover = useCallback((info: PickingInfo) => {
-        if (info?.layer?.id === "traffic-layer-2d" && info?.object?.cid) {
+        if ((info?.layer?.id === "traffic-layer-2d" || info?.layer?.id === "traffic-layer-3d")
+                && info?.object?.cid) {
             setHoveredTraffic(info);
         } else {
             setHoveredTraffic(null);
@@ -294,7 +295,6 @@ const MainDeckGlLayer = ({
                 onClick={(info: PickedTraffic) => deckOnClick(info)}
                 layers={layers}
                 pickingRadius={10}
-                // onHover={({ object }) => (isHovering = Boolean(object))}
                 onHover={handleHover}
                 // getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
             />

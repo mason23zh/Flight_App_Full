@@ -63,7 +63,6 @@ export const activeTraconFillLayerStyle = (hoverInfo: HoverTracon | null): FillL
 // };
 export const fallBackHighlightTraconFillLayerStyle = (hoverCast: HoverTracon): FillLayer => {
     if (!hoverCast) return null;
-    console.log("Fallback tracon hoverCast:", hoverCast);
     const hoverId = hoverCast.controllers.length > 0 ? hoverCast.controllers[0].callsign : null;
 
     return {
