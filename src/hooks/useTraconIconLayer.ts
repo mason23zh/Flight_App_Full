@@ -13,6 +13,8 @@ const useTraconIconLayer = (
     visible: boolean) => {
     const dispatch = useDispatch();
 
+    console.log("use tracon icon layer run.");
+
     const matchedIconData = useMemo(() => {
         const data = (!matchedTracon || matchedTracon.length === 0)
             ? []

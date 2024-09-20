@@ -10,9 +10,10 @@ const ANIMATIONS: ScenegraphLayerProps["_animations"] = {
 const useTrafficLayer3D = (
     data: Array<VatsimFlight>,
     visible: boolean,
-    onHover: (info: PickingInfo) => void
 ) => {
     if (!data || data.length === 0) return null;
+
+    // console.log("use traffic layer 3d run.");
 
     const updateTriggers = {
         getPosition: data.map(d => `${d.longitude},${d.latitude}`)
@@ -26,13 +27,6 @@ const useTrafficLayer3D = (
         data,
         pickable: true,
         sizeScale: 20,
-        onHover: (info: PickingInfo) => {
-            if (info.object) {
-                onHover(info);
-            } else {
-                onHover(null);
-            }
-        },
         scenegraph: airplane_model,
         _animations: ANIMATIONS,
         sizeMinPixels: 0.3,

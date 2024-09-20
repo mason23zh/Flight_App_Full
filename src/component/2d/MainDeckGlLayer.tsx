@@ -1,7 +1,7 @@
 /**
  * Use to render the DeckGL overlay
  * */
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { VatsimControllers, VatsimFlight } from "../../types";
@@ -104,9 +104,9 @@ const MainDeckGlLayer = ({
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
-    const handleHover = (info: PickingInfo) => {
-        setHoveredTraffic(info);
-    };
+    // const handleHover = (info: PickingInfo) => {
+    //     setHoveredTraffic(info);
+    // };
 
     const getViewPort = (map: mapboxgl.Map) => {
         //Need to check canvas here, because the canvas will be gone after Map unmount.
@@ -265,8 +265,8 @@ const MainDeckGlLayer = ({
     const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
     const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
-    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible, handleHover);
-    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible, handleHover);
+    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
+    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
 
     const layers = [
@@ -279,6 +279,14 @@ const MainDeckGlLayer = ({
         localFlightLayer //localFlightLayer will on top
     ];
 
+    const handleHover = useCallback((info: PickingInfo) => {
+        if (info?.layer?.id === "traffic-layer-2d" && info?.object?.cid) {
+            setHoveredTraffic(info);
+        } else {
+            setHoveredTraffic(null);
+        }
+    }, []);
+
     return (
         <>
             <DeckGlOverlay
@@ -286,7 +294,9 @@ const MainDeckGlLayer = ({
                 onClick={(info: PickedTraffic) => deckOnClick(info)}
                 layers={layers}
                 pickingRadius={10}
-                getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
+                // onHover={({ object }) => (isHovering = Boolean(object))}
+                onHover={handleHover}
+                // getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
             {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (
@@ -294,10 +304,10 @@ const MainDeckGlLayer = ({
                     className="absolute z-10 pointer-events-none text-xs"
                     style={{
                         left: hoveredTraffic.x + 10,
-                        top: hoveredTraffic.y + 10
+                        top: hoveredTraffic.y + 10,
                     }}
                 >
-                    {<HoveredTrafficTooltip info={hoveredTraffic.object}/>}
+                    <HoveredTrafficTooltip info={hoveredTraffic.object}/>
                 </div>
             )}
 

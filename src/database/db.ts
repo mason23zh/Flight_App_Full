@@ -51,7 +51,7 @@ class VatsimLocalDB extends Dexie {
             );
     }
 
-    chunkArray(array: VatsimFlight[], size: number) {
+    #chunkArray(array: VatsimFlight[], size: number) {
         const result = [];
         for (let i = 0; i < array.length; i += size) {
             result.push(array.slice(i, i + size));
@@ -89,7 +89,7 @@ class VatsimLocalDB extends Dexie {
             }
         });
 
-        const chunks = this.chunkArray(updatedData, 500);
+        const chunks = this.#chunkArray(updatedData, 500);
 
         for (const chunk of chunks) {
             await this.transaction("rw", this.vatsimTraffic, async () => {
