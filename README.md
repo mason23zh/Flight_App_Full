@@ -177,3 +177,7 @@
 #Beta 0.5.2
 
 - Fixed the text encoding issue (backend and frontend fix)
+- Fixed some minor font issue
+- Improve Map performance, reduce memory usage
+- Adjust Event page style
+- Change mouse to pointer when hover over the Extreme Weather table item

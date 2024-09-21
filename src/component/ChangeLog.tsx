@@ -188,7 +188,10 @@ function ChangeLog() {
                     <div>
                         Beta 0.5.2 <br/>
                         - Fixed the text encoding issue (backend and frontend fix) <br/>
-                        - Improve the Map performance directly <br/>
+                        - Fixed some minor font issue <br/>
+                        - Improve Map performance, reduce memory usage <br/>
+                        - Adjust Event page style <br/>
+                        - Change mouse to pointer when hover over the Extreme Weather table item <br/>
                     </div>
                 </div>
             </div>
