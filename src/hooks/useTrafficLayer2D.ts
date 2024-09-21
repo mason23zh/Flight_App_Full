@@ -4,7 +4,7 @@ import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_sprite_mapping-0.p
 import { getAircraftSizeCategory } from "../util/getAircraftCategory";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { useMemo } from "react";
-
+//TODO: update the sprite sheet to transparent icon
 const useTrafficLayer2D = (
     data: Array<VatsimFlight>,
     visible: boolean,

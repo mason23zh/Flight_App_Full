@@ -1,7 +1,7 @@
 /**
  * Use to render the DeckGL overlay
  * */
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { VatsimControllers, VatsimFlight } from "../../types";
@@ -33,7 +33,7 @@ import useFlightPathLayer from "../../hooks/useFlightPathLayer";
 import useTrafficLayer2D from "../../hooks/useTrafficLayer2D";
 import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
 import useLocalTrackFlightLayer from "../../hooks/useLocalTrackFlightLayer";
-import { debounce } from "lodash";
+import { debounce, throttle } from "lodash";
 import HoveredTrafficTooltip from "./HoveredTrafficTooltip";
 
 
@@ -103,10 +103,6 @@ const MainDeckGlLayer = ({
 
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
-
-    // const handleHover = (info: PickingInfo) => {
-    //     setHoveredTraffic(info);
-    // };
 
     const getViewPort = (map: mapboxgl.Map) => {
         //Need to check canvas here, because the canvas will be gone after Map unmount.
@@ -204,7 +200,7 @@ const MainDeckGlLayer = ({
             messageType: "ERROR",
             content: "Error loading map features"
         }));
-    }, 800);  // 500ms delay before dispatching error message
+    }, 800);  // 800ms delay before dispatching error message
 
     useEffect(() => {
         const isLoading = trackLoading || isTraconLoading || controllerDataLoading;
@@ -279,13 +275,23 @@ const MainDeckGlLayer = ({
         localFlightLayer //localFlightLayer will on top
     ];
 
-    const handleHover = useCallback((info: PickingInfo) => {
-        if ((info?.layer?.id === "traffic-layer-2d" || info?.layer?.id === "traffic-layer-3d")
-                && info?.object?.cid) {
-            setHoveredTraffic(info);
-        } else {
-            setHoveredTraffic(null);
-        }
+
+    const handleHover = useCallback(
+        throttle((info: PickingInfo) => {
+            if ((info?.layer?.id === "traffic-layer-2d" || info?.layer?.id === "traffic-layer-3d")
+                        && info?.object?.cid) {
+                setHoveredTraffic(info);
+            } else {
+                setHoveredTraffic(null);
+            }
+        }, 50),
+        []
+    );
+
+    useEffect(() => {
+        return () => {
+            handleHover.cancel();
+        };
     }, []);
 
     return (
@@ -296,7 +302,7 @@ const MainDeckGlLayer = ({
                 layers={layers}
                 pickingRadius={10}
                 onHover={handleHover}
-                // getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
+                getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
             {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (

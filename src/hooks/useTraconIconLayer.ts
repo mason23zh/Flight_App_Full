@@ -14,7 +14,7 @@ const useTraconIconLayer = (
     const dispatch = useDispatch();
 
     const matchedIconData = useMemo(() => {
-        const data = (!matchedTracon || matchedTracon.length === 0)
+        return (!matchedTracon || matchedTracon.length === 0)
             ? []
             : matchedTracon.map((tracon) => {
                 if (tracon.traconInfo.coordinates.length > 1) {
@@ -39,11 +39,10 @@ const useTraconIconLayer = (
                     };
                 }
             });
-        return data;
     }, [matchedTracon]);
 
     const fallBackIconData = useMemo(() => {
-        const data = (!matchedFallbackTracon || matchedFallbackTracon.length === 0)
+        return (!matchedFallbackTracon || matchedFallbackTracon.length === 0)
             ? []
             : matchedFallbackTracon.map((tracon) => {
                 const lon = tracon.edgeCoordinates[0];
@@ -65,7 +64,6 @@ const useTraconIconLayer = (
                     traconInfo: traconHoverObj,
                 };
             });
-        return data;
     }, [matchedFallbackTracon]);
 
     const debouncedHover = useCallback(
