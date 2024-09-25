@@ -15,8 +15,7 @@ import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
-import { CustomContext } from "rsuite/CustomProvider";
-//TODO: might need to close the search box if search result display when the screen size is "sm"
+
 const SearchBox = () => {
     const dispatch = useDispatch();
     const {
@@ -79,7 +78,7 @@ const SearchBox = () => {
             "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
 
     return (
-        <CustomProvider theme="light">
+        <CustomProvider>
             <div
                 className={searchBoxStyle}>
                 <button
@@ -92,30 +91,32 @@ const SearchBox = () => {
                     handleChange={handleChange}
                     searchInput={searchInput}
                 />
-                <div className="p-2">
-                    <Tabs
-                        defaultActiveKey={tabSelection}
-                        onSelect={(key) => handleTabSelect(key)}
-                    >
-                        <Tabs.Tab
-                            eventKey="1"
-                            title={`Airports (${searchResults.airports.length})`}>
-                            <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
-                        </Tabs.Tab>
+                <CustomProvider theme="light">
+                    <div className="p-2">
+                        <Tabs
+                            defaultActiveKey={tabSelection}
+                            onSelect={(key) => handleTabSelect(key)}
+                        >
+                            <Tabs.Tab
+                                eventKey="1"
+                                title={`Airports (${searchResults.airports.length})`}>
+                                <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
+                            </Tabs.Tab>
 
-                        <Tabs.Tab
-                            eventKey="2"
-                            title={`Flights (${searchResults.vatsimTraffic.length})`}>
-                            <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
-                        </Tabs.Tab>
+                            <Tabs.Tab
+                                eventKey="2"
+                                title={`Flights (${searchResults.vatsimTraffic.length})`}>
+                                <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
+                            </Tabs.Tab>
 
-                        <Tabs.Tab
-                            eventKey="3"
-                            title={`Aircraft (${searchResults.aircraftType.length})`}>
-                            <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
-                        </Tabs.Tab>
-                    </Tabs>
-                </div>
+                            <Tabs.Tab
+                                eventKey="3"
+                                title={`Aircraft (${searchResults.aircraftType.length})`}>
+                                <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
+                            </Tabs.Tab>
+                        </Tabs>
+                    </div>
+                </CustomProvider>
             </div>
         </CustomProvider>
     );

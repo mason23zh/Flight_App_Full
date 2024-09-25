@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, NavigationControl, MapProvider, MapRef } from "react-map-gl";
+import { Map, MapProvider, MapRef } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
+import mapboxgl from "mapbox-gl";
 
 interface BaseMapProps {
     children: React.ReactNode;
@@ -16,6 +17,7 @@ interface BaseMapProps {
 
 const BaseMap = ({ children }: BaseMapProps) => {
     const mapRef = useRef<MapRef | null>(null);
+    const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
 
@@ -45,6 +47,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
 
+    useEffect(() => {
+        if (mapRef && mapRef?.current) {
+            const map = mapRef.current.getMap();
+            setMap(map);
+        }
+    }, [mapRef]);
+
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
         if (mapRef && mapRef?.current) {
@@ -52,6 +61,22 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [mapStyle, mapRef]);
 
+    useEffect(() => {
+        if (map) {
+            map.on("error", () => {
+                console.error("Error loading map");
+            });
+
+            map.on("webglcontextlost", () => {
+                console.error("WebGL context lost");
+            });
+
+            if (!mapboxgl.supported()) {
+                console.error("MapboxGL not supported");
+            }
+        }
+
+    }, [map]);
 
     // adjust map height
     useEffect(() => {
