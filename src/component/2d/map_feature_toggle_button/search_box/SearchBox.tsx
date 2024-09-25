@@ -8,13 +8,14 @@ import { useLiveQuery } from "dexie-react-hooks";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
-import { Tabs } from "rsuite";
+import { CustomProvider, Tabs } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
+import { CustomContext } from "rsuite/CustomProvider";
 //TODO: might need to close the search box if search result display when the screen size is "sm"
 const SearchBox = () => {
     const dispatch = useDispatch();
@@ -78,43 +79,45 @@ const SearchBox = () => {
             "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
 
     return (
-        <div
-            className={searchBoxStyle}>
-            <button
-                className="justify-self-end align-middle text-lg px-1 py-0 hover:text-gray-900"
-                onClick={closeButtonOnClick}
-            >
-                <IoMdCloseCircleOutline/>
-            </button>
-            <MapSearchInputBar
-                handleChange={handleChange}
-                searchInput={searchInput}
-            />
-            <div className="p-2">
-                <Tabs
-                    defaultActiveKey={tabSelection}
-                    onSelect={(key) => handleTabSelect(key)}
+        <CustomProvider theme="light">
+            <div
+                className={searchBoxStyle}>
+                <button
+                    className="justify-self-end align-middle text-lg px-1 py-0 hover:text-gray-900"
+                    onClick={closeButtonOnClick}
                 >
-                    <Tabs.Tab
-                        eventKey="1"
-                        title={`Airports (${searchResults.airports.length})`}>
-                        <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
-                    </Tabs.Tab>
+                    <IoMdCloseCircleOutline/>
+                </button>
+                <MapSearchInputBar
+                    handleChange={handleChange}
+                    searchInput={searchInput}
+                />
+                <div className="p-2">
+                    <Tabs
+                        defaultActiveKey={tabSelection}
+                        onSelect={(key) => handleTabSelect(key)}
+                    >
+                        <Tabs.Tab
+                            eventKey="1"
+                            title={`Airports (${searchResults.airports.length})`}>
+                            <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
+                        </Tabs.Tab>
 
-                    <Tabs.Tab
-                        eventKey="2"
-                        title={`Flights (${searchResults.vatsimTraffic.length})`}>
-                        <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
-                    </Tabs.Tab>
+                        <Tabs.Tab
+                            eventKey="2"
+                            title={`Flights (${searchResults.vatsimTraffic.length})`}>
+                            <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
+                        </Tabs.Tab>
 
-                    <Tabs.Tab
-                        eventKey="3"
-                        title={`Aircraft (${searchResults.aircraftType.length})`}>
-                        <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
-                    </Tabs.Tab>
-                </Tabs>
+                        <Tabs.Tab
+                            eventKey="3"
+                            title={`Aircraft (${searchResults.aircraftType.length})`}>
+                            <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
+                        </Tabs.Tab>
+                    </Tabs>
+                </div>
             </div>
-        </div>
+        </CustomProvider>
     );
 };
 

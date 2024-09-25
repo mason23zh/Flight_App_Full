@@ -8,6 +8,7 @@ import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
+import CustomNavigationController from "../CustomNavigationController";
 
 interface BaseMapProps {
     children: React.ReactNode;
@@ -56,7 +57,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     useEffect(() => {
         const updateMapHeight = () => {
             const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
-            const mapHeight = `calc(100vh - ${navbarHeight}px)`;
+            const mapHeight = `calc(100dvh - ${navbarHeight}px)`;
             setMapStyle(prevStyle => ({
                 ...prevStyle,
                 height: mapHeight
@@ -105,7 +106,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 >
                     <TogglePanel/>
                     <TelemetryPanel/>
-                    <NavigationControl position={"bottom-left"}/>
+                    <CustomNavigationController/>
                     {AirportLayers}
                     {children}
                 </Map>

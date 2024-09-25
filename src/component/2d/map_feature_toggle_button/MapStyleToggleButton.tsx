@@ -3,7 +3,7 @@ import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
-import { MapRef, useMap } from "react-map-gl";
+import { useMap } from "react-map-gl";
 import mapboxgl from "mapbox-gl";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
