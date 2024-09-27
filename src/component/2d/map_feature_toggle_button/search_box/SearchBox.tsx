@@ -78,7 +78,7 @@ const SearchBox = () => {
             "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
 
     return (
-        <CustomProvider>
+        <CustomProvider theme="light">
             <div
                 className={searchBoxStyle}>
                 <button
@@ -91,32 +91,30 @@ const SearchBox = () => {
                     handleChange={handleChange}
                     searchInput={searchInput}
                 />
-                <CustomProvider theme="light">
-                    <div className="p-2">
-                        <Tabs
-                            defaultActiveKey={tabSelection}
-                            onSelect={(key) => handleTabSelect(key)}
-                        >
-                            <Tabs.Tab
-                                eventKey="1"
-                                title={`Airports (${searchResults.airports.length})`}>
-                                <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
-                            </Tabs.Tab>
+                <div className="p-2">
+                    <Tabs
+                        defaultActiveKey={tabSelection}
+                        onSelect={(key) => handleTabSelect(key)}
+                    >
+                        <Tabs.Tab
+                            eventKey="1"
+                            title={`Airports (${searchResults.airports.length})`}>
+                            <SearchBoxAirportDisplaySection airports={searchResults.airports}/>
+                        </Tabs.Tab>
 
-                            <Tabs.Tab
-                                eventKey="2"
-                                title={`Flights (${searchResults.vatsimTraffic.length})`}>
-                                <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
-                            </Tabs.Tab>
+                        <Tabs.Tab
+                            eventKey="2"
+                            title={`Flights (${searchResults.vatsimTraffic.length})`}>
+                            <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/>
+                        </Tabs.Tab>
 
-                            <Tabs.Tab
-                                eventKey="3"
-                                title={`Aircraft (${searchResults.aircraftType.length})`}>
-                                <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
-                            </Tabs.Tab>
-                        </Tabs>
-                    </div>
-                </CustomProvider>
+                        <Tabs.Tab
+                            eventKey="3"
+                            title={`Aircraft (${searchResults.aircraftType.length})`}>
+                            <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/>
+                        </Tabs.Tab>
+                    </Tabs>
+                </div>
             </div>
         </CustomProvider>
     );
