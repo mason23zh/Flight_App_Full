@@ -92,61 +92,59 @@ function AirportDetail() {
         const [lng, lat] = airport.station.geometry.coordinates;
 
         return (
-            <>
-                <CustomProvider theme={themeMode}>
-                    <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">
-                        <div className="justify-self-end p-1 mt-3 md:mr-3">
-                            <TimeSection/>
-                        </div>
-                        <div className="mt-3 p-2 justify-self-center text-center ">
-                            <AirportDetailNameSection
-                                name={name}
-                                icao={ICAO}
-                                countryCode={country_code}
-                            />
-                        </div>
-                        <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                            <AirportDetailWeatherSection metar={metar}/>
-                        </div>
-                        <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                            <AirportDetailTafSection icao={ICAO}/>
-                        </div>
-                        <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                            <AtisSection ATIS={ATIS}/>
-                        </div>
-                        <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
-                            <div className="">
-                                <AirportMap lat={lat} lng={lng} name={name}/>
-                            </div>
-                        </div>
-
-                        <div className="mt-3 w-[100%] md:w-[70%] ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
-                            <div className="w-auto">
-                                <AirportDetailPanel
-                                    ICAO={ICAO}
-                                    iata={iata}
-                                    region={region_name}
-                                    country={country_name}
-                                    runwayCount={airport.runways.length}
-                                    airportType={type}
-                                    elevation={elevation}
-                                    transitionAltitude={transitionAltitude}
-                                    lng={lng}
-                                    lat={lat}
-                                    homeLink={home_link}
-                                    wikiLink={wikipedia_link}
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
-                            <AirportDetailRunwayTable runways={airport.runways} metar={metar}/>
+            <CustomProvider theme={themeMode}>
+                <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">
+                    <div className="justify-self-end p-1 mt-3 md:mr-3">
+                        <TimeSection/>
+                    </div>
+                    <div className="mt-3 p-2 justify-self-center text-center ">
+                        <AirportDetailNameSection
+                            name={name}
+                            icao={ICAO}
+                            countryCode={country_code}
+                        />
+                    </div>
+                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <AirportDetailWeatherSection metar={metar}/>
+                    </div>
+                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <AirportDetailTafSection icao={ICAO}/>
+                    </div>
+                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <AtisSection ATIS={ATIS}/>
+                    </div>
+                    <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">
+                        <div className="">
+                            <AirportMap lat={lat} lng={lng} name={name}/>
                         </div>
                     </div>
-                </CustomProvider>
-            </>
+
+                    <div className="mt-3 w-[100%] md:w-[70%] ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                        <div className="w-auto">
+                            <AirportDetailPanel
+                                ICAO={ICAO}
+                                iata={iata}
+                                region={region_name}
+                                country={country_name}
+                                runwayCount={airport.runways.length}
+                                airportType={type}
+                                elevation={elevation}
+                                transitionAltitude={transitionAltitude}
+                                lng={lng}
+                                lat={lat}
+                                homeLink={home_link}
+                                wikiLink={wikipedia_link}
+                            />
+                        </div>
+                    </div>
+                    <div className="mt-3 p-2 max-w-[1230px] w-[90%] justify-self-center">
+                        <AirportDetailRunwayTable runways={airport.runways} metar={metar}/>
+                    </div>
+                </div>
+            </CustomProvider>
         );
     }
-    return null;
+    // return null;
 }
 
 export default AirportDetail;
