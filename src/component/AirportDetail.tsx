@@ -104,13 +104,13 @@ function AirportDetail() {
                             countryCode={country_code}
                         />
                     </div>
-                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                    <div className="notranslate mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailWeatherSection metar={metar}/>
                     </div>
-                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                    <div className="notranslate mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AirportDetailTafSection icao={ICAO}/>
                     </div>
-                    <div className="mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
+                    <div className="notranslate mt-3 max-w-4xl ml-2 mr-2 p-2 justify-self-center text-center md:ml-0 md:mr-0">
                         <AtisSection ATIS={ATIS}/>
                     </div>
                     <div className="flex items-center justify-center w-full overflow-hidden mt-3 p-2">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useTheme } from "../hooks/ThemeContext";
- 
+
 function InputAndSearch({
     placeholder,
     onSubmit,
@@ -36,6 +36,7 @@ function InputAndSearch({
              hover:drop-shadow-2xl"
         >
             <input
+                id="UserInput"
                 className={inputTheme}
                 onChange={handleInputChange}
                 placeholder={placeholder}

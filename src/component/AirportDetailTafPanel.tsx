@@ -90,7 +90,7 @@ function AirportDetailTafPanel({
     const renderClouds = (skyCondition) => {
         let renderCloudsLayers;
         if (!skyCondition || skyCondition.length === 0) {
-            renderCloudsLayers = "";
+            renderCloudsLayers = <div></div>;
         } else {
             renderCloudsLayers = skyCondition.map((cloud) => {
                 if (cloud.cloudCode === "CAVOK" || cloud.cloudCode === "NCD" || cloud.cloudCode === "SKC") {
@@ -126,7 +126,7 @@ function AirportDetailTafPanel({
     const renderWeather = (weather) => {
         let renderedWeather;
         if (!weather || weather.length === 0) {
-            renderedWeather = "";
+            renderedWeather = <div></div>;
         } else {
             renderedWeather = weather.map((condition) => (
                 <div key={condition.code}>
@@ -169,7 +169,7 @@ function AirportDetailTafPanel({
                         {renderForecastType(f.forecastType, f.from, f.to)}
                     </div>
                 </div>
-            ) : <></>}
+            ) : <div></div>}
 
             {
                 f.probability ? (
@@ -181,7 +181,7 @@ function AirportDetailTafPanel({
                             {renderProbabilities(f.probability)}
                         </div>
                     </div>
-                ) : <></>
+                ) : <div></div>
             }
 
             {(f.wind && !_.isEmpty(f.wind)) ? (
@@ -193,7 +193,7 @@ function AirportDetailTafPanel({
                         {renderWind(f.wind)}
                     </div>
                 </div>
-            ) : <></>}
+            ) : <div></div>}
             {
                 (f.wind && !_.isEmpty(f.wind) && (f.wind.windshearDireaction || f.wind.windshearHeight)) ? (
                     <div className="grid grid-cols-2 m-2">
@@ -204,7 +204,7 @@ function AirportDetailTafPanel({
                             {renderWindshear(f.wind)}
                         </div>
                     </div>
-                ) : <></>
+                ) : <div></div>
             }
 
             {f.visibilityMile ? (
@@ -216,7 +216,7 @@ function AirportDetailTafPanel({
                         {f.visibilityMile} sm
                     </div>
                 </div>
-            ) : <></>}
+            ) : <div></div>}
             {
                 (f.skyCondition && f.skyCondition.length > 0) ? (
 
@@ -224,7 +224,7 @@ function AirportDetailTafPanel({
                         <div className="text-left sm:text-center">Cloud:</div>
                         <div className="text-right sm:text-center">{renderClouds(f.skyCondition)}</div>
                     </div>
-                ) : <></>
+                ) : <div></div>
             }
             {
                 f.weather && f.weather.length > 0
@@ -237,7 +237,7 @@ function AirportDetailTafPanel({
                                 {renderWeather(f.weather)}
                             </div>
                         </div>
-                    ) : <></>
+                    ) : <div></div>
             }
         </div>
     ));
