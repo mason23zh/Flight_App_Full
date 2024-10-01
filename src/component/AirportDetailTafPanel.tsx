@@ -169,7 +169,7 @@ function AirportDetailTafPanel({
                         {renderForecastType(f.forecastType, f.from, f.to)}
                     </div>
                 </div>
-            ) : <div></div>}
+            ) : ""}
 
             {
                 f.probability ? (
@@ -193,7 +193,7 @@ function AirportDetailTafPanel({
                         {renderWind(f.wind)}
                     </div>
                 </div>
-            ) : <div></div>}
+            ) : ""}
             {
                 (f.wind && !_.isEmpty(f.wind) && (f.wind.windshearDireaction || f.wind.windshearHeight)) ? (
                     <div className="grid grid-cols-2 m-2">
@@ -204,7 +204,7 @@ function AirportDetailTafPanel({
                             {renderWindshear(f.wind)}
                         </div>
                     </div>
-                ) : <div></div>
+                ) : ""
             }
 
             {f.visibilityMile ? (
@@ -216,7 +216,7 @@ function AirportDetailTafPanel({
                         {f.visibilityMile} sm
                     </div>
                 </div>
-            ) : <div></div>}
+            ) : ""}
             {
                 (f.skyCondition && f.skyCondition.length > 0) ? (
 
@@ -237,7 +237,7 @@ function AirportDetailTafPanel({
                                 {renderWeather(f.weather)}
                             </div>
                         </div>
-                    ) : <div></div>
+                    ) : ""
             }
         </div>
     ));
