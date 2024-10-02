@@ -111,7 +111,7 @@ function VatsimEventDetail({ onlyDetail }) {
                             <div className="text-md sm:text-xl justify-self-start">
                                 {renderTime(event.start_time, event.end_time, false)}
                             </div>
-                            <div className="flex gap-1 justify-self-start">
+                            <div className="flex gap-1 justify-self-start flex-wrap">
                                 {renderAirportList}
                             </div>
                             <div className="justify-self-start">
