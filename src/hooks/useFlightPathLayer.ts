@@ -2,7 +2,7 @@ import { VatsimFlight, VatsimTrackTraffic } from "../types";
 import { useMemo } from "react";
 import { LineLayer } from "@deck.gl/layers/typed";
 import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
-//TODO: ERROR handle?
+
 const useFlightPathLayer = (
     data: VatsimTrackTraffic,
     selectTraffic: VatsimFlight,

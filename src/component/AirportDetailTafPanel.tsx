@@ -155,7 +155,7 @@ function AirportDetailTafPanel({
     );
 
     const renderForecast = forecast.map((f) => (
-        <div className="border rounded-lg mb-3" key={Math.random()}>
+        <div className="border rounded-lg mb-3 text-sm sm:text-lg" key={Math.random()}>
             <div className="text-center">
                 {renderTimeSection(f.from, f.to)}
             </div>

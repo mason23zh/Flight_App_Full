@@ -181,3 +181,4 @@
 - Improve Map performance, reduce memory usage
 - Adjust Event page style
 - Change mouse to pointer when hover over the Extreme Weather table item
+- Disable the translation to prevent app crash

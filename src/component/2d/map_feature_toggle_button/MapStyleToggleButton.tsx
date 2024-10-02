@@ -13,7 +13,6 @@ interface Props {
     isTouchScreen: boolean;
 }
 
-//TODO: Default state are wrong. 
 const MapStyleToggleButton = ({
     isTouchScreen
 }: Props) => {

@@ -13,7 +13,6 @@ interface Props {
     aircraft: VatsimFlight[] | null;
 }
 
-//TODO: New UI design for filter traffic button and layout
 const AircraftInfoPanel = ({ aircraft }: Props) => {
     const dispatch = useDispatch();
 

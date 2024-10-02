@@ -70,7 +70,6 @@ const SearchBox = () => {
         dispatch(setTabSelection(key));
     };
 
-    // TODO: Improve style, add animation
     const searchBoxStyle =
             "fixed left-auto right-auto top-[60px] z-50 min-w-[350px] " +
             "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +
