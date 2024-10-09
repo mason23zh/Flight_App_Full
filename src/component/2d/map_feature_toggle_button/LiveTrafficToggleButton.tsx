@@ -9,6 +9,7 @@ interface Props {
 }
 
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
+    //TODO: Handle websocket connection lost
     const {
         openWebSocket,
         closeWebSocket,

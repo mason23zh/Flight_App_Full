@@ -38,12 +38,10 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const wsRef = useRef<WebSocket | null>(null);
 
     const openWebSocket = () => {
-        console.log("Open web socket.");
         setConnectionStatus("connecting");
         wsRef.current = new WebSocket("ws://localhost:49153");
 
         wsRef.current.onopen = () => {
-            console.log("WebSocket connection established.");
             setConnectionStatus("connected");
         };
 
@@ -55,21 +53,18 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         };
 
         wsRef.current.onerror = () => {
-            console.log("WebSocket connection error.");
             setLiveTrafficAvailable(false);
             setLiveTrafficAvailableLocal(false);
             setConnectionStatus("failed");
         };
 
-        // wsRef.current.onclose = () => {
-        //     console.log("WebSocket connection close");
-        //     setConnectionStatus("disconnected");
-        //     setLiveTrafficAvailableLocal(false);
-        // };
+        wsRef.current.onclose = () => {
+            setConnectionStatus("disconnected");
+            setLiveTrafficAvailableLocal(false);
+        };
     };
 
     const closeWebSocket = () => {
-        console.log("close web socket.");
         if (wsRef.current) {
             wsRef.current.close();
         }
