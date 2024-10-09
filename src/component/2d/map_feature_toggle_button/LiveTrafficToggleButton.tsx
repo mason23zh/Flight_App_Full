@@ -3,20 +3,30 @@ import { MdNavigation } from "react-icons/md"; // Use any icon you prefer
 import { useWebSocketContext } from "../WebSocketContext";
 import { useDispatch } from "react-redux";
 import { toggleMovingMap } from "../../../store";
+import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 
 interface Props {
     isTouchScreen: boolean;
 }
 
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
-    //TODO: Handle websocket connection lost
     const {
         openWebSocket,
         closeWebSocket,
         connectionStatus
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
+    const [buttonClick, setButtonClick] = useState(false);
     const dispatch = useDispatch();
+
+    const {
+        handleMouseEnter,
+        handleMouseLeave,
+        handleMouseMove,
+        tooltipVisible,
+        resetTooltip,
+        mousePosition
+    } = useDisplayTooltip(400);
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg" :
@@ -24,11 +34,14 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     const inActiveClass = isTouchScreen ?
         "bg-gray-500 px-2 py-1 items-center rounded-lg" :
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
-
+    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
+            "text-xs rounded-md pointer-events-none z-40";
+    const tooltipMessage = "Toggle moving map";
 
     const handleToggle = () => {
         const localActiveState = !isActive;
         setIsActive(prev => !prev);
+        setButtonClick(true);
         if (localActiveState) {
             openWebSocket();
         } else {
@@ -48,16 +61,38 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         }
     }, [connectionStatus]);
 
+    useEffect(() => {
+        if (buttonClick) {
+            resetTooltip();
+            setButtonClick(false);
+        }
+    }, [tooltipVisible, buttonClick]);
+
     return (
         <div
             className="relative"
             onClick={handleToggle}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseMove={handleMouseMove}
         >
             <button
                 className={isActive ? activeClass : inActiveClass}
             >
                 <MdNavigation className="text-xl"/>
             </button>
+
+            {(tooltipVisible && !isTouchScreen && !buttonClick) &&
+                <div
+                    className={tooltipStyle}
+                    style={{
+                        top: mousePosition.y + 15,
+                        left: mousePosition.x + 15,
+                    }}
+                >
+                    {tooltipMessage}
+                </div>
+            }
 
         </div>
     );

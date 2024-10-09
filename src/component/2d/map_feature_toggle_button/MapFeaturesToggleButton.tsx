@@ -66,7 +66,7 @@ const MapFeaturesToggleButton = ({
             resetTooltip();
             setButtonClick(false);
         }
-    }, [tooltipVisible, buttonClick, tooltipVisible]);
+    }, [tooltipVisible, buttonClick]);
 
     const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
             "text-xs rounded-md pointer-events-none z-40";
