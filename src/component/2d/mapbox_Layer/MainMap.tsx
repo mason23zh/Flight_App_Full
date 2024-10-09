@@ -20,6 +20,7 @@ import AirportDepartureArrivalDisplay
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
+import { WebSocketProvider } from "../WebSocketContext";
 
 const MainMap = () => {
     const dispatch = useDispatch();

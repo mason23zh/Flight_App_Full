@@ -5,8 +5,9 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer, toggleMapFollowTraffic,
-    toggleMovingMap, toggleTelemetry,
+    toggleAtcLayer,
+    toggleMapFollowTraffic,
+    toggleTelemetry,
     toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
@@ -15,7 +16,6 @@ import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
-import { MdNavigation } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { useMap } from "react-map-gl";
@@ -25,6 +25,7 @@ import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
 import mapboxgl from "mapbox-gl";
+import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
 
 
 const TogglePanel = () => {
@@ -40,26 +41,13 @@ const TogglePanel = () => {
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
-        openWebSocket,
-        closeWebSocket,
+        connectionStatus,
         liveTrafficAvailable
     } = useWebSocketContext();
 
     const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
 
-
-    const handleMovingMapIconToggle = (activeFlag) => {
-        if (activeFlag) {
-            openWebSocket();
-            if (liveTrafficAvailable) {
-                dispatch(toggleMovingMap(true));
-            }
-        } else {
-            closeWebSocket();
-            dispatch(toggleMovingMap(false));
-        }
-    };
 
     useEffect(() => {
         const map = mapRef?.getMap();
@@ -202,15 +190,11 @@ const TogglePanel = () => {
                         isTouchScreen={isTouchScreen}
                     />
 
-                    <MapFeaturesToggleButton
-                        onToggle={handleMovingMapIconToggle}
-                        icon={<MdNavigation/>}
-                        initialActive={movingMap}
-                        tooltipMessage="Enable moving map"
+                    <LiveTrafficToggleButton
                         isTouchScreen={isTouchScreen}
                     />
 
-                    {(movingMap && liveTrafficAvailable) &&
+                    {(connectionStatus === "connected" && liveTrafficAvailable) &&
                         <>
                             <MapFeaturesToggleButton
                                 onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}

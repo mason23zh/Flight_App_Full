@@ -7,6 +7,7 @@ interface WebSocketContextProps {
     liveTrafficAvailable: boolean;
     openWebSocket: () => void;
     closeWebSocket: () => void;
+    connectionStatus: "connected" | "disconnected" | "connecting" | "failed";
 }
 
 const WebSocketContext = createContext<WebSocketContextProps | undefined>(undefined);
@@ -33,10 +34,18 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     });
 
     const [liveTrafficAvailable, setLiveTrafficAvailableLocal] = useState(false);
+    const [connectionStatus, setConnectionStatus] = useState<"connected" | "disconnected" | "connecting" | "failed">("disconnected");
     const wsRef = useRef<WebSocket | null>(null);
 
     const openWebSocket = () => {
+        console.log("Open web socket.");
+        setConnectionStatus("connecting");
         wsRef.current = new WebSocket("ws://localhost:49153");
+
+        wsRef.current.onopen = () => {
+            console.log("WebSocket connection established.");
+            setConnectionStatus("connected");
+        };
 
         wsRef.current.onmessage = (event) => {
             const data: LiveFlightData = JSON.parse(event.data);
@@ -46,12 +55,21 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         };
 
         wsRef.current.onerror = () => {
+            console.log("WebSocket connection error.");
             setLiveTrafficAvailable(false);
             setLiveTrafficAvailableLocal(false);
+            setConnectionStatus("failed");
         };
+
+        // wsRef.current.onclose = () => {
+        //     console.log("WebSocket connection close");
+        //     setConnectionStatus("disconnected");
+        //     setLiveTrafficAvailableLocal(false);
+        // };
     };
 
     const closeWebSocket = () => {
+        console.log("close web socket.");
         if (wsRef.current) {
             wsRef.current.close();
         }
@@ -70,7 +88,8 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
             flightData,
             liveTrafficAvailable,
             openWebSocket,
-            closeWebSocket
+            closeWebSocket,
+            connectionStatus
         }}>
             {children}
         </WebSocketContext.Provider>

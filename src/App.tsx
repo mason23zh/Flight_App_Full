@@ -26,69 +26,69 @@ function App() {
     const darkMode = useTheme();
     const themeMode = darkMode ? "dark" : "light";
     return (
-        <WebSocketProvider>
-            <ScrollToTop>
-                <Routes>
-                    <Route path="/" element={<Layout/>}>
-                        <Route index element={<Home/>}/>
-                        <Route path="about" element={<About/>}/>
-                        <Route path="weather" element={<Weather/>}/>
-                        <Route path="flightTracker" element={<FlightTracker/>}/>
-                        <Route path="*" element={<NoMatch/>}/>
+        <ScrollToTop>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path="about" element={<About/>}/>
+                    <Route path="weather" element={<Weather/>}/>
+                    <Route path="flightTracker" element={<FlightTracker/>}/>
+                    <Route path="*" element={<NoMatch/>}/>
 
-                        {/* Lazy loaded routes */}
-                        <Route path="extreme-weather" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <ExtremeWeather/>
-                            </Suspense>
-                        }/>
-                        <Route path="airport" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <Airports/>
-                            </Suspense>
-                        }/>
-                        <Route path="airport/detail/:icao" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <AirportDetail/>
-                            </Suspense>
-                        }/>
-                        <Route path="changelog" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <ChangeLog/>
-                            </Suspense>
-                        }/>
-                        <Route path="vatsim/events" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <VatsimEventsAll/>
-                            </Suspense>
-                        }/>
-                        <Route path="vatsim/events/:name" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <VatsimEventDetail onlyDetail/>
-                            </Suspense>
-                        }/>
+                    {/* Lazy loaded routes */}
+                    <Route path="extreme-weather" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <ExtremeWeather/>
+                        </Suspense>
+                    }/>
+                    <Route path="airport" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <Airports/>
+                        </Suspense>
+                    }/>
+                    <Route path="airport/detail/:icao" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <AirportDetail/>
+                        </Suspense>
+                    }/>
+                    <Route path="changelog" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <ChangeLog/>
+                        </Suspense>
+                    }/>
+                    <Route path="vatsim/events" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <VatsimEventsAll/>
+                        </Suspense>
+                    }/>
+                    <Route path="vatsim/events/:name" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <VatsimEventDetail onlyDetail/>
+                        </Suspense>
+                    }/>
 
-                        <Route path="Orion9600" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <Orion/>
-                            </Suspense>
-                        }/>
-                        <Route path="puzzles" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
-                                <Puzzles/>
-                            </Suspense>
-                        }/>
+                    <Route path="Orion9600" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <Orion/>
+                        </Suspense>
+                    }/>
+                    <Route path="puzzles" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <Puzzles/>
+                        </Suspense>
+                    }/>
 
-                        <Route path="map" element={
-                            <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                    <Route path="map" element={
+                        <Suspense fallback={<GeneralLoading themeMode={themeMode}/>}>
+                            <WebSocketProvider>
                                 <MainMap/>
-                            </Suspense>
-                        }/>
+                            </WebSocketProvider>
+                        </Suspense>
+                    }/>
 
-                    </Route>
-                </Routes>
-            </ScrollToTop>
-        </WebSocketProvider>
+                </Route>
+            </Routes>
+        </ScrollToTop>
     );
 }
 

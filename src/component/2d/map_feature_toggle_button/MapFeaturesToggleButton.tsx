@@ -14,7 +14,7 @@ const MapFeaturesToggleButton = ({
     icon,
     initialActive,
     tooltipMessage,
-    isTouchScreen
+    isTouchScreen,
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
@@ -39,6 +39,7 @@ const MapFeaturesToggleButton = ({
         resetTooltip,
         mousePosition
     } = useDisplayTooltip(400);
+
 
     useEffect(() => {
         if (initialActive) {
@@ -66,7 +67,6 @@ const MapFeaturesToggleButton = ({
             setButtonClick(false);
         }
     }, [tooltipVisible, buttonClick, tooltipVisible]);
-
 
     const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
             "text-xs rounded-md pointer-events-none z-40";
