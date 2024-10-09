@@ -17,6 +17,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
     const [buttonClick, setButtonClick] = useState(false);
+    const [initialRender, setInitialRender] = useState(true);
     const dispatch = useDispatch();
 
     const {
@@ -36,7 +37,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
             "text-xs rounded-md pointer-events-none z-40";
-    const tooltipMessage = "Toggle moving map";
+    const tooltipMessage = "Enable moving map";
 
     const handleToggle = () => {
         const localActiveState = !isActive;
@@ -50,6 +51,8 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     };
 
     useEffect(() => {
+        if (!isActive) return;
+
         if (connectionStatus === "disconnected" || connectionStatus === "failed") {
             closeWebSocket();
             setIsActive(false);
@@ -59,7 +62,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         if (connectionStatus === "connected" && isActive) {
             dispatch(toggleMovingMap(true));
         }
-    }, [connectionStatus]);
+    }, [connectionStatus, isActive, dispatch]);
 
     useEffect(() => {
         if (buttonClick) {
@@ -93,7 +96,6 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                     {tooltipMessage}
                 </div>
             }
-
         </div>
     );
 };

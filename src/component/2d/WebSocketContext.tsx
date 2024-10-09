@@ -70,11 +70,13 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         }
     };
 
+    //clean up the WebSocket
     useEffect(() => {
-        openWebSocket();
-
         return () => {
-            closeWebSocket();
+            if (wsRef.current) {
+                wsRef.current.close();
+                console.log("WebSocket connection cleaned up.");
+            }
         };
     }, []);
 
