@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { Tooltip } from "react-tooltip";
 
 interface Props {
@@ -28,21 +27,10 @@ const MapFeaturesToggleButton = ({
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
-    const [buttonClick, setButtonClick] = useState(false);
 
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
 
-    const {
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(400);
-
-    console.log("Map feature toggle button run.");
 
     useEffect(() => {
         if (initialActive) {
@@ -60,25 +48,11 @@ const MapFeaturesToggleButton = ({
     const handleClick = () => {
         const newActiveState = !isActive;
         setIsActive(newActiveState);
-        setButtonClick(true);
-        resetTooltip();
     };
 
-    useEffect(() => {
-        if (buttonClick) {
-            resetTooltip();
-            setButtonClick(false);
-        }
-    }, [tooltipVisible, buttonClick]);
-
-    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
-            "text-xs rounded-md pointer-events-none z-40";
     return (
         <div
             className="relative"
-            // onMouseLeave={handleMouseLeave}
-            // onMouseEnter={handleMouseEnter}
-            // onMouseMove={handleMouseMove}
         >
             <button
                 id={buttonId}
