@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
     onToggle: (activeFlag: boolean) => void;
@@ -7,6 +8,7 @@ interface Props {
     initialActive: boolean;
     tooltipMessage: string;
     isTouchScreen: boolean;
+    buttonId: string;
 }
 
 const MapFeaturesToggleButton = ({
@@ -15,6 +17,7 @@ const MapFeaturesToggleButton = ({
     initialActive,
     tooltipMessage,
     isTouchScreen,
+    buttonId
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
@@ -26,7 +29,6 @@ const MapFeaturesToggleButton = ({
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
     const [buttonClick, setButtonClick] = useState(false);
-
 
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
@@ -40,6 +42,7 @@ const MapFeaturesToggleButton = ({
         mousePosition
     } = useDisplayTooltip(400);
 
+    console.log("Map feature toggle button run.");
 
     useEffect(() => {
         if (initialActive) {
@@ -73,26 +76,31 @@ const MapFeaturesToggleButton = ({
     return (
         <div
             className="relative"
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
+            // onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseMove={handleMouseMove}
         >
             <button
+                id={buttonId}
                 className={activeButtonClass}
                 onClick={handleClick}
             >
                 {styledIcon}
             </button>
-            {(tooltipVisible && !isTouchScreen && !buttonClick) &&
-                <div
-                    className={tooltipStyle}
+            {(!isTouchScreen) &&
+                <Tooltip
+                    anchorSelect={`#${buttonId}`}
+                    delayShow={300}
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
                     {tooltipMessage}
-                </div>
+                </Tooltip>
             }
         </div>
     );

@@ -36,6 +36,7 @@ const useDisplayTooltip = (delay: number = 300): UseDisplayToolTip => {
         setTooltipVisible(false);
     }, []);
 
+
     const handleMouseMove = useCallback((e: React.MouseEvent) => {
         setMousePosition({
             x: e.clientX,

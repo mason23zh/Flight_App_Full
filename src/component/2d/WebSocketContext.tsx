@@ -75,7 +75,6 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         return () => {
             if (wsRef.current) {
                 wsRef.current.close();
-                console.log("WebSocket connection cleaned up.");
             }
         };
     }, []);

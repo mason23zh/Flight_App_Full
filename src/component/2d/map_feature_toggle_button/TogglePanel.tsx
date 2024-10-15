@@ -26,6 +26,7 @@ import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
 import mapboxgl from "mapbox-gl";
 import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
+import TooltipProvider from "./TooltipProvider";
 
 
 const TogglePanel = () => {
@@ -164,6 +165,7 @@ const TogglePanel = () => {
                         initialActive={trafficLayerVisible}
                         tooltipMessage="Toggle Vatsim traffic"
                         isTouchScreen={isTouchScreen}
+                        buttonId="traffic-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -172,6 +174,7 @@ const TogglePanel = () => {
                         initialActive={allAtcLayerVisible}
                         tooltipMessage="Toggle ATC visibility"
                         isTouchScreen={isTouchScreen}
+                        buttonId="atc-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -180,6 +183,7 @@ const TogglePanel = () => {
                         initialActive={weatherRasterVisible}
                         tooltipMessage="Toggle weather"
                         isTouchScreen={isTouchScreen}
+                        buttonId="weather-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -188,6 +192,7 @@ const TogglePanel = () => {
                         initialActive={terrainEnable}
                         tooltipMessage="Toggle terrain and 3D view"
                         isTouchScreen={isTouchScreen}
+                        buttonId="terrain-toggle-button"
                     />
 
                     <LiveTrafficToggleButton
@@ -202,6 +207,7 @@ const TogglePanel = () => {
                                 initialActive={mapFollowTraffic}
                                 tooltipMessage="Map follow traffic"
                                 isTouchScreen={isTouchScreen}
+                                buttonId="moving-map-traffic-follow-button"
                             />
 
                             <MapFeaturesToggleButton
@@ -210,6 +216,7 @@ const TogglePanel = () => {
                                 initialActive={displayTelemetry}
                                 tooltipMessage="Toggle traffic telemtry"
                                 isTouchScreen={isTouchScreen}
+                                buttonId="moving-map-telemetry-button"
                             />
                         </>
                     }

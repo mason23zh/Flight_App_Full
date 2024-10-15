@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { MdNavigation } from "react-icons/md"; // Use any icon you prefer
 import { useWebSocketContext } from "../WebSocketContext";
 import { useDispatch } from "react-redux";
 import { toggleMovingMap } from "../../../store";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import HoveredTooltip from "./HoveredTooltip";
+import { useTooltip } from "./TooltipProvider";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
     isTouchScreen: boolean;
 }
 
+//TODO: Add notification if connection is failed or un-available.
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     const {
         openWebSocket,
@@ -17,17 +21,22 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
     const [buttonClick, setButtonClick] = useState(false);
-    const [initialRender, setInitialRender] = useState(true);
     const dispatch = useDispatch();
+    // const {
+    //     showTooltip,
+    //     hideTooltip
+    // } = useTooltip();
 
-    const {
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(400);
+    console.log("Websocket connection status:", connectionStatus);
+
+    // const {
+    //     handleMouseEnter,
+    //     handleMouseLeave,
+    //     handleMouseMove,
+    //     tooltipVisible,
+    //     resetTooltip,
+    //     mousePosition
+    // } = useDisplayTooltip(400);
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg" :
@@ -64,40 +73,37 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         }
     }, [connectionStatus, isActive, dispatch]);
 
-    useEffect(() => {
-        if (buttonClick) {
-            resetTooltip();
-            setButtonClick(false);
-        }
-    }, [tooltipVisible, buttonClick]);
 
     return (
         <div
             className="relative"
             onClick={handleToggle}
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
         >
             <button
+                id="nav-button"
                 className={isActive ? activeClass : inActiveClass}
             >
-                <MdNavigation className="text-xl"/>
+                <MdNavigation className="text-xl text-white"/>
             </button>
 
-            {(tooltipVisible && !isTouchScreen && !buttonClick) &&
-                <div
-                    className={tooltipStyle}
+            {!isTouchScreen &&
+                <Tooltip
+                    anchorSelect="#nav-button"
+                    delayShow={300}
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
                     {tooltipMessage}
-                </div>
+                </Tooltip>
             }
+
         </div>
     );
 };
 
-export default LiveTrafficToggleButton;
+export default React.memo(LiveTrafficToggleButton);
