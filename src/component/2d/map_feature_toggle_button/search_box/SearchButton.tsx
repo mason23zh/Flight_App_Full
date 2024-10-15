@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import SearchBox from "./SearchBox";
-import useDisplayTooltip from "../../../../hooks/useDisplayTooltip";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
     tooltipMessage: string;
@@ -19,14 +19,6 @@ const SearchButton = ({
     const [showSearchBox, setShowSearchBox] = useState(false);
     const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const {
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(600);
 
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
@@ -43,7 +35,6 @@ const SearchButton = ({
     }, [searchBoxVisible]);
 
     const handleClick = () => {
-        resetTooltip();
         const tempState = !showSearchBox;
         dispatch(toggleSearchBox(tempState));
         setShowSearchBox(tempState);
@@ -58,25 +49,27 @@ const SearchButton = ({
                     id="search-button"
                     className={activeButtonClass}
                     onClick={handleClick}
-                    onMouseLeave={handleMouseLeave}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseMove={handleMouseMove}
                 >
                     {styledIcon}
                 </button>
             </div>
             {searchBoxVisible && <SearchBox/>}
-            {(tooltipVisible && !isTouchScreen) &&
-                <div
-                    className="fixed px-2 py-1 bg-black text-white
-                        text-xs rounded-md pointer-events-none z-40"
+
+            {!isTouchScreen &&
+                <Tooltip
+                    anchorSelect="#search-button"
+                    delayShow={300}
+                    place="right"
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
                     {tooltipMessage}
-                </div>
+                </Tooltip>
             }
         </>
     );
