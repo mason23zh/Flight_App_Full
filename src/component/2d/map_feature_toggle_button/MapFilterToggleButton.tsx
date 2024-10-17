@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { MapRef, useMap } from "react-map-gl";
 import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapFilterButton } from "../../../store";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
     isTouchScreen: boolean;
@@ -15,30 +14,21 @@ const MapFilterToggleButton = ({
 }: Props) => {
     const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(false);
+
     const {
         mapFilterButtonToggle,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const {
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(600);
 
     useEffect(() => {
         if (buttonClick) {
-            resetTooltip();
             setButtonClick(false);
         }
-    }, [tooltipVisible, buttonClick, resetTooltip]);
+    }, [buttonClick]);
 
     const handleOnClick = () => {
         dispatch(toggleMapFilterButton(!mapFilterButtonToggle));
         setButtonClick(true);
-        resetTooltip();
     };
 
     const inactiveButtonClass = isTouchScreen ?
@@ -48,14 +38,14 @@ const MapFilterToggleButton = ({
         "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full" :
         "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full hover:bg-blue-400";
 
+    const tooltipMessage = "Map feature selector";
+
     return (
         <div>
             <button
+                id="map-filter-toggle-button"
                 className={mapFilterButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
-                onMouseLeave={handleMouseLeave}
-                onMouseEnter={handleMouseEnter}
-                onMouseMove={handleMouseMove}
             >
                 <FaLayerGroup className="text-white text-xl"/>
             </button>
@@ -69,17 +59,21 @@ const MapFilterToggleButton = ({
             >
                 <MapFeaturesToggleButtonGroup isTouchScreen={isTouchScreen}/>
             </div>
-            {(tooltipVisible && !buttonClick && !isTouchScreen) &&
-                <div
-                    className="fixed px-2 py-1 bg-black text-white
-                        text-xs rounded-md pointer-events-none z-40"
+
+            {(!isTouchScreen && !buttonClick && !mapFilterButtonToggle) &&
+                <Tooltip
+                    anchorSelect="#map-filter-toggle-button"
+                    delayShow={300}
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
-                    Map feature selector
-                </div>
+                    {tooltipMessage}
+                </Tooltip>
             }
         </div>
     );

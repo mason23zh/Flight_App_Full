@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { MdNavigation } from "react-icons/md"; // Use any icon you prefer
 import { useWebSocketContext } from "../WebSocketContext";
 import { useDispatch } from "react-redux";
 import { toggleMovingMap } from "../../../store";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
-import HoveredTooltip from "./HoveredTooltip";
-import { useTooltip } from "./TooltipProvider";
 import { Tooltip } from "react-tooltip";
 
 interface Props {
@@ -20,23 +17,9 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         connectionStatus
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
-    const [buttonClick, setButtonClick] = useState(false);
+    const [notification, setNotification] = useState<boolean>(false);
     const dispatch = useDispatch();
-    // const {
-    //     showTooltip,
-    //     hideTooltip
-    // } = useTooltip();
 
-    console.log("Websocket connection status:", connectionStatus);
-
-    // const {
-    //     handleMouseEnter,
-    //     handleMouseLeave,
-    //     handleMouseMove,
-    //     tooltipVisible,
-    //     resetTooltip,
-    //     mousePosition
-    // } = useDisplayTooltip(400);
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg" :
@@ -44,14 +27,12 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     const inActiveClass = isTouchScreen ?
         "bg-gray-500 px-2 py-1 items-center rounded-lg" :
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
-    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
-            "text-xs rounded-md pointer-events-none z-40";
+
     const tooltipMessage = "Enable moving map";
 
     const handleToggle = () => {
         const localActiveState = !isActive;
         setIsActive(prev => !prev);
-        setButtonClick(true);
         if (localActiveState) {
             openWebSocket();
         } else {
@@ -60,7 +41,16 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     };
 
     useEffect(() => {
-        if (!isActive) return;
+        if (!isActive) {
+            closeWebSocket();
+        }
+        
+
+        console.log("Notification.", connectionStatus);
+
+        if (connectionStatus === "failed") {
+            setNotification(true);
+        }
 
         if (connectionStatus === "disconnected" || connectionStatus === "failed") {
             closeWebSocket();
@@ -71,7 +61,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         if (connectionStatus === "connected" && isActive) {
             dispatch(toggleMovingMap(true));
         }
-    }, [connectionStatus, isActive, dispatch]);
+    }, [connectionStatus, isActive, dispatch, closeWebSocket]);
 
 
     return (
@@ -100,6 +90,20 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                 >
                     {tooltipMessage}
                 </Tooltip>
+            }
+
+            {(notification) &&
+                <div
+                    className="fixed top-[70px] right-[10px] sm:right-[20px]
+                md:right-[30px] lg:right-[50px] z-50 w-auto bg-red-500"
+                >
+
+                    <div className="m-1">
+                        <div className="bg-black text-white p-2 rounded-md animate-fade">
+                            Error
+                        </div>
+                    </div>
+                </div>
             }
 
         </div>

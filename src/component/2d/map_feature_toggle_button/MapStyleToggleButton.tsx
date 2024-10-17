@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { useMap } from "react-map-gl";
 import mapboxgl from "mapbox-gl";
 import { Tooltip } from "react-tooltip";
@@ -129,7 +128,7 @@ const MapStyleToggleButton = ({
                 }
             </div>
 
-            {(!isTouchScreen && !buttonClick) &&
+            {(!isTouchScreen && !buttonClick && !mapStyleButtonToggle) &&
                 <Tooltip
                     anchorSelect="#map-style-toggle-button"
                     delayShow={300}

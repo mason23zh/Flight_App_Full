@@ -26,7 +26,6 @@ import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
 import mapboxgl from "mapbox-gl";
 import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
-import TooltipProvider from "./TooltipProvider";
 
 
 const TogglePanel = () => {
@@ -36,7 +35,6 @@ const TogglePanel = () => {
         trafficLayerVisible,
         weatherRasterVisible,
         terrainEnable,
-        movingMap,
         mapFollowTraffic,
         displayTelemetry,
     } = useSelector((state: RootState) => state.vatsimMapVisible);

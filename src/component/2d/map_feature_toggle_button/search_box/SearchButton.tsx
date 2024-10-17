@@ -55,7 +55,7 @@ const SearchButton = ({
             </div>
             {searchBoxVisible && <SearchBox/>}
 
-            {!isTouchScreen &&
+            {(!isTouchScreen && !searchBoxVisible) &&
                 <Tooltip
                     anchorSelect="#search-button"
                     delayShow={300}
