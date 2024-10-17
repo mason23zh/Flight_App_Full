@@ -4,6 +4,7 @@ import { useWebSocketContext } from "../WebSocketContext";
 import { useDispatch } from "react-redux";
 import { toggleMovingMap } from "../../../store";
 import { Tooltip } from "react-tooltip";
+import LiveTrafficErrorNotification from "./LiveTrafficErrorNotification";
 
 interface Props {
     isTouchScreen: boolean;
@@ -44,9 +45,9 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         if (!isActive) {
             closeWebSocket();
         }
-        
 
-        console.log("Notification.", connectionStatus);
+
+        // console.log("Notification.", connectionStatus);
 
         if (connectionStatus === "failed") {
             setNotification(true);
@@ -92,18 +93,8 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                 </Tooltip>
             }
 
-            {(notification) &&
-                <div
-                    className="fixed top-[70px] right-[10px] sm:right-[20px]
-                md:right-[30px] lg:right-[50px] z-50 w-auto bg-red-500"
-                >
-
-                    <div className="m-1">
-                        <div className="bg-black text-white p-2 rounded-md animate-fade">
-                            Error
-                        </div>
-                    </div>
-                </div>
+            {notification &&
+                <LiveTrafficErrorNotification autoCloseTime={3000}/>
             }
 
         </div>

@@ -76,6 +76,7 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const closeWebSocket = () => {
         if (wsRef.current) {
             wsRef.current.close();
+            setConnectionStatus("disconnected");
         }
     };
 
