@@ -55,7 +55,6 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         }
     }, [connectionStatus, isActive, dispatch, closeWebSocket]);
 
-
     return (
         <div
             className="relative"
@@ -84,7 +83,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                 </Tooltip>
             }
 
-            <LiveTrafficErrorNotification autoCloseTime={3000}/>
+            <LiveTrafficErrorNotification autoCloseTime={6000}/>
         </div>
     );
 };

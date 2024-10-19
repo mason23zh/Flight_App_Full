@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useWebSocketContext } from "../WebSocketContext";
-import { set } from "lodash";
+import { CustomProvider, Notification } from "rsuite";
+import { PiWarningCircle } from "react-icons/pi";
+
 
 interface Props {
     autoCloseTime: number;
 }
 
 const LiveTrafficErrorNotification = ({ autoCloseTime }: Props) => {
-    console.log("Notification run.");
-    const [notification, setNotification] = useState(false);
+    const oscLink = "https://github.com/mason23zh/Orion-Sim-Connector-OSC/releases/tag/Version-0.3";
 
+    const [notification, setNotification] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
 
     const { connectionStatus } = useWebSocketContext();
-
-    console.log("Connection status:", connectionStatus);
 
     useEffect(() => {
         if (connectionStatus === "failed") {
@@ -22,34 +23,60 @@ const LiveTrafficErrorNotification = ({ autoCloseTime }: Props) => {
     }, [connectionStatus]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setNotification(false);
-        }, autoCloseTime);
+        let timer: NodeJS.Timeout | null = null;
+        if (notification && !isHovered) {
+            timer = setTimeout(() => {
+                setNotification(false);
+            }, autoCloseTime);
+        }
 
         return () => {
             clearTimeout(timer);
         };
-    }, [notification]);
+    }, [notification, isHovered]);
 
-    const handleCloseNotification = () => {
-        setNotification(false);
+    const handleMouseEnter = () => {
+        setIsHovered(true);
     };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
+    // const handleCloseNotification = () => {
+    //     setNotification(false);
+    // };
 
 
     return (
         <>{(notification) &&
-            <div
-                className="fixed bottom-[20px] left-1/2 z-50 w-auto bg-red-500 transform -translate-x-1/2"
-            >
-                <div className="m-1">
-                    <div
-                        className="bg-black text-white p-2 rounded-md animate-fade"
-                        onClick={handleCloseNotification}
+            <CustomProvider theme="light">
+                <div
+                    className="fixed bottom-[20px] left-1/2 transform -translate-x-1/2"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+
+                    <Notification
+                        type="error"
+                        closable
+                        className="bg-red-200 whitespace-nowrap text-sm text-gray-900"
                     >
-                        Could not connect to simulator, make sure OSC is running. To lear more about OSC here.
-                    </div>
+                        <div>
+                            <div>
+                                Could not connect to simulator, make sure OSC is running. <br/>
+                                To learn more about OSC&nbsp;
+                                <a
+                                    href={oscLink}
+                                    target="_blank"
+                                    className="underline decoration-solid" rel="noreferrer">
+                                    here
+                                </a>
+                            </div>
+                        </div>
+                    </Notification>
                 </div>
-            </div>
+            </CustomProvider>
         }
         </>
     );
