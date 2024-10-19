@@ -18,9 +18,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         connectionStatus
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
-    const [notification, setNotification] = useState<boolean>(false);
     const dispatch = useDispatch();
-
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg" :
@@ -44,13 +42,6 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     useEffect(() => {
         if (!isActive) {
             closeWebSocket();
-        }
-
-
-        // console.log("Notification.", connectionStatus);
-
-        if (connectionStatus === "failed") {
-            setNotification(true);
         }
 
         if (connectionStatus === "disconnected" || connectionStatus === "failed") {
@@ -93,10 +84,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                 </Tooltip>
             }
 
-            {notification &&
-                <LiveTrafficErrorNotification autoCloseTime={3000}/>
-            }
-
+            <LiveTrafficErrorNotification autoCloseTime={3000}/>
         </div>
     );
 };
