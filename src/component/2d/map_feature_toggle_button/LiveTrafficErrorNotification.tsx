@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useWebSocketContext } from "../WebSocketContext";
 import { CustomProvider, Notification } from "rsuite";
-import { PiWarningCircle } from "react-icons/pi";
+import { Timer } from "../../../util/Timer";
 
 
 interface Props {
@@ -12,41 +12,30 @@ const LiveTrafficErrorNotification = ({ autoCloseTime }: Props) => {
     const oscLink = "https://github.com/mason23zh/Orion-Sim-Connector-OSC/releases/tag/Version-0.3";
 
     const [notification, setNotification] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+    const [timer, setTimer] = useState<Timer | null>(null);
 
     const { connectionStatus } = useWebSocketContext();
 
     useEffect(() => {
         if (connectionStatus === "failed") {
             setNotification(true);
+            const newTimer = new Timer(() => setNotification(false), autoCloseTime);
+            setTimer(newTimer);
         }
     }, [connectionStatus]);
 
-    useEffect(() => {
-        let timer: NodeJS.Timeout | null = null;
-        if (notification && !isHovered) {
-            timer = setTimeout(() => {
-                setNotification(false);
-            }, autoCloseTime);
-        }
-
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [notification, isHovered]);
 
     const handleMouseEnter = () => {
-        setIsHovered(true);
+        if (timer) {
+            timer.pause();
+        }
     };
 
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        if (timer) {
+            timer.resume();
+        }
     };
-
-    // const handleCloseNotification = () => {
-    //     setNotification(false);
-    // };
-
 
     return (
         <>{(notification) &&
@@ -63,16 +52,15 @@ const LiveTrafficErrorNotification = ({ autoCloseTime }: Props) => {
                         className="bg-red-200 whitespace-nowrap text-sm text-gray-900"
                     >
                         <div>
-                            <div>
-                                Could not connect to simulator, make sure OSC is running. <br/>
-                                To learn more about OSC&nbsp;
-                                <a
-                                    href={oscLink}
-                                    target="_blank"
-                                    className="underline decoration-solid" rel="noreferrer">
-                                    here
-                                </a>
-                            </div>
+                            Could not connect to simulator, make sure OSC is running. <br/>
+                            To learn more about OSC&nbsp;
+                            <a
+                                href={oscLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline decoration-solid">
+                                here
+                            </a>
                         </div>
                     </Notification>
                 </div>
