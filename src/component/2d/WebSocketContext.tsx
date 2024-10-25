@@ -40,8 +40,8 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const [liveTrafficAvailable, setLiveTrafficAvailableLocal] = useState(false);
     const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>("disconnected");
     const wsRef = useRef<WebSocket | null>(null);
-
     const openWebSocket = () => {
+        console.log("open Web socket.");
         setConnectionStatus("connecting");
         wsRef.current = new WebSocket("ws://localhost:49153");
 

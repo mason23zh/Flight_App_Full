@@ -4,7 +4,7 @@ import { useWebSocketContext } from "../WebSocketContext";
 import { useDispatch } from "react-redux";
 import { toggleMovingMap } from "../../../store";
 import { Tooltip } from "react-tooltip";
-import LiveTrafficErrorNotification from "./LiveTrafficErrorNotification";
+import CustomLiveTrafficErrorNotification from "./CustomLiveTrafficErrorNotification";
 
 interface Props {
     isTouchScreen: boolean;
@@ -12,12 +12,15 @@ interface Props {
 
 //TODO: Add notification if connection is failed or un-available.
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
+    console.log("Live traffic toggle button run.");
     const {
         openWebSocket,
         closeWebSocket,
         connectionStatus
     } = useWebSocketContext();
     const [isActive, setIsActive] = useState(false); // Track button's active state
+    const [showNotification, setShowNotification] = useState(false);
+    const [webSocketConnected, setWebSocketConnected] = useState(false);
     const dispatch = useDispatch();
 
     const activeClass = isTouchScreen ?
@@ -29,9 +32,12 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
 
     const tooltipMessage = "Enable moving map";
 
+    console.log("Current local active state:", isActive);
+
     const handleToggle = () => {
         const localActiveState = !isActive;
         setIsActive(prev => !prev);
+        setWebSocketConnected(localActiveState);
         if (localActiveState) {
             openWebSocket();
         } else {
@@ -39,21 +45,35 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         }
     };
 
+    console.log("Connection status:", connectionStatus);
+
+
     useEffect(() => {
         if (!isActive) {
             closeWebSocket();
         }
 
-        if (connectionStatus === "disconnected" || connectionStatus === "failed") {
-            closeWebSocket();
-            setIsActive(false);
-            dispatch(toggleMovingMap(false));
+        if (connectionStatus === "failed") {
+            setShowNotification(true);
         }
+
+        if ((connectionStatus === "disconnected" || connectionStatus === "failed") && webSocketConnected) {
+            closeWebSocket(); // Close WebSocket if it's disconnected or failed
+            setIsActive(false); // Deactivate button
+            setWebSocketConnected(false); // Reset WebSocket connected state
+            dispatch(toggleMovingMap(false)); // Disable moving map
+        }
+
+        // if (connectionStatus === "disconnected" || connectionStatus === "failed") {
+        //     closeWebSocket();
+        //     setIsActive(false);
+        //     dispatch(toggleMovingMap(false));
+        // }
 
         if (connectionStatus === "connected" && isActive) {
             dispatch(toggleMovingMap(true));
         }
-    }, [connectionStatus, isActive, dispatch, closeWebSocket]);
+    }, [connectionStatus, dispatch, closeWebSocket, webSocketConnected, isActive]);
 
     return (
         <div
@@ -82,8 +102,14 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                     {tooltipMessage}
                 </Tooltip>
             }
-
-            <LiveTrafficErrorNotification autoCloseTime={6000}/>
+            {
+                showNotification &&
+                <CustomLiveTrafficErrorNotification
+                    onAutoClose={() => setShowNotification(false)}
+                    onManualClose={() => setShowNotification(false)}
+                    autoCloseTime={10000000}
+                />
+            }
         </div>
     );
 };
