@@ -11,7 +11,6 @@ interface Props {
 }
 
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
-    console.log("Live traffic toggle button run.");
     const {
         openWebSocket,
         closeWebSocket,
@@ -31,8 +30,6 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
 
     const tooltipMessage = "Enable moving map";
 
-    console.log("Current local active state:", isActive);
-
     const handleToggle = () => {
         const localActiveState = !isActive;
         setIsActive(prev => !prev);
@@ -43,8 +40,6 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
             closeWebSocket();
         }
     };
-
-    console.log("Connection status:", connectionStatus);
 
 
     useEffect(() => {

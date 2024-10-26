@@ -7,7 +7,6 @@ import { IconLayer } from "@deck.gl/layers/typed";
 import { MatchedFir } from "./useMatchedFirs";
 
 const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
-    // console.log("Use fir icon layer run.");
     const dispatch = useDispatch();
 
     // Debounce hover state updates
