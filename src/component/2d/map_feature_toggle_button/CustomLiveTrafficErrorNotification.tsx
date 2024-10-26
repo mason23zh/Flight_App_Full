@@ -51,7 +51,7 @@ const CustomLiveTrafficErrorNotification = ({
             onMouseLeave={handleMouseLeave}
         >
             <div
-                className="flex items-center justify-center gap-3 text-sm font-Rubik"
+                className="flex items-center justify-center gap-3 text-sm font-Rubik text-gray-900"
             >
                 <div className="text-red-700">
                     <PiWarningCircle size={20}/>

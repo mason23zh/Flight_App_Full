@@ -10,7 +10,6 @@ import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
-import LiveTrafficErrorNotification from "../map_feature_toggle_button/LiveTrafficErrorNotification";
 
 interface BaseMapProps {
     children: React.ReactNode;

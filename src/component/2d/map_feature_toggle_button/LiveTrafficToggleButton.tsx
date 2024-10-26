@@ -107,7 +107,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
                 <CustomLiveTrafficErrorNotification
                     onAutoClose={() => setShowNotification(false)}
                     onManualClose={() => setShowNotification(false)}
-                    autoCloseTime={10000000}
+                    autoCloseTime={6000}
                 />
             }
         </div>
