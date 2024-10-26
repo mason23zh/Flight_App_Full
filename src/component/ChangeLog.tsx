@@ -187,6 +187,7 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.5.2 <br/>
+                        - Added notification if websocket connection failed <br/>
                         - Fixed the text encoding issue (backend and frontend fix) <br/>
                         - Fixed some minor font issue <br/>
                         - Improve Map performance, reduce memory usage <br/>

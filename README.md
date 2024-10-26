@@ -176,6 +176,7 @@
 
 #Beta 0.5.2
 
+- Added notification if websocket connection failed
 - Fixed the text encoding issue (backend and frontend fix)
 - Fixed some minor font issue
 - Improve Map performance, reduce memory usage

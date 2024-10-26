@@ -10,7 +10,6 @@ interface Props {
     isTouchScreen: boolean;
 }
 
-//TODO: Add notification if connection is failed or un-available.
 const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     console.log("Live traffic toggle button run.");
     const {
