@@ -1,42 +1,35 @@
 import React, { useEffect } from "react";
-import useMatchTraconFeatures from "../../../../hooks/useMatchTraconFeatures";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
-    highlightTraconBoundariesLayerStyle,
-    traconBoundariesLineLayerStyle
+    activeTraconFillLayerStyle,
+    activeTraconLineLayerStyle,
+    fallBackHighlightTraconFillLayerStyle,
+    fallbackTraconBoundariesLineLayerStyle,
 } from "./traconLayerMapStyle";
-import useRenderTraconLabelMarker from "../../../../hooks/useRenderTraconLabelMarker";
-import TraconLabelPopup from "./TraconLabelPopup";
-import { useDispatch } from "react-redux";
-import { addMessage, removeMessageByLocation } from "../../../../store";
-import { isFeatureCollection } from "../util/helpers";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage, removeMessageByLocation, RootState } from "../../../../store";
 
 interface Controller {
     controllerInfo: VatsimControllers;
-    labelVisible: boolean;
 }
-
-//!fix: LGA_V_APP
 
 const TraconLayer = ({
     controllerInfo,
-    labelVisible
 }: Controller) => {
     const dispatch = useDispatch();
+    const {
+        matchedFallbackTracons,
+        matchedTracons,
+        fallbackGeoJson,
+        hoveredTracon,
+        isLoading: isTraconLoading,
+        isError: isTraconError
+    } = useSelector((state: RootState) => state.matchedTracons);
 
-    const {
-        geoJsonFeatures,
-        isLoading,
-        error
-    } = useMatchTraconFeatures(controllerInfo);
-    const {
-        renderedMarkers,
-        hoverTraconCast,
-    } = useRenderTraconLabelMarker(geoJsonFeatures);
 
     useEffect(() => {
-        if (isLoading) {
+        if (isTraconLoading) {
             dispatch(addMessage({
                 location: "TRACON",
                 messageType: "LOADING",
@@ -44,31 +37,49 @@ const TraconLayer = ({
             }));
         }
 
-        if (error) {
+        if (isTraconError) {
             dispatch(addMessage({
                 location: "TRACON",
                 messageType: "ERROR",
                 content: "Error loading Tracon layer."
             }));
         }
-        if (geoJsonFeatures && !error && !isLoading) {
+        if (matchedTracons && !isTraconError && !isTraconLoading) {
             dispatch(removeMessageByLocation({ location: "TRACON" }));
         }
-    }, [isLoading, error, geoJsonFeatures]);
+    }, [isTraconError, isTraconLoading, controllerInfo, matchedTracons, matchedFallbackTracons]);
 
 
-    if (geoJsonFeatures) {
+    if (matchedTracons) {
+        const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
+        const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoveredTracon);
+        const fallbackHoverTraconFillStyle = fallBackHighlightTraconFillLayerStyle(hoveredTracon);
         return (
-            <Source type="geojson" data={geoJsonFeatures}>
-                <Layer {...traconBoundariesLineLayerStyle}/>
-                {(hoverTraconCast && labelVisible && isFeatureCollection(hoverTraconCast)) &&
-                    <Source type="geojson" data={hoverTraconCast}>
-                        <Layer {...highlightTraconBoundariesLayerStyle}/>
-                        <TraconLabelPopup hoverTracon={hoverTraconCast}/>
-                    </Source>
+            <>
+                <Source
+                    id="active-tracon-layers"
+                    type="vector"
+                    url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
+                >
+                    <Layer {...activeTraconOutlineStyle}/>
+                    {(hoveredTracon && hoveredTracon.traconInfo.id) && <Layer {...activeHoverTraconLayerStyle}/>}
+                </Source>
+
+                {fallbackGeoJson &&
+                            matchedFallbackTracons &&
+                            fallbackGeoJson.features.length > 0 &&
+                            (
+                                <Source
+                                    id="fallback-tracon-geojson"
+                                    type="geojson"
+                                    data={fallbackGeoJson}
+                                >
+                                    <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
+                                    {hoveredTracon && <Layer {...fallbackHoverTraconFillStyle}/>}
+                                </Source>
+                            )
                 }
-                {labelVisible && renderedMarkers}
-            </Source>
+            </>
         );
     }
 };

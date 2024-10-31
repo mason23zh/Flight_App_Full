@@ -116,9 +116,9 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
 
                 // If no match found, create a circle with the given visual_range
                 if (!matched &&
-                        controller.visual_range &&
-                        !_.isEmpty(controller.airport) &&
-                        controller.coordinates.length !== 0) {
+                        (controller.visual_range &&
+                                !_.isEmpty(controller.airport) &&
+                                controller.coordinates.length !== 0)) {
                     const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
                     const radius = controller.visual_range * 1.852 / 5;
                     const options = {

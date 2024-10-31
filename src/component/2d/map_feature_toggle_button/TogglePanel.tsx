@@ -5,8 +5,9 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    toggleAtcLayer, toggleMapFollowTraffic,
-    toggleMovingMap, toggleTelemetry,
+    toggleAtcLayer,
+    toggleMapFollowTraffic,
+    toggleTelemetry,
     toggleTerrainLabel,
     toggleTrafficLayer,
     toggleWeatherRasterLayer
@@ -15,35 +16,31 @@ import { IoAirplane } from "react-icons/io5";
 import { TiWeatherDownpour } from "react-icons/ti";
 import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
-import { MdNavigation } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { IoSpeedometerOutline } from "react-icons/io5";
-
-import { MapRef } from "react-map-gl";
+import { useMap } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
+import mapboxgl from "mapbox-gl";
+import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
 
-interface Props {
-    mapRef: React.RefObject<MapRef>;
-}
 
-const TogglePanel = ({ mapRef }: Props) => {
+const TogglePanel = () => {
+    const { current: mapRef } = useMap();
     const {
         allAtcLayerVisible,
         trafficLayerVisible,
         weatherRasterVisible,
         terrainEnable,
-        movingMap,
         mapFollowTraffic,
         displayTelemetry,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
-        openWebSocket,
-        closeWebSocket,
+        connectionStatus,
         liveTrafficAvailable
     } = useWebSocketContext();
 
@@ -51,23 +48,66 @@ const TogglePanel = ({ mapRef }: Props) => {
     const dispatch = useDispatch();
 
 
-    const handleMovingMapIconToggle = (activeFlag) => {
-        if (activeFlag) {
-            openWebSocket();
-            if (liveTrafficAvailable) {
-                dispatch(toggleMovingMap(true));
+    useEffect(() => {
+        const map = mapRef?.getMap();
+        if (!map) return;
+
+        const addTerrainSource = (map: mapboxgl.Map) => {
+            map.addSource("mapbox-dem", {
+                "type": "raster-dem",
+                "url": "mapbox://mapbox.mapbox-terrain-dem-v1",
+                "tileSize": 512,
+                "maxzoom": 14
+            });
+            // add the DEM source as a terrain layer with exaggerated height
+            map.setTerrain({
+                "source": "mapbox-dem",
+                "exaggeration": 1.5
+            });
+        };
+
+        const addTerrainLayer = () => {
+            try {
+                addTerrainSource(map);
+            } catch (e) {
+                map.on("style.load", () => {
+                    addTerrainSource(map);
+                });
             }
+        };
+
+        const removeTerrainLayer = () => {
+            map.setPitch(0);
+            map.setBearing(0);
+
+            // Remove terrain first if it exists
+            if (map.getTerrain()) {
+                map.setTerrain(null);
+            }
+
+            // Remove the source after terrain has been removed
+            // if (map.getSource("mapbox-dem")) {
+            //     map.removeSource("mapbox-dem");
+            // }
+        };
+
+        if (terrainEnable) {
+            addTerrainLayer();
         } else {
-            closeWebSocket();
-            dispatch(toggleMovingMap(false));
+            removeTerrainLayer();
         }
-    };
+
+        return () => {
+            removeTerrainLayer();
+        };
+
+    }, [terrainEnable, mapRef]);
 
 
     // Map loading state/error notification
     useEffect(() => {
-        const map = mapRef.current?.getMap();
-        if (!map) {
+        // const map = mapRef.current?.getMap();
+        if (!mapRef) {
             console.warn("Map reference not found");
             dispatch(addMessage({
                 location: "BASE_MAP",
@@ -82,10 +122,10 @@ const TogglePanel = ({ mapRef }: Props) => {
             setIsMapLoaded(true);
         };
 
-        map.on("load", handleMapLoad);
+        mapRef.on("load", handleMapLoad);
 
         return () => {
-            map.off("load", handleMapLoad);
+            mapRef.off("load", handleMapLoad);
         };
     }, [mapRef]);
 
@@ -123,6 +163,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         initialActive={trafficLayerVisible}
                         tooltipMessage="Toggle Vatsim traffic"
                         isTouchScreen={isTouchScreen}
+                        buttonId="traffic-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -131,6 +172,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         initialActive={allAtcLayerVisible}
                         tooltipMessage="Toggle ATC visibility"
                         isTouchScreen={isTouchScreen}
+                        buttonId="atc-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -139,6 +181,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                         initialActive={weatherRasterVisible}
                         tooltipMessage="Toggle weather"
                         isTouchScreen={isTouchScreen}
+                        buttonId="weather-toggle-button"
                     />
 
                     <MapFeaturesToggleButton
@@ -147,17 +190,14 @@ const TogglePanel = ({ mapRef }: Props) => {
                         initialActive={terrainEnable}
                         tooltipMessage="Toggle terrain and 3D view"
                         isTouchScreen={isTouchScreen}
+                        buttonId="terrain-toggle-button"
                     />
 
-                    <MapFeaturesToggleButton
-                        onToggle={handleMovingMapIconToggle}
-                        icon={<MdNavigation/>}
-                        initialActive={movingMap}
-                        tooltipMessage="Enable moving map"
+                    <LiveTrafficToggleButton
                         isTouchScreen={isTouchScreen}
                     />
 
-                    {(movingMap && liveTrafficAvailable) &&
+                    {(connectionStatus === "connected" && liveTrafficAvailable) &&
                         <>
                             <MapFeaturesToggleButton
                                 onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}
@@ -165,6 +205,7 @@ const TogglePanel = ({ mapRef }: Props) => {
                                 initialActive={mapFollowTraffic}
                                 tooltipMessage="Map follow traffic"
                                 isTouchScreen={isTouchScreen}
+                                buttonId="moving-map-traffic-follow-button"
                             />
 
                             <MapFeaturesToggleButton
@@ -173,13 +214,14 @@ const TogglePanel = ({ mapRef }: Props) => {
                                 initialActive={displayTelemetry}
                                 tooltipMessage="Toggle traffic telemtry"
                                 isTouchScreen={isTouchScreen}
+                                buttonId="moving-map-telemetry-button"
                             />
                         </>
                     }
 
-                    <MapStyleToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
+                    <MapStyleToggleButton isTouchScreen={isTouchScreen}/>
 
-                    <MapFilterToggleButton mapRef={mapRef} isTouchScreen={isTouchScreen}/>
+                    <MapFilterToggleButton isTouchScreen={isTouchScreen}/>
 
                 </div>
             </div>

@@ -21,7 +21,7 @@ const TargetAirportsHoverPopup = ({
     if (type === "DEPARTURE") {
         renderedContent = (
 
-            <div className={`flex flex-col py-1 px-2 font-Rubik rounded-lg ${colorTheme}`}>
+            <div className={`flex flex-col py-1 px-2 rounded-lg ${colorTheme}`}>
                 <div className="flex items-center gap-1">
                     <div>
                         <FaPlaneDeparture

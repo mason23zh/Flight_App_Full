@@ -7,6 +7,7 @@ interface WebSocketContextProps {
     liveTrafficAvailable: boolean;
     openWebSocket: () => void;
     closeWebSocket: () => void;
+    connectionStatus: "connected" | "disconnected" | "connecting" | "failed";
 }
 
 const WebSocketContext = createContext<WebSocketContextProps | undefined>(undefined);
@@ -23,6 +24,9 @@ interface WebSocketProviderProps {
     children: ReactNode;
 }
 
+type ConnectionStatus = "connected" | "disconnected" | "connecting" | "failed";
+
+
 export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const [flightData, setFlightData] = useState<LiveFlightData>({
         latitude: null,
@@ -32,11 +36,17 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         MSL: null,
     });
 
+    const hasErrorOccurred = useRef(false);
     const [liveTrafficAvailable, setLiveTrafficAvailableLocal] = useState(false);
+    const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>("disconnected");
     const wsRef = useRef<WebSocket | null>(null);
-
     const openWebSocket = () => {
+        setConnectionStatus("connecting");
         wsRef.current = new WebSocket("ws://localhost:49153");
+
+        wsRef.current.onopen = () => {
+            setConnectionStatus("connected");
+        };
 
         wsRef.current.onmessage = (event) => {
             const data: LiveFlightData = JSON.parse(event.data);
@@ -46,7 +56,18 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
         };
 
         wsRef.current.onerror = () => {
+            hasErrorOccurred.current = true;
             setLiveTrafficAvailable(false);
+            setLiveTrafficAvailableLocal(false);
+            setConnectionStatus("failed");
+        };
+
+        wsRef.current.onclose = () => {
+            // only set connection status if no error occurred, this will prevent disconnected
+            // status override the failed status
+            if (!hasErrorOccurred.current) {
+                setConnectionStatus("disconnected");
+            }
             setLiveTrafficAvailableLocal(false);
         };
     };
@@ -54,14 +75,16 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const closeWebSocket = () => {
         if (wsRef.current) {
             wsRef.current.close();
+            setConnectionStatus("disconnected");
         }
     };
 
+    //clean up the WebSocket
     useEffect(() => {
-        openWebSocket();
-
         return () => {
-            closeWebSocket();
+            if (wsRef.current) {
+                wsRef.current.close();
+            }
         };
     }, []);
 
@@ -70,7 +93,8 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
             flightData,
             liveTrafficAvailable,
             openWebSocket,
-            closeWebSocket
+            closeWebSocket,
+            connectionStatus
         }}>
             {children}
         </WebSocketContext.Provider>

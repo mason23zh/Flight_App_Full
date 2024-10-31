@@ -144,7 +144,7 @@ function AirportDetail() {
             </CustomProvider>
         );
     }
-    return null;
+    // return null;
 }
 
 export default AirportDetail;

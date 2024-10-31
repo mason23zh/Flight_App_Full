@@ -1,27 +1,49 @@
-import React from "react";
-import GeoJson from "geojson";
+import React, { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
+import mapboxgl from "mapbox-gl";
 
-interface Props {
-    hoverTracon: GeoJson.FeatureCollection;
+interface HoverTraconControllers {
+    callsign: string;
+    name: string;
+    frequency: string;
+    logon_time: string;
 }
 
-const TraconLabelPopup = ({ hoverTracon }: Props) => {
-    const darkMode = useTheme();
-    let lon: number;
-    let lat: number;
-    if ("coordinates" in hoverTracon.features[0].geometry) {
-        lon = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][0]);
-        lat = Number(hoverTracon.features[0].geometry.coordinates[0][0][0][1]);
-    }
+export interface HoverTracon {
+    controllers: HoverTraconControllers[];
+    traconInfo: {
+        id?: string;
+        callsignPrefix?: string;
+        name: string;
+        coordinates: number[];
+    };
+}
 
-    const traconName = hoverTracon.features[0].properties.name;
+interface TraconLabelPopupProps {
+    hoverTracon: HoverTracon;
+}
+
+const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
+    if (!hoverTracon) return null;
+
+    const darkMode = useTheme();
+    const popupRef = useRef<mapboxgl.Popup | null>(null);
+    const lon = hoverTracon.traconInfo?.coordinates[0];
+    const lat = hoverTracon.traconInfo?.coordinates[1];
+    const traconName = hoverTracon.traconInfo?.name;
+
+    useEffect(() => {
+        if (popupRef.current) {
+            popupRef.current.setOffset([0, -20]);
+        }
+    }, [popupRef.current]);
+
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
-    const renderControllersData = hoverTracon.features[0].properties.controllers.map((c) => {
+    const renderControllersData = hoverTracon?.controllers.map((c) => {
         const uniqueKey = c.name + c.callsign;
         const {
             hour,
@@ -44,20 +66,20 @@ const TraconLabelPopup = ({ hoverTracon }: Props) => {
                 </div>
             </div>
         );
-        // }
     });
 
     return (
         <Popup
+            ref={popupRef}
             longitude={lon}
             latitude={lat}
             style={{ zIndex: 100 }}
             closeButton={false}
             anchor="bottom"
         >
-            <div className={`w-full p-2 rounded-lg border-0 font-Rubik ${colorTheme}`}>
+            <div className={`w-full p-2 rounded-lg border-0 ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-max">
-                    <div className="text-lg font-bold">
+                    <div className="text-sm font-bold">
                         {traconName}
                     </div>
                 </div>

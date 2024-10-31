@@ -55,7 +55,7 @@ function ExtremeWeather() {
                 <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
                 <div id="weather-table-button"
                     className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
-                    <div className="px-2 flex justify-center items-center px-2">
+                    <div className="px-2 flex justify-center items-center">
                         <div className="flex items-center gap-3">
                             <div
                                 className={`px-2 py-1 ${darkMode ? "bg-green-600" : "bg-green-400"} rounded-lg

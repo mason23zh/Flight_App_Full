@@ -1,4 +1,6 @@
 import React, { createContext, useContext } from "react";
+import mapboxgl from "mapbox-gl";
+import { MapRef } from "react-map-gl";
 
 interface Viewport {
     longitude: number;
@@ -8,6 +10,8 @@ interface Viewport {
     bearing: number;
     width: number;
     height: number;
+    isDragging: boolean;//to track mouse dragging state
+    mapRef: MapRef;
 }
 
 // Create a Context for the viewState
@@ -21,7 +25,7 @@ export const useViewState = () => {
     }
     return context;
 };
- 
+
 
 export const ViewStateProvider: React.FC<{ value: Viewport; children: React.ReactNode }> = ({
     value,

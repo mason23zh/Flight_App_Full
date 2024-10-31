@@ -25,7 +25,7 @@ export function isAirportService(
 // 'anchor' is reversed in the Popup, pay extra attention before changing
 // the offset value.
 const offsetTop = 10;
-const offsetBottom = -40;
+const offsetBottom = -20;
 const offsetLeft = 25;
 export const markerOffsetObject = {
     "top": [0, offsetTop],

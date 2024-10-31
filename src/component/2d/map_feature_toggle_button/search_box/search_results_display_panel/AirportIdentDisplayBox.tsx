@@ -34,7 +34,7 @@ const AirportIdentDisplayBox = ({
             <div
                 className="flex gap-2">
                 <div
-                    className="flex items-center gap-1 border-[1px] text-xs font-Rubik rounded-lg px-1 py-0"
+                    className="flex items-center gap-1 border-[1px] text-xs rounded-lg px-1 py-0"
                 >
                     <div>
                         {airport.iata_code || "-"}

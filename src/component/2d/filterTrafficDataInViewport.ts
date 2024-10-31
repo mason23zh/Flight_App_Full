@@ -1,53 +1,55 @@
 /*
 * Using WebMercatorViewport to filter out the traffic that not within the viewport
 * */
-import { WebMercatorViewport } from "@deck.gl/core/typed";
 import { VatsimFlight } from "../../types";
-
-interface Viewport {
-    longitude: number;
-    latitude: number;
-    zoom: number;
-    width: number; //screen width
-    height: number; //screen height
-}
+import { wrapLongitudeForBounds } from "../../util/wrapLongitudeForViewportBounds";
 
 const filterTrafficDataInViewport = (
     trafficData: VatsimFlight[],
-    viewport: Viewport): VatsimFlight[] => {
+    currentBounds: [number, number, number, number] | null,
+): VatsimFlight[] => {
+    //TODO: Bug in the wrapLongitudeForBounds function, if zoom number too small the wrapping is wrong.
+    if (trafficData.length === 0 || !currentBounds) return [];
 
-    const {
-        latitude,
-        longitude,
-        zoom,
-        width,
-        height
-    } = viewport;
 
-    //using WebMercatorViewport to get bounds of current viewport
-    const viewportBounds = new WebMercatorViewport({
-        longitude,
-        latitude,
-        zoom,
-        width,
-        height
-    }).getBounds();
+    // Need to wrap the longitude to display traffic from both east and west hemisphere
+    const currentBoundsWrapped = wrapLongitudeForBounds(currentBounds);
 
-    const [minLng, minLat, maxLng, maxLat] = viewportBounds;
+    const filterDataInBounds = (
+        bounds: [number, number, number, number],
+        data: VatsimFlight[]
+    ): VatsimFlight[] => {
+        const [minLng, minLat, maxLng, maxLat] = bounds;
 
-    if (trafficData.length === 0) return [];
 
-    return trafficData.filter(({
-        longitude,
-        latitude
-    }) => {
-        return (
-            longitude >= minLng &&
-                longitude <= maxLng &&
-                latitude >= minLat &&
-                latitude <= maxLat
-        );
-    });
+        if (minLng > maxLng) {
+            // Handle map wrapping: split into two ranges
+            return data.filter(({
+                longitude,
+                latitude
+            }) => {
+                return (
+                    latitude >= minLat &&
+                        latitude <= maxLat &&
+                        (longitude >= minLng || longitude <= maxLng)
+                );
+            });
+        } else {
+            return data.filter(({
+                longitude,
+                latitude
+            }) => {
+                return (
+                    longitude >= minLng &&
+                        longitude <= maxLng &&
+                        latitude >= minLat &&
+                        latitude <= maxLat
+                );
+            });
+        }
+    };
+
+    return filterDataInBounds(currentBoundsWrapped, trafficData);
 };
 
 export default filterTrafficDataInViewport;

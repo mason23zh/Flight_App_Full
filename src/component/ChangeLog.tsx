@@ -185,14 +185,21 @@ function ChangeLog() {
                         - Remove the hover popup arrow tip (controller marker) <br/>
                         - Adjust the controller marker popup size for mobile device <br/>
                     </div>
+                    <div>
+                        Beta 0.5.2 <br/>
+                        - Added notification if websocket connection failed <br/>
+                        - Fixed the text encoding issue (backend and frontend fix) <br/>
+                        - Fixed some minor font issue <br/>
+                        - Improve Map performance, reduce memory usage <br/>
+                        - Adjust Event page style <br/>
+                        - Change mouse to pointer when hover over the Extreme Weather table item <br/>
+                        - Disable the translation to prevent some crash <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">
                 Known Issues
                 <div>---</div>
-                <div>
-                    - Map Pitch not reset sometimes after switching terrain mode on to off.
-                </div>
                 <div className="flex flex-col gap-3"/>
             </div>
         </CustomProvider>

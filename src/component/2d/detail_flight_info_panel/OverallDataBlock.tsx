@@ -8,12 +8,13 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { BiTargetLock } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { setTrafficTracking } from "../../../store";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
+import { useMap } from "react-map-gl";
 
 
 const OverallDataBlock = ({
     aircraft,
+    position,
     callsign,
     depAirport,
     arrAirport,
@@ -22,8 +23,8 @@ const OverallDataBlock = ({
     progress
 }) => {
     const isTouchScreen = useIsTouchScreen();
-    const dispatch = useDispatch();
     const airlinerInfo = getAircraftCallsignName(callsign);
+    const { current: mapRef } = useMap();
 
     const {
         handleMouseEnter,
@@ -40,7 +41,13 @@ const OverallDataBlock = ({
     } = useDisplayTooltip(200);
 
     const handleTrackingClick = () => {
-        dispatch(setTrafficTracking(true));
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            map.flyTo({
+                center: position,
+                zoom: 10
+            });
+        }
     };
 
     return (
@@ -50,7 +57,7 @@ const OverallDataBlock = ({
             <div className="grid grid-rows-2">
                 <div className={`grid ${airlinerInfo ? "grid-rows-3" : "grid-rows-2"} bg-gray-600 p-2`}>
                     <div className="flex items-center gap-3">
-                        <div className="text-yellow-500 font-bold text-[15px] md:text-xl font-Rubik">
+                        <div className="text-yellow-500 font-bold text-[15px] md:text-xl">
                             {callsign}
                         </div>
                         <div
@@ -76,7 +83,7 @@ const OverallDataBlock = ({
                     {
                         airlinerInfo &&
                         <div
-                            className="text-white text-xs md:text-sm font-Rubik flex items-center gap-1">
+                            className="text-white text-xs md:text-sm flex items-center gap-1">
                             {airlinerInfo.name}
 
                             <div
@@ -89,7 +96,7 @@ const OverallDataBlock = ({
                                 {(tooltipVisible && !isTouchScreen) &&
                                 <div
                                     className="fixed px-2 py-1 bg-blue-500 rounded-md
-                                    flex flex-col text-xs font-Rubik text-gray-100
+                                    flex flex-col text-xs text-gray-100
                                     transition translate-y-[10%]"
                                 >
                                     <div className="flex items-center gap-1">
@@ -115,7 +122,7 @@ const OverallDataBlock = ({
                     }
 
 
-                    <div className="text-white md:font-bold text-xs md:text-sm font-Rubik">
+                    <div className="text-white text-xs md:text-sm">
                         {aircraft || "N/A"}
                     </div>
                 </div>

@@ -1,34 +1,45 @@
 import { FillLayer, LineLayer } from "react-map-gl";
+import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 
-export const highlightLayer: FillLayer = {
-    id: "fir-highlight-boundaries-layer",
-    type: "fill",
-    paint: {
-        "fill-color": "#9499a8",
-        "fill-opacity": 0.4,
-    }
-};
+export const activeFirLayerStyle = (matchedFirs: {
+    id: string,
+    oceanic: string,
+}[], hoverFir: MatchedFir): FillLayer => {
+    const hoverFirId = hoverFir ? hoverFir.firInfo.firBoundary : null;
 
-export const layerStyle: FillLayer = {
-    id: "fir-boundaries-layer",
-    type: "fill",
-    paint: {
-        "fill-color": "#9499a8",
-        "fill-opacity": 0.2,
-    }
-};
+    const filterConditions = matchedFirs.map(fir => [
+        "all",
+        ["==", ["get", "id"], fir.id],
+        ["==", ["get", "oceanic"], fir.oceanic]
+    ]);
 
-export const boundariesLineStyle: LineLayer = {
-    id: "fir-boundaries-line-layer",
-    type: "line",
-    paint: {
-        "line-color": "#FFFFFF",
-        "line-width": 1.8
-    }
+    return {
+        id: "fir-boundaries-layer",
+        type: "fill",
+        maxzoom: 10,
+        source: "active-fir-layers",
+        "source-layer": "latest_fir_boundaries",
+        paint: {
+            "fill-color": "#9499a8",
+            "fill-opacity": [
+                "case",
+                ["==", ["get", "id"], hoverFirId],
+                0.5,
+                0.3
+            ],
+            "fill-outline-color": "#FFFFFF",
+        },
+        filter: [
+            "any",
+            ...filterConditions
+        ]
+    };
 };
 
 export const underlineBoundariesLineStyle: LineLayer = {
     id: "fir-underline-boundaries-line-layer",
+    source: "fir-outline-boundaries-source",
+    "source-layer": "latest_fir_boundaries",
     type: "line",
     paint: {
         "line-color": "#9499a8",

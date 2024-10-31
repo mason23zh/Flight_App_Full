@@ -13,7 +13,6 @@ interface Props {
     aircraft: VatsimFlight[] | null;
 }
 
-//TODO: New UI design for filter traffic button and layout
 const AircraftInfoPanel = ({ aircraft }: Props) => {
     const dispatch = useDispatch();
 
@@ -31,7 +30,7 @@ const AircraftInfoPanel = ({ aircraft }: Props) => {
 
     return (
         <div className="grid grid-cols-1 p-2 border-b">
-            <div className="grid grid-cols-4 font-Rubik">
+            <div className="grid grid-cols-4">
                 <div className="col-span-3">
                     <div className="font-bold text-lg">
                         {aircraft[0]?.flight_plan.aircraft_short || "N/A"}

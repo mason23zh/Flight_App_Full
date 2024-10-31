@@ -1,10 +1,9 @@
-import { MapRef } from "react-map-gl";
-import React from "react";
+import mapboxgl from "mapbox-gl";
 
-const switchMapLabels = (mapRef: React.RefObject<MapRef>, visibility: boolean) => {
+const switchMapLabels = (map: mapboxgl.Map, visibility: boolean) => {
     const flag = visibility ? "visible" : "none";
-    if (mapRef.current) {
-        const map = mapRef.current.getMap();
+    if (map) {
+        // const map = mapRef.current.getMap();
         const layers = [
             "continent-label", "country-label", "state-label",
             "settlement-major-label", "settlement-minor-label",

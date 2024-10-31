@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { AirportService, VatsimControllers } from "../../../../types";
 import useRenderControllerMarkers from "../../../../hooks/useRenderControllerMarkers";
 import ControllerMarkerPopup from "./ControllerMarkerPopup";
@@ -23,9 +23,9 @@ const ControllerMarkerLayer = ({
     return (
         <>
             {labelVisible && renderedMarkers}
-            {hoverInfo && isAirportService(hoverInfoCast) &&
-                <ControllerMarkerPopup hoverInfo={hoverInfoCast}/>
-            }
+            {/* {hoverInfo && isAirportService(hoverInfoCast) && */}
+            {/*     <ControllerMarkerPopup hoverInfo={hoverInfoCast}/> */}
+            {/* } */}
         </>
     );
 };

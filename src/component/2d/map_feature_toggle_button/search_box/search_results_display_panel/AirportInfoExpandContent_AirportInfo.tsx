@@ -36,7 +36,7 @@ const AirportInfoExpandContentAirportInfo = ({
             const airport = airportData.data[0].airport;
 
             return (
-                <div className="grid grid-cols-1 p-2 text-sm font-Rubik">
+                <div className="grid grid-cols-1 p-2 text-sm">
                     <div className="flex gap-1 p-1">
                         <div>
                             Name:

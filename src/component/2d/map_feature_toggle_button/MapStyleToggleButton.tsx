@@ -2,37 +2,37 @@ import React, { useEffect, useState } from "react";
 import MapStyleToggleButtonGroup from "./MapStyleToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
-import { MapRef } from "react-map-gl";
+import { useMap } from "react-map-gl";
+import mapboxgl from "mapbox-gl";
+import { Tooltip } from "react-tooltip";
 
 type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 interface Props {
-    mapRef: React.RefObject<MapRef>;
     isTouchScreen: boolean;
 }
 
 const MapStyleToggleButton = ({
-    mapRef,
     isTouchScreen
 }: Props) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
+    const { current: mapRef } = useMap();
     // when user click the button, tooltip will disappear
     const [buttonClick, setButtonClick] = useState(false);
+    const [map, setMap] = useState<mapboxgl.Map>(null);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const {
-        handleMouseMove,
-        handleMouseLeave,
-        handleMouseEnter,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(600);
+
+    useEffect(() => {
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            setMap(map);
+        }
+    }, [mapRef]);
 
     // close the popup when mapStyle changes
     useEffect(() => {
@@ -57,19 +57,17 @@ const MapStyleToggleButton = ({
     useEffect(() => {
         if (buttonClick) {
             setButtonClick(false);
-            resetTooltip();
         }
-    }, [tooltipVisible, buttonClick, resetTooltip]);
+    }, [buttonClick]);
 
     const handleOnClick = () => {
         setButtonClick(true);
-        resetTooltip();
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
     const setMapStyle = (mapName: MapStyle) => {
-        if (mapRef.current) {
-            const map = mapRef.current.getMap();
+        if (map) {
+
             let styleUrl: string;
             switch (mapName) {
             case "DEFAULT":
@@ -96,7 +94,7 @@ const MapStyleToggleButton = ({
 
     useEffect(() => {
         setMapStyle(mapStyles);
-    }, [mapStyles]);
+    }, [mapStyles, map]);
 
     const inactiveButtonClass = isTouchScreen ?
         "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :
@@ -105,15 +103,14 @@ const MapStyleToggleButton = ({
         "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center" :
         "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center hover:bg-blue-400";
 
+    const tooltipMessage = "Switching map style";
 
     return (
         <div>
             <button
                 className={mapStyleButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
-                onMouseLeave={handleMouseLeave}
-                onMouseEnter={handleMouseEnter}
-                onMouseMove={handleMouseMove}
+                id="map-style-toggle-button"
             >
                 {mapStyleName}
             </button>
@@ -130,17 +127,21 @@ const MapStyleToggleButton = ({
                     : ""
                 }
             </div>
-            {(tooltipVisible && !buttonClick && !isTouchScreen) &&
-                <div
-                    className="fixed px-2 py-1 bg-black text-white
-                        text-xs rounded-md pointer-events-none z-40"
+
+            {(!isTouchScreen && !buttonClick && !mapStyleButtonToggle) &&
+                <Tooltip
+                    anchorSelect="#map-style-toggle-button"
+                    delayShow={300}
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
-                    Switching map style
-                </div>
+                    {tooltipMessage}
+                </Tooltip>
             }
         </div
         >

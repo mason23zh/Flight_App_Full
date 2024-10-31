@@ -12,7 +12,7 @@ function ExtremeWeatherHeroSectionScope({
     if (code.label) {
         if (scope === COUNTRY) {
             return (
-                <div className="flex items-center justify-center gap-2 font-Rubik">
+                <div className="flex items-center justify-center gap-2">
                     <div>
                         {weather.includes("_") ? capitalizeAllLetter(weather.replace("_", " ")
                             .toLowerCase()) : capitalizeAllLetter(weather.toLowerCase())}
@@ -29,7 +29,7 @@ function ExtremeWeatherHeroSectionScope({
 
         if (scope === CONTINENT) {
             return (
-                <div className="flex items-center justify-center gap-2 relative font-Rubik">
+                <div className="flex items-center justify-center gap-2 relative">
                     <div>
                         {" "}
                         {weather.includes("_") ? capitalizeAllLetter(weather.replace("_", " ")

@@ -1,19 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    useFetchVatsimControllersDataQuery,
     useFetchVatsimFirBoundariesQuery
 } from "../../../store";
 import FirLayer from "./FIR_Layers/FirLayer";
 import TraconLayer from "./Tracon_Layers/TraconLayer";
-import ControllerMarkerLayer from "./Controller_Markers_Layer/ControllerMarkerLayer";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import FirUnderlineLayer from "./FIR_Layers/FirUnderlineLayer";
+import testData from "../../../test_data/getvatsimcontrollers-mismatch-edgg-edmm.json";
+import { VatsimControllers } from "../../../types";
+import { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
-const AtcLayer = () => {
+interface AtcLayerProps {
+    controllerData: VatsimControllers | null;
+    controllerLoading: boolean;
+    controllerError: SerializedError | FetchBaseQueryError;
+}
+
+const AtcLayer = ({
+    controllerData,
+    controllerError,
+    controllerLoading
+}: AtcLayerProps) => {
     const dispatch = useDispatch();
 
     const {
@@ -21,19 +33,11 @@ const AtcLayer = () => {
         underlineFirBoundaries
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    //update controller info every 60 seconds
-    const {
-        data: controllerData,
-        error: controllerError,
-        isLoading: controllerLoading
-    } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
-
     const {
         data: geoJsonData,
         error: geoJsonError,
         isLoading: geoJsonLoading
     } = useFetchVatsimFirBoundariesQuery();
-
 
     useEffect(() => {
         if (controllerLoading || geoJsonLoading) {
@@ -62,13 +66,15 @@ const AtcLayer = () => {
         }
     }, [controllerError, controllerLoading, controllerData]);
 
+
+    const newControllerData = useMemo(() => controllerData, [JSON.stringify(controllerData)]);
+
     return (
         <>
-            {underlineFirBoundaries && <FirUnderlineLayer geoJsonData={geoJsonData}/>}
+            {underlineFirBoundaries && <FirUnderlineLayer/>}
             {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={controllerData} geoJsonData={geoJsonData} labelVisible={true}/>
-                <TraconLayer controllerInfo={controllerData} labelVisible={true}/>
-                <ControllerMarkerLayer controllerInfo={controllerData} labelVisible={true}/>
+                <FirLayer controllerInfo={newControllerData}/>
+                <TraconLayer controllerInfo={newControllerData}/>
             </>)
             }
         </>

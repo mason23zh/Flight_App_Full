@@ -12,16 +12,6 @@ function NavbarDropDown() {
 
     const toggleTheme = useThemeUpdate();
     const darkMode = useTheme();
-    // eslint-disable-next-line react/display-name
-    // const NavLink = React.forwardRef(({
-    //     href,
-    //     children,
-    //     ...rest
-    // }, ref) => (
-    //     <Link ref={ref} to={href} {...rest}>
-    //         {children}
-    //     </Link>
-    // ));
 
     const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(({
         href,

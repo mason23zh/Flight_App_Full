@@ -1,12 +1,11 @@
-import React from "react";
-import { MapRef } from "react-map-gl";
+import mapboxgl from "mapbox-gl";
 
 type StyleName = "outdoor-base-v1" | "Monochrome-dark" | "Satellite Streets" | "Monochrome-light"
 
-const switchMapRoads = (mapRef: React.RefObject<MapRef>, visibility: boolean) => {
+const switchMapRoads = (map: mapboxgl.Map, visibility: boolean) => {
     const flag = visibility ? "visible" : "none";
-    if (mapRef.current) {
-        const map = mapRef.current.getMap();
+    if (map) {
+        // const map = mapRef.current.getMap();
         const currentMapStyle = map.getStyle().name as StyleName;
         if (currentMapStyle === "outdoor-base-v1") {
             map.setLayoutProperty("tunnel-major-link", "visibility", flag);

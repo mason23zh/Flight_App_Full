@@ -6,7 +6,7 @@ import {
     setMapSearchSelectedAircraft,
     useFetchVatsimPilotsDataQuery
 } from "../../store";
-import MainTrafficLayer from "./MainTrafficLayer";
+import MainDeckGlLayer from "./MainDeckGlLayer";
 import { useDispatch, useSelector } from "react-redux";
 import { db } from "../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
@@ -14,12 +14,23 @@ import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
-import { useViewState } from "./viewStateContext";
+import { VatsimControllers } from "../../types";
+import { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
+interface BaseDeckGlLayerProps {
+    controllerData: VatsimControllers;
+    controllerDataError: FetchBaseQueryError | SerializedError;
+    controllerDataLoading: boolean;
+}
 
-const BaseTrafficLayer = () => {
+const BaseDeckGlLayer = ({
+    controllerData,
+    controllerDataError,
+    controllerDataLoading
+}: BaseDeckGlLayerProps) => {
     const dispatch = useDispatch();
-    const viewState = useViewState();
+    // const viewState = useViewState();
 
     const {
         trafficLayerVisible,
@@ -42,15 +53,30 @@ const BaseTrafficLayer = () => {
         isLoading: vatsimPilotsLoading
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
+
     // Import vatsim pilots into Dexie
     useEffect(() => {
-        if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading) {
-            db.syncVatsimTraffic(vatsimPilots.data.pilots)
-                .catch(err => {
-                    console.log("Failed to import vatsim traffic to db:", err);
-                });
-        }
+        let isMounted = true;
+
+        const syncTraffic = async () => {
+            if (vatsimPilots && !vatsimPilotsError && !vatsimPilotsLoading && isMounted) {
+                try {
+                    await db.syncVatsimTraffic(vatsimPilots.data.pilots);
+                } catch (err) {
+                    if (isMounted) {
+                        console.log("Failed to import VATSIM traffic to db:", err);
+                    }
+                }
+            }
+        };
+
+        syncTraffic();
+
+        return () => {
+            isMounted = false;
+        };
     }, [vatsimPilotsLoading, vatsimPilots, vatsimPilotsError]);
+
 
     useEffect(() => {
         if (vatsimPilotsError) {
@@ -73,7 +99,10 @@ const BaseTrafficLayer = () => {
             dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
         }
 
-    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
+    }, [vatsimPilotsLoading,
+        vatsimPilotsError,
+        vatsimPilots,
+        dispatch]);
 
     /*
     * This useLiveQuery will control what traffic to display on the map,
@@ -103,13 +132,15 @@ const BaseTrafficLayer = () => {
 
     const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
     return (
-        <MainTrafficLayer
+        <MainDeckGlLayer
             vatsimPilots={memoizedVatsimPilotToDisplay}
+            controllerData={controllerData}
+            controllerDataError={controllerDataError}
+            controllerDataLoading={controllerDataLoading}
             movingMap={movingMap}
             trafficLayerVisible={trafficLayerVisible}
-            viewState={viewState}
         />
     );
 };
 
-export default BaseTrafficLayer;
+export default BaseDeckGlLayer;

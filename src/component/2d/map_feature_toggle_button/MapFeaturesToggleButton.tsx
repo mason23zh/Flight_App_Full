@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
     onToggle: (activeFlag: boolean) => void;
@@ -7,6 +7,7 @@ interface Props {
     initialActive: boolean;
     tooltipMessage: string;
     isTouchScreen: boolean;
+    buttonId: string;
 }
 
 const MapFeaturesToggleButton = ({
@@ -14,7 +15,8 @@ const MapFeaturesToggleButton = ({
     icon,
     initialActive,
     tooltipMessage,
-    isTouchScreen
+    isTouchScreen,
+    buttonId
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen ?
@@ -25,20 +27,10 @@ const MapFeaturesToggleButton = ({
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
-    const [buttonClick, setButtonClick] = useState(false);
-
 
     // Copy React-Icon
     const styledIcon = React.cloneElement(icon, { "className": iconClass });
 
-    const {
-        handleMouseEnter,
-        handleMouseLeave,
-        handleMouseMove,
-        tooltipVisible,
-        resetTooltip,
-        mousePosition
-    } = useDisplayTooltip(400);
 
     useEffect(() => {
         if (initialActive) {
@@ -56,43 +48,33 @@ const MapFeaturesToggleButton = ({
     const handleClick = () => {
         const newActiveState = !isActive;
         setIsActive(newActiveState);
-        setButtonClick(true);
-        resetTooltip();
     };
 
-    useEffect(() => {
-        if (buttonClick) {
-            resetTooltip();
-            setButtonClick(false);
-        }
-    }, [tooltipVisible, buttonClick, tooltipVisible]);
-
-
-    const tooltipStyle = "fixed px-2 py-1 bg-black text-white " +
-            "text-xs rounded-md pointer-events-none z-40";
     return (
         <div
             className="relative"
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={handleMouseEnter}
-            onMouseMove={handleMouseMove}
         >
             <button
+                id={buttonId}
                 className={activeButtonClass}
                 onClick={handleClick}
             >
                 {styledIcon}
             </button>
-            {(tooltipVisible && !isTouchScreen && !buttonClick) &&
-                <div
-                    className={tooltipStyle}
+            {(!isTouchScreen) &&
+                <Tooltip
+                    anchorSelect={`#${buttonId}`}
+                    delayShow={300}
                     style={{
-                        top: mousePosition.y + 15,
-                        left: mousePosition.x + 15,
+                        backgroundColor: "rgb(0,0,0)",
+                        color: "rgb(255,255,255)",
+                        fontSize: "13px",
+                        padding: "5px",
+                        borderRadius: "5px"
                     }}
                 >
                     {tooltipMessage}
-                </div>
+                </Tooltip>
             }
         </div>
     );

@@ -14,6 +14,7 @@ function WeatherList({ weather }) {
         ));
     }
 
+
     return (
         <div className="flex flex-col items-center">
             <div className="w-auto flex flex-col gap-4 p-10 items-stretch sm:w-[70%]">

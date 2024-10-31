@@ -46,10 +46,10 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     const colorTheme = darkMode ? "bg-gray-500 text-gray-200" : "bg-gray-200 text-gray-700";
     const popupRef = useRef<mapboxgl.Popup | null>(null);
 
-
     if (hoverInfo.services && hoverInfo.services.length > 0) {
-        renderServices = hoverInfo.services.map((serviceInfo) => {
-            if (serviceInfo.facility !== 5) {
+        renderServices = hoverInfo.services
+            .filter(serviceInfo => serviceInfo.facility !== 5)
+            .map((serviceInfo) => {
                 return (
                     <div key={serviceInfo.callsign}>
                         <ControllerPopupContent
@@ -57,8 +57,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                             serviceType={serviceInfo.serviceType}/>
                     </div>
                 );
-            }
-        });
+            });
     }
 
     useEffect(() => {
@@ -68,7 +67,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                 popupRef.current.setOffset(markerOffsetObject);
 
             } else {
-                popupRef.current.setOffset([0, -40]);
+                popupRef.current.setOffset([0, -30]);
             }
         }
     }, [popupRef.current]);
@@ -87,7 +86,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             // offset={markerOffsetObject}
         >
             <div className={`grid grid-cols-1 justify-center items-center
-            gap-1 p-1 sm:p-2 w-full rounded-lg font-Rubik ${colorTheme}`}
+            gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}
             >
                 <div className="justify-self-start italic
                 font-bold text-sm sm:text-lg">

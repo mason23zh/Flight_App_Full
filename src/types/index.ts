@@ -1,3 +1,5 @@
+import { Feature, FeatureCollection, Geometry } from "geojson";
+
 interface Barometer {
     hg: string,
     hpa: string,
@@ -265,7 +267,7 @@ interface AirportResponse {
     data: Array<DbAirport>
 }
 
-interface Fir {
+export interface Fir {
     fir: string,
     firInfo: {
         icao: string,
@@ -321,7 +323,7 @@ interface Atis {
     coordinates: string[]
 }
 
-interface Fss {
+export interface Fss {
     cid: number,
     name: string,
     frequency: string,
@@ -494,6 +496,51 @@ interface GroupedFlight {
     flights: VatsimFlight[];
 }
 
+interface MergedFirMatching {
+    icao: string;
+    name: string;
+    callsignPrefix: string;
+    firBoundary: string;
+    isFss: boolean;
+    fssName?: string;
+    suffix: string;
+    uniqueId: string;
+    entries: {
+        label_lat: string;
+        label_lon: string;
+        oceanic: string;
+    }[];
+}
+
+interface MergedFssMatching {
+    fssCallsign: string;
+    fssName: string;
+    firs: MergedFirMatching[];
+}
+
+interface VatsimTraconMapping {
+    uniqueId: string;
+    id: string;
+    prefix: string[];
+    name: string;
+    coordinates: number[];
+    suffix?: string;
+    callsignPrefix?: string;
+}
+
+export interface FirProperties {
+    id: string;
+    oceanic: string;
+    label_lon: string;
+    label_lat: string;
+    region: string;
+    division: string;
+}
+
+export type FirFeature = Feature<Geometry, FirProperties>;
+
+export type FirFeatureCollection = FeatureCollection<Geometry, FirProperties>;
+
 export type {
     LiveFlightData,
     VatsimMapVisibleState,
@@ -516,4 +563,7 @@ export type {
     AirportResponse,
     MatchedFirs,
     GroupedFlight,
+    MergedFirMatching,
+    MergedFssMatching,
+    VatsimTraconMapping
 };

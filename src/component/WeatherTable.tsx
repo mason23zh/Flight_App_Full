@@ -184,11 +184,11 @@ const WeatherTable = ({
         if (weather === WIND_SPEED) {
             return (
                 <>
-                    <Column flexGrow={1} minWidth={50} align="center">
+                    <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Speed</HeaderCell>
                         <Cell dataKey="wind_speed_kt"/>
                     </Column>
-                    <Column flexGrow={1} minWidth={80} align="center">
+                    <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Data</HeaderCell>
                         <Cell dataKey="wind_data"/>
                     </Column>
@@ -197,11 +197,11 @@ const WeatherTable = ({
         } else if (weather === WIND_GUST) {
             return (
                 <>
-                    <Column flexGrow={1} minWidth={50} align="center">
+                    <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Gust</HeaderCell>
                         <Cell dataKey="wind_gust_kt"/>
                     </Column>
-                    <Column flexGrow={1} minWidth={80} align="center">
+                    <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Data</HeaderCell>
                         <Cell dataKey="wind_data"/>
                     </Column>
@@ -228,7 +228,7 @@ const WeatherTable = ({
         } else if (weather === TEMPERATURE) {
             return (
                 <>
-                    <Column flexGrow={1} minWidth={50} align="center" sortable>
+                    <Column flexGrow={1} align="center" sortable>
                         <HeaderCell>Temperature</HeaderCell>
                         <Cell dataKey="temp_c"/>
                     </Column>
@@ -263,13 +263,13 @@ const WeatherTable = ({
         setSelectedRowData(null);
     };
 
+
     return (
         <div style={{
             height: `${tableHeight}`,
             width: "100%",
             overflowX: "auto",
             position: "relative",
-
         }}>
             <Table
                 shouldUpdateScroll={false}
@@ -280,9 +280,10 @@ const WeatherTable = ({
                 onSortColumn={handleSortColumn}
                 hover={!isTouchScreen}
                 rowKey={rowKey}
+                rowClassName={"hover:cursor-pointer"}
                 virtualized
             >
-                <Column width={80} align="center">
+                <Column flexGrow={1} align="center">
                     <HeaderCell>ICAO</HeaderCell>
                     <Cell dataKey="icao"/>
                 </Column>

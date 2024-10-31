@@ -7,6 +7,7 @@ import {
     setMapSearchSelectedAirport, setTrafficTracking
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
+import { useMap } from "react-map-gl";
 
 interface Props {
     airport: LocalDbAirport;
@@ -21,7 +22,7 @@ const SearchBoxAirportElement = ({
     index
 }: Props) => {
     const dispatch = useDispatch();
-
+    const { current: mapRef } = useMap();
     const rowRef = useRef<HTMLDivElement>();
     useEffect(() => {
         if (rowRef.current) {
@@ -43,7 +44,16 @@ const SearchBoxAirportElement = ({
         // make sure the flight tracking is off
         dispatch(setTrafficTracking(false));
         // move the map to the airport
-        dispatch(setAirportTracking(true));
+        // dispatch(setAirportTracking(true));
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            if (map) {
+                map.flyTo({
+                    center: [Number(airport.coordinates.split(",")[0]), Number(airport.coordinates.split(",")[1])],
+                    zoom: 13
+                });
+            }
+        }
     };
 
     return (
@@ -55,7 +65,7 @@ const SearchBoxAirportElement = ({
                        hover:bg-gray-600 hover:rounded-lg border-b
                        border-slate-400"
             >
-                <div className="flex items-center text-[16px] font-Rubik">
+                <div className="flex items-center text-[16px]">
                     <div>
                         {airport.ident}
                     </div>

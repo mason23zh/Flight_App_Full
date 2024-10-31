@@ -1,14 +1,25 @@
 import Dexie, { Table } from "dexie";
 import aircraftData from "../assets/aircraft_data/aircraft.json";
-import { LocalDbAirport, VatsimFlight } from "../types";
+import {
+    FirFeature,
+    LocalDbAirport,
+    MergedFirMatching,
+    MergedFssMatching,
+    VatsimFlight
+} from "../types";
+import { VatsimTraconMapping } from "../types";
 
 class VatsimLocalDB extends Dexie {
     vatsimTraffic!: Table<VatsimFlight, number>;
     airports!: Table<LocalDbAirport, string>;
+    fir!: Table<MergedFirMatching, string>;
+    fss!: Table<MergedFssMatching, string>;
+    tracon!: Table<VatsimTraconMapping, string>;
+    firBoundaries!: Table<FirFeature, string>;
 
     constructor() {
         super("LocalVatsimDB");
-        this.version(1)
+        this.version(2)
             .stores(
                 {
                     vatsimTraffic: `&cid, 
@@ -28,8 +39,25 @@ class VatsimLocalDB extends Dexie {
                             iata_code, 
                             municipality,
                             name`,
+                    fir: `&uniqueId,
+                        icao,
+                        callsignPrefix,
+                        firBoundary`,
+                    fss: `&fssCallsign, 
+                          fssName`,
+                    tracon: `&uniqueId,id,
+                            *prefix`,
                 },
             );
+    }
+
+    #chunkArray(array: VatsimFlight[], size: number) {
+        const result = [];
+        for (let i = 0; i < array.length; i += size) {
+            result.push(array.slice(i, i + size));
+        }
+
+        return result;
     }
 
     async syncVatsimTraffic(newData: VatsimFlight[]) {
@@ -61,16 +89,38 @@ class VatsimLocalDB extends Dexie {
             }
         });
 
-        await this.transaction("rw", this.vatsimTraffic, async () => {
-            await this.vatsimTraffic.bulkPut(updatedData);
-            await this.vatsimTraffic.bulkDelete(keysToRemove);
-        });
+        const chunks = this.#chunkArray(updatedData, 500);
+
+        for (const chunk of chunks) {
+            await this.transaction("rw", this.vatsimTraffic, async () => {
+                await this.vatsimTraffic.bulkPut(chunk);
+                await this.vatsimTraffic.bulkDelete(keysToRemove);
+            });
+        }
     }
 
     async loadAirports(newData: LocalDbAirport[]) {
         const validAirportData = newData.filter(airport => airport.ident);
         await this.airports.clear();
         await this.airports.bulkPut(validAirportData);
+    }
+
+    async loadFir(newData: MergedFirMatching[]) {
+        const validFirData = newData.filter(fir => fir.uniqueId);
+        await this.fir.clear();
+        await this.fir.bulkPut(validFirData);
+    }
+
+    async loadFss(newData: MergedFssMatching[]) {
+        const validFssData = newData.filter(fss => fss.fssCallsign);
+        await this.fss.clear();
+        await this.fss.bulkPut(validFssData);
+    }
+
+    async loadTracon(newData: VatsimTraconMapping[]) {
+        const validTraconData = newData.filter(tracon => tracon.uniqueId);
+        await this.tracon.clear();
+        await this.tracon.bulkPut(validTraconData);
     }
 }
 

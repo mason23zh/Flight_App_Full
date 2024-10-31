@@ -101,6 +101,28 @@ import {
     airportSelectionReducer
 } from "./slices/airportSelectionSlice";
 
+import {
+    setMatchedFirsError,
+    setMatchedFirs,
+    setHoveredFir,
+    matchedFirsReducer
+} from "./slices/matchedFirSlice";
+
+import {
+    setMatchedTracons,
+    setMatchedFallbackTracons,
+    setFallbackGeoJson,
+    setHoveredTracon,
+    setMatchedTraconError,
+    setMatchedTraconLoading,
+    matchedTraconsReducer
+} from "./slices/matchedTraconSlice";
+
+import {
+    setHoveredController,
+    matchedControllerReducer
+} from "./slices/matchedControllerSlice";
+
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -133,6 +155,9 @@ export const store = configureStore({
         mapDisplayPanel: mapDisplayPanelReducer,
         flightInfo: flightInfoReducer,
         airportSelection: airportSelectionReducer,
+        matchedFirs: matchedFirsReducer,
+        matchedTracons: matchedTraconsReducer,
+        matchedControllers: matchedControllerReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -257,6 +282,25 @@ export {
     openTrafficDetail,
     closeTrafficDetail,
     closeSearchResults
+};
+
+export {
+    setMatchedTraconLoading,
+    setMatchedFallbackTracons,
+    setFallbackGeoJson,
+    setHoveredTracon,
+    setMatchedTracons,
+    setMatchedTraconError
+};
+
+export {
+    setMatchedFirs,
+    setHoveredFir,
+    setMatchedFirsError
+};
+
+export {
+    setHoveredController
 };
 
 export {

@@ -169,7 +169,17 @@
 - Fixed the issue that traffic path is incorrect in 2D mode
 - Fixed the issue that theme mode does not apply in the Main Map correctly sometimes
 - Fixed the issue that map might freeze if load with terrain mode enabled
-- Applied new design to Extreme Weathe page
+- Applied new design to Extreme Weather page
 - Applied change for the new Datis API format
 - Remove the hover popup arrow tip (controller maker)
 - Adjust the controller maker popup size for mobile device
+
+#Beta 0.5.2
+
+- Added notification if websocket connection failed
+- Fixed the text encoding issue (backend and frontend fix)
+- Fixed some minor font issue
+- Improve Map performance, reduce memory usage
+- Adjust Event page style
+- Change mouse to pointer when hover over the Extreme Weather table item
+- Disable the translation to prevent app crash

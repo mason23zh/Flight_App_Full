@@ -49,11 +49,20 @@ function VatsimEventsAll() {
         eventsList = <div>Error Loading Vatsim Events</div>;
     }
 
+    const scrollBarStyle = darkTheme
+        ?
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        :
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
-            <div>
+            <div className={`h-[calc(100vh-56px)] flex flex-col ${darkTheme ? "bg-gray-900" : "bg-gray-200"}`}>
+                {/* Drawer for mobile view */}
                 <div className="p-1 ml-2 mt-2 block md:hidden">
-                    <IconButton icon={<MenuIcon/>} onClick={() => handleOpen()}>
+                    <IconButton icon={<MenuIcon/>} onClick={handleOpen}>
                         Events List
                     </IconButton>
                 </div>
@@ -66,18 +75,17 @@ function VatsimEventsAll() {
                     keyboard
                     backdrop
                 >
-                    <Drawer.Body>
-                        {eventsList}
-                    </Drawer.Body>
+                    <Drawer.Body>{eventsList}</Drawer.Body>
                 </Drawer>
 
-            </div>
-            <div className="flex justify-center p-4">
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
-                    <div className="hidden md:block md:col-span-2">
+                {/* Main Layout for Desktop with controlled height */}
+                <div className="flex-grow flex md:flex-row overflow-hidden">
+                    {/* Event List Sidebar */}
+                    <div className="hidden md:block md:w-1/3 p-4 h-screen-dvh">
                         {eventsList}
                     </div>
-                    <div className="col-span-1 md:col-span-4">
+                    {/* Event Details Section */}
+                    <div className={`w-full md:w-2/3 p-4 overflow-y-auto ${scrollBarStyle}`}>
                         <VatsimEventDetail onlyDetail={false}/>
                     </div>
                 </div>
