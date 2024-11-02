@@ -26,6 +26,7 @@ import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
 import mapboxgl from "mapbox-gl";
 import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
+import FeaturedAirportsButton from "./featured_airports/FeaturedAirportsButton";
 
 
 const TogglePanel = () => {
@@ -223,6 +224,10 @@ const TogglePanel = () => {
 
                     <MapFilterToggleButton isTouchScreen={isTouchScreen}/>
 
+                    <FeaturedAirportsButton
+                        isTouchScreen={isTouchScreen}
+                        tooltipMessage="Featured Airports"
+                    />
                 </div>
             </div>
         </div>
