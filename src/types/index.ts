@@ -473,6 +473,7 @@ interface VatsimMapVisibleState {
     displayTelemetry: boolean;
     liveTrafficAvailable: boolean;
     searchBoxVisible: boolean;
+    featuredAirportsVisible: boolean;
     mapStyles: MapStyles;
 }
 

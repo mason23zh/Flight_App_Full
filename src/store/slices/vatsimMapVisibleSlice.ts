@@ -31,6 +31,7 @@ const initialState: VatsimMapVisibleState = {
     mapFollowTraffic: false,
     displayTelemetry: false,
     searchBoxVisible: false,
+    featuredAirportsVisible: false,
     mapStyles: "DEFAULT"
 };
 
@@ -61,6 +62,7 @@ const vatsimMapVisibleSlice = createSlice({
             state.mapFollowTraffic = false;
             state.displayTelemetry = false;
             state.searchBoxVisible = false;
+            state.featuredAirportsVisible = false;
 
             state.mapStyles = "DEFAULT";
         },
@@ -127,23 +129,34 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
-            if (action.payload && (state.mapFilterButtonToggle || state.searchBoxVisible)) {
+            if (action.payload) {
                 state.mapFilterButtonToggle = false;
                 state.searchBoxVisible = false;
+                state.featuredAirportsVisible = false;
             }
         },
         toggleMapFilterButton(state, action) {
             state.mapFilterButtonToggle = action.payload;
-            if (action.payload && (state.mapStyleButtonToggle || state.searchBoxVisible)) {
+            if (action.payload) {
                 state.mapStyleButtonToggle = false;
                 state.searchBoxVisible = false;
+                state.featuredAirportsVisible = false;
             }
         },
         toggleSearchBox(state, action) {
             state.searchBoxVisible = action.payload;
-            if (action.payload && (state.mapStyleButtonToggle || state.mapFilterButtonToggle)) {
+            if (action.payload) {
                 state.mapStyleButtonToggle = false;
                 state.mapFilterButtonToggle = false;
+                state.featuredAirportsVisible = false;
+            }
+        },
+        toggleFeaturedAirports(state, action) {
+            state.featuredAirportsVisible = action.payload;
+            if (action.payload) {
+                state.mapFilterButtonToggle = false;
+                state.searchBoxVisible = false;
+                state.mapStyleButtonToggle = false;
             }
         }
     }
@@ -171,6 +184,7 @@ export const {
     toggleMapFollowTraffic,
     setLiveTrafficAvailable,
     resetMap,
-    toggleSearchBox
+    toggleSearchBox,
+    toggleFeaturedAirports,
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

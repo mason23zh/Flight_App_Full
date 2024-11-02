@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { IoStar } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
+import { RootState, toggleFeaturedAirports } from "../../../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 interface Props {
     isTouchScreen: boolean;
@@ -11,7 +13,9 @@ const FeaturedAirportsButton = ({
     isTouchScreen,
     tooltipMessage
 }: Props) => {
-    const [featuredAirportsVisible, setFeaturedAirportsVisible] = useState(false);
+    const dispatch = useDispatch();
+    const { featuredAirportsVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    // const [featuredAirportsVisible, setFeaturedAirportsVisible] = useState(false);
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl" :
@@ -23,8 +27,12 @@ const FeaturedAirportsButton = ({
     const activeButtonClass = featuredAirportsVisible ? activeClass : inActiveClass;
 
     const handleClick = () => {
-        setFeaturedAirportsVisible(prevState => !prevState);
+        const localState = !featuredAirportsVisible;
+        // setFeaturedAirportsVisible(prevState => !prevState);
+        dispatch(toggleFeaturedAirports(localState));
     };
+
+    console.log("featured airports visible:", featuredAirportsVisible);
 
     return (
         <>

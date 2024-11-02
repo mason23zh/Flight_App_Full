@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
-import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
+import { toggleSearchBox } from "../../../../store";
 import SearchBox from "./SearchBox";
 import { Tooltip } from "react-tooltip";
 
