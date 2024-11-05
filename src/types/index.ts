@@ -247,6 +247,25 @@ interface DbAirport {
     visited: number
 }
 
+interface PopularVatsimAirport {
+    ICAO: string;
+    iata: string;
+    elevation: number;
+    transitionAltitude: number;
+    runways: Array<Runway>;
+    station: DbAirportStation;
+    visited: number;
+    arrivalNumber: number;
+    departureNumber: number;
+    controller: {
+        DEL?: boolean;
+        GND?: boolean;
+        TWR?: boolean;
+        APP?: boolean;
+        ATIS?: boolean;
+    };
+}
+
 interface LocalDbAirport {
     continent: string,
     coordinates: string,
@@ -553,6 +572,7 @@ export type {
     DbAirport,
     LocalDbAirport,
     DetailAirportResponse,
+    PopularVatsimAirport,
     VatsimControllers,
     Controller,
     VatsimGeoJsonFeature,

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoStar } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import { RootState, toggleFeaturedAirports } from "../../../../store";
 import { useDispatch, useSelector } from "react-redux";
+import FeaturedAirportsPanel from "./FeaturedAirportsPanel";
 
 interface Props {
     isTouchScreen: boolean;
@@ -45,6 +46,8 @@ const FeaturedAirportsButton = ({
                     <IoStar/>
                 </button>
             </div>
+
+            {featuredAirportsVisible && <FeaturedAirportsPanel/>}
 
             {(!isTouchScreen) &&
                 <Tooltip
