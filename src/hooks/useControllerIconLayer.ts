@@ -1,7 +1,11 @@
 import { AirportService, VatsimControllers } from "../types";
 import { useDispatch } from "react-redux";
 import { useCallback, useEffect, useMemo } from "react";
-import generateControllerMarkerIcon from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
+// import generateControllerMarkerIcon from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
+import {
+    generateControllerMarkerIconWithIcao,
+} from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
+
 import { IconLayer } from "@deck.gl/layers/typed";
 import { debounce } from "lodash";
 import { setHoveredController } from "../store";
@@ -123,7 +127,7 @@ const useControllerIconLayer = (
             //TODO: Add cache to avoid generate new marker icon
             return {
                 position: coordinates,
-                iconUrl: generateControllerMarkerIcon(service.icao, serviceTypes),
+                iconUrl: generateControllerMarkerIconWithIcao(service.icao, serviceTypes),
                 serviceInfo: service
             };
         });
