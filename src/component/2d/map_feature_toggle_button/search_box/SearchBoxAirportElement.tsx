@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
-    openSearchResults, setAirportTracking, setFilterAircraftOnMap_aircraft,
+    openSearchResults, setFilterAircraftOnMap_aircraft,
     setFilterAircraftOnMap_airport,
     setMapSearchSelectedAirport, setTrafficTracking
 } from "../../../../store";

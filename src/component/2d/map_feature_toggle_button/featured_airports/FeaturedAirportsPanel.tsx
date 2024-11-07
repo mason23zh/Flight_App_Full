@@ -11,10 +11,10 @@ const FeaturedAirportsPanel = () => {
     } = useFetchVatsimPopularAirportsQuery({ limit: 10 });
 
     const panelStyle =
-            "fixed left-auto right-auto top-[60px] z-50 min-w-[350px] " +
+            "fixed left-auto right-auto top-[60px] z-50 min-w-[400px] " +
             "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +
             "bg-gray-500 max-h-[80vh] sm:max-h-[70vh] " +
-            "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
+            "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-y-auto ";
 
     let featuredAirportList;
     if (data) {
