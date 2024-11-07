@@ -1,6 +1,6 @@
 import React from "react";
-import { Panel, Placeholder } from "rsuite";
-import { useFetchMostPopularAirportsQuery, useFetchVatsimPopularAirportsQuery } from "../../../../store";
+import { Panel } from "rsuite";
+import { useFetchVatsimPopularAirportsQuery } from "../../../../store";
 import FeaturedAirportsList from "./FeaturedAirportsList";
 
 const FeaturedAirportsPanel = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { PopularAirportResponse, PopularVatsimAirportResponse } from "../../../../store/apis/airportsApi";
+import { PopularVatsimAirportResponse } from "../../../../store/apis/airportsApi";
 import FeaturedAirportElement from "./FeaturedAirportElement";
 
 interface Props {
@@ -21,7 +21,7 @@ const FeaturedAirportsList = ({ featuredAirportsList }: Props) => {
     }
 
     return (
-        <div>
+        <div className="flex flex-col gap-2">
             {airportList}
         </div>
     );

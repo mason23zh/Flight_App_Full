@@ -1,5 +1,7 @@
 import React from "react";
 import { PopularVatsimAirport } from "../../../../types";
+import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
+
 
 interface Props {
     featuredAirport: PopularVatsimAirport;
@@ -14,34 +16,55 @@ const serviceStyles = {
 };
 
 const serviceLabels = {
-    DEL: "DEL",
-    GND: "GND",
-    TWR: "TWR",
-    APP: "APP",
-    ATIS: "ATIS",
+    DEL: "D",
+    GND: "G",
+    TWR: "T",
+    APP: "A",
+    ATIS: "A",
 };
 
 const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     const activeServices = Object.keys(featuredAirport.controller)
         .filter(service => featuredAirport.controller[service]);
+    const {
+        arrivalNumber,
+        departureNumber
+    } = featuredAirport;
+
+    const arrivalTraffic = (arrivalNumber && arrivalNumber > 0)
+        ? (
+            <div className="flex items-center gap-1 font-bold">
+                <GiAirplaneArrival size={25}/>
+                <div>{arrivalNumber}</div>
+            </div>
+        )
+        : <></>;
+
+    const departureTraffic = (departureNumber && departureNumber > 0)
+        ? (
+            <div className="flex items-center gap-1 font-bold">
+                <GiAirplaneDeparture size={25}/>
+                <div>{departureNumber}</div>
+            </div>
+        )
+        : <></>;
 
     return (
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-4 p-4 bg-gray-600 border border-gray-700 shadow-sm rounded-lg">
             <div>
-
                 {featuredAirport.ICAO}
             </div>
+
             <div>
-                {featuredAirport.station?.country.country_name || "/"}
+                {featuredAirport.station?.country.country_name}
             </div>
-            <div>
-                {featuredAirport.arrivalNumber}
-            </div>
-            <div className="flex w-32 h-8 rounded overflow-hidden">
+
+            <div className="flex w-25 h-5 rounded-lg overflow-hidden">
                 {activeServices.map((service) => (
                     <span
                         key={service}
-                        className={`flex-1 flex items-center justify-center text-white font-bold text-xs ${serviceStyles[service]}`}
+                        className={`flex-1 flex p-2 items-center justify-center text-white font-bold text-xs ${serviceStyles[service]}`}
+                        title={service}
                     >
                         {serviceLabels[service]}
                     </span>
