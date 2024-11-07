@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setAirportTracking, setTrafficTracking } from "../../../../../store";
 import useDisplayTooltip from "../../../../../hooks/useDisplayTooltip";
 import useIsTouchScreen from "../../../../../hooks/useIsTouchScreen";
+import { useMap } from "react-map-gl";
 
 interface Props {
     airport: LocalDbAirport;
@@ -15,6 +16,7 @@ const AirportIdentDisplayBox = ({
 }: Props) => {
     const dispatch = useDispatch();
     const isTouchScreen = useIsTouchScreen();
+    const { current: mapRef } = useMap();
 
     const {
         handleMouseEnter,
@@ -28,6 +30,17 @@ const AirportIdentDisplayBox = ({
         dispatch(setTrafficTracking(false));
         // move the map to the airport
         dispatch(setAirportTracking(true));
+
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            if (map) {
+                map.flyTo({
+                    center: [Number(airport.coordinates.split(",")[0]),
+                        Number(airport.coordinates.split(",")[1])],
+                    zoom: 13
+                });
+            }
+        }
     };
     return (
         <div className="flex items-center gap-2">
