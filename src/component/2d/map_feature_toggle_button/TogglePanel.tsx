@@ -28,6 +28,7 @@ import mapboxgl from "mapbox-gl";
 import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
 import FeaturedAirportsButton from "./featured_airports/FeaturedAirportsButton";
 
+//TODO: when switching the page back, tooltip might be shown.
 
 const TogglePanel = () => {
     const { current: mapRef } = useMap();

@@ -75,7 +75,7 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
                             {activeServices.map((service, index) => (
                                 <span
                                     key={service}
-                                    className={`flex items-center justify-center text-white font-bold text-xs px-2 py-1 ${
+                                    className={`flex items-center justify-center text-white font-bold text-xs px-[5px] py-1 ${
                                         serviceStyles[service]
                                     } ${
                                         activeServices.length === 1

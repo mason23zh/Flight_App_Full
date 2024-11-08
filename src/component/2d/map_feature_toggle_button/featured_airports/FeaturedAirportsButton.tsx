@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoStar } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import { RootState, toggleFeaturedAirports } from "../../../../store";
@@ -16,7 +16,8 @@ const FeaturedAirportsButton = ({
 }: Props) => {
     const dispatch = useDispatch();
     const { featuredAirportsVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
-    // const [featuredAirportsVisible, setFeaturedAirportsVisible] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
+
 
     const activeClass = isTouchScreen ?
         "bg-blue-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl" :
@@ -33,11 +34,13 @@ const FeaturedAirportsButton = ({
         dispatch(toggleFeaturedAirports(localState));
     };
 
-    console.log("featured airports visible:", featuredAirportsVisible);
 
     return (
         <>
-            <div className="relative">
+            <div className="relative"
+                onMouseEnter={() => setShowTooltip(false)}
+                onMouseLeave={() => setShowTooltip(true)}
+            >
                 <button
                     id="featured-airports-button"
                     className={activeButtonClass}
@@ -51,6 +54,7 @@ const FeaturedAirportsButton = ({
 
             {(!isTouchScreen) &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect="#featured-airports-button"
                     delayShow={300}
                     place="right"
