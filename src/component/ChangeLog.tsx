@@ -195,6 +195,12 @@ function ChangeLog() {
                         - Change mouse to pointer when hover over the Extreme Weather table item <br/>
                         - Disable the translation to prevent some crash <br/>
                     </div>
+                    <div>
+                        Beta 0.6 <br/>
+                        - Added popular Vatsim airports in the map page <br/>
+                        - Fixed the tooltip re-appear after browser window out-of focus and re-focus. <br/>
+                        - Fixed the "move to airport" button not working in airport detail panel (Map page). <br/>
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-center text-xl mt-5">

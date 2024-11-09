@@ -33,6 +33,7 @@ export const airportsApi = createApi({
                     url: `/vatsim-popular-airports?limit=${limit}`,
                     method: "GET",
                 }),
+
                 keepUnusedDataFor: 300,
             }),
             fetchMostPopularAirports: build.query<PopularAirportResponse, void>({
