@@ -26,6 +26,7 @@ const MapFeaturesToggleButton = ({
         "bg-gray-500 px-2 py-1 items-center rounded-lg" :
         "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
+    const [showTooltip, setShowTooltip] = useState(false);
     const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
 
     // Copy React-Icon
@@ -51,18 +52,19 @@ const MapFeaturesToggleButton = ({
     };
 
     return (
-        <div
-            className="relative"
-        >
+        <>
             <button
                 id={buttonId}
                 className={activeButtonClass}
                 onClick={handleClick}
+                onMouseEnter={() => setShowTooltip(false)}
+                onMouseLeave={() => setShowTooltip(true)}
             >
                 {styledIcon}
             </button>
             {(!isTouchScreen) &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect={`#${buttonId}`}
                     delayShow={300}
                     style={{
@@ -76,7 +78,7 @@ const MapFeaturesToggleButton = ({
                     {tooltipMessage}
                 </Tooltip>
             }
-        </div>
+        </>
     );
 };
 

@@ -14,6 +14,7 @@ const MapFilterToggleButton = ({
 }: Props) => {
     const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
 
     const {
         mapFilterButtonToggle,
@@ -46,6 +47,8 @@ const MapFilterToggleButton = ({
                 id="map-filter-toggle-button"
                 className={mapFilterButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
+                onMouseEnter={() => setShowTooltip(false)}
+                onMouseLeave={() => setShowTooltip(true)}
             >
                 <FaLayerGroup className="text-white text-xl"/>
             </button>
@@ -62,6 +65,7 @@ const MapFilterToggleButton = ({
 
             {(!isTouchScreen && !buttonClick && !mapFilterButtonToggle) &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect="#map-filter-toggle-button"
                     delayShow={300}
                     style={{

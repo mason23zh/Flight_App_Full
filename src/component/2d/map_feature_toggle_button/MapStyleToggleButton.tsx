@@ -21,6 +21,7 @@ const MapStyleToggleButton = ({
     const { current: mapRef } = useMap();
     // when user click the button, tooltip will disappear
     const [buttonClick, setButtonClick] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
     const [map, setMap] = useState<mapboxgl.Map>(null);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
@@ -110,6 +111,8 @@ const MapStyleToggleButton = ({
             <button
                 className={mapStyleButtonToggle ? activeButtonClass : inactiveButtonClass}
                 onClick={handleOnClick}
+                onMouseEnter={() => setShowTooltip(false)}
+                onMouseLeave={() => setShowTooltip(true)}
                 id="map-style-toggle-button"
             >
                 {mapStyleName}
@@ -130,6 +133,7 @@ const MapStyleToggleButton = ({
 
             {(!isTouchScreen && !buttonClick && !mapStyleButtonToggle) &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect="#map-style-toggle-button"
                     delayShow={300}
                     style={{

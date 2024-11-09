@@ -19,6 +19,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
     const [isActive, setIsActive] = useState(false); // Track button's active state
     const [showNotification, setShowNotification] = useState(false);
     const [webSocketConnected, setWebSocketConnected] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
     const dispatch = useDispatch();
 
     const activeClass = isTouchScreen ?
@@ -73,6 +74,8 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
         <div
             className="relative"
             onClick={handleToggle}
+            onMouseEnter={() => setShowTooltip(false)}
+            onMouseLeave={() => setShowTooltip(true)}
         >
             <button
                 id="nav-button"
@@ -83,6 +86,7 @@ const LiveTrafficToggleButton = ({ isTouchScreen }: Props) => {
 
             {!isTouchScreen &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect="#nav-button"
                     delayShow={300}
                     style={{

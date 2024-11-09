@@ -17,6 +17,7 @@ const SearchButton = ({
 }: Props) => {
     const dispatch = useDispatch();
     const [showSearchBox, setShowSearchBox] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
     const { searchBoxVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
 
 
@@ -49,6 +50,8 @@ const SearchButton = ({
                     id="search-button"
                     className={activeButtonClass}
                     onClick={handleClick}
+                    onMouseEnter={() => setShowTooltip(false)}
+                    onMouseLeave={() => setShowTooltip(true)}
                 >
                     {styledIcon}
                 </button>
@@ -57,6 +60,7 @@ const SearchButton = ({
 
             {(!isTouchScreen && !searchBoxVisible) &&
                 <Tooltip
+                    hidden={showTooltip}
                     anchorSelect="#search-button"
                     delayShow={300}
                     place="right"
