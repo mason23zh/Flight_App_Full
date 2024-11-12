@@ -10,8 +10,6 @@ const FeaturedAirportsPanel = () => {
         isFetching,
     } = useFetchVatsimPopularAirportsQuery({ limit: 10 }, { refetchOnMountOrArgChange: true });
 
-    console.log("feature airport panel run.");
-
     const panelStyle =
             "fixed left-auto right-auto top-[60px] z-50 min-w-[400px] " +
             "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +

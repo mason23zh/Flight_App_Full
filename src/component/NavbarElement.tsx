@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
 import logo from "../images/logo.png";
@@ -8,13 +8,14 @@ import InputAndSearch from "./InputAndSearch";
 function NavbarElement() {
     const toggleTheme = useThemeUpdate();
     const darkMode = useTheme();
+    const location = useLocation();
 
     // const navBarSubmitButtonClass = darkMode
     //     ? "rounded-lg bg-green-500 text-white py-1 px-3"
     //     : "rounded-lg bg-green-400 py-1 px-3";
     const navBarBgTheme = darkMode
-        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300"
-        : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700";
+        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300 min-h-[56px]"
+        : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700 min-h-[56px]";
     // const navBarInputTheme = darkMode
     //     ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"
     //     : "border-2 rounded-lg py-1 px-3 text-black text-[17px]";
@@ -87,10 +88,13 @@ function NavbarElement() {
                     {nightModeToggleSwitch}
                 </div>
             </ul>
-            <InputAndSearch
-                onSubmit={handleSearchSubmit}
-                placeholder="Search Something!"
-            />
+
+            {location.pathname !== "/map" && (
+                <InputAndSearch
+                    onSubmit={handleSearchSubmit}
+                    placeholder="Search Something!"
+                />
+            )}
         </nav>
     );
 }
