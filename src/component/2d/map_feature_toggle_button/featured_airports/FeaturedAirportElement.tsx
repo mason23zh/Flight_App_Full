@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { PopularVatsimAirport } from "../../../../types";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -11,10 +11,7 @@ import {
 } from "../../../../store";
 import { useLiveQuery } from "dexie-react-hooks";
 import { searchAirportByIdent } from "../search_box/mapSearchFunction";
-import { MapRef, useMap } from "react-map-gl";
-
-// import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
-
+import { useMap } from "react-map-gl";
 
 interface Props {
     featuredAirport: PopularVatsimAirport;
