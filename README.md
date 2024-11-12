@@ -183,3 +183,11 @@
 - Adjust Event page style
 - Change mouse to pointer when hover over the Extreme Weather table item
 - Disable the translation to prevent app crash
+
+# Beta 0.6
+
+- Added popular Vatsim airports in the map page
+- Fixed the tooltip re-appear after browser window out-of focus and re-focus.
+- Fixed the "move to airport" button not working in airport detail panel (Map page).
+- Fixed the Search Results List in map page not scaled correct in 4k monitor
+- Change default map mode to mono-dark

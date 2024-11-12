@@ -13,9 +13,10 @@ function NavbarElement() {
     // const navBarSubmitButtonClass = darkMode
     //     ? "rounded-lg bg-green-500 text-white py-1 px-3"
     //     : "rounded-lg bg-green-400 py-1 px-3";
+    // 56px = 42pt
     const navBarBgTheme = darkMode
-        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300 min-h-[56px]"
-        : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700 min-h-[56px]";
+        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300 min-h-[42pt]"
+        : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700 min-h-[42pt]";
     // const navBarInputTheme = darkMode
     //     ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"
     //     : "border-2 rounded-lg py-1 px-3 text-black text-[17px]";
