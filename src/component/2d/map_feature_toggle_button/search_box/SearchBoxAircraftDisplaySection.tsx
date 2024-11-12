@@ -15,8 +15,10 @@ const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
         );
     }
 
+    // 255pt = 300px
+    // 375pt = 500px
     return (
-        <div className="flex flex-col h-[300px] sm:h-[500px]
+        <div className="flex flex-col h-[255pt] sm:h-[375pt]
         items-center gap-2 p-1 overflow-y-auto">
             {
                 aircrafts.map((aircraft) => {

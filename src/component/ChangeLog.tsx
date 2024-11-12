@@ -200,6 +200,7 @@ function ChangeLog() {
                         - Added popular Vatsim airports in the map page <br/>
                         - Fixed the tooltip re-appear after browser window out-of focus and re-focus. <br/>
                         - Fixed the "move to airport" button not working in airport detail panel (Map page). <br/>
+                        - Fixed the Search Results List in map page not scaled correct in 4k monitor <br/>
                     </div>
                 </div>
             </div>

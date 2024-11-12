@@ -32,7 +32,7 @@ const initialState: VatsimMapVisibleState = {
     displayTelemetry: false,
     searchBoxVisible: false,
     featuredAirportsVisible: false,
-    mapStyles: "DEFAULT"
+    mapStyles: "MONO_DARK"
 };
 
 const vatsimMapVisibleSlice = createSlice({
@@ -64,7 +64,7 @@ const vatsimMapVisibleSlice = createSlice({
             state.searchBoxVisible = false;
             state.featuredAirportsVisible = false;
 
-            state.mapStyles = "DEFAULT";
+            state.mapStyles = "MONO_DARK";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
             state.mapStyles = action.payload.mapStyles;
