@@ -45,8 +45,9 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
         setAirportInfoPanel(prev => !prev);
     };
 
+    //530px = 397.5pt
     return (
-        <div className="flex flex-col gap-2 max-h-[45vh] sm:max-h-[530px] overflow-y-auto p-2 rounded-md">
+        <div className="flex flex-col gap-2 max-h-[45vh] sm:max-h-[397.5pt] overflow-y-auto p-2 rounded-md">
             <div
                 onClick={handleWeatherClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"

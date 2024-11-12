@@ -40,8 +40,11 @@ const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
     if (airports.length === 0) {
         return <div>No Matched Airport</div>;
     }
+
+    // 300px = 225pt
+    // 500px = 375pt
     return (
-        <div className="h-[300px] sm:h-[500px]">
+        <div className="h-[225pt] sm:h-[375pt]">
             <AutoSizer>
                 {({
                     height,

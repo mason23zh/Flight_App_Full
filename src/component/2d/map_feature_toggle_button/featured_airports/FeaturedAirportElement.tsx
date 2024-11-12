@@ -10,7 +10,6 @@ import {
     toggleSearchBox
 } from "../../../../store";
 import { useLiveQuery } from "dexie-react-hooks";
-import { db } from "../../../../database/db";
 import { searchAirportByIdent } from "../search_box/mapSearchFunction";
 
 // import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
@@ -45,10 +44,10 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
         departureNumber
     } = featuredAirport;
 
+    // Get local airport from the indexDB
     const dbAirport = useLiveQuery(
         async () => {
             try {
-
                 const airports = await searchAirportByIdent(featuredAirport.ICAO);
                 return { airports };
             } catch (e) {

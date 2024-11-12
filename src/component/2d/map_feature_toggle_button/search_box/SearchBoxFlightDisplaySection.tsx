@@ -52,8 +52,10 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
         );
     }
 
+    // 255pt = 300px
+    // 375pt = 500px
     return (
-        <div className="h-[350px] sm:h-[500px]">
+        <div className="h-[255pt] sm:h-[375pt]">
             <AutoSizer>
                 {({
                     height,

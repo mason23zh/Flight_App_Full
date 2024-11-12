@@ -93,7 +93,7 @@ const SearchBox = () => {
                 <div className="p-2">
                     <Tabs
                         defaultActiveKey={tabSelection}
-                        onSelect={(key) => handleTabSelect(key)}
+                        onSelect={(key) => handleTabSelect(key.toString())}
                     >
                         <Tabs.Tab
                             eventKey="1"
