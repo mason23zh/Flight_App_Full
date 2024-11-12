@@ -1,6 +1,17 @@
 import React from "react";
 import { PopularVatsimAirport } from "../../../../types";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import {
+    openSearchResults,
+    setFilterAircraftOnMap_aircraft,
+    setFilterAircraftOnMap_airport,
+    setMapSearchSelectedAirport, setTrafficTracking,
+    toggleSearchBox
+} from "../../../../store";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "../../../../database/db";
+import { searchAirportByIdent } from "../search_box/mapSearchFunction";
 
 // import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 
@@ -26,12 +37,28 @@ const serviceLabels = {
 };
 
 const FeaturedAirportElement = ({ featuredAirport }: Props) => {
+    const dispatch = useDispatch();
     const activeServices = Object.keys(featuredAirport.controller)
         .filter(service => featuredAirport.controller[service]);
     const {
         arrivalNumber,
         departureNumber
     } = featuredAirport;
+
+    const dbAirport = useLiveQuery(
+        async () => {
+            try {
+
+                const airports = await searchAirportByIdent(featuredAirport.ICAO);
+                return { airports };
+            } catch (e) {
+                console.error("Error Searching:", e);
+                return { airports: [] };
+            }
+        },
+        [featuredAirport],
+        { airports: [] }
+    );
 
     const arrivalTraffic = (arrivalNumber && arrivalNumber > 0)
         ? (
@@ -51,8 +78,28 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
         )
         : <></>;
 
+    const handleOnClick = () => {
+        // dispatch selected airport data to airport arrival panel
+        dispatch(setMapSearchSelectedAirport(dbAirport.airports[0]));
+        // close the search box
+        dispatch(toggleSearchBox(false));
+        //remove other filter if they are set
+        dispatch(setFilterAircraftOnMap_aircraft(false));
+        // filter traffic on the map
+        dispatch(setFilterAircraftOnMap_airport(true));
+        // Open search result list
+        dispatch(openSearchResults("AIRPORT"));
+        // make sure the flight tracking is off
+        dispatch(setTrafficTracking(false));
+    };
+
     return (
-        <div className="grid grid-cols-3 justify-between gap-4 p-2 bg-gray-600 border border-gray-700 shadow-sm rounded-lg">
+        <div
+            className="grid grid-cols-3 justify-between gap-4 p-2
+         bg-gray-600 border border-gray-700 shadow-sm rounded-lg
+         hover:bg-gray-700 hover:cursor-pointer"
+            onClick={handleOnClick}
+        >
             <div className="col-span-1 self-center">
                 {featuredAirport.ICAO}
             </div>
