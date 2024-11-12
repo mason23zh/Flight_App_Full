@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { PopularVatsimAirport } from "../../../../types";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ import {
 } from "../../../../store";
 import { useLiveQuery } from "dexie-react-hooks";
 import { searchAirportByIdent } from "../search_box/mapSearchFunction";
+import { MapRef, useMap } from "react-map-gl";
 
 // import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 
@@ -37,11 +38,13 @@ const serviceLabels = {
 
 const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     const dispatch = useDispatch();
+    const { current: mapRef } = useMap();
     const activeServices = Object.keys(featuredAirport.controller)
         .filter(service => featuredAirport.controller[service]);
     const {
         arrivalNumber,
-        departureNumber
+        departureNumber,
+        station
     } = featuredAirport;
 
     // Get local airport from the indexDB
@@ -90,6 +93,16 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
         dispatch(openSearchResults("AIRPORT"));
         // make sure the flight tracking is off
         dispatch(setTrafficTracking(false));
+        if (mapRef) {
+            const map = mapRef?.getMap();
+            if (map) {
+                map.flyTo({
+                    center: [Number(station.geometry.coordinates[0]),
+                        Number(station.geometry.coordinates[1])],
+                    zoom: 13
+                });
+            }
+        }
     };
 
     return (
