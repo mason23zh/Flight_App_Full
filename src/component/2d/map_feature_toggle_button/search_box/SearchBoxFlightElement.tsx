@@ -14,20 +14,20 @@ interface Props {
     flight: VatsimFlight;
     onSelect: (flight: VatsimFlight) => void;
     isSelected: boolean;
-    setRowHeight: (index: number, size: number) => void;
-    index: number;
+    // setRowHeight: (index: number, size: number) => void;
+    // index: number;
 }
 
 const SearchBoxFlightElement = ({
     flight,
     onSelect,
     isSelected,
-    setRowHeight,
-    index,
+    // setRowHeight,
+    // index,
 }: Props) => {
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    const rowRef = useRef<HTMLDivElement>();
+    // const rowRef = useRef<HTMLDivElement>();
 
     // Dispatch the flight data to be used in the MainTrafficLayer to trigger the Flight Info Panel
     const handleClick = () => {
@@ -53,11 +53,11 @@ const SearchBoxFlightElement = ({
         onSelect(flight);
     };
 
-    useEffect(() => {
-        if (rowRef.current) {
-            setRowHeight(index, rowRef.current.getBoundingClientRect().height);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (rowRef.current) {
+    //         setRowHeight(index, rowRef.current.getBoundingClientRect().height);
+    //     }
+    // }, []);
 
     const theme = isSelected ? "p-2 grid grid-rows-2 hover:cursor-pointer " +
             "bg-gray-600 rounded-lg border-slate-400 border-b border-slat-400"
@@ -66,7 +66,7 @@ const SearchBoxFlightElement = ({
 
     return (
         <div
-            ref={rowRef}
+            // ref={rowRef}
             onClick={handleClick}
             className={theme}
         >
