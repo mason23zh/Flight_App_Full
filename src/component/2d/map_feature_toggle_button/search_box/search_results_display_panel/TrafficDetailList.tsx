@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import { VatsimFlight } from "../../../../../types";
-import { VariableSizeList as List } from "react-window";
 import TrafficDetailElement from "./TrafficDetailElement";
-import AutoSizer from "react-virtualized-auto-sizer";
+import { Virtuoso } from "react-virtuoso";
 
-
+// This component will render list of traffics that displayed in the
+// AirportDepartureArrival Display component.
 interface Props {
     flights: VatsimFlight[];
     arrival: boolean;
@@ -14,59 +14,26 @@ const TrafficDetailList = ({
     flights,
     arrival
 }: Props) => {
-    const listRef = useRef<List>(null);
-    const rowHeights = useRef<{ [index: number]: number }>({});
 
     if (!flights || flights.length === 0) {
         return <div className="p-2">No Traffic</div>;
     }
 
-    const setRowHeight = (index: number, size: number) => {
-        listRef.current.resetAfterIndex(index);
-        rowHeights.current = {
-            ...rowHeights.current,
-            [index]: size
-        };
-    };
-
-    const getItemSize = (index: number) => {
-        return rowHeights.current[index] || 70; // fallback value
-    };
-
-    const Row = ({
-        index,
-        style
-    }) => (
-        <div style={style}>
-            <TrafficDetailElement
-                index={index}
-                setRowHeight={setRowHeight}
-                flight={flights[index]}
-                isArrival={arrival}
-            />
-        </div>
-    );
-
     // 255pt = 300px
     // 375pt = 500px
     return (
-        <div className="h-[255pt] sm:h-[375pt]">
-            <AutoSizer>
-                {({
-                    height,
-                    width
-                }) => (
-                    <List
-                        height={height}
-                        itemCount={flights.length}
-                        itemSize={getItemSize}
-                        width={width}
-                        ref={listRef}
-                    >
-                        {Row}
-                    </List>
+        <div className="max-h-[70vh] h-[255pt] sm:h-[375pt] overflow-hidden">
+            <Virtuoso
+                className="h-full"
+                data={flights}
+                itemContent={(index, flight) => (
+                    <TrafficDetailElement
+                        index={index}
+                        flight={flight}
+                        isArrival={arrival}
+                    />
                 )}
-            </AutoSizer>
+            />
         </div>
     );
 };

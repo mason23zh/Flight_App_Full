@@ -10,26 +10,26 @@ import {
 } from "../../../../../store";
 
 interface Props {
-    setRowHeight: (index: number, size: number) => void;
+    // setRowHeight: (index: number, size: number) => void;
     index: number;
     flight: VatsimFlight;
     isArrival: boolean;
 }
 
 const TrafficDetailElement = ({
-    setRowHeight,
+    // setRowHeight,
     index,
     flight,
     isArrival
 }: Props) => {
     const dispatch = useDispatch();
-    const rowRef = useRef<HTMLDivElement>();
+    // const rowRef = useRef<HTMLDivElement>();
 
-    useEffect(() => {
-        if (rowRef.current) {
-            setRowHeight(index, rowRef.current.getBoundingClientRect().height);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (rowRef.current) {
+    //         setRowHeight(index, rowRef.current.getBoundingClientRect().height);
+    //     }
+    // }, []);
 
     const ETA = useMemo(() => {
         if (flight?.flight_plan?.deptime && flight?.flight_plan?.enroute_time) {
@@ -52,7 +52,7 @@ const TrafficDetailElement = ({
 
     return (
         <div
-            ref={rowRef}
+            // ref={rowRef}
             onClick={handleOnClick}
             className="bg-gray-500 grid-cols-1 p-2 border-b border-slate-400
             rounded-lg hover:cursor-pointer hover:bg-gray-600"
