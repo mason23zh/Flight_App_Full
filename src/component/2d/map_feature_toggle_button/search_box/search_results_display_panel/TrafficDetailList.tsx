@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { VatsimFlight } from "../../../../../types";
 import TrafficDetailElement from "./TrafficDetailElement";
 import { Virtuoso } from "react-virtuoso";
@@ -19,16 +19,18 @@ const TrafficDetailList = ({
         return <div className="p-2">No Traffic</div>;
     }
 
+    //max-h-[70vh] h-[255pt] sm:h-[375pt] overflow-hidden
     // 255pt = 300px
     // 375pt = 500px
+    //h-[22rem] sm:h-[28rem]
     return (
-        <div className="max-h-[70vh] h-[255pt] sm:h-[375pt] overflow-hidden">
+        <div className="h-[22rem] sm:h-[28rem]">
             <Virtuoso
-                className="h-full"
+                // className="h-full"
+                style={{ height: "100%" }}
                 data={flights}
-                itemContent={(index, flight) => (
+                itemContent={(_, flight) => (
                     <TrafficDetailElement
-                        index={index}
                         flight={flight}
                         isArrival={arrival}
                     />

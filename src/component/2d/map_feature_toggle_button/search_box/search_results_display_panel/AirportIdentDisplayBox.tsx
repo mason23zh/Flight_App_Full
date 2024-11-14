@@ -50,11 +50,11 @@ const AirportIdentDisplayBox = ({
                     className="flex items-center gap-1 border-[1px] text-xs rounded-lg px-1 py-0"
                 >
                     <div>
-                        {airport.iata_code || "-"}
+                        {airport?.iata_code || "-"}
                     </div>
                     <div>/</div>
                     <div className="font-bold">
-                        {airport.ident || "-"}
+                        {airport?.ident || "-"}
                     </div>
                 </div>
             </div>
