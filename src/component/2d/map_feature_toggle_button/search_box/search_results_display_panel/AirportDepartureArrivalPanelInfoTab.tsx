@@ -9,17 +9,20 @@ interface Props {
     airport: LocalDbAirport;
 }
 
+//TODO: Change height
 const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
     /*
     * The useFetchDetailAirportWithICAOQuery will return ATIS, airport info and weather
     * So we call here and pass the state to child component
     * */
+    if (!airport) return null;
+
     const {
         data: airportData,
         error: airportDataError,
         isFetching: airportDataFetching
     } = useFetchDetailAirportWithICAOQuery({
-        icao: airport.ident,
+        icao: airport?.ident,
         decode: true
     });
 
@@ -44,6 +47,22 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
     const handleAirportInfoClick = () => {
         setAirportInfoPanel(prev => !prev);
     };
+
+    if (airportDataError) {
+        return (
+            <div>
+                Error Loading data
+            </div>
+        );
+    }
+
+    if (airportDataFetching) {
+        return (
+            <div>
+                Loading data...
+            </div>
+        );
+    }
 
     //530px = 397.5pt
     return (

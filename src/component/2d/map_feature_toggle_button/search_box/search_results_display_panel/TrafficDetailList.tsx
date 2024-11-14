@@ -8,23 +8,28 @@ import { Virtuoso } from "react-virtuoso";
 interface Props {
     flights: VatsimFlight[];
     arrival: boolean;
+    containerHeight: number;
 }
 
 const TrafficDetailList = ({
     flights,
-    arrival
+    arrival,
+    containerHeight
+
 }: Props) => {
 
     if (!flights || flights.length === 0) {
         return <div className="p-2">No Traffic</div>;
     }
 
+    console.log("container height:", containerHeight);
+
     //max-h-[70vh] h-[255pt] sm:h-[375pt] overflow-hidden
     // 255pt = 300px
     // 375pt = 500px
-    //h-[22rem] sm:h-[28rem]
+    //h-[22rem] sm:h-[28rem] style={{ height: containerHeight }}
     return (
-        <div className="h-[22rem] sm:h-[28rem]">
+        <div style={{ height: `${containerHeight - 3}rem` }}>
             <Virtuoso
                 // className="h-full"
                 style={{ height: "100%" }}
