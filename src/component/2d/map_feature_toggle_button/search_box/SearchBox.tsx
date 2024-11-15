@@ -15,7 +15,7 @@ import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
-
+//TODO: Style change, replace tab and list to use flex and max-h instead
 const SearchBox = () => {
     const dispatch = useDispatch();
     const {
