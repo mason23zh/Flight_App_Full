@@ -8,13 +8,11 @@ import { Virtuoso } from "react-virtuoso";
 interface Props {
     flights: VatsimFlight[];
     arrival: boolean;
-    containerHeight: number;
 }
 
 const TrafficDetailList = ({
     flights,
     arrival,
-    containerHeight
 
 }: Props) => {
 
@@ -22,8 +20,10 @@ const TrafficDetailList = ({
         return <div className="p-2">No Traffic</div>;
     }
 
+    //<div style={{ maxHeight: `${containerHeight - 3}rem` }}>
+
     return (
-        <div style={{ maxHeight: `${containerHeight - 3}rem` }}>
+        <div className="flex-1 h-full">
             <Virtuoso
                 // className="h-full"
                 style={{ height: "100%" }}
