@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { VatsimFlight } from "../../../../../types";
 import TrafficDetailElement from "./TrafficDetailElement";
 import { Virtuoso } from "react-virtuoso";
@@ -22,14 +22,8 @@ const TrafficDetailList = ({
         return <div className="p-2">No Traffic</div>;
     }
 
-    console.log("container height:", containerHeight);
-
-    //max-h-[70vh] h-[255pt] sm:h-[375pt] overflow-hidden
-    // 255pt = 300px
-    // 375pt = 500px
-    //h-[22rem] sm:h-[28rem] style={{ height: containerHeight }}
     return (
-        <div style={{ height: `${containerHeight - 3}rem` }}>
+        <div style={{ maxHeight: `${containerHeight - 3}rem` }}>
             <Virtuoso
                 // className="h-full"
                 style={{ height: "100%" }}

@@ -5,7 +5,6 @@ import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
 import AirportInfoSection from "./AirportInfoSection";
 import AirportDepartureArrivalPanelInfoTab from "./AirportDepartureArrivalPanelInfoTab";
-import { Panel } from "rsuite";
 
 interface Props {
     airport: LocalDbAirport;
@@ -27,16 +26,17 @@ const AirportDepartureArrivalDisplay = ({
     //         "top-[10vh] sm:top-auto rounded-lg overflow-hidden flex flex-col";
 
     //max-h-[30rem] sm:max-h-[35rem]
-    const style =
-            "text-white min-h-[20rem] h-[75vh] max-h-[30rem] sm:max-h-[35rem] absolute " +
-            "bg-gray-500 z-[200] left-1/2 top-0 transform -translate-x-1/2 " +
-            "sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] w-[300px] sm:max-w-[350px] sm:min-w-[350px] " +
-            "top-[10vh] sm:top-auto rounded-lg overflow-hidden flex flex-col";
+    // const style =
+    //         "text-white min-h-[20rem] h-[75vh] max-h-[30rem] sm:max-h-[35rem] absolute " +
+    //         "bg-gray-500 z-[200] left-1/2 top-0 transform -translate-x-1/2 " +
+    //         "sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] w-[300px] sm:max-w-[350px] sm:min-w-[350px] " +
+    //         "top-[10vh] sm:top-auto rounded-lg overflow-hidden flex flex-col";
 
-    const wrapperStyle = "absolute z-[200] top-0 left-1/2 transform -translate-x-1/2" +
-            " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] bottom-10";
+    const wrapperStyle = "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
+            " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
+            "bottom-10";
     const innerStyle =
-            "relative text-white h-full max-h-[35rem] min-h-[20rem] " +
+            "relative text-white h-full max-h-[40rem] min-h-[20rem] " +
             "bg-gray-500 rounded-lg overflow-hidden flex flex-col";
 
     useEffect(() => {
@@ -57,25 +57,6 @@ const AirportDepartureArrivalDisplay = ({
         })();
     }, [airport]);
 
-    // useEffect(() => {
-    //     const calculateContentHeight = () => {
-    //         if (panelRef.current && infoSectionRef.current) {
-    //             const panelHeight = panelRef.current.offsetHeight;
-    //             const infoHeight = infoSectionRef.current.offsetHeight;
-    //             console.log("panel height:", panelHeight);
-    //             console.log("info height:", infoHeight);
-    //             setContainerHeight(panelHeight - infoHeight); // Available height for TrafficDetailList
-    //         }
-    //     };
-    //
-    //     calculateContentHeight(); // Initial calculation
-    //
-    //     // Optional: Recalculate on window resize if layout may change on resize
-    //     window.addEventListener("resize", calculateContentHeight);
-    //     return () => window.removeEventListener("resize", calculateContentHeight);
-    // }, []);
-
-
     useEffect(() => {
         const calculateContentHeightInRem = () => {
             if (panelRef.current && infoSectionRef.current) {
@@ -90,7 +71,7 @@ const AirportDepartureArrivalDisplay = ({
 
         calculateContentHeightInRem(); // Initial calculation
 
-        window.addEventListener("resize", calculateContentHeightInRem); // Optional: recalculate on resize
+        window.addEventListener("resize", calculateContentHeightInRem); //recalculate on resize
         return () => window.removeEventListener("resize", calculateContentHeightInRem);
     }, []);
 
@@ -118,7 +99,8 @@ const AirportDepartureArrivalDisplay = ({
                                 />
                             </Tabs.Tab>
                             <Tabs.Tab eventKey="3" title="Information">
-                                <AirportDepartureArrivalPanelInfoTab airport={airport}/>
+                                <AirportDepartureArrivalPanelInfoTab airport={airport}
+                                    containerHeight={containerHeight}/>
                             </Tabs.Tab>
                         </Tabs>
                     </div>

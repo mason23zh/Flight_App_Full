@@ -7,10 +7,14 @@ import AirportInfoExpandContent_AirportInfo from "./AirportInfoExpandContent_Air
 
 interface Props {
     airport: LocalDbAirport;
+    containerHeight: number;
 }
 
 //TODO: Change height
-const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
+const AirportDepartureArrivalPanelInfoTab = ({
+    airport,
+    containerHeight
+}: Props) => {
     /*
     * The useFetchDetailAirportWithICAOQuery will return ATIS, airport info and weather
     * So we call here and pass the state to child component
@@ -66,7 +70,10 @@ const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
 
     //530px = 397.5pt
     return (
-        <div className="flex flex-col gap-2 max-h-[45vh] sm:max-h-[397.5pt] overflow-y-auto p-2 rounded-md">
+        <div
+            className="flex flex-col gap-2 overflow-y-auto p-2 rounded-md"
+            style={{ height: `${containerHeight - 3}rem` }}
+        >
             <div
                 onClick={handleWeatherClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
