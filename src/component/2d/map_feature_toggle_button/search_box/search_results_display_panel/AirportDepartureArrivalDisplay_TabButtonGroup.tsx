@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
+type Tabs = "arrival" | "departure" | "info"
+
 const AirportDepartureArrivalDisplayTabButtonGroup = ({ onTabChange }) => {
     const [activeTab, setActiveTab] = useState("departure"); // Track the active tab
 
-    const handleTabClick = (tab) => {
+    const handleTabClick = (tab: Tabs) => {
         setActiveTab(tab);
         onTabChange(tab); // Notify parent of tab change
     };

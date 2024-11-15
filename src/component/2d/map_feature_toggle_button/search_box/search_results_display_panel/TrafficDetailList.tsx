@@ -16,27 +16,28 @@ const TrafficDetailList = ({
 
 }: Props) => {
 
-    if (!flights || flights.length === 0) {
-        return <div className="p-2">No Traffic</div>;
-    }
 
     //<div style={{ maxHeight: `${containerHeight - 3}rem` }}>
-
-    return (
-        <div className="flex-1 h-full">
-            <Virtuoso
-                // className="h-full"
-                style={{ height: "100%" }}
-                data={flights}
-                itemContent={(_, flight) => (
-                    <TrafficDetailElement
-                        flight={flight}
-                        isArrival={arrival}
-                    />
-                )}
-            />
-        </div>
-    );
+    //TODO: Custom scroll bar
+    if (!flights || flights.length === 0) {
+        return <div className="p-2 text-center text-lg">No Traffic</div>;
+    } else {
+        return (
+            <div className="flex-1 h-full scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-600">
+                <Virtuoso
+                    // className="h-full"
+                    style={{ height: "100%" }}
+                    data={flights}
+                    itemContent={(_, flight) => (
+                        <TrafficDetailElement
+                            flight={flight}
+                            isArrival={arrival}
+                        />
+                    )}
+                />
+            </div>
+        );
+    }
 };
 
 export default TrafficDetailList;
