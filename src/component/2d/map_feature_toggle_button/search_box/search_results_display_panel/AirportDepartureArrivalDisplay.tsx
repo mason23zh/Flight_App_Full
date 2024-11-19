@@ -89,24 +89,22 @@ const AirportDepartureArrivalDisplay = ({
 
     //flex-1 flex flex-col overflow-hidden
     return (
-        <CustomProvider theme="light">
-            <div className={wrapperStyle}>
-                {loading ? (
-                    <div>Loading data...</div>
-                ) : (
-                    <div className="flex flex-col h-[90%] bg-gray-500 text-white">
-                        <div className="mb-1 p-1 bg-gray-500">
-                            <AirportInfoSection airport={airport}/>
-                        </div>
-                        <AirportDepartureArrivalDisplay_TabButtonGroup onTabChange={setActiveTab}/>
-
-                        <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-600">
-                            {renderContent()}
-                        </div>
+        <div className={wrapperStyle}>
+            {loading ? (
+                <div>Loading data...</div>
+            ) : (
+                <div className="flex flex-col h-[90%] bg-gray-500 text-white rounded-lg overflow-hidden">
+                    <div className="mb-1 p-1 bg-gray-500">
+                        <AirportInfoSection airport={airport}/>
                     </div>
-                )}
-            </div>
-        </CustomProvider>
+                    <AirportDepartureArrivalDisplay_TabButtonGroup onTabChange={setActiveTab}/>
+
+                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-600">
+                        {renderContent()}
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
 
