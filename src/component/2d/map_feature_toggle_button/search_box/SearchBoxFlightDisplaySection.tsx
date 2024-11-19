@@ -31,11 +31,11 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
     // 262.5 pt = 350px
 
     return (
-        <div className="h-[255pt] sm:h-[375pt] overflow-hidden">
+        <div className="flex-1 h-full">
             <Virtuoso
-                className="h-full max-w-[217.5pt] sm:min-w-[262.5pt]"
                 data={flights}
-                itemContent={(index, flight) => (
+                style={{ height: "100%" }}
+                itemContent={(_, flight) => (
                     <SearchBoxFlightElement
                         flight={flight}
                         onSelect={() => handleOnSelect(flight)}
