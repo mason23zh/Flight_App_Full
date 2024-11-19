@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { LocalDbAirport, VatsimFlight } from "../../../../../types";
-import { CustomProvider } from "rsuite";
 import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
 import AirportInfoSection from "./AirportInfoSection";
@@ -9,24 +8,25 @@ import AirportDepartureArrivalDisplay_TabButtonGroup from "./AirportDepartureArr
 
 interface Props {
     airport: LocalDbAirport;
-    // flights: VatsimFlight[];
 }
 
-//TODO: added rounded edge
 const AirportDepartureArrivalDisplay = ({
     airport
 }: Props) => {
     const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
     const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
-    const [activeTab, setActiveTab] = useState("departure");
+    const [activeTab, setActiveTab] = useState<"departure" | "arrival" | "info">("departure");
     const [loading, setLoading] = useState(true);
 
     const wrapperStyle = "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
             " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
             "bottom-10 max-h-[40rem] min-h-[15rem]";
-    // const innerStyle =
-    //         "relative text-white h-full max-h-[40rem] min-h-[20rem] " +
-    //         "bg-gray-500 rounded-lg overflow-hidden flex flex-col";
+
+
+    // reset the tab to departure after switching a new airport from the Popular vatsim airports list.
+    useEffect(() => {
+        setActiveTab("departure");
+    }, [airport]);
 
     useEffect(() => {
         if (!airport || !airport.ident) {
@@ -87,7 +87,6 @@ const AirportDepartureArrivalDisplay = ({
         }
     };
 
-    //flex-1 flex flex-col overflow-hidden
     return (
         <div className={wrapperStyle}>
             {loading ? (
