@@ -9,6 +9,7 @@ interface Props {
 
 //TODO: Prevent list jump back to top after state update.
 //TODO: Refine custom scrollbar style
+//TODO: TypeScript issues.
 
 // To render traffic list.
 // This component will be used in both Search Box results and AircraftDisplay panel
@@ -32,8 +33,8 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
         ...props
     }, ref) => {
         return <div style={{}} ref={ref} {...props}
-            className="scrollbar scrollbar-thin scrollbar-thumb-slate-400
-            scrollbar-track-slate-700"
+            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
+            scrollbar-track-gray-500"
         />;
     });
 
