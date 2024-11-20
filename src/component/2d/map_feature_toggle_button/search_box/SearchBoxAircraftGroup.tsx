@@ -38,8 +38,8 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
     return (
         <div
             onClick={handleClick}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2
-        items-center sm:w-[300px] border-b p-1 hover:bg-gray-400 hover:cursor-pointer w-[300px] h-auto ">
+            className="grid grid-cols-2 p-2 sm:grid-cols-4 gap-1 sm:gap-2
+        items-center w-full border-b hover:bg-gray-400 hover:cursor-pointer h-auto ">
             <div className="sm:col-span-1">
                 {aircraft.aircraftType}
             </div>

@@ -8,7 +8,7 @@ interface Props {
 }
 
 //TODO: TypeScript issues
-// this component will render list of aircraft and number of online in the search box
+//This component will render list of aircraft and number of online in the search box
 const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
     if (aircrafts.length === 0) {
         return (
