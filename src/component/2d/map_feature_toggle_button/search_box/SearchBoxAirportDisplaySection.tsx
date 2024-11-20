@@ -1,66 +1,42 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import SearchBoxAirportElement from "./SearchBoxAirportElement";
 import { LocalDbAirport } from "../../../../types";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
+import { Virtuoso } from "react-virtuoso";
 
 interface Props {
     airports: LocalDbAirport[];
 }
 
 const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
-    const listRef = useRef<List>(null);
-    const rowHeights = useRef<{ [index: number]: number }>({});
-
-    const setRowHeight = (index: number, size: number) => {
-        listRef.current.resetAfterIndex(index);
-        rowHeights.current = {
-            ...rowHeights.current,
-            [index]: size
-        };
-    };
-
-    const getItemSize = (index: number) => {
-        return rowHeights.current[index] || 82; // fallback value
-    };
-
-    const Row = ({
-        index,
-        style
-    }) => (
-        <div style={style}>
-            <SearchBoxAirportElement
-                airport={airports[index]}
-                setRowHeight={setRowHeight}
-                index={index}
-            />
-        </div>
-    );
 
     if (airports.length === 0) {
         return <div>No Matched Airport</div>;
     }
 
-    // 300px = 225pt
-    // 500px = 375pt
+    const Scroller = forwardRef(({
+        ...props
+    }, ref) => {
+        return <div style={{}} ref={ref} {...props}
+            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
+            scrollbar-track-gray-500"
+        />;
+    });
+
     return (
-        <div className="h-[225pt] sm:h-[375pt]">
-            <AutoSizer>
-                {({
-                    height,
-                    width
-                }) => (
-                    <List
-                        height={height}
-                        itemCount={airports.length}
-                        itemSize={getItemSize}
-                        width={width}
-                        ref={listRef}
-                    >
-                        {Row}
-                    </List>
+        <div className="flex-1 h-full">
+            <Virtuoso
+                data={airports}
+                style={{ height: "100%" }}
+                components={{ Scroller }}
+                itemContent={(_, airport) => (
+                    <SearchBoxAirportElement
+                        airport={airport}
+                        // index={index}
+                    />
                 )}
-            </AutoSizer>
+            />
         </div>
     );
 };
