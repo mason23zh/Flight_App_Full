@@ -1,14 +1,14 @@
 import React, { forwardRef, useRef } from "react";
 import SearchBoxAirportElement from "./SearchBoxAirportElement";
 import { LocalDbAirport } from "../../../../types";
-import { VariableSizeList as List } from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
 import { Virtuoso } from "react-virtuoso";
 
 interface Props {
     airports: LocalDbAirport[];
 }
 
+//TODO: TypeScript issue.
+//This component will render list of airports in the search box
 const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
 
     if (airports.length === 0) {
@@ -33,7 +33,6 @@ const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
                 itemContent={(_, airport) => (
                     <SearchBoxAirportElement
                         airport={airport}
-                        // index={index}
                     />
                 )}
             />

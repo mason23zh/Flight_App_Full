@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
@@ -11,24 +11,15 @@ import { useMap } from "react-map-gl";
 
 interface Props {
     airport: LocalDbAirport;
-    // setRowHeight: (index: number, size: number) => void; //to send back the height to parent component
-    // index: number;
 }
 
 
 const SearchBoxAirportElement = ({
     airport,
-    // setRowHeight,
-    // index
 }: Props) => {
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    // const rowRef = useRef<HTMLDivElement>();
-    // useEffect(() => {
-    //     if (rowRef.current) {
-    //         setRowHeight(index, rowRef.current.getBoundingClientRect().height);
-    //     }
-    // }, []);
+
 
     const handleOnClick = () => {
         // dispatch selected airport data to airport arrival panel
@@ -60,7 +51,6 @@ const SearchBoxAirportElement = ({
         <>
             <div
                 onClick={handleOnClick}
-                // ref={rowRef}
                 className="p-2 grid grid-rows-2 hover:cursor-pointer
                        hover:bg-gray-600 hover:rounded-lg border-b
                        border-slate-400"
