@@ -1,14 +1,17 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { GroupedFlight } from "../../../../types";
 import SearchBoxAircraftGroup from "./SearchBoxAircraftGroup";
 import { Virtuoso } from "react-virtuoso";
+import Scroller from "../../../../util/VirtuosoScroller";
 
 interface Props {
     aircrafts: GroupedFlight[];
 }
 
-//TODO: TypeScript issues
-//This component will render list of aircraft and number of online in the search box
+/*
+* This component will render list of aircraft and number of online in the search box
+* */
+
 const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
     if (aircrafts.length === 0) {
         return (
@@ -17,15 +20,6 @@ const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
             </div>
         );
     }
-
-    const Scroller = forwardRef(({
-        ...props
-    }, ref) => {
-        return <div style={{}} ref={ref} {...props}
-            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
-            scrollbar-track-gray-500"
-        />;
-    });
 
     return (
         <div className="flex-1 h-full">

@@ -1,28 +1,23 @@
-import React, { forwardRef, useRef } from "react";
+import React from "react";
 import SearchBoxAirportElement from "./SearchBoxAirportElement";
 import { LocalDbAirport } from "../../../../types";
 import { Virtuoso } from "react-virtuoso";
+import Scroller from "../../../../util/VirtuosoScroller";
 
 interface Props {
     airports: LocalDbAirport[];
 }
 
-//TODO: TypeScript issue.
-//This component will render list of airports in the search box
+
+/*
+* This component will render list of airports in the search box
+* */
+
 const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
 
     if (airports.length === 0) {
         return <div>No Matched Airport</div>;
     }
-
-    const Scroller = forwardRef(({
-        ...props
-    }, ref) => {
-        return <div style={{}} ref={ref} {...props}
-            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
-            scrollbar-track-gray-500"
-        />;
-    });
 
     return (
         <div className="flex-1 h-full">

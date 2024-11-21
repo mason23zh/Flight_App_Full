@@ -1,18 +1,19 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { VatsimFlight } from "../../../../types";
 import SearchBoxFlightElement from "./SearchBoxFlightElement";
 import { Virtuoso } from "react-virtuoso";
+import Scroller from "../../../../util/VirtuosoScroller";
 
 interface Props {
     flights: VatsimFlight[];
 }
 
 //TODO: Prevent list jump back to top after state update.
-//TODO: Refine custom scrollbar style
-//TODO: TypeScript issues.
 
-// To render traffic list.
-// This component will be used in both Search Box results and AircraftDisplay panel
+/*
+* To render traffic list.
+* This component will be used in both Search Box results and AircraftDisplay panel
+* */
 
 const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
     const [selectedTraffic, setSelectedTraffic] = useState<VatsimFlight | null>(null);
@@ -29,14 +30,6 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
         );
     }
 
-    const Scroller = forwardRef(({
-        ...props
-    }, ref) => {
-        return <div style={{}} ref={ref} {...props}
-            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
-            scrollbar-track-gray-500"
-        />;
-    });
 
     return (
         <div className="flex-1 h-full ">
@@ -51,7 +44,6 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
                         isSelected={selectedTraffic?.cid === flight.cid}
                     />
                 )}
-
             />
         </div>
     );

@@ -1,12 +1,14 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { VatsimFlight } from "../../../../../types";
 import TrafficDetailElement from "./TrafficDetailElement";
 import { Virtuoso } from "react-virtuoso";
+import Scroller from "../../../../../util/VirtuosoScroller";
 
-//TODO: TypeScript issues.
+/*
+* This component will render list of traffics that displayed in the
+* AirportDepartureArrival Display component.
+* */
 
-// This component will render list of traffics that displayed in the
-// AirportDepartureArrival Display component.
 interface Props {
     flights: VatsimFlight[];
     arrival: boolean;
@@ -18,14 +20,6 @@ const TrafficDetailList = ({
 
 }: Props) => {
 
-    const Scroller = forwardRef(({
-        ...props
-    }, ref) => {
-        return <div style={{}} ref={ref} {...props}
-            className="scrollbar scrollbar-thin scrollbar-thumb-slate-700
-            scrollbar-track-gray-500"
-        />;
-    });
 
     if (!flights || flights.length === 0) {
         return <div className="p-2 text-center text-lg">No Traffic</div>;
