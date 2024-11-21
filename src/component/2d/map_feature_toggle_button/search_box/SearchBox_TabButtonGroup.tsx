@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 type Tabs = "airports" | "flights" | "aircraft"
 
-const SearchBoxTabButtonGroup = ({ onTabChange }) => {
-    const [activeTab, setActiveTab] = useState<Tabs>("airports"); // Track the active tab
+interface Props {
+    onTabChange: (tab: Tabs) => void;
+    activeTab: Tabs;
+}
+
+const SearchBoxTabButtonGroup = ({
+    onTabChange,
+    activeTab
+}: Props) => {
 
     const handleTabClick = (tab: Tabs) => {
-        setActiveTab(tab);
-        onTabChange(tab); // Notify parent of tab change
+        onTabChange(tab);
     };
 
     return (

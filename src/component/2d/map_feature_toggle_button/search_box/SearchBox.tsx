@@ -3,24 +3,24 @@
 * The visibility of this component is controlled by SearchButton component
 *
 * */
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import MapSearchInputBar from "./MapSearchInputBar";
 import { searchAirports, searchByAircraftType, searchVatsimTraffic } from "./mapSearchFunction";
 import SearchBoxAirportDisplaySection from "./SearchBoxAirportDisplaySection";
-import { CustomProvider, Tabs } from "rsuite";
+import { CustomProvider } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
+import { toggleSearchBox } from "../../../../store";
 import SearchBoxFlightDisplaySection from "./SearchBoxFlightDisplaySection";
 import SearchBoxAircraftDisplaySection from "./SearchBoxAircraftDisplaySection";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 import SearchBox_TabButtonGroup from "./SearchBox_TabButtonGroup";
-//TODO: Style change, replace tab and list to use flex and max-h instead
-//TODO: replace the tab to custom tab button
+
+type TabSelection = "airports" | "flights" | "aircraft";
+
 const SearchBox = () => {
     const dispatch = useDispatch();
-    const [activeTab, setActiveTab] = useState<"airports" | "flights" | "aircraft">("airports");
     const {
         searchInput,
         tabSelection
@@ -69,19 +69,22 @@ const SearchBox = () => {
     /*
     * Store the tab selection
     *  */
-    const handleTabSelect = (key: string) => {
-        dispatch(setTabSelection(key));
+    const handleTabChange = (tab: TabSelection) => {
+        dispatch(setTabSelection(tab));
     };
 
-    const searchBoxStyle =
-            "fixed left-auto right-auto top-[60px] z-50 min-w-[350px] " +
-            "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +
-            "bg-gray-500 max-h-[40rem] min-h-[15rem] " +
-            "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-hidden ";
+    /*
+    Fallback, if no tab selected, set airports as default.
+    * */
+    useEffect(() => {
+        if (!tabSelection) {
+            dispatch(setTabSelection("airports"));
+        }
+    }, [tabSelection, dispatch]);
 
 
     const renderContent = () => {
-        switch (activeTab) {
+        switch (tabSelection) {
         case "airports":
             return (
                 <SearchBoxAirportDisplaySection
@@ -127,37 +130,12 @@ const SearchBox = () => {
                         searchInput={searchInput}
                     />
 
-                    <SearchBox_TabButtonGroup onTabChange={setActiveTab}/>
+                    <SearchBox_TabButtonGroup onTabChange={handleTabChange} activeTab={tabSelection}/>
 
                     <div className="flex-1 overflow-y-auto">
                         {renderContent()}
                     </div>
                 </div>
-
-                {/* <div className="p-2"> */}
-                {/*     <Tabs */}
-                {/*         defaultActiveKey={tabSelection} */}
-                {/*         onSelect={(key) => handleTabSelect(key.toString())} */}
-                {/*     > */}
-                {/*         <Tabs.Tab */}
-                {/*             eventKey="1" */}
-                {/*             title={`Airports (${searchResults.airports.length})`}> */}
-                {/*             <SearchBoxAirportDisplaySection airports={searchResults.airports}/> */}
-                {/*         </Tabs.Tab> */}
-
-                {/*         <Tabs.Tab */}
-                {/*             eventKey="2" */}
-                {/*             title={`Flights (${searchResults.vatsimTraffic.length})`}> */}
-                {/*             <SearchBoxFlightDisplaySection flights={searchResults.vatsimTraffic}/> */}
-                {/*         </Tabs.Tab> */}
-
-                {/*         <Tabs.Tab */}
-                {/*             eventKey="3" */}
-                {/*             title={`Aircraft (${searchResults.aircraftType.length})`}> */}
-                {/*             <SearchBoxAircraftDisplaySection aircrafts={searchResults.aircraftType}/> */}
-                {/*         </Tabs.Tab> */}
-                {/*     </Tabs> */}
-                {/* </div> */}
             </div>
         </CustomProvider>
     );
