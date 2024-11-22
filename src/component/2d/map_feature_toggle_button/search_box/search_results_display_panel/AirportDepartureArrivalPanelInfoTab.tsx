@@ -9,7 +9,6 @@ interface Props {
     airport: LocalDbAirport;
 }
 
-//TODO: Change height
 const AirportDepartureArrivalPanelInfoTab = ({
     airport,
 }: Props) => {
@@ -66,7 +65,6 @@ const AirportDepartureArrivalPanelInfoTab = ({
         );
     }
 
-    //530px = 397.5pt
     return (
         <div
             className="flex flex-col gap-2 overflow-y-auto p-2 rounded-md"

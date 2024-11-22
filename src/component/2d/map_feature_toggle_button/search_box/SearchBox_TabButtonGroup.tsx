@@ -5,11 +5,18 @@ type Tabs = "airports" | "flights" | "aircraft"
 interface Props {
     onTabChange: (tab: Tabs) => void;
     activeTab: Tabs;
+    airportNumber: number;
+    trafficNumber: number;
+    aircraftNumber: number;
 }
 
+//TODO: code refactor, Tab Button Group can be created into a single reusable component.
 const SearchBoxTabButtonGroup = ({
     onTabChange,
-    activeTab
+    activeTab,
+    airportNumber,
+    trafficNumber,
+    aircraftNumber
 }: Props) => {
 
     const handleTabClick = (tab: Tabs) => {
@@ -26,7 +33,7 @@ const SearchBoxTabButtonGroup = ({
                         : "bg-gray-500 text-gray-300 border-transparent hover:bg-gray-600"
                 }`}
             >
-                Airports
+                {`Airports (${airportNumber})`}
             </button>
 
             <button
@@ -37,7 +44,7 @@ const SearchBoxTabButtonGroup = ({
                         : "bg-gray-500 text-gray-300 border-transparent hover:bg-gray-600"
                 }`}
             >
-                Flights
+                {`Flights (${trafficNumber})`}
             </button>
 
             <button
@@ -48,7 +55,7 @@ const SearchBoxTabButtonGroup = ({
                         : "bg-gray-500 text-gray-300 border-transparent hover:bg-gray-600"
                 }`}
             >
-                Aircraft
+                {`Aircraft (${aircraftNumber})`}
             </button>
         </div>
     );

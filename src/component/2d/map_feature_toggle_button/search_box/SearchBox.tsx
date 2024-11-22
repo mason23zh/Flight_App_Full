@@ -18,7 +18,7 @@ import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 import SearchBox_TabButtonGroup from "./SearchBox_TabButtonGroup";
 
 type TabSelection = "airports" | "flights" | "aircraft";
-
+//TODO: Adjust position.
 const SearchBox = () => {
     const dispatch = useDispatch();
     const {
@@ -130,7 +130,13 @@ const SearchBox = () => {
                         searchInput={searchInput}
                     />
 
-                    <SearchBox_TabButtonGroup onTabChange={handleTabChange} activeTab={tabSelection}/>
+                    <SearchBox_TabButtonGroup
+                        onTabChange={handleTabChange}
+                        activeTab={tabSelection}
+                        airportNumber={searchResults?.airports?.length | 0}
+                        trafficNumber={searchResults?.vatsimTraffic?.length | 0}
+                        aircraftNumber={searchResults?.aircraftType?.length | 0}
+                    />
 
                     <div className="flex-1 overflow-y-auto">
                         {renderContent()}
