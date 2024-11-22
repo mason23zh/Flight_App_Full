@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 
 type Tabs = "arrival" | "departure" | "info"
+
+interface Props {
+    onTabChange: (tab: Tabs) => void;
+    arrivalNumber: number;
+    departureNumber: number;
+}
+
 //TODO: add departure and arrival traffic number
-const AirportDepartureArrivalDisplayTabButtonGroup = ({ onTabChange }) => {
+const AirportDepartureArrivalDisplayTabButtonGroup = ({
+    onTabChange,
+    arrivalNumber,
+    departureNumber
+}: Props) => {
     const [activeTab, setActiveTab] = useState("departure"); // Track the active tab
 
     const handleTabClick = (tab: Tabs) => {
@@ -21,7 +32,7 @@ const AirportDepartureArrivalDisplayTabButtonGroup = ({ onTabChange }) => {
                         : "bg-gray-500 text-gray-300 border-transparent hover:bg-gray-600"
                 }`}
             >
-                Departure
+                {`Departure (${departureNumber})`}
             </button>
 
             {/* Arrival Tab */}
@@ -33,7 +44,7 @@ const AirportDepartureArrivalDisplayTabButtonGroup = ({ onTabChange }) => {
                         : "bg-gray-500 text-gray-300 border-transparent hover:bg-gray-600"
                 }`}
             >
-                Arrival
+                {`Arrival (${arrivalNumber})`}
             </button>
 
             {/* Info Tab */}

@@ -96,7 +96,11 @@ const AirportDepartureArrivalDisplay = ({
                     <div className="mb-1 p-1 bg-gray-500">
                         <AirportInfoSection airport={airport}/>
                     </div>
-                    <AirportDepartureArrivalDisplay_TabButtonGroup onTabChange={setActiveTab}/>
+                    <AirportDepartureArrivalDisplay_TabButtonGroup
+                        onTabChange={setActiveTab}
+                        departureNumber={departureTraffic?.length | 0}
+                        arrivalNumber={arrivalTraffic?.length | 0}
+                    />
 
                     <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-600">
                         {renderContent()}
