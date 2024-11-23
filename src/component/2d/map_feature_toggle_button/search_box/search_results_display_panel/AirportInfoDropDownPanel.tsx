@@ -41,7 +41,7 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
             </div>
             <div
                 onClick={handleCloseClick}
-                className="justify-self-end text-[25px] hover:cursor-pointer">
+                className="justify-self-end text-[25px] hover:cursor-pointer hover:text-gray-700">
                 <IoMdCloseCircleOutline/>
             </div>
         </div>

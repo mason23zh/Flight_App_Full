@@ -8,7 +8,6 @@ interface Props {
     departureNumber: number;
 }
 
-//TODO: add departure and arrival traffic number
 const AirportDepartureArrivalDisplayTabButtonGroup = ({
     onTabChange,
     arrivalNumber,

@@ -105,8 +105,8 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     return (
         <div
             className="grid grid-cols-3 justify-between gap-4 p-2
-         bg-gray-600 border border-gray-700 shadow-sm rounded-lg
-         hover:bg-gray-700 hover:cursor-pointer"
+          shadow-sm hover:rounded-sm border-b border-slate-400
+          hover:bg-gray-600 hover:cursor-pointer"
             onClick={handleOnClick}
         >
             <div className="col-span-1 self-center">

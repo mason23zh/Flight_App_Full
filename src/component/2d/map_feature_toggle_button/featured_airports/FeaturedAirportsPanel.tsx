@@ -1,5 +1,4 @@
 import React from "react";
-import { Panel } from "rsuite";
 import { useFetchVatsimPopularAirportsQuery } from "../../../../store";
 import FeaturedAirportsList from "./FeaturedAirportsList";
 
@@ -8,14 +7,8 @@ const FeaturedAirportsPanel = () => {
         data,
         error,
         isFetching,
-    } = useFetchVatsimPopularAirportsQuery({ limit: 10 }, { refetchOnMountOrArgChange: true });
+    } = useFetchVatsimPopularAirportsQuery({ limit: 11 }, { refetchOnMountOrArgChange: true });
 
-    const panelStyle =
-            "fixed left-auto right-auto top-[60px] z-50 min-w-[400px] " +
-            "sm:absolute sm:left-[110%] sm:bottom-auto sm:top-[12%] " +
-            "bg-gray-500 max-h-[80vh] sm:max-h-[70vh] " +
-            "rounded-lg grid grid-cols-1 text-gray-100 shadow-lg overflow-y-auto " +
-            "scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-600";
 
     let featuredAirportList;
     if (data) {
@@ -26,11 +19,19 @@ const FeaturedAirportsPanel = () => {
         featuredAirportList = <div>Failed to load data</div>;
     }
 
+    const wrapperStyle = "fixed z-[200] top-5 sm:top-16 left-1/2 transform -translate-x-1/2" +
+            " w-[19rem] sm:w-[22rem] max-w-[90%] sm:left-16 sm:right-auto sm:translate-x-0 sm:translate-y-[5%] " +
+            "bottom-10 max-h-[40rem] min-h-[15rem]";
+
     return (
-        <div className={panelStyle}>
-            <Panel header="Popular Vatsim Airports">
+        <div className={wrapperStyle}>
+            <div className="flex flex-col h-[90%] bg-gray-500 text-white rounded-lg overflow-hidden">
+                <div className="text-center text-lg p-2 border-b border-gray-400 font-bold">
+                    Popular Vatsim Airports
+                </div>
+
                 {featuredAirportList}
-            </Panel>
+            </div>
         </div>
     );
 };

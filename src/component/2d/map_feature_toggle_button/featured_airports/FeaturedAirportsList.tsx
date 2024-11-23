@@ -1,28 +1,35 @@
 import React from "react";
 import { PopularVatsimAirportResponse } from "../../../../store/apis/airportsApi";
 import FeaturedAirportElement from "./FeaturedAirportElement";
+import { Virtuoso } from "react-virtuoso";
+import Scroller from "../../../../util/VirtuosoScroller";
+
 
 interface Props {
     featuredAirportsList: PopularVatsimAirportResponse;
 }
 
 const FeaturedAirportsList = ({ featuredAirportsList }: Props) => {
-    let airportList;
-    if (featuredAirportsList.data) {
-        airportList = featuredAirportsList.data.airports.map((airport) => {
-            return (
-                <div key={airport.ICAO}>
-                    <FeaturedAirportElement featuredAirport={airport}/>
-                </div>
-            );
-        });
-    } else {
-        airportList = null;
+
+    if (!featuredAirportsList.data || featuredAirportsList.data?.airports.length === 0) {
+        return <div>No Vatsim Controllers</div>;
     }
 
+    //test for rtkQuery cache
+    console.log("featured airport list length:", featuredAirportsList.data.airports.length);
+
     return (
-        <div className="flex flex-col gap-2">
-            {airportList}
+        <div className="flex-1 h-full">
+            <Virtuoso
+                data={featuredAirportsList.data.airports}
+                style={{ height: "100%" }}
+                components={{ Scroller }}
+                itemContent={(_, airport) => (
+                    <FeaturedAirportElement
+                        featuredAirport={airport}
+                    />
+                )}
+            />
         </div>
     );
 };
