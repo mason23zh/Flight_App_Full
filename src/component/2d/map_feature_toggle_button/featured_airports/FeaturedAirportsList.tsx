@@ -15,9 +15,6 @@ const FeaturedAirportsList = ({ featuredAirportsList }: Props) => {
         return <div>No Vatsim Controllers</div>;
     }
 
-    //test for rtkQuery cache
-    console.log("featured airport list length:", featuredAirportsList.data.airports.length);
-
     return (
         <div className="flex-1 h-full">
             <Virtuoso

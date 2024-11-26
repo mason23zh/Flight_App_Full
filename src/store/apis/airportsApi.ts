@@ -34,7 +34,7 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
 
-                keepUnusedDataFor: 300,
+                keepUnusedDataFor: 120,
             }),
             fetchMostPopularAirports: build.query<PopularAirportResponse, void>({
                 query: () => ({
