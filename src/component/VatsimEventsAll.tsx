@@ -56,10 +56,10 @@ function VatsimEventsAll() {
         :
         "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
             "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
-
+    //className={`h-[calc(100vh-56px)] flex flex-col ${darkTheme ? "bg-gray-900" : "bg-gray-200"}`}
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
-            <div className={`h-[calc(100vh-56px)] flex flex-col ${darkTheme ? "bg-gray-900" : "bg-gray-200"}`}>
+            <div className={`flex flex-col flex-grow h-[calc(100vh-56px)] ${darkTheme ? "bg-gray-900" : "bg-gray-200"} overflow-hidden`}>
                 {/* Drawer for mobile view */}
                 <div className="p-1 ml-2 mt-2 block md:hidden">
                     <IconButton icon={<MenuIcon/>} onClick={handleOpen}>
@@ -81,7 +81,7 @@ function VatsimEventsAll() {
                 {/* Main Layout for Desktop with controlled height */}
                 <div className="flex-grow flex md:flex-row overflow-hidden">
                     {/* Event List Sidebar */}
-                    <div className="hidden md:block md:w-1/3 p-4 h-screen-dvh">
+                    <div className="hidden md:block md:w-1/3 p-4">
                         {eventsList}
                     </div>
                     {/* Event Details Section */}

@@ -10,7 +10,7 @@ const CustomNavigationController = () => {
     const [map, setMap] = useState<mapboxgl.Map>(null);
 
     const parentStyle = "z-[200] absolute sm:bottom-0 bottom-10 left-0 w-fit p-2";
-    const childStyle = "flex flex-col items-start ml-2 mt-2 justify-start gap-2 p-1 bg-gray-700 rounded-md";
+    const childStyle = "flex flex-col sm:flex-row items-start ml-2 mt-2 justify-start gap-2 p-1 bg-gray-700 rounded-md";
     const buttonStyle = "text-gray-50 bg-gray-500 hover:bg-gray-400 hover:cursor-pointer p-1 rounded-lg text-xl";
 
     useEffect(() => {

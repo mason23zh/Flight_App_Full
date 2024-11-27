@@ -9,6 +9,7 @@ function Layout() {
     // const showFooter = location.pathname !== "/vatsim/events";
     // const showFooter = true;
 
+    //h-screen-dvh
     return (
         <div className="flex flex-col h-screen-dvh">
             <header id="header" className="h-auto">

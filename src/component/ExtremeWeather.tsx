@@ -6,6 +6,7 @@ import { useTheme } from "../hooks/ThemeContext";
 import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
 import WeatherTable from "./WeatherTable";
 
+//TODO: CSS broken in 4k
 function ExtremeWeather() {
     const darkMode = useTheme();
     // number of weather to be requested, default to 20
@@ -42,7 +43,7 @@ function ExtremeWeather() {
 
     return (
         <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className={darkMode ? "bg-gray-400 min-h-screen-dvh flex flex-col" : "bg-gray-200 min-h-screen-dvh flex flex-col"}>
+            <div className={darkMode ? "bg-gray-400 flex-grow flex flex-col" : "bg-gray-200 flex flex-grow flex-col"}>
                 <div className="flex-grow">
                     <ExtremeWeatherHeroSection/>
                     <div className="hidden transition-all ease-in-out md:block">
@@ -52,7 +53,9 @@ function ExtremeWeather() {
                         <ExtremeWeatherHeaderDropDown/>
                     </div>
                 </div>
-                <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
+                <div>
+                    <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
+                </div>
                 <div id="weather-table-button"
                     className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
                     <div className="px-2 flex justify-center items-center">

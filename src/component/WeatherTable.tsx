@@ -265,48 +265,50 @@ const WeatherTable = ({
 
 
     return (
-        <div style={{
-            height: `${tableHeight}`,
-            width: "100%",
-            overflowX: "auto",
-            position: "relative",
-        }}>
-            <Table
-                shouldUpdateScroll={false}
-                autoHeight={false}
-                height={tableHeight}
-                data={error ? [] : weatherRowData}
-                onRowClick={handleRowClick}
-                onSortColumn={handleSortColumn}
-                hover={!isTouchScreen}
-                rowKey={rowKey}
-                rowClassName={"hover:cursor-pointer"}
-                virtualized
-            >
-                <Column flexGrow={1} align="center">
-                    <HeaderCell>ICAO</HeaderCell>
-                    <Cell dataKey="icao"/>
-                </Column>
+        <div className="flex flex-col">
+            <div style={{
+                height: `${tableHeight}`,
+                width: "100%",
+                overflowX: "auto",
+                position: "relative",
+            }}>
+                <Table
+                    shouldUpdateScroll={false}
+                    autoHeight={false}
+                    height={tableHeight}
+                    data={error ? [] : weatherRowData}
+                    onRowClick={handleRowClick}
+                    onSortColumn={handleSortColumn}
+                    hover={!isTouchScreen}
+                    rowKey={rowKey}
+                    rowClassName={"hover:cursor-pointer"}
+                    virtualized
+                >
+                    <Column flexGrow={1} align="center">
+                        <HeaderCell>ICAO</HeaderCell>
+                        <Cell dataKey="icao"/>
+                    </Column>
 
-                {/*
+                    {/*
                     Conditional render Airport Name column based on the screen width
                 */}
-                {!isSmallScreen ?
-                    <Column flexGrow={2} align="center">
-                        <HeaderCell>Airport Name</HeaderCell>
-                        <Cell dataKey="station.location.name"/>
-                    </Column>
-                    : null
-                }
+                    {!isSmallScreen ?
+                        <Column flexGrow={2} align="center">
+                            <HeaderCell>Airport Name</HeaderCell>
+                            <Cell dataKey="station.location.name"/>
+                        </Column>
+                        : null
+                    }
 
-                {renderDynamicDataColumn()}
-            </Table>
-            {(setSelectedRowData) &&
-                <ExtremeWeatherTableModal
-                    rowData={selectedRowData}
-                    open={isModalOpen}
-                    onClose={handleModalClose}/>
-            }
+                    {renderDynamicDataColumn()}
+                </Table>
+                {(setSelectedRowData) &&
+                    <ExtremeWeatherTableModal
+                        rowData={selectedRowData}
+                        open={isModalOpen}
+                        onClose={handleModalClose}/>
+                }
+            </div>
         </div>
     );
 };
