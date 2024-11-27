@@ -81,7 +81,7 @@ function VatsimEventsAll() {
                 {/* Main Layout for Desktop with controlled height */}
                 <div className="flex-grow flex md:flex-row overflow-hidden">
                     {/* Event List Sidebar */}
-                    <div className="hidden md:block md:w-1/3 p-4">
+                    <div className="hidden md:block md:w-1/3 px-4">
                         {eventsList}
                     </div>
                     {/* Event Details Section */}

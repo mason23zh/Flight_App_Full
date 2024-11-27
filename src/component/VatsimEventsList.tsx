@@ -65,10 +65,12 @@ function VatsimEventsList({
                     Scroller: CustomScroller
                 }}
                 itemContent={(_, event) => (
-                    <VatsimEventsListItem
-                        event={event}
-                        onClick={handleClick}
-                    />
+                    <div className="px-2 py-1">
+                        <VatsimEventsListItem
+                            event={event}
+                            onClick={handleClick}
+                        />
+                    </div>
                 )}
             />
         </div>
