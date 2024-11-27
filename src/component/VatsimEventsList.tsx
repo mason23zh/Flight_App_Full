@@ -38,7 +38,7 @@ function VatsimEventsList({
             "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     // To avoid typescript complain.
-    const CustomScroller = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
+    const CustomScroller = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
         <Scroller
             {...props}
             ref={ref}
