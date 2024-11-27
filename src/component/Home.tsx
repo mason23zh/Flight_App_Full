@@ -13,6 +13,8 @@ import HomeVatsimAirportsList from "./HomeVatsimAirportsList";
 import ScrollToHashElement from "./ScrollToHashElement";
 import HomeVatsimEvents from "./HomeVatsimEvents";
 
+//TODO: Style improve? use custom scroll bar?
+
 function Home() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);

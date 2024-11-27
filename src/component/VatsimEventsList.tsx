@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import _ from "lodash";
 import VatsimEventsListItem from "./VatsimEventsListItem";
 import { useTheme } from "../hooks/ThemeContext";
 import { EventResponse } from "../store/apis/vatsimApi";
 import { Virtuoso } from "react-virtuoso";
 import Scroller from "../util/VirtuosoScroller";
-
-//TODO: Scroller day mode too dark.
 
 interface Props {
     events: EventResponse,
@@ -27,39 +25,28 @@ function VatsimEventsList({
     }, [events]);
 
 
-    // let eventsList;
-
     const handleClick = () => {
         onClick();
     };
 
+    const scrollBarStyle = darkMode
+        ?
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        :
+        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+            "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
-    // if (!_.isEmpty(allEvents) && allEvents.result !== 0) {
-    //     eventsList = allEvents.events.map((e) => (
-    //         <div key={e.id}>
-    //             <VatsimEventsListItem
-    //                 event={e}
-    //                 onClick={handleClick}
-    //             />
-    //         </div>
-    //     ));
-    // }
+    // To avoid typescript complain.
+    const CustomScroller = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
+        <Scroller
+            {...props}
+            ref={ref}
+            className={scrollBarStyle}
+        />
+    ));
 
-    // const scrollBarStyle = darkMode
-    //     ?
-    //     "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-    //         "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
-    //     :
-    //     "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-    //         "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
-
-    // return (
-    //     <div className={`flex flex-col
-    //     gap-2 overflow-y-auto
-    //     p-3 min-w-[280px] sm:min-w-[350px] h-[calc(100vh-80px)] max-h-full ${scrollBarStyle}`}>
-    //         {eventsList}
-    //     </div>
-    // );
+    CustomScroller.displayName = "VirtuosoCustomScroller";
 
     if (_.isEmpty(allEvents) || allEvents.result === 0) {
         return (
@@ -74,7 +61,9 @@ function VatsimEventsList({
             <Virtuoso
                 data={events.events}
                 style={{ height: "100%" }}
-                components={{ Scroller }}
+                components={{
+                    Scroller: CustomScroller
+                }}
                 itemContent={(_, event) => (
                     <VatsimEventsListItem
                         event={event}
