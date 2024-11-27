@@ -15,7 +15,7 @@ function NavbarElement() {
     //     : "rounded-lg bg-green-400 py-1 px-3";
     // 56px = 42pt
     const navBarBgTheme = darkMode
-        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300 h-auto"
+        ? "flex justify-between py-1 px-5 bg-gray-900 w-full text-gray-300 h-auto border-b-2 border-gray-700 drop-shadow-lg"
         : "flex justify-between py-1 px-5 bg-gray-100 w-full text-gray-700 h-auto";
     // const navBarInputTheme = darkMode
     //     ? "border-2 rounded-lg py-1 px-3 text-black text-[17px] bg-gray-900 border-gray-700 text-gray-200"

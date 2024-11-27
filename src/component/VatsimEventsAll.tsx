@@ -56,7 +56,7 @@ function VatsimEventsAll() {
         :
         "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
             "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
-    //className={`h-[calc(100vh-56px)] flex flex-col ${darkTheme ? "bg-gray-900" : "bg-gray-200"}`}
+    
     return (
         <CustomProvider theme={darkTheme ? "dark" : "light"}>
             <div className={`flex flex-col flex-grow h-[calc(100vh-56px)] ${darkTheme ? "bg-gray-900" : "bg-gray-200"} overflow-hidden`}>
