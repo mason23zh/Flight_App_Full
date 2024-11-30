@@ -5,8 +5,8 @@ import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
 import { useTheme } from "../hooks/ThemeContext";
 import ExtremeWeatherHeaderDropDown from "./ExtremeWeatherHeaderDropDown";
 import WeatherTable from "./WeatherTable";
+import { Helmet } from "react-helmet-async";
 
-//TODO: CSS broken in 4k
 function ExtremeWeather() {
     const darkMode = useTheme();
     // number of weather to be requested, default to 20
@@ -42,43 +42,57 @@ function ExtremeWeather() {
     };
 
     return (
-        <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div className={darkMode ? "bg-gray-400 flex-grow flex flex-col" : "bg-gray-200 flex flex-grow flex-col"}>
-                <div className="flex-grow">
-                    <ExtremeWeatherHeroSection/>
-                    <div className="hidden transition-all ease-in-out md:block">
-                        <ExtremeWeatherHeader/>
+        <>
+            <Helmet>
+                <title>Extreme Weather</title>
+                <meta
+                    name="description"
+                    content="Discover extreme weather conditions at airports worldwide with our advanced sorting tools. Track global wind speeds, visibility, temperature extremes, and more, all sourced from the Navigraph database. Perfect for aviation enthusiasts and professionals, this feature lets you identify challenging weather conditions at a glance."
+                />
+                <meta
+                    name="keyword"
+                    content="Extreme weather, airport weather, global wind speeds, global temperature extremes, high winds airports, low visibility airports, weather sorting, aviation weather"
+                />
+            </Helmet>
+            <CustomProvider theme={darkMode ? "dark" : "light"}>
+                <div className={darkMode ? "bg-gray-400 flex-grow flex flex-col" : "bg-gray-200 flex flex-grow flex-col"}>
+                    <div className="flex-grow">
+                        <ExtremeWeatherHeroSection/>
+                        <div className="hidden transition-all ease-in-out md:block">
+                            <ExtremeWeatherHeader/>
+                        </div>
+                        <div className="transition-all ease-in-out md:hidden">
+                            <ExtremeWeatherHeaderDropDown/>
+                        </div>
                     </div>
-                    <div className="transition-all ease-in-out md:hidden">
-                        <ExtremeWeatherHeaderDropDown/>
+                    <div>
+                        <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber}
+                            darkTheme={darkMode}/>
                     </div>
-                </div>
-                <div>
-                    <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber} darkTheme={darkMode}/>
-                </div>
-                <div id="weather-table-button"
-                    className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
-                    <div className="px-2 flex justify-center items-center">
-                        <div className="flex items-center gap-3">
-                            <div
-                                className={`px-2 py-1 ${darkMode ? "bg-green-600" : "bg-green-400"} rounded-lg
+                    <div id="weather-table-button"
+                        className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>
+                        <div className="px-2 flex justify-center items-center">
+                            <div className="flex items-center gap-3">
+                                <div
+                                    className={`px-2 py-1 ${darkMode ? "bg-green-600" : "bg-green-400"} rounded-lg
                         text-sm hover:bg-amber-400 cursor-pointer`}
-                                onClick={handleMoreDataClick}
-                            >
-                                Load More Data
-                            </div>
-                            <div
-                                className={`px-2 py-1 ${darkMode ? "bg-rose-600" : "bg-rose-400"} rounded-lg
+                                    onClick={handleMoreDataClick}
+                                >
+                                    Load More Data
+                                </div>
+                                <div
+                                    className={`px-2 py-1 ${darkMode ? "bg-rose-600" : "bg-rose-400"} rounded-lg
                         text-sm hover:bg-amber-400 cursor-pointer`}
-                                onClick={handleResetClick}
-                            >
-                                Set Default
+                                    onClick={handleResetClick}
+                                >
+                                    Set Default
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </CustomProvider>
+            </CustomProvider>
+        </>
     );
 }
 

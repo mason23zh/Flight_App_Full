@@ -6,6 +6,7 @@ import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
 import { CustomProvider } from "rsuite";
 import { useTheme } from "../hooks/ThemeContext";
+import { Helmet } from "react-helmet-async";
 
 function Airports() {
     const navigate = useNavigate();
@@ -85,17 +86,31 @@ function Airports() {
     }
 
     return (
-        <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div>
-                <HeroSection
-                    backgroundImage={backgroundImage}
-                    message={message}
-                    placedHoldMessage={placeHolderMessage}
-                    onSubmit={handleOnSubmit}
+        <>
+            <Helmet>
+                <title>Airports</title>
+                <meta
+                    name="description"
+                    content="Search and explore airports worldwide by city, province, or airport name. Quickly find detailed information about your desired airport, including location, weather, and more."
                 />
-                {renderedAirport}
-            </div>
-        </CustomProvider>
+                <meta
+                    name="keyword"
+                    content="Airport search, Find airports by city, Find airports by province, Airport information, Airport database, Global airports, airport weather, airport METAR, airport ATIS, flight planning"
+                />
+                <link rel="canonical" href="https://airportweather.org/airport"/>
+            </Helmet>
+            <CustomProvider theme={darkMode ? "dark" : "light"}>
+                <div>
+                    <HeroSection
+                        backgroundImage={backgroundImage}
+                        message={message}
+                        placedHoldMessage={placeHolderMessage}
+                        onSubmit={handleOnSubmit}
+                    />
+                    {renderedAirport}
+                </div>
+            </CustomProvider>
+        </>
     );
 }
 

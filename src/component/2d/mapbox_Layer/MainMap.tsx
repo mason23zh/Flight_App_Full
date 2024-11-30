@@ -20,6 +20,7 @@ import AirportDepartureArrivalDisplay
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
+import { Helmet } from "react-helmet-async";
 
 const MainMap = () => {
     const dispatch = useDispatch();
@@ -143,26 +144,40 @@ const MainMap = () => {
 
 
     return (
-        <div>
-            <BaseMap>
-                <MapErrorMessageStack/>
-                <AtcLayer
-                    controllerData={controllerData}
-                    controllerLoading={controllerLoading}
-                    controllerError={controllerError}
+        <>
+            <Helmet>
+                <title>VATSIM Map</title>
+                <meta
+                    name="description"
+                    content="Explore live VATSIM traffic with our interactive map. Track flights, view controllers, and stay updated on real-time air traffic."
                 />
-                <BaseDeckGlLayer
-                    controllerData={controllerData}
-                    controllerDataLoading={controllerLoading}
-                    controllerDataError={controllerError}
+                <meta
+                    name="keyword"
+                    content="VATSIM map, live air traffic, VATSIM controllers, VATSIM flights, live flight tracking"
                 />
-                <NexradLayer/>
-                {dayNightTerminator && <DayNightLayer/>}
-                {renderFlightInfoPanel()}
-                {renderAircraftDepartureArrivalDisplayPanel()}
-                {renderAircraftDisplayPanel()}
-            </BaseMap>
-        </div>
+                <link rel="canonical" href="https://airportweather.org/map"/>
+            </Helmet>
+            <div>
+                <BaseMap>
+                    <MapErrorMessageStack/>
+                    <AtcLayer
+                        controllerData={controllerData}
+                        controllerLoading={controllerLoading}
+                        controllerError={controllerError}
+                    />
+                    <BaseDeckGlLayer
+                        controllerData={controllerData}
+                        controllerDataLoading={controllerLoading}
+                        controllerDataError={controllerError}
+                    />
+                    <NexradLayer/>
+                    {dayNightTerminator && <DayNightLayer/>}
+                    {renderFlightInfoPanel()}
+                    {renderAircraftDepartureArrivalDisplayPanel()}
+                    {renderAircraftDisplayPanel()}
+                </BaseMap>
+            </div>
+        </>
     );
 };
 
