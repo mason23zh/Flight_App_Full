@@ -10,7 +10,7 @@ import {
     RootState, setFallbackGeoJson,
     setMatchedFallbackTracons,
     setMatchedFirs, setMatchedFirsError, setMatchedTraconError, setMatchedTraconLoading,
-    setMatchedTracons,
+    setMatchedTracons, toggleFeaturedAirports, toggleMapFilterButton, toggleMapStyleButton, toggleSearchBox,
     useFetchVatsimControllersDataQuery
 } from "../../../store";
 import { VatsimFlight } from "../../../types";
@@ -94,6 +94,14 @@ const MainMap = () => {
         matchedFirs,
         isError: isFirError
     } = useMatchedFirs(controllerData);
+
+    // close all panel upon first time loading.
+    useEffect(() => {
+        dispatch(toggleFeaturedAirports(false));
+        dispatch(toggleSearchBox(false));
+        dispatch(toggleMapFilterButton(false));
+        dispatch(toggleMapStyleButton(false));
+    }, []);
 
     const {
         matchedTracons,

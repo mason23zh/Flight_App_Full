@@ -158,7 +158,7 @@ const vatsimMapVisibleSlice = createSlice({
                 state.searchBoxVisible = false;
                 state.mapStyleButtonToggle = false;
             }
-        }
+        },
     }
 });
 
