@@ -6,6 +6,7 @@ import chroma from "chroma-js";
 
 //TODO: formatTrack triggered too many times
 //TODO: improve the gradient path color
+//TODO: Change the max height altitude for gradient using filed flight plan altitude
 
 const useFlightPathLayer = (
     data: VatsimTrackTraffic,
@@ -38,8 +39,8 @@ const useFlightPathLayer = (
                         data.track[idx + 1].latitude,
                         terrainEnable ? data.track[idx + 1].altitude : 0
                     ];
-                    tempObj.from.altitude = t.altitude || 0;
-                    tempObj.to.altitude = data.track[idx + 1].altitude || 0;
+                    tempObj.from.altitude = t?.altitude || 0;
+                    tempObj.to.altitude = data.track[idx + 1]?.altitude || 0;
                 } else if (idx === data.track.length - 1) {
                     // For the last segment, update with current traffic data
                     const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
@@ -49,8 +50,8 @@ const useFlightPathLayer = (
                         selectedObj?.latitude || 0,
                         terrainEnable ? selectedObj?.altitude || 0 : 0
                     ];
-                    tempObj.from.altitude = t.altitude || 0;
-                    tempObj.to.altitude = selectedObj.altitude || 0;
+                    tempObj.from.altitude = t?.altitude || 0;
+                    tempObj.to.altitude = selectedObj?.altitude || 0;
                 }
                 track.push(tempObj);
             });
