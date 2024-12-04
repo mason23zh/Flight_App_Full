@@ -20,9 +20,12 @@ const useFlightPathLayer = (
         if (data && selectTraffic) {
             data.track.forEach((t, idx) => {
                 const tempObj = {
+                    // this filedAltitude will be used as the max number to calculate the path color
+                    // if no number, default max altitude to FL400
+                    filedAltitude: Number(selectTraffic?.flight_plan?.altitude || 40000),
                     from: {
                         coordinates: [],
-                        altitude: 0
+                        altitude: 0,
                     },
                     to: {
                         coordinates: [],
@@ -70,7 +73,7 @@ const useFlightPathLayer = (
             id: "flight-path",
             data: formatTrack,
             getColor: (d) => {
-                const altitudeRange = 40000; // Max altitude
+                const altitudeRange = d.filedAltitude; // Max altitude
                 const avgAltitude = (d.from.altitude + d.to.altitude) / 2;
 
                 // Normalize altitude to [0, 1]
