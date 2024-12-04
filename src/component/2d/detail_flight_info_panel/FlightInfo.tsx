@@ -10,6 +10,7 @@ import distanceInKmBetweenEarthCoordinates from "../../../util/coordinatesDistan
 import TargetAirportsLayer from "../mapbox_Layer/ArrivalDestinationMarkerLayer/TargetAirportsLayer";
 
 //: TODO Add button to switch the camera to first person view on selected traffic
+//: TODO 4k monitor test
 
 const FlightInfo = () => {
     const traffic = useSelector<RootState, VatsimFlight>(

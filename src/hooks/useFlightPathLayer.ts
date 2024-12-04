@@ -5,8 +5,6 @@ import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
 import chroma from "chroma-js";
 
 //TODO: formatTrack triggered too many times
-//TODO: improve the gradient path color
-//TODO: Change the max height altitude for gradient using filed flight plan altitude
 
 const useFlightPathLayer = (
     data: VatsimTrackTraffic,
@@ -16,6 +14,7 @@ const useFlightPathLayer = (
     terrainEnable: boolean
 ) => {
     const formatTrack = useMemo(() => {
+        console.log("formatTrack run.");
         const track = [];
         if (data && selectTraffic) {
             data.track.forEach((t, idx) => {
@@ -69,18 +68,7 @@ const useFlightPathLayer = (
     // highest altitude color :#4855BF
     const colEnd = chroma(233, 0.48, 0.52, "hsl");
 
-    const SMOOTHING_FACTOR = 0.8;
-    const previousAltitudes = new Map();
-    const smoothAltitude = (callsign: string, newAltitude: number): number => {
-        const previous = previousAltitudes.get(callsign) || newAltitude;
-        const smoothed = SMOOTHING_FACTOR * previous + (1 - SMOOTHING_FACTOR) * newAltitude;
-        previousAltitudes.set(callsign, smoothed);
-        return smoothed;
-    };
-
-
     return useMemo(() => {
-
         return new LineLayer({
             id: "flight-path",
             data: formatTrack,
