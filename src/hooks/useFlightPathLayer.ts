@@ -64,8 +64,20 @@ const useFlightPathLayer = (
 
     // console.log("Format track:", formatTrack);
 
-    const colStart = chroma(240, 0.7, 0.45, "hsl"); // Blue (low altitude)
-    const colEnd = chroma(0, 0.7, 0.45, "hsl"); // Red (high altitude)
+    // lowest altitude color: #07B507
+    const colStart = chroma(120, 0.93, 0.37, "hsl");
+    // highest altitude color :#4855BF
+    const colEnd = chroma(233, 0.48, 0.52, "hsl");
+
+    const SMOOTHING_FACTOR = 0.8;
+    const previousAltitudes = new Map();
+    const smoothAltitude = (callsign: string, newAltitude: number): number => {
+        const previous = previousAltitudes.get(callsign) || newAltitude;
+        const smoothed = SMOOTHING_FACTOR * previous + (1 - SMOOTHING_FACTOR) * newAltitude;
+        previousAltitudes.set(callsign, smoothed);
+        return smoothed;
+    };
+
 
     return useMemo(() => {
 
