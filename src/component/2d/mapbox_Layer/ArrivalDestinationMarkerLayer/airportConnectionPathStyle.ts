@@ -5,7 +5,8 @@ export const connectionPathStyle: LineLayer = {
     type: "line",
     paint: {
         // "line-color": "#FF0000",
-        "line-color": "#27e3dd",
-        "line-width": 2.0
+        //"line-color": "#27e3dd",
+        "line-color": "#eb8f34",
+        "line-width": 1.5
     }
 };
