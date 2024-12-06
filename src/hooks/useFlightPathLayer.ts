@@ -4,8 +4,6 @@ import { LineLayer } from "@deck.gl/layers/typed";
 import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
 import chroma from "chroma-js";
 
-//TODO: formatTrack triggered too many times
-
 const useFlightPathLayer = (
     data: VatsimTrackTraffic,
     selectTraffic: VatsimFlight,
@@ -14,7 +12,6 @@ const useFlightPathLayer = (
     terrainEnable: boolean
 ) => {
     const formatTrack = useMemo(() => {
-        console.log("formatTrack run.");
         const track = [];
         if (data && selectTraffic) {
             data.track.forEach((t, idx) => {
@@ -61,7 +58,6 @@ const useFlightPathLayer = (
         return track;
     }, [data, selectTraffic, trafficData, terrainEnable]);
 
-    // console.log("Format track:", formatTrack);
 
     // lowest altitude color: #07B507
     const colStart = chroma(120, 0.93, 0.37, "hsl");

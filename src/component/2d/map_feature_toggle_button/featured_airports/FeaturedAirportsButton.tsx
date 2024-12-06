@@ -37,7 +37,7 @@ const FeaturedAirportsButton = ({
 
     return (
         <>
-            <div className="relative"
+            <div className=""
                 onMouseEnter={() => setShowTooltip(false)}
                 onMouseLeave={() => setShowTooltip(true)}
             >
