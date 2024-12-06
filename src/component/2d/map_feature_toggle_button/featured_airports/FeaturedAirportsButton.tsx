@@ -50,7 +50,9 @@ const FeaturedAirportsButton = ({
                 </button>
             </div>
 
-            {featuredAirportsVisible && <FeaturedAirportsPanel/>}
+            {featuredAirportsVisible &&
+                <FeaturedAirportsPanel/>
+            }
 
             {(!isTouchScreen) &&
                 <Tooltip
