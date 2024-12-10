@@ -33,22 +33,22 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
         if (codes.includes(aircraftCode)) {
             switch (category) {
             case "wideBody":
-                scale = 7.3;
+                scale = 10;
                 break;
             case "narrowBody":
-                scale = 11;
+                scale = 10;
                 break;
             case "regional":
-                scale = 11;
+                scale = 10;
                 break;
             case "businessJet":
-                scale = 17;
+                scale = 10;
                 break;
             case "generalAviation":
-                scale = 17;
+                scale = 10;
                 break;
             case "helicopter":
-                scale = 20;
+                scale = 10;
                 break;
             case "military":
                 scale = 10;
@@ -57,6 +57,34 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             return scale;
         }
     }
+    // for (const [category, codes] of Object.entries(aircraftCategories)) {
+    //     if (codes.includes(aircraftCode)) {
+    //         switch (category) {
+    //         case "wideBody":
+    //             scale = 7.3;
+    //             break;
+    //         case "narrowBody":
+    //             scale = 11;
+    //             break;
+    //         case "regional":
+    //             scale = 11;
+    //             break;
+    //         case "businessJet":
+    //             scale = 17;
+    //             break;
+    //         case "generalAviation":
+    //             scale = 17;
+    //             break;
+    //         case "helicopter":
+    //             scale = 20;
+    //             break;
+    //         case "military":
+    //             scale = 10;
+    //             break;
+    //         }
+    //         return scale;
+    //     }
+    // }
 
     return scale; // Return default scale if no match
 };

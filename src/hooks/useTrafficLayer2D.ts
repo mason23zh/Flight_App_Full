@@ -1,6 +1,8 @@
 import { VatsimFlight } from "../types";
-import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_sprite_mapping.json";
-import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_sprite_mapping-0.png";
+// import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_sprite_mapping.json";
+// import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_sprite_mapping-0.png";
+import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_icons_mapping.json";
+import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_icons_2.png";
 import { getAircraftSizeCategory } from "../util/getAircraftCategory";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { useMemo } from "react";
@@ -35,13 +37,14 @@ const useTrafficLayer2D = (
                 return aircraftSpriteSheetMapping[icon] ? icon : "CL60";
             },
             autoHighlight: true,
-            // highlightColor: [255, 128, 0],
+            highlightColor: [255, 128, 0],
             iconAtlas: aircraftSpriteSheetPNG,
             iconMapping: aircraftSpriteSheetMapping,
-            sizeScale: 5,
+            sizeScale: 3,
             getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, 0], //traffic always at 0 feet in 2d view
             getAngle: (d: VatsimFlight) => -d.heading,
-            getColor: () => [228, 235, 10],
+            getColor: [228, 235, 10],
+            // getSize: 5,
             getSize: (d: VatsimFlight) => {
                 return getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738");
             },

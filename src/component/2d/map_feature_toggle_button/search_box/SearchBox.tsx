@@ -18,7 +18,6 @@ import { RootState, setSearchInput, setTabSelection } from "../../../../store";
 import SearchBox_TabButtonGroup from "./SearchBox_TabButtonGroup";
 
 type TabSelection = "airports" | "flights" | "aircraft";
-//TODO: Adjust position.
 const SearchBox = () => {
     const dispatch = useDispatch();
     const {
