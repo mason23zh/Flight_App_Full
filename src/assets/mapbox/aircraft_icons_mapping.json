@@ -175,6 +175,14 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "A388": {
+        "x": 633,
+        "y": 1108,
+        "width": 266,
+        "height": 243,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "A400": {
         "x": 1664,
         "y": 300,
@@ -208,6 +216,14 @@
         "mask": true
     },
     "AT7X": {
+        "x": 1114,
+        "y": 71,
+        "width": 92,
+        "height": 93,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "AT75": {
         "x": 1114,
         "y": 71,
         "width": 92,
@@ -1008,6 +1024,14 @@
         "mask": true
     },
     "MD80": {
+        "x": 1555,
+        "y": 300,
+        "width": 109,
+        "height": 150,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "MD83": {
         "x": 1555,
         "y": 300,
         "width": 109,
