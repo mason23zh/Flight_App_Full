@@ -55,6 +55,14 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "A306": {
+        "x": 796,
+        "y": 458,
+        "width": 149,
+        "height": 179,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "A310": {
         "x": 1808,
         "y": 300,
@@ -88,6 +96,14 @@
         "mask": true
     },
     "A321": {
+        "x": 1439,
+        "y": 300,
+        "width": 116,
+        "height": 148,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "A21N": {
         "x": 1439,
         "y": 300,
         "width": 116,
@@ -592,6 +608,14 @@
         "mask": true
     },
     "C130": {
+        "x": 1439,
+        "y": 176,
+        "width": 136,
+        "height": 119,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "C160": {
         "x": 1439,
         "y": 176,
         "width": 136,

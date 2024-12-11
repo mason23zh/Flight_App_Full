@@ -23,7 +23,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
         helicopter: ["AS32", "AS50", "AS55", "AS65", "AS66", "B06", "B407", "B412", "B429", "EC20", "EC25", "EC30",
             "EC35", "EC45", "H500", "H60", "NH90", "R22", "R44", "R66", "S61", "S76", "S92", "UH1"],
         military: ["A400", "AN22", "AN26", "AN30", "AN32", "C130", "C135", "C160", "C17", "E3CF", "F16", "H47", "H53",
-            "KC10", "KC135", "L101", "M28", "P3", "S3", "T6", "T38", "U2", "VC25", "V22", "C295"]
+            "KC10", "KC135", "L101", "M28", "P3", "S3", "T6", "T38", "U2", "VC25", "V22", "C295", "B1"]
     };
 
     let scale = 7; // Default scale if no category matches
@@ -33,7 +33,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
         if (codes.includes(aircraftCode)) {
             switch (category) {
             case "wideBody":
-                scale = 10;
+                scale = 11;
                 break;
             case "narrowBody":
                 scale = 9;

@@ -35,6 +35,7 @@ import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
 import useLocalTrackFlightLayer from "../../hooks/useLocalTrackFlightLayer";
 import { debounce, throttle } from "lodash";
 import HoveredTrafficTooltip from "./HoveredTrafficTooltip";
+import useTrafficCallsignLayer from "../../hooks/useTrafficCallsignLayer";
 
 
 interface MainTrafficLayerProps {
@@ -264,11 +265,13 @@ const MainDeckGlLayer = ({
     const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
     const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
+    const trafficCallsignLayer = useTrafficCallsignLayer(filteredTrafficData, true);
 
     const layers = [
         trackLayer,
         trafficLayer2D,
         trafficLayer3D,
+        trafficCallsignLayer,
         controllerIconLayer,
         traconIconLayer,
         firIconLayer,

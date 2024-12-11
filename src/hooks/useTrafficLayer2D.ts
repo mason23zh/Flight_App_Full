@@ -26,6 +26,7 @@ const useTrafficLayer2D = (
                 .join("-"),  // Trigger update if sizes change
         };
 
+
         return new IconLayer({
             id: "traffic-layer-2d",
             data: data,
@@ -37,14 +38,14 @@ const useTrafficLayer2D = (
                 return aircraftSpriteSheetMapping[icon] ? icon : "CL60";
             },
             autoHighlight: true,
-            // highlightColor: [255, 128, 0],
+            // highlightColor: [255, 128, 0, 128],
             iconAtlas: aircraftSpriteSheetPNG,
             iconMapping: aircraftSpriteSheetMapping,
             // sizeScale: 5,
             sizeScale: 3,
             getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, 0], //traffic always at 0 feet in 2d view
             getAngle: (d: VatsimFlight) => -d.heading,
-            getColor: [228, 235, 5],
+            getColor: [195, 201, 6],
             // getSize: 5,
             getSize: (d: VatsimFlight) => {
                 return getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738");
