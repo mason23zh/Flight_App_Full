@@ -13,7 +13,7 @@ const SmallAirportLayer = ({ displayLabel }) => {
                 filter={["==", "type", "small_airport"]}
                 minzoom={7}
                 paint={{
-                    "circle-color": "#00FF00",
+                    "circle-color": "#3f9cd1",
                     "circle-radius": 3
                 }}
             />
