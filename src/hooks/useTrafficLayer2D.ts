@@ -42,7 +42,7 @@ const useTrafficLayer2D = (
             iconAtlas: aircraftSpriteSheetPNG,
             iconMapping: aircraftSpriteSheetMapping,
             // sizeScale: 5,
-            sizeScale: 3,
+            sizeScale: 2.8,
             getPosition: (d: VatsimFlight) => [d.longitude || 0, d.latitude || 0, 0], //traffic always at 0 feet in 2d view
             getAngle: (d: VatsimFlight) => -d.heading,
             getColor: [195, 201, 6],

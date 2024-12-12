@@ -4,7 +4,6 @@ import { useMemo } from "react";
 
 const useTrafficCallsignLayer = (data: Array<VatsimFlight>, visible: boolean) => {
     return useMemo(() => {
-
         return new TextLayer({
             id: "traffic-callsign-text",
             visible: visible,

@@ -295,6 +295,14 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "B742": {
+        "x": 405,
+        "y": 653,
+        "width": 201,
+        "height": 201,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "B77L": {
         "x": 0,
         "y": 869,
