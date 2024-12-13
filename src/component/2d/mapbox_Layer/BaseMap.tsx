@@ -114,7 +114,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 <Map
                     ref={mapRef}
                     id="mainMap"
-                    projection={{ name: "mercator" }}
+                    projection={{ name: "globe" }}
                     // cursor={"auto"}
                     // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
                     // Set 1.92 for safe

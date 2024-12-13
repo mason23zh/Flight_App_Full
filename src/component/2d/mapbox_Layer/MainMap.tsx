@@ -21,6 +21,7 @@ import AircraftDisplay from "../map_feature_toggle_button/search_box/search_resu
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 import { Helmet } from "react-helmet-async";
+import VatsimTrafficLayer from "./Vatsim_Traffic_Layer/VatsimTrafficLayer";
 
 const MainMap = () => {
     const dispatch = useDispatch();
@@ -168,6 +169,7 @@ const MainMap = () => {
             <div>
                 <BaseMap>
                     <MapErrorMessageStack/>
+                    <VatsimTrafficLayer/>
                     <AtcLayer
                         controllerData={controllerData}
                         controllerLoading={controllerLoading}
