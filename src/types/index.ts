@@ -493,6 +493,7 @@ interface VatsimMapVisibleState {
     liveTrafficAvailable: boolean;
     searchBoxVisible: boolean;
     featuredAirportsVisible: boolean;
+    mapProjection: "globe" | "mercator";
     mapStyles: MapStyles;
 }
 

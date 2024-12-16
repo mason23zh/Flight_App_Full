@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { VatsimMapVisibleState } from "../../types";
 
 interface MapStylePayloadAction {
@@ -32,6 +32,7 @@ const initialState: VatsimMapVisibleState = {
     displayTelemetry: false,
     searchBoxVisible: false,
     featuredAirportsVisible: false,
+    mapProjection: "mercator",
     mapStyles: "MONO_DARK"
 };
 
@@ -159,6 +160,9 @@ const vatsimMapVisibleSlice = createSlice({
                 state.mapStyleButtonToggle = false;
             }
         },
+        setMapProjection(state, action: PayloadAction<"globe" | "mercator">) {
+            state.mapProjection = action.payload;
+        }
     }
 });
 
@@ -186,5 +190,6 @@ export const {
     resetMap,
     toggleSearchBox,
     toggleFeaturedAirports,
+    setMapProjection
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

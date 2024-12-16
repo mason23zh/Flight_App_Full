@@ -45,6 +45,7 @@ import {
     setLiveTrafficAvailable,
     toggleFeaturedAirports,
     toggleSearchBox,
+    setMapProjection,
     resetMap
 } from "./slices/vatsimMapVisibleSlice";
 
@@ -244,6 +245,7 @@ export {
     toggleMapFollowTraffic,
     setLiveTrafficAvailable,
     resetMap,
+    setMapProjection,
     toggleFeaturedAirports,
     toggleSearchBox
 };
