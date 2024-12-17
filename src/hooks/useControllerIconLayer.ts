@@ -1,5 +1,5 @@
 import { AirportService, VatsimControllers } from "../types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect, useMemo } from "react";
 // import generateControllerMarkerIcon from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
 import {
@@ -8,7 +8,7 @@ import {
 
 import { IconLayer } from "@deck.gl/layers/typed";
 import { debounce } from "lodash";
-import { setHoveredController } from "../store";
+import { RootState, setHoveredController } from "../store";
 
 const facilities = [
     {
@@ -52,6 +52,14 @@ const useControllerIconLayer = (
     controllerData: VatsimControllers,
     visible: boolean,
 ) => {
+
+    const {
+        mapProjection
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    if (mapProjection === "globe") {
+        return null;
+    }
 
     const dispatch = useDispatch();
     const debouncedHover = useCallback(

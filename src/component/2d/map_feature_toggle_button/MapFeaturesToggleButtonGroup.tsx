@@ -15,6 +15,7 @@ import {
     resetMap
 } from "../../../store";
 import mapboxgl from "mapbox-gl";
+import MapProjectionSwitchButton from "./MapProjectionSwitchButton";
 
 interface Props {
     isTouchScreen: boolean;
@@ -168,6 +169,10 @@ const MapFeaturesToggleButtonGroup = ({
                         checked={dayNightTerminator}
                         onChange={(checked) => handleOnChange("DAY_NIGHT_TERMINATOR", checked)}
                     />
+                </div>
+                <div className="flex justify-between p-1 ml-2 mr-2 border-b">
+                    <div>Map Projection</div>
+                    <MapProjectionSwitchButton/>
                 </div>
                 <div className="flex items-center justify-center p-2 ml-2 mr-2">
                     <button
