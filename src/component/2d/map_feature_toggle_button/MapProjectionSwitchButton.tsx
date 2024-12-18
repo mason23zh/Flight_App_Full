@@ -6,7 +6,7 @@ import { RootState, setMapProjection } from "../../../store";
 
 const MapProjectionSwitchButton = () => {
     const dispatch = useDispatch();
-    const [activeButton, setActiveButton] = useState<"globe" | "mercator">("mercator");
+    const [_, setActiveButton] = useState<"globe" | "mercator">("mercator");
 
     const {
         mapProjection
@@ -25,7 +25,7 @@ const MapProjectionSwitchButton = () => {
             {/* Globe Button */}
             <button
                 className={`${buttonStyle} ${
-                    activeButton === "globe" ? activeStyle : inactiveStyle
+                    mapProjection === "globe" ? activeStyle : inactiveStyle
                 }`}
                 onClick={() => {
                     setActiveButton("globe");
@@ -38,7 +38,7 @@ const MapProjectionSwitchButton = () => {
             {/* Mercator Button */}
             <button
                 className={`${buttonStyle} ${
-                    activeButton === "mercator" ? activeStyle : inactiveStyle
+                    mapProjection === "mercator" ? activeStyle : inactiveStyle
                 }`}
                 onClick={() => {
                     setActiveButton("mercator");

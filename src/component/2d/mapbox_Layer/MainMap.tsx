@@ -35,6 +35,7 @@ const MainMap = () => {
 
     const {
         dayNightTerminator,
+        mapProjection
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
@@ -175,11 +176,14 @@ const MainMap = () => {
                         controllerLoading={controllerLoading}
                         controllerError={controllerError}
                     />
-                    <BaseDeckGlLayer
-                        controllerData={controllerData}
-                        controllerDataLoading={controllerLoading}
-                        controllerDataError={controllerError}
-                    />
+                    {/*Only load DeckGl Layer if map projection is mercator*/}
+                    {mapProjection === "mercator" &&
+                        <BaseDeckGlLayer
+                            controllerData={controllerData}
+                            controllerDataLoading={controllerLoading}
+                            controllerDataError={controllerError}
+                        />
+                    }
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
                     {renderFlightInfoPanel()}

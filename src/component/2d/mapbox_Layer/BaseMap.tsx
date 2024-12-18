@@ -24,6 +24,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const {
         terrainEnable,
+        mapProjection
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
 
@@ -53,7 +54,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             const map = mapRef.current.getMap();
             setMap(map);
         }
-    }, [mapRef]);
+    }, [mapRef, mapProjection]);
 
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
@@ -115,7 +116,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 <Map
                     ref={mapRef}
                     id="mainMap"
-                    projection={{ name: "globe" }}
+                    projection={{ name: mapProjection }}
                     // cursor={"auto"}
                     // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
                     // Set 1.92 for safe
