@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo } from "react";
+import _ from "lodash";
 import { RootState, useFetchVatsimPilotsDataQuery } from "../../../../store";
 import { Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
 import { GeoJSON } from "geojson";
 import { useSelector } from "react-redux";
-//TODO: Add onHover, onClick to display traffic info
+//TODO: refine onClick and onHover logic
+//TODO: map style change might not render traffic immediately sometimes.
 const VatsimTrafficLayer = () => {
     const { current: mapRef } = useMap();
     // mapStyles change will trigger re-render, mapRef won't change it map style changes.
@@ -20,7 +22,7 @@ const VatsimTrafficLayer = () => {
         error,
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
- 
+
     const getJsonData: GeoJSON = useMemo(() => {
         if (!vatsimPilots?.data?.pilots) return null;
 
@@ -33,11 +35,12 @@ const VatsimTrafficLayer = () => {
                     coordinates: [pilot.longitude, pilot.latitude],
                 },
                 properties: {
-                    heading: pilot.heading,
-                },
+                    ...pilot,
+                    flight_plan: JSON.stringify(pilot.flight_plan)
+                }
             })),
         };
-    }, [vatsimPilots]);
+    }, [vatsimPilots, mapStyles]);
 
 
     // Load aircraft image
@@ -72,6 +75,7 @@ const VatsimTrafficLayer = () => {
 
     if (isFetching || error || !getJsonData || !trafficLayerVisible) return null;
 
+
     return (
         <Source
             type="geojson"
@@ -79,6 +83,7 @@ const VatsimTrafficLayer = () => {
             data={getJsonData}
         >
             <Layer
+                interactive={true}
                 type="symbol"
                 id="vatsim-traffic-globe-layer"
                 layout={{

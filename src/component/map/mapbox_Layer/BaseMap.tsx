@@ -1,9 +1,9 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapProvider, MapRef } from "react-map-gl";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, setSelectedTraffic } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import GeneralLoading from "../../GeneralLoading";
@@ -11,12 +11,14 @@ import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
 import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
+import { VatsimFlight, VatsimFlightPlan } from "../../../types";
 
 interface BaseMapProps {
     children: React.ReactNode;
 }
 
 const BaseMap = ({ children }: BaseMapProps) => {
+    const dispatch = useDispatch();
     const mapRef = useRef<MapRef | null>(null);
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const darkMode = useTheme();
@@ -105,6 +107,37 @@ const BaseMap = ({ children }: BaseMapProps) => {
         return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
     }
 
+    // This onClick event handler will handle click events for the globe VatsimTrafficLayer
+    const handleOnClick = (e: MapLayerMouseEvent) => {
+        if (!e.features || e.features.length === 0) {
+            dispatch(setSelectedTraffic(null));
+            return;
+        }
+
+
+        e.features.forEach((feature) => {
+            const layerId = feature.layer.id;
+
+            if (layerId === "vatsim-traffic-globe-layer") {
+                // Workaround for GeoJSON serializes nested object
+                const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
+                    flight_plan: string | null
+                };
+
+                const trafficData: VatsimFlight = {
+                    ...properties,
+                    flight_plan: properties.flight_plan
+                        ? JSON.parse(properties.flight_plan) as VatsimFlightPlan
+                        : null
+                };
+
+                dispatch(setSelectedTraffic(trafficData));
+
+            }
+        });
+
+    };
+
     /*
     * Default Projection: mercator
     * Unable to use globe as Projection due to mapbox api limitation.
@@ -131,6 +164,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     dragPan={true}
                     renderWorldCopies={true} //prevent map wrapping
                     logoPosition={"bottom-right"}
+                    interactiveLayerIds={["vatsim-traffic-globe-layer"]}
+                    onClick={(e) => handleOnClick(e)}
                 >
                     <TogglePanel/>
                     <TelemetryPanel/>

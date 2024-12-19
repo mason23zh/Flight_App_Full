@@ -10,7 +10,6 @@ import Weather from "./component/Weather";
 import ScrollToTop from "./component/ScrollToTop";
 import GeneralLoading from "./component/GeneralLoading";
 import FlightTracker from "./component/FlightTracker";
-// import { WebSocketProvider } from "./component/map/WebSocketContext";
 import { WebSocketProvider } from "./component/map/WebSocketContext";
 import { HelmetProvider } from "react-helmet-async";
 

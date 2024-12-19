@@ -9,6 +9,7 @@ interface AirportConnectionPathLayerProps {
     arrivalAirport: AirportResponse;
 }
 
+//TODO: incorrect path in globe projection
 const AirportConnectionPathLayer = ({
     departureAirport,
     arrivalAirport
