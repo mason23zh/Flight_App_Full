@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo } from "react";
 // import generateControllerMarkerIcon from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
 import {
     generateControllerMarkerIconWithIcao,
-} from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
+} from "../component/map/mapbox_Layer/util/generateControllerMarkerIcon";
 
 import { IconLayer } from "@deck.gl/layers/typed";
 import { debounce } from "lodash";

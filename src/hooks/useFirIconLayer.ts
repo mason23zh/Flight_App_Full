@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useCallback, useEffect, useMemo } from "react";
 import { debounce } from "lodash";
 import { setHoveredFir } from "../store";
-import generateFirIcon from "../component/2d/mapbox_Layer/util/generateFirIcon";
+import generateFirIcon from "../component/map/mapbox_Layer/util/generateFirIcon";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { MatchedFir } from "./useMatchedFirs";
 

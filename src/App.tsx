@@ -10,12 +10,13 @@ import Weather from "./component/Weather";
 import ScrollToTop from "./component/ScrollToTop";
 import GeneralLoading from "./component/GeneralLoading";
 import FlightTracker from "./component/FlightTracker";
-import { WebSocketProvider } from "./component/2d/WebSocketContext";
+// import { WebSocketProvider } from "./component/map/WebSocketContext";
+import { WebSocketProvider } from "./component/map/WebSocketContext";
 import { HelmetProvider } from "react-helmet-async";
 
 const Orion = lazy(() => import("./component/Orion"));
 const Puzzles = lazy(() => import("./component/Puzzles"));
-const MainMap = lazy(() => import("./component/2d/mapbox_Layer/MainMap"));
+const MainMap = lazy(() => import("./component/map/mapbox_Layer/MainMap"));
 const ExtremeWeather = lazy(() => import("./component/ExtremeWeather"));
 const Airports = lazy(() => import("./component/Airports"));
 const AirportDetail = lazy(() => import("./component/AirportDetail"));

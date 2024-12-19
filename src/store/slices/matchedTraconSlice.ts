@@ -1,7 +1,7 @@
 import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { GeoJSON } from "geojson";
-import { HoverTracon } from "../../component/2d/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import { HoverTracon } from "../../component/map/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 
 interface MatchedTraconsSlice {
     matchedTracons: MatchedTracon[] | [];

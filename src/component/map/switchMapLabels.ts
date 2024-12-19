@@ -1,5 +1,5 @@
 import mapboxgl from "mapbox-gl";
-
+//TODO: style not done, use onload or onstyleload instead.
 const switchMapLabels = (map: mapboxgl.Map, visibility: boolean) => {
     const flag = visibility ? "visible" : "none";
     if (map) {
