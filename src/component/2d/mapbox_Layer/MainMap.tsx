@@ -21,7 +21,7 @@ import AircraftDisplay from "../map_feature_toggle_button/search_box/search_resu
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 import { Helmet } from "react-helmet-async";
-import VatsimTrafficLayer from "./Vatsim_Traffic_Layer/VatsimTrafficLayer";
+import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 
 const MainMap = () => {
     const dispatch = useDispatch();
@@ -168,9 +168,11 @@ const MainMap = () => {
                 <link rel="canonical" href="https://airportweather.org/map"/>
             </Helmet>
             <div>
-                <BaseMap>
+                <BaseMap key={mapProjection}>
                     <MapErrorMessageStack/>
-                    <VatsimTrafficLayer/>
+                    {mapProjection === "globe" &&
+                        <VatsimTrafficLayer/>
+                    }
                     <AtcLayer
                         controllerData={controllerData}
                         controllerLoading={controllerLoading}

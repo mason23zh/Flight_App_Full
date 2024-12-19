@@ -10,7 +10,7 @@ import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
-import VatsimTrafficLayer from "./Vatsim_Traffic_Layer/VatsimTrafficLayer";
+import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 
 interface BaseMapProps {
     children: React.ReactNode;
