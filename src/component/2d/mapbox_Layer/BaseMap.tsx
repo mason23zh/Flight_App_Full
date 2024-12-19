@@ -56,6 +56,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [mapRef, mapProjection]);
 
+
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
         if (mapRef && mapRef?.current) {

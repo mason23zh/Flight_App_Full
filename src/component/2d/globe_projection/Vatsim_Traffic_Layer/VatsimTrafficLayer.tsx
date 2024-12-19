@@ -1,11 +1,15 @@
 import React, { useEffect, useMemo } from "react";
-import { useFetchVatsimPilotsDataQuery } from "../../../../store";
+import { RootState, useFetchVatsimPilotsDataQuery } from "../../../../store";
 import { Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
 import { GeoJSON } from "geojson";
+import { useSelector } from "react-redux";
 
 const VatsimTrafficLayer = () => {
     const { current: mapRef } = useMap();
+    // mapStyles change will trigger re-render, mapRef won't change it map style changes.
+    const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
+    console.log("Map styles:", mapStyles);
     const imageId = "B38M";
 
     const {
@@ -13,6 +17,7 @@ const VatsimTrafficLayer = () => {
         isFetching,
         error,
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
+
 
     const getJsonData: GeoJSON = useMemo(() => {
         if (!vatsimPilots?.data?.pilots) return null;
@@ -53,11 +58,15 @@ const VatsimTrafficLayer = () => {
         }
 
         return () => {
-            if (map.hasImage(imageId)) {
-                map.removeImage(imageId);
+            try {
+                if (map.hasImage(imageId)) {
+                    map.removeImage(imageId);
+                }
+            } catch (e) {
+                console.error("Unable to clean up:", e);
             }
         };
-    }, [mapRef]);
+    }, [mapStyles, mapRef]); //use mapStyles here to trigger re-render
 
     if (isFetching || error || !getJsonData) return null;
 

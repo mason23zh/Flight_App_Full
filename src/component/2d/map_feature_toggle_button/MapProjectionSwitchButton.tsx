@@ -18,8 +18,6 @@ const MapProjectionSwitchButton = () => {
     const activeStyle = "bg-blue-500 text-white";
     const inactiveStyle = "bg-gray-300 text-gray-700 hover:bg-gray-400";
 
-    console.log("Current map projection:", mapProjection);
-
     return (
         <div className="flex rounded-lg overflow-hidden">
             {/* Globe Button */}
