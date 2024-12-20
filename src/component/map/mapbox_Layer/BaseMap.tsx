@@ -1,23 +1,34 @@
-import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapLayerMouseEvent, MapProvider, MapRef } from "react-map-gl";
+import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef, Popup } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, setSelectedTraffic } from "../../../store";
+import { closeTrafficDetail, openTrafficDetail, RootState, setSelectedTraffic } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
 import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
-import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 import { VatsimFlight, VatsimFlightPlan } from "../../../types";
+import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
 
+//TODO: mapboxgl tooltip arrow remove
 interface BaseMapProps {
     children: React.ReactNode;
 }
 
 const BaseMap = ({ children }: BaseMapProps) => {
+    const [cursor, setCursor] = useState<string>("grab");
+    const [showPopup, setShowPopup] = useState(false);
+    const popupRef = useRef<mapboxgl.Popup>();
+    const [hoveredTraffic, setHoveredTraffic] = useState<{
+        x: number,
+        y: number,
+        info: VatsimFlight | null
+    } | null
+    >(null);
+
     const dispatch = useDispatch();
     const mapRef = useRef<MapRef | null>(null);
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
@@ -102,6 +113,11 @@ const BaseMap = ({ children }: BaseMapProps) => {
         };
     }, []);
 
+    useEffect(() => {
+        popupRef.current?.trackPointer();
+        popupRef.current?.addClassName("p-0");
+    }, [popupRef.current]);
+
 
     if (!isDatabaseInitialized) {
         return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
@@ -111,15 +127,43 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const handleOnClick = (e: MapLayerMouseEvent) => {
         if (!e.features || e.features.length === 0) {
             dispatch(setSelectedTraffic(null));
+            dispatch(closeTrafficDetail());
             return;
         }
-
+        console.log("click", e);
 
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
 
             if (layerId === "vatsim-traffic-globe-layer") {
                 // Workaround for GeoJSON serializes nested object
+                const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
+                    flight_plan: string | null
+                };
+                console.log("click on traffic", feature);
+                const trafficData: VatsimFlight = {
+                    ...properties,
+                    flight_plan: properties.flight_plan
+                        ? JSON.parse(properties.flight_plan) as VatsimFlightPlan
+                        : null
+                };
+
+                dispatch(setSelectedTraffic(trafficData));
+                dispatch(openTrafficDetail());
+            }
+        });
+
+    };
+
+    const handleHover = (e: MapLayerMouseEvent) => {
+        if (!e.features || e.features.length === 0) {
+            setHoveredTraffic(null);
+        }
+        e.features.forEach((feature) => {
+            const layerId = feature.layer.id;
+
+            if (layerId === "vatsim-traffic-globe-layer") {
+                setCursor("pointer");
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
                     flight_plan: string | null
                 };
@@ -131,12 +175,23 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         : null
                 };
 
-                dispatch(setSelectedTraffic(trafficData));
-
+                setHoveredTraffic({
+                    x: e.point.x,
+                    y: e.point.y,
+                    info: trafficData
+                });
+                setShowPopup(true);
             }
         });
-
     };
+
+
+    const handleMouseLeave = () => {
+        setCursor("grab");
+        setHoveredTraffic(null);
+        setShowPopup(false);
+    };
+
 
     /*
     * Default Projection: mercator
@@ -166,7 +221,24 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     logoPosition={"bottom-right"}
                     interactiveLayerIds={["vatsim-traffic-globe-layer"]}
                     onClick={(e) => handleOnClick(e)}
+                    onMouseEnter={(e) => handleHover(e)}
+                    onMouseLeave={handleMouseLeave}
+                    cursor={cursor}
                 >
+                    {showPopup &&
+                        <Popup
+                            closeButton={false}
+                            ref={popupRef}
+                            longitude={hoveredTraffic.info.longitude}
+                            latitude={hoveredTraffic.info.latitude}
+                            anchor="top-left"
+                            offset={-18}
+                        >
+                            <div>
+                                <HoveredTrafficTooltip info={hoveredTraffic.info}/>
+                            </div>
+                        </Popup>
+                    }
                     <TogglePanel/>
                     <TelemetryPanel/>
                     <CustomNavigationController/>
