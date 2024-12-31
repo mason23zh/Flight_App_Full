@@ -148,7 +148,7 @@ interface VatsimFlight {
     flight_plan: VatsimFlightPlan
 }
 
-interface TrackObj {
+export interface TrackObj {
     latitude: number,
     longitude: number,
     altitude: number,
