@@ -50,7 +50,7 @@ const VatsimTrafficPathLayer = () => {
 
 
     const geoJsonData = useMemo(() => {
-        if (!trackData || !trackData?.data || trackLoading || trackError) return null;
+        if (!trackData || !trackData?.data || trackLoading || trackError || !selectedTraffic) return null;
 
         const normalizedCoordinates = trackData.data.track.map(({
             longitude,
@@ -61,6 +61,15 @@ const VatsimTrafficPathLayer = () => {
         ]);
 
         // Adjust for antimeridian crossing
+        // const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
+
+        const currentTrafficCoordinates = [
+            ((selectedTraffic.longitude + 180) % 360 + 360) % 360 - 180, // Normalize current longitude
+            selectedTraffic.latitude
+        ];
+
+        normalizedCoordinates.push(currentTrafficCoordinates);
+
         const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
 
         return {
@@ -76,10 +85,10 @@ const VatsimTrafficPathLayer = () => {
                 }
             ]
         } as GeoJSON;
-    }, [trackData, trackLoading, trackError]);
+    }, [trackData, trackLoading, trackError, selectedTraffic]);
 
 
-    if (trackLoading || !geoJsonData) return null;
+    if (trackLoading || trackError || !geoJsonData) return null;
 
     return (
         <Source
