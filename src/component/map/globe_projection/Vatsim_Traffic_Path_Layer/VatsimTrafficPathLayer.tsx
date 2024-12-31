@@ -30,7 +30,7 @@ const VatsimTrafficPathLayer = () => {
         const adjustedCoordinates = [coordinates[0]]; // Start with the first point
 
         for (let i = 1; i < coordinates.length; i++) {
-            const [prevLng, prevLat] = adjustedCoordinates[adjustedCoordinates.length - 1];
+            const [prevLng] = adjustedCoordinates[adjustedCoordinates.length - 1];
             const [currLng, currLat] = coordinates[i];
 
             let adjustedLng = currLng;
@@ -58,10 +58,8 @@ const VatsimTrafficPathLayer = () => {
         }: TrackObj) => [
             ((longitude + 180) % 360 + 360) % 360 - 180, // Normalize longitude
             latitude
-        ]);
-
-        // Adjust for antimeridian crossing
-        // const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
+        ])
+            .filter(([longitude, latitude]) => longitude !== 0 || latitude !== 0); // filter out [0,0] coordinates
 
         const currentTrafficCoordinates = [
             ((selectedTraffic.longitude + 180) % 360 + 360) % 360 - 180, // Normalize current longitude
@@ -70,7 +68,10 @@ const VatsimTrafficPathLayer = () => {
 
         normalizedCoordinates.push(currentTrafficCoordinates);
 
+        // Adjust for antimeridian crossing
         const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
+
+        console.log("adjustedCoordinates:", adjustedCoordinates);
 
         return {
             type: "FeatureCollection",
