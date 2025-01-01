@@ -71,7 +71,6 @@ const VatsimTrafficPathLayer = () => {
         // Adjust for antimeridian crossing
         const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
 
-        console.log("adjustedCoordinates:", adjustedCoordinates);
 
         return {
             type: "FeatureCollection",
@@ -86,8 +85,8 @@ const VatsimTrafficPathLayer = () => {
                 }
             ]
         } as GeoJSON;
-    }, [trackData, trackLoading, trackError, selectedTraffic]);
 
+    }, [trackData, trackLoading, trackError, selectedTraffic]);
 
     if (trackLoading || trackError || !geoJsonData) return null;
 
@@ -105,7 +104,7 @@ const VatsimTrafficPathLayer = () => {
                     "line-join": "round"
                 }}
                 paint={{
-                    "line-color": "#FF5733",
+                    "line-color": "#4855BF",
                     "line-width": 3,
                     "line-opacity": 0.8
                 }}

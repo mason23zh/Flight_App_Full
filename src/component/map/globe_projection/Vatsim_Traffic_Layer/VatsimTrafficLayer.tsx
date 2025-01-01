@@ -24,7 +24,7 @@ const VatsimTrafficLayer = () => {
 
 
     const getJsonData: GeoJSON = useMemo(() => {
-        if (!vatsimPilots?.data?.pilots) return null;
+        if (!vatsimPilots?.data?.pilots || isFetching || error) return null;
 
         return {
             type: "FeatureCollection",
@@ -40,7 +40,7 @@ const VatsimTrafficLayer = () => {
                 }
             })),
         };
-    }, [vatsimPilots, mapStyles]);
+    }, [vatsimPilots, mapStyles, isFetching, error]);
 
 
     // Load aircraft image
@@ -49,20 +49,30 @@ const VatsimTrafficLayer = () => {
 
         const map = mapRef.getMap();
 
-        if (!map.hasImage(imageId)) {
-            map.loadImage(B38M, (error, image) => {
-                if (error) {
-                    console.error("Error loading aircraft image in globe map:", error);
-                    return;
-                }
+        const loadAircraftImage = () => {
+            if (!map.hasImage(imageId)) {
+                map.loadImage(B38M, (error, image) => {
+                    if (error) {
+                        console.error("Error loading aircraft image in globe map:", error);
+                        return;
+                    }
 
-                if (image) {
-                    map.addImage(imageId, image);
-                }
-            });
-        }
+                    if (image) {
+                        map.addImage(imageId, image);
+                    }
+                });
+            }
+        };
+
+        loadAircraftImage();
+
+        const onStyleData = () => {
+            loadAircraftImage();
+        };
+
 
         return () => {
+            map.off("styledata", onStyleData);
             try {
                 if (map.hasImage(imageId)) {
                     map.removeImage(imageId);
