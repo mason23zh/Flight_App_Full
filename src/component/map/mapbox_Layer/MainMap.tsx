@@ -23,6 +23,7 @@ import useMatchedFirs from "../../../hooks/useMatchedFirs";
 import { Helmet } from "react-helmet-async";
 import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Layer/VatsimTrafficPathLayer";
+import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
 
 const MainMap = () => {
     const dispatch = useDispatch();
@@ -177,6 +178,10 @@ const MainMap = () => {
                     {
                         mapProjection === "globe" &&
                         <VatsimTrafficPathLayer/>
+                    }
+                    {
+                        mapProjection === "globe" &&
+                        <GlobeControllerIconLayer controllerData={controllerData}/>
                     }
                     <AtcLayer
                         controllerData={controllerData}
