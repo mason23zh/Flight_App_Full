@@ -1,7 +1,8 @@
-import { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { generateControllerMarkerIconWithIcao } from "../../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Layer, Source, useMap } from "react-map-gl";
 import { AirportService, VatsimControllers } from "../../../../types";
+import { GeoJSON } from "geojson";
 
 const facilities = [
     {
@@ -105,7 +106,6 @@ const GlobeControllerIconLayer = ({
             combinedData.forEach((service) => {
                 const {
                     icao,
-                    coordinates,
                     services
                 } = service;
                 const serviceTypes = [...new Set(services.map((s) => s.serviceType))];
@@ -175,13 +175,17 @@ const GlobeControllerIconLayer = ({
                     name: service.airportName,
                 },
             })),
-        };
+        } as GeoJSON;
     }, [controllerData, facilities]);
 
     if (!geoJsonData) return null;
 
     return (
-        <Source id="controller-icon-layer-source" type="geojson" data={geoJsonData}>
+        <Source
+            id="controller-icon-layer-source"
+            type="geojson"
+            data={geoJsonData}
+        >
             <Layer
                 id="controller-icon-layer"
                 type="symbol"
@@ -189,16 +193,7 @@ const GlobeControllerIconLayer = ({
                     "icon-image": ["concat", imagePrefix, ["get", "icao"]],
                     "icon-size": 0.5,
                     "icon-allow-overlap": true,
-                    // "text-field": ["get", "name"],
-                    "text-size": 10,
-                    "text-offset": [0, 1.2],
-                    "text-anchor": "top",
                 }}
-                // paint={{
-                //     "text-color": "#ffffff",
-                //     "text-halo-color": "#000000",
-                //     "text-halo-width": 1,
-                // }}
             />
         </Source>
     );
