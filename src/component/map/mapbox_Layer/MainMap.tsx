@@ -172,16 +172,16 @@ const MainMap = () => {
             <div>
                 <BaseMap key={mapProjection}>
                     <MapErrorMessageStack/>
+                    {
+                        mapProjection === "globe" &&
+                        <GlobeControllerIconLayer controllerData={controllerData}/>
+                    }
                     {mapProjection === "globe" &&
                         <VatsimTrafficLayer/>
                     }
                     {
                         mapProjection === "globe" &&
                         <VatsimTrafficPathLayer/>
-                    }
-                    {
-                        mapProjection === "globe" &&
-                        <GlobeControllerIconLayer controllerData={controllerData}/>
                     }
                     <AtcLayer
                         controllerData={controllerData}
