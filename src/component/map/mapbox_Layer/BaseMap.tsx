@@ -16,10 +16,12 @@ import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
-import { AirportService, Service, VatsimFlight, VatsimFlightPlan } from "../../../types";
+import { AirportService, MatchedFirs, Service, VatsimFlight, VatsimFlightPlan } from "../../../types";
 import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
 import { log } from "@deck.gl/core/typed";
 import ControllerMarkerPopup from "./Controller_Markers_Layer/ControllerMarkerPopup";
+import { MatchedFir } from "../../../hooks/useMatchedFirs";
+import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
 
 //TODO: mapboxgl tooltip arrow remove
 interface BaseMapProps {
@@ -31,6 +33,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef<mapboxgl.Popup>();
     const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
+    const [hoveredFir, setHoveredFir] = useState<MatchedFir | null>(null);
     const [hoveredTraffic, setHoveredTraffic] = useState<{
         x: number,
         y: number,
@@ -194,6 +197,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             }
 
             if (layerId === "controller-icon-globe-layer") {
+                setCursor("pointer");
                 const properties = feature.properties as Omit<AirportService, "services" | "coordinates"> & {
                     coordinates: string | null;
                     services: string | null;
@@ -213,6 +217,26 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
                 setHoveredController(controllerServiceData);
             }
+
+            if (layerId === "fir-icon-globe-layer") {
+                setCursor("pointer");
+                const properties = feature.properties as Omit<MatchedFir, "firInfo" | "controller"> & {
+                    controllers: string | null;
+                    firInfo: string | null
+                };
+
+                const firData: MatchedFir = {
+                    ...properties,
+                    controllers: properties.controllers
+                        ? JSON.parse(properties.controllers)
+                        : {},
+                    firInfo: properties.firInfo
+                        ? JSON.parse(properties.firInfo)
+                        : []
+                };
+
+                setHoveredFir(firData);
+            }
         });
     };
 
@@ -221,6 +245,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         setCursor("grab");
         setHoveredTraffic(null);
         setHoveredController(null);
+        setHoveredFir(null);
         setShowPopup(false);
     };
 
@@ -251,12 +276,21 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     dragPan={true}
                     renderWorldCopies={true} //prevent map wrapping
                     logoPosition={"bottom-right"}
-                    interactiveLayerIds={["vatsim-traffic-globe-layer", "controller-icon-globe-layer"]}
+                    interactiveLayerIds={
+                        [
+                            "vatsim-traffic-globe-layer",
+                            "controller-icon-globe-layer",
+                            "fir-icon-globe-layer"
+                        ]
+                    }
                     onClick={(e) => handleOnClick(e)}
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
                     cursor={cursor}
                 >
+                    {(hoveredFir) &&
+                        <FirLabelPopup hoverFir={hoveredFir}/>
+                    }
                     {(showPopup && hoveredTraffic) &&
                         <Popup
                             closeButton={false}

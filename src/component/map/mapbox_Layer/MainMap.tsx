@@ -24,6 +24,7 @@ import { Helmet } from "react-helmet-async";
 import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Layer/VatsimTrafficPathLayer";
 import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
+import GlobeFirIconLayer from "../globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
 
 const MainMap = () => {
     const dispatch = useDispatch();
@@ -172,10 +173,10 @@ const MainMap = () => {
             <div>
                 <BaseMap key={mapProjection}>
                     <MapErrorMessageStack/>
-                    {/* { */}
-                    {/*     (mapProjection === "globe" && hoveredController) && */}
-                    {/*     <ControllerMarkerPopup hoverInfo={hoveredController}/> */}
-                    {/* } */}
+                    {
+                        mapProjection === "globe" &&
+                        <GlobeFirIconLayer/>
+                    }
                     {
                         mapProjection === "globe" &&
                         <GlobeControllerIconLayer controllerData={controllerData}/>
