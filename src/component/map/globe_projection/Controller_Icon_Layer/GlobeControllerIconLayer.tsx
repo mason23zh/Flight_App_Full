@@ -161,20 +161,24 @@ const GlobeControllerIconLayer = ({
 
         return {
             type: "FeatureCollection",
-            features: combinedData.map((service) => ({
-                type: "Feature",
-                geometry: {
-                    type: "Point",
-                    coordinates: [
-                        Number(service.coordinates[0]),
-                        Number(service.coordinates[1])
-                    ],
-                },
-                properties: {
-                    icao: service.icao,
-                    name: service.airportName,
-                },
-            })),
+            features: combinedData.map((service) => {
+                return {
+                    type: "Feature",
+                    geometry: {
+                        type: "Point",
+                        coordinates: [
+                            Number(service.coordinates[0]),
+                            Number(service.coordinates[1])
+                        ],
+                    },
+                    properties: {
+                        ...service,
+                        // icao: service.icao,
+                        // airportName: service.airportName,
+                        services: JSON.stringify(service.services)
+                    },
+                };
+            }),
         } as GeoJSON;
     }, [controllerData, facilities]);
 
@@ -182,12 +186,12 @@ const GlobeControllerIconLayer = ({
 
     return (
         <Source
-            id="controller-icon-layer-source"
+            id="controller-icon-layer-source-globe"
             type="geojson"
             data={geoJsonData}
         >
             <Layer
-                id="controller-icon-layer"
+                id="controller-icon-globe-layer"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "icao"]],

@@ -440,7 +440,7 @@ interface VatsimMatchedFirBoundariesGeoJson {
     features: Array<VatsimGeoJsonFeature>
 }
 
-interface Service {
+export interface Service {
     airport: { name: string, icao: string },
     callsign: string,
     cid: string,

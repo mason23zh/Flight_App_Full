@@ -172,6 +172,10 @@ const MainMap = () => {
             <div>
                 <BaseMap key={mapProjection}>
                     <MapErrorMessageStack/>
+                    {/* { */}
+                    {/*     (mapProjection === "globe" && hoveredController) && */}
+                    {/*     <ControllerMarkerPopup hoverInfo={hoveredController}/> */}
+                    {/* } */}
                     {
                         mapProjection === "globe" &&
                         <GlobeControllerIconLayer controllerData={controllerData}/>
