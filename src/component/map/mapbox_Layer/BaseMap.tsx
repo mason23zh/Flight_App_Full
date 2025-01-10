@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
 import { Map, MapLayerMouseEvent, MapProvider, MapRef, Popup } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
@@ -7,7 +7,6 @@ import {
     closeTrafficDetail,
     openTrafficDetail,
     RootState,
-    setHoveredController,
     setSelectedTraffic
 } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
@@ -16,12 +15,12 @@ import GeneralLoading from "../../GeneralLoading";
 import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
-import { AirportService, MatchedFirs, Service, VatsimFlight, VatsimFlightPlan } from "../../../types";
+import { AirportService, Service, VatsimFlight, VatsimFlightPlan } from "../../../types";
 import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
-import { log } from "@deck.gl/core/typed";
 import ControllerMarkerPopup from "./Controller_Markers_Layer/ControllerMarkerPopup";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
 import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
+import TraconLabelPopup, { HoverTracon } from "./Tracon_Layers/TraconLabelPopup";
 
 //TODO: mapboxgl tooltip arrow remove
 interface BaseMapProps {
@@ -34,6 +33,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const popupRef = useRef<mapboxgl.Popup>();
     const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
     const [hoveredFir, setHoveredFir] = useState<MatchedFir | null>(null);
+    const [hoveredTracon, setHoveredTracon] = useState<HoverTracon | null>(null);
     const [hoveredTraffic, setHoveredTraffic] = useState<{
         x: number,
         y: number,
@@ -237,6 +237,28 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
                 setHoveredFir(firData);
             }
+
+            if (layerId === "tracon-icon-globe-layer") {
+                setCursor("pointer");
+                //TODO: Fix typescript issues for hovered tracon properties
+                const properties = feature.properties as Omit<HoverTracon, "controllers", "traconInfo"> & {
+                    controllers: string | null;
+                    traconInfo: string | null
+                };
+
+                const traconData: HoverTracon = {
+                    ...properties,
+                    controllers: properties.controllers
+                        ? JSON.parse(properties.controllers)
+                        : {},
+                    traconInfo: properties.traconInfo
+                        ? JSON.parse(properties.traconInfo)
+                        : {}
+                };
+
+                setHoveredTracon(traconData);
+                // console.log("tracon properties:", traconData);
+            }
         });
     };
 
@@ -246,6 +268,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         setHoveredTraffic(null);
         setHoveredController(null);
         setHoveredFir(null);
+        setHoveredTracon(null);
         setShowPopup(false);
     };
 
@@ -280,7 +303,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         [
                             "vatsim-traffic-globe-layer",
                             "controller-icon-globe-layer",
-                            "fir-icon-globe-layer"
+                            "fir-icon-globe-layer",
+                            "tracon-icon-globe-layer"
                         ]
                     }
                     onClick={(e) => handleOnClick(e)}
@@ -288,6 +312,9 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onMouseLeave={handleMouseLeave}
                     cursor={cursor}
                 >
+                    {(hoveredTracon) &&
+                        <TraconLabelPopup hoverTracon={hoveredTracon}/>
+                    }
                     {(hoveredFir) &&
                         <FirLabelPopup hoverFir={hoveredFir}/>
                     }

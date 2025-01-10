@@ -128,6 +128,13 @@ const GlobeTraconIconLayer = () => {
                 const name = (tracon.controllers && tracon.controllers.length !== 0) ?
                     tracon.controllers[0].airport.name + " APP/DEP" : "-";
                 const cid = tracon.controllers[0].cid;
+                const traconProperties = {
+                    controllers: tracon.controllers,
+                    traconInfo: {
+                        name: name,
+                        coordinates: tracon.edgeCoordinates
+                    }
+                };
                 return {
                     type: "Feature",
                     geometry: {
@@ -135,9 +142,9 @@ const GlobeTraconIconLayer = () => {
                         coordinates: tracon.edgeCoordinates
                     },
                     properties: {
-                        ...tracon,
+                        ...traconProperties,
                         uniqueId: cid,
-                        name,
+
                     }
                 } as GeoJSON.Feature;
             });
