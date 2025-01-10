@@ -10,7 +10,6 @@ const GlobeFirIconLayer = () => {
     const { current: mapRef } = useMap();
     const {
         matchedFirs,
-        hoveredFir,
         isError: errorMatchedFirs
     } = useSelector((state: RootState) => state.matchedFirs);
     const imagePrefix = "fir-icon-";

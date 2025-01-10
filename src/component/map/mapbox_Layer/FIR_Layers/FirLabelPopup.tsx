@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
-import GeoJson from "geojson";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
