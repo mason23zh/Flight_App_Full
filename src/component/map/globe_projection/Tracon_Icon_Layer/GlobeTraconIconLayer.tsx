@@ -13,7 +13,6 @@ const GlobeTraconIconLayer = () => {
     const {
         matchedFallbackTracons,
         matchedTracons,
-        hoveredTracon,
         isLoading: isTraconLoading,
         isError: isTraconError
     } = useSelector((state: RootState) => state.matchedTracons);
@@ -25,13 +24,9 @@ const GlobeTraconIconLayer = () => {
         const addTraconIcons = () => {
             if (matchedFallbackTracons && matchedFallbackTracons.length > 0) {
                 matchedFallbackTracons.forEach((tracon: FallbackTracon) => {
-                    // const lon = tracon.edgeCoordinates[0];
-                    // const lat = tracon.edgeCoordinates[1];
-                    // const name = (tracon.controllers && tracon.controllers.length !== 0) ?
-                    //     tracon.controllers[0].airport.name + " APP/DEP" : "-";
+
                     const iconId = `${imagePrefix}${tracon.controllers[0].cid}`;
                     const iconUrl = generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4));
-
 
                     if (!map.hasImage(iconId)) {
                         const image = new Image();
@@ -52,8 +47,6 @@ const GlobeTraconIconLayer = () => {
                 matchedTracons.forEach((tracon: MatchedTracon) => {
                     const iconId = `${imagePrefix}${tracon.traconInfo.uniqueId}`;
                     const iconUrl = generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4));
-
-                    console.log("iconURL:", iconUrl);
 
                     if (!map.hasImage(iconId)) {
                         const image = new Image();
@@ -83,7 +76,7 @@ const GlobeTraconIconLayer = () => {
             map.off("styledata", onStyleData);
             try {
                 matchedTracons.forEach((tracon: MatchedTracon) => {
-                    const iconId = `${imagePrefix}${tracon.controllers[0].name}`;
+                    const iconId = `${imagePrefix}${tracon.traconInfo.uniqueId}`;
                     if (map.hasImage(iconId)) {
                         map.removeImage(iconId);
                     }
@@ -102,15 +95,19 @@ const GlobeTraconIconLayer = () => {
 
     }, [matchedTracons, matchedFallbackTracons, isTraconLoading, isTraconError]);
 
-    console.log("matched tracon:", matchedTracons);
-    console.log("Fallback tracon:", matchedFallbackTracons);
-
     const geoJsonData = useMemo(() => {
-        if (!matchedTracons || isTraconError || isTraconLoading) return null;
+        if (isTraconError ||
+                isTraconLoading ||
+                (matchedTracons.length <= 0 && matchedFallbackTracons.length <= 0)
+        ) {
+            return null;
+        }
 
-        return {
-            type: "FeatureCollection",
-            features: matchedTracons.map((feature: MatchedTracon) => {
+        let matchedTraconFeatures = [];
+        let matchedFallbackTraconFeatures = [];
+
+        if (matchedTracons && matchedTracons.length > 0) {
+            matchedTraconFeatures = matchedTracons.map((feature: MatchedTracon) => {
                 const coordinates = [Number(feature.traconInfo.coordinates[0]), Number(feature.traconInfo.coordinates[1])];
                 return {
                     type: "Feature",
@@ -122,11 +119,37 @@ const GlobeTraconIconLayer = () => {
                         ...feature,
                         uniqueId: feature.traconInfo.uniqueId
                     }
-                };
-            })
+                } as GeoJSON.Feature;
+            });
+        }
+
+        if (matchedFallbackTracons && matchedFallbackTracons.length > 0) {
+            matchedFallbackTraconFeatures = matchedFallbackTracons.map((feature: FallbackTracon) => {
+                const name = (feature.controllers && feature.controllers.length !== 0) ?
+                    feature.controllers[0].airport.name + " APP/DEP" : "-";
+                const cid = feature.controllers[0].cid;
+                return {
+                    type: "Feature",
+                    geometry: {
+                        type: "Point",
+                        coordinates: feature.edgeCoordinates
+                    },
+                    properties: {
+                        ...feature,
+                        uniqueId: cid,
+                        name,
+                    }
+                } as GeoJSON.Feature;
+            });
+        }
+
+
+        return {
+            type: "FeatureCollection",
+            features: [...matchedTraconFeatures, ...matchedFallbackTraconFeatures],
         } as GeoJSON;
 
-    }, [matchedTracons, isTraconLoading, isTraconError]);
+    }, [matchedTracons, matchedFallbackTracons, isTraconLoading, isTraconError]);
 
     if (!geoJsonData) return null;
 
