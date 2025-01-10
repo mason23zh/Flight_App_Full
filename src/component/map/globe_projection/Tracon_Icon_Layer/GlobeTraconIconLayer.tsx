@@ -107,8 +107,8 @@ const GlobeTraconIconLayer = () => {
         let matchedFallbackTraconFeatures = [];
 
         if (matchedTracons && matchedTracons.length > 0) {
-            matchedTraconFeatures = matchedTracons.map((feature: MatchedTracon) => {
-                const coordinates = [Number(feature.traconInfo.coordinates[0]), Number(feature.traconInfo.coordinates[1])];
+            matchedTraconFeatures = matchedTracons.map((tracon: MatchedTracon) => {
+                const coordinates = [Number(tracon.traconInfo.coordinates[0]), Number(tracon.traconInfo.coordinates[1])];
                 return {
                     type: "Feature",
                     geometry: {
@@ -116,26 +116,26 @@ const GlobeTraconIconLayer = () => {
                         coordinates,
                     },
                     properties: {
-                        ...feature,
-                        uniqueId: feature.traconInfo.uniqueId
+                        ...tracon,
+                        uniqueId: tracon.traconInfo.uniqueId
                     }
                 } as GeoJSON.Feature;
             });
         }
 
         if (matchedFallbackTracons && matchedFallbackTracons.length > 0) {
-            matchedFallbackTraconFeatures = matchedFallbackTracons.map((feature: FallbackTracon) => {
-                const name = (feature.controllers && feature.controllers.length !== 0) ?
-                    feature.controllers[0].airport.name + " APP/DEP" : "-";
-                const cid = feature.controllers[0].cid;
+            matchedFallbackTraconFeatures = matchedFallbackTracons.map((tracon: FallbackTracon) => {
+                const name = (tracon.controllers && tracon.controllers.length !== 0) ?
+                    tracon.controllers[0].airport.name + " APP/DEP" : "-";
+                const cid = tracon.controllers[0].cid;
                 return {
                     type: "Feature",
                     geometry: {
                         type: "Point",
-                        coordinates: feature.edgeCoordinates
+                        coordinates: tracon.edgeCoordinates
                     },
                     properties: {
-                        ...feature,
+                        ...tracon,
                         uniqueId: cid,
                         name,
                     }
