@@ -3,6 +3,7 @@ import { Popup } from "react-map-gl";
 import { returnOnlineTime } from "../util/calculateOnlineTime";
 import { useTheme } from "../../../../hooks/ThemeContext";
 import mapboxgl from "mapbox-gl";
+import useIsTouchScreen from "../../../../hooks/useIsTouchScreen";
 
 interface HoverTraconControllers {
     callsign: string;
@@ -33,6 +34,7 @@ const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
     const lon = hoverTracon.traconInfo?.coordinates[0];
     const lat = hoverTracon.traconInfo?.coordinates[1];
     const traconName = hoverTracon.traconInfo?.name;
+    const isTouchScreen = useIsTouchScreen();
 
     useEffect(() => {
         if (popupRef.current) {
@@ -75,9 +77,12 @@ const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
             latitude={lat}
             style={{ zIndex: 100 }}
             closeButton={false}
-            anchor="bottom"
+            maxWidth={isTouchScreen ? "380px" : "500px"}
+            anchor={isTouchScreen ? "bottom" : undefined}
         >
-            <div className={`w-full p-2 rounded-lg border-0 ${colorTheme}`}>
+            <div className={`grid grid-cols-1 justify-center items-center
+            gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}
+            >
                 <div className="flex text-center gap-3 justify-self-start w-max">
                     <div className="text-sm font-bold">
                         {traconName}
