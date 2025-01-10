@@ -23,6 +23,8 @@ import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
 import TraconLabelPopup, { HoverTracon } from "./Tracon_Layers/TraconLabelPopup";
 
 //TODO: mapboxgl tooltip arrow remove
+//TODO: Globe projection layer order issue.
+//TODO: Globe projection traffic not render when first load.
 interface BaseMapProps {
     children: React.ReactNode;
 }
@@ -142,8 +144,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
             dispatch(closeTrafficDetail());
             return;
         }
-        console.log("click", e);
-
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
 
@@ -152,7 +152,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
                     flight_plan: string | null
                 };
-                console.log("click on traffic", feature);
                 const trafficData: VatsimFlight = {
                     ...properties,
                     flight_plan: properties.flight_plan
@@ -212,8 +211,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         ? JSON.parse(properties.services) as Array<Service>
                         : []
                 };
-
-                console.log(controllerServiceData);
 
                 setHoveredController(controllerServiceData);
             }

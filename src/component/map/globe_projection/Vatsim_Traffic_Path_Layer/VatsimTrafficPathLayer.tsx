@@ -9,8 +9,6 @@ const VatsimTrafficPathLayer = () => {
 
     const { selectedTraffic } = useSelector((state: RootState) => state.vatsimMapTraffic);
 
-    console.log("Selected traffic:", selectedTraffic);
-
     const {
         data: trackData,
         error: trackError,
