@@ -20,7 +20,7 @@ import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
 import ControllerMarkerPopup from "./Controller_Markers_Layer/ControllerMarkerPopup";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
 import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
-import TraconLabelPopup, { HoverTracon } from "./Tracon_Layers/TraconLabelPopup";
+import TraconLabelPopup, { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
 
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
@@ -31,6 +31,8 @@ interface BaseMapProps {
 
 const BaseMap = ({ children }: BaseMapProps) => {
     const [cursor, setCursor] = useState<string>("grab");
+    const [isLoaded, setIsLoaded] = useState(false);
+    // const [isStyleLoaded, setIsStyleLoaded] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef<mapboxgl.Popup>();
     const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
@@ -83,13 +85,27 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [mapRef, mapProjection]);
 
-
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
         if (mapRef && mapRef?.current) {
             mapRef.current.resize();
         }
     }, [mapStyle, mapRef]);
+
+    // useEffect(() => {
+    //     if (map) {
+    //         const handleStyleData = () => {
+    //             console.log("style load");
+    //             setIsStyleLoaded(true);
+    //         };
+    //
+    //         map.on("styledata", handleStyleData);
+    //
+    //         return () => {
+    //             map.off("styledata", handleStyleData);
+    //         };
+    //     }
+    // }, [map]);
 
     useEffect(() => {
         if (map) {
@@ -238,7 +254,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             if (layerId === "tracon-icon-globe-layer") {
                 setCursor("pointer");
                 //TODO: Fix typescript issues for hovered tracon properties
-                const properties = feature.properties as Omit<HoverTracon, "controllers", "traconInfo"> & {
+                const properties = feature.properties as Omit<HoverTracon, HoverTraconControllers[], "controllers", "traconInfo"> & {
                     controllers: string | null;
                     traconInfo: string | null
                 };
@@ -279,6 +295,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
             <div
                 onContextMenu={evt => evt.preventDefault()}
             >
+                {
+                    !isLoaded && (
+                        <div>
+                            loading map...
+                        </div>
+                    )
+                }
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -308,36 +331,44 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
                     cursor={cursor}
+                    onLoad={() => {
+                        console.log("Map done loading.");
+                        setIsLoaded(true);
+                    }}
                 >
-                    {(hoveredTracon) &&
-                        <TraconLabelPopup hoverTracon={hoveredTracon}/>
-                    }
-                    {(hoveredFir) &&
-                        <FirLabelPopup hoverFir={hoveredFir}/>
-                    }
-                    {(showPopup && hoveredTraffic) &&
-                        <Popup
-                            closeButton={false}
-                            ref={popupRef}
-                            longitude={hoveredTraffic.info.longitude}
-                            latitude={hoveredTraffic.info.latitude}
-                            anchor="top-left"
-                            offset={-18}
-                        >
-                            <div>
-                                <HoveredTrafficTooltip info={hoveredTraffic.info}/>
-                            </div>
-                        </Popup>
-                    }
-                    {
-                        hoveredController &&
-                        <ControllerMarkerPopup hoverInfo={hoveredController}/>
-                    }
-                    <TogglePanel/>
-                    <TelemetryPanel/>
-                    <CustomNavigationController/>
-                    {AirportLayers}
-                    {children}
+                    {isLoaded && (
+                        <>
+                            {(hoveredTracon) &&
+                            <TraconLabelPopup hoverTracon={hoveredTracon}/>
+                            }
+                            {(hoveredFir) &&
+                            <FirLabelPopup hoverFir={hoveredFir}/>
+                            }
+                            {(showPopup && hoveredTraffic) &&
+                            <Popup
+                                closeButton={false}
+                                ref={popupRef}
+                                longitude={hoveredTraffic.info.longitude}
+                                latitude={hoveredTraffic.info.latitude}
+                                anchor="top-left"
+                                offset={-18}
+                            >
+                                <div>
+                                    <HoveredTrafficTooltip info={hoveredTraffic.info}/>
+                                </div>
+                            </Popup>
+                            }
+                            {
+                                hoveredController &&
+                                <ControllerMarkerPopup hoverInfo={hoveredController}/>
+                            }
+                            <TogglePanel/>
+                            <TelemetryPanel/>
+                            <CustomNavigationController/>
+                            {AirportLayers}
+                            {children}
+                        </>
+                    )}
                 </Map>
             </div>
         </MapProvider>

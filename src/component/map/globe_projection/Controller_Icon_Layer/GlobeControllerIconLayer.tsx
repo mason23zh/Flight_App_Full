@@ -192,6 +192,7 @@ const GlobeControllerIconLayer = ({
         >
             <Layer
                 id="controller-icon-globe-layer"
+                // beforeId="flight-path-layer-globe"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "icao"]],

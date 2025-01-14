@@ -96,6 +96,7 @@ const VatsimTrafficPathLayer = () => {
         >
             <Layer
                 id="flight-path-layer-globe"
+                // beforeId="vatsim-traffic-globe-layer"
                 type="line"
                 layout={{
                     "line-cap": "round",

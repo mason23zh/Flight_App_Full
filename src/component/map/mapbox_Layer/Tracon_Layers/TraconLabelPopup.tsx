@@ -5,7 +5,7 @@ import { useTheme } from "../../../../hooks/ThemeContext";
 import mapboxgl from "mapbox-gl";
 import useIsTouchScreen from "../../../../hooks/useIsTouchScreen";
 
-interface HoverTraconControllers {
+export interface HoverTraconControllers {
     callsign: string;
     name: string;
     frequency: string;

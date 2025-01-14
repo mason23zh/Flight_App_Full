@@ -175,23 +175,16 @@ const MainMap = () => {
                 <BaseMap key={mapProjection}>
                     <MapErrorMessageStack/>
                     {
-                        mapProjection === "globe" &&
-                        <GlobeFirIconLayer/>
-                    }
-                    {
-                        mapProjection === "globe" &&
-                        <GlobeTraconIconLayer/>
-                    }
-                    {
-                        mapProjection === "globe" &&
-                        <GlobeControllerIconLayer controllerData={controllerData}/>
-                    }
-                    {mapProjection === "globe" &&
-                        <VatsimTrafficLayer/>
-                    }
-                    {
-                        mapProjection === "globe" &&
-                        <VatsimTrafficPathLayer/>
+                        mapProjection === "globe" && (
+                            <>
+                                <GlobeFirIconLayer key="globeFirIconLayer"/>
+                                <GlobeTraconIconLayer key="globeTraconIconLayer"/>
+                                <GlobeControllerIconLayer controllerData={controllerData}
+                                    key="globeControllerIconLayer"/>
+                                <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
+                                <VatsimTrafficLayer key="vatsimTrafficLayer"/>
+                            </>
+                        )
                     }
                     <AtcLayer
                         controllerData={controllerData}

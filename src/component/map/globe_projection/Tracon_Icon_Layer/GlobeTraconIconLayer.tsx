@@ -169,6 +169,7 @@ const GlobeTraconIconLayer = () => {
         >
             <Layer
                 id="tracon-icon-globe-layer"
+                // beforeId="controller-icon-globe-layer"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueId"]],

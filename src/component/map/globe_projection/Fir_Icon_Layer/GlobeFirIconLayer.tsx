@@ -104,6 +104,7 @@ const GlobeFirIconLayer = () => {
         >
             <Layer
                 id="fir-icon-globe-layer"
+                // beforeId="tracon-icon-globe-layer"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueFirId"]],

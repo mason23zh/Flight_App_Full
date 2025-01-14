@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from "react";
-import _ from "lodash";
 import { RootState, useFetchVatsimPilotsDataQuery } from "../../../../store";
 import { Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
@@ -95,6 +94,7 @@ const VatsimTrafficLayer = () => {
             <Layer
                 interactive={true}
                 type="symbol"
+                beforeId="controller-icon-globe-layer" // this would cause error 
                 id="vatsim-traffic-globe-layer"
                 layout={{
                     "icon-image": "B38M",
