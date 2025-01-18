@@ -1,19 +1,37 @@
 import React, { useEffect, useMemo } from "react";
-import { RootState, useFetchVatsimPilotsDataQuery } from "../../../../store";
+import { RootState, setMapSearchSelectedAircraft, useFetchVatsimPilotsDataQuery } from "../../../../store";
 import { Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
 import { GeoJSON } from "geojson";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { db } from "../../../../database/db";
+import { useLiveQuery } from "dexie-react-hooks";
+import {
+    searchByAircraftType,
+    searchFlightsByAirports
+} from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 //TODO: refine onClick and onHover logic
 //TODO: map style change might not render traffic immediately sometimes.
 const VatsimTrafficLayer = () => {
+    const imageId = "B38M";
+    const dispatch = useDispatch();
     const { current: mapRef } = useMap();
     // mapStyles change will trigger re-render, mapRef won't change it map style changes.
     const {
         mapStyles,
         trafficLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const imageId = "B38M";
+
+    const {
+        filterAircraftOnMap: filterByAircraftType,
+        selectedAircraftCategory,
+    } = useSelector((state: RootState) => state.mapSearchAircraft);
+
+    const {
+        filterAircraftOnMap: filterByAirport,
+        selectedAirport,
+    } = useSelector((state: RootState) => state.mapSearchAirport);
+
 
     const {
         data: vatsimPilots,
@@ -22,12 +40,58 @@ const VatsimTrafficLayer = () => {
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
 
 
+    useEffect(() => {
+        let isMounted = true;
+
+        const syncTraffic = async () => {
+            if (vatsimPilots && !error && !isFetching && isMounted) {
+                try {
+                    await db.syncVatsimTraffic(vatsimPilots.data.pilots);
+                } catch (err) {
+                    if (isMounted) {
+                        console.log("Failed to import VATSIM traffic to db:", err);
+                    }
+                }
+            }
+        };
+
+        syncTraffic();
+
+        return () => {
+            isMounted = false;
+        };
+    }, [isFetching, vatsimPilots, error]);
+
+    const filteredResults = useLiveQuery(
+        async () => {
+            if (filterByAircraftType && selectedAircraftCategory) {
+                const results = await searchByAircraftType(selectedAircraftCategory);
+                dispatch(setMapSearchSelectedAircraft(results.flatMap(result => result.flights)));
+                return results.flatMap(result => result.flights);
+            } else if (filterByAirport && selectedAirport) {
+                return await searchFlightsByAirports(selectedAirport.ident);
+            }
+            return vatsimPilots?.data.pilots || [];
+        },
+        [
+            filterByAircraftType,
+            selectedAircraftCategory,
+            vatsimPilots,
+            filterByAirport,
+            selectedAirport
+        ],
+        []
+    );
+
+    const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
+
+
     const getJsonData: GeoJSON = useMemo(() => {
-        if (!vatsimPilots?.data?.pilots || isFetching || error) return null;
+        if (!memoizedVatsimPilotToDisplay || memoizedVatsimPilotToDisplay.length === 0 || !vatsimPilots?.data?.pilots || isFetching || error) return null;
 
         return {
             type: "FeatureCollection",
-            features: vatsimPilots.data.pilots.map((pilot) => ({
+            features: memoizedVatsimPilotToDisplay.map((pilot) => ({
                 type: "Feature",
                 geometry: {
                     type: "Point",
@@ -39,7 +103,7 @@ const VatsimTrafficLayer = () => {
                 }
             })),
         };
-    }, [vatsimPilots, mapStyles, isFetching, error]);
+    }, [memoizedVatsimPilotToDisplay, mapStyles, isFetching, error]);
 
 
     // Load aircraft image
@@ -49,6 +113,7 @@ const VatsimTrafficLayer = () => {
         const map = mapRef.getMap();
 
         const loadAircraftImage = () => {
+            console.log("Load aricraft image run.");
             if (!map.hasImage(imageId)) {
                 map.loadImage(B38M, (error, image) => {
                     if (error) {

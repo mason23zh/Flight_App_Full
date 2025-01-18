@@ -71,6 +71,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
+        // width: "100%",
         width: "100%",
         position: "absolute"
     });
@@ -335,6 +336,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         console.log("Map done loading.");
                         setIsLoaded(true);
                     }}
+                    onRender={(event) => event.target.resize()}
                 >
                     {isLoaded && (
                         <>
