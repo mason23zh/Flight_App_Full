@@ -10,6 +10,7 @@ import {
     searchByAircraftType,
     searchFlightsByAirports
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
+import { VatsimFlight } from "../../../../types";
 //TODO: refine onClick and onHover logic
 //TODO: map style change might not render traffic immediately sometimes.
 const VatsimTrafficLayer = () => {
@@ -62,7 +63,7 @@ const VatsimTrafficLayer = () => {
         };
     }, [isFetching, vatsimPilots, error]);
 
-    const filteredResults = useLiveQuery(
+    const filteredResults = useLiveQuery<VatsimFlight[], []>(
         async () => {
             if (filterByAircraftType && selectedAircraftCategory) {
                 const results = await searchByAircraftType(selectedAircraftCategory);
@@ -83,7 +84,9 @@ const VatsimTrafficLayer = () => {
         []
     );
 
-    const memoizedVatsimPilotToDisplay = useMemo(() => filteredResults, [filteredResults]);
+    const memoizedVatsimPilotToDisplay: VatsimFlight[] = useMemo(() => {
+        return filteredResults || [];
+    }, [filteredResults]);
 
 
     const getJsonData: GeoJSON = useMemo(() => {
@@ -113,7 +116,6 @@ const VatsimTrafficLayer = () => {
         const map = mapRef.getMap();
 
         const loadAircraftImage = () => {
-            console.log("Load aricraft image run.");
             if (!map.hasImage(imageId)) {
                 map.loadImage(B38M, (error, image) => {
                     if (error) {
