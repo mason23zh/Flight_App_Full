@@ -115,6 +115,7 @@ const VatsimTrafficLayer = () => {
 
         const map = mapRef.getMap();
 
+
         const loadAircraftImage = () => {
             if (!map.hasImage(imageId)) {
                 map.loadImage(B38M, (error, image) => {
@@ -133,6 +134,8 @@ const VatsimTrafficLayer = () => {
         loadAircraftImage();
 
         const onStyleData = () => {
+            // make sure controller icon is above traffic layer.
+            map.moveLayer("controller-icon-globe-layer", "vatsim-traffic-globe-layer");
             loadAircraftImage();
         };
 
@@ -161,7 +164,7 @@ const VatsimTrafficLayer = () => {
             <Layer
                 interactive={true}
                 type="symbol"
-                beforeId="controller-icon-globe-layer" // this would cause error 
+                // beforeId="controller-icon-globe-layer" // this would cause error
                 id="vatsim-traffic-globe-layer"
                 layout={{
                     "icon-image": "B38M",
