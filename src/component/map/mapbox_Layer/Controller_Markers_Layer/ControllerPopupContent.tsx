@@ -32,6 +32,21 @@ const ControllerPopupContent = ({
     const darkMode = useTheme();
     const freqThemeColor = darkMode ? "text-green-400" : "text-blue-600";
 
+    const extractAtisCode = (textAtis: string[]): string | null => {
+        if (!textAtis || textAtis.length === 0) return null;
+
+        const regex = /\b(INFORMATION|INFO)\s+([A-Z])\b/i;
+
+        for (const line of textAtis) {
+            const match = line.match(regex);
+            if (match) {
+                return match[2];
+            }
+        }
+
+        return null;
+    };
+
     const renderedService = (serviceData: Service, serviceType: string) => {
         let serviceIcon;
         if (serviceType === "GND") {
@@ -56,13 +71,18 @@ const ControllerPopupContent = ({
                 </div>
             );
         } else if (serviceType === "ATIS") {
+            let atisCode = serviceData.atis_code;
+
+            if (!atisCode || atisCode.length === 0) {
+                atisCode = extractAtisCode(serviceData.text_atis);
+            }
             serviceIcon = (
                 <div className="grid grid-cols-1 justify-center items-center">
                     <div className="bg-yellow-600 text-white p-1 w-[40px] text-center ">
                         ATIS
                     </div>
                     <div className="p-1 bg-gray-600 text-white w-[40px] text-center">
-                        {serviceData.atis_code}
+                        {atisCode ?? "-"}
                     </div>
                 </div>
             );

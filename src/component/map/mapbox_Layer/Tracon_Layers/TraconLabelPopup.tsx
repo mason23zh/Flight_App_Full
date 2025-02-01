@@ -27,7 +27,6 @@ interface TraconLabelPopupProps {
 }
 
 const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
-    console.log("hover tracon:", hoverTracon);
     if (!hoverTracon) return null;
 
     const darkMode = useTheme();
