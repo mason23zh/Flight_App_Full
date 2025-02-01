@@ -1,9 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { generateControllerMarkerIconWithIcao } from "../../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Layer, Source, useMap } from "react-map-gl";
 import { AirportService, VatsimControllers } from "../../../../types";
-import { GeoJSON } from "geojson";
 import _ from "lodash";
+import { GeoJSONSource } from "react-map-gl";
+
+interface AirportServiceWithTypeArray extends AirportService {
+    serviceTypeArray: string[];
+}
 
 const facilities = [
     {
@@ -59,17 +63,17 @@ const GlobeControllerIconLayer = ({
     const diffControllers = (newData: Array<AirportService>, oldData: Array<AirportService>) => {
         const createKey = (service: AirportService) => service.icao;
 
-        console.log("old data:", oldData);
-        console.log("new data:", newData);
         // Convert to maps for quick comparison, keeping the original structure
-        const toKeyedMap = (data: Array<AirportService>) =>
+        const toKeyedMap = (data: Array<AirportService>): Map<string, AirportServiceWithTypeArray> =>
             new Map(
                 data.map(service => [
                     createKey(service),
                     {
                         ...service,
-                        services: service.services.map(svc => svc.serviceType)
-                            .sort(), // Sort serviceTypes for comparison
+                        serviceTypeArray: Array.from(
+                            new Set(service.services.map(svc => svc.serviceType))
+                        )
+                            .sort(), // Sort serviceTypes for comparison and remove duplicate
                     },
                 ])
             );
@@ -77,9 +81,9 @@ const GlobeControllerIconLayer = ({
         const newMap = toKeyedMap(newData);
         const oldMap = toKeyedMap(oldData);
 
-        const added: Array<AirportService> = [];
-        const updated: Array<AirportService> = [];
-        const removed: Array<AirportService> = [];
+        const added: Array<AirportServiceWithTypeArray> = [];
+        const updated: Array<AirportServiceWithTypeArray> = [];
+        const removed: Array<AirportServiceWithTypeArray> = [];
 
         for (const [key, newService] of newMap) {
             if (!oldMap.has(key)) {
@@ -87,10 +91,9 @@ const GlobeControllerIconLayer = ({
                 added.push(newService);
             } else {
                 const oldService = oldMap.get(key);
-                console.log("new service:", newService);
-                console.log("old service:", oldService);
-                // console.log("services update:", newService.services, oldService?.services);
-                if (!_.isEqual(newService.services, oldService?.services)) {
+                // console.log("new service:", newService);
+                // console.log("old service:", oldService);
+                if (!_.isEqual(newService.serviceTypeArray, oldService?.serviceTypeArray)) {
                     // Updated service
                     updated.push(newService);
                 }
@@ -106,13 +109,17 @@ const GlobeControllerIconLayer = ({
 
         // Restore the original `AirportService` structure in the return
         const restoreOriginalServices = (
-            flatServices: Array<AirportService>,
+            flatServices: Array<AirportServiceWithTypeArray>,
             sourceMap: Map<string, AirportService>
-        ): Array<AirportService> =>
-            flatServices.map(flatService => ({
-                ...sourceMap.get(flatService.icao)!,
-                services: sourceMap.get(flatService.icao)!.services,
-            }));
+        ): Array<AirportServiceWithTypeArray> =>
+            flatServices.map(flatService => {
+                const originalService = sourceMap.get(flatService.icao)!;
+                return {
+                    ...originalService,
+                    services: originalService.services, // restore original services
+                    serviceTypeArray: flatService.serviceTypeArray, // with new serviceTypeArray to be used to draw icao
+                };
+            });
 
         return {
             added: restoreOriginalServices(added, newMap),
@@ -180,25 +187,10 @@ const GlobeControllerIconLayer = ({
             removed
         } = diffControllers(combinedData, controllerCache);
 
-        console.log("Diff controller added:", added.length);
-        console.log("Diff controller updated:", updated.length);
-        console.log("Diff controller removed:", removed.length);
+        // console.log("Diff controller added:", added.length);
+        // console.log("Diff controller updated:", updated.length);
+        // console.log("Diff controller removed:", removed.length);
 
-        // controllerCache.forEach((airport) => {
-        //     const iconId = `${imagePrefix}${airport.icao}`;
-        //     if (!map.hasImage(iconId)) {
-        //         console.log(`Re-adding missing icon: ${iconId}`);
-        //         const iconUrl = generateControllerMarkerIconWithIcao(airport.icao, airport.services);
-        //         const image = new Image();
-        //         image.onload = () => {
-        //             if (!map.hasImage(iconId)) {
-        //                 map.addImage(iconId, image, { sdf: false });
-        //                 loadedIconsRef.current.add(iconId);  // Ensure persistence
-        //             }
-        //         };
-        //         image.src = iconUrl;
-        //     }
-        // });
 
         // add or update icons
         [...added, ...updated].forEach((
@@ -206,23 +198,23 @@ const GlobeControllerIconLayer = ({
         ) => {
             const icao = airport.icao;
             const iconId = `${imagePrefix}${icao}`;
-            const iconUrl = generateControllerMarkerIconWithIcao(icao, airport.services);
+            const iconUrl = generateControllerMarkerIconWithIcao(icao, airport.serviceTypeArray);
 
             if (!map.hasImage(iconId) && !loadedIconsRef.current.has(iconId)) {
                 const image = new Image();
                 image.onload = () => {
                     if (!map.hasImage(iconId)) {
-                        console.log("no image:", iconId);
+                        // console.log("no image:", iconId);
                         map.addImage(iconId, image, { sdf: false });
                         loadedIconsRef.current.add(iconId);
                     }
                 };
                 image.onerror = () => {
-                    console.log("Error loading image ");
+                    console.error("Error loading image ");
                 };
                 image.src = iconUrl;
             } else {
-                console.log("image exists:", iconId);
+                // console.log("image exists:", iconId);
                 // Update existing icons
                 const image = new Image();
                 image.onload = () => map.updateImage(iconId, image);
@@ -233,7 +225,7 @@ const GlobeControllerIconLayer = ({
         removed.forEach((airport) => {
             const iconId = `${imagePrefix}${airport.icao}`;
             if (map.hasImage(iconId)) {
-                console.log("remove image:", iconId);
+                // console.log("remove image:", iconId);
                 map.removeImage(iconId);
                 loadedIconsRef.current.delete(iconId);
             }
@@ -242,7 +234,7 @@ const GlobeControllerIconLayer = ({
         // Update cache
         setControllerCache(combinedData);
 
-        const newGeoJson = {
+        const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
             features: combinedData.map((service) => ({
                 type: "Feature",
@@ -256,64 +248,28 @@ const GlobeControllerIconLayer = ({
                 properties: {
                     ...service,
                     services: JSON.stringify(service.services)
+                    // services: service.services,
                 },
             })),
         };
 
-        const source = map.getSource("controller-icon-layer-source-globe");
+        const source: GeoJSONSource = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
         if (source) {
             source.setData(newGeoJson);
         }
 
         // Cleanup
-        // return () => {
-        //     try {
-        //         // const currentData = cachedControllersRef.current;
-        //         const currentData = controllerCache;
-        //         currentData.forEach(({ icao }) => {
-        //             const iconId = `${imagePrefix}${icao}`;
-        //             if (map.hasImage(iconId)) {
-        //                 console.log("clean up remove image:", iconId);
-        //                 map.removeImage(iconId);
-        //             }
-        //         });
-        //         // cachedControllersRef.current = []; // Clear cache
-        //     } catch (e) {
-        //         console.error("Error cleaning up controller icons:", e);
-        //     }
-        // };
-
+        return () => {
+            removed.forEach(({ icao }) => {
+                const iconId = `${imagePrefix}${icao}`;
+                if (map.hasImage(iconId)) {
+                    console.log("Cleaning up removed image:", iconId);
+                    map.removeImage(iconId);
+                }
+            });
+        };
     }, [controllerData, mapRef, facilities]);
 
-
-    // const geoJsonData = useMemo(() => {
-    //     // if (!controllerData || !facilities || cachedControllersRef.current.length === 0) return null;
-    //     if (!controllerCache.length) return null;
-    //
-    //     return {
-    //         type: "FeatureCollection",
-    //         features: controllerCache.map((service) => {
-    //             return {
-    //                 type: "Feature",
-    //                 geometry: {
-    //                     type: "Point",
-    //                     coordinates: [
-    //                         Number(service.coordinates[0]),
-    //                         Number(service.coordinates[1])
-    //                     ],
-    //                 },
-    //                 properties: {
-    //                     ...service,
-    //                     // icao: service.icao,
-    //                     // airportName: service.airportName,
-    //                     services: JSON.stringify(service.services)
-    //                 },
-    //             };
-    //         }),
-    //     } as GeoJSON;
-    // }, [controllerCache]);
-
-    // if (!geoJsonData) return null;
 
     return (
         <Source
