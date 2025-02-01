@@ -42,7 +42,13 @@ const GlobeTraconIconLayer = () => {
             coordinates: tracon.edgeCoordinates,
             iconId: `${imagePrefix}${tracon.controllers[0].cid}`,
             isFallback: true,
-            originalData: tracon
+            originalData: {
+                ...tracon,
+                traconInfo: {
+                    coordinates: tracon.edgeCoordinates,
+                    name: tracon.controllers[0].airport.name + " " + "APP/DEP",
+                }
+            }
         }));
 
         return [...matchedFeatures, ...fallbackFeatures];
