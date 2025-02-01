@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import { RootState, setMapSearchSelectedAircraft, useFetchVatsimPilotsDataQuery } from "../../../../store";
-import { Layer, Source, useMap } from "react-map-gl";
+import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
 import { GeoJSON } from "geojson";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,7 @@ const VatsimTrafficLayer = () => {
                     await db.syncVatsimTraffic(vatsimPilots.data.pilots);
                 } catch (err) {
                     if (isMounted) {
-                        console.log("Failed to import VATSIM traffic to db:", err);
+                        console.error("Failed to import VATSIM traffic to db:", err);
                     }
                 }
             }
@@ -109,6 +109,18 @@ const VatsimTrafficLayer = () => {
     }, [memoizedVatsimPilotToDisplay, mapStyles, isFetching, error]);
 
 
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        if (!getJsonData) return;
+
+        const source = map.getSource("vatsim-traffic-globe") as GeoJSONSource;
+        if (source) {
+            source.setData(getJsonData);
+        }
+    }, [getJsonData, mapRef]);
+
     // Load aircraft image
     useEffect(() => {
         if (!mapRef?.getMap) return;
@@ -159,7 +171,11 @@ const VatsimTrafficLayer = () => {
         <Source
             type="geojson"
             id="vatsim-traffic-globe"
-            data={getJsonData}
+            // data={getJsonData}
+            data={{
+                type: "FeatureCollection",
+                features: []
+            }}
         >
             <Layer
                 interactive={true}

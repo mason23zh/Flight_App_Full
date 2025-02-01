@@ -4,7 +4,6 @@ import { RootState } from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
 import generateTraconIcon from "../../mapbox_Layer/util/generateTraconIcon";
-import _ from "lodash";
 
 interface TraconFeature {
     uniqueId: string;
