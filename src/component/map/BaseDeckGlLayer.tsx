@@ -64,7 +64,7 @@ const BaseDeckGlLayer = ({
                     await db.syncVatsimTraffic(vatsimPilots.data.pilots);
                 } catch (err) {
                     if (isMounted) {
-                        console.log("Failed to import VATSIM traffic to db:", err);
+                        console.error("Failed to import VATSIM traffic to db:", err);
                     }
                 }
             }

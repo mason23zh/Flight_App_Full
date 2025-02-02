@@ -106,9 +106,9 @@ const GlobeTraconIconLayer = () => {
         } = diffTracons(combineData, previousTraconsRef.current);
 
 
-        console.log("Diff Tracon Added:", added.length);
-        console.log("Diff Tracon Updated:", updated.length);
-        console.log("Diff Tracon Removed:", removed.length);
+        // console.log("Diff Tracon Added:", added.length);
+        // console.log("Diff Tracon Updated:", updated.length);
+        // console.log("Diff Tracon Removed:", removed.length);
 
         [...added, ...updated].forEach((tracon) => {
             const iconUrl = generateTraconIcon(

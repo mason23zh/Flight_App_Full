@@ -263,7 +263,7 @@ const GlobeControllerIconLayer = ({
             removed.forEach(({ icao }) => {
                 const iconId = `${imagePrefix}${icao}`;
                 if (map.hasImage(iconId)) {
-                    console.log("Cleaning up removed image:", iconId);
+                    // console.log("Cleaning up removed image:", iconId);
                     map.removeImage(iconId);
                 }
             });

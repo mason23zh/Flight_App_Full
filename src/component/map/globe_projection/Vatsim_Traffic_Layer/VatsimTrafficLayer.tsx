@@ -13,6 +13,7 @@ import {
 import { VatsimFlight } from "../../../../types";
 //TODO: refine onClick and onHover logic
 //TODO: map style change might not render traffic immediately sometimes.
+//TODO: traffic not shown upon click "show traffic" button.
 const VatsimTrafficLayer = () => {
     const imageId = "B38M";
     const dispatch = useDispatch();
