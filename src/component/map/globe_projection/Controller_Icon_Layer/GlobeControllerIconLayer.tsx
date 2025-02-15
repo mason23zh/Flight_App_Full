@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { generateControllerMarkerIconWithIcao } from "../../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Layer, Source, useMap } from "react-map-gl";
 import { AirportService, VatsimControllers } from "../../../../types";
 import _ from "lodash";
 import { GeoJSONSource } from "react-map-gl";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store";
 
 interface AirportServiceWithTypeArray extends AirportService {
     serviceTypeArray: string[];
@@ -51,9 +53,14 @@ interface Props {
     controllerData: VatsimControllers;
 }
 
+//TODO: map feature persistence issue, switching map style will remove the features
+//Check example: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+//This need to be applied to all features that using setData() function.
+
 const GlobeControllerIconLayer = ({
     controllerData,
 }: Props) => {
+    const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [controllerCache, setControllerCache] = useState<Array<AirportService>>([]);
     const loadedIconsRef = useRef(new Set<string>());
 
@@ -61,6 +68,8 @@ const GlobeControllerIconLayer = ({
     const imagePrefix = "controller-icon-";
 
     const diffControllers = (newData: Array<AirportService>, oldData: Array<AirportService>) => {
+        console.log("new data:", newData);
+        console.log("old data:", oldData);
         const createKey = (service: AirportService) => service.icao;
 
         // Convert to maps for quick comparison, keeping the original structure
@@ -167,35 +176,52 @@ const GlobeControllerIconLayer = ({
         return Object.values(combinedData);
     };
 
+    // refactor stars here
+    const processControllers = useCallback(() => {
+        if (!controllerData || !mapRef?.getMap) {
+            return {
+                combinedData: [],
+                added: [],
+                updated: [],
+                removed: []
+            };
+        }
 
-    useEffect(() => {
-        if (!mapRef?.getMap || !controllerData) return;
-        const map = mapRef.getMap();
-
-        // combine controller and ATIS data
+        // const map = mapRef.getMap();
         const combinedData = combineAirportServices(
             controllerData?.other.controllers || [],
             controllerData?.other.atis || [],
             facilities || []
         );
 
+        let oldData = controllerCache;
+        if (controllerCache.length === 0) {
+            oldData = [];
+        }
 
-        // run diffCtl before updating the cache
         const {
             added,
             updated,
             removed
-        } = diffControllers(combinedData, controllerCache);
+        } = diffControllers(combinedData, oldData);
+        console.log("Diff Controllers - Added:", added.length, "Updated:", updated.length, "Removed:", removed.length);
 
-        // console.log("Diff controller added:", added.length);
-        // console.log("Diff controller updated:", updated.length);
-        // console.log("Diff controller removed:", removed.length);
+        return {
+            combinedData,
+            added,
+            updated,
+            removed
+        };
+    }, [controllerData, controllerCache, mapRef]);
 
+    //load controller icons
+    const loadIcons = useCallback((added, updated) => {
+        if (!added.length && !updated.length) return;
 
-        // add or update icons
-        [...added, ...updated].forEach((
-            airport
-        ) => {
+        const map = mapRef?.getMap();
+        if (!map) return;
+
+        [...added, ...updated].forEach((airport) => {
             const icao = airport.icao;
             const iconId = `${imagePrefix}${icao}`;
             const iconUrl = generateControllerMarkerIconWithIcao(icao, airport.serviceTypeArray);
@@ -204,35 +230,36 @@ const GlobeControllerIconLayer = ({
                 const image = new Image();
                 image.onload = () => {
                     if (!map.hasImage(iconId)) {
-                        // console.log("no image:", iconId);
                         map.addImage(iconId, image, { sdf: false });
                         loadedIconsRef.current.add(iconId);
                     }
                 };
-                image.onerror = () => {
-                    console.error("Error loading image ");
-                };
-                image.src = iconUrl;
-            } else {
-                // console.log("image exists:", iconId);
-                // Update existing icons
-                const image = new Image();
-                image.onload = () => map.updateImage(iconId, image);
                 image.src = iconUrl;
             }
         });
+
+    }, [mapRef]);
+
+    // remove old controllers
+    const removeIcons = useCallback((removed) => {
+        if (!removed.length) return;
+
+        const map = mapRef?.getMap();
+        if (!map) return;
 
         removed.forEach((airport) => {
             const iconId = `${imagePrefix}${airport.icao}`;
             if (map.hasImage(iconId)) {
-                // console.log("remove image:", iconId);
                 map.removeImage(iconId);
                 loadedIconsRef.current.delete(iconId);
             }
         });
+    }, [mapRef]);
 
-        // Update cache
-        setControllerCache(combinedData);
+    //update json
+    const updateGeoJson = useCallback((combinedData) => {
+        const map = mapRef?.getMap();
+        if (!map) return;
 
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
@@ -247,28 +274,228 @@ const GlobeControllerIconLayer = ({
                 },
                 properties: {
                     ...service,
-                    services: JSON.stringify(service.services)
-                    // services: service.services,
+                    services: JSON.stringify(service.services),
                 },
             })),
         };
 
-        const source: GeoJSONSource = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+        let source = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+
+        if (!source) {
+            console.log("Source missing after style change! Re-adding it...");
+            map.addSource("controller-icon-layer-source-globe", {
+                type: "geojson",
+                data: newGeoJson
+            });
+
+            map.addLayer({
+                id: "controller-icon-globe-layer",
+                type: "symbol",
+                source: "controller-icon-layer-source-globe",
+                layout: {
+                    "icon-image": ["concat", imagePrefix, ["get", "icao"]],
+                    "icon-size": 0.5,
+                    "icon-allow-overlap": true,
+                },
+            });
+
+            source = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+        }
+
         if (source) {
             source.setData(newGeoJson);
         }
+    }, [mapRef]);
 
-        // Cleanup
-        return () => {
-            removed.forEach(({ icao }) => {
-                const iconId = `${imagePrefix}${icao}`;
-                if (map.hasImage(iconId)) {
-                    // console.log("Cleaning up removed image:", iconId);
-                    map.removeImage(iconId);
-                }
-            });
+
+    //useEffect #1: process controllers on data change
+    useEffect(() => {
+        if (!controllerData) return;
+        const {
+            combinedData,
+            added,
+            updated,
+            removed
+        } = processControllers();
+        loadIcons(added, updated);
+        removeIcons(removed);
+        updateGeoJson(combinedData);
+    }, [controllerData, processControllers, loadIcons, removeIcons, updateGeoJson]);
+
+    //useEffect #2: restore icons && source is map style change
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const handleStyleLoad = () => {
+            console.log("Map style changed! Reprocessing all controllers...");
+            loadedIconsRef.current.clear();
+            // Clear cache and force reprocessing
+            setControllerCache([]);
+
+            // Fully reprocess controllers and restore icons
+            const {
+                combinedData,
+                added,
+                updated,
+                removed
+            } = processControllers();
+            loadIcons(added, updated);
+            removeIcons(removed);
+            updateGeoJson(combinedData);
         };
-    }, [controllerData, mapRef, facilities]);
+
+        map.on("style.load", handleStyleLoad);
+        return () => {
+            map.off("style.load", handleStyleLoad);
+        };
+    }, [mapStyles, mapRef, processControllers, loadIcons, removeIcons, updateGeoJson]);
+
+
+    // useEffect(() => {
+    //     if (!mapRef?.getMap || !controllerData) return;
+    //     const map = mapRef.getMap();
+    //
+    //     // combine controller and ATIS data
+    //     const combinedData = combineAirportServices(
+    //         controllerData?.other.controllers || [],
+    //         controllerData?.other.atis || [],
+    //         facilities || []
+    //     );
+    //
+    //
+    //     // run diffCtl before updating the cache
+    //     const {
+    //         added,
+    //         updated,
+    //         removed
+    //     } = diffControllers(combinedData, controllerCache);
+    //
+    //     console.log("Diff controller added:", added.length);
+    //     console.log("Diff controller updated:", updated.length);
+    //     console.log("Diff controller removed:", removed.length);
+    //
+    //
+    //     // add or update icons
+    //     const restoreIcons = () => {
+    //         [...added, ...updated].forEach((
+    //             airport
+    //         ) => {
+    //             const icao = airport.icao;
+    //             const iconId = `${imagePrefix}${icao}`;
+    //             const iconUrl = generateControllerMarkerIconWithIcao(icao, airport.serviceTypeArray);
+    //
+    //             if (!map.hasImage(iconId) && !loadedIconsRef.current.has(iconId)) {
+    //                 const image = new Image();
+    //                 image.onload = () => {
+    //                     if (!map.hasImage(iconId)) {
+    //                         // console.log("no image:", iconId);
+    //                         map.addImage(iconId, image, { sdf: false });
+    //                         loadedIconsRef.current.add(iconId);
+    //                     }
+    //                 };
+    //                 image.onerror = () => {
+    //                     console.error("Error loading image ");
+    //                 };
+    //                 image.src = iconUrl;
+    //             }
+    //         });
+    //     };
+    //
+    //     restoreIcons();
+    //
+    //     removed.forEach((airport) => {
+    //         const iconId = `${imagePrefix}${airport.icao}`;
+    //         if (map.hasImage(iconId)) {
+    //             // console.log("remove image:", iconId);
+    //             map.removeImage(iconId);
+    //             loadedIconsRef.current.delete(iconId);
+    //         }
+    //     });
+    //
+    //     // Update cache
+    //     setControllerCache(combinedData);
+    //
+    //     const newGeoJson: GeoJSON.FeatureCollection = {
+    //         type: "FeatureCollection",
+    //         features: combinedData.map((service) => ({
+    //             type: "Feature",
+    //             geometry: {
+    //                 type: "Point",
+    //                 coordinates: [
+    //                     Number(service.coordinates[0]),
+    //                     Number(service.coordinates[1])
+    //                 ],
+    //             },
+    //             properties: {
+    //                 ...service,
+    //                 services: JSON.stringify(service.services)
+    //                 // services: service.services,
+    //             },
+    //         })),
+    //     };
+    //
+    //     const updateGeoJson = () => {
+    //         let source: GeoJSONSource = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+    //         if (!source) {
+    //             console.log("map source removed, add source");
+    //             map.addSource("controller-icon-layer-source-globe", {
+    //                 type: "geojson",
+    //                 data: newGeoJson
+    //             });
+    //
+    //             console.log("add layer");
+    //             map.addLayer({
+    //                 id: "controller-icon-globe-layer",
+    //                 type: "symbol",
+    //                 layout: {
+    //                     "icon-image": ["concat", imagePrefix, ["get", "icao"]],
+    //                     "icon-size": 0.5,
+    //                     "icon-allow-overlap": true,
+    //                 }
+    //             });
+    //
+    //             source = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+    //         }
+    //         console.log("source:", source);
+    //         console.log("new geojson:", newGeoJson);
+    //         if (source) {
+    //             source.setData(newGeoJson);
+    //         }
+    //     };
+    //
+    //     updateGeoJson();
+    //
+    //     const onStyleLoad = () => {
+    //         console.log("Map style change, restore icons.");
+    //         setControllerCache([]);
+    //         restoreIcons();
+    //         updateGeoJson();
+    //     };
+    //
+    //     map.on("style.load", () => {
+    //         onStyleLoad();
+    //     });
+    //
+    //     // const source: GeoJSONSource = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+    //     // if (source) {
+    //     //     source.setData(newGeoJson);
+    //     // }
+    //
+    //     // Cleanup
+    //     return () => {
+    //         map.off("style.load", onStyleLoad);
+    //     };
+    //     // return () => {
+    //     //     removed.forEach(({ icao }) => {
+    //     //         const iconId = `${imagePrefix}${icao}`;
+    //     //         if (map.hasImage(iconId)) {
+    //     //             // console.log("Cleaning up removed image:", iconId);
+    //     //             map.removeImage(iconId);
+    //     //         }
+    //     //     });
+    //     // };
+    // }, [controllerData, mapRef, facilities, mapStyles]);
 
 
     return (

@@ -165,7 +165,7 @@ const VatsimTrafficLayer = () => {
         };
     }, [mapStyles, mapRef]); //use mapStyles here to trigger re-render
 
-    if (isFetching || error || !getJsonData || !trafficLayerVisible) return null;
+    // if (isFetching || error || !getJsonData || !trafficLayerVisible) return null;
 
 
     return (
