@@ -7,6 +7,7 @@ import { GeoJSONSource } from "react-map-gl";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_CONTROLLER_ICON_SOURCE_ID } from "../layerSourceName";
+import mapboxgl from "mapbox-gl";
 
 interface AirportServiceWithTypeArray extends AirportService {
     serviceTypeArray: string[];
@@ -213,11 +214,8 @@ const GlobeControllerIconLayer = ({
     }, [controllerData, controllerCache, mapRef]);
 
     //load controller icons
-    const loadIcons = useCallback((added, updated) => {
+    const loadIcons = useCallback((map: mapboxgl.Map, added: AirportServiceWithTypeArray[], updated: AirportServiceWithTypeArray[]) => {
         if (!added.length && !updated.length) return;
-
-        const map = mapRef?.getMap();
-        if (!map) return;
 
         [...added, ...updated].forEach((airport) => {
             const icao = airport.icao;
@@ -239,11 +237,8 @@ const GlobeControllerIconLayer = ({
     }, [mapRef]);
 
     // remove old controllers
-    const removeIcons = useCallback((removed) => {
+    const removeIcons = useCallback((map: mapboxgl.Map, removed: AirportServiceWithTypeArray[]) => {
         if (!removed.length) return;
-
-        const map = mapRef?.getMap();
-        if (!map) return;
 
         removed.forEach((airport) => {
             const iconId = `${imagePrefix}${airport.icao}`;
@@ -255,10 +250,7 @@ const GlobeControllerIconLayer = ({
     }, [mapRef]);
 
     //update json
-    const updateGeoJson = useCallback((combinedData) => {
-        const map = mapRef?.getMap();
-        if (!map) return;
-
+    const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: AirportService[]) => {
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
             features: combinedData.map((service) => ({
@@ -308,16 +300,18 @@ const GlobeControllerIconLayer = ({
 
     //useEffect #1: process controllers on data change
     useEffect(() => {
-        if (!controllerData) return;
+        if (!controllerData || !mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
         const {
             combinedData,
             added,
             updated,
             removed
         } = processControllers();
-        loadIcons(added, updated);
-        removeIcons(removed);
-        updateGeoJson(combinedData);
+        loadIcons(map, added, updated);
+        removeIcons(map, removed);
+        updateGeoJson(map, combinedData);
     }, [controllerData, processControllers, loadIcons, removeIcons, updateGeoJson]);
 
     //useEffect #2: restore icons && source is map style change
@@ -338,9 +332,9 @@ const GlobeControllerIconLayer = ({
                 updated,
                 removed
             } = processControllers();
-            loadIcons(added, updated);
-            removeIcons(removed);
-            updateGeoJson(combinedData);
+            loadIcons(map, added, updated);
+            removeIcons(map, removed);
+            updateGeoJson(map, combinedData);
         };
 
         map.on("style.load", handleStyleLoad);

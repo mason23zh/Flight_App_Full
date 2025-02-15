@@ -99,9 +99,6 @@ const GlobeTraconIconLayer = () => {
 
     //function to load icons
     const loadIcons = (map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
-        // if (!mapRef?.getMap) return;
-        // const map = mapRef.getMap();
-
         [...added, ...updated].forEach((tracon) => {
             const iconUrl = generateTraconIcon(
                 tracon.originalData.controllers[0].callsign.slice(0, -4)
@@ -121,9 +118,6 @@ const GlobeTraconIconLayer = () => {
     };
 
     const removeIcons = (map: mapboxgl.Map, removed: TraconFeature[]) => {
-        // if (!mapRef?.getMap) return;
-        // const map = mapRef.getMap();
-
         removed.forEach((tracon) => {
             if (map.hasImage(tracon.iconId)) {
                 map.removeImage(tracon.iconId);
@@ -133,9 +127,6 @@ const GlobeTraconIconLayer = () => {
     };
 
     const updateGeoJson = (map: mapboxgl.Map, combineData: TraconFeature[]) => {
-        // if (!mapRef?.getMap) return;
-        // const map = mapRef.getMap();
-
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
             features: combineData.map((tracon) => ({
