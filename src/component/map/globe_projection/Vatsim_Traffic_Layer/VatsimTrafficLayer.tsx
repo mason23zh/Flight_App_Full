@@ -23,7 +23,6 @@ const VatsimTrafficLayer = () => {
     const imageId = "B38M";
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    // mapStyles change will trigger re-render, mapRef won't change it map style changes.
     const {
         mapStyles,
         trafficLayerVisible
