@@ -4,6 +4,11 @@ import { RootState } from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
 import generateTraconIcon from "../../mapbox_Layer/util/generateTraconIcon";
+import {
+    GLOBE_TRACON_ICON_LAYER_ID,
+    GLOBE_TRACON_ICON_SOURCE_ID,
+} from "../layerSourceName";
+import mapboxgl from "mapbox-gl";
 
 interface TraconFeature {
     uniqueId: string;
@@ -17,6 +22,7 @@ interface TraconFeature {
 const GlobeTraconIconLayer = () => {
     const { current: mapRef } = useMap();
     const previousTraconsRef = useRef<TraconFeature[]>([]);
+    const loadedIconsRef = useRef(new Set<string>());
     const imagePrefix = "tracon-icon-";
     const {
         matchedFallbackTracons,
@@ -91,24 +97,10 @@ const GlobeTraconIconLayer = () => {
         };
     };
 
-
-    useEffect(() => {
-        if (!mapRef?.getMap || isTraconLoading || isTraconError) return;
-        const map = mapRef.getMap();
-
-        //combine both fallback and matchedTracon to a normalized structure
-        const combineData = normalizeTracons(matchedTracons, matchedFallbackTracons);
-
-        const {
-            added,
-            updated,
-            removed
-        } = diffTracons(combineData, previousTraconsRef.current);
-
-
-        // console.log("Diff Tracon Added:", added.length);
-        // console.log("Diff Tracon Updated:", updated.length);
-        // console.log("Diff Tracon Removed:", removed.length);
+    //function to load icons
+    const loadIcons = (map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
+        // if (!mapRef?.getMap) return;
+        // const map = mapRef.getMap();
 
         [...added, ...updated].forEach((tracon) => {
             const iconUrl = generateTraconIcon(
@@ -120,18 +112,29 @@ const GlobeTraconIconLayer = () => {
                 image.onload = () => {
                     if (!map.hasImage(tracon.iconId)) {
                         map.addImage(tracon.iconId, image, { sdf: false });
+                        loadedIconsRef.current.add(tracon.iconId);
                     }
                 };
                 image.src = iconUrl;
             }
         });
+    };
+
+    const removeIcons = (map: mapboxgl.Map, removed: TraconFeature[]) => {
+        // if (!mapRef?.getMap) return;
+        // const map = mapRef.getMap();
 
         removed.forEach((tracon) => {
             if (map.hasImage(tracon.iconId)) {
                 map.removeImage(tracon.iconId);
+                loadedIconsRef.current.delete(tracon.iconId);
             }
         });
+    };
 
+    const updateGeoJson = (map: mapboxgl.Map, combineData: TraconFeature[]) => {
+        // if (!mapRef?.getMap) return;
+        // const map = mapRef.getMap();
 
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
@@ -149,28 +152,80 @@ const GlobeTraconIconLayer = () => {
             }))
         };
 
-        const source: GeoJSONSource = map.getSource("tracon-icon-layer-source-globe") as GeoJSONSource;
+        let source = map.getSource(GLOBE_TRACON_ICON_SOURCE_ID) as GeoJSONSource;
+
+        if (!source) {
+            map.addSource(GLOBE_TRACON_ICON_SOURCE_ID, {
+                type: "geojson",
+                data: newGeoJson
+            });
+
+            map.addLayer({
+                id: GLOBE_TRACON_ICON_LAYER_ID,
+                type: "symbol",
+                source: GLOBE_TRACON_ICON_SOURCE_ID,
+                layout: {
+                    "icon-image": ["concat", imagePrefix, ["get", "uniqueId"]],
+                    "icon-size": 0.4,
+                    "icon-allow-overlap": true,
+                },
+            });
+
+            source = map.getSource(GLOBE_TRACON_ICON_SOURCE_ID) as GeoJSONSource;
+        }
+
         if (source) {
             source.setData(newGeoJson);
         }
+    };
+
+    useEffect(() => {
+        if (!mapRef?.getMap || isTraconLoading || isTraconError) return;
+        const map = mapRef.getMap();
+
+        const combineData = normalizeTracons(matchedTracons, matchedFallbackTracons);
+        const {
+            added,
+            updated,
+            removed
+        } = diffTracons(combineData, previousTraconsRef.current);
+
+        loadIcons(map, added, updated);
+        removeIcons(map, removed);
+        updateGeoJson(map, combineData);
 
         previousTraconsRef.current = combineData;
 
         return () => {
-            removed.forEach((tracon) => {
-                if (map.hasImage(tracon.iconId)) {
-                    map.removeImage(tracon.iconId);
-                }
-            });
+            removeIcons(map, removed);
+        };
+    }, [matchedTracons, matchedFallbackTracons, isTraconLoading, isTraconError]);
+
+    //restore after style change
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const restoreTracons = () => {
+            console.log("Map style changed! Restoring Tracon icons...");
+            //clear loaded icons
+            loadedIconsRef.current.clear();
+            // reload all icons
+            loadIcons(map, previousTraconsRef.current, []);
+            updateGeoJson(map, previousTraconsRef.current);
         };
 
+        map.on("style.load", restoreTracons);
 
-    }, [matchedTracons, matchedFallbackTracons, isTraconLoading, isTraconError]);
+        return () => {
+            map.off("style.load", restoreTracons);
+        };
+    }, [mapRef]);
 
 
     return (
         <Source
-            id="tracon-icon-layer-source-globe"
+            id={GLOBE_TRACON_ICON_SOURCE_ID}
             type="geojson"
             // data={geoJsonData}
             data={{
@@ -179,7 +234,7 @@ const GlobeTraconIconLayer = () => {
             }}
         >
             <Layer
-                id="tracon-icon-globe-layer"
+                id={GLOBE_TRACON_ICON_LAYER_ID}
                 // beforeId="controller-icon-globe-layer"
                 type="symbol"
                 layout={{
