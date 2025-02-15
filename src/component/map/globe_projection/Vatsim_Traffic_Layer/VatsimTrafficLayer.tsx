@@ -165,8 +165,69 @@ const VatsimTrafficLayer = () => {
         };
     }, [mapStyles, mapRef]); //use mapStyles here to trigger re-render
 
-    // if (isFetching || error || !getJsonData || !trafficLayerVisible) return null;
 
+    //restore aircraft icons && source after map style change
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const restoreTrafficLayer = () => {
+
+            if (!map.hasImage(imageId)) {
+                map.loadImage(B38M, (error, image) => {
+                    if (error) {
+                        console.error("Error loading aircraft image in globe map:", error);
+                        return;
+                    }
+                    if (image) {
+                        map.addImage(imageId, image);
+                    }
+                });
+            }
+
+            let source = map.getSource("vatsim-traffic-globe") as GeoJSONSource;
+            if (!source) {
+                console.log("🛑 Source missing after style change! Re-adding it...");
+                map.addSource("vatsim-traffic-globe", {
+                    type: "geojson",
+                    data: getJsonData || {
+                        type: "FeatureCollection",
+                        features: []
+                    },
+                });
+
+                map.addLayer({
+                    interactive: true,
+                    type: "symbol",
+                    id: "vatsim-traffic-globe-layer",
+                    source: "vatsim-traffic-globe",
+                    layout: {
+                        "icon-image": "B38M",
+                        "icon-size": 0.06,
+                        "icon-rotate": ["get", "heading"],
+                        "icon-allow-overlap": true,
+                    },
+                    paint: {
+                        "icon-color": "#c2c906",
+                    },
+                });
+
+                source = map.getSource("vatsim-traffic-globe") as GeoJSONSource;
+            }
+
+            if (source && getJsonData) {
+                source.setData(getJsonData);
+            }
+        };
+
+        map.on("style.load", restoreTrafficLayer);
+
+        return () => {
+            map.off("style.load", restoreTrafficLayer);
+        };
+    }, [mapStyles, mapRef, getJsonData]);
+
+    if (!trafficLayerVisible) return null;
 
     return (
         <Source

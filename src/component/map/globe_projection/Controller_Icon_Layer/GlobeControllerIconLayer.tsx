@@ -68,8 +68,8 @@ const GlobeControllerIconLayer = ({
     const imagePrefix = "controller-icon-";
 
     const diffControllers = (newData: Array<AirportService>, oldData: Array<AirportService>) => {
-        console.log("new data:", newData);
-        console.log("old data:", oldData);
+        console.log("new data:", newData.length);
+        console.log("old data:", oldData.length);
         const createKey = (service: AirportService) => service.icao;
 
         // Convert to maps for quick comparison, keeping the original structure
