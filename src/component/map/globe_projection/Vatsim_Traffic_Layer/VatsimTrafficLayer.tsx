@@ -11,11 +11,13 @@ import {
     searchFlightsByAirports
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimFlight } from "../../../../types";
+import {
+    GLOBE_CONTROLLER_ICON_LAYER_ID,
+    GLOBE_TRAFFIC_ICON_LAYER_ID,
+    GLOBE_TRAFFIC_ICON_SOURCE_ID
+} from "../layerSourceName";
+
 //TODO: refine onClick and onHover logic
-//TODO: map style change might not render traffic immediately sometimes.
-//TODO: traffic not shown upon click "show traffic" button.
-const LAYER_ID = "vatsim-traffic-globe-layer";
-const SOURCE_ID = "vatsim-traffic-globe";
 
 const VatsimTrafficLayer = () => {
     const imageId = "B38M";
@@ -119,7 +121,7 @@ const VatsimTrafficLayer = () => {
 
         if (!getJsonData) return;
 
-        const source = map.getSource(SOURCE_ID) as GeoJSONSource;
+        const source = map.getSource(GLOBE_TRAFFIC_ICON_SOURCE_ID) as GeoJSONSource;
         if (source) {
             source.setData(getJsonData);
         }
@@ -151,7 +153,7 @@ const VatsimTrafficLayer = () => {
 
         const onStyleData = () => {
             // make sure controller icon is above traffic layer.
-            map.moveLayer("controller-icon-globe-layer", "vatsim-traffic-globe-layer");
+            map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_LAYER_ID);
             loadAircraftImage();
         };
 
@@ -188,10 +190,10 @@ const VatsimTrafficLayer = () => {
                 });
             }
 
-            let source = map.getSource("vatsim-traffic-globe") as GeoJSONSource;
+            let source = map.getSource(GLOBE_TRAFFIC_ICON_SOURCE_ID) as GeoJSONSource;
             if (!source) {
                 console.log("Source missing after style change! Re-adding it...");
-                map.addSource("vatsim-traffic-globe", {
+                map.addSource(GLOBE_TRAFFIC_ICON_SOURCE_ID, {
                     type: "geojson",
                     data: getJsonData || {
                         type: "FeatureCollection",
@@ -202,8 +204,8 @@ const VatsimTrafficLayer = () => {
                 map.addLayer({
                     interactive: true,
                     type: "symbol",
-                    id: "vatsim-traffic-globe-layer",
-                    source: "vatsim-traffic-globe",
+                    id: GLOBE_TRAFFIC_ICON_LAYER_ID,
+                    source: GLOBE_TRAFFIC_ICON_SOURCE_ID,
                     layout: {
                         "icon-image": "B38M",
                         "icon-size": 0.06,
@@ -215,7 +217,7 @@ const VatsimTrafficLayer = () => {
                     },
                 });
 
-                source = map.getSource("vatsim-traffic-globe") as GeoJSONSource;
+                source = map.getSource(GLOBE_TRAFFIC_ICON_SOURCE_ID) as GeoJSONSource;
             }
 
             if (source && getJsonData) {
@@ -236,9 +238,9 @@ const VatsimTrafficLayer = () => {
         const map = mapRef.getMap();
 
         const applyVisibility = () => {
-            if (map.getLayer("vatsim-traffic-globe-layer")) {
+            if (map.getLayer(GLOBE_TRAFFIC_ICON_LAYER_ID)) {
                 map.setLayoutProperty(
-                    "vatsim-traffic-globe-layer",
+                    GLOBE_TRAFFIC_ICON_LAYER_ID,
                     "visibility",
                     trafficLayerVisible ? "visible" : "none"
                 );
@@ -263,7 +265,7 @@ const VatsimTrafficLayer = () => {
     return (
         <Source
             type="geojson"
-            id={SOURCE_ID}
+            id={GLOBE_TRAFFIC_ICON_SOURCE_ID}
             // data={getJsonData}
             data={{
                 type: "FeatureCollection",
@@ -274,7 +276,7 @@ const VatsimTrafficLayer = () => {
                 interactive={true}
                 type="symbol"
                 // beforeId="controller-icon-globe-layer" // this would cause error
-                id={LAYER_ID}
+                id={GLOBE_TRAFFIC_ICON_LAYER_ID}
                 layout={{
                     "icon-image": "B38M",
                     // "icon-size": 0.5,

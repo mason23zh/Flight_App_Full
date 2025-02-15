@@ -1,6 +1,6 @@
 // globe vatsim traffic layer and source name
 export const GLOBE_TRAFFIC_ICON_LAYER_ID = "vatsim-traffic-globe-layer";
-export const GLOBE_TRAFFIC_ICON_SOURCE_ID = "vatsim-traffic-globe";
+export const GLOBE_TRAFFIC_ICON_SOURCE_ID = "vatsim-traffic-layer-source-globe";
 
 // globe controller layer and source name
 export const GLOBE_CONTROLLER_ICON_LAYER_ID = "controller-icon-globe-layer";
