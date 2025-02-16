@@ -9,6 +9,7 @@ import {
     GLOBE_TRACON_ICON_SOURCE_ID,
 } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
+import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 interface TraconFeature {
     uniqueId: string;
@@ -24,6 +25,11 @@ const GlobeTraconIconLayer = () => {
     const previousTraconsRef = useRef<TraconFeature[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
     const imagePrefix = "tracon-icon-";
+
+    const {
+        mapStyles,
+        allAtcLayerVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
         matchedFallbackTracons,
         matchedTracons,
@@ -211,7 +217,10 @@ const GlobeTraconIconLayer = () => {
         return () => {
             map.off("style.load", restoreTracons);
         };
-    }, [mapRef]);
+    }, [mapRef, mapStyles]);
+
+    //Visibility control
+    useGlobeLayerVisibility(mapRef, GLOBE_TRACON_ICON_LAYER_ID, allAtcLayerVisible);
 
 
     return (

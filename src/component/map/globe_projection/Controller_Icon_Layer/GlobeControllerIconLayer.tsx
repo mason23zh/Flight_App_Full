@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_CONTROLLER_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
+import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 interface AirportServiceWithTypeArray extends AirportService {
     serviceTypeArray: string[];
@@ -347,33 +348,7 @@ const GlobeControllerIconLayer = ({
     }, [mapStyles, mapRef, processControllers, loadIcons, removeIcons, updateGeoJson]);
 
     //visibility control
-    useEffect(() => {
-        if (!mapRef?.getMap) return;
-        const map = mapRef.getMap();
-
-        const applyVisibility = () => {
-            if (map.getLayer(GLOBE_CONTROLLER_ICON_LAYER_ID)) {
-                map.setLayoutProperty(
-                    GLOBE_CONTROLLER_ICON_LAYER_ID,
-                    "visibility",
-                    allAtcLayerVisible ? "visible" : "none"
-                );
-            }
-        };
-
-        applyVisibility();
-
-        const restoreVisibility = () => {
-            applyVisibility();
-        };
-
-        map.on("styledata", restoreVisibility);
-
-        return () => {
-            map.off("styledata", restoreVisibility);
-        };
-
-    }, [allAtcLayerVisible, mapRef]);
+    useGlobeLayerVisibility(mapRef, GLOBE_CONTROLLER_ICON_LAYER_ID, allAtcLayerVisible);
 
     return (
         <Source

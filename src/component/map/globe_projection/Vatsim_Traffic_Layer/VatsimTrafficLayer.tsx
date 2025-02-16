@@ -16,6 +16,7 @@ import {
     GLOBE_TRAFFIC_ICON_LAYER_ID,
     GLOBE_TRAFFIC_ICON_SOURCE_ID
 } from "../layerSourceName";
+import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 //TODO: refine onClick and onHover logic
 
@@ -232,34 +233,7 @@ const VatsimTrafficLayer = () => {
     }, [mapStyles, mapRef, getJsonData]);
 
     //Visibility control
-    useEffect(() => {
-        if (!mapRef?.getMap) return;
-        const map = mapRef.getMap();
-
-        const applyVisibility = () => {
-            if (map.getLayer(GLOBE_TRAFFIC_ICON_LAYER_ID)) {
-                map.setLayoutProperty(
-                    GLOBE_TRAFFIC_ICON_LAYER_ID,
-                    "visibility",
-                    trafficLayerVisible ? "visible" : "none"
-                );
-            }
-        };
-
-        applyVisibility();
-
-        const restoreVisibility = () => {
-            applyVisibility();
-        };
-
-        map.on("styledata", restoreVisibility);
-
-        return () => {
-            map.off("styledata", restoreVisibility);
-        };
-
-    }, [trafficLayerVisible, mapRef]);
-
+    useGlobeLayerVisibility(mapRef, GLOBE_TRAFFIC_ICON_LAYER_ID, trafficLayerVisible);
 
     return (
         <Source
