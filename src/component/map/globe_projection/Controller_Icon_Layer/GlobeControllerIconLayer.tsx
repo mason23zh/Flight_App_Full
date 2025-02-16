@@ -59,7 +59,10 @@ interface Props {
 const GlobeControllerIconLayer = ({
     controllerData,
 }: Props) => {
-    const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        mapStyles,
+        allAtcLayerVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [controllerCache, setControllerCache] = useState<Array<AirportService>>([]);
     const loadedIconsRef = useRef(new Set<string>());
 
@@ -342,6 +345,35 @@ const GlobeControllerIconLayer = ({
             map.off("style.load", handleStyleLoad);
         };
     }, [mapStyles, mapRef, processControllers, loadIcons, removeIcons, updateGeoJson]);
+
+    //visibility control
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const applyVisibility = () => {
+            if (map.getLayer(GLOBE_CONTROLLER_ICON_LAYER_ID)) {
+                map.setLayoutProperty(
+                    GLOBE_CONTROLLER_ICON_LAYER_ID,
+                    "visibility",
+                    allAtcLayerVisible ? "visible" : "none"
+                );
+            }
+        };
+
+        applyVisibility();
+
+        const restoreVisibility = () => {
+            applyVisibility();
+        };
+
+        map.on("styledata", restoreVisibility);
+
+        return () => {
+            map.off("styledata", restoreVisibility);
+        };
+
+    }, [allAtcLayerVisible, mapRef]);
 
     return (
         <Source
