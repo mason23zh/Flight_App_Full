@@ -5,6 +5,8 @@ import { Layer, Source, useMap } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 import generateFirIcon from "../../mapbox_Layer/util/generateFirIcon";
 import { GeoJSON } from "geojson";
+import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
+import { GLOBE_FIR_ICON_LAYER_ID } from "../layerSourceName";
 
 const GlobeFirIconLayer = () => {
     const { current: mapRef } = useMap();
@@ -12,6 +14,7 @@ const GlobeFirIconLayer = () => {
         matchedFirs,
         isError: errorMatchedFirs
     } = useSelector((state: RootState) => state.matchedFirs);
+    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
 
     useEffect(() => {
@@ -93,6 +96,8 @@ const GlobeFirIconLayer = () => {
             })
         } as GeoJSON;
     }, [matchedFirs, errorMatchedFirs]);
+    
+    useGlobeLayerVisibility(mapRef, GLOBE_FIR_ICON_LAYER_ID, allAtcLayerVisible);
 
     if (!geoJsonData) return null;
 
