@@ -5,7 +5,7 @@ import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 import generateFirIcon from "../../mapbox_Layer/util/generateFirIcon";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
-import { GLOBE_FIR_ICON_LAYER_ID } from "../layerSourceName";
+import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_FIR_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 
 
@@ -75,18 +75,18 @@ const GlobeFirIconLayer = () => {
             }))
         };
 
-        let source = map.getSource("fir-icon-layer-source-globe") as GeoJSONSource;
+        let source = map.getSource(GLOBE_FIR_ICON_SOURCE_ID) as GeoJSONSource;
 
         if (!source) {
-            map.addSource("fir-icon-layer-source-globe", {
+            map.addSource(GLOBE_FIR_ICON_SOURCE_ID, {
                 type: "geojson",
                 data: newGeoJson
             });
 
             map.addLayer({
-                id: "fir-icon-globe-layer",
+                id: GLOBE_FIR_ICON_LAYER_ID,
                 type: "symbol",
-                source: "fir-icon-layer-source-globe",
+                source: GLOBE_FIR_ICON_SOURCE_ID,
                 layout: {
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueFirId"]],
                     "icon-size": 0.4,
@@ -94,7 +94,7 @@ const GlobeFirIconLayer = () => {
                 },
             });
 
-            source = map.getSource("fir-icon-layer-source-globe") as GeoJSONSource;
+            source = map.getSource(GLOBE_FIR_ICON_SOURCE_ID) as GeoJSONSource;
         }
 
         if (source) {
@@ -136,7 +136,7 @@ const GlobeFirIconLayer = () => {
 
     return (
         <Source
-            id="fir-icon-layer-source-globe"
+            id={GLOBE_FIR_ICON_SOURCE_ID}
             type="geojson"
             // data={geoJsonData}
             data={{
@@ -145,7 +145,7 @@ const GlobeFirIconLayer = () => {
             }}
         >
             <Layer
-                id="fir-icon-globe-layer"
+                id={GLOBE_FIR_ICON_LAYER_ID}
                 // beforeId="tracon-icon-globe-layer"
                 type="symbol"
                 layout={{
