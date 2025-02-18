@@ -5,7 +5,12 @@ import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 import generateFirIcon from "../../mapbox_Layer/util/generateFirIcon";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
-import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_FIR_ICON_SOURCE_ID } from "../layerSourceName";
+import {
+    GLOBE_CONTROLLER_ICON_LAYER_ID,
+    GLOBE_FIR_ICON_LAYER_ID,
+    GLOBE_FIR_ICON_SOURCE_ID,
+    GLOBE_TRACON_ICON_LAYER_ID
+} from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 
 
@@ -15,7 +20,10 @@ const GlobeFirIconLayer = () => {
         matchedFirs,
         isError: errorMatchedFirs
     } = useSelector((state: RootState) => state.matchedFirs);
-    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        allAtcLayerVisible,
+        mapStyles
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
     const loadedIconRef = useRef(new Set<string>());
 
@@ -131,6 +139,28 @@ const GlobeFirIconLayer = () => {
         };
     }, [mapRef, matchedFirs]);
 
+    
+    // adjusting the layer order, make sure FIR icon layer always stays on top
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const moveLayerOnStyleChange = () => {
+            if (map.getLayer(GLOBE_FIR_ICON_LAYER_ID)) {
+                map.moveLayer(GLOBE_TRACON_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
+                map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
+            }
+        };
+
+        map.on("style.load", moveLayerOnStyleChange);
+        map.on("styledata", moveLayerOnStyleChange);
+
+        return () => {
+            map.off("style.load", moveLayerOnStyleChange);
+            map.off("styledata", moveLayerOnStyleChange);
+        };
+    }, [mapRef, mapStyles]);
+
 
     useGlobeLayerVisibility(mapRef, GLOBE_FIR_ICON_LAYER_ID, allAtcLayerVisible);
 
@@ -146,7 +176,6 @@ const GlobeFirIconLayer = () => {
         >
             <Layer
                 id={GLOBE_FIR_ICON_LAYER_ID}
-                // beforeId="tracon-icon-globe-layer"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueFirId"]],
