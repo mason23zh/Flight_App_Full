@@ -25,6 +25,7 @@ import TraconLabelPopup, { HoverTracon, HoverTraconControllers } from "./Tracon_
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
 //TODO: Globe projection traffic not render when first load.
+//TODO: !important! use redux to move the useState to prevent re-render
 interface BaseMapProps {
     children: React.ReactNode;
 }

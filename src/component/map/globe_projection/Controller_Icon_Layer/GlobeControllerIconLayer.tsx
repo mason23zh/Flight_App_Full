@@ -64,7 +64,8 @@ const GlobeControllerIconLayer = ({
         mapStyles,
         allAtcLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const [controllerCache, setControllerCache] = useState<Array<AirportService>>([]);
+    // const [controllerCache, setControllerCache] = useState<Array<AirportService>>([]);
+    const controllerCacheRef = useRef<Array<AirportService>>([]);
     const loadedIconsRef = useRef(new Set<string>());
 
     const { current: mapRef } = useMap();
@@ -141,6 +142,7 @@ const GlobeControllerIconLayer = ({
     };
 
     const combineAirportServices = (controllers, atis, facilities): Array<AirportService> => {
+        console.log("combine airport service run.");
         const facilityMap = facilities.reduce((map, f) => {
             map[f.id] = f.short;
             return map;
@@ -181,6 +183,7 @@ const GlobeControllerIconLayer = ({
 
     // refactor stars here
     const processControllers = useCallback(() => {
+        console.log("process controller run.");
         if (!controllerData || !mapRef?.getMap) {
             return {
                 combinedData: [],
@@ -197,8 +200,9 @@ const GlobeControllerIconLayer = ({
             facilities || []
         );
 
-        let oldData = controllerCache;
-        if (controllerCache.length === 0) {
+
+        let oldData = controllerCacheRef.current;
+        if (controllerCacheRef.current.length === 0) {
             oldData = [];
         }
 
@@ -207,6 +211,7 @@ const GlobeControllerIconLayer = ({
             updated,
             removed
         } = diffControllers(combinedData, oldData);
+
         console.log("Diff Controllers - Added:", added.length, "Updated:", updated.length, "Removed:", removed.length);
 
         return {
@@ -215,10 +220,11 @@ const GlobeControllerIconLayer = ({
             updated,
             removed
         };
-    }, [controllerData, controllerCache, mapRef]);
+    }, [controllerData, diffControllers, mapRef]);
 
     //load controller icons
     const loadIcons = useCallback((map: mapboxgl.Map, added: AirportServiceWithTypeArray[], updated: AirportServiceWithTypeArray[]) => {
+        console.log("load icon run.");
         if (!added.length && !updated.length) return;
 
         [...added, ...updated].forEach((airport) => {
@@ -242,6 +248,7 @@ const GlobeControllerIconLayer = ({
 
     // remove old controllers
     const removeIcons = useCallback((map: mapboxgl.Map, removed: AirportServiceWithTypeArray[]) => {
+        console.log("remove icon run.");
         if (!removed.length) return;
 
         removed.forEach((airport) => {
@@ -255,6 +262,7 @@ const GlobeControllerIconLayer = ({
 
     //update json
     const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: AirportService[]) => {
+        console.log("update geojson run.");
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
             features: combinedData.map((service) => ({
@@ -279,7 +287,8 @@ const GlobeControllerIconLayer = ({
             console.log("Source missing after style change! Re-adding it...");
             map.addSource(GLOBE_CONTROLLER_ICON_SOURCE_ID, {
                 type: "geojson",
-                data: newGeoJson
+                data: newGeoJson,
+                generateId: true,
             });
 
             map.addLayer({
@@ -316,6 +325,10 @@ const GlobeControllerIconLayer = ({
         loadIcons(map, added, updated);
         removeIcons(map, removed);
         updateGeoJson(map, combinedData);
+
+        // update cache after processing
+        controllerCacheRef.current = combinedData;
+        // setControllerCache(combinedData);
     }, [controllerData, processControllers, loadIcons, removeIcons, updateGeoJson]);
 
     //useEffect #2: restore icons && source is map style change
@@ -327,7 +340,8 @@ const GlobeControllerIconLayer = ({
             console.log("Map style changed! Reprocessing all controllers...");
             loadedIconsRef.current.clear();
             // Clear cache and force reprocessing
-            setControllerCache([]);
+            controllerCacheRef.current = [];
+            // setControllerCache([]);
 
             // Fully reprocess controllers and restore icons
             const {
@@ -347,9 +361,13 @@ const GlobeControllerIconLayer = ({
         };
     }, [mapStyles, mapRef, processControllers, loadIcons, removeIcons, updateGeoJson]);
 
+    useEffect(() => {
+        console.log("map ref hover run.");
+    }, [mapRef]);
+
     //visibility control
     useGlobeLayerVisibility(mapRef, GLOBE_CONTROLLER_ICON_LAYER_ID, allAtcLayerVisible);
-
+    console.log("Globe controlelr icon layer run.");
     return (
         <Source
             id={GLOBE_CONTROLLER_ICON_SOURCE_ID}

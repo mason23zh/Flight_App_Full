@@ -191,4 +191,4 @@ const GlobeFirIconLayer = () => {
     );
 };
 
-export default GlobeFirIconLayer;
+export default React.memo(GlobeFirIconLayer);
