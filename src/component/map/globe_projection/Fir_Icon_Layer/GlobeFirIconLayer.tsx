@@ -139,14 +139,18 @@ const GlobeFirIconLayer = () => {
         };
     }, [mapRef, matchedFirs]);
 
-    
+
     // adjusting the layer order, make sure FIR icon layer always stays on top
     useEffect(() => {
         if (!mapRef?.getMap) return;
         const map = mapRef.getMap();
 
         const moveLayerOnStyleChange = () => {
-            if (map.getLayer(GLOBE_FIR_ICON_LAYER_ID)) {
+            if (
+                map.getLayer(GLOBE_FIR_ICON_LAYER_ID) &&
+                    map.getLayer(GLOBE_TRACON_ICON_LAYER_ID) &&
+                    map.getLayer(GLOBE_CONTROLLER_ICON_LAYER_ID)
+            ) {
                 map.moveLayer(GLOBE_TRACON_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
                 map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
             }

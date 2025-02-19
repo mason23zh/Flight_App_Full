@@ -226,7 +226,7 @@ const GlobeTraconIconLayer = () => {
         const map = mapRef.getMap();
 
         const moveLayerOnStyleChange = () => {
-            if (map.getLayer(GLOBE_TRACON_ICON_LAYER_ID)) {
+            if (map.getLayer(GLOBE_TRACON_ICON_LAYER_ID) && map.getLayer(GLOBE_CONTROLLER_ICON_LAYER_ID)) {
                 map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_TRACON_ICON_LAYER_ID);
             }
         };
