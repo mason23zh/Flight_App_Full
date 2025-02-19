@@ -5,6 +5,7 @@ import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
 import generateTraconIcon from "../../mapbox_Layer/util/generateTraconIcon";
 import {
+    GLOBE_CONTROLLER_ICON_LAYER_ID,
     GLOBE_TRACON_ICON_LAYER_ID,
     GLOBE_TRACON_ICON_SOURCE_ID,
 } from "../layerSourceName";
@@ -216,6 +217,26 @@ const GlobeTraconIconLayer = () => {
 
         return () => {
             map.off("style.load", restoreTracons);
+        };
+    }, [mapRef, mapStyles]);
+
+    // adjust the layer order
+    useEffect(() => {
+        if (!mapRef?.getMap) return;
+        const map = mapRef.getMap();
+
+        const moveLayerOnStyleChange = () => {
+            if (map.getLayer(GLOBE_TRACON_ICON_LAYER_ID)) {
+                map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_TRACON_ICON_LAYER_ID);
+            }
+        };
+
+        map.on("style.load", moveLayerOnStyleChange);
+        map.on("styledata", moveLayerOnStyleChange);
+
+        return () => {
+            map.off("style.load", moveLayerOnStyleChange);
+            map.off("styledata", moveLayerOnStyleChange);
         };
     }, [mapRef, mapStyles]);
 

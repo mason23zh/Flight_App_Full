@@ -12,7 +12,7 @@ import {
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimFlight } from "../../../../types";
 import {
-    GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID,
+    GLOBE_FIR_ICON_LAYER_ID,
     GLOBE_TRAFFIC_ICON_LAYER_ID,
     GLOBE_TRAFFIC_ICON_SOURCE_ID
 } from "../layerSourceName";
