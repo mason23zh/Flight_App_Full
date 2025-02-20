@@ -10,7 +10,7 @@ const mapLayerHoverSlice = createSlice({
     },
     reducers: {
         setHoveredTraffic(state, action) {
-            state.hoveredTraffic = action.payload;
+            state.hoveredTraffic = action.payload; //{info, x, y}
         },
         setHoveredController(state, action) {
             state.hoveredController = action.payload;

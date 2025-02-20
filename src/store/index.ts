@@ -126,6 +126,7 @@ import {
     matchedControllerReducer
 } from "./slices/matchedControllerSlice";
 
+import { setHoveredTraffic, mapLayerHoverReducer } from "./slices/mapLayerHoverSlice";
 
 /*
 The persisConfig is used to store the map selection option in the localStorage
@@ -161,6 +162,7 @@ export const store = configureStore({
         matchedFirs: matchedFirsReducer,
         matchedTracons: matchedTraconsReducer,
         matchedControllers: matchedControllerReducer,
+        mapLayerHover: mapLayerHoverReducer,
         [airportsApi.reducerPath]: airportsApi.reducer,
         [extremeWeatherApi.reducerPath]: extremeWeatherApi.reducer,
         [metarApi.reducerPath]: metarApi.reducer,
@@ -311,6 +313,10 @@ export {
 
 export {
     setSelectedAirportICAO
+};
+
+export {
+    setHoveredTraffic
 };
 
 export const persistor = persistStore(store);
