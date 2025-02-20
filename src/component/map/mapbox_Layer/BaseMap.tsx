@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     closeTrafficDetail,
     openTrafficDetail,
-    RootState,
+    RootState, setHoveredController, setHoveredFir, setHoveredTracon,
     setSelectedTraffic
 } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
@@ -21,6 +21,7 @@ import ControllerMarkerPopup from "./Controller_Markers_Layer/ControllerMarkerPo
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
 import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
 import TraconLabelPopup, { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
+import BaseMapPopups from "../globe_projection/BaseMapPopups";
 
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
@@ -31,14 +32,14 @@ interface BaseMapProps {
 }
 
 const BaseMap = ({ children }: BaseMapProps) => {
-    const [cursor, setCursor] = useState<string>("grab");
+    // const [cursor, setCursor] = useState<string>("grab");
     const [isLoaded, setIsLoaded] = useState(false);
     // const [isStyleLoaded, setIsStyleLoaded] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef<mapboxgl.Popup>();
-    const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
-    const [hoveredFir, setHoveredFir] = useState<MatchedFir | null>(null);
-    const [hoveredTracon, setHoveredTracon] = useState<HoverTracon | null>(null);
+    // const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
+    // const [hoveredFir, setHoveredFir] = useState<MatchedFir | null>(null);
+    // const [hoveredTracon, setHoveredTracon] = useState<HoverTracon | null>(null);
     const [hoveredTraffic, setHoveredTraffic] = useState<{
         x: number,
         y: number,
@@ -187,13 +188,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const handleHover = (e: MapLayerMouseEvent) => {
         if (!e.features || e.features.length === 0) {
             setHoveredTraffic(null);
-            setHoveredController(null);
+            // setHoveredController(null);
+            dispatch(setHoveredController(null));
         }
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
 
             if (layerId === "vatsim-traffic-globe-layer") {
-                setCursor("pointer");
+                // setCursor("pointer");
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
                     flight_plan: string | null
                 };
@@ -214,7 +216,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             }
 
             if (layerId === "controller-icon-globe-layer") {
-                setCursor("pointer");
+                // setCursor("pointer");
                 const properties = feature.properties as Omit<AirportService, "services" | "coordinates"> & {
                     coordinates: string | null;
                     services: string | null;
@@ -230,11 +232,12 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         : []
                 };
 
-                setHoveredController(controllerServiceData);
+                // setHoveredController(controllerServiceData);
+                dispatch(setHoveredController(controllerServiceData));
             }
 
             if (layerId === "fir-icon-globe-layer") {
-                setCursor("pointer");
+                // setCursor("pointer");
                 const properties = feature.properties as Omit<MatchedFir, "firInfo" | "controller"> & {
                     controllers: string | null;
                     firInfo: string | null
@@ -250,11 +253,12 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         : []
                 };
 
-                setHoveredFir(firData);
+                // setHoveredFir(firData);
+                dispatch(setHoveredFir(firData));
             }
 
             if (layerId === "tracon-icon-globe-layer") {
-                setCursor("pointer");
+                // setCursor("pointer");
                 //TODO: Fix typescript issues for hovered tracon properties
                 const properties = feature.properties as Omit<HoverTracon, HoverTraconControllers[], "controllers", "traconInfo"> & {
                     controllers: string | null;
@@ -271,7 +275,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         : {}
                 };
 
-                setHoveredTracon(traconData);
+                // setHoveredTracon(traconData);
+                dispatch(setHoveredTracon(traconData));
                 // console.log("tracon properties:", traconData);
             }
         });
@@ -279,12 +284,15 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
 
     const handleMouseLeave = () => {
-        setCursor("grab");
+        // setCursor("grab");
         setHoveredTraffic(null);
-        setHoveredController(null);
-        setHoveredFir(null);
-        setHoveredTracon(null);
-        setShowPopup(false);
+        // setHoveredController(null);
+        // setHoveredFir(null);
+        // setHoveredTracon(null);
+        // setShowPopup(false);
+        dispatch(setHoveredController(null));
+        dispatch(setHoveredTracon(null));
+        dispatch(setHoveredFir(null));
     };
 
 
@@ -332,7 +340,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onClick={(e) => handleOnClick(e)}
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
-                    cursor={cursor}
+                    // cursor={cursor}
                     onLoad={() => {
                         console.log("Map done loading.");
                         setIsLoaded(true);
@@ -341,30 +349,31 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 >
                     {isLoaded && (
                         <>
-                            {(hoveredTracon) &&
-                            <TraconLabelPopup hoverTracon={hoveredTracon}/>
-                            }
-                            {(hoveredFir) &&
-                            <FirLabelPopup hoverFir={hoveredFir}/>
-                            }
-                            {(showPopup && hoveredTraffic) &&
-                            <Popup
-                                closeButton={false}
-                                ref={popupRef}
-                                longitude={hoveredTraffic.info.longitude}
-                                latitude={hoveredTraffic.info.latitude}
-                                anchor="top-left"
-                                offset={-18}
-                            >
-                                <div>
-                                    <HoveredTrafficTooltip info={hoveredTraffic.info}/>
-                                </div>
-                            </Popup>
-                            }
-                            {
-                                hoveredController &&
-                                <ControllerMarkerPopup hoverInfo={hoveredController}/>
-                            }
+                            {/* {(hoveredTracon) && */}
+                            {/* <TraconLabelPopup hoverTracon={hoveredTracon}/> */}
+                            {/* } */}
+                            {/* {(hoveredFir) && */}
+                            {/* <FirLabelPopup hoverFir={hoveredFir}/> */}
+                            {/* } */}
+                            {/* {(showPopup && hoveredTraffic) && */}
+                            {/* <Popup */}
+                            {/*     closeButton={false} */}
+                            {/*     ref={popupRef} */}
+                            {/*     longitude={hoveredTraffic.info.longitude} */}
+                            {/*     latitude={hoveredTraffic.info.latitude} */}
+                            {/*     anchor="top-left" */}
+                            {/*     offset={-18} */}
+                            {/* > */}
+                            {/*     <div> */}
+                            {/*         <HoveredTrafficTooltip info={hoveredTraffic.info}/> */}
+                            {/*     </div> */}
+                            {/* </Popup> */}
+                            {/* } */}
+                            {/* { */}
+                            {/*     hoveredController && */}
+                            {/*     <ControllerMarkerPopup hoverInfo={hoveredController}/> */}
+                            {/* } */}
+                            <BaseMapPopups/>
                             <TogglePanel/>
                             <TelemetryPanel/>
                             <CustomNavigationController/>
