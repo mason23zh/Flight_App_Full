@@ -16,13 +16,10 @@ import { useTheme } from "../../../hooks/ThemeContext";
 import CustomNavigationController from "../CustomNavigationController";
 import mapboxgl from "mapbox-gl";
 import { AirportService, Service, VatsimFlight, VatsimFlightPlan } from "../../../types";
-import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
-import ControllerMarkerPopup from "./Controller_Markers_Layer/ControllerMarkerPopup";
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
-import FirLabelPopup from "./FIR_Layers/FirLabelPopup";
-import TraconLabelPopup, { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
 import BaseMapPopups from "../globe_projection/BaseMapPopups";
 import { setHoveredTraffic } from "../../../store/slices/mapLayerHoverSlice";
+import { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
 
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
@@ -36,17 +33,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     // const [cursor, setCursor] = useState<string>("grab");
     const [isLoaded, setIsLoaded] = useState(false);
     // const [isStyleLoaded, setIsStyleLoaded] = useState(false);
-    const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef<mapboxgl.Popup>();
-    // const [hoveredController, setHoveredController] = useState<AirportService | null>(null);
-    // const [hoveredFir, setHoveredFir] = useState<MatchedFir | null>(null);
-    // const [hoveredTracon, setHoveredTracon] = useState<HoverTracon | null>(null);
-    // const [hoveredTraffic, setHoveredTraffic] = useState<{
-    //     x: number,
-    //     y: number,
-    //     info: VatsimFlight | null
-    // } | null
-    // >(null);
 
     const dispatch = useDispatch();
     const mapRef = useRef<MapRef | null>(null);
@@ -188,10 +175,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const handleHover = (e: MapLayerMouseEvent) => {
         if (!e.features || e.features.length === 0) {
-
-            // setHoveredTraffic(null);
-            // setHoveredController(null);
-            // dispatch(setHoveredTraffic(null));
             dispatch(setHoveredTraffic(null));
             dispatch(setHoveredController(null));
         }
@@ -216,12 +199,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     x: e.point.x,
                     y: e.point.y
                 }));
-                // setHoveredTraffic({
-                //     x: e.point.x,
-                //     y: e.point.y,
-                //     info: trafficData
-                // });
-                // setShowPopup(true);
             }
 
             if (layerId === "controller-icon-globe-layer") {
@@ -241,7 +218,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         : []
                 };
 
-                // setHoveredController(controllerServiceData);
                 dispatch(setHoveredController(controllerServiceData));
             }
 
@@ -294,10 +270,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const handleMouseLeave = () => {
         // setCursor("grab");
-        // setHoveredTraffic(null);
-        // setHoveredController(null);
-        // setHoveredFir(null);
-        // setHoveredTracon(null);
         // setShowPopup(false);
         dispatch(setHoveredTraffic(null));
         dispatch(setHoveredController(null));
@@ -359,30 +331,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 >
                     {isLoaded && (
                         <>
-                            {/* {(showPopup && hoveredTraffic) && */}
-                            {/* <Popup */}
-                            {/*     closeButton={false} */}
-                            {/*     ref={popupRef} */}
-                            {/*     longitude={hoveredTraffic.info.longitude} */}
-                            {/*     latitude={hoveredTraffic.info.latitude} */}
-                            {/*     anchor="top-left" */}
-                            {/*     offset={-18} */}
-                            {/* > */}
-                            {/*     <div> */}
-                            {/*         <HoveredTrafficTooltip info={hoveredTraffic.info}/> */}
-                            {/*     </div> */}
-                            {/* </Popup> */}
-                            {/* {(hoveredTracon) && */}
-                            {/* <TraconLabelPopup hoverTracon={hoveredTracon}/> */}
-                            {/* } */}
-                            {/* {(hoveredFir) && */}
-                            {/* <FirLabelPopup hoverFir={hoveredFir}/> */}
-                            {/* } */}
-                            {/* } */}
-                            {/* { */}
-                            {/*     hoveredController && */}
-                            {/*     <ControllerMarkerPopup hoverInfo={hoveredController}/> */}
-                            {/* } */}
                             <BaseMapPopups/>
                             <TogglePanel/>
                             <TelemetryPanel/>
