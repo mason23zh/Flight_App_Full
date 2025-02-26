@@ -6,9 +6,7 @@ import TraconLabelPopup from "../mapbox_Layer/Tracon_Layers/TraconLabelPopup";
 import ControllerMarkerPopup from "../mapbox_Layer/Controller_Markers_Layer/ControllerMarkerPopup";
 import { Popup } from "react-map-gl";
 import HoveredTrafficTooltip from "../HoveredTrafficTooltip";
-import HoveredTooltip from "../map_feature_toggle_button/HoveredTooltip";
 import mapboxgl from "mapbox-gl";
-import { popup } from "leaflet";
 
 const BaseMapPopups = () => {
     const { hoveredFir } = useSelector((state: RootState) => state.matchedFirs);

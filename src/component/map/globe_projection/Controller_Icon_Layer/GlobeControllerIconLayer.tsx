@@ -71,6 +71,76 @@ const GlobeControllerIconLayer = ({
     const { current: mapRef } = useMap();
     const imagePrefix = "controller-icon-";
 
+    const diffControllers_ = useCallback((newData: Array<AirportService>, oldData: Array<AirportService>) => {
+        console.log("new data:", newData.length);
+        console.log("old data:", oldData.length);
+        const createKey = (service: AirportService) => service.icao;
+
+        // Convert to maps for quick comparison, keeping the original structure
+        const toKeyedMap = (data: Array<AirportService>): Map<string, AirportServiceWithTypeArray> =>
+            new Map(
+                data.map(service => [
+                    createKey(service),
+                    {
+                        ...service,
+                        serviceTypeArray: Array.from(
+                            new Set(service.services.map(svc => svc.serviceType))
+                        )
+                            .sort(), // Sort serviceTypes for comparison and remove duplicate
+                    },
+                ])
+            );
+
+        const newMap = toKeyedMap(newData);
+        const oldMap = toKeyedMap(oldData);
+
+        const added: Array<AirportServiceWithTypeArray> = [];
+        const updated: Array<AirportServiceWithTypeArray> = [];
+        const removed: Array<AirportServiceWithTypeArray> = [];
+
+        for (const [key, newService] of newMap) {
+            if (!oldMap.has(key)) {
+                // Added service
+                added.push(newService);
+            } else {
+                const oldService = oldMap.get(key);
+                // console.log("new service:", newService);
+                // console.log("old service:", oldService);
+                if (!_.isEqual(newService.serviceTypeArray, oldService?.serviceTypeArray)) {
+                    // Updated service
+                    updated.push(newService);
+                }
+            }
+        }
+
+        for (const [key, oldService] of oldMap) {
+            if (!newMap.has(key)) {
+                // Removed service
+                removed.push(oldService);
+            }
+        }
+
+        // Restore the original `AirportService` structure in the return
+        const restoreOriginalServices = (
+            flatServices: Array<AirportServiceWithTypeArray>,
+            sourceMap: Map<string, AirportService>
+        ): Array<AirportServiceWithTypeArray> =>
+            flatServices.map(flatService => {
+                const originalService = sourceMap.get(flatService.icao)!;
+                return {
+                    ...originalService,
+                    services: originalService.services, // restore original services
+                    serviceTypeArray: flatService.serviceTypeArray, // with new serviceTypeArray to be used to draw icao
+                };
+            });
+
+        return {
+            added: restoreOriginalServices(added, newMap),
+            updated: restoreOriginalServices(updated, newMap),
+            removed: restoreOriginalServices(removed, oldMap),
+        };
+    }, []);
+
     const diffControllers = (newData: Array<AirportService>, oldData: Array<AirportService>) => {
         console.log("new data:", newData.length);
         console.log("old data:", oldData.length);
@@ -210,7 +280,7 @@ const GlobeControllerIconLayer = ({
             added,
             updated,
             removed
-        } = diffControllers(combinedData, oldData);
+        } = diffControllers_(combinedData, oldData);
 
         console.log("Diff Controllers - Added:", added.length, "Updated:", updated.length, "Removed:", removed.length);
 
@@ -220,7 +290,7 @@ const GlobeControllerIconLayer = ({
             updated,
             removed
         };
-    }, [controllerData, diffControllers, mapRef]);
+    }, [controllerData, diffControllers_, mapRef]);
 
     //load controller icons
     const loadIcons = useCallback((map: mapboxgl.Map, added: AirportServiceWithTypeArray[], updated: AirportServiceWithTypeArray[]) => {
@@ -244,7 +314,7 @@ const GlobeControllerIconLayer = ({
             }
         });
 
-    }, [mapRef]);
+    }, []);
 
     // remove old controllers
     const removeIcons = useCallback((map: mapboxgl.Map, removed: AirportServiceWithTypeArray[]) => {
@@ -258,7 +328,7 @@ const GlobeControllerIconLayer = ({
                 loadedIconsRef.current.delete(iconId);
             }
         });
-    }, [mapRef]);
+    }, []);
 
     //update json
     const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: AirportService[]) => {
@@ -359,11 +429,8 @@ const GlobeControllerIconLayer = ({
         return () => {
             map.off("style.load", handleStyleLoad);
         };
-    }, [mapStyles, mapRef, processControllers, loadIcons, removeIcons, updateGeoJson]);
+    }, [mapStyles]);
 
-    useEffect(() => {
-        console.log("map ref hover run.");
-    }, [mapRef]);
 
     //visibility control
     useGlobeLayerVisibility(mapRef, GLOBE_CONTROLLER_ICON_LAYER_ID, allAtcLayerVisible);
