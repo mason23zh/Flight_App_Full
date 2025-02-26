@@ -588,5 +588,6 @@ export type {
     GroupedFlight,
     MergedFirMatching,
     MergedFssMatching,
-    VatsimTraconMapping
+    VatsimTraconMapping,
+    Atis
 };

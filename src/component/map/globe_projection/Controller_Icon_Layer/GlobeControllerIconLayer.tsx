@@ -1,55 +1,47 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { generateControllerMarkerIconWithIcao } from "../../mapbox_Layer/util/generateControllerMarkerIcon";
 import { Layer, Source, useMap } from "react-map-gl";
-import { AirportService, VatsimControllers } from "../../../../types";
-import _ from "lodash";
-import { GeoJSONSource } from "react-map-gl";
+import { AirportService, Atis, Controller, VatsimControllers } from "../../../../types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_CONTROLLER_ICON_SOURCE_ID } from "../layerSourceName";
-import mapboxgl from "mapbox-gl";
+import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
-interface AirportServiceWithTypeArray extends AirportService {
-    serviceTypeArray: string[];
+interface Facilities {
+    id: number,
+    short: string
 }
 
-const facilities = [
+const facilities: Facilities[] = [
     {
-        "id": 0,
-        "short": "OBS",
-        "long": "Observer"
+        id: 0,
+        short: "OBS"
     },
     {
-        "id": 1,
-        "short": "FSS",
-        "long": "Flight Service Station"
+        id: 1,
+        short: "FSS"
     },
     {
-        "id": 2,
-        "short": "DEL",
-        "long": "Clearance Delivery"
+        id: 2,
+        short: "DEL"
     },
     {
-        "id": 3,
-        "short": "GND",
-        "long": "Ground"
+        id: 3,
+        short: "GND"
     },
     {
-        "id": 4,
-        "short": "TWR",
-        "long": "Tower"
+        id: 4,
+        short: "TWR"
     },
     {
-        "id": 5,
-        "short": "APP",
-        "long": "Approach/Departure"
+        id: 5,
+        short: "APP"
     },
     {
-        "id": 6,
-        "short": "CTR",
-        "long": "Enroute"
-    }
+        id: 6,
+        short: "CTR"
+    },
 ];
 
 interface Props {
@@ -57,162 +49,19 @@ interface Props {
 }
 
 
-const GlobeControllerIconLayer = ({
-    controllerData,
-}: Props) => {
+const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const {
         mapStyles,
         allAtcLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    // const [controllerCache, setControllerCache] = useState<Array<AirportService>>([]);
-    const controllerCacheRef = useRef<Array<AirportService>>([]);
+    const controllerCacheRef = useRef<AirportService[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
-
     const { current: mapRef } = useMap();
     const imagePrefix = "controller-icon-";
 
-    const diffControllers_ = useCallback((newData: Array<AirportService>, oldData: Array<AirportService>) => {
-        console.log("new data:", newData.length);
-        console.log("old data:", oldData.length);
-        const createKey = (service: AirportService) => service.icao;
 
-        // Convert to maps for quick comparison, keeping the original structure
-        const toKeyedMap = (data: Array<AirportService>): Map<string, AirportServiceWithTypeArray> =>
-            new Map(
-                data.map(service => [
-                    createKey(service),
-                    {
-                        ...service,
-                        serviceTypeArray: Array.from(
-                            new Set(service.services.map(svc => svc.serviceType))
-                        )
-                            .sort(), // Sort serviceTypes for comparison and remove duplicate
-                    },
-                ])
-            );
-
-        const newMap = toKeyedMap(newData);
-        const oldMap = toKeyedMap(oldData);
-
-        const added: Array<AirportServiceWithTypeArray> = [];
-        const updated: Array<AirportServiceWithTypeArray> = [];
-        const removed: Array<AirportServiceWithTypeArray> = [];
-
-        for (const [key, newService] of newMap) {
-            if (!oldMap.has(key)) {
-                // Added service
-                added.push(newService);
-            } else {
-                const oldService = oldMap.get(key);
-                // console.log("new service:", newService);
-                // console.log("old service:", oldService);
-                if (!_.isEqual(newService.serviceTypeArray, oldService?.serviceTypeArray)) {
-                    // Updated service
-                    updated.push(newService);
-                }
-            }
-        }
-
-        for (const [key, oldService] of oldMap) {
-            if (!newMap.has(key)) {
-                // Removed service
-                removed.push(oldService);
-            }
-        }
-
-        // Restore the original `AirportService` structure in the return
-        const restoreOriginalServices = (
-            flatServices: Array<AirportServiceWithTypeArray>,
-            sourceMap: Map<string, AirportService>
-        ): Array<AirportServiceWithTypeArray> =>
-            flatServices.map(flatService => {
-                const originalService = sourceMap.get(flatService.icao)!;
-                return {
-                    ...originalService,
-                    services: originalService.services, // restore original services
-                    serviceTypeArray: flatService.serviceTypeArray, // with new serviceTypeArray to be used to draw icao
-                };
-            });
-
-        return {
-            added: restoreOriginalServices(added, newMap),
-            updated: restoreOriginalServices(updated, newMap),
-            removed: restoreOriginalServices(removed, oldMap),
-        };
-    }, []);
-
-    const diffControllers = (newData: Array<AirportService>, oldData: Array<AirportService>) => {
-        console.log("new data:", newData.length);
-        console.log("old data:", oldData.length);
-        const createKey = (service: AirportService) => service.icao;
-
-        // Convert to maps for quick comparison, keeping the original structure
-        const toKeyedMap = (data: Array<AirportService>): Map<string, AirportServiceWithTypeArray> =>
-            new Map(
-                data.map(service => [
-                    createKey(service),
-                    {
-                        ...service,
-                        serviceTypeArray: Array.from(
-                            new Set(service.services.map(svc => svc.serviceType))
-                        )
-                            .sort(), // Sort serviceTypes for comparison and remove duplicate
-                    },
-                ])
-            );
-
-        const newMap = toKeyedMap(newData);
-        const oldMap = toKeyedMap(oldData);
-
-        const added: Array<AirportServiceWithTypeArray> = [];
-        const updated: Array<AirportServiceWithTypeArray> = [];
-        const removed: Array<AirportServiceWithTypeArray> = [];
-
-        for (const [key, newService] of newMap) {
-            if (!oldMap.has(key)) {
-                // Added service
-                added.push(newService);
-            } else {
-                const oldService = oldMap.get(key);
-                // console.log("new service:", newService);
-                // console.log("old service:", oldService);
-                if (!_.isEqual(newService.serviceTypeArray, oldService?.serviceTypeArray)) {
-                    // Updated service
-                    updated.push(newService);
-                }
-            }
-        }
-
-        for (const [key, oldService] of oldMap) {
-            if (!newMap.has(key)) {
-                // Removed service
-                removed.push(oldService);
-            }
-        }
-
-        // Restore the original `AirportService` structure in the return
-        const restoreOriginalServices = (
-            flatServices: Array<AirportServiceWithTypeArray>,
-            sourceMap: Map<string, AirportService>
-        ): Array<AirportServiceWithTypeArray> =>
-            flatServices.map(flatService => {
-                const originalService = sourceMap.get(flatService.icao)!;
-                return {
-                    ...originalService,
-                    services: originalService.services, // restore original services
-                    serviceTypeArray: flatService.serviceTypeArray, // with new serviceTypeArray to be used to draw icao
-                };
-            });
-
-        return {
-            added: restoreOriginalServices(added, newMap),
-            updated: restoreOriginalServices(updated, newMap),
-            removed: restoreOriginalServices(removed, oldMap),
-        };
-    };
-
-    const combineAirportServices = (controllers, atis, facilities): Array<AirportService> => {
-        console.log("combine airport service run.");
+    const combineAirportServices = (controllers: Controller[], atis: Atis[], facilities: Facilities[]): Array<AirportService> => {
+        // console.log("combine airport service run.");
         const facilityMap = facilities.reduce((map, f) => {
             map[f.id] = f.short;
             return map;
@@ -220,7 +69,7 @@ const GlobeControllerIconLayer = ({
 
         const combinedData = {};
 
-        function addServiceData(airportCode, serviceType, data) {
+        function addServiceData(airportCode: string, serviceType: string, data: Controller) {
             if (!combinedData[airportCode]) {
                 combinedData[airportCode] = {
                     airportName: data.airport.name,
@@ -251,116 +100,90 @@ const GlobeControllerIconLayer = ({
         return Object.values(combinedData);
     };
 
-    // refactor stars here
-    const processControllers = useCallback(() => {
-        console.log("process controller run.");
-        if (!controllerData || !mapRef?.getMap) {
-            return {
-                combinedData: [],
-                added: [],
-                updated: [],
-                removed: []
-            };
-        }
 
-        // const map = mapRef.getMap();
-        const combinedData = combineAirportServices(
-            controllerData?.other.controllers || [],
-            controllerData?.other.atis || [],
-            facilities || []
-        );
+    const diffControllers = useCallback((newData: AirportService[], oldData: AirportService[]) => {
+        // console.log("[diffControllers] Run");
+        const toMap = (data: AirportService[]) => new Map(data.map(service => [service.icao, service]));
+        const newMap = toMap(newData);
+        const oldMap = toMap(oldData);
 
+        const added = [...newMap.entries()].filter(([key]) => !oldMap.has(key))
+            .map(([, service]) => service);
+        const removed = [...oldMap.entries()].filter(([key]) => !newMap.has(key))
+            .map(([, service]) => service);
+        const updated = [...newMap.entries()]
+            .filter(([key, service]) => oldMap.has(key) && JSON.stringify(service.services) !== JSON.stringify(oldMap.get(key)?.services))
+            .map(([, service]) => service);
 
-        let oldData = controllerCacheRef.current;
-        if (controllerCacheRef.current.length === 0) {
-            oldData = [];
-        }
-
-        const {
-            added,
-            updated,
-            removed
-        } = diffControllers_(combinedData, oldData);
-
-        console.log("Diff Controllers - Added:", added.length, "Updated:", updated.length, "Removed:", removed.length);
-
+        // console.log(`✅ Added: ${added.length} | 🔄 Updated: ${updated.length} | ❌ Removed: ${removed.length}`);
         return {
-            combinedData,
             added,
             updated,
             removed
         };
-    }, [controllerData, diffControllers_, mapRef]);
+    }, []);
 
-    //load controller icons
-    const loadIcons = useCallback((map: mapboxgl.Map, added: AirportServiceWithTypeArray[], updated: AirportServiceWithTypeArray[]) => {
-        console.log("load icon run.");
-        if (!added.length && !updated.length) return;
-
-        [...added, ...updated].forEach((airport) => {
-            const icao = airport.icao;
+    const loadIcons = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
+        // console.log("[loadIcons] Run");
+        services.forEach(({
+            icao,
+            services
+        }) => {
             const iconId = `${imagePrefix}${icao}`;
-            const iconUrl = generateControllerMarkerIconWithIcao(icao, airport.serviceTypeArray);
-
             if (!map.hasImage(iconId) && !loadedIconsRef.current.has(iconId)) {
                 const image = new Image();
                 image.onload = () => {
                     if (!map.hasImage(iconId)) {
                         map.addImage(iconId, image, { sdf: false });
                         loadedIconsRef.current.add(iconId);
+                        // console.log(`✅ Icon added: ${iconId}`);
                     }
                 };
-                image.src = iconUrl;
+                image.src = generateControllerMarkerIconWithIcao(icao, services.map(s => s.serviceType));
             }
         });
-
     }, []);
 
-    // remove old controllers
-    const removeIcons = useCallback((map: mapboxgl.Map, removed: AirportServiceWithTypeArray[]) => {
-        console.log("remove icon run.");
-        if (!removed.length) return;
-
-        removed.forEach((airport) => {
-            const iconId = `${imagePrefix}${airport.icao}`;
+    const removeIcons = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
+        // console.log("[removeIcons] Run");
+        services.forEach(({ icao }) => {
+            const iconId = `${imagePrefix}${icao}`;
             if (map.hasImage(iconId)) {
                 map.removeImage(iconId);
                 loadedIconsRef.current.delete(iconId);
+                // console.log(`❌ Icon removed: ${iconId}`);
             }
         });
     }, []);
 
-    //update json
-    const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: AirportService[]) => {
-        console.log("update geojson run.");
-        const newGeoJson: GeoJSON.FeatureCollection = {
+    const updateGeoJson = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
+        const geoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
-            features: combinedData.map((service) => ({
+            features: services.map(({
+                icao,
+                coordinates,
+                services
+            }) => ({
                 type: "Feature",
                 geometry: {
                     type: "Point",
-                    coordinates: [
-                        Number(service.coordinates[0]),
-                        Number(service.coordinates[1])
-                    ],
+                    coordinates: [Number(coordinates[0]), Number(coordinates[1])]
                 },
                 properties: {
-                    ...service,
-                    services: JSON.stringify(service.services),
+                    icao,
+                    coordinates: JSON.stringify(coordinates),  // Add coordinates to properties for hover
+                    services: JSON.stringify(services),
                 },
             })),
         };
 
-        let source = map.getSource("controller-icon-layer-source-globe") as GeoJSONSource;
+        let source = map.getSource(GLOBE_CONTROLLER_ICON_SOURCE_ID) as GeoJSONSource;
 
         if (!source) {
-            console.log("Source missing after style change! Re-adding it...");
             map.addSource(GLOBE_CONTROLLER_ICON_SOURCE_ID, {
                 type: "geojson",
-                data: newGeoJson,
-                generateId: true,
+                data: geoJson
             });
-
             map.addLayer({
                 id: GLOBE_CONTROLLER_ICON_LAYER_ID,
                 type: "symbol",
@@ -371,88 +194,80 @@ const GlobeControllerIconLayer = ({
                     "icon-allow-overlap": true,
                 },
             });
-
             source = map.getSource(GLOBE_CONTROLLER_ICON_SOURCE_ID) as GeoJSONSource;
         }
 
-        if (source) {
-            source.setData(newGeoJson);
-        }
-    }, [mapRef]);
+        source?.setData(geoJson);
+        // console.log("🔄 GeoJSON updated.");
+    }, []);
 
 
-    //useEffect #1: process controllers on data change
     useEffect(() => {
-        if (!controllerData || !mapRef?.getMap) return;
+        if (!mapRef?.getMap || !controllerData) return;
         const map = mapRef.getMap();
 
+        const combinedData = combineAirportServices(
+            controllerData?.other.controllers || [],
+            controllerData?.other.atis || [],
+            facilities
+        );
+
         const {
-            combinedData,
             added,
             updated,
             removed
-        } = processControllers();
-        loadIcons(map, added, updated);
+        } = diffControllers(combinedData, controllerCacheRef.current);
+        loadIcons(map, [...added, ...updated]);
         removeIcons(map, removed);
         updateGeoJson(map, combinedData);
 
-        // update cache after processing
         controllerCacheRef.current = combinedData;
-        // setControllerCache(combinedData);
-    }, [controllerData, processControllers, loadIcons, removeIcons, updateGeoJson]);
+    }, [controllerData, combineAirportServices, diffControllers, loadIcons, removeIcons, updateGeoJson]);
 
-    //useEffect #2: restore icons && source is map style change
     useEffect(() => {
         if (!mapRef?.getMap) return;
         const map = mapRef.getMap();
 
-        const handleStyleLoad = () => {
-            console.log("Map style changed! Reprocessing all controllers...");
+        const restoreOnStyleChange = () => {
+            // console.log("[style.load] Restoring icons and geojson");
             loadedIconsRef.current.clear();
-            // Clear cache and force reprocessing
             controllerCacheRef.current = [];
-            // setControllerCache([]);
 
-            // Fully reprocess controllers and restore icons
+            const combinedData = combineAirportServices(
+                controllerData?.other.controllers || [],
+                controllerData?.other.atis || [],
+                facilities
+            );
+
             const {
-                combinedData,
                 added,
-                updated,
                 removed
-            } = processControllers();
-            loadIcons(map, added, updated);
+            } = diffControllers(combinedData, []);
+            loadIcons(map, added);
             removeIcons(map, removed);
-            updateGeoJson(map, combinedData);
+            updateGeoJson(map, added);
         };
 
-        map.on("style.load", handleStyleLoad);
+        map.on("style.load", restoreOnStyleChange);
         return () => {
-            map.off("style.load", handleStyleLoad);
+            map.off("style.load", restoreOnStyleChange);
         };
-    }, [mapStyles]);
+    }, [mapRef, loadIcons, updateGeoJson, mapStyles]);
 
-
-    //visibility control
     useGlobeLayerVisibility(mapRef, GLOBE_CONTROLLER_ICON_LAYER_ID, allAtcLayerVisible);
-    console.log("Globe controlelr icon layer run.");
+
     return (
-        <Source
-            id={GLOBE_CONTROLLER_ICON_SOURCE_ID}
-            type="geojson"
-            // data={geoJsonData}
-            data={{
-                type: "FeatureCollection",
-                features: []
-            }}
-        >
+        <Source id={GLOBE_CONTROLLER_ICON_SOURCE_ID} type="geojson" data={{
+            type: "FeatureCollection",
+            features: []
+        }}>
             <Layer
                 id={GLOBE_CONTROLLER_ICON_LAYER_ID}
-                // beforeId="flight-path-layer-globe"
                 type="symbol"
                 layout={{
                     "icon-image": ["concat", imagePrefix, ["get", "icao"]],
                     "icon-size": 0.5,
-                    "icon-allow-overlap": true,
+                    "icon-allow-overlap": true
                 }}
             />
         </Source>
@@ -460,4 +275,3 @@ const GlobeControllerIconLayer = ({
 };
 
 export default GlobeControllerIconLayer;
-
