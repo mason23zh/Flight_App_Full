@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapLayerMouseEvent, MapProvider, MapRef, Popup } from "react-map-gl";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +20,11 @@ import { MatchedFir } from "../../../hooks/useMatchedFirs";
 import BaseMapPopups from "../globe_projection/BaseMapPopups";
 import { setHoveredTraffic } from "../../../store/slices/mapLayerHoverSlice";
 import { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
+import {
+    GLOBE_CONTROLLER_ICON_LAYER_ID,
+    GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRACON_ICON_LAYER_ID,
+    GLOBE_TRAFFIC_ICON_LAYER_ID
+} from "../globe_projection/layerSourceName";
 
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
@@ -181,7 +186,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
 
-            if (layerId === "vatsim-traffic-globe-layer") {
+            if (layerId === GLOBE_TRAFFIC_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
                     flight_plan: string | null
@@ -201,7 +206,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 }));
             }
 
-            if (layerId === "controller-icon-globe-layer") {
+            if (layerId === GLOBE_CONTROLLER_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 const properties = feature.properties as Omit<AirportService, "services" | "coordinates"> & {
                     coordinates: string | null;
@@ -221,7 +226,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 dispatch(setHoveredController(controllerServiceData));
             }
 
-            if (layerId === "fir-icon-globe-layer") {
+            if (layerId === GLOBE_FIR_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 const properties = feature.properties as Omit<MatchedFir, "firInfo" | "controller"> & {
                     controllers: string | null;
@@ -242,10 +247,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 dispatch(setHoveredFir(firData));
             }
 
-            if (layerId === "tracon-icon-globe-layer") {
+            if (layerId === GLOBE_TRACON_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 //TODO: Fix typescript issues for hovered tracon properties
-                const properties = feature.properties as Omit<HoverTracon, HoverTraconControllers[], "controllers", "traconInfo"> & {
+                const properties = feature.properties as Omit<HoverTracon, HoverTraconControllers[], "controllers" | "traconInfo"> & {
                     controllers: string | null;
                     traconInfo: string | null
                 };

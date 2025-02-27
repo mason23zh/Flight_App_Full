@@ -220,6 +220,8 @@ const GlobeTraconIconLayer = () => {
         };
     }, [mapRef, mapStyles]);
 
+    console.log("Globe tracon icon layer run.");
+
     // adjust the layer order
     useEffect(() => {
         if (!mapRef?.getMap) return;

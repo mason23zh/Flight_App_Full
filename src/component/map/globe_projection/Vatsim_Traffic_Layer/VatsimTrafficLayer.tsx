@@ -94,7 +94,6 @@ const VatsimTrafficLayer = () => {
         return filteredResults || [];
     }, [filteredResults]);
 
-
     const getJsonData: GeoJSON = useMemo(() => {
         if (!memoizedVatsimPilotToDisplay || memoizedVatsimPilotToDisplay.length === 0 || !vatsimPilots?.data?.pilots || isFetching || error) return null;
 

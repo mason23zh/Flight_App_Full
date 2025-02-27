@@ -26,7 +26,7 @@ import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Laye
 import GlobeFirIconLayer from "../globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
 import GlobeTraconIconLayer from "../globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer";
 import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
- 
+
 const MainMap = () => {
     const dispatch = useDispatch();
 
@@ -179,8 +179,6 @@ const MainMap = () => {
                             <>
                                 <GlobeFirIconLayer key="globeFirIconLayer"/>
                                 <GlobeTraconIconLayer key="globeTraconIconLayer"/>
-                                {/* <GlobeControllerIconLayer controllerData={controllerData} */}
-                                {/*     key="globeControllerIconLayer"/> */}
                                 <GlobeControllerIconLayer controllerData={controllerData}/>
                                 <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
                                 <VatsimTrafficLayer key="vatsimTrafficLayer"/>
