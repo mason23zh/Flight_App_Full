@@ -113,7 +113,6 @@ const GlobeFirIconLayer = ({
         }
     };
 
-    console.log("Globe fir icon laye run.");
     useEffect(() => {
         if (!mapRef?.getMap || errorMatchedFirs || !matchedFirs) return;
         const map = mapRef.getMap();
@@ -159,7 +158,7 @@ const GlobeFirIconLayer = ({
                 map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
             }
         };
-
+ 
         map.on("style.load", moveLayerOnStyleChange);
         map.on("styledata", moveLayerOnStyleChange);
 

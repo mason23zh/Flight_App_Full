@@ -60,7 +60,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const imagePrefix = "controller-icon-";
 
     const combineAirportServices = (controllers: Controller[], atis: Atis[], facilities: Facilities[]): Array<AirportService> => {
-        // console.log("combine airport service run.");
         const facilityMap = facilities.reduce((map, f) => {
             map[f.id] = f.short;
             return map;
@@ -101,7 +100,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
 
 
     const diffControllers = useCallback((newData: AirportService[], oldData: AirportService[]) => {
-        // console.log("[diffControllers] Run");
         const toMap = (data: AirportService[]) => new Map(data.map(service => [service.icao, service]));
         const newMap = toMap(newData);
         const oldMap = toMap(oldData);
@@ -114,7 +112,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
             .filter(([key, service]) => oldMap.has(key) && JSON.stringify(service.services) !== JSON.stringify(oldMap.get(key)?.services))
             .map(([, service]) => service);
 
-        // console.log(`✅ Added: ${added.length} | 🔄 Updated: ${updated.length} | ❌ Removed: ${removed.length}`);
         return {
             added,
             updated,
@@ -123,7 +120,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     }, []);
 
     const loadIcons = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
-        // console.log("[loadIcons] Run");
         services.forEach(({
             icao,
             services
@@ -135,7 +131,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
                     if (!map.hasImage(iconId)) {
                         map.addImage(iconId, image, { sdf: false });
                         loadedIconsRef.current.add(iconId);
-                        // console.log(`✅ Icon added: ${iconId}`);
                     }
                 };
                 image.src = generateControllerMarkerIconWithIcao(icao, services.map(s => s.serviceType));
@@ -144,13 +139,11 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     }, []);
 
     const removeIcons = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
-        // console.log("[removeIcons] Run");
         services.forEach(({ icao }) => {
             const iconId = `${imagePrefix}${icao}`;
             if (map.hasImage(iconId)) {
                 map.removeImage(iconId);
                 loadedIconsRef.current.delete(iconId);
-                // console.log(`❌ Icon removed: ${iconId}`);
             }
         });
     }, []);
@@ -197,7 +190,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
         }
 
         source?.setData(geoJson);
-        // console.log("🔄 GeoJSON updated.");
     }, []);
 
 
@@ -228,7 +220,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
         const map = mapRef.getMap();
 
         const restoreOnStyleChange = () => {
-            // console.log("[style.load] Restoring icons and geojson");
             loadedIconsRef.current.clear();
             controllerCacheRef.current = [];
 

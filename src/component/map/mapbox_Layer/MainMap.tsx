@@ -156,8 +156,6 @@ const MainMap = () => {
         }
     }, [matchedTracons, matchedFallbackTracons, fallbackGeoJson, isTraconLoading, isTraconError, dispatch, controllerData, controllerError, controllerLoading]);
 
-    console.log("main map run.");
-
     return (
         <>
             <Helmet>

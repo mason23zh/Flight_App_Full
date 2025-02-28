@@ -37,7 +37,6 @@ interface Props {
 
 
 const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
-    console.log("hoverInfo:", hoverInfo);
     let renderServices: JSX.Element[];
     const lon = Number(hoverInfo.coordinates[0]);
     const lat = Number(hoverInfo.coordinates[1]);

@@ -208,7 +208,6 @@ const GlobeTraconIconLayer = ({
         const map = mapRef.getMap();
 
         const restoreTracons = () => {
-            console.log("Map style changed! Restoring Tracon icons...");
             //clear loaded icons
             loadedIconsRef.current.clear();
             previousTraconsRef.current = [];
@@ -234,7 +233,6 @@ const GlobeTraconIconLayer = ({
         };
     }, [mapRef, normalizeTracons, diffTracons, loadIcons, removeIcons, updateGeoJson, mapStyles]);
 
-    console.log("Globe tracon icon layer run.");
 
     // adjust the layer order
     useEffect(() => {

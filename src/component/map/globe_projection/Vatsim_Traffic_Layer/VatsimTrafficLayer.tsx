@@ -191,7 +191,6 @@ const VatsimTrafficLayer = () => {
 
             let source = map.getSource(GLOBE_TRAFFIC_ICON_SOURCE_ID) as GeoJSONSource;
             if (!source) {
-                console.log("Source missing after style change! Re-adding it...");
                 map.addSource(GLOBE_TRAFFIC_ICON_SOURCE_ID, {
                     type: "geojson",
                     data: getJsonData || {
