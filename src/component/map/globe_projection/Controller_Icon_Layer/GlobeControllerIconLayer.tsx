@@ -59,7 +59,6 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const { current: mapRef } = useMap();
     const imagePrefix = "controller-icon-";
 
-
     const combineAirportServices = (controllers: Controller[], atis: Atis[], facilities: Facilities[]): Array<AirportService> => {
         // console.log("combine airport service run.");
         const facilityMap = facilities.reduce((map, f) => {

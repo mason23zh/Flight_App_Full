@@ -13,20 +13,23 @@ import {
 } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 
+interface Props {
+    matchedFirs: MatchedFir[],
+    errorMatchedFirs: boolean
+}
 
-const GlobeFirIconLayer = () => {
+const GlobeFirIconLayer = ({
+    matchedFirs,
+    errorMatchedFirs
+}: Props) => {
     const { current: mapRef } = useMap();
-    const {
-        matchedFirs,
-        isError: errorMatchedFirs
-    } = useSelector((state: RootState) => state.matchedFirs);
+
     const {
         allAtcLayerVisible,
         mapStyles
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
     const loadedIconRef = useRef(new Set<string>());
-
 
     //load FIR Icons
     const loadFirIcons = (map: mapboxgl.Map) => {
@@ -110,6 +113,7 @@ const GlobeFirIconLayer = () => {
         }
     };
 
+    console.log("Globe fir icon laye run.");
     useEffect(() => {
         if (!mapRef?.getMap || errorMatchedFirs || !matchedFirs) return;
         const map = mapRef.getMap();

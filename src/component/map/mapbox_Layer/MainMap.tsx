@@ -156,6 +156,7 @@ const MainMap = () => {
         }
     }, [matchedTracons, matchedFallbackTracons, fallbackGeoJson, isTraconLoading, isTraconError, dispatch, controllerData, controllerError, controllerLoading]);
 
+    console.log("main map run.");
 
     return (
         <>
@@ -177,8 +178,16 @@ const MainMap = () => {
                     {
                         mapProjection === "globe" && (
                             <>
-                                <GlobeFirIconLayer key="globeFirIconLayer"/>
-                                <GlobeTraconIconLayer key="globeTraconIconLayer"/>
+                                <GlobeFirIconLayer
+                                    matchedFirs={matchedFirs}
+                                    errorMatchedFirs={isFirError}
+                                />
+                                <GlobeTraconIconLayer
+                                    matchedTracons={matchedTracons}
+                                    matchedFallbackTracons={matchedFallbackTracons}
+                                    isTraconLoading={isTraconLoading}
+                                    isTraconError={isTraconError}
+                                />
                                 <GlobeControllerIconLayer controllerData={controllerData}/>
                                 <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
                                 <VatsimTrafficLayer key="vatsimTrafficLayer"/>

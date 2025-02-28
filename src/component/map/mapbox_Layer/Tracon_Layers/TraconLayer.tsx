@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { VatsimControllers } from "../../../../types";
 import { Layer, Source } from "react-map-gl";
 import {
@@ -17,6 +17,7 @@ interface Controller {
 const TraconLayer = ({
     controllerInfo,
 }: Controller) => {
+    console.log("tracon layer run.");
     const dispatch = useDispatch();
     const {
         matchedFallbackTracons,
@@ -49,11 +50,11 @@ const TraconLayer = ({
         }
     }, [isTraconError, isTraconLoading, controllerInfo, matchedTracons, matchedFallbackTracons]);
 
-
+ 
     if (matchedTracons) {
-        const activeTraconOutlineStyle = activeTraconLineLayerStyle(matchedTracons);
-        const activeHoverTraconLayerStyle = activeTraconFillLayerStyle(hoveredTracon);
-        const fallbackHoverTraconFillStyle = fallBackHighlightTraconFillLayerStyle(hoveredTracon);
+        const activeTraconOutlineStyle = useMemo(() => activeTraconLineLayerStyle(matchedTracons), [matchedTracons]);
+        const activeHoverTraconLayerStyle = useMemo(() => activeTraconFillLayerStyle(hoveredTracon), [hoveredTracon]);
+        const fallbackHoverTraconFillStyle = useMemo(() => fallBackHighlightTraconFillLayerStyle(hoveredTracon), [hoveredTracon]);
         return (
             <>
                 <Source

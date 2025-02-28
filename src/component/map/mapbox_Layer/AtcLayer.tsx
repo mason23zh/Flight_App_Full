@@ -39,6 +39,8 @@ const AtcLayer = ({
         isLoading: geoJsonLoading
     } = useFetchVatsimFirBoundariesQuery();
 
+    console.log("Atc layer run.");
+
     useEffect(() => {
         if (controllerLoading || geoJsonLoading) {
             dispatch(addMessage({

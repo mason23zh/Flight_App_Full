@@ -51,6 +51,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         mapProjection
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
+    console.log("base map run.");
 
     // Default view point
     const [viewState, setViewState] = useState({
@@ -281,7 +282,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         dispatch(setHoveredTracon(null));
         dispatch(setHoveredFir(null));
     };
-
+    console.log("base map run.");
 
     /*
     * Default Projection: mercator

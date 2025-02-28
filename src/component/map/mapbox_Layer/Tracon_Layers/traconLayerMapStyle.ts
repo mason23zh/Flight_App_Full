@@ -1,5 +1,5 @@
 import { FillLayer, LineLayer } from "react-map-gl";
-import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
+import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 import { HoverTracon } from "./TraconLabelPopup";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {

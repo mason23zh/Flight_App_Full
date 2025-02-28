@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
@@ -12,6 +12,13 @@ import {
 import mapboxgl from "mapbox-gl";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
+interface Props {
+    matchedTracons: MatchedTracon[],
+    matchedFallbackTracons: FallbackTracon[],
+    isTraconLoading: boolean,
+    isTraconError: boolean,
+}
+
 interface TraconFeature {
     uniqueId: string;
     coordinates: number[];
@@ -21,7 +28,12 @@ interface TraconFeature {
 }
 
 //TODO: Optimize the image loading
-const GlobeTraconIconLayer = () => {
+const GlobeTraconIconLayer = ({
+    matchedTracons,
+    matchedFallbackTracons,
+    isTraconLoading,
+    isTraconError
+}: Props) => {
     const { current: mapRef } = useMap();
     const previousTraconsRef = useRef<TraconFeature[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
@@ -31,12 +43,6 @@ const GlobeTraconIconLayer = () => {
         mapStyles,
         allAtcLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const {
-        matchedFallbackTracons,
-        matchedTracons,
-        isLoading: isTraconLoading,
-        isError: isTraconError
-    } = useSelector((state: RootState) => state.matchedTracons);
 
     const normalizeTracons = (
         matchedTracons: MatchedTracon[],
@@ -105,38 +111,35 @@ const GlobeTraconIconLayer = () => {
     };
 
     //function to load icons
-    const loadIcons = (map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
+    const loadIcons = useCallback((map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
         [...added, ...updated].forEach((tracon) => {
-            const iconUrl = generateTraconIcon(
-                tracon.originalData.controllers[0].callsign.slice(0, -4)
-            );
+            if (loadedIconsRef.current.has(tracon.iconId)) return;
 
-            if (!map.hasImage(tracon.iconId)) {
-                const image = new Image();
-                image.onload = () => {
-                    if (!map.hasImage(tracon.iconId)) {
-                        map.addImage(tracon.iconId, image, { sdf: false });
-                        loadedIconsRef.current.add(tracon.iconId);
-                    }
-                };
-                image.src = iconUrl;
-            }
+            const iconUrl = generateTraconIcon(tracon.originalData.controllers[0].callsign.slice(0, -4));
+            const image = new Image();
+            image.onload = () => {
+                if (!map.hasImage(tracon.iconId)) {
+                    map.addImage(tracon.iconId, image, { sdf: false });
+                    loadedIconsRef.current.add(tracon.iconId);
+                }
+            };
+            image.src = iconUrl;
         });
-    };
+    }, []);
 
-    const removeIcons = (map: mapboxgl.Map, removed: TraconFeature[]) => {
+    const removeIcons = useCallback((map: mapboxgl.Map, removed: TraconFeature[]) => {
         removed.forEach((tracon) => {
             if (map.hasImage(tracon.iconId)) {
                 map.removeImage(tracon.iconId);
                 loadedIconsRef.current.delete(tracon.iconId);
             }
         });
-    };
+    }, []);
 
-    const updateGeoJson = (map: mapboxgl.Map, combineData: TraconFeature[]) => {
+    const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: TraconFeature[]) => {
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
-            features: combineData.map((tracon) => ({
+            features: combinedData.map((tracon) => ({
                 type: "Feature",
                 geometry: {
                     type: "Point",
@@ -175,7 +178,7 @@ const GlobeTraconIconLayer = () => {
         if (source) {
             source.setData(newGeoJson);
         }
-    };
+    }, []);
 
     useEffect(() => {
         if (!mapRef?.getMap || isTraconLoading || isTraconError) return;
@@ -194,10 +197,10 @@ const GlobeTraconIconLayer = () => {
 
         previousTraconsRef.current = combineData;
 
-        return () => {
-            removeIcons(map, removed);
-        };
-    }, [matchedTracons, matchedFallbackTracons, isTraconLoading, isTraconError]);
+        // return () => {
+        //     removeIcons(map, removed);
+        // };
+    }, [matchedTracons, matchedFallbackTracons, normalizeTracons, diffTracons, loadIcons, removeIcons, updateGeoJson]);
 
     //restore after style change
     useEffect(() => {
@@ -208,9 +211,20 @@ const GlobeTraconIconLayer = () => {
             console.log("Map style changed! Restoring Tracon icons...");
             //clear loaded icons
             loadedIconsRef.current.clear();
+            previousTraconsRef.current = [];
+
+            const combinedData = normalizeTracons(matchedTracons, matchedFallbackTracons);
+
+            const {
+                added,
+                removed
+            } = diffTracons(combinedData, []);
             // reload all icons
-            loadIcons(map, previousTraconsRef.current, []);
-            updateGeoJson(map, previousTraconsRef.current);
+            loadIcons(map, added, []);
+            removeIcons(map, removed);
+            updateGeoJson(map, added);
+            // loadIcons(map, previousTraconsRef.current, []);
+            // updateGeoJson(map, previousTraconsRef.current);
         };
 
         map.on("style.load", restoreTracons);
@@ -218,7 +232,7 @@ const GlobeTraconIconLayer = () => {
         return () => {
             map.off("style.load", restoreTracons);
         };
-    }, [mapRef, mapStyles]);
+    }, [mapRef, normalizeTracons, diffTracons, loadIcons, removeIcons, updateGeoJson, mapStyles]);
 
     console.log("Globe tracon icon layer run.");
 
@@ -270,4 +284,4 @@ const GlobeTraconIconLayer = () => {
     );
 };
 
-export default GlobeTraconIconLayer;
+export default React.memo(GlobeTraconIconLayer);
