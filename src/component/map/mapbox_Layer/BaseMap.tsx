@@ -312,7 +312,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxPitch={70}
                     style={mapStyle}
                     dragPan={true}
-                    renderWorldCopies={true} //prevent map wrapping
+                    renderWorldCopies={false} //prevent map wrapping
                     logoPosition={"bottom-right"}
                     interactiveLayerIds={
                         [
