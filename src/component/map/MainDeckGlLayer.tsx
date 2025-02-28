@@ -240,7 +240,6 @@ const MainDeckGlLayer = ({
     ]
     );
 
-
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (info.layer &&
                 (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&

@@ -150,7 +150,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
     const handleOnClick = (e: MapLayerMouseEvent) => {
-        if (!e.features || e.features.length === 0) {
+        if (!e.features || e.features.length === 0 && mapProjection === "globe") {
             dispatch(setSelectedTraffic(null));
             dispatch(closeTrafficDetail());
             return;
