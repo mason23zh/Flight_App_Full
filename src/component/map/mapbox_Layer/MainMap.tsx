@@ -60,18 +60,18 @@ const MainMap = () => {
 
     const renderAircraftDisplayPanel = () => {
         if (activePanel === "searchResults" &&
-                searchResultsType === "AIRCRAFT" &&
-                searchResultsVisible
+            searchResultsType === "AIRCRAFT" &&
+            searchResultsVisible
         ) {
-            return <AircraftDisplay/>;
+            return <AircraftDisplay />;
         }
         return null;
     };
 
     const renderAircraftDepartureArrivalDisplayPanel = () => {
         if (activePanel === "searchResults" &&
-                searchResultsType === "AIRPORT" &&
-                searchResultsVisible) {
+            searchResultsType === "AIRPORT" &&
+            searchResultsVisible) {
             return <AirportDepartureArrivalDisplay
                 airport={selectedAirport}
             />;
@@ -81,10 +81,10 @@ const MainMap = () => {
 
     const renderFlightInfoPanel = () => {
         if (activePanel === "trafficDetail" &&
-                trafficDetailVisible &&
-                traffic &&
-                traffic.callsign.length !== 0) {
-            return <FlightInfo/>;
+            trafficDetailVisible &&
+            traffic &&
+            traffic.callsign.length !== 0) {
+            return <FlightInfo />;
         }
         return null;
     };
@@ -168,11 +168,11 @@ const MainMap = () => {
                     name="keyword"
                     content="VATSIM map, live air traffic, VATSIM controllers, VATSIM flights, live flight tracking"
                 />
-                <link rel="canonical" href="https://airportweather.org/map"/>
+                <link rel="canonical" href="https://airportweather.org/map" />
             </Helmet>
             <div>
                 <BaseMap key={mapProjection}>
-                    <MapErrorMessageStack/>
+                    <MapErrorMessageStack />
                     {
                         mapProjection === "globe" && (
                             <>
@@ -186,9 +186,9 @@ const MainMap = () => {
                                     isTraconLoading={isTraconLoading}
                                     isTraconError={isTraconError}
                                 />
-                                <GlobeControllerIconLayer controllerData={controllerData}/>
-                                <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
-                                <VatsimTrafficLayer key="vatsimTrafficLayer"/>
+                                <GlobeControllerIconLayer controllerData={controllerData} />
+                                <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
+                                <VatsimTrafficLayer key="vatsimTrafficLayer" />
                             </>
                         )
                     }
@@ -205,8 +205,8 @@ const MainMap = () => {
                             controllerDataError={controllerError}
                         />
                     }
-                    <NexradLayer/>
-                    {dayNightTerminator && <DayNightLayer/>}
+                    <NexradLayer />
+                    {dayNightTerminator && <DayNightLayer />}
                     {renderFlightInfoPanel()}
                     {renderAircraftDepartureArrivalDisplayPanel()}
                     {renderAircraftDisplayPanel()}
