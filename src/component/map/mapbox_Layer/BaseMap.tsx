@@ -249,7 +249,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
             if (layerId === GLOBE_TRACON_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 //TODO: Fix typescript issues for hovered tracon properties
-                const properties = feature.properties as Omit<HoverTracon, HoverTraconControllers[], "controllers" | "traconInfo"> & {
+                const properties = feature.properties as Omit<HoverTracon, "controllers" | "traconInfo"> & {
                     controllers: string | null;
                     traconInfo: string | null
                 };
@@ -301,6 +301,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     ref={mapRef}
                     id="mainMap"
                     projection={{ name: mapProjection }}
+                    // projection={{ name: "globe" }}
                     // cursor={"auto"}
                     // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
                     // Set 1.92 for safe
@@ -330,7 +331,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         console.log("Map done loading.");
                         setIsLoaded(true);
                     }}
-                    onRender={(event) => event.target.resize()}
+                    // onRender={(event) => event.target.resize()}
+                    reuseMaps={true}
+                    optimizeForTerrain={terrainEnable}
+                    preserveDrawingBuffer={false}
+                    antialias={false}
+                    trackResize={false}
+                    maxTileCacheSize={25}
+                    // cooperativeGestures={true}
                 >
                     {isLoaded && (
                         <>

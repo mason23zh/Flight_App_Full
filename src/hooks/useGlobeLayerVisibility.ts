@@ -7,7 +7,7 @@
 * - GlobeFirIconLayer
 * */
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { MapRef } from "react-map-gl";
 
 const useGlobeLayerVisibility = (
@@ -15,8 +15,10 @@ const useGlobeLayerVisibility = (
     layerId: string,
     isVisible: boolean
 ) => {
+    const previousVisibility = useRef(isVisible);
+    
     useEffect(() => {
-        if (!mapRef?.getMap) return;
+        if (!mapRef?.getMap || previousVisibility.current === isVisible) return;
         const map = mapRef.getMap();
 
         const applyVisibility = () => {
@@ -32,6 +34,8 @@ const useGlobeLayerVisibility = (
         };
 
         map.on("styledata", restoreVisibility);
+
+        previousVisibility.current = isVisible;
 
         return () => {
             map.off("styledata", restoreVisibility);
