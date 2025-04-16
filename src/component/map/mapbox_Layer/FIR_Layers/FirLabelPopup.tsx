@@ -74,7 +74,7 @@ const FirLabelPopup = ({
             longitude={Number(hoverFir.firInfo.entries[0].label_lon)}
             latitude={Number(hoverFir.firInfo.entries[0].label_lat)}
             closeButton={false}
-            anchor="bottom"
+            // anchor="bottom"
         >
 
             <div className={`w-full p-2 rounded-xl ${colorTheme}`}>

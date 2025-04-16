@@ -30,8 +30,8 @@ const filterTrafficDataInViewport = (
             }) => {
                 return (
                     latitude >= minLat &&
-                        latitude <= maxLat &&
-                        (longitude >= minLng || longitude <= maxLng)
+                    latitude <= maxLat &&
+                    (longitude >= minLng || longitude <= maxLng)
                 );
             });
         } else {
@@ -41,9 +41,9 @@ const filterTrafficDataInViewport = (
             }) => {
                 return (
                     longitude >= minLng &&
-                        longitude <= maxLng &&
-                        latitude >= minLat &&
-                        latitude <= maxLat
+                    longitude <= maxLng &&
+                    latitude >= minLat &&
+                    latitude <= maxLat
                 );
             });
         }
