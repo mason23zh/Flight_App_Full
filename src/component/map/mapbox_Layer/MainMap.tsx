@@ -31,7 +31,6 @@ import { Helmet } from "react-helmet-async";
 import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
 import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Layer/VatsimTrafficPathLayer";
 import GlobeFirIconLayer from "../globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
-import GlobeTraconIconLayer from "../globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer";
 import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
 import GlobeTraconIconLayer_Test from "../globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer_Test";
 
@@ -202,12 +201,6 @@ const MainMap = () => {
                                 isTraconLoading={isTraconLoading}
                                 isTraconError={isTraconError}
                             />
-                            {/* <GlobeTraconIconLayer
-                                    matchedTracons={matchedTracons}
-                                    matchedFallbackTracons={matchedFallbackTracons}
-                                    isTraconLoading={isTraconLoading}
-                                    isTraconError={isTraconError}
-                                /> */}
                             <GlobeControllerIconLayer controllerData={controllerData} />
                             <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
                             <VatsimTrafficLayer key="vatsimTrafficLayer" />

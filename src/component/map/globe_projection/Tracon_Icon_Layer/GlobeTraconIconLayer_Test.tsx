@@ -4,11 +4,7 @@ import { RootState } from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon";
 import generateTraconIcon from "../../mapbox_Layer/util/generateTraconIcon";
-import {
-    GLOBE_CONTROLLER_ICON_LAYER_ID,
-    GLOBE_TRACON_ICON_LAYER_ID,
-    GLOBE_TRACON_ICON_SOURCE_ID,
-} from "../layerSourceName";
+import { GLOBE_TRACON_ICON_LAYER_ID, GLOBE_TRACON_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
@@ -27,12 +23,7 @@ interface TraconFeature {
     originalData: MatchedTracon | FallbackTracon;
 }
 
-const GlobeTraconIconLayer_Test = ({
-    matchedTracons,
-    matchedFallbackTracons,
-    isTraconLoading,
-    isTraconError,
-}: Props) => {
+const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isTraconError }: Props) => {
     const { current: mapRef } = useMap();
     const previousTraconsRef = useRef<TraconFeature[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
@@ -241,9 +232,9 @@ const GlobeTraconIconLayer_Test = ({
 
             const normlizeData = normalizeTracons(matchedTracons, matchedFallbackTracons);
             const { added, updated, removed } = diffTracons(normlizeData, []);
-            console.log("restore on style change added:", added.length);
-            console.log("restore on style change updated:", updated.length);
-            console.log("restore on style change removed:", removed.length);
+            // console.log("restore on style change added:", added.length);
+            // console.log("restore on style change updated:", updated.length);
+            // console.log("restore on style change removed:", removed.length);
             loadIcons(map, added, updated);
             removeIcons(map, removed);
             updateGeoJson(map, normlizeData);

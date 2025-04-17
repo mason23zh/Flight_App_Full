@@ -1,22 +1,18 @@
 /*
-* This hook controls the visibility for layer in globe projection
-* These layers are:
-* - VatsimTrafficLayer
-* - GlobeControllerIconLayer
-* - GlobeTraconIconLayer
-* - GlobeFirIconLayer
-* */
+ * This hook controls the visibility for layer in globe projection
+ * These layers are:
+ * - VatsimTrafficLayer
+ * - GlobeControllerIconLayer
+ * - GlobeTraconIconLayer
+ * - GlobeFirIconLayer
+ * */
 
 import { useEffect, useRef } from "react";
 import { MapRef } from "react-map-gl";
 
-const useGlobeLayerVisibility = (
-    mapRef: MapRef | null,
-    layerId: string,
-    isVisible: boolean
-) => {
+const useGlobeLayerVisibility = (mapRef: MapRef | null, layerId: string, isVisible: boolean) => {
     const previousVisibility = useRef(isVisible);
-    
+
     useEffect(() => {
         if (!mapRef?.getMap || previousVisibility.current === isVisible) return;
         const map = mapRef.getMap();
