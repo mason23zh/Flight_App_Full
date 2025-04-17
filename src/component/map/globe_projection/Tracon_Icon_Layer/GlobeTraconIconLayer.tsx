@@ -266,4 +266,4 @@ const GlobeTraconIconLayer = ({
     );
 };
 
-export default React.memo(GlobeTraconIconLayer);
+export default GlobeTraconIconLayer
