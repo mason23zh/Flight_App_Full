@@ -29,6 +29,7 @@ import {
     GLOBE_TRACON_ICON_LAYER_ID,
     GLOBE_TRAFFIC_ICON_LAYER_ID,
 } from "../globe_projection/layerSourceName";
+// import { useLocation } from "react-router-dom";
 
 //TODO: mapboxgl tooltip arrow remove
 //TODO: Globe projection layer order issue.
@@ -41,7 +42,7 @@ interface BaseMapProps {
 const BaseMap = ({ children }: BaseMapProps) => {
     // const [cursor, setCursor] = useState<string>("grab");
     const [isLoaded, setIsLoaded] = useState(false);
-    // const [isStyleLoaded, setIsStyleLoaded] = useState(false);
+    const [isStyleLoaded, setIsStyleLoaded] = useState(false);
     const popupRef = useRef<mapboxgl.Popup>();
 
     const dispatch = useDispatch();
@@ -49,6 +50,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
+    // const location = useLocation();
 
     const { terrainEnable, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
 
@@ -85,20 +87,28 @@ const BaseMap = ({ children }: BaseMapProps) => {
         }
     }, [mapStyle, mapRef]);
 
-    // useEffect(() => {
-    //     if (map) {
-    //         const handleStyleData = () => {
-    //             console.log("style load");
-    //             setIsStyleLoaded(true);
-    //         };
-    //
-    //         map.on("styledata", handleStyleData);
-    //
-    //         return () => {
-    //             map.off("styledata", handleStyleData);
-    //         };
-    //     }
-    // }, [map]);
+    //force page reload, when navigate from other component,
+    //reload the page to reset the map. This would make sure every layer is loaded.
+    useEffect(() => {
+        const hasReloaded = sessionStorage.getItem("map-reload");
+
+        console.log("Location pathname:", location.pathname);
+
+        if (
+            location.pathname === "/map" &&
+            (mapProjection === "globe" || mapProjection === "mercator") &&
+            !hasReloaded
+        ) {
+            sessionStorage.setItem("map-reload", "true");
+            window.location.reload();
+        }
+
+        return () => {
+            if (location.pathname !== "/map") {
+                sessionStorage.removeItem("map-reload");
+            }
+        };
+    }, [location.pathname, mapProjection]);
 
     useEffect(() => {
         if (map) {
@@ -309,8 +319,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         console.log("On idle called.");
                     }}
                     onStyleData={() => {
-                        setIsLoaded(true);
+                        console.log("Style data loaded.");
+                        setIsStyleLoaded(true);
                     }}
+                    // onSourceData={() => {
+                    //     console.log("Source data loaded.");
+                    //     setIsStyleLoaded(true);
+                    // }}
                     onRender={(event) => event.target.resize()}
                     reuseMaps={true}
                     optimizeForTerrain={terrainEnable}
@@ -320,7 +335,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxTileCacheSize={25}
                     // cooperativeGestures={true}
                 >
-                    {isLoaded ? (
+                    {isLoaded && isStyleLoaded ? (
                         <>
                             <BaseMapPopups />
                             <TogglePanel />

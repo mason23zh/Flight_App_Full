@@ -12,7 +12,7 @@ import {
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimFlight } from "../../../../types";
 import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_SOURCE_ID } from "../layerSourceName";
-import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
+// import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 //TODO: refine onClick and onHover logic
 
