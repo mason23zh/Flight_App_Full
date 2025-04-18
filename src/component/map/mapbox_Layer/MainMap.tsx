@@ -41,7 +41,9 @@ const MainMap = () => {
 
     const { selectedAirport } = useSelector((state: RootState) => state.mapSearchAirport);
 
-    const { dayNightTerminator, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { dayNightTerminator, mapProjection, trafficLayerVisible } = useSelector(
+        (state: RootState) => state.vatsimMapVisible,
+    );
 
     const { activePanel, searchResultsType, searchResultsVisible, trafficDetailVisible } = useSelector(
         (state: RootState) => state.mapDisplayPanel,

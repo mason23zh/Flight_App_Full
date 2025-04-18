@@ -9,25 +9,19 @@ import {
     GLOBE_CONTROLLER_ICON_LAYER_ID,
     GLOBE_FIR_ICON_LAYER_ID,
     GLOBE_FIR_ICON_SOURCE_ID,
-    GLOBE_TRACON_ICON_LAYER_ID
+    GLOBE_TRACON_ICON_LAYER_ID,
 } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 
 interface Props {
-    matchedFirs: MatchedFir[],
-    errorMatchedFirs: boolean
+    matchedFirs: MatchedFir[];
+    errorMatchedFirs: boolean;
 }
 
-const GlobeFirIconLayer = ({
-    matchedFirs,
-    errorMatchedFirs
-}: Props) => {
+const GlobeFirIconLayer = ({ matchedFirs, errorMatchedFirs }: Props) => {
     const { current: mapRef } = useMap();
 
-    const {
-        allAtcLayerVisible,
-        mapStyles
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { allAtcLayerVisible, mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
     const loadedIconRef = useRef(new Set<string>());
 
@@ -74,7 +68,7 @@ const GlobeFirIconLayer = ({
                     type: "Point",
                     coordinates: [
                         Number(feature.firInfo?.entries[0]?.label_lon),
-                        Number(feature.firInfo?.entries[0]?.label_lat)
+                        Number(feature.firInfo?.entries[0]?.label_lat),
                     ],
                 },
                 properties: {
@@ -83,7 +77,7 @@ const GlobeFirIconLayer = ({
                     firInfo: JSON.stringify(feature.firInfo),
                     ...feature,
                 },
-            }))
+            })),
         };
 
         let source = map.getSource(GLOBE_FIR_ICON_SOURCE_ID) as GeoJSONSource;
@@ -91,7 +85,7 @@ const GlobeFirIconLayer = ({
         if (!source) {
             map.addSource(GLOBE_FIR_ICON_SOURCE_ID, {
                 type: "geojson",
-                data: newGeoJson
+                data: newGeoJson,
             });
 
             map.addLayer({
@@ -102,6 +96,7 @@ const GlobeFirIconLayer = ({
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueFirId"]],
                     "icon-size": 0.4,
                     "icon-allow-overlap": true,
+                    visibility: allAtcLayerVisible ? "visible" : "none",
                 },
             });
 
@@ -142,7 +137,6 @@ const GlobeFirIconLayer = ({
         };
     }, [mapRef, matchedFirs]);
 
-
     // adjusting the layer order, make sure FIR icon layer always stays on top
     useEffect(() => {
         if (!mapRef?.getMap) return;
@@ -160,17 +154,17 @@ const GlobeFirIconLayer = ({
         };
 
         map.on("style.load", moveLayerOnStyleChange);
-        map.on("styledata", moveLayerOnStyleChange);
+        // map.on("styledata", moveLayerOnStyleChange);
 
         return () => {
             map.off("style.load", moveLayerOnStyleChange);
-            map.off("styledata", moveLayerOnStyleChange);
+            // map.off("styledata", moveLayerOnStyleChange);
         };
     }, [mapRef, mapStyles]);
 
+    // useGlobeLayerVisibility(mapRef, GLOBE_FIR_ICON_LAYER_ID, allAtcLayerVisible);
 
-    useGlobeLayerVisibility(mapRef, GLOBE_FIR_ICON_LAYER_ID, allAtcLayerVisible);
-
+    console.log("allAtcLayerVisible", allAtcLayerVisible);
     return (
         <Source
             id={GLOBE_FIR_ICON_SOURCE_ID}
@@ -178,7 +172,7 @@ const GlobeFirIconLayer = ({
             // data={geoJsonData}
             data={{
                 type: "FeatureCollection",
-                features: []
+                features: [],
             }}
         >
             <Layer
@@ -188,6 +182,7 @@ const GlobeFirIconLayer = ({
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueFirId"]],
                     "icon-size": 0.4,
                     "icon-allow-overlap": true,
+                    visibility: allAtcLayerVisible ? "visible" : "none",
                 }}
             />
         </Source>

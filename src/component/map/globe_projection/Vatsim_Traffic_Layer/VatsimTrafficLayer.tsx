@@ -8,14 +8,10 @@ import { db } from "../../../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
     searchByAircraftType,
-    searchFlightsByAirports
+    searchFlightsByAirports,
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimFlight } from "../../../../types";
-import {
-    GLOBE_FIR_ICON_LAYER_ID,
-    GLOBE_TRAFFIC_ICON_LAYER_ID,
-    GLOBE_TRAFFIC_ICON_SOURCE_ID
-} from "../layerSourceName";
+import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_SOURCE_ID } from "../layerSourceName";
 import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 //TODO: refine onClick and onHover logic
@@ -24,28 +20,21 @@ const VatsimTrafficLayer = () => {
     const imageId = "B38M";
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    const {
-        mapStyles,
-        trafficLayerVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapStyles, trafficLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const {
-        filterAircraftOnMap: filterByAircraftType,
-        selectedAircraftCategory,
-    } = useSelector((state: RootState) => state.mapSearchAircraft);
+    const { filterAircraftOnMap: filterByAircraftType, selectedAircraftCategory } = useSelector(
+        (state: RootState) => state.mapSearchAircraft,
+    );
 
-    const {
-        filterAircraftOnMap: filterByAirport,
-        selectedAirport,
-    } = useSelector((state: RootState) => state.mapSearchAirport);
-
+    const { filterAircraftOnMap: filterByAirport, selectedAirport } = useSelector(
+        (state: RootState) => state.mapSearchAirport,
+    );
 
     const {
         data: vatsimPilots,
         isFetching,
         error,
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
-
 
     useEffect(() => {
         let isMounted = true;
@@ -73,21 +62,15 @@ const VatsimTrafficLayer = () => {
         async () => {
             if (filterByAircraftType && selectedAircraftCategory) {
                 const results = await searchByAircraftType(selectedAircraftCategory);
-                dispatch(setMapSearchSelectedAircraft(results.flatMap(result => result.flights)));
-                return results.flatMap(result => result.flights);
+                dispatch(setMapSearchSelectedAircraft(results.flatMap((result) => result.flights)));
+                return results.flatMap((result) => result.flights);
             } else if (filterByAirport && selectedAirport) {
                 return await searchFlightsByAirports(selectedAirport.ident);
             }
             return vatsimPilots?.data.pilots || [];
         },
-        [
-            filterByAircraftType,
-            selectedAircraftCategory,
-            vatsimPilots,
-            filterByAirport,
-            selectedAirport
-        ],
-        []
+        [filterByAircraftType, selectedAircraftCategory, vatsimPilots, filterByAirport, selectedAirport],
+        [],
     );
 
     const memoizedVatsimPilotToDisplay: VatsimFlight[] = useMemo(() => {
@@ -95,7 +78,14 @@ const VatsimTrafficLayer = () => {
     }, [filteredResults]);
 
     const getJsonData: GeoJSON = useMemo(() => {
-        if (!memoizedVatsimPilotToDisplay || memoizedVatsimPilotToDisplay.length === 0 || !vatsimPilots?.data?.pilots || isFetching || error) return null;
+        if (
+            !memoizedVatsimPilotToDisplay ||
+            memoizedVatsimPilotToDisplay.length === 0 ||
+            !vatsimPilots?.data?.pilots ||
+            isFetching ||
+            error
+        )
+            return null;
 
         return {
             type: "FeatureCollection",
@@ -107,12 +97,11 @@ const VatsimTrafficLayer = () => {
                 },
                 properties: {
                     ...pilot,
-                    flight_plan: JSON.stringify(pilot.flight_plan)
-                }
+                    flight_plan: JSON.stringify(pilot.flight_plan),
+                },
             })),
         };
     }, [memoizedVatsimPilotToDisplay, mapStyles, isFetching, error]);
-
 
     useEffect(() => {
         if (!mapRef?.getMap) return;
@@ -131,7 +120,6 @@ const VatsimTrafficLayer = () => {
         if (!mapRef?.getMap) return;
 
         const map = mapRef.getMap();
-
 
         const loadAircraftImage = () => {
             if (!map.hasImage(imageId)) {
@@ -156,7 +144,6 @@ const VatsimTrafficLayer = () => {
             loadAircraftImage();
         };
 
-
         return () => {
             map.off("styledata", onStyleData);
             try {
@@ -169,14 +156,12 @@ const VatsimTrafficLayer = () => {
         };
     }, [mapStyles, mapRef]); //use mapStyles here to trigger re-render
 
-
     //restore aircraft icons && source after map style change
     useEffect(() => {
         if (!mapRef?.getMap) return;
         const map = mapRef.getMap();
 
         const restoreTrafficLayer = () => {
-
             if (!map.hasImage(imageId)) {
                 map.loadImage(B38M, (error, image) => {
                     if (error) {
@@ -195,7 +180,7 @@ const VatsimTrafficLayer = () => {
                     type: "geojson",
                     data: getJsonData || {
                         type: "FeatureCollection",
-                        features: []
+                        features: [],
                     },
                 });
 
@@ -231,7 +216,8 @@ const VatsimTrafficLayer = () => {
     }, [mapStyles, mapRef, getJsonData]);
 
     //Visibility control
-    useGlobeLayerVisibility(mapRef, GLOBE_TRAFFIC_ICON_LAYER_ID, trafficLayerVisible);
+    console.log("trafficLayerVisible", trafficLayerVisible);
+    // useGlobeLayerVisibility(mapRef, GLOBE_TRAFFIC_ICON_LAYER_ID, trafficLayerVisible);
 
     return (
         <Source
@@ -240,7 +226,7 @@ const VatsimTrafficLayer = () => {
             // data={getJsonData}
             data={{
                 type: "FeatureCollection",
-                features: []
+                features: [],
             }}
         >
             <Layer
@@ -254,6 +240,7 @@ const VatsimTrafficLayer = () => {
                     "icon-size": 0.06,
                     "icon-rotate": ["get", "heading"], // Rotate based on heading property
                     "icon-allow-overlap": true, // Allow overlapping icons
+                    visibility: trafficLayerVisible ? "visible" : "none",
                 }}
                 paint={{
                     "icon-color": "#c2c906",

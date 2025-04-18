@@ -246,7 +246,7 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
         };
     }, [mapRef, loadIcons, updateGeoJson, mapStyles]);
 
-    useGlobeLayerVisibility(mapRef, GLOBE_TRACON_ICON_LAYER_ID, allAtcLayerVisible);
+    // useglobelayervisibility(mapref, globe_tracon_icon_layer_id, allatclayervisible);
 
     return (
         <Source
@@ -264,6 +264,7 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
                     "icon-image": ["concat", imagePrefix, ["get", "uniqueId"]],
                     "icon-size": 0.4,
                     "icon-allow-overlap": true,
+                    visibility: allAtcLayerVisible ? "visible" : "none",
                 }}
             />
         </Source>

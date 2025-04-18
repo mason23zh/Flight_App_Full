@@ -6,8 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     closeTrafficDetail,
     openTrafficDetail,
-    RootState, setHoveredController, setHoveredFir, setHoveredTracon,
-    setSelectedTraffic
+    RootState,
+    setHoveredController,
+    setHoveredFir,
+    setHoveredTracon,
+    setSelectedTraffic,
 } from "../../../store";
 import TelemetryPanel from "../LocalUserTraffic_Layer/TelemetryPanel";
 import { useInitializeDatabase } from "../../../hooks/useInitializeDatabase";
@@ -22,8 +25,9 @@ import { setHoveredTraffic } from "../../../store/slices/mapLayerHoverSlice";
 import { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
 import {
     GLOBE_CONTROLLER_ICON_LAYER_ID,
-    GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRACON_ICON_LAYER_ID,
-    GLOBE_TRAFFIC_ICON_LAYER_ID
+    GLOBE_FIR_ICON_LAYER_ID,
+    GLOBE_TRACON_ICON_LAYER_ID,
+    GLOBE_TRAFFIC_ICON_LAYER_ID,
 } from "../globe_projection/layerSourceName";
 
 //TODO: mapboxgl tooltip arrow remove
@@ -46,10 +50,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
 
-    const {
-        terrainEnable,
-        mapProjection
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { terrainEnable, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     // Default view point
     const [viewState, setViewState] = useState({
@@ -62,16 +63,24 @@ const BaseMap = ({ children }: BaseMapProps) => {
         height: 0,
     });
 
+    const defaultViewState = {
+        longitude: -29.858598,
+        latitude: 36.15178,
+        zoom: 2.7,
+        pitch: 0,
+        bearing: 0,
+        width: 0,
+        height: 0,
+    };
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
         // width: "100%",
         width: "100%",
-        position: "absolute"
+        position: "absolute",
     });
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
-
 
     useEffect(() => {
         if (mapRef && mapRef?.current) {
@@ -116,7 +125,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 console.error("MapboxGL not supported");
             }
         }
-
     }, [map]);
 
     // adjust map height
@@ -124,9 +132,9 @@ const BaseMap = ({ children }: BaseMapProps) => {
         const updateMapHeight = () => {
             const navbarHeight = document.querySelector(".main-navbar")?.clientHeight || 0;
             const mapHeight = `calc(100dvh - ${navbarHeight}px)`;
-            setMapStyle(prevStyle => ({
+            setMapStyle((prevStyle) => ({
                 ...prevStyle,
-                height: mapHeight
+                height: mapHeight,
             }));
         };
 
@@ -143,14 +151,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
         popupRef.current?.addClassName("p-0");
     }, [popupRef.current]);
 
-
     if (!isDatabaseInitialized) {
-        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"} />;
     }
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
     const handleOnClick = (e: MapLayerMouseEvent) => {
-        if (!e.features || e.features.length === 0 && mapProjection === "globe") {
+        if (!e.features || (e.features.length === 0 && mapProjection === "globe")) {
             dispatch(setSelectedTraffic(null));
             dispatch(closeTrafficDetail());
             return;
@@ -161,20 +168,19 @@ const BaseMap = ({ children }: BaseMapProps) => {
             if (layerId === "vatsim-traffic-globe-layer") {
                 // Workaround for GeoJSON serializes nested object
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
-                    flight_plan: string | null
+                    flight_plan: string | null;
                 };
                 const trafficData: VatsimFlight = {
                     ...properties,
                     flight_plan: properties.flight_plan
-                        ? JSON.parse(properties.flight_plan) as VatsimFlightPlan
-                        : null
+                        ? (JSON.parse(properties.flight_plan) as VatsimFlightPlan)
+                        : null,
                 };
 
                 dispatch(setSelectedTraffic(trafficData));
                 dispatch(openTrafficDetail());
             }
         });
-
     };
 
     const handleHover = (e: MapLayerMouseEvent) => {
@@ -188,21 +194,23 @@ const BaseMap = ({ children }: BaseMapProps) => {
             if (layerId === GLOBE_TRAFFIC_ICON_LAYER_ID) {
                 // setCursor("pointer");
                 const properties = feature.properties as Omit<VatsimFlight, "flight_plan"> & {
-                    flight_plan: string | null
+                    flight_plan: string | null;
                 };
 
                 const trafficData: VatsimFlight = {
                     ...properties,
                     flight_plan: properties.flight_plan
-                        ? JSON.parse(properties.flight_plan) as VatsimFlightPlan
-                        : null
+                        ? (JSON.parse(properties.flight_plan) as VatsimFlightPlan)
+                        : null,
                 };
 
-                dispatch(setHoveredTraffic({
-                    info: trafficData,
-                    x: e.point.x,
-                    y: e.point.y
-                }));
+                dispatch(
+                    setHoveredTraffic({
+                        info: trafficData,
+                        x: e.point.x,
+                        y: e.point.y,
+                    }),
+                );
             }
 
             if (layerId === GLOBE_CONTROLLER_ICON_LAYER_ID) {
@@ -214,12 +222,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
                 const controllerServiceData: AirportService = {
                     ...properties,
-                    coordinates: properties.coordinates
-                        ? JSON.parse(properties.coordinates) as string []
-                        : [],
-                    services: properties.services
-                        ? JSON.parse(properties.services) as Array<Service>
-                        : []
+                    coordinates: properties.coordinates ? (JSON.parse(properties.coordinates) as string[]) : [],
+                    services: properties.services ? (JSON.parse(properties.services) as Array<Service>) : [],
                 };
 
                 dispatch(setHoveredController(controllerServiceData));
@@ -229,17 +233,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 // setCursor("pointer");
                 const properties = feature.properties as Omit<MatchedFir, "firInfo" | "controller"> & {
                     controllers: string | null;
-                    firInfo: string | null
+                    firInfo: string | null;
                 };
 
                 const firData: MatchedFir = {
                     ...properties,
-                    controllers: properties.controllers
-                        ? JSON.parse(properties.controllers)
-                        : {},
-                    firInfo: properties.firInfo
-                        ? JSON.parse(properties.firInfo)
-                        : []
+                    controllers: properties.controllers ? JSON.parse(properties.controllers) : {},
+                    firInfo: properties.firInfo ? JSON.parse(properties.firInfo) : [],
                 };
 
                 // setHoveredFir(firData);
@@ -251,17 +251,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 //TODO: Fix typescript issues for hovered tracon properties
                 const properties = feature.properties as Omit<HoverTracon, "controllers" | "traconInfo"> & {
                     controllers: string | null;
-                    traconInfo: string | null
+                    traconInfo: string | null;
                 };
 
                 const traconData: HoverTracon = {
                     ...properties,
-                    controllers: properties.controllers
-                        ? JSON.parse(properties.controllers)
-                        : {},
-                    traconInfo: properties.traconInfo
-                        ? JSON.parse(properties.traconInfo)
-                        : {}
+                    controllers: properties.controllers ? JSON.parse(properties.controllers) : {},
+                    traconInfo: properties.traconInfo ? JSON.parse(properties.traconInfo) : {},
                 };
 
                 // setHoveredTracon(traconData);
@@ -270,7 +266,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
             }
         });
     };
-
 
     const handleMouseLeave = () => {
         // setCursor("grab");
@@ -282,21 +277,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
     };
 
     /*
-    * Default Projection: mercator
-    * Unable to use globe as Projection due to mapbox api limitation.
-    */
+     * Default Projection: mercator
+     * Unable to use globe as Projection due to mapbox api limitation.
+     */
     return (
         <MapProvider>
-            <div
-                onContextMenu={evt => evt.preventDefault()}
-            >
-                {
-                    !isLoaded && (
-                        <div>
-                            loading map...
-                        </div>
-                    )
-                }
+            <div onContextMenu={(evt) => evt.preventDefault()}>
+                {!isLoaded && <div>loading map...</div>}
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -309,20 +296,18 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
                     mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
-                    initialViewState={viewState}
+                    initialViewState={defaultViewState}
                     maxPitch={70}
                     style={mapStyle}
                     dragPan={true}
                     renderWorldCopies={false} //prevent map wrapping
                     logoPosition={"bottom-right"}
-                    interactiveLayerIds={
-                        [
-                            "vatsim-traffic-globe-layer",
-                            "controller-icon-globe-layer",
-                            "fir-icon-globe-layer",
-                            "tracon-icon-globe-layer"
-                        ]
-                    }
+                    interactiveLayerIds={[
+                        "vatsim-traffic-globe-layer",
+                        "controller-icon-globe-layer",
+                        "fir-icon-globe-layer",
+                        "tracon-icon-globe-layer",
+                    ]}
                     onClick={(e) => handleOnClick(e)}
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
@@ -331,7 +316,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         console.log("Map done loading.");
                         setIsLoaded(true);
                     }}
-                    // onRender={(event) => event.target.resize()}
+                    onRender={(event) => event.target.resize()}
                     reuseMaps={true}
                     optimizeForTerrain={terrainEnable}
                     preserveDrawingBuffer={false}
@@ -342,10 +327,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 >
                     {isLoaded && (
                         <>
-                            <BaseMapPopups/>
-                            <TogglePanel/>
-                            <TelemetryPanel/>
-                            <CustomNavigationController/>
+                            <BaseMapPopups />
+                            <TogglePanel />
+                            <TelemetryPanel />
+                            <CustomNavigationController />
                             {AirportLayers}
                             {children}
                         </>

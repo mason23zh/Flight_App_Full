@@ -12,6 +12,7 @@ import { MapRef } from "react-map-gl";
 
 const useGlobeLayerVisibility = (mapRef: MapRef | null, layerId: string, isVisible: boolean) => {
     const previousVisibility = useRef(isVisible);
+    const isFirstLoaded = useRef(true);
 
     useEffect(() => {
         if (!mapRef?.getMap || previousVisibility.current === isVisible) return;
@@ -19,23 +20,47 @@ const useGlobeLayerVisibility = (mapRef: MapRef | null, layerId: string, isVisib
 
         const applyVisibility = () => {
             if (map.getLayer(layerId)) {
+                console.log("Get layer success");
                 map.setLayoutProperty(layerId, "visibility", isVisible ? "visible" : "none");
+                return true;
+            }
+            return false;
+        };
+
+        if (!isFirstLoaded.current && previousVisibility.current === isVisible) return;
+
+        const handleSourceData = () => {
+            if (applyVisibility()) {
+                map.off("sourcedata", handleSourceData);
+                isFirstLoaded.current = false;
             }
         };
 
-        applyVisibility();
-
-        const restoreVisibility = () => {
-            applyVisibility();
-        };
-
-        map.on("styledata", restoreVisibility);
+        if (!applyVisibility()) {
+            map.on("sourcedata", handleSourceData);
+        } else {
+            isFirstLoaded.current = false;
+        }
 
         previousVisibility.current = isVisible;
 
         return () => {
-            map.off("styledata", restoreVisibility);
+            map.off("sourcedata", handleSourceData);
         };
+
+        // applyVisibility();
+
+        // const restoreVisibility = () => {
+        //     applyVisibility();
+        // };
+
+        // map.on("sourcedata", restoreVisibility);
+
+        // previousVisibility.current = isVisible;
+
+        // return () => {
+        //     map.off("sourcedata", restoreVisibility);
+        // };
     }, [mapRef, layerId, isVisible]);
 };
 
