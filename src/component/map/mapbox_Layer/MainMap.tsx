@@ -192,7 +192,7 @@ const MainMap = () => {
                 <link rel="canonical" href="https://airportweather.org/map" />
             </Helmet>
             <div>
-                <BaseMap key={mapProjection}>
+                <BaseMap>
                     <MapErrorMessageStack />
                     {mapProjection === "globe" && (
                         <>

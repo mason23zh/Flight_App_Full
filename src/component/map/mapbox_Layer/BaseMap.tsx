@@ -22,7 +22,7 @@ import { AirportService, Service, VatsimFlight, VatsimFlightPlan } from "../../.
 import { MatchedFir } from "../../../hooks/useMatchedFirs";
 import BaseMapPopups from "../globe_projection/BaseMapPopups";
 import { setHoveredTraffic } from "../../../store/slices/mapLayerHoverSlice";
-import { HoverTracon, HoverTraconControllers } from "./Tracon_Layers/TraconLabelPopup";
+import { HoverTracon } from "./Tracon_Layers/TraconLabelPopup";
 import {
     GLOBE_CONTROLLER_ICON_LAYER_ID,
     GLOBE_FIR_ICON_LAYER_ID,
@@ -51,17 +51,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const isDatabaseInitialized = useInitializeDatabase();
 
     const { terrainEnable, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
-
-    // Default view point
-    const [viewState, setViewState] = useState({
-        longitude: -29.858598,
-        latitude: 36.15178,
-        zoom: 2.7,
-        pitch: 0,
-        bearing: 0,
-        width: 0,
-        height: 0,
-    });
 
     const defaultViewState = {
         longitude: -29.858598,
@@ -288,7 +277,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     ref={mapRef}
                     id="mainMap"
                     projection={{ name: mapProjection }}
-                    // projection={{ name: "globe" }}
                     // cursor={"auto"}
                     // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
                     // Set 1.92 for safe
@@ -312,8 +300,15 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
                     // cursor={cursor}
-                    onLoad={() => {
-                        console.log("Map done loading.");
+                    // onLoad={() => {
+                    //     console.log("Map done loading.");
+                    //     setIsLoaded(true);
+                    // }}
+                    onIdle={() => {
+                        setIsLoaded(true);
+                        console.log("On idle called.");
+                    }}
+                    onStyleData={() => {
                         setIsLoaded(true);
                     }}
                     onRender={(event) => event.target.resize()}
@@ -325,7 +320,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxTileCacheSize={25}
                     // cooperativeGestures={true}
                 >
-                    {isLoaded && (
+                    {isLoaded ? (
                         <>
                             <BaseMapPopups />
                             <TogglePanel />
@@ -334,6 +329,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                             {AirportLayers}
                             {children}
                         </>
+                    ) : (
+                        <div>loading map...</div>
                     )}
                 </Map>
             </div>
