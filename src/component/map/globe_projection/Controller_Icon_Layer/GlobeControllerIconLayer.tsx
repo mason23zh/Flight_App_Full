@@ -48,6 +48,7 @@ interface Props {
     controllerData: VatsimControllers;
 }
 
+//FIXME: the icon has multiple tags
 const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const { mapStyles, allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
     const controllerCacheRef = useRef<AirportService[]>([]);

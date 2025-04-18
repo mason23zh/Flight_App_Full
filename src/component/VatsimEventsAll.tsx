@@ -10,6 +10,7 @@ import { RootState } from "../store";
 import { Event } from "../types";
 import { Helmet } from "react-helmet-async";
 
+//FIXME: click event from the lower part of the list would make list jump back to the top
 function VatsimEventsAll() {
     const dispatch = useDispatch();
     const reduxEvent: Partial<Event> = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);
@@ -43,7 +44,7 @@ function VatsimEventsAll() {
     }, [vatsimEvents]);
 
     if (vatsimEvents) {
-        eventsList = <VatsimEventsList events={vatsimEvents} onClick={handleClick}/>;
+        eventsList = <VatsimEventsList events={vatsimEvents} onClick={handleClick} />;
     } else if (vatsimEventsFetching) {
         eventsList = <div>Loading Vatsim Events...</div>;
     } else if (vatsimEventsError) {
@@ -51,12 +52,10 @@ function VatsimEventsAll() {
     }
 
     const scrollBarStyle = darkTheme
-        ?
-        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-            "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
-        :
-        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-            "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+        ? "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+          "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        : "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+          "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     return (
         <>
@@ -70,14 +69,15 @@ function VatsimEventsAll() {
                     name="keyword"
                     content="VATSIM events, Virtual aviation events, Live VATSIM events, VATSIM event schedule, Ongoing VATSIM events, VATSIM events airports, VATSIM event details, VATSIM flight events"
                 />
-                <link rel="canonical" href="https://airportweather.org/events"/>
-
+                <link rel="canonical" href="https://airportweather.org/events" />
             </Helmet>
             <CustomProvider theme={darkTheme ? "dark" : "light"}>
-                <div className={`flex flex-col flex-grow h-[calc(100vh-1000px)] ${darkTheme ? "bg-gray-900" : "bg-gray-200"} overflow-hidden`}>
+                <div
+                    className={`flex flex-col flex-grow h-[calc(100vh-1000px)] ${darkTheme ? "bg-gray-900" : "bg-gray-200"} overflow-hidden`}
+                >
                     {/* Drawer for mobile view */}
                     <div className="p-1 ml-2 mt-2 block md:hidden">
-                        <IconButton icon={<MenuIcon/>} onClick={handleOpen}>
+                        <IconButton icon={<MenuIcon />} onClick={handleOpen}>
                             Events List
                         </IconButton>
                     </div>
@@ -96,12 +96,10 @@ function VatsimEventsAll() {
                     {/* Main Layout for Desktop with controlled height */}
                     <div className="flex-grow flex md:flex-row overflow-hidden">
                         {/* Event List Sidebar */}
-                        <div className="hidden md:block md:w-1/3 px-4">
-                            {eventsList}
-                        </div>
+                        <div className="hidden md:block md:w-1/3 px-4">{eventsList}</div>
                         {/* Event Details Section */}
                         <div className={`w-full md:w-2/3 p-4 overflow-y-auto ${scrollBarStyle}`}>
-                            <VatsimEventDetail onlyDetail={false}/>
+                            <VatsimEventDetail onlyDetail={false} />
                         </div>
                     </div>
                 </div>
@@ -111,4 +109,3 @@ function VatsimEventsAll() {
 }
 
 export default VatsimEventsAll;
- 
