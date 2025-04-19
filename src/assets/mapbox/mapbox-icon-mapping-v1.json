@@ -143,6 +143,14 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "A21N": {
+        "x": 2883,
+        "y": 2283,
+        "width": 349,
+        "height": 445,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "A332": {
         "x": 1502,
         "y": 3807,
@@ -440,6 +448,22 @@
         "mask": true
     },
     "B463": {
+        "x": 2842,
+        "y": 1190,
+        "width": 270,
+        "height": 319,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "RJ1H": {
+        "x": 2842,
+        "y": 1190,
+        "width": 270,
+        "height": 319,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "RJ85": {
         "x": 2842,
         "y": 1190,
         "width": 270,
@@ -1383,6 +1407,38 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "G3": {
+        "x": 1329,
+        "y": 1190,
+        "width": 293,
+        "height": 311,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "G4": {
+        "x": 1329,
+        "y": 1190,
+        "width": 293,
+        "height": 311,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "G5": {
+        "x": 1329,
+        "y": 1190,
+        "width": 293,
+        "height": 311,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "GLF4": {
+        "x": 1329,
+        "y": 1190,
+        "width": 293,
+        "height": 311,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "GLF5": {
         "x": 1329,
         "y": 1190,
@@ -1825,6 +1881,14 @@
         "mask": true
     },
     "SR22": {
+        "x": 1998,
+        "y": 0,
+        "width": 121,
+        "height": 82,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "P208": {
         "x": 1998,
         "y": 0,
         "width": 121,
