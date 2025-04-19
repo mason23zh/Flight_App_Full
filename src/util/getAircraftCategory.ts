@@ -63,6 +63,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             "B735",
             "B737",
             "B738",
+            "P8",
             "B739",
             "B752",
             "B753",
@@ -228,7 +229,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
                 scale = 12;
                 break;
             case "narrowBody":
-                scale = 9;
+                scale = 10;
                 break;
             case "regional":
                 scale = 9;

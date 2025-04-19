@@ -335,6 +335,14 @@
         "pixelRatio": "1",
         "mask": true
     },
+    "B742": {
+        "x": 2113,
+        "y": 3807,
+        "width": 604,
+        "height": 602,
+        "pixelRatio": "1",
+        "mask": true
+    },
     "B77L": {
         "x": 2432,
         "y": 4430,
@@ -504,6 +512,14 @@
         "mask": true
     },
     "B738": {
+        "x": 3471,
+        "y": 1879,
+        "width": 351,
+        "height": 404,
+        "pixelRatio": "1",
+        "mask": true
+    },
+    "P8": {
         "x": 3471,
         "y": 1879,
         "width": 351,
