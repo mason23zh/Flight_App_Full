@@ -73,6 +73,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             "BCS3",
             "T204",
             "DC3",
+            "R722"
         ],
         regional: [
             "AT45",
