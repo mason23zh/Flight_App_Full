@@ -1,14 +1,9 @@
 import { VatsimFlight } from "../types";
-// import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_sprite_mapping.json";
-// import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_sprite_mapping-0.png";
-// import aircraftSpriteSheetMapping from "../assets/mapbox/aircraft_icons_mapping.json";
-// import aircraftSpriteSheetPNG from "../assets/mapbox/aircraft_icons_2.png";
 import aircraftSpriteSheetPNG from "../assets/mapbox/mapbox-icon-mapping-v1.png";
 import aircraftSpriteSheetMapping from "../assets/mapbox/mapbox-icon-mapping-v1.json";
 import { getAircraftSizeCategory } from "../util/getAircraftCategory";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { useMemo } from "react";
-//TODO: update the sprite sheet to transparent icon
 const useTrafficLayer2D = (data: Array<VatsimFlight>, visible: boolean) => {
     return useMemo(() => {
         if (!data || data.length === 0) return null;
