@@ -7,7 +7,6 @@ import getAircraftCallsignName from "../../../util/getAircraftCallsignName";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import useDisplayTooltip from "../../../hooks/useDisplayTooltip";
 import { BiTargetLock } from "react-icons/bi";
-import { useDispatch } from "react-redux";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useMap } from "react-map-gl";
 
