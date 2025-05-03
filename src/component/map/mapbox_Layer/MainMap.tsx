@@ -23,7 +23,8 @@ import {
 } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
-import AirportDepartureArrivalDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
+import AirportDepartureArrivalDisplay
+    from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
@@ -33,17 +34,30 @@ import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Laye
 import GlobeFirIconLayer from "../globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
 import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
 import GlobeTraconIconLayer_Test from "../globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer_Test";
+import { useMap } from "react-map-gl";
+import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
+import TestComponentWithinTheBaseMap from "../TestComponentWithinTheBaseMap";
+import GlobeMapLayerManager from "../GlobeMapLayerManager";
 
 const MainMap = () => {
+    const map = useMap();
     const dispatch = useDispatch();
 
     const traffic = useSelector<RootState, VatsimFlight>((state) => state.vatsimMapTraffic.selectedTraffic || null);
 
     const { selectedAirport } = useSelector((state: RootState) => state.mapSearchAirport);
 
-    const { dayNightTerminator, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        dayNightTerminator,
+        mapProjection
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const { activePanel, searchResultsType, searchResultsVisible, trafficDetailVisible } = useSelector(
+    const {
+        activePanel,
+        searchResultsType,
+        searchResultsVisible,
+        trafficDetailVisible
+    } = useSelector(
         (state: RootState) => state.mapDisplayPanel,
     );
 
@@ -53,21 +67,21 @@ const MainMap = () => {
 
     const renderAircraftDisplayPanel = () => {
         if (activePanel === "searchResults" && searchResultsType === "AIRCRAFT" && searchResultsVisible) {
-            return <AircraftDisplay />;
+            return <AircraftDisplay/>;
         }
         return null;
     };
 
     const renderAircraftDepartureArrivalDisplayPanel = () => {
         if (activePanel === "searchResults" && searchResultsType === "AIRPORT" && searchResultsVisible) {
-            return <AirportDepartureArrivalDisplay airport={selectedAirport} />;
+            return <AirportDepartureArrivalDisplay airport={selectedAirport}/>;
         }
         return null;
     };
 
     const renderFlightInfoPanel = () => {
         if (activePanel === "trafficDetail" && trafficDetailVisible && traffic && traffic.callsign.length !== 0) {
-            return <FlightInfo />;
+            return <FlightInfo/>;
         }
         return null;
     };
@@ -78,7 +92,10 @@ const MainMap = () => {
         isLoading: controllerLoading,
     } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
 
-    const { matchedFirs, isError: isFirError } = useMatchedFirs(controllerData);
+    const {
+        matchedFirs,
+        isError: isFirError
+    } = useMatchedFirs(controllerData);
 
     // close all panel upon first time loading.
     useEffect(() => {
@@ -87,6 +104,15 @@ const MainMap = () => {
         dispatch(toggleMapFilterButton(false));
         dispatch(toggleMapStyleButton(false));
     }, []);
+
+    //change globe projection layer order
+    useEffect(() => {
+        console.log("map:", map);
+        if (map.current) {
+            console.log("Current map:", map.current);
+            useGlobeLayerOrdering(map.current?.getMap());
+        }
+    }, [map]);
 
     const {
         matchedTracons,
@@ -153,7 +179,7 @@ const MainMap = () => {
             // Check for hardware acceleration
             const canvas = document.createElement("canvas");
             const gl =
-                canvas.getContext("webgl") || (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
+                    canvas.getContext("webgl") || (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
 
             if (gl) {
                 const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
@@ -161,9 +187,11 @@ const MainMap = () => {
 
                 // If software rendering is being used, show a warning
                 if (
-                    renderer.toLowerCase().includes("swiftshader") ||
-                    renderer.toLowerCase().includes("software") ||
-                    !renderer
+                    renderer.toLowerCase()
+                        .includes("swiftshader") ||
+                        renderer.toLowerCase()
+                            .includes("software") ||
+                        !renderer
                 ) {
                     console.warn(
                         "Hardware acceleration is disabled in Chrome. " +
@@ -174,7 +202,7 @@ const MainMap = () => {
             }
         }
     }, []);
-
+    console.log("Map projection::::", mapProjection);
     return (
         <>
             <Helmet>
@@ -187,25 +215,35 @@ const MainMap = () => {
                     name="keyword"
                     content="VATSIM map, live air traffic, VATSIM controllers, VATSIM flights, live flight tracking"
                 />
-                <link rel="canonical" href="https://airportweather.org/map" />
+                <link rel="canonical" href="https://airportweather.org/map"/>
             </Helmet>
             <div>
                 <BaseMap>
-                    <MapErrorMessageStack />
-                    {mapProjection === "globe" && (
-                        <>
-                            <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={isFirError} />
-                            <GlobeTraconIconLayer_Test
-                                matchedTracons={matchedTracons}
-                                matchedFallbackTracons={matchedFallbackTracons}
-                                isTraconLoading={isTraconLoading}
-                                isTraconError={isTraconError}
-                            />
-                            <GlobeControllerIconLayer controllerData={controllerData} />
-                            <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
-                            <VatsimTrafficLayer key="vatsimTrafficLayer" />
-                        </>
-                    )}
+                    <MapErrorMessageStack/>
+                    <GlobeMapLayerManager
+                        matchedFirs={matchedFirs}
+                        errorMatchedFirs={isFirError}
+                        matchedTracons={matchedTracons}
+                        matchedFallbackTracons={matchedFallbackTracons}
+                        isTraconLoading={isTraconLoading}
+                        isTraconError={isTraconError}
+                        controllerData={controllerData}
+                    />
+                    <TestComponentWithinTheBaseMap/>
+                    {/* {mapProjection === "globe" && ( */}
+                    {/*     <> */}
+                    {/*         <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={isFirError}/> */}
+                    {/*         <GlobeTraconIconLayer_Test */}
+                    {/*             matchedTracons={matchedTracons} */}
+                    {/*             matchedFallbackTracons={matchedFallbackTracons} */}
+                    {/*             isTraconLoading={isTraconLoading} */}
+                    {/*             isTraconError={isTraconError} */}
+                    {/*         /> */}
+                    {/*         <GlobeControllerIconLayer controllerData={controllerData}/> */}
+                    {/*         <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/> */}
+                    {/*         <VatsimTrafficLayer key="vatsimTrafficLayer"/> */}
+                    {/*     </> */}
+                    {/* )} */}
                     <AtcLayer
                         controllerData={controllerData}
                         controllerLoading={controllerLoading}
@@ -219,8 +257,8 @@ const MainMap = () => {
                             controllerDataError={controllerError}
                         />
                     )}
-                    <NexradLayer />
-                    {dayNightTerminator && <DayNightLayer />}
+                    <NexradLayer/>
+                    {dayNightTerminator && <DayNightLayer/>}
                     {renderFlightInfoPanel()}
                     {renderAircraftDepartureArrivalDisplayPanel()}
                     {renderAircraftDisplayPanel()}

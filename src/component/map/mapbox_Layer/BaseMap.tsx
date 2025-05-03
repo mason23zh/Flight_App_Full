@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapLayerMouseEvent, MapProvider, MapRef } from "react-map-gl";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef, useMap } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -52,7 +52,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const isDatabaseInitialized = useInitializeDatabase();
     // const location = useLocation();
 
-    const { terrainEnable, mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        terrainEnable,
+        mapProjection
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const defaultViewState = {
         longitude: -29.858598,
@@ -75,6 +78,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     useEffect(() => {
         if (mapRef && mapRef?.current) {
+            console.log("set map run.");
             const map = mapRef.current.getMap();
             setMap(map);
         }
@@ -83,6 +87,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
         if (mapRef && mapRef?.current) {
+            console.log("resize run.");
             mapRef.current.resize();
         }
     }, [mapStyle, mapRef]);
@@ -96,8 +101,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
         if (
             location.pathname === "/map" &&
-            (mapProjection === "globe" || mapProjection === "mercator") &&
-            !hasReloaded
+                (mapProjection === "globe" || mapProjection === "mercator") &&
+                !hasReloaded
         ) {
             sessionStorage.setItem("map-reload", "true");
             window.location.reload();
@@ -151,7 +156,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, [popupRef.current]);
 
     if (!isDatabaseInitialized) {
-        return <GeneralLoading themeMode={darkMode ? "dark" : "light"} />;
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
     }
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
@@ -247,7 +252,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
             if (layerId === GLOBE_TRACON_ICON_LAYER_ID) {
                 // setCursor("pointer");
-                //TODO: Fix typescript issues for hovered tracon properties
                 const properties = feature.properties as Omit<HoverTracon, "controllers" | "traconInfo"> & {
                     controllers: string | null;
                     traconInfo: string | null;
@@ -283,6 +287,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         <MapProvider>
             <div onContextMenu={(evt) => evt.preventDefault()}>
                 {!isLoaded && <div>loading map...</div>}
+                {/* <TogglePanel mapRef={mapRef}/> */}
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -337,10 +342,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 >
                     {isLoaded && isStyleLoaded ? (
                         <>
-                            <BaseMapPopups />
-                            <TogglePanel />
-                            <TelemetryPanel />
-                            <CustomNavigationController />
+                            <BaseMapPopups/>
+                            <TogglePanel mapRef={mapRef}/>
+                            <TelemetryPanel/>
+                            <CustomNavigationController/>
                             {AirportLayers}
                             {children}
                         </>

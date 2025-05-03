@@ -20,13 +20,22 @@ const VatsimTrafficLayer = () => {
     const imageId = "B38M";
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    const { mapStyles, trafficLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        mapStyles,
+        trafficLayerVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const { filterAircraftOnMap: filterByAircraftType, selectedAircraftCategory } = useSelector(
+    const {
+        filterAircraftOnMap: filterByAircraftType,
+        selectedAircraftCategory
+    } = useSelector(
         (state: RootState) => state.mapSearchAircraft,
     );
 
-    const { filterAircraftOnMap: filterByAirport, selectedAirport } = useSelector(
+    const {
+        filterAircraftOnMap: filterByAirport,
+        selectedAirport
+    } = useSelector(
         (state: RootState) => state.mapSearchAirport,
     );
 
@@ -80,12 +89,13 @@ const VatsimTrafficLayer = () => {
     const getJsonData: GeoJSON = useMemo(() => {
         if (
             !memoizedVatsimPilotToDisplay ||
-            memoizedVatsimPilotToDisplay.length === 0 ||
-            !vatsimPilots?.data?.pilots ||
-            isFetching ||
-            error
-        )
+                memoizedVatsimPilotToDisplay.length === 0 ||
+                !vatsimPilots?.data?.pilots ||
+                isFetching ||
+                error
+        ) {
             return null;
+        }
 
         return {
             type: "FeatureCollection",
@@ -216,7 +226,6 @@ const VatsimTrafficLayer = () => {
     }, [mapStyles, mapRef, getJsonData]);
 
     //Visibility control
-    console.log("trafficLayerVisible", trafficLayerVisible);
     // useGlobeLayerVisibility(mapRef, GLOBE_TRAFFIC_ICON_LAYER_ID, trafficLayerVisible);
 
     return (

@@ -23,14 +23,21 @@ interface TraconFeature {
     originalData: MatchedTracon | FallbackTracon;
 }
 
-const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isTraconError }: Props) => {
+const GlobeTraconIconLayer_Test = ({
+    matchedTracons,
+    matchedFallbackTracons,
+    isTraconError
+}: Props) => {
     const { current: mapRef } = useMap();
     const previousTraconsRef = useRef<TraconFeature[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
     const imagePrefix = "tracon-icon-";
     const iconCache = useRef(new Map<string, HTMLImageElement>());
 
-    const { mapStyles, allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        mapStyles,
+        allAtcLayerVisible
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const normalizeTracons = useCallback(
         (matchedTracons: MatchedTracon[], fallbackTracons: FallbackTracon[]): TraconFeature[] => {
@@ -90,12 +97,15 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
             }
         }
 
-        return { added, updated, removed };
+        return {
+            added,
+            updated,
+            removed
+        };
     }, []);
 
     const loadIcons = useCallback((map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
         const iconsToLoad = [...added, ...updated].filter((tracon) => !loadedIconsRef.current.has(tracon.iconId));
-        console.log("iconsToLoad length:", iconsToLoad.length);
 
         if (iconsToLoad.length === 0) return;
 
@@ -151,7 +161,6 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
     }, []);
 
     const updateGeoJson = useCallback((map: mapboxgl.Map, combinedData: TraconFeature[]) => {
-        console.log("Combine data in updateGeoJson:", combinedData.length);
         const newGeoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
             features: combinedData.map((tracon) => ({
@@ -201,10 +210,11 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
         const map = mapRef.getMap();
 
         const normlizeData = normalizeTracons(matchedTracons, matchedFallbackTracons);
-        const { added, updated, removed } = diffTracons(normlizeData, previousTraconsRef.current);
-        console.log("added:", added.length);
-        console.log("updated:", updated.length);
-        console.log("removed:", removed.length);
+        const {
+            added,
+            updated,
+            removed
+        } = diffTracons(normlizeData, previousTraconsRef.current);
         loadIcons(map, added, updated);
         removeIcons(map, removed);
         updateGeoJson(map, normlizeData);
@@ -231,7 +241,11 @@ const GlobeTraconIconLayer_Test = ({ matchedTracons, matchedFallbackTracons, isT
             previousTraconsRef.current = [];
 
             const normlizeData = normalizeTracons(matchedTracons, matchedFallbackTracons);
-            const { added, updated, removed } = diffTracons(normlizeData, []);
+            const {
+                added,
+                updated,
+                removed
+            } = diffTracons(normlizeData, []);
             // console.log("restore on style change added:", added.length);
             // console.log("restore on style change updated:", updated.length);
             // console.log("restore on style change removed:", removed.length);

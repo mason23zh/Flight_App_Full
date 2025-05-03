@@ -18,7 +18,7 @@ import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { IoSpeedometerOutline } from "react-icons/io5";
-import { useMap } from "react-map-gl";
+import { MapRef, useMap } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
@@ -27,9 +27,9 @@ import SearchButton from "./search_box/SearchButton";
 import mapboxgl from "mapbox-gl";
 import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
 import FeaturedAirportsButton from "./featured_airports/FeaturedAirportsButton";
-
-const TogglePanel = () => {
-    const { current: mapRef } = useMap();
+//FIXME! the TogglePanel is directly linked to the Globe projection, need to decouple.
+const TogglePanel = (mapRef: React.MutableRefObject<MapRef>) => {
+    // const { current: mapRef } = useMap();
     const {
         allAtcLayerVisible,
         trafficLayerVisible,
@@ -49,7 +49,7 @@ const TogglePanel = () => {
 
 
     useEffect(() => {
-        const map = mapRef?.getMap();
+        const map = mapRef?.current?.getMap();
         if (!map) return;
 
         const addTerrainSource = (map: mapboxgl.Map) => {
@@ -122,10 +122,12 @@ const TogglePanel = () => {
             setIsMapLoaded(true);
         };
 
-        mapRef.on("load", handleMapLoad);
+        mapRef?.current?.getMap()
+            .on("load", handleMapLoad);
 
         return () => {
-            mapRef.off("load", handleMapLoad);
+            mapRef?.current?.getMap()
+                .off("load", handleMapLoad);
         };
     }, [mapRef]);
 

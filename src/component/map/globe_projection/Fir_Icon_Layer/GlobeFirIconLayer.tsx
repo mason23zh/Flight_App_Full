@@ -12,16 +12,23 @@ import {
     GLOBE_TRACON_ICON_LAYER_ID,
 } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
+import { useGlobeLayerOrdering } from "../../../../hooks/useGlobeLayerOrdering";
 
 interface Props {
     matchedFirs: MatchedFir[];
     errorMatchedFirs: boolean;
 }
 
-const GlobeFirIconLayer = ({ matchedFirs, errorMatchedFirs }: Props) => {
+const GlobeFirIconLayer = ({
+    matchedFirs,
+    errorMatchedFirs
+}: Props) => {
     const { current: mapRef } = useMap();
 
-    const { allAtcLayerVisible, mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const {
+        allAtcLayerVisible,
+        mapStyles
+    } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
     const loadedIconRef = useRef(new Set<string>());
 
@@ -136,35 +143,7 @@ const GlobeFirIconLayer = ({ matchedFirs, errorMatchedFirs }: Props) => {
             map.off("style.load", restoreFirs);
         };
     }, [mapRef, matchedFirs]);
-
-    // adjusting the layer order, make sure FIR icon layer always stays on top
-    useEffect(() => {
-        if (!mapRef?.getMap) return;
-        const map = mapRef.getMap();
-
-        const moveLayerOnStyleChange = () => {
-            if (
-                map.getLayer(GLOBE_FIR_ICON_LAYER_ID) &&
-                map.getLayer(GLOBE_TRACON_ICON_LAYER_ID) &&
-                map.getLayer(GLOBE_CONTROLLER_ICON_LAYER_ID)
-            ) {
-                map.moveLayer(GLOBE_TRACON_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
-                map.moveLayer(GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_FIR_ICON_LAYER_ID);
-            }
-        };
-
-        map.on("style.load", moveLayerOnStyleChange);
-        // map.on("styledata", moveLayerOnStyleChange);
-
-        return () => {
-            map.off("style.load", moveLayerOnStyleChange);
-            // map.off("styledata", moveLayerOnStyleChange);
-        };
-    }, [mapRef, mapStyles]);
-
-    // useGlobeLayerVisibility(mapRef, GLOBE_FIR_ICON_LAYER_ID, allAtcLayerVisible);
-
-    console.log("allAtcLayerVisible", allAtcLayerVisible);
+    console.log("Globe fir icon visibility:", allAtcLayerVisible);
     return (
         <Source
             id={GLOBE_FIR_ICON_SOURCE_ID}
