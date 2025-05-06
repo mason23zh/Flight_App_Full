@@ -169,14 +169,14 @@ const TogglePanel = () => {
                     {/*     buttonId="traffic-toggle-button" */}
                     {/* /> */}
 
-                    {/* <MapFeaturesToggleButton */}
-                    {/*     onToggle={(activeFlag) => dispatch(toggleAtcLayer(activeFlag))} */}
-                    {/*     icon={<GiControlTower/>} */}
-                    {/*     initialActive={allAtcLayerVisible} */}
-                    {/*     tooltipMessage="Toggle ATC visibility" */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/*     buttonId="atc-toggle-button" */}
-                    {/* /> */}
+                    <MapFeaturesToggleButton
+                        onToggle={() => dispatch(toggleAtcLayer())}
+                        icon={<GiControlTower/>}
+                        initialActive={allAtcLayerVisible}
+                        tooltipMessage="Toggle ATC visibility"
+                        isTouchScreen={isTouchScreen}
+                        buttonId="atc-toggle-button"
+                    />
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleWeatherRasterLayer())}

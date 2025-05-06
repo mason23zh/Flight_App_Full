@@ -31,8 +31,8 @@ const LayerTogglePanel = () => {
         dispatch(toggleSatelliteLayer(e));
     };
 
-    const handleOnChangeController = (e: boolean) => {
-        dispatch(toggleAtcLayer(e));
+    const handleOnChangeController = () => {
+        dispatch(toggleAtcLayer());
     };
 
     const handleOnChangeRoad = (e: boolean) => {
@@ -83,7 +83,7 @@ const LayerTogglePanel = () => {
                         defaultChecked
                         checkedChildren={<GiControlTower/>}
                         unCheckedChildren={<GiControlTower/>}
-                        onChange={(checked) => handleOnChangeController(checked)}
+                        onChange={() => handleOnChangeController()}
                     />
                 </div>
                 <div className="py-1 px-2">

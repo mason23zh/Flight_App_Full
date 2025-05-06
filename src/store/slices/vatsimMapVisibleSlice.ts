@@ -80,8 +80,8 @@ const vatsimMapVisibleSlice = createSlice({
         toggleTraconLabel(state, action) {
             state.traconLabelVisible = action.payload;
         },
-        toggleAtcLayer(state, action) {
-            state.allAtcLayerVisible = action.payload;
+        toggleAtcLayer(state) {
+            state.allAtcLayerVisible = !state.allAtcLayerVisible;
         },
         toggleTrafficLayer(state, action) {
             state.trafficLayerVisible = action.payload;
