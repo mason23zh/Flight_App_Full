@@ -29,18 +29,11 @@ import AircraftDisplay from "../map_feature_toggle_button/search_box/search_resu
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 import { Helmet } from "react-helmet-async";
-import VatsimTrafficLayer from "../globe_projection/Vatsim_Traffic_Layer/VatsimTrafficLayer";
-import VatsimTrafficPathLayer from "../globe_projection/Vatsim_Traffic_Path_Layer/VatsimTrafficPathLayer";
-import GlobeFirIconLayer from "../globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
-import GlobeControllerIconLayer from "../globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
-import GlobeTraconIconLayer_Test from "../globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer_Test";
 import { useMap } from "react-map-gl";
 import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
-import TestComponentWithinTheBaseMap from "../TestComponentWithinTheBaseMap";
 import GlobeMapLayerManager from "../GlobeMapLayerManager";
 import TerrainLayer from "../TerrainLayer";
-import useMapStyleSync from "../../../hooks/useMapStyleSync";
-import mapStyleToggleButton from "../map_feature_toggle_button/MapStyleToggleButton";
+import MapEffectManager from "../MapEffectManager";
 
 const MainMap = () => {
     const map = useMap();
@@ -49,7 +42,6 @@ const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>((state) => state.vatsimMapTraffic.selectedTraffic || null);
 
     const { selectedAirport } = useSelector((state: RootState) => state.mapSearchAirport);
-    const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
         dayNightTerminator,
@@ -224,6 +216,7 @@ const MainMap = () => {
             <div>
                 <BaseMap>
                     <MapErrorMessageStack/>
+                    <MapEffectManager/>
                     <GlobeMapLayerManager
                         matchedFirs={matchedFirs}
                         errorMatchedFirs={isFirError}
@@ -233,21 +226,6 @@ const MainMap = () => {
                         isTraconError={isTraconError}
                         controllerData={controllerData}
                     />
-                    <TestComponentWithinTheBaseMap/>
-                    {/* {mapProjection === "globe" && ( */}
-                    {/*     <> */}
-                    {/*         <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={isFirError}/> */}
-                    {/*         <GlobeTraconIconLayer_Test */}
-                    {/*             matchedTracons={matchedTracons} */}
-                    {/*             matchedFallbackTracons={matchedFallbackTracons} */}
-                    {/*             isTraconLoading={isTraconLoading} */}
-                    {/*             isTraconError={isTraconError} */}
-                    {/*         /> */}
-                    {/*         <GlobeControllerIconLayer controllerData={controllerData}/> */}
-                    {/*         <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/> */}
-                    {/*         <VatsimTrafficLayer key="vatsimTrafficLayer"/> */}
-                    {/*     </> */}
-                    {/* )} */}
                     <AtcLayer
                         controllerData={controllerData}
                         controllerLoading={controllerLoading}
