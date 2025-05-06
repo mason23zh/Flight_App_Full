@@ -160,16 +160,16 @@ const TogglePanel = () => {
                     {/*     isTouchScreen={isTouchScreen} */}
                     {/* /> */}
 
-                    {/* <MapFeaturesToggleButton */}
-                    {/*     onToggle={(activeFlag) => dispatch(toggleTrafficLayer(activeFlag))} */}
-                    {/*     icon={<IoAirplane/>} */}
-                    {/*     initialActive={trafficLayerVisible} */}
-                    {/*     tooltipMessage="Toggle Vatsim traffic" */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/*     buttonId="traffic-toggle-button" */}
-                    {/* /> */}
+                    <MapFeaturesToggleButton_v2
+                        onToggle={() => dispatch(toggleTrafficLayer())}
+                        icon={<IoAirplane/>}
+                        initialActive={trafficLayerVisible}
+                        tooltipMessage="Toggle Vatsim traffic"
+                        isTouchScreen={isTouchScreen}
+                        buttonId="traffic-toggle-button"
+                    />
 
-                    <MapFeaturesToggleButton
+                    <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleAtcLayer())}
                         icon={<GiControlTower/>}
                         initialActive={allAtcLayerVisible}

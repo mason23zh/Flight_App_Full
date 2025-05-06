@@ -19,8 +19,8 @@ import { Toggle } from "rsuite";
 
 const LayerTogglePanel = () => {
     const dispatch = useDispatch();
-    const handleOnChangeTraffic = (e: boolean) => {
-        dispatch(toggleTrafficLayer(e));
+    const handleOnChangeTraffic = () => {
+        dispatch(toggleTrafficLayer());
     };
 
     const handleOnChangeLabel = (e: boolean) => {
@@ -56,7 +56,7 @@ const LayerTogglePanel = () => {
                         defaultChecked
                         checkedChildren={<IoAirplane/>}
                         unCheckedChildren={<IoAirplane/>}
-                        onChange={(checked) => handleOnChangeTraffic(checked)}
+                        onChange={() => handleOnChangeTraffic()}
                     />
                 </div>
                 <div className="py-1 px-2">
