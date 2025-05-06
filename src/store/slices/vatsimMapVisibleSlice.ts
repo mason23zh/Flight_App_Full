@@ -86,8 +86,8 @@ const vatsimMapVisibleSlice = createSlice({
         toggleTrafficLayer(state, action) {
             state.trafficLayerVisible = action.payload;
         },
-        toggleWeatherRasterLayer(state, action) {
-            state.weatherRasterVisible = action.payload;
+        toggleWeatherRasterLayer(state) {
+            state.weatherRasterVisible = !state.weatherRasterVisible;
         },
         toggleTerrainLabel(state) {
             // state.terrainEnable = action.payload;

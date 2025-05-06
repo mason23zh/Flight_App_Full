@@ -39,8 +39,8 @@ const LayerTogglePanel = () => {
         dispatch(toggleMapRoadLabel(e));
     };
 
-    const handleOnChangeWeather = (e: boolean) => {
-        dispatch(toggleWeatherRasterLayer(e));
+    const handleOnChangeWeather = () => {
+        dispatch(toggleWeatherRasterLayer());
     };
 
 
@@ -100,7 +100,7 @@ const LayerTogglePanel = () => {
                         size="md"
                         checkedChildren={<TiWeatherDownpour/>}
                         unCheckedChildren={<TiWeatherDownpour/>}
-                        onChange={(checked) => handleOnChangeWeather(checked)}
+                        onChange={() => handleOnChangeWeather()}
                     />
                 </div>
 

@@ -178,14 +178,14 @@ const TogglePanel = () => {
                     {/*     buttonId="atc-toggle-button" */}
                     {/* /> */}
 
-                    {/* <MapFeaturesToggleButton */}
-                    {/*     onToggle={(activeFlag) => dispatch(toggleWeatherRasterLayer(activeFlag))} */}
-                    {/*     icon={<TiWeatherDownpour/>} */}
-                    {/*     initialActive={weatherRasterVisible} */}
-                    {/*     tooltipMessage="Toggle weather" */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/*     buttonId="weather-toggle-button" */}
-                    {/* /> */}
+                    <MapFeaturesToggleButton_v2
+                        onToggle={() => dispatch(toggleWeatherRasterLayer())}
+                        icon={<TiWeatherDownpour/>}
+                        initialActive={weatherRasterVisible}
+                        tooltipMessage="Toggle weather"
+                        isTouchScreen={isTouchScreen}
+                        buttonId="weather-toggle-button"
+                    />
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleTerrainLabel())}
