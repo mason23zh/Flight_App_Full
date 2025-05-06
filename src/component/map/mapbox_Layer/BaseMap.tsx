@@ -287,7 +287,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         <MapProvider>
             <div onContextMenu={(evt) => evt.preventDefault()}>
                 {!isLoaded && <div>loading map...</div>}
-                {/* <TogglePanel mapRef={mapRef}/> */}
+                <TogglePanel/>
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -343,7 +343,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     {isLoaded && isStyleLoaded ? (
                         <>
                             <BaseMapPopups/>
-                            <TogglePanel mapRef={mapRef}/>
+                            {/* <TogglePanel/> */}
                             <TelemetryPanel/>
                             <CustomNavigationController/>
                             {AirportLayers}

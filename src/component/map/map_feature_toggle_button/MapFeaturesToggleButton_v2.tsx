@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 interface Props {
-    onToggle: (activeFlag: boolean) => void;
+    onToggle: () => void;
     icon: React.ReactElement;
     initialActive: boolean;
     tooltipMessage: string;
@@ -10,7 +10,7 @@ interface Props {
     buttonId: string;
 }
 
-const MapFeaturesToggleButton = ({
+const MapFeaturesToggleButton_v2 = ({
     onToggle,
     icon,
     initialActive,
@@ -19,36 +19,23 @@ const MapFeaturesToggleButton = ({
     buttonId
 }: Props) => {
     const iconClass = "text-white text-xl";
-    const activeClass = isTouchScreen ?
-        "bg-blue-500 px-2 py-1 items-center rounded-lg" :
-        "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
-    const inActiveClass = isTouchScreen ?
-        "bg-gray-500 px-2 py-1 items-center rounded-lg" :
-        "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
-    const [isActive, setIsActive] = useState(initialActive);
+    const activeClass = isTouchScreen
+        ? "bg-blue-500 px-2 py-1 items-center rounded-lg"
+        : "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
+    const inActiveClass = isTouchScreen
+        ? "bg-gray-500 px-2 py-1 items-center rounded-lg"
+        : "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
+
     const [showTooltip, setShowTooltip] = useState(false);
-    const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
 
-    // Copy React-Icon
-    const styledIcon = React.cloneElement(icon, { "className": iconClass });
+    const activeButtonClass = initialActive ? activeClass : inActiveClass;
 
-    useEffect(() => {
-        if (initialActive) {
-            setActiveButtonClass(activeClass);
-        } else {
-            setActiveButtonClass(inActiveClass);
-        }
-    }, [initialActive]);
-
-    useEffect(() => {
-        setActiveButtonClass(isActive ? activeClass : inActiveClass);
-        onToggle(isActive);
-    }, [isActive]);
+    console.log("INITIAL ACTIVE STATE:", initialActive);
 
     const handleClick = () => {
-        const newActiveState = !isActive;
-        setIsActive(newActiveState);
+        onToggle();
     };
+
 
     return (
         <>
@@ -59,9 +46,9 @@ const MapFeaturesToggleButton = ({
                 onMouseEnter={() => setShowTooltip(false)}
                 onMouseLeave={() => setShowTooltip(true)}
             >
-                {styledIcon}
+                {React.cloneElement(icon, { className: iconClass })}
             </button>
-            {(!isTouchScreen) &&
+            {!isTouchScreen && (
                 <Tooltip
                     hidden={showTooltip}
                     anchorSelect={`#${buttonId}`}
@@ -76,9 +63,9 @@ const MapFeaturesToggleButton = ({
                 >
                     {tooltipMessage}
                 </Tooltip>
-            }
+            )}
         </>
     );
 };
 
-export default MapFeaturesToggleButton;
+export default MapFeaturesToggleButton_v2;

@@ -18,6 +18,7 @@ memlab.config.js
 .env.development.local
 .env.test.local
 .env.production.local
+nodesource_setup.sh
 
 .idea/
 .vscode/

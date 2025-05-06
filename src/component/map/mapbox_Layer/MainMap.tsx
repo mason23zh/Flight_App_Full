@@ -38,6 +38,7 @@ import { useMap } from "react-map-gl";
 import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
 import TestComponentWithinTheBaseMap from "../TestComponentWithinTheBaseMap";
 import GlobeMapLayerManager from "../GlobeMapLayerManager";
+import TerrainLayer from "../TerrainLayer";
 
 const MainMap = () => {
     const map = useMap();
@@ -257,6 +258,7 @@ const MainMap = () => {
                             controllerDataError={controllerError}
                         />
                     )}
+                    <TerrainLayer/>
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
                     {renderFlightInfoPanel()}
