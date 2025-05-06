@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
 import { useMap } from "react-map-gl";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { RootState } from "../store";
+import { useEffect } from "react";
 
-const TerrainLayer = () => {
+const useMapTerrain = () => {
+
     const { current: mapRef } = useMap();
     const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
 
@@ -59,11 +60,6 @@ const TerrainLayer = () => {
             map.off("style.load", setupTerrain);
         };
     }, [mapRef, terrainEnable]);
-
-
-    return (
-        <></>
-    );
 };
 
-export default React.memo(TerrainLayer);
+export default useMapTerrain;

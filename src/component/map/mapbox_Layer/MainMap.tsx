@@ -32,7 +32,6 @@ import { Helmet } from "react-helmet-async";
 import { useMap } from "react-map-gl";
 import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
 import GlobeMapLayerManager from "../GlobeMapLayerManager";
-import TerrainLayer from "../TerrainLayer";
 import MapEffectManager from "../MapEffectManager";
 
 const MainMap = () => {
@@ -239,7 +238,6 @@ const MainMap = () => {
                             controllerDataError={controllerError}
                         />
                     )}
-                    <TerrainLayer/>
                     <NexradLayer/>
                     {dayNightTerminator && <DayNightLayer/>}
                     {renderFlightInfoPanel()}

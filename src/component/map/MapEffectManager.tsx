@@ -4,11 +4,13 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import useMapStyleSync from "../../hooks/useMapStyleSync";
+import useMapTerrain from "../../hooks/useMapTerrain";
 
 const MapEffectManager = () => {
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     useMapStyleSync(mapStyles);
+    useMapTerrain();
 
     return null;
 };
