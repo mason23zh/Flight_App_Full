@@ -39,6 +39,8 @@ import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
 import TestComponentWithinTheBaseMap from "../TestComponentWithinTheBaseMap";
 import GlobeMapLayerManager from "../GlobeMapLayerManager";
 import TerrainLayer from "../TerrainLayer";
+import useMapStyleSync from "../../../hooks/useMapStyleSync";
+import mapStyleToggleButton from "../map_feature_toggle_button/MapStyleToggleButton";
 
 const MainMap = () => {
     const map = useMap();
@@ -47,6 +49,7 @@ const MainMap = () => {
     const traffic = useSelector<RootState, VatsimFlight>((state) => state.vatsimMapTraffic.selectedTraffic || null);
 
     const { selectedAirport } = useSelector((state: RootState) => state.mapSearchAirport);
+    const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     const {
         dayNightTerminator,
@@ -203,7 +206,7 @@ const MainMap = () => {
             }
         }
     }, []);
-    console.log("Map projection::::", mapProjection);
+
     return (
         <>
             <Helmet>

@@ -155,10 +155,10 @@ const TogglePanel = () => {
             <div className="flex justify-center w-full sm:w-auto">
                 <div className={childStyle}>
 
-                    {/* <SearchButton */}
-                    {/*     tooltipMessage="Search" */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/* /> */}
+                    <SearchButton
+                        tooltipMessage="Search"
+                        isTouchScreen={isTouchScreen}
+                    />
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleTrafficLayer())}
@@ -196,9 +196,9 @@ const TogglePanel = () => {
                         buttonId="terrain-toggle-button"
                     />
 
-                    {/* <LiveTrafficToggleButton */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/* /> */}
+                    <LiveTrafficToggleButton
+                        isTouchScreen={isTouchScreen}
+                    />
 
                     {(connectionStatus === "connected" && liveTrafficAvailable) &&
                         <>
@@ -222,14 +222,14 @@ const TogglePanel = () => {
                         </>
                     }
 
-                    {/* <MapStyleToggleButton isTouchScreen={isTouchScreen}/> */}
+                    <MapStyleToggleButton isTouchScreen={isTouchScreen}/>
 
-                    {/* <MapFilterToggleButton isTouchScreen={isTouchScreen}/> */}
+                    <MapFilterToggleButton isTouchScreen={isTouchScreen}/>
 
-                    {/* <FeaturedAirportsButton */}
-                    {/*     isTouchScreen={isTouchScreen} */}
-                    {/*     tooltipMessage="Featured Airports" */}
-                    {/* /> */}
+                    <FeaturedAirportsButton
+                        isTouchScreen={isTouchScreen}
+                        tooltipMessage="Featured Airports"
+                    />
                 </div>
             </div>
         </div>

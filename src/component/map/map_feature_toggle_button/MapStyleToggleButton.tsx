@@ -18,22 +18,22 @@ const MapStyleToggleButton = ({
 }: Props) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
-    const { current: mapRef } = useMap();
+    // const { current: mapRef } = useMap();
     // when user click the button, tooltip will disappear
     const [buttonClick, setButtonClick] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
-    const [map, setMap] = useState<mapboxgl.Map>(null);
+    // const [map, setMap] = useState<mapboxgl.Map>(null);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
     const {
         mapStyleButtonToggle
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    useEffect(() => {
-        if (mapRef) {
-            const map = mapRef?.getMap();
-            setMap(map);
-        }
-    }, [mapRef]);
+    // useEffect(() => {
+    //     if (mapRef) {
+    //         const map = mapRef?.getMap();
+    //         setMap(map);
+    //     }
+    // }, [mapRef]);
 
     // close the popup when mapStyle changes
     useEffect(() => {
@@ -66,36 +66,36 @@ const MapStyleToggleButton = ({
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
-    const setMapStyle = (mapName: MapStyle) => {
-        if (map) {
+    // const setMapStyle = (mapName: MapStyle) => {
+    //     if (map) {
+    //
+    //         let styleUrl: string;
+    //         switch (mapName) {
+    //         case "DEFAULT":
+    //             styleUrl = import.meta.env.VITE_MAPBOX_MAIN_STYLE;
+    //             map.setStyle(styleUrl);
+    //             break;
+    //         case "MONO_LIGHT":
+    //             styleUrl = import.meta.env.VITE_MAPBOX_MONOCHROME_LIGHT_STYLE;
+    //             map.setStyle(styleUrl);
+    //             break;
+    //         case "MONO_DARK":
+    //             styleUrl = import.meta.env.VITE_MAPBOX_MONOCHROME_DARK_STYLE;
+    //             map.setStyle(styleUrl);
+    //             break;
+    //         case "SATELLITE":
+    //             styleUrl = import.meta.env.VITE_MAPBOX_SATELLITE_STREET_STYLE;
+    //             map.setStyle(styleUrl);
+    //             break;
+    //         default:
+    //             map.setStyle(import.meta.env.VITE_MAPBOX_MAIN_STYLE);
+    //         }
+    //     }
+    // };
 
-            let styleUrl: string;
-            switch (mapName) {
-            case "DEFAULT":
-                styleUrl = import.meta.env.VITE_MAPBOX_MAIN_STYLE;
-                map.setStyle(styleUrl);
-                break;
-            case "MONO_LIGHT":
-                styleUrl = import.meta.env.VITE_MAPBOX_MONOCHROME_LIGHT_STYLE;
-                map.setStyle(styleUrl);
-                break;
-            case "MONO_DARK":
-                styleUrl = import.meta.env.VITE_MAPBOX_MONOCHROME_DARK_STYLE;
-                map.setStyle(styleUrl);
-                break;
-            case "SATELLITE":
-                styleUrl = import.meta.env.VITE_MAPBOX_SATELLITE_STREET_STYLE;
-                map.setStyle(styleUrl);
-                break;
-            default:
-                map.setStyle(import.meta.env.VITE_MAPBOX_MAIN_STYLE);
-            }
-        }
-    };
-
-    useEffect(() => {
-        setMapStyle(mapStyles);
-    }, [mapStyles, map]);
+    // useEffect(() => {
+    //     setMapStyle(mapStyles);
+    // }, [mapStyles, map]);
 
     const inactiveButtonClass = isTouchScreen ?
         "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :
