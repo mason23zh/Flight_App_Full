@@ -108,8 +108,9 @@ const vatsimMapVisibleSlice = createSlice({
         toggleMapFollowTraffic(state, action) {
             state.mapFollowTraffic = action.payload;
         },
-        toggleMapLabel(state, action) {
-            state.mapLabelVisible = action.payload;
+        toggleMapLabel(state) {
+            // state.mapLabelVisible = action.payload;
+            state.mapLabelVisible = !state.mapLabelVisible;
         },
         toggleAirportVisible(state, action) {
             state.airportVisible = action.payload;
@@ -120,8 +121,9 @@ const vatsimMapVisibleSlice = createSlice({
         toggleAirportLabel(state, action) {
             state.airportLabelVisible = action.payload;
         },
-        toggleMapRoadLabel(state, action) {
-            state.mapRoadVisible = action.payload;
+        toggleMapRoadLabel(state) {
+            // state.mapRoadVisible = action.payload;
+            state.mapRoadVisible = !state.mapRoadVisible;
         },
         toggleUnderlineFirBoundaries(state, action) {
             state.underlineFirBoundaries = action.payload;

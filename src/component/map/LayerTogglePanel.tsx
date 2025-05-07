@@ -23,8 +23,8 @@ const LayerTogglePanel = () => {
         dispatch(toggleTrafficLayer());
     };
 
-    const handleOnChangeLabel = (e: boolean) => {
-        dispatch(toggleMapLabel(e));
+    const handleOnChangeLabel = () => {
+        dispatch(toggleMapLabel());
     };
 
     const handleOnChangeSatellite = (e: boolean) => {
@@ -35,8 +35,8 @@ const LayerTogglePanel = () => {
         dispatch(toggleAtcLayer());
     };
 
-    const handleOnChangeRoad = (e: boolean) => {
-        dispatch(toggleMapRoadLabel(e));
+    const handleOnChangeRoad = () => {
+        dispatch(toggleMapRoadLabel());
     };
 
     const handleOnChangeWeather = () => {
@@ -65,7 +65,7 @@ const LayerTogglePanel = () => {
                         defaultChecked
                         checkedChildren={<AiFillTags/>}
                         unCheckedChildren={<AiFillTags/>}
-                        onChange={(checked) => handleOnChangeLabel(checked)}
+                        onChange={() => handleOnChangeLabel()}
                     />
                 </div>
                 <div className="py-1 px-2">
@@ -91,7 +91,7 @@ const LayerTogglePanel = () => {
                         size="md"
                         checkedChildren={<FaRoad/>}
                         unCheckedChildren={<FaRoad/>}
-                        onChange={(checked) => handleOnChangeRoad(checked)}
+                        onChange={() => handleOnChangeRoad()}
                     />
                 </div>
 

@@ -53,45 +53,45 @@ const MapFeaturesToggleButtonGroup = ({
         }
     }, [mapRef]);
 
-    const setMapFeatures = (map: mapboxgl.Map, flag: boolean, tag: Tag) => {
-        if (map) {
-            switch (tag) {
-            case "LABEL":
-                switchMapLabels(map, flag);
-                break;
-            case "ROAD":
-                switchMapRoads(map, flag);
-                break;
-            }
-        }
-    };
+    // const setMapFeatures = (map: mapboxgl.Map, flag: boolean, tag: Tag) => {
+    //     if (map) {
+    //         switch (tag) {
+    //         case "LABEL":
+    //             switchMapLabels(map, flag);
+    //             break;
+    //         case "ROAD":
+    //             switchMapRoads(map, flag);
+    //             break;
+    //         }
+    //     }
+    // };
 
-    useEffect(() => {
-        if (!map) return;
-
-        const applyVisibilitySettings = () => {
-            if (map) {
-                setMapFeatures(map, mapLabelVisible, "LABEL");
-                setMapFeatures(map, mapRoadVisible, "ROAD");
-            }
-        };
-
-        // listening the styledata event to apply current map settings
-        // if map style changes, hence this useEffect function does not
-        // require mapStyle as one of the dependencies.
-        map.on("styledata", applyVisibilitySettings);
-
-        //only change map settings without changing the map style
-        if (map && map.isStyleLoaded()) {
-            setMapFeatures(map, mapLabelVisible, "LABEL");
-            setMapFeatures(map, mapRoadVisible, "ROAD");
-        }
-
-        // Cleanup
-        return () => {
-            map.off("styledata", applyVisibilitySettings);
-        };
-    }, [map, mapLabelVisible, mapRoadVisible]);
+    // useEffect(() => {
+    //     if (!map) return;
+    //
+    //     const applyVisibilitySettings = () => {
+    //         if (map) {
+    //             setMapFeatures(map, mapLabelVisible, "LABEL");
+    //             setMapFeatures(map, mapRoadVisible, "ROAD");
+    //         }
+    //     };
+    //
+    //     // listening the styledata event to apply current map settings
+    //     // if map style changes, hence this useEffect function does not
+    //     // require mapStyle as one of the dependencies.
+    //     map.on("styledata", applyVisibilitySettings);
+    //
+    //     //only change map settings without changing the map style
+    //     if (map && map.isStyleLoaded()) {
+    //         setMapFeatures(map, mapLabelVisible, "LABEL");
+    //         setMapFeatures(map, mapRoadVisible, "ROAD");
+    //     }
+    //
+    //     // Cleanup
+    //     return () => {
+    //         map.off("styledata", applyVisibilitySettings);
+    //     };
+    // }, [map, mapLabelVisible, mapRoadVisible]);
 
 
     const handleOnChange = (mapFeature: Tag, checked: boolean) => {
@@ -103,10 +103,10 @@ const MapFeaturesToggleButtonGroup = ({
             dispatch(toggleAirportLabel(checked));
             break;
         case "LABEL":
-            dispatch(toggleMapLabel(checked));
+            dispatch(toggleMapLabel());
             break;
         case "ROAD":
-            dispatch(toggleMapRoadLabel(checked));
+            dispatch(toggleMapRoadLabel());
             break;
         case "FIR":
             dispatch(toggleUnderlineFirBoundaries(checked));
