@@ -3,18 +3,21 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { useEffect } from "react";
 
-const useMapTerrain = () => {
+const useMapTerrain = (terrainEnable: boolean) => {
 
     const { current: mapRef } = useMap();
-    const { terrainEnable } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     useEffect(() => {
-        console.log("terrain enable?::", terrainEnable);
 
         const map = mapRef.getMap();
         if (!map) return;
 
         const setupTerrain = () => {
+            if (!map.isStyleLoaded()) {
+                setTimeout(setupTerrain, 200);
+                return;
+            }
+
             if (terrainEnable) {
                 if (!map.getSource("mapbox-dem")) {
                     map.addSource("mapbox-dem", {
@@ -40,13 +43,13 @@ const useMapTerrain = () => {
             }
         };
 
-        // Attach listener for future style changes
-        map.on("style.load", setupTerrain);
-
-        // If style already loaded, apply immediately
         if (map.isStyleLoaded()) {
             setupTerrain();
         }
+
+        const reapply = () => setupTerrain();
+        mapRef.on("style.load", reapply);
+
 
         return () => {
             map.setTerrain(null);
@@ -57,7 +60,7 @@ const useMapTerrain = () => {
                     console.warn("Error removing 'mapbox-dem':", e);
                 }
             }
-            map.off("style.load", setupTerrain);
+            mapRef.off("style.load", reapply);
         };
     }, [mapRef, terrainEnable]);
 };

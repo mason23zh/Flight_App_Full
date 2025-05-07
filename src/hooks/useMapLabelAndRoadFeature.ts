@@ -3,20 +3,25 @@ import { useEffect } from "react";
 import switchMapLabels from "../component/map/switchMapLabels";
 import switchMapRoads from "../component/map/switchMapRoads";
 
+type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
+
 interface Props {
     mapLabelVisible: boolean;
     mapRoadVisible: boolean;
+    mapStyles: MapStyle
 }
 
 const useMapLabelAndRoadFeature = ({
     mapLabelVisible,
-    mapRoadVisible
+    mapRoadVisible,
+    mapStyles
 }: Props) => {
     const { current: mapRef } = useMap();
 
     useEffect(() => {
         const map = mapRef?.getMap();
         if (!map) {
+            console.log("map not available");
             return;
         }
 
@@ -24,17 +29,32 @@ const useMapLabelAndRoadFeature = ({
         switchMapRoads(map, mapRoadVisible);
 
         const reapply = () => {
+            console.log("reapply run");
             switchMapLabels(map, mapLabelVisible);
             switchMapRoads(map, mapRoadVisible);
         };
 
-        mapRef.on("style.load", () => reapply());
+        map.on("style.load", () => {
+            reapply();
+        });
+
+        map.once("styledata", () => {
+            console.log("style.load run");
+            const waiting = () => {
+                if (!map.isStyleLoaded()) {
+                    setTimeout(waiting, 200);
+                } else {
+                    reapply();
+                }
+            };
+            waiting();
+        });
 
         return () => {
-            mapRef.off("style.load", reapply);
+            map.off("style.load", reapply);
         };
 
-    }, [mapRef, mapLabelVisible, mapRoadVisible]);
+    }, [mapRef, mapLabelVisible, mapRoadVisible, mapStyles]);
 };
 
 export default useMapLabelAndRoadFeature;

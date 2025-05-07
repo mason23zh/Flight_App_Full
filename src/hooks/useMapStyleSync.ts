@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useMap } from "react-map-gl";
-
+//TODO: The style might cause globe map projection stop working.
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
 
 const styleMap: Record<MapStyle, string> = {

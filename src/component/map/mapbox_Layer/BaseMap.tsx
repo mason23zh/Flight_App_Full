@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapLayerMouseEvent, MapProvider, MapRef, useMap } from "react-map-gl";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef, Source } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,6 +67,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         height: 0,
     };
 
+
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
         // width: "100%",
@@ -78,7 +79,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     useEffect(() => {
         if (mapRef && mapRef?.current) {
-            console.log("set map run.");
             const map = mapRef.current.getMap();
             setMap(map);
         }
@@ -87,7 +87,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     // Manually trigger the resize to avoid dimension calculation error
     useEffect(() => {
         if (mapRef && mapRef?.current) {
-            console.log("resize run.");
             mapRef.current.resize();
         }
     }, [mapStyle, mapRef]);
@@ -97,12 +96,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
     useEffect(() => {
         const hasReloaded = sessionStorage.getItem("map-reload");
 
-        console.log("Location pathname:", location.pathname);
-
         if (
             location.pathname === "/map" &&
-                (mapProjection === "globe" || mapProjection === "mercator") &&
-                !hasReloaded
+            (mapProjection === "globe" || mapProjection === "mercator") &&
+            !hasReloaded
         ) {
             sessionStorage.setItem("map-reload", "true");
             window.location.reload();
@@ -156,7 +153,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, [popupRef.current]);
 
     if (!isDatabaseInitialized) {
-        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"} />;
     }
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
@@ -287,7 +284,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         <MapProvider>
             <div onContextMenu={(evt) => evt.preventDefault()}>
                 {!isLoaded && <div>loading map...</div>}
-                <TogglePanel/>
+                <TogglePanel />
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -303,6 +300,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxPitch={70}
                     style={mapStyle}
                     dragPan={true}
+                    terrain={terrainEnable ? { source: "mapbox-dem", exaggeration: 1.5 } : undefined}
                     renderWorldCopies={false} //prevent map wrapping
                     logoPosition={"bottom-right"}
                     interactiveLayerIds={[
@@ -321,10 +319,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     // }}
                     onIdle={() => {
                         setIsLoaded(true);
-                        console.log("On idle called.");
                     }}
                     onStyleData={() => {
-                        console.log("Style data loaded.");
                         setIsStyleLoaded(true);
                     }}
                     // onSourceData={() => {
@@ -338,14 +334,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     antialias={false}
                     trackResize={false}
                     maxTileCacheSize={25}
-                    // cooperativeGestures={true}
+                // cooperativeGestures={true}
                 >
                     {isLoaded && isStyleLoaded ? (
                         <>
-                            <BaseMapPopups/>
+                            <BaseMapPopups />
                             {/* <TogglePanel/> */}
-                            <TelemetryPanel/>
-                            <CustomNavigationController/>
+                            <TelemetryPanel />
+                            <CustomNavigationController />
                             {AirportLayers}
                             {children}
                         </>

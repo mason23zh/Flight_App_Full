@@ -30,12 +30,9 @@ const MapFeaturesToggleButton_v2 = ({
 
     const activeButtonClass = initialActive ? activeClass : inActiveClass;
 
-    console.log("INITIAL ACTIVE STATE:", initialActive);
-
     const handleClick = () => {
         onToggle();
     };
-
 
     return (
         <>

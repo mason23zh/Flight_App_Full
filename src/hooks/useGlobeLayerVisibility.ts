@@ -20,7 +20,6 @@ const useGlobeLayerVisibility = (mapRef: MapRef | null, layerId: string, isVisib
 
         const applyVisibility = () => {
             if (map.getLayer(layerId)) {
-                console.log("Get layer success");
                 map.setLayoutProperty(layerId, "visibility", isVisible ? "visible" : "none");
                 return true;
             }

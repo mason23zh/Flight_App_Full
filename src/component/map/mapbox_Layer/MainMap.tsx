@@ -29,13 +29,11 @@ import AircraftDisplay from "../map_feature_toggle_button/search_box/search_resu
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
 import { Helmet } from "react-helmet-async";
-import { useMap } from "react-map-gl";
-import { useGlobeLayerOrdering } from "../../../hooks/useGlobeLayerOrdering";
 import GlobeMapLayerManager from "../GlobeMapLayerManager";
 import MapEffectManager from "../MapEffectManager";
+import MapTerrainSource from "./MapTerrainSource";
 
 const MainMap = () => {
-    const map = useMap();
     const dispatch = useDispatch();
 
     const traffic = useSelector<RootState, VatsimFlight>((state) => state.vatsimMapTraffic.selectedTraffic || null);
@@ -62,21 +60,21 @@ const MainMap = () => {
 
     const renderAircraftDisplayPanel = () => {
         if (activePanel === "searchResults" && searchResultsType === "AIRCRAFT" && searchResultsVisible) {
-            return <AircraftDisplay/>;
+            return <AircraftDisplay />;
         }
         return null;
     };
 
     const renderAircraftDepartureArrivalDisplayPanel = () => {
         if (activePanel === "searchResults" && searchResultsType === "AIRPORT" && searchResultsVisible) {
-            return <AirportDepartureArrivalDisplay airport={selectedAirport}/>;
+            return <AirportDepartureArrivalDisplay airport={selectedAirport} />;
         }
         return null;
     };
 
     const renderFlightInfoPanel = () => {
         if (activePanel === "trafficDetail" && trafficDetailVisible && traffic && traffic.callsign.length !== 0) {
-            return <FlightInfo/>;
+            return <FlightInfo />;
         }
         return null;
     };
@@ -99,15 +97,6 @@ const MainMap = () => {
         dispatch(toggleMapFilterButton(false));
         dispatch(toggleMapStyleButton(false));
     }, []);
-
-    //change globe projection layer order
-    useEffect(() => {
-        console.log("map:", map);
-        if (map.current) {
-            console.log("Current map:", map.current);
-            useGlobeLayerOrdering(map.current?.getMap());
-        }
-    }, [map]);
 
     const {
         matchedTracons,
@@ -174,7 +163,7 @@ const MainMap = () => {
             // Check for hardware acceleration
             const canvas = document.createElement("canvas");
             const gl =
-                    canvas.getContext("webgl") || (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
+                canvas.getContext("webgl") || (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
 
             if (gl) {
                 const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
@@ -184,14 +173,14 @@ const MainMap = () => {
                 if (
                     renderer.toLowerCase()
                         .includes("swiftshader") ||
-                        renderer.toLowerCase()
-                            .includes("software") ||
-                        !renderer
+                    renderer.toLowerCase()
+                        .includes("software") ||
+                    !renderer
                 ) {
                     console.warn(
                         "Hardware acceleration is disabled in Chrome. " +
-                            "This may cause high CPU usage. " +
-                            "Enable hardware acceleration in Chrome settings for better performance.",
+                        "This may cause high CPU usage. " +
+                        "Enable hardware acceleration in Chrome settings for better performance.",
                     );
                 }
             }
@@ -210,12 +199,13 @@ const MainMap = () => {
                     name="keyword"
                     content="VATSIM map, live air traffic, VATSIM controllers, VATSIM flights, live flight tracking"
                 />
-                <link rel="canonical" href="https://airportweather.org/map"/>
+                <link rel="canonical" href="https://airportweather.org/map" />
             </Helmet>
             <div>
                 <BaseMap>
-                    <MapErrorMessageStack/>
-                    <MapEffectManager/>
+                    <MapErrorMessageStack />
+                    <MapTerrainSource />
+                    <MapEffectManager />
                     <GlobeMapLayerManager
                         matchedFirs={matchedFirs}
                         errorMatchedFirs={isFirError}
@@ -238,8 +228,8 @@ const MainMap = () => {
                             controllerDataError={controllerError}
                         />
                     )}
-                    <NexradLayer/>
-                    {dayNightTerminator && <DayNightLayer/>}
+                    <NexradLayer />
+                    {dayNightTerminator && <DayNightLayer />}
                     {renderFlightInfoPanel()}
                     {renderAircraftDepartureArrivalDisplayPanel()}
                     {renderAircraftDisplayPanel()}

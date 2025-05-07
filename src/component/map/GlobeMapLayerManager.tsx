@@ -8,7 +8,7 @@ import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 import { VatsimControllers } from "../../types";
 import { useMap } from "react-map-gl";
 import mapboxgl from "mapbox-gl";
-import { useMapIsReady } from "../../hooks/useMapIsReady";
+// import { useMapIsReady } from "../../hooks/useMapIsReady";
 import GlobeFirIconLayer from "./globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
 import GlobeTraconIconLayer_Test from "./globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer_Test";
 import GlobeControllerIconLayer from "./globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
@@ -39,21 +39,17 @@ const GlobeMapLayerManager = ({
 }: Props) => {
     const {
         mapProjection,
-        allAtcLayerVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const { current: mapRef } = useMap();
-    const [map, setMap] = useState<mapboxgl.Map | null>(null);
+    // const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const [isReady, setIsReady] = useState(false);
 
-    useEffect(() => {
-        if (!mapRef) return;
+    console.log("IS ready in GlobeMapLayerManager:", isReady);
 
+
+    useEffect(() => {
         const map = mapRef.getMap();
-        if (map) setMap(map);
 
-    }, [mapRef]);
-
-    useEffect(() => {
         if (!map) return;
 
         const handle = () => setIsReady(true);
@@ -64,29 +60,28 @@ const GlobeMapLayerManager = ({
         return () => {
             map.off("style.load", handle);
         };
-    }, [map]);
+    }, [mapRef, mapProjection]);
 
 
-    useGlobeLayerOrdering(map);
+    useGlobeLayerOrdering(mapRef.getMap());
 
-    console.log("is style ready:", isReady);
 
-    if (!map || !isReady) return null;
+    // if (!mapRef || !isReady) return null;
 
     return (
         <>
             {mapProjection === "globe" && (
                 <>
-                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs}/>
+                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs} />
                     <GlobeTraconIconLayer_Test
                         matchedTracons={matchedTracons}
                         matchedFallbackTracons={matchedFallbackTracons}
                         isTraconLoading={isTraconLoading}
                         isTraconError={isTraconError}
                     />
-                    <GlobeControllerIconLayer controllerData={controllerData}/>
-                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
-                    <VatsimTrafficLayer key="vatsimTrafficLayer"/>
+                    <GlobeControllerIconLayer controllerData={controllerData} />
+                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
+                    <VatsimTrafficLayer key="vatsimTrafficLayer" />
                 </>
             )}
         </>
