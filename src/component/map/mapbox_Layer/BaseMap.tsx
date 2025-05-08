@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useRef, useState } from "react";
-import { Map, MapLayerMouseEvent, MapProvider, MapRef, Source } from "react-map-gl";
+import { Map, MapLayerMouseEvent, MapProvider, MapRef } from "react-map-gl";
 import useAirportsLayers from "../../../hooks/useAirportsLayers";
 import TogglePanel from "../map_feature_toggle_button/TogglePanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,12 +29,8 @@ import {
     GLOBE_TRACON_ICON_LAYER_ID,
     GLOBE_TRAFFIC_ICON_LAYER_ID,
 } from "../globe_projection/layerSourceName";
-// import { useLocation } from "react-router-dom";
 
 //TODO: mapboxgl tooltip arrow remove
-//TODO: Globe projection layer order issue.
-//TODO: Globe projection traffic not render when first load.
-//TODO: !important! use redux to move the useState to prevent re-render
 interface BaseMapProps {
     children: React.ReactNode;
 }
@@ -57,7 +53,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
-    // const location = useLocation();
 
     const {
         terrainEnable,
@@ -65,7 +60,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         mapStyles
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const [mapStyleUrl, setMapStyleUrl] = useState(styleMap[mapStyles]);
 
     const defaultViewState = {
         longitude: -29.858598,
@@ -328,21 +322,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onClick={(e) => handleOnClick(e)}
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
-                    // cursor={cursor}
-                    // onLoad={() => {
-                    //     console.log("Map done loading.");
-                    //     setIsLoaded(true);
-                    // }}
-                    onIdle={() => {
+                    onLoad={() => {
+                        console.log("Map done loading.");
                         setIsLoaded(true);
                     }}
                     onStyleData={() => {
                         setIsStyleLoaded(true);
                     }}
-                    // onSourceData={() => {
-                    //     console.log("Source data loaded.");
-                    //     setIsStyleLoaded(true);
-                    // }}
                     onRender={(event) => event.target.resize()}
                     reuseMaps={true}
                     optimizeForTerrain={terrainEnable}
@@ -355,7 +341,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     {isLoaded && isStyleLoaded ? (
                         <>
                             <BaseMapPopups />
-                            {/* <TogglePanel/> */}
                             <TelemetryPanel />
                             <CustomNavigationController />
                             {AirportLayers}

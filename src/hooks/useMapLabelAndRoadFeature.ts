@@ -21,7 +21,6 @@ const useMapLabelAndRoadFeature = ({
     useEffect(() => {
         const map = mapRef?.getMap();
         if (!map) {
-            console.log("map not available");
             return;
         }
 
@@ -29,7 +28,6 @@ const useMapLabelAndRoadFeature = ({
         switchMapRoads(map, mapRoadVisible);
 
         const reapply = () => {
-            console.log("reapply run");
             switchMapLabels(map, mapLabelVisible);
             switchMapRoads(map, mapRoadVisible);
         };
@@ -39,7 +37,6 @@ const useMapLabelAndRoadFeature = ({
         });
 
         map.once("styledata", () => {
-            console.log("style.load run");
             const waiting = () => {
                 if (!map.isStyleLoaded()) {
                     setTimeout(waiting, 200);

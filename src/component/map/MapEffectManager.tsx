@@ -3,8 +3,6 @@
  * **/
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import useMapStyleSync from "../../hooks/useMapStyleSync";
-import useMapTerrain from "../../hooks/useMapTerrain";
 import useMapLabelAndRoadFeature from "../../hooks/useMapLabelAndRoadFeature";
 
 const MapEffectManager = () => {
@@ -12,11 +10,8 @@ const MapEffectManager = () => {
         mapStyles,
         mapRoadVisible,
         mapLabelVisible,
-        terrainEnable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    // useMapStyleSync(mapStyles);
-    // useMapTerrain(terrainEnable);
     useMapLabelAndRoadFeature({
         mapLabelVisible,
         mapRoadVisible,
