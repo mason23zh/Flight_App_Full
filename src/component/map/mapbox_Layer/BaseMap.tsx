@@ -38,6 +38,13 @@ import {
 interface BaseMapProps {
     children: React.ReactNode;
 }
+type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
+const styleMap: Record<MapStyle, string> = {
+    DEFAULT: import.meta.env.VITE_MAPBOX_MAIN_STYLE,
+    MONO_LIGHT: import.meta.env.VITE_MAPBOX_MONOCHROME_LIGHT_STYLE,
+    MONO_DARK: import.meta.env.VITE_MAPBOX_MONOCHROME_DARK_STYLE,
+    SATELLITE: import.meta.env.VITE_MAPBOX_SATELLITE_STREET_STYLE,
+};
 
 const BaseMap = ({ children }: BaseMapProps) => {
     // const [cursor, setCursor] = useState<string>("grab");
@@ -54,8 +61,11 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const {
         terrainEnable,
-        mapProjection
+        mapProjection,
+        mapStyles
     } = useSelector((state: RootState) => state.vatsimMapVisible);
+
+    const [mapStyleUrl, setMapStyleUrl] = useState(styleMap[mapStyles]);
 
     const defaultViewState = {
         longitude: -29.858598,
@@ -90,6 +100,11 @@ const BaseMap = ({ children }: BaseMapProps) => {
             mapRef.current.resize();
         }
     }, [mapStyle, mapRef]);
+
+
+    useEffect(() => {
+
+    }, [mapStyles]);
 
     //force page reload, when navigate from other component,
     //reload the page to reset the map. This would make sure every layer is loaded.
@@ -295,7 +310,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     minZoom={1.92}
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
-                    mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
+                    // mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
+                    mapStyle={styleMap[mapStyles]}
                     initialViewState={defaultViewState}
                     maxPitch={70}
                     style={mapStyle}

@@ -15,7 +15,7 @@ const MapEffectManager = () => {
         terrainEnable
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    useMapStyleSync(mapStyles);
+    // useMapStyleSync(mapStyles);
     // useMapTerrain(terrainEnable);
     useMapLabelAndRoadFeature({
         mapLabelVisible,
