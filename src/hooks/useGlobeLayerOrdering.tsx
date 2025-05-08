@@ -31,7 +31,7 @@ export const useGlobeLayerOrdering = (map: mapboxgl.Map | null) => {
                 }
             });
 
-            console.log("Globe Layers reorder:", [...LAYER_PRIORITY_ORDER]);
+            // console.log("Globe Layers reorder:", [...LAYER_PRIORITY_ORDER]);
         };
 
         reorderLayers();

@@ -143,7 +143,7 @@ const GlobeFirIconLayer = ({
             map.off("style.load", restoreFirs);
         };
     }, [mapRef, matchedFirs]);
-    console.log("Globe fir icon visibility:", allAtcLayerVisible);
+   
     return (
         <Source
             id={GLOBE_FIR_ICON_SOURCE_ID}

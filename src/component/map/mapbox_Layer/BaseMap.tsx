@@ -30,10 +30,13 @@ import {
     GLOBE_TRAFFIC_ICON_LAYER_ID,
 } from "../globe_projection/layerSourceName";
 
+//TODO: Aircraft laoding might get warning in Mercator projection
+//TODO: Double check other layers that using mapRef
 //TODO: mapboxgl tooltip arrow remove
 interface BaseMapProps {
     children: React.ReactNode;
 }
+
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
 const styleMap: Record<MapStyle, string> = {
     DEFAULT: import.meta.env.VITE_MAPBOX_MAIN_STYLE,
@@ -107,8 +110,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
         if (
             location.pathname === "/map" &&
-            (mapProjection === "globe" || mapProjection === "mercator") &&
-            !hasReloaded
+                (mapProjection === "globe" || mapProjection === "mercator") &&
+                !hasReloaded
         ) {
             sessionStorage.setItem("map-reload", "true");
             window.location.reload();
@@ -162,7 +165,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
     }, [popupRef.current]);
 
     if (!isDatabaseInitialized) {
-        return <GeneralLoading themeMode={darkMode ? "dark" : "light"} />;
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
     }
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
@@ -293,7 +296,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
         <MapProvider>
             <div onContextMenu={(evt) => evt.preventDefault()}>
                 {!isLoaded && <div>loading map...</div>}
-                <TogglePanel />
+                <TogglePanel/>
                 <Map
                     ref={mapRef}
                     id="mainMap"
@@ -310,7 +313,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxPitch={70}
                     style={mapStyle}
                     dragPan={true}
-                    terrain={terrainEnable ? { source: "mapbox-dem", exaggeration: 1.5 } : undefined}
+                    terrain={terrainEnable ? {
+                        source: "mapbox-dem",
+                        exaggeration: 1.5
+                    } : undefined}
                     renderWorldCopies={false} //prevent map wrapping
                     logoPosition={"bottom-right"}
                     interactiveLayerIds={[
@@ -323,7 +329,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
                     onLoad={() => {
-                        console.log("Map done loading.");
                         setIsLoaded(true);
                     }}
                     onStyleData={() => {
@@ -336,13 +341,13 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     antialias={false}
                     trackResize={false}
                     maxTileCacheSize={25}
-                // cooperativeGestures={true}
+                    // cooperativeGestures={true}
                 >
                     {isLoaded && isStyleLoaded ? (
                         <>
-                            <BaseMapPopups />
-                            <TelemetryPanel />
-                            <CustomNavigationController />
+                            <BaseMapPopups/>
+                            <TelemetryPanel/>
+                            <CustomNavigationController/>
                             {AirportLayers}
                             {children}
                         </>

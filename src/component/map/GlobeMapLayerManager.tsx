@@ -44,8 +44,6 @@ const GlobeMapLayerManager = ({
     // const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const [isReady, setIsReady] = useState(false);
 
-    console.log("IS ready in GlobeMapLayerManager:", isReady);
-
 
     useEffect(() => {
         const map = mapRef.getMap();
@@ -72,16 +70,16 @@ const GlobeMapLayerManager = ({
         <>
             {mapProjection === "globe" && (
                 <>
-                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs} />
+                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs}/>
                     <GlobeTraconIconLayer_Test
                         matchedTracons={matchedTracons}
                         matchedFallbackTracons={matchedFallbackTracons}
                         isTraconLoading={isTraconLoading}
                         isTraconError={isTraconError}
                     />
-                    <GlobeControllerIconLayer controllerData={controllerData} />
-                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
-                    <VatsimTrafficLayer key="vatsimTrafficLayer" />
+                    <GlobeControllerIconLayer controllerData={controllerData}/>
+                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
+                    <VatsimTrafficLayer key="vatsimTrafficLayer"/>
                 </>
             )}
         </>

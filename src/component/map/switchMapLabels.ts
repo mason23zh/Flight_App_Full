@@ -1,7 +1,6 @@
 import mapboxgl from "mapbox-gl";
-//TODO: style not done, use onload or onstyleload instead.
+
 const switchMapLabels = (map: mapboxgl.Map, visibility: boolean) => {
-    console.log("Switch map label run, visibility:", visibility);
     const flag = visibility ? "visible" : "none";
     if (map) {
         // const map = mapRef.current.getMap();
@@ -19,7 +18,7 @@ const switchMapLabels = (map: mapboxgl.Map, visibility: boolean) => {
             }
         });
     } else {
-        console.log("swithc map lables, mapRef not available");
+        console.warn("Error swtiching map label");
     }
 };
 
