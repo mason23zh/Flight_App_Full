@@ -62,7 +62,7 @@ const MainDeckGlLayer = ({
     trafficLayerVisible,
     movingMap,
 }:
-        MainTrafficLayerProps) => {
+    MainTrafficLayerProps) => {
 
     const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
@@ -242,9 +242,9 @@ const MainDeckGlLayer = ({
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (info.layer &&
-                (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&
-                info.object &&
-                (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))
+            (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&
+            info.object &&
+            (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))
         ) {
             setSelectTraffic(info.object);
             dispatch(setSelectedTraffic(info.object));
@@ -282,7 +282,7 @@ const MainDeckGlLayer = ({
     const handleHover = useCallback(
         throttle((info: PickingInfo) => {
             if ((info?.layer?.id === "traffic-layer-2d" || info?.layer?.id === "traffic-layer-3d")
-                        && info?.object?.cid) {
+                && info?.object?.cid) {
                 setHoveredTraffic(info);
             } else {
                 setHoveredTraffic(null);
@@ -305,7 +305,24 @@ const MainDeckGlLayer = ({
                 layers={layers}
                 pickingRadius={10}
                 onHover={handleHover}
-                getCursor={({ isDragging }) => (isDragging ? "auto" : (hoveredTraffic ? "pointer" : "grab"))}
+            //getCursor={({ isDragging }) => (isDragging ? "grab" : (hoveredTraffic ? "pointer" : "grab"))}
+            // getCursor={(cursorState) => {
+            //     const { isDragging, isHovering } = cursorState;
+            //     console.log("cursorState:", cursorState);
+            //     console.log("isDragging", isDragging);
+            //
+            //     if (isDragging) {
+            //         console.log("is dragging run>>>:", isDragging);
+            //         return "grab";
+            //     } else {
+            //         if (hoveredTraffic) {
+            //             return "pointer";
+            //         } else {
+            //             return "grab";
+            //         }
+            //     }
+            // }}
+
             />
 
             {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (
@@ -316,20 +333,20 @@ const MainDeckGlLayer = ({
                         top: hoveredTraffic.y + 10,
                     }}
                 >
-                    <HoveredTrafficTooltip info={hoveredTraffic.object}/>
+                    <HoveredTrafficTooltip info={hoveredTraffic.object} />
                 </div>
             )}
 
             {hoveredController &&
-                <ControllerMarkerPopup hoverInfo={hoveredController}/>
+                <ControllerMarkerPopup hoverInfo={hoveredController} />
             }
 
             {(hoveredTracon) &&
-                <TraconLabelPopup hoverTracon={hoveredTracon}/>
+                <TraconLabelPopup hoverTracon={hoveredTracon} />
             }
 
             {(hoveredFir) &&
-                <FirLabelPopup hoverFir={hoveredFir}/>
+                <FirLabelPopup hoverFir={hoveredFir} />
             }
 
         </>

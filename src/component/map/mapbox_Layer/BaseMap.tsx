@@ -53,7 +53,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const dispatch = useDispatch();
     const mapRef = useRef<MapRef | null>(null);
-    const [map, setMap] = useState<mapboxgl.Map | null>(null);
+    // const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
 
@@ -77,31 +77,20 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
-        // width: "100%",
         width: "100%",
         position: "absolute",
     });
 
     const { airportLayers: AirportLayers } = useAirportsLayers();
 
-    useEffect(() => {
-        if (mapRef && mapRef?.current) {
-            const map = mapRef.current.getMap();
-            setMap(map);
-        }
-    }, [mapRef, mapProjection]);
-
     // Manually trigger the resize to avoid dimension calculation error
-    useEffect(() => {
-        if (mapRef && mapRef?.current) {
-            mapRef.current.resize();
-        }
-    }, [mapStyle, mapRef]);
+    // useEffect(() => {
+    //     if (mapRef && mapRef?.current) {
+    //         console.log("manual trigger resize.");
+    //         mapRef.current.resize();
+    //     }
+    // }, [mapStyle, mapRef]);
 
-
-    useEffect(() => {
-
-    }, [mapStyles]);
 
     //force page reload, when navigate from other component,
     //reload the page to reset the map. This would make sure every layer is loaded.
@@ -110,8 +99,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
         if (
             location.pathname === "/map" &&
-                (mapProjection === "globe" || mapProjection === "mercator") &&
-                !hasReloaded
+            (mapProjection === "globe" || mapProjection === "mercator") &&
+            !hasReloaded
         ) {
             sessionStorage.setItem("map-reload", "true");
             window.location.reload();
@@ -124,21 +113,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         };
     }, [location.pathname, mapProjection]);
 
-    useEffect(() => {
-        if (map) {
-            map.on("error", () => {
-                console.error("Error loading map");
-            });
-
-            map.on("webglcontextlost", () => {
-                console.error("WebGL context lost");
-            });
-
-            if (!mapboxgl.supported()) {
-                console.error("MapboxGL not supported");
-            }
-        }
-    }, [map]);
 
     // adjust map height
     useEffect(() => {
@@ -159,13 +133,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
         };
     }, []);
 
+    // popup follow mouse
     useEffect(() => {
         popupRef.current?.trackPointer();
         popupRef.current?.addClassName("p-0");
     }, [popupRef.current]);
 
     if (!isDatabaseInitialized) {
-        return <GeneralLoading themeMode={darkMode ? "dark" : "light"}/>;
+        return <GeneralLoading themeMode={darkMode ? "dark" : "light"} />;
     }
 
     // This onClick event handler will handle click events for the globe VatsimTrafficLayer
@@ -295,19 +270,15 @@ const BaseMap = ({ children }: BaseMapProps) => {
     return (
         <MapProvider>
             <div onContextMenu={(evt) => evt.preventDefault()}>
-                {!isLoaded && <div>loading map...</div>}
-                <TogglePanel/>
+                <TogglePanel />
                 <Map
                     ref={mapRef}
                     id="mainMap"
+                    cursor={"auto"}
                     projection={{ name: mapProjection }}
-                    // cursor={"auto"}
-                    // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged
-                    // Set 1.92 for safe
-                    minZoom={1.92}
+                    minZoom={1.92} // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged, set 1.92 for safe
                     dragRotate={terrainEnable}
                     mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
-                    // mapStyle={import.meta.env.VITE_MAPBOX_MAIN_STYLE}
                     mapStyle={styleMap[mapStyles]}
                     initialViewState={defaultViewState}
                     maxPitch={70}
@@ -328,11 +299,11 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     onClick={(e) => handleOnClick(e)}
                     onMouseEnter={(e) => handleHover(e)}
                     onMouseLeave={handleMouseLeave}
-                    onLoad={() => {
+                    onLoad={(event) => {
                         setIsLoaded(true);
-                    }}
-                    onStyleData={() => {
-                        setIsStyleLoaded(true);
+                        if (event.target.isStyleLoaded()) {
+                            setIsStyleLoaded(true);
+                        }
                     }}
                     onRender={(event) => event.target.resize()}
                     reuseMaps={true}
@@ -341,18 +312,18 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     antialias={false}
                     trackResize={false}
                     maxTileCacheSize={25}
-                    // cooperativeGestures={true}
                 >
                     {isLoaded && isStyleLoaded ? (
                         <>
-                            <BaseMapPopups/>
-                            <TelemetryPanel/>
-                            <CustomNavigationController/>
+                            <BaseMapPopups />
+                            <TelemetryPanel />
+                            <CustomNavigationController />
                             {AirportLayers}
                             {children}
                         </>
                     ) : (
-                        <div>loading map...</div>
+
+                        <GeneralLoading themeMode={darkMode ? "dark" : "light"} />
                     )}
                 </Map>
             </div>
