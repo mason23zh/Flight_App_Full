@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -13,14 +12,14 @@ function Layout() {
     return (
         <div className="flex flex-col h-screen-dvh">
             <header id="header" className="h-auto">
-                <Navbar/>
+                <Navbar />
             </header>
             <main className="flex flex-grow flex-col justify-between">
-                <Outlet/>
+                <Outlet />
             </main>
             {showFooter &&
                 <footer id="footer" className="h-auto">
-                    <Footer/>
+                    <Footer />
                 </footer>
             }
         </div>

@@ -1,7 +1,7 @@
 /**
  * Use to render the DeckGL overlay
  * */
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { WebMercatorViewport } from "@deck.gl/core/typed";
 import DeckGlOverlay from "./deckGL_Layer/DeckGLOverlay";
 import { VatsimControllers, VatsimFlight } from "../../types";
