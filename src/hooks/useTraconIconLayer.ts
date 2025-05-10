@@ -7,10 +7,13 @@ import { debounce } from "lodash";
 import { setHoveredTracon } from "../store";
 import { useDispatch } from "react-redux";
 
+//FIXME: the icon disappeared after swtiching form the 2d mode to 3d terrain mode
+
 const useTraconIconLayer = (
     matchedTracon: MatchedTracon[],
     matchedFallbackTracon: FallbackTracon[],
-    visible: boolean) => {
+    visible: boolean,
+) => {
     const dispatch = useDispatch();
 
     const matchedIconData = useMemo(() => {

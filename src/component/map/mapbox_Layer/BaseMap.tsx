@@ -182,7 +182,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
-            console.log("Layer ID:", layerId);
 
             if (layerId === GLOBE_TRAFFIC_ICON_LAYER_ID) {
                 // setCursor("pointer");

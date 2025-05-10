@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MapFeaturesToggleButton from "./MapFeaturesToggleButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    addMessage,
-    removeMessageByLocation,
     RootState,
     toggleAtcLayer,
     toggleMapFollowTraffic,
@@ -18,17 +16,15 @@ import { GiControlTower } from "react-icons/gi";
 import { CgTerrain } from "react-icons/cg";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { IoSpeedometerOutline } from "react-icons/io5";
-import { MapRef, useMap } from "react-map-gl";
 import MapStyleToggleButton from "./MapStyleToggleButton";
 import MapFilterToggleButton from "./MapFilterToggleButton";
 import useIsTouchScreen from "../../../hooks/useIsTouchScreen";
 import { useWebSocketContext } from "../WebSocketContext";
 import SearchButton from "./search_box/SearchButton";
-import mapboxgl from "mapbox-gl";
-import LiveTrafficToggleButton from "./LiveTrafficToggleButton";
 import FeaturedAirportsButton from "./featured_airports/FeaturedAirportsButton";
 import MapFeaturesToggleButton_v2 from "./MapFeaturesToggleButton_v2";
-//FIXME! the TogglePanel is directly linked to the Globe projection, need to decouple.
+
+
 const TogglePanel = () => {
     // const { current: mapRef } = useMap();
     const {
@@ -45,102 +41,7 @@ const TogglePanel = () => {
         liveTrafficAvailable
     } = useWebSocketContext();
 
-    const [isMapLoaded, setIsMapLoaded] = useState(false);
     const dispatch = useDispatch();
-
-    //
-    // useEffect(() => {
-    //     const map = mapRef?.current?.getMap();
-    //     if (!map) return;
-    //
-    //     const addTerrainSource = (map: mapboxgl.Map) => {
-    //         map.addSource("mapbox-dem", {
-    //             "type": "raster-dem",
-    //             "url": "mapbox://mapbox.mapbox-terrain-dem-v1",
-    //             "tileSize": 512,
-    //             "maxzoom": 14
-    //         });
-    //         // add the DEM source as a terrain layer with exaggerated height
-    //         map.setTerrain({
-    //             "source": "mapbox-dem",
-    //             "exaggeration": 1.5
-    //         });
-    //     };
-    //
-    //     const addTerrainLayer = () => {
-    //         try {
-    //             addTerrainSource(map);
-    //         } catch (e) {
-    //             map.on("style.load", () => {
-    //                 addTerrainSource(map);
-    //             });
-    //         }
-    //     };
-    //
-    //     const removeTerrainLayer = () => {
-    //         map.setPitch(0);
-    //         map.setBearing(0);
-    //
-    //         // Remove terrain first if it exists
-    //         if (map.getTerrain()) {
-    //             map.setTerrain(null);
-    //         }
-    //
-    //         // Remove the source after terrain has been removed
-    //         // if (map.getSource("mapbox-dem")) {
-    //         //     map.removeSource("mapbox-dem");
-    //         // }
-    //     };
-    //
-    //     if (terrainEnable) {
-    //         addTerrainLayer();
-    //     } else {
-    //         removeTerrainLayer();
-    //     }
-    //
-    //     return () => {
-    //         removeTerrainLayer();
-    //     };
-    //
-    // }, [terrainEnable, mapRef.current]);
-
-
-    // Map loading state/error notification
-    // useEffect(() => {
-    //     // const map = mapRef.current?.getMap();
-    //     if (!mapRef) {
-    //         console.warn("Map reference not found");
-    //         dispatch(addMessage({
-    //             location: "BASE_MAP",
-    //             messageType: "ERROR",
-    //             content: "Error loading map."
-    //         }));
-    //         return;
-    //     }
-    //
-    //     const handleMapLoad = () => {
-    //         dispatch(removeMessageByLocation({ location: "BASE_MAP" }));
-    //         setIsMapLoaded(true);
-    //     };
-    //
-    //     mapRef?.current?.getMap()
-    //         .on("load", handleMapLoad);
-    //
-    //     return () => {
-    //         mapRef?.current?.getMap()
-    //             .off("load", handleMapLoad);
-    //     };
-    // }, [mapRef]);
-    //
-    // useEffect(() => {
-    //     if (!isMapLoaded) {
-    //         dispatch(addMessage({
-    //             location: "BASE_MAP",
-    //             messageType: "LOADING",
-    //             content: "Loading map..."
-    //         }));
-    //     }
-    // }, [isMapLoaded, dispatch]);
 
     const parentStyle = "z-[200] absolute bottom-0 w-full sm:top-auto sm:left-0 " +
         "sm:bottom-auto sm:w-auto sm:right-auto";

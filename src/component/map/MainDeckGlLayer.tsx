@@ -331,8 +331,6 @@ const MainDeckGlLayer = ({
                 onDragStart={() => setCursor("grabbing")}
                 onDragEnd={() => setCursor("grab")}
                 getCursor={() => cursor}
-
-            // getCursor={({ isDragging }) => (isDragging ? "grabbing" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
             {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (
