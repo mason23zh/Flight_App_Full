@@ -49,6 +49,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
     // const [cursor, setCursor] = useState<string>("grab");
     const [isLoaded, setIsLoaded] = useState(false);
     const [isStyleLoaded, setIsStyleLoaded] = useState(false);
+    const [cursor, setCursor] = useState<string>("grab");
+
     const popupRef = useRef<mapboxgl.Popup>();
 
     const dispatch = useDispatch();
@@ -176,8 +178,11 @@ const BaseMap = ({ children }: BaseMapProps) => {
             dispatch(setHoveredTraffic(null));
             dispatch(setHoveredController(null));
         }
+        let match = false;
+
         e.features.forEach((feature) => {
             const layerId = feature.layer.id;
+            console.log("Layer ID:", layerId);
 
             if (layerId === GLOBE_TRAFFIC_ICON_LAYER_ID) {
                 // setCursor("pointer");
@@ -199,6 +204,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         y: e.point.y,
                     }),
                 );
+
+                match = true;
             }
 
             if (layerId === GLOBE_CONTROLLER_ICON_LAYER_ID) {
@@ -215,6 +222,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 };
 
                 dispatch(setHoveredController(controllerServiceData));
+
+                match = true;
             }
 
             if (layerId === GLOBE_FIR_ICON_LAYER_ID) {
@@ -232,6 +241,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
                 // setHoveredFir(firData);
                 dispatch(setHoveredFir(firData));
+
+                match = true;
             }
 
             if (layerId === GLOBE_TRACON_ICON_LAYER_ID) {
@@ -249,13 +260,16 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
                 // setHoveredTracon(traconData);
                 dispatch(setHoveredTracon(traconData));
-                // console.log("tracon properties:", traconData);
+
+                match = true;
             }
         });
+
+        setCursor(match ? "pointer" : "grab");
     };
 
     const handleMouseLeave = () => {
-        // setCursor("grab");
+        setCursor("grab");
         // setShowPopup(false);
         dispatch(setHoveredTraffic(null));
         dispatch(setHoveredController(null));
@@ -274,7 +288,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                 <Map
                     ref={mapRef}
                     id="mainMap"
-                    cursor={"auto"}
+                    cursor={cursor}
                     projection={{ name: mapProjection }}
                     minZoom={1.92} // if minZoom is lower than the 1.9, the longitudeWrapping function will be bugged, set 1.92 for safe
                     dragRotate={terrainEnable}
@@ -284,6 +298,8 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     maxPitch={70}
                     style={mapStyle}
                     dragPan={true}
+                    onDragStart={() => setCursor("grabbing")}
+                    onDragEnd={() => setCursor("grab")}
                     terrain={terrainEnable ? {
                         source: "mapbox-dem",
                         exaggeration: 1.5

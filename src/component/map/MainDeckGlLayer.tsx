@@ -305,24 +305,7 @@ const MainDeckGlLayer = ({
                 layers={layers}
                 pickingRadius={10}
                 onHover={handleHover}
-            //getCursor={({ isDragging }) => (isDragging ? "grab" : (hoveredTraffic ? "pointer" : "grab"))}
-            // getCursor={(cursorState) => {
-            //     const { isDragging, isHovering } = cursorState;
-            //     console.log("cursorState:", cursorState);
-            //     console.log("isDragging", isDragging);
-            //
-            //     if (isDragging) {
-            //         console.log("is dragging run>>>:", isDragging);
-            //         return "grab";
-            //     } else {
-            //         if (hoveredTraffic) {
-            //             return "pointer";
-            //         } else {
-            //             return "grab";
-            //         }
-            //     }
-            // }}
-
+            // getCursor={({ isDragging }) => (isDragging ? "grabbing" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
             {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (

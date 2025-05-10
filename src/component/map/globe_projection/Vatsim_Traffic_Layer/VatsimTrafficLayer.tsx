@@ -11,8 +11,7 @@ import {
     searchFlightsByAirports,
 } from "../../map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimFlight } from "../../../../types";
-import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_SOURCE_ID } from "../layerSourceName";
-// import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
+import { GLOBE_TRAFFIC_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_SOURCE_ID } from "../layerSourceName";
 
 //TODO: refine onClick and onHover logic
 
@@ -89,10 +88,10 @@ const VatsimTrafficLayer = () => {
     const getJsonData: GeoJSON = useMemo(() => {
         if (
             !memoizedVatsimPilotToDisplay ||
-                memoizedVatsimPilotToDisplay.length === 0 ||
-                !vatsimPilots?.data?.pilots ||
-                isFetching ||
-                error
+            memoizedVatsimPilotToDisplay.length === 0 ||
+            !vatsimPilots?.data?.pilots ||
+            isFetching ||
+            error
         ) {
             return null;
         }
@@ -148,23 +147,7 @@ const VatsimTrafficLayer = () => {
 
         loadAircraftImage();
 
-        const onStyleData = () => {
-            //make sure traffic layer is above FIR icon layer
-            map.moveLayer(GLOBE_FIR_ICON_LAYER_ID, GLOBE_TRAFFIC_ICON_LAYER_ID);
-            loadAircraftImage();
-        };
-
-        return () => {
-            map.off("styledata", onStyleData);
-            try {
-                if (map.hasImage(imageId)) {
-                    map.removeImage(imageId);
-                }
-            } catch (e) {
-                console.error("Unable to clean up:", e);
-            }
-        };
-    }, [mapStyles, mapRef]); //use mapStyles here to trigger re-render
+    }, [mapStyles, mapRef]);
 
     //restore aircraft icons && source after map style change
     useEffect(() => {
