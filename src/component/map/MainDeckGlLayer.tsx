@@ -35,6 +35,13 @@ import useTrafficLayer3D from "../../hooks/useTrafficLayer3D";
 import useLocalTrackFlightLayer from "../../hooks/useLocalTrackFlightLayer";
 import { debounce, throttle } from "lodash";
 import HoveredTrafficTooltip from "./HoveredTrafficTooltip";
+import {
+    MERCATOR_CONTROLLER_ICON_LAYER_ID,
+    MERCATOR_FIR_ICON_LAYER_ID,
+    MERCATOR_TRACON_ICON_LAYER_ID,
+    MERCATOR_TRAFFIC_LAYER_2D_ID,
+    MERCATOR_TRAFFIC_LAYER_3D_ID
+} from "./deckGL_Layer/mercatorLayerNames";
 
 // import useTrafficCallsignLayer from "../../hooks/useTrafficCallsignLayer";
 
@@ -69,6 +76,7 @@ const MainDeckGlLayer = ({
     const { current: mapRef } = useMap();
 
 
+    const [cursor, setCursor] = useState("grab");
     const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
     const {
@@ -242,7 +250,8 @@ const MainDeckGlLayer = ({
 
     const deckOnClick = useCallback((info: PickedTraffic) => {
         if (info.layer &&
-            (info.layer.id === "traffic-layer-2d" || info.layer.id === "traffic-layer-3d") &&
+            (info.layer.id === MERCATOR_TRAFFIC_LAYER_2D_ID
+                || info.layer.id === MERCATOR_TRAFFIC_LAYER_3D_ID) &&
             info.object &&
             (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))
         ) {
@@ -281,12 +290,26 @@ const MainDeckGlLayer = ({
 
     const handleHover = useCallback(
         throttle((info: PickingInfo) => {
-            if ((info?.layer?.id === "traffic-layer-2d" || info?.layer?.id === "traffic-layer-3d")
+
+            let match = false;
+            if (info?.layer?.id === MERCATOR_TRACON_ICON_LAYER_ID ||
+                info?.layer?.id === MERCATOR_FIR_ICON_LAYER_ID ||
+                info?.layer?.id === MERCATOR_CONTROLLER_ICON_LAYER_ID ||
+                info?.layer?.id === MERCATOR_TRAFFIC_LAYER_3D_ID ||
+                info?.layer?.id === MERCATOR_TRAFFIC_LAYER_2D_ID
+            ) {
+                match = true;
+            }
+
+            if ((info?.layer?.id === MERCATOR_TRAFFIC_LAYER_2D_ID ||
+                info?.layer?.id === MERCATOR_TRAFFIC_LAYER_3D_ID)
                 && info?.object?.cid) {
                 setHoveredTraffic(info);
             } else {
                 setHoveredTraffic(null);
             }
+
+            setCursor(match ? "pointer" : "grab");
         }, 50),
         []
     );
@@ -305,6 +328,10 @@ const MainDeckGlLayer = ({
                 layers={layers}
                 pickingRadius={10}
                 onHover={handleHover}
+                onDragStart={() => setCursor("grabbing")}
+                onDragEnd={() => setCursor("grab")}
+                getCursor={() => cursor}
+
             // getCursor={({ isDragging }) => (isDragging ? "grabbing" : (hoveredTraffic ? "pointer" : "grab"))}
             />
 
