@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
@@ -25,20 +24,20 @@ function AirportListInfoTab({ airport }) {
     const darkMode = useTheme();
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
-            + "h-full bg-gray-500"
+        + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
+        + "h-full bg-gray-500"
         : "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
-            + "h-full bg-gray-300";
+        + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
+        + "h-full bg-gray-300";
 
 
     const elevationSection = (
         airport.elevation
-            && (
-                <div className="items-center">
-                    Elevation: {airport.elevation} ft
-                </div>
-            )
+        && (
+            <div className="items-center">
+                Elevation: {airport.elevation} ft
+            </div>
+        )
     );
 
     const nameSection = (
@@ -71,7 +70,7 @@ function AirportListInfoTab({ airport }) {
             to={`/airport/detail/${ICAO}`}
             onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
-            <IoIosArrowRoundForward size={40}/>
+            <IoIosArrowRoundForward size={40} />
         </Link>
     );
 
@@ -97,4 +96,3 @@ function AirportListInfoTab({ airport }) {
 }
 
 export default AirportListInfoTab;
- 

@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBoxAirportElement from "./SearchBoxAirportElement";
 import { LocalDbAirport } from "../../../../types";
 import { Virtuoso } from "react-virtuoso";

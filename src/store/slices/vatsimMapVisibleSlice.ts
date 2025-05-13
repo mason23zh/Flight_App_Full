@@ -105,8 +105,9 @@ const vatsimMapVisibleSlice = createSlice({
             }
             state.displayTelemetry = action.payload;
         },
-        toggleMapFollowTraffic(state, action) {
-            state.mapFollowTraffic = action.payload;
+        toggleMapFollowTraffic(state) {
+            // state.mapFollowTraffic = action.payload;
+            state.mapFollowTraffic = !state.mapFollowTraffic;
         },
         toggleMapLabel(state) {
             // state.mapLabelVisible = action.payload;

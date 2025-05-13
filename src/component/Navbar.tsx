@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import NavbarElement from "./NavbarElement";
 import NavbarDropDown from "./NavbarDropDown";
@@ -14,16 +13,16 @@ function Navbar() {
     return (
         <nav className="main-navbar">
             <div className="hidden transition-all ease-in-out duration-1000 md:block">
-                <NavbarElement/>
+                <NavbarElement />
             </div>
             <div className={navDropDownTheme}>
                 <div>
                     <Link to="/">
-                        <img src={logo} width={25} height={25} alt="logoIcon"/>
+                        <img src={logo} width={25} height={25} alt="logoIcon" />
                     </Link>
                 </div>
                 <div className="z-300">
-                    <NavbarDropDown/>
+                    <NavbarDropDown />
                 </div>
             </div>
         </nav>
@@ -31,4 +30,3 @@ function Navbar() {
 }
 
 export default Navbar;
- 

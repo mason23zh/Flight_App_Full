@@ -1,4 +1,3 @@
-import React from "react";
 import { AirportResponse, VatsimFlightPlan } from "../../../types";
 
 interface FlightPlanPanelProps {

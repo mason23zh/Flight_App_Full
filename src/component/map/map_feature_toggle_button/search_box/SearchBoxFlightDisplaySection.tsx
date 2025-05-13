@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { VatsimFlight } from "../../../../types";
 import SearchBoxFlightElement from "./SearchBoxFlightElement";
 import { Virtuoso } from "react-virtuoso";

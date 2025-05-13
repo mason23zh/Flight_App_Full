@@ -1,4 +1,3 @@
-import React from "react";
 import { DetailAirportResponseQuery } from "../../../../../store/apis/airportsApi";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";

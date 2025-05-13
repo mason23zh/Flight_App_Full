@@ -1,4 +1,3 @@
-import React from "react";
 import HomePopularAirportInfoTab from "./HomePopularAirportInfoTab";
 
 function HomeAirportList({ airports }) {
@@ -9,7 +8,7 @@ function HomeAirportList({ airports }) {
     } else {
         renderedAirports = data.map((airport, i) => (
             <div key={airport.ICAO}>
-                <HomePopularAirportInfoTab airport={airport} counter={i}/>
+                <HomePopularAirportInfoTab airport={airport} counter={i} />
             </div>
         ));
     }
@@ -22,5 +21,5 @@ function HomeAirportList({ airports }) {
         </div>
     );
 }
- 
+
 export default HomeAirportList;

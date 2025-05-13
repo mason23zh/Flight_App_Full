@@ -1,4 +1,3 @@
-import React from "react";
 import { CustomProvider } from "rsuite";
 import { useTheme } from "../hooks/ThemeContext";
 

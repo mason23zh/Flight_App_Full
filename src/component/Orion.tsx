@@ -1,4 +1,3 @@
-import React from "react";
 import PhotoAlbum from "react-photo-album";
 import { CustomProvider } from "rsuite";
 import { useTheme } from "../hooks/ThemeContext";

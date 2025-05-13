@@ -1,5 +1,5 @@
 // render side view of vatsim events
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { RootState } from "../store";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
@@ -42,7 +42,7 @@ function VatsimEventDetail({ onlyDetail }) {
                     className="flex items-center gap-1 ml-5 p-1 mt-3 text-lg hover:text-cyan-600 hover:cursor-pointer"
                 >
                     <div>
-                        <HiOutlineArrowNarrowLeft size={20}/>
+                        <HiOutlineArrowNarrowLeft size={20} />
                     </div>
                     <div className="font-bold">Events</div>
                 </div>
@@ -78,7 +78,7 @@ function VatsimEventDetail({ onlyDetail }) {
 
     const renderImage = (
         <div>
-            <img className="w-[810px] rounded-xl" src={event.banner} alt={event.name}/>
+            <img className="w-[810px] rounded-xl" src={event.banner} alt={event.name} />
         </div>
     );
 
@@ -125,7 +125,7 @@ function VatsimEventDetail({ onlyDetail }) {
                                 DESCRIPTION
                             </div>
                             <div className="text-md sm:text-xl overflow-hidden">
-                                <div dangerouslySetInnerHTML={{ __html: event.description }}/>
+                                <div dangerouslySetInnerHTML={{ __html: event.description }} />
                             </div>
                         </div>
                     </div>

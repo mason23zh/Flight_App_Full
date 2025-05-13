@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PiWarningCircle } from "react-icons/pi";
 
 import { IoCloseCircle } from "react-icons/io5";
@@ -41,7 +41,7 @@ const CustomLiveTrafficErrorNotification = ({
     };
 
     const notificationClass = "fixed bottom-[20px] left-1/2 transform -translate-x-1/2 " +
-            "bg-purple-200 p-2 rounded";
+        "bg-purple-200 p-2 rounded";
 
     return (
         <div
@@ -54,10 +54,10 @@ const CustomLiveTrafficErrorNotification = ({
                 className="flex items-center justify-center gap-3 text-sm font-Rubik text-gray-900"
             >
                 <div className="text-red-700">
-                    <PiWarningCircle size={20}/>
+                    <PiWarningCircle size={20} />
                 </div>
                 <div>
-                    Could not connect to simulator, make sure OSC is running. <br/>
+                    Could not connect to simulator, make sure OSC is running. <br />
                     To learn more about OSC&nbsp;
                     <a
                         href={oscLink}
@@ -71,7 +71,7 @@ const CustomLiveTrafficErrorNotification = ({
                     className="self-start hover:cursor-pointer hover:text-gray-800"
                     onClick={onManualClose}
                 >
-                    <IoCloseCircle size={20}/>
+                    <IoCloseCircle size={20} />
                 </div>
             </div>
         </div>

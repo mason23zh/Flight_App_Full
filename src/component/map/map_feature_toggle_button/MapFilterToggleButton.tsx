@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaLayerGroup } from "react-icons/fa";
 import MapFeaturesToggleButtonGroup from "./MapFeaturesToggleButtonGroup";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,7 @@ const MapFilterToggleButton = ({
                 onMouseEnter={() => setShowTooltip(false)}
                 onMouseLeave={() => setShowTooltip(true)}
             >
-                <FaLayerGroup className="text-white text-xl"/>
+                <FaLayerGroup className="text-white text-xl" />
             </button>
 
             <div
@@ -60,7 +60,7 @@ const MapFilterToggleButton = ({
                 ${mapFilterButtonToggle ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
                 style={{ visibility: mapFilterButtonToggle ? "visible" : "hidden" }}
             >
-                <MapFeaturesToggleButtonGroup isTouchScreen={isTouchScreen}/>
+                <MapFeaturesToggleButtonGroup isTouchScreen={isTouchScreen} />
             </div>
 
             {(!isTouchScreen && !buttonClick && !mapFilterButtonToggle) &&

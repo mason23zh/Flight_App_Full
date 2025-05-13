@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Table } from "rsuite";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
@@ -41,7 +41,7 @@ function AirportDetailRunwayTable({
                         <div>
                             <div>
                                 <AirportDetailRunwayTableIconContext
-                                    icon={<HiArrowNarrowLeft/>}
+                                    icon={<HiArrowNarrowLeft />}
                                     color={{ color: "#4caf50" }}
                                 />
                             </div>
@@ -55,7 +55,7 @@ function AirportDetailRunwayTable({
                         <div>
                             <div>
                                 <AirportDetailRunwayTableIconContext
-                                    icon={<HiArrowNarrowRight/>}
+                                    icon={<HiArrowNarrowRight />}
                                     color={{ color: "#4caf50" }}
                                 />
                             </div>
@@ -72,7 +72,7 @@ function AirportDetailRunwayTable({
                         <div>
                             <div>
                                 <AirportDetailRunwayTableIconContext
-                                    icon={<HiArrowNarrowUp/>}
+                                    icon={<HiArrowNarrowUp />}
                                     color={{ color: "#ef5350" }}
                                 />
                             </div>
@@ -86,7 +86,7 @@ function AirportDetailRunwayTable({
                         <div>
                             <div>
                                 <AirportDetailRunwayTableIconContext
-                                    icon={<HiArrowNarrowDown/>}
+                                    icon={<HiArrowNarrowDown />}
                                     color={{ color: "#4caf50" }}
                                 />
                             </div>
@@ -153,42 +153,42 @@ function AirportDetailRunwayTable({
             >
                 <Column width={90} align="center">
                     <HeaderCell>Runway ID</HeaderCell>
-                    <Cell dataKey="runway_id"/>
+                    <Cell dataKey="runway_id" />
                 </Column>
 
                 <Column width={130} align="center" sortable>
                     <HeaderCell>Runway Length</HeaderCell>
-                    <Cell dataKey="runwayLength"/>
+                    <Cell dataKey="runwayLength" />
                 </Column>
 
                 <Column width={130} align="center" sortable>
                     <HeaderCell>Runway Width</HeaderCell>
-                    <Cell dataKey="runwayWidth"/>
+                    <Cell dataKey="runwayWidth" />
                 </Column>
 
                 <Column width={130} align="center">
                     <HeaderCell>Runway Heading</HeaderCell>
-                    <Cell dataKey="runwayHdg"/>
+                    <Cell dataKey="runwayHdg" />
                 </Column>
 
                 <Column width={100} align="center">
                     <HeaderCell>ILS Frequency</HeaderCell>
-                    <Cell dataKey="ilsFreq"/>
+                    <Cell dataKey="ilsFreq" />
                 </Column>
 
                 <Column width={130} align="center">
                     <HeaderCell>Glide Slope Angle</HeaderCell>
-                    <Cell dataKey="gsAngle"/>
+                    <Cell dataKey="gsAngle" />
                 </Column>
 
                 <Column width={170} align="center" sortable>
                     <HeaderCell>Threshold Elevation</HeaderCell>
-                    <Cell dataKey="thresholdElevation"/>
+                    <Cell dataKey="thresholdElevation" />
                 </Column>
 
                 <Column width={170} align="center" sortable>
                     <HeaderCell>Threshold Over fly Alt</HeaderCell>
-                    <Cell dataKey="thresholdOverflyAlt"/>
+                    <Cell dataKey="thresholdOverflyAlt" />
                 </Column>
 
                 <Column width={170} align="center">

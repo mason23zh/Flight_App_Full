@@ -1,4 +1,3 @@
-import React from "react";
 import { useFetchBasicAirportWithICAOQuery } from "../store";
 import ExpandableContentAirportInfo from "./ExpandableContentAirportInfo";
 
@@ -15,7 +14,7 @@ function SubRowAsync({ row }) {
     if (airport) {
         const airportData = airport.data[0];
         return (
-            <ExpandableContentAirportInfo row={row} airportData={airportData}/>
+            <ExpandableContentAirportInfo row={row} airportData={airportData} />
         );
     }
     if (isFetching) {

@@ -1,6 +1,5 @@
 // To display error notification message in stack instead of overlapping
 
-import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 

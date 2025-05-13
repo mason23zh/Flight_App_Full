@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme, useThemeUpdate } from "../hooks/ThemeContext";
@@ -44,7 +44,7 @@ function NavbarElement() {
                 className="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300 "
             >
 
-                {darkMode ? <IoSunnyOutline/> : <IoMoon/>}
+                {darkMode ? <IoSunnyOutline /> : <IoMoon />}
 
             </div>
         </div>
@@ -55,7 +55,7 @@ function NavbarElement() {
             <ul className="list-none flex items-center gap-3 text-lg">
                 <li>
                     <Link className="m-0 text-red-500" style={{ textDecoration: "none" }} to="/">
-                        <img src={logo} width={25} height={25} alt="logoIcon"/>
+                        <img src={logo} width={25} height={25} alt="logoIcon" />
                     </Link>
                 </li>
                 <li>

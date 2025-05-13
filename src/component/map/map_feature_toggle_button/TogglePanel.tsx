@@ -43,10 +43,10 @@ const TogglePanel = () => {
     const dispatch = useDispatch();
 
     const parentStyle = "z-[200] absolute bottom-0 w-full sm:top-auto sm:left-0 " +
-        "sm:bottom-auto sm:w-auto sm:right-auto";
+            "sm:bottom-auto sm:w-auto sm:right-auto";
 
     const childStyle = "flex flex-row items-center justify-center gap-2 p-1 bg-gray-700 " +
-        "rounded-md sm:flex-col sm:items-start sm:ml-2 sm:mt-10 sm:justify-start";
+            "rounded-md sm:flex-col sm:items-start sm:ml-2 sm:mt-10 sm:justify-start";
 
     const isTouchScreen = useIsTouchScreen();
 
@@ -62,7 +62,7 @@ const TogglePanel = () => {
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleTrafficLayer())}
-                        icon={<IoAirplane />}
+                        icon={<IoAirplane/>}
                         initialActive={trafficLayerVisible}
                         tooltipMessage="Toggle Vatsim traffic"
                         isTouchScreen={isTouchScreen}
@@ -71,7 +71,7 @@ const TogglePanel = () => {
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleAtcLayer())}
-                        icon={<GiControlTower />}
+                        icon={<GiControlTower/>}
                         initialActive={allAtcLayerVisible}
                         tooltipMessage="Toggle ATC visibility"
                         isTouchScreen={isTouchScreen}
@@ -80,7 +80,7 @@ const TogglePanel = () => {
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleWeatherRasterLayer())}
-                        icon={<TiWeatherDownpour />}
+                        icon={<TiWeatherDownpour/>}
                         initialActive={weatherRasterVisible}
                         tooltipMessage="Toggle weather"
                         isTouchScreen={isTouchScreen}
@@ -89,7 +89,7 @@ const TogglePanel = () => {
 
                     <MapFeaturesToggleButton_v2
                         onToggle={() => dispatch(toggleTerrainLabel())}
-                        icon={<CgTerrain />}
+                        icon={<CgTerrain/>}
                         initialActive={terrainEnable}
                         tooltipMessage="Toggle terrain and 3D view"
                         isTouchScreen={isTouchScreen}
@@ -101,9 +101,9 @@ const TogglePanel = () => {
 
                     {(connectionStatus === "connected" && liveTrafficAvailable) &&
                         <>
-                            <MapFeaturesToggleButton
-                                onToggle={(activeFlag) => dispatch(toggleMapFollowTraffic(activeFlag))}
-                                icon={<FaLocationCrosshairs />}
+                            <MapFeaturesToggleButton_v2
+                                onToggle={() => dispatch(toggleMapFollowTraffic())}
+                                icon={<FaLocationCrosshairs/>}
                                 initialActive={mapFollowTraffic}
                                 tooltipMessage="Map follow traffic"
                                 isTouchScreen={isTouchScreen}
@@ -112,7 +112,7 @@ const TogglePanel = () => {
 
                             <MapFeaturesToggleButton
                                 onToggle={(activeFlag) => dispatch(toggleTelemetry(activeFlag))}
-                                icon={<IoSpeedometerOutline />}
+                                icon={<IoSpeedometerOutline/>}
                                 initialActive={displayTelemetry}
                                 tooltipMessage="Toggle traffic telemtry"
                                 isTouchScreen={isTouchScreen}
@@ -121,9 +121,9 @@ const TogglePanel = () => {
                         </>
                     }
 
-                    <MapStyleToggleButton isTouchScreen={isTouchScreen} />
+                    <MapStyleToggleButton isTouchScreen={isTouchScreen}/>
 
-                    <MapFilterToggleButton isTouchScreen={isTouchScreen} />
+                    <MapFilterToggleButton isTouchScreen={isTouchScreen}/>
 
                     <FeaturedAirportsButton
                         isTouchScreen={isTouchScreen}

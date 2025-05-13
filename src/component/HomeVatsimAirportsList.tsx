@@ -1,4 +1,3 @@
-import React from "react";
 import VatsimAirportInfoTab from "./VatsimAirportInfoTab";
 
 function HomeVatsimAirportsList({ airports }) {
@@ -10,11 +9,11 @@ function HomeVatsimAirportsList({ airports }) {
     } else {
         renderedAirports = data.airports.map((airport, i) => (
             <div key={airport.ICAO}>
-                <VatsimAirportInfoTab airport={airport} counter={i}/>
+                <VatsimAirportInfoTab airport={airport} counter={i} />
             </div>
         ));
     }
-     
+
     return (
         <div className="flex flex-col items-center">
             <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 w-[80%] mt-3 mb-3">

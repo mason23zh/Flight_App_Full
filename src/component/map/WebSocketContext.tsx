@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useRef, ReactNode, FC } from "react";
+import { createContext, useContext, useEffect, useState, useRef, ReactNode, FC } from "react";
 import { LiveFlightData } from "../../types";
 import { setLiveTrafficAvailable } from "../../store";
 

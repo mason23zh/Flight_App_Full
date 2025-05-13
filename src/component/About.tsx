@@ -1,11 +1,15 @@
-import React from "react";
 import { CustomProvider } from "rsuite";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
 import { Helmet } from "react-helmet-async";
 
 function About() {
-    function Mailto({ email, subject = "", body = "", children }) {
+    function Mailto({
+        email,
+        subject = "",
+        body = "",
+        children
+    }) {
         let params = subject || body ? "?" : "";
         if (subject) params += `subject=${encodeURIComponent(subject)}`;
         if (body) params += `${subject ? "&" : ""}body=${encodeURIComponent(body)}`;
@@ -30,7 +34,7 @@ function About() {
                     name="keyword"
                     content="about page, VATSIM, virtual aviation tool, airport information, aviation enthusiasts, About Airport Weather"
                 />
-                <link rel="canonical" href="https://airportweather.org/about" />
+                <link rel="canonical" href="https://airportweather.org/about"/>
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className="h-auto">

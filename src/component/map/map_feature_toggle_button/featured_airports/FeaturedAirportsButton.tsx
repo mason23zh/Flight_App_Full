@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoStar } from "react-icons/io5";
 import { Tooltip } from "react-tooltip";
 import { RootState, toggleFeaturedAirports } from "../../../../store";
@@ -46,12 +46,12 @@ const FeaturedAirportsButton = ({
                     className={activeButtonClass}
                     onClick={handleClick}
                 >
-                    <IoStar/>
+                    <IoStar />
                 </button>
             </div>
 
             {featuredAirportsVisible &&
-                <FeaturedAirportsPanel/>
+                <FeaturedAirportsPanel />
             }
 
             {(!isTouchScreen) &&

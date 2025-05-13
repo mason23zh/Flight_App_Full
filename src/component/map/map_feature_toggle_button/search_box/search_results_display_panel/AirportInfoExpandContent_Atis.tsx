@@ -1,4 +1,3 @@
-import React from "react";
 import { DetailAirportResponseQuery } from "../../../../../store/apis/airportsApi";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
@@ -37,7 +36,7 @@ const AirportInfoExpandContentAtis = ({
         return atis.map((a) => {
             return (
                 <div key={`${a.code + a.datis}`}>
-                    <AirportInfoExpandContent_AtisElement atis={a} vatsim={vatsim}/>
+                    <AirportInfoExpandContent_AtisElement atis={a} vatsim={vatsim} />
                 </div>
             );
         });
@@ -56,10 +55,10 @@ const AirportInfoExpandContentAtis = ({
             return (
                 <div className="">
                     {vatsimAtis.length > 0 &&
-                                renderAtisList(vatsimAtis, true)
+                        renderAtisList(vatsimAtis, true)
                     }
                     {faaAtis.length > 0 &&
-                                renderAtisList(faaAtis, false)
+                        renderAtisList(faaAtis, false)
                     }
                 </div>
             );

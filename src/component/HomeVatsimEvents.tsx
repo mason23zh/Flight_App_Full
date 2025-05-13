@@ -1,4 +1,3 @@
-import React from "react";
 import HomeVatsimEventInfoTab from "./HomeVatsimEventInfoTab";
 
 function HomeVatsimEvents({ vatsimEvents }) {
@@ -16,7 +15,7 @@ function HomeVatsimEvents({ vatsimEvents }) {
     } else {
         renderEvents = events.map((e, i) => (
             <div key={e.id}>
-                <HomeVatsimEventInfoTab event={e} counter={i}/>
+                <HomeVatsimEventInfoTab event={e} counter={i} />
             </div>
         ));
     }

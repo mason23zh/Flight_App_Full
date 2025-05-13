@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_CONTROLLER_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
-import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 interface Facilities {
     id: number;
@@ -277,4 +276,4 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     );
 };
 
-export default GlobeControllerIconLayer;
+export default React.memo(GlobeControllerIconLayer);

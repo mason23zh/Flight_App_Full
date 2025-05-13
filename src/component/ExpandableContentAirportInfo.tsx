@@ -1,5 +1,4 @@
 // Expand information when click 'detail' button on Extreme weather table
-import React from "react";
 import {
     HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
 } from "react-icons/hi";
@@ -36,7 +35,7 @@ function ExpandableContentAirportInfo({
         if (crossWind <= 0) {
             crossWindButton = (
                 <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
-                    <HiArrowNarrowLeft/>
+                    <HiArrowNarrowLeft />
                     <div>
                         {-crossWind} kts
                     </div>
@@ -45,7 +44,7 @@ function ExpandableContentAirportInfo({
         } else if (crossWind > 0) {
             crossWindButton = (
                 <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight />
                     <div>
                         {crossWind} kts
                     </div>
@@ -57,7 +56,7 @@ function ExpandableContentAirportInfo({
         if (headWind <= 0) {
             headWindButton = (
                 <div className={`flex justify-center items-center p-1 ${bgRedColor} rounded-xl`}>
-                    <HiArrowNarrowUp/>
+                    <HiArrowNarrowUp />
                     <div>
                         {-headWind} kts
                     </div>
@@ -66,7 +65,7 @@ function ExpandableContentAirportInfo({
         } else if (headWind > 0) {
             headWindButton = (
                 <div className={`flex justify-center items-center p-1 ${bgGreenColor} rounded-xl`}>
-                    <HiArrowNarrowDown/>
+                    <HiArrowNarrowDown />
                     <div>
                         {headWind} kts
                     </div>

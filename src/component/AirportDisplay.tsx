@@ -1,4 +1,3 @@
-import React from "react";
 
 function AirportDisplay({ airport }) {
     const {
@@ -11,7 +10,7 @@ function AirportDisplay({ airport }) {
     const renderedRunways = runways.map((runway) => (
         <div key={runway._id}>
             {runway.runway_id}
-            <br/>
+            <br />
             {runway.ilsFreq === 0 ? "No ILS" : `ILS Freq: ${runway.ilsFreq}`}
         </div>
     ));
@@ -20,21 +19,21 @@ function AirportDisplay({ airport }) {
             ICAO:
             {" "}
             {ICAO}
-            <br/>
+            <br />
             Elevation:
             {" "}
             {elevation}
-            <br/>
+            <br />
             Name:
             {" "}
             {name}
-            <br/>
+            <br />
             {renderedRunways}
-            <br/>
+            <br />
             TransitionAltitude:
             {" "}
             {transitionAltitude}
-            <hr/>
+            <hr />
         </div>
     );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import { BiTargetLock } from "react-icons/bi";
 import { LocalDbAirport } from "../../../../../types";
 import { useDispatch } from "react-redux";
@@ -65,7 +64,7 @@ const AirportIdentDisplayBox = ({
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
             >
-                <BiTargetLock/>
+                <BiTargetLock />
                 {(tooltipVisible && !isTouchScreen) &&
                     <div className="absolute left-full top-1/2
                                 transform -translate-y-1/2 ml-2

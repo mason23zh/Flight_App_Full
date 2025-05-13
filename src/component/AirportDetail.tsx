@@ -2,7 +2,7 @@
  Detailed airport information triggered by clicking "Go to Airport" button
  in AirportAccordion
  * */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { CustomProvider } from "rsuite";
 import { useNavigate, useParams } from "react-router-dom";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LocalDbAirport } from "../../../../../types";
 import AirportInfoExpandContent_Weather from "./AirportInfoExpandContent_Weather";
 import { useFetchDetailAirportWithICAOQuery } from "../../../../../store";

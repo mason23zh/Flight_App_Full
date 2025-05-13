@@ -1,4 +1,3 @@
-import React from "react";
 import { LocalDbAirport } from "../../../../../types";
 import AirportIdentDisplayBox from "./AirportIdentDisplayBox";
 import { IoMdCloseCircleOutline } from "react-icons/io";
@@ -36,13 +35,13 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
                     {airport?.name || "N/A"}
                 </div>
                 <div className="w-fit pl-1 justify-self-start">
-                    <AirportIdentDisplayBox airport={airport}/>
+                    <AirportIdentDisplayBox airport={airport} />
                 </div>
             </div>
             <div
                 onClick={handleCloseClick}
                 className="justify-self-end text-[25px] hover:cursor-pointer hover:text-gray-700">
-                <IoMdCloseCircleOutline/>
+                <IoMdCloseCircleOutline />
             </div>
         </div>
     );

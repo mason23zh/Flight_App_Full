@@ -1,4 +1,3 @@
-import React from "react";
 import { VatsimFlight } from "../../../../../types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
@@ -43,7 +42,7 @@ const AircraftInfoPanel = ({ aircraft }: Props) => {
                     onClick={handClick}
                     className="justify-self-end text-[19px] hover:cursor-pointer"
                 >
-                    <IoMdCloseCircleOutline/>
+                    <IoMdCloseCircleOutline />
                 </div>
             </div>
         </div>

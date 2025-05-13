@@ -1,4 +1,3 @@
-import React from "react";
 import classNames from "classnames";
 
 function Panel({
@@ -13,5 +12,5 @@ function Panel({
         </div>
     );
 }
- 
+
 export default Panel;

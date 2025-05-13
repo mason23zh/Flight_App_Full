@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { VatsimFlight } from "../../../../types";
 import {
@@ -50,9 +49,9 @@ const SearchBoxFlightElement = ({
 
 
     const theme = isSelected ? "p-2 grid grid-rows-2 hover:cursor-pointer " +
-            "bg-gray-600 rounded-lg border-slate-400 border-b border-slat-400"
+        "bg-gray-600 rounded-lg border-slate-400 border-b border-slat-400"
         : "p-2 grid grid-rows-2 hover:cursor-pointer " +
-            "hover:bg-gray-400 hover:rounded-lg border-slate-400 border-b border-slat-400";
+        "hover:bg-gray-400 hover:rounded-lg border-slate-400 border-b border-slat-400";
 
     return (
         <div

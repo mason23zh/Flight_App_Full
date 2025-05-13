@@ -1,4 +1,3 @@
-import React from "react";
 import TelemetryElement from "./TelemetryElement";
 import { useWebSocketContext } from "../WebSocketContext";
 import { useSelector } from "react-redux";

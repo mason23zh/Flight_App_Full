@@ -1,4 +1,3 @@
-import React from "react";
 import { VatsimFlight } from "../../../../../types";
 import TrafficDetailElement from "./TrafficDetailElement";
 import { Virtuoso } from "react-virtuoso";

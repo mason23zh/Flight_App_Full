@@ -1,4 +1,3 @@
-import React from "react";
 import { PopularVatsimAirportResponse } from "../../../../store/apis/airportsApi";
 import FeaturedAirportElement from "./FeaturedAirportElement";
 import { Virtuoso } from "react-virtuoso";

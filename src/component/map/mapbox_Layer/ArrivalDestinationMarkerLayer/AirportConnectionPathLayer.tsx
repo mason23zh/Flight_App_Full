@@ -1,4 +1,3 @@
-import React from "react";
 import { AirportResponse } from "../../../../types";
 import { Source, Layer } from "react-map-gl";
 import { connectionPathStyle } from "./airportConnectionPathStyle";
@@ -9,7 +8,6 @@ interface AirportConnectionPathLayerProps {
     arrivalAirport: AirportResponse;
 }
 
-//TODO: incorrect path in globe projection
 const AirportConnectionPathLayer = ({
     departureAirport,
     arrivalAirport

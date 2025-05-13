@@ -1,4 +1,3 @@
-import React from "react";
 import LiveDataBlock from "./LiveDataBlock";
 import OverallDataBlock from "./OverallDataBlock";
 import OtherDataBlock from "./OtherDataBlock";
@@ -41,7 +40,7 @@ const FlightInfo = () => {
     }
 
     if (departureAirport && arrivalAirport
-            && departureAirport.data.length !== 0 && arrivalAirport.data.length !== 0) {
+        && departureAirport.data.length !== 0 && arrivalAirport.data.length !== 0) {
         let toGoDistance = -1;
         let progress = -1;
         // const depAirport = "";
@@ -56,17 +55,17 @@ const FlightInfo = () => {
                 arrAirportCoord[0]
             ) * 0.539957);
             toGoDistance =
-                    Math.round(
-                        distanceInKmBetweenEarthCoordinates(
-                            traffic.latitude, traffic.longitude, arrAirportCoord[1], arrAirportCoord[0]
-                        ) * 0.539957);
+                Math.round(
+                    distanceInKmBetweenEarthCoordinates(
+                        traffic.latitude, traffic.longitude, arrAirportCoord[1], arrAirportCoord[0]
+                    ) * 0.539957);
 
             progress = Math.round((1 - (toGoDistance / totalDistance)) * 100);
         }
 
         const style = "z-[200] absolute left-1/2 top-0 translate-x-[-50%] " +
-                "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
-                "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
+            "translate-y-[5%] max-w-[290px] min-w-[290px] sm:right-5 " +
+            "sm:left-auto sm:translate-x-[0] sm:translate-y-[5%] sm:max-w-[350px] sm:min-w-[350px]";
 
         return (
             <CustomProvider theme={"light"}>

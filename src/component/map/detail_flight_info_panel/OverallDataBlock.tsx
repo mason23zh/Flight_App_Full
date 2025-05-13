@@ -1,4 +1,3 @@
-import React from "react";
 import FlightProgressBar from "./FlightProgressBar";
 import FlightStatusFlag from "./FlightStatusFlag";
 import calculateArrivalTime from "../../../util/calculateArrivalTime";
@@ -51,7 +50,7 @@ const OverallDataBlock = ({
 
     return (
         <div className="relative">
-            <FlightStatusFlag progress={progress}/>
+            <FlightStatusFlag progress={progress} />
             {/* Callsign and aircraft type */}
             <div className="grid grid-rows-2">
                 <div className={`grid ${airlinerInfo ? "grid-rows-3" : "grid-rows-2"} bg-gray-600 p-2`}>
@@ -65,7 +64,7 @@ const OverallDataBlock = ({
                             onMouseLeave={handleTrackMouseLeave}
                             onMouseMove={handleTrackMouseMove}
                             className="text-gray-100 text-[17px] hover:cursor-pointer hover:text-gray-300 relative">
-                            <BiTargetLock/>
+                            <BiTargetLock />
                             {(trackTooltipVisible && !isTouchScreen) &&
                                 <div className="absolute left-full top-1/2 
                                 transform -translate-y-1/2 ml-2
@@ -91,30 +90,30 @@ const OverallDataBlock = ({
                                 onMouseEnter={handleMouseEnter}
                                 onMouseMove={handleMouseMove}
                             >
-                                <IoInformationCircleOutline/>
+                                <IoInformationCircleOutline />
                                 {(tooltipVisible && !isTouchScreen) &&
-                                <div
-                                    className="fixed px-2 py-1 bg-blue-500 rounded-md
+                                    <div
+                                        className="fixed px-2 py-1 bg-blue-500 rounded-md
                                     flex flex-col text-xs text-gray-100
                                     transition translate-y-[10%]"
-                                >
-                                    <div className="flex items-center gap-1">
-                                        <div>
-                                            Callsign:
+                                    >
+                                        <div className="flex items-center gap-1">
+                                            <div>
+                                                Callsign:
+                                            </div>
+                                            <div>
+                                                {airlinerInfo?.callsign}
+                                            </div>
                                         </div>
-                                        <div>
-                                            {airlinerInfo?.callsign}
+                                        <div className="flex items-center gap-1">
+                                            <div>
+                                                Country:
+                                            </div>
+                                            <div>
+                                                {airlinerInfo?.country}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-1">
-                                        <div>
-                                            Country:
-                                        </div>
-                                        <div>
-                                            {airlinerInfo?.country}
-                                        </div>
-                                    </div>
-                                </div>
                                 }
                             </div>
                         </div>
@@ -189,7 +188,7 @@ const OverallDataBlock = ({
                     <div className="mx-2">
                         {
                             progress !== -1
-                                ? <FlightProgressBar progress={progress}/>
+                                ? <FlightProgressBar progress={progress} />
                                 : <div className="text-center">
                                     Progress N/A
                                 </div>

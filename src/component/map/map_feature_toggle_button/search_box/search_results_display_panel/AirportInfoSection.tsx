@@ -1,4 +1,3 @@
-import React from "react";
 import { LocalDbAirport } from "../../../../../types";
 import AirportInfoDropDownPanel from "./AirportInfoDropDownPanel";
 
@@ -12,7 +11,7 @@ const AirportInfoSection = ({
 
     return (
         <div className="text-[16px]">
-            <AirportInfoDropDownPanel airport={airport}/>
+            <AirportInfoDropDownPanel airport={airport} />
         </div>
     );
 };

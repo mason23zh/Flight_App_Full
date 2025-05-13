@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Popup } from "react-map-gl";
 import ControllerPopupContent from "./ControllerPopupContent";
 import { markerOffsetObject } from "../util/helpers";
@@ -54,7 +54,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
                     <div key={serviceInfo.callsign}>
                         <ControllerPopupContent
                             serviceData={serviceInfo}
-                            serviceType={serviceInfo.serviceType}/>
+                            serviceType={serviceInfo.serviceType} />
                     </div>
                 );
             });
@@ -63,7 +63,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     useEffect(() => {
         if (popupRef.current) {
             if (!isTouchScreen) {
-                // @ts-ignore
+                // @ts-expect-error
                 popupRef.current.setOffset(markerOffsetObject);
 
             } else {
@@ -83,7 +83,7 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             latitude={lat}
             maxWidth={isTouchScreen ? "380px" : "500px"}
             anchor={isTouchScreen ? "bottom" : undefined}
-            // offset={markerOffsetObject}
+        // offset={markerOffsetObject}
         >
             <div className={`grid grid-cols-1 justify-center items-center
             gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}

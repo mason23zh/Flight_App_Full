@@ -242,4 +242,4 @@ const VatsimTrafficLayer = () => {
     );
 };
 
-export default VatsimTrafficLayer;
+export default React.memo(VatsimTrafficLayer);

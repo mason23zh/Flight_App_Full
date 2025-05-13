@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles.css";
 import { Panel } from "rsuite";
 
@@ -140,4 +139,3 @@ function AirportDetailWeatherPanel({
 }
 
 export default AirportDetailWeatherPanel;
- 

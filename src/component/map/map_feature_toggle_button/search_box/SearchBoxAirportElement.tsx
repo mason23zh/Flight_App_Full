@@ -1,4 +1,3 @@
-import React from "react";
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
@@ -62,7 +61,7 @@ const SearchBoxAirportElement = ({
                     {
                         airport.iata_code && (
                             <div>
-                                            &nbsp;/&nbsp;{airport.iata_code}
+                                &nbsp;/&nbsp;{airport.iata_code}
                             </div>
                         )
                     }

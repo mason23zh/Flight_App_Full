@@ -1,4 +1,3 @@
-import React from "react";
 import { GroupedFlight } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {

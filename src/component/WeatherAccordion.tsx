@@ -1,5 +1,5 @@
 // This accordion will display basic information of airport
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomProvider } from "rsuite";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
@@ -12,9 +12,9 @@ function WeatherAccordion({ weather }) {
     const darkMode = useTheme();
     const darkModeClass = darkMode
         ? "text-lg p-3 items-center h-full bg-gray-500 drop-shadow-md " +
-            "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3"
+        "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3"
         : "text-lg p-3 items-center h-full bg-gray-200 drop-shadow-md " +
-            "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3";
+        "mt-2 border-2 rounded-xl grid grid-cols-1 md:grid-cols-3";
 
     const {
         icao,

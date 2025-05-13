@@ -6,7 +6,6 @@ import { FallbackTracon, MatchedTracon } from "../../../../hooks/useMatchTracon"
 import generateTraconIcon from "../../mapbox_Layer/util/generateTraconIcon";
 import { GLOBE_TRACON_ICON_LAYER_ID, GLOBE_TRACON_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
-import useGlobeLayerVisibility from "../../../../hooks/useGlobeLayerVisibility";
 
 interface Props {
     matchedTracons: MatchedTracon[];

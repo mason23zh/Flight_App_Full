@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/clearsky.jpg";
 import backGroundImageDarkMode from "../images/nightSky.jpg";
@@ -51,9 +51,9 @@ function Weather() {
         renderedWeather = <div className="text-xl text-center">Loading..</div>;
     } else if (localStorage.getItem("weatherListData") !== null && !data) {
         const localData = JSON.parse(localStorage.getItem("weatherListData"));
-        renderedWeather = <WeatherList weather={localData}/>;
+        renderedWeather = <WeatherList weather={localData} />;
     } else if (data) {
-        renderedWeather = <WeatherList weather={data}/>;
+        renderedWeather = <WeatherList weather={data} />;
     } else {
         renderedWeather = <div className="text-center text-xl flex-grow"><h3>Enter search query</h3></div>;
     }
@@ -70,7 +70,7 @@ function Weather() {
                     name="keyword"
                     content="Airport weather search, ICAO weather lookup, METAR reports, deocded METAR, real-time aviation weather, airport weather by city, airport weather by name, flight weather updates, global airport weather"
                 />
-                <link rel="canonical" href="https://airportweather.org/weather"/>
+                <link rel="canonical" href="https://airportweather.org/weather" />
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className="flex flex-col flex-grow">

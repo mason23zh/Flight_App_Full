@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import FirLabelPopup from "../mapbox_Layer/FIR_Layers/FirLabelPopup";
@@ -24,9 +24,9 @@ const BaseMapPopups = () => {
 
     return (
         <>
-            {hoveredFir && <FirLabelPopup hoverFir={hoveredFir}/>}
-            {hoveredTracon && <TraconLabelPopup hoverTracon={hoveredTracon}/>}
-            {hoveredController && <ControllerMarkerPopup hoverInfo={hoveredController}/>}
+            {hoveredFir && <FirLabelPopup hoverFir={hoveredFir} />}
+            {hoveredTracon && <TraconLabelPopup hoverTracon={hoveredTracon} />}
+            {hoveredController && <ControllerMarkerPopup hoverInfo={hoveredController} />}
             {(hoveredTraffic && hoveredTraffic.info) && (
                 <Popup
                     closeButton={false}
@@ -37,7 +37,7 @@ const BaseMapPopups = () => {
                     offset={-18}
                 >
                     <div>
-                        <HoveredTrafficTooltip info={hoveredTraffic.info}/>
+                        <HoveredTrafficTooltip info={hoveredTraffic.info} />
                     </div>
                 </Popup>
             )}

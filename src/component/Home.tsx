@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomProvider } from "rsuite";
 import backgroundImage from "../images/pascal-meier-UYiesSO4FiM-unsplash.jpg";
 import HomeHeroSection from "./HomeHeroSection";
@@ -44,7 +44,7 @@ function Home() {
     let renderVatsimAirports;
     let renderVatsimEvents;
     if (data) {
-        renderedAirport = <HomeAirportList airports={data}/>;
+        renderedAirport = <HomeAirportList airports={data} />;
     } else if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
@@ -53,7 +53,7 @@ function Home() {
 
 
     if (vatsimAirports) {
-        renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports}/>;
+        renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports} />;
     } else if (vatsimAirportsFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (vatsimAirportsError) {
@@ -61,7 +61,7 @@ function Home() {
     }
 
     if (vatsimEvents) {
-        renderVatsimEvents = <HomeVatsimEvents vatsimEvents={vatsimEvents}/>;
+        renderVatsimEvents = <HomeVatsimEvents vatsimEvents={vatsimEvents} />;
     } else if (vatsimEventsFetching) {
         renderVatsimEvents = <div className="text-lg text-center">Loading...</div>;
     } else if (vatsimEventsError) {
@@ -87,10 +87,10 @@ function Home() {
                     name="keyword"
                     content="Airport weather, airport METAR, METAR decoded, VATSIM events, VATSIM map, VATSIM live traffic, extreme weather, extreme weather airport, bad weather airport,ATIS"
                 />
-                <link rel="canonical" href="https://airportweather.org"/>
+                <link rel="canonical" href="https://airportweather.org" />
             </Helmet>
             <div className="flex flex-col flex-grow mr-0 ml-0">
-                <ScrollToHashElement/>
+                <ScrollToHashElement />
                 <HomeHeroSection
                     backgroundImage={backgroundImage}
                     vatsimEvents
@@ -136,4 +136,3 @@ function Home() {
 }
 
 export default Home;
- 

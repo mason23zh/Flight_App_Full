@@ -1,4 +1,3 @@
-import React from "react";
 import { Layer } from "react-map-gl";
 import AirportLabelLayer from "./AirportLabelLayer";
 

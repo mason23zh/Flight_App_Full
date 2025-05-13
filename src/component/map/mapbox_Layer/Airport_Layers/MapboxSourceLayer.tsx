@@ -1,4 +1,3 @@
-import React from "react";
 import { Source } from "react-map-gl";
 
 const MapboxSourceLayer = ({ children }) => {

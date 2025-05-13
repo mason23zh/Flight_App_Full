@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CustomProvider } from "rsuite";
 import ExtremeWeatherHeroSection from "./ExtreamWeatherHeroSection";
 import ExtremeWeatherHeader from "./ExtremeWeatherHeader";
@@ -57,17 +57,17 @@ function ExtremeWeather() {
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className={darkMode ? "bg-gray-400 flex-grow flex flex-col" : "bg-gray-200 flex flex-grow flex-col"}>
                     <div className="flex-grow">
-                        <ExtremeWeatherHeroSection/>
+                        <ExtremeWeatherHeroSection />
                         <div className="hidden transition-all ease-in-out md:block">
-                            <ExtremeWeatherHeader/>
+                            <ExtremeWeatherHeader />
                         </div>
                         <div className="transition-all ease-in-out md:hidden">
-                            <ExtremeWeatherHeaderDropDown/>
+                            <ExtremeWeatherHeaderDropDown />
                         </div>
                     </div>
                     <div>
                         <WeatherTable tableHeight={tableHeight} requestNumber={weatherDataNumber}
-                            darkTheme={darkMode}/>
+                            darkTheme={darkMode} />
                     </div>
                     <div id="weather-table-button"
                         className={`py-1 shadow-md mt-auto mb-auto ${darkMode ? "bg-gray-600" : "bg-gray-200"}`}>

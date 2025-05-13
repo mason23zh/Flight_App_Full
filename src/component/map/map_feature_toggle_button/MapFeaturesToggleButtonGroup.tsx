@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useMap } from "react-map-gl";
-import switchMapLabels from "../switchMapLabels";
-import switchMapRoads from "../switchMapRoads";
 import { Toggle } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,7 +12,6 @@ import {
     toggleAirportVisible,
     resetMap
 } from "../../../store";
-import mapboxgl from "mapbox-gl";
 import MapProjectionSwitchButton from "./MapProjectionSwitchButton";
 
 interface Props {
@@ -22,20 +19,17 @@ interface Props {
 }
 
 type Tag = "LABEL" |
-    "AIRPORT" |
-    "AIRPORT_LABEL" |
-    "ROAD" |
-    "BUILDING" |
-    "FIR" |
-    "DAY_NIGHT_TERMINATOR";
+        "AIRPORT" |
+        "AIRPORT_LABEL" |
+        "ROAD" |
+        "BUILDING" |
+        "FIR" |
+        "DAY_NIGHT_TERMINATOR";
 
 const MapFeaturesToggleButtonGroup = ({
     isTouchScreen
 }: Props) => {
     const dispatch = useDispatch();
-    const { current: mapRef } = useMap();
-
-    const [map, setMap] = useState<mapboxgl.Map>(null);
 
     const {
         mapLabelVisible,
@@ -46,74 +40,27 @@ const MapFeaturesToggleButtonGroup = ({
         dayNightTerminator,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    // useEffect(() => {
-    //     if (mapRef) {
-    //         const map = mapRef?.getMap();
-    //         setMap(map);
-    //     }
-    // }, [mapRef]);
-
-    // const setMapFeatures = (map: mapboxgl.Map, flag: boolean, tag: Tag) => {
-    //     if (map) {
-    //         switch (tag) {
-    //         case "LABEL":
-    //             switchMapLabels(map, flag);
-    //             break;
-    //         case "ROAD":
-    //             switchMapRoads(map, flag);
-    //             break;
-    //         }
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     if (!map) return;
-    //
-    //     const applyVisibilitySettings = () => {
-    //         if (map) {
-    //             setMapFeatures(map, mapLabelVisible, "LABEL");
-    //             setMapFeatures(map, mapRoadVisible, "ROAD");
-    //         }
-    //     };
-    //
-    //     // listening the styledata event to apply current map settings
-    //     // if map style changes, hence this useEffect function does not
-    //     // require mapStyle as one of the dependencies.
-    //     map.on("styledata", applyVisibilitySettings);
-    //
-    //     //only change map settings without changing the map style
-    //     if (map && map.isStyleLoaded()) {
-    //         setMapFeatures(map, mapLabelVisible, "LABEL");
-    //         setMapFeatures(map, mapRoadVisible, "ROAD");
-    //     }
-    //
-    //     // Cleanup
-    //     return () => {
-    //         map.off("styledata", applyVisibilitySettings);
-    //     };
-    // }, [map, mapLabelVisible, mapRoadVisible]);
-
 
     const handleOnChange = (mapFeature: Tag, checked: boolean) => {
         switch (mapFeature) {
-            case "AIRPORT":
-                dispatch(toggleAirportVisible(checked));
-                break;
-            case "AIRPORT_LABEL":
-                dispatch(toggleAirportLabel(checked));
-                break;
-            case "LABEL":
-                dispatch(toggleMapLabel());
-                break;
-            case "ROAD":
-                dispatch(toggleMapRoadLabel());
-                break;
-            case "FIR":
-                dispatch(toggleUnderlineFirBoundaries(checked));
-                break;
-            case "DAY_NIGHT_TERMINATOR":
-                dispatch(toggleDayNightTerminator(checked));
-                break;
+        case "AIRPORT":
+            dispatch(toggleAirportVisible(checked));
+            break;
+        case "AIRPORT_LABEL":
+            dispatch(toggleAirportLabel(checked));
+            break;
+        case "LABEL":
+            dispatch(toggleMapLabel());
+            break;
+        case "ROAD":
+            dispatch(toggleMapRoadLabel());
+            break;
+        case "FIR":
+            dispatch(toggleUnderlineFirBoundaries(checked));
+            break;
+        case "DAY_NIGHT_TERMINATOR":
+            dispatch(toggleDayNightTerminator(checked));
+            break;
         }
     };
 
@@ -147,7 +94,7 @@ const MapFeaturesToggleButtonGroup = ({
                     <div>Map Label</div>
                     <Toggle
                         checked={mapLabelVisible}
-                        onChange={(checked) => handleOnChange("LABEL", checked)} />
+                        onChange={(checked) => handleOnChange("LABEL", checked)}/>
                 </div>
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b">
                     <div>Road</div>
@@ -172,7 +119,7 @@ const MapFeaturesToggleButtonGroup = ({
                 </div>
                 <div className="flex justify-between p-1 ml-2 mr-2 border-b">
                     <div>Map Projection</div>
-                    <MapProjectionSwitchButton />
+                    <MapProjectionSwitchButton/>
                 </div>
                 <div className="flex items-center justify-center p-2 ml-2 mr-2">
                     <button

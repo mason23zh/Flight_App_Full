@@ -1,6 +1,5 @@
-import React from "react";
 import InputAndSearch from "./InputAndSearch";
- 
+
 function HeroSection({
     backgroundImage,
     message,
@@ -36,7 +35,7 @@ function HeroSection({
                         {message}
                     </h2>
                     <div className="self-stretch ml-5 mr-5">
-                        <InputAndSearch placeholder={placedHoldMessage} onSubmit={handleFormSubmit}/>
+                        <InputAndSearch placeholder={placedHoldMessage} onSubmit={handleFormSubmit} />
                     </div>
                 </div>
             </div>

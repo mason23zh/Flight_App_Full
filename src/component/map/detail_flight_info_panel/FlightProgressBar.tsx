@@ -1,5 +1,3 @@
-import React from "react";
-
 const FlightProgressBar = ({ progress }) => {
     return (
         <div className="relative w-full bg-gray-200 rounded-full h-6 dark:bg-gray-700">

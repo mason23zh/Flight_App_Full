@@ -1,4 +1,3 @@
-import React from "react";
 import { CustomProvider } from "rsuite";
 import { Link } from "react-router-dom";
 import notFoundImg from "../images/404.png";
@@ -17,7 +16,7 @@ function NoMatch() {
                     <div className="text-sm text-center md:text-md">Click image below to start finding Orion!</div>
                     <Link to="/puzzles">
                         <div className="h-[480px] w-[320px] md:h-[600px] md:w-[400px]">
-                            <img src={notFoundImg} alt="Orion Not Found"/>
+                            <img src={notFoundImg} alt="Orion Not Found" />
                         </div>
                     </Link>
                 </div>

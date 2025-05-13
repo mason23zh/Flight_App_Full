@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
     atis: { code: string; datis: string };
     vatsim: boolean;

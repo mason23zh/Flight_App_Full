@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import WeatherAccordion from "./WeatherAccordion";
 
 function WeatherList({ weather }) {
@@ -9,7 +9,7 @@ function WeatherList({ weather }) {
     } else {
         renderedWeather = weather?.data.map((w) => (
             <div key={w.icao}>
-                <WeatherAccordion weather={w}/>
+                <WeatherAccordion weather={w} />
             </div>
         ));
     }

@@ -1,4 +1,3 @@
-import React from "react";
 import { GroupedFlight } from "../../../../types";
 import SearchBoxAircraftGroup from "./SearchBoxAircraftGroup";
 import { Virtuoso } from "react-virtuoso";
@@ -28,7 +27,7 @@ const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
                 style={{ height: "100%" }}
                 components={{ Scroller }}
                 itemContent={(_, aircraft) => (
-                    <SearchBoxAircraftGroup aircraft={aircraft}/>
+                    <SearchBoxAircraftGroup aircraft={aircraft} />
                 )}
             />
         </div>

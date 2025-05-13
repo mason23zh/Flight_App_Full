@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { VatsimFlight } from "../../../../../types";
 import calculateArrivalTime from "../../../../../util/calculateArrivalTime";
 import { useDispatch } from "react-redux";

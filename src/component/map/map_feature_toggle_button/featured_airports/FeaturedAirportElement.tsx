@@ -1,4 +1,3 @@
-import React from "react";
 import { PopularVatsimAirport } from "../../../../types";
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -62,7 +61,7 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     const arrivalTraffic = (arrivalNumber && arrivalNumber > 0)
         ? (
             <div className="flex items-center font-bold ">
-                <FaPlaneArrival size={15}/>
+                <FaPlaneArrival size={15} />
                 <div>{arrivalNumber}</div>
             </div>
         )
@@ -71,7 +70,7 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     const departureTraffic = (departureNumber && departureNumber > 0)
         ? (
             <div className="flex items-center">
-                <FaPlaneDeparture size={15}/>
+                <FaPlaneDeparture size={15} />
                 <div>{departureNumber}</div>
             </div>
         )
@@ -131,16 +130,14 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
                             {activeServices.map((service, index) => (
                                 <span
                                     key={service}
-                                    className={`flex items-center justify-center text-white font-bold text-xs px-[5px] py-1 ${
-                                        serviceStyles[service]
-                                    } ${
-                                        activeServices.length === 1
-                                            ? "rounded-l-lg rounded-r-lg" // If only one element, round both sides
-                                            : index === 0
-                                                ? "rounded-l-lg" // Round left edge for the first element
-                                                : index === activeServices.length - 1
-                                                    ? "rounded-r-lg" // Round right edge for the last element
-                                                    : ""
+                                    className={`flex items-center justify-center text-white font-bold text-xs px-[5px] py-1 ${serviceStyles[service]
+                                    } ${activeServices.length === 1
+                                        ? "rounded-l-lg rounded-r-lg" // If only one element, round both sides
+                                        : index === 0
+                                            ? "rounded-l-lg" // Round left edge for the first element
+                                            : index === activeServices.length - 1
+                                                ? "rounded-r-lg" // Round right edge for the last element
+                                                : ""
                                     }`}
                                     title={service}
                                 >

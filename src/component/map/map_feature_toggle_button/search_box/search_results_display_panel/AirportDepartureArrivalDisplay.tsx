@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LocalDbAirport, VatsimFlight } from "../../../../../types";
 import { searchFlightsByAirports } from "../mapSearchFunction";
 import TrafficDetailList from "./TrafficDetailList";
@@ -19,8 +19,8 @@ const AirportDepartureArrivalDisplay = ({
     const [loading, setLoading] = useState(true);
 
     const wrapperStyle = "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
-            " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
-            "bottom-10 max-h-[40rem] min-h-[15rem]";
+        " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
+        "bottom-10 max-h-[40rem] min-h-[15rem]";
 
 
     // reset the tab to departure after switching a new airport from the Popular vatsim airports list.
@@ -79,7 +79,7 @@ const AirportDepartureArrivalDisplay = ({
         case "info":
             return (
                 <div>
-                    <AirportDepartureArrivalPanelInfoTab airport={airport}/>
+                    <AirportDepartureArrivalPanelInfoTab airport={airport} />
                 </div>
             );
         default:
@@ -94,7 +94,7 @@ const AirportDepartureArrivalDisplay = ({
             ) : (
                 <div className="flex flex-col h-[90%] bg-gray-500 text-white rounded-lg overflow-hidden">
                     <div className="mb-1 p-1 bg-gray-500">
-                        <AirportInfoSection airport={airport}/>
+                        <AirportInfoSection airport={airport} />
                     </div>
                     <AirportDepartureArrivalDisplay_TabButtonGroup
                         onTabChange={setActiveTab}
