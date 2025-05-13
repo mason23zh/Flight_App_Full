@@ -1,7 +1,8 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, switchMapStyles } from "../../../store";
 
+//TODO: Remove the light map mode until map style is better.
+//
 type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
 
 const MapStyleToggleButtonGroup = () => {
@@ -24,11 +25,11 @@ const MapStyleToggleButtonGroup = () => {
                     VFR
                 </button>
 
-                <button
-                    className={mapStyles === "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle}
-                    onClick={() => handleOnClick("MONO_LIGHT")}>
-                    Light
-                </button>
+                {/* <button */}
+                {/*     className={mapStyles === "MONO_LIGHT" ? activeButtonStyle : inactiveButtonStyle} */}
+                {/*     onClick={() => handleOnClick("MONO_LIGHT")}> */}
+                {/*     Light */}
+                {/* </button> */}
 
                 <button
                     className={mapStyles === "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}

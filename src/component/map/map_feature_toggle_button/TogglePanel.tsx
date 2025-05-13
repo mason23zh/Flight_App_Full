@@ -1,4 +1,3 @@
-import React from "react";
 import MapFeaturesToggleButton from "./MapFeaturesToggleButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -96,7 +95,6 @@ const TogglePanel = () => {
                         isTouchScreen={isTouchScreen}
                         buttonId="terrain-toggle-button"
                     />
-
                     {/* <LiveTrafficToggleButton */}
                     {/*     isTouchScreen={isTouchScreen} */}
                     {/* /> */}
