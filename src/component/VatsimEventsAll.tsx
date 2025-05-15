@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CustomProvider, Drawer, IconButton } from "rsuite";
 import MenuIcon from "@rsuite/icons/Menu";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,13 +10,12 @@ import { RootState } from "../store";
 import { Event } from "../types";
 import { Helmet } from "react-helmet-async";
 
-//FIXME: click event from the lower part of the list would make list jump back to the top
 function VatsimEventsAll() {
     const dispatch = useDispatch();
     const reduxEvent: Partial<Event> = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);
     const darkTheme = useTheme();
 
-    let eventsList;
+    let eventsList: JSX.Element;
     const {
         data: vatsimEvents,
         error: vatsimEventsError,
@@ -24,7 +23,7 @@ function VatsimEventsAll() {
     } = useFetchSortedVatsimEventsQuery();
 
     // control drawer open or close
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -53,9 +52,9 @@ function VatsimEventsAll() {
 
     const scrollBarStyle = darkTheme
         ? "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-          "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
         : "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-          "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+        "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     return (
         <>
