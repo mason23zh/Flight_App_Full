@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Table } from "rsuite";
 import { useSelector } from "react-redux";
 import { RootState, useFetchWeatherMetarsQuery } from "../store";
@@ -89,7 +89,7 @@ const WeatherTable = ({
     }, { refetchOnMountOrArgChange: true });
 
     // merge new data into exist metars
-    const weatherRowData = React.useMemo(() => {
+    const weatherRowData = useMemo(() => {
         if (isFetching === false && metars) {
             // add wind data if weather selection is either wind speed or wind gust
             if (weather === WIND_SPEED || weather === WIND_GUST) {
@@ -164,7 +164,7 @@ const WeatherTable = ({
 
     if (isFetching) {
         return (
-            <GeneralLoading themeMode={darkTheme ? "dark" : "light"}/>
+            <GeneralLoading themeMode={darkTheme ? "dark" : "light"} />
         );
     }
     //
@@ -186,11 +186,11 @@ const WeatherTable = ({
                 <>
                     <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Speed</HeaderCell>
-                        <Cell dataKey="wind_speed_kt"/>
+                        <Cell dataKey="wind_speed_kt" />
                     </Column>
                     <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Data</HeaderCell>
-                        <Cell dataKey="wind_data"/>
+                        <Cell dataKey="wind_data" />
                     </Column>
                 </>
             );
@@ -199,11 +199,11 @@ const WeatherTable = ({
                 <>
                     <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Gust</HeaderCell>
-                        <Cell dataKey="wind_gust_kt"/>
+                        <Cell dataKey="wind_gust_kt" />
                     </Column>
                     <Column flexGrow={1} align="center">
                         <HeaderCell>Wind Data</HeaderCell>
-                        <Cell dataKey="wind_data"/>
+                        <Cell dataKey="wind_data" />
                     </Column>
                 </>
             );
@@ -212,7 +212,7 @@ const WeatherTable = ({
                 <>
                     <Column flexGrow={1} align="center">
                         <HeaderCell>Visibility</HeaderCell>
-                        <Cell dataKey="visibility_statute_mi"/>
+                        <Cell dataKey="visibility_statute_mi" />
                     </Column>
                 </>
             );
@@ -221,7 +221,7 @@ const WeatherTable = ({
                 <>
                     <Column flexGrow={1} align="center" sortable>
                         <HeaderCell>Baro</HeaderCell>
-                        <Cell dataKey="altim_in_hg"/>
+                        <Cell dataKey="altim_in_hg" />
                     </Column>
                 </>
             );
@@ -230,7 +230,7 @@ const WeatherTable = ({
                 <>
                     <Column flexGrow={1} align="center" sortable>
                         <HeaderCell>Temperature</HeaderCell>
-                        <Cell dataKey="temp_c"/>
+                        <Cell dataKey="temp_c" />
                     </Column>
                 </>
             );
@@ -286,7 +286,7 @@ const WeatherTable = ({
                 >
                     <Column flexGrow={1} align="center">
                         <HeaderCell>ICAO</HeaderCell>
-                        <Cell dataKey="icao"/>
+                        <Cell dataKey="icao" />
                     </Column>
 
                     {/*
@@ -295,7 +295,7 @@ const WeatherTable = ({
                     {!isSmallScreen ?
                         <Column flexGrow={2} align="center">
                             <HeaderCell>Airport Name</HeaderCell>
-                            <Cell dataKey="station.location.name"/>
+                            <Cell dataKey="station.location.name" />
                         </Column>
                         : null
                     }
@@ -306,7 +306,7 @@ const WeatherTable = ({
                     <ExtremeWeatherTableModal
                         rowData={selectedRowData}
                         open={isModalOpen}
-                        onClose={handleModalClose}/>
+                        onClose={handleModalClose} />
                 }
             </div>
         </div>

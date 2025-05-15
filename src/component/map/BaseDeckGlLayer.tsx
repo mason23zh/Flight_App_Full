@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import {
     addMessage,
     removeMessageByLocation,
@@ -30,7 +30,6 @@ const BaseDeckGlLayer = ({
     controllerDataLoading
 }: BaseDeckGlLayerProps) => {
     const dispatch = useDispatch();
-    // const viewState = useViewState();
 
     const {
         trafficLayerVisible,

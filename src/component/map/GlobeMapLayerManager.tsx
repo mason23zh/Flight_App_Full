@@ -2,13 +2,10 @@
  * This component is to control if other Globe projection layers should be loaded
  * **/
 
-import React, { useEffect, useState } from "react";
 import { MatchedFir } from "../../hooks/useMatchedFirs";
 import { FallbackTracon, MatchedTracon } from "../../hooks/useMatchTracon";
 import { VatsimControllers } from "../../types";
 import { useMap } from "react-map-gl";
-import mapboxgl from "mapbox-gl";
-// import { useMapIsReady } from "../../hooks/useMapIsReady";
 import GlobeFirIconLayer from "./globe_projection/Fir_Icon_Layer/GlobeFirIconLayer";
 import GlobeTraconIconLayer_Test from "./globe_projection/Tracon_Icon_Layer/GlobeTraconIconLayer_Test";
 import GlobeControllerIconLayer from "./globe_projection/Controller_Icon_Layer/GlobeControllerIconLayer";
@@ -41,45 +38,23 @@ const GlobeMapLayerManager = ({
         mapProjection,
     } = useSelector((state: RootState) => state.vatsimMapVisible);
     const { current: mapRef } = useMap();
-    // const [map, setMap] = useState<mapboxgl.Map | null>(null);
-    const [isReady, setIsReady] = useState(false);
-
-
-    useEffect(() => {
-        const map = mapRef.getMap();
-
-        if (!map) return;
-
-        const handle = () => setIsReady(true);
-        map.on("style.load", () => {
-            handle();
-        });
-
-        return () => {
-            map.off("style.load", handle);
-        };
-    }, [mapRef, mapProjection]);
-
 
     useGlobeLayerOrdering(mapRef.getMap());
-
-
-    // if (!mapRef || !isReady) return null;
 
     return (
         <>
             {mapProjection === "globe" && (
                 <>
-                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs}/>
+                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs} />
                     <GlobeTraconIconLayer_Test
                         matchedTracons={matchedTracons}
                         matchedFallbackTracons={matchedFallbackTracons}
                         isTraconLoading={isTraconLoading}
                         isTraconError={isTraconError}
                     />
-                    <GlobeControllerIconLayer controllerData={controllerData}/>
-                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer"/>
-                    <VatsimTrafficLayer key="vatsimTrafficLayer"/>
+                    <GlobeControllerIconLayer controllerData={controllerData} />
+                    <VatsimTrafficPathLayer key="vatsimTrafficPathLayer" />
+                    <VatsimTrafficLayer key="vatsimTrafficLayer" />
                 </>
             )}
         </>
