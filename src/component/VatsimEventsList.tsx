@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import _ from "lodash";
 import VatsimEventsListItem from "./VatsimEventsListItem";
 import { useTheme } from "../hooks/ThemeContext";
 import { EventResponse } from "../store/apis/vatsimApi";
-
+import { Virtuoso } from "react-virtuoso";
 
 interface Props {
     events: EventResponse,
@@ -24,37 +24,43 @@ function VatsimEventsList({
     }, [events]);
 
 
-    let eventsList;
-
     const handleClick = () => {
         onClick();
     };
 
-
-    if (!_.isEmpty(allEvents) && allEvents.result !== 0) {
-        eventsList = allEvents.events.map((e) => (
-            <div key={e.id}>
-                <VatsimEventsListItem
-                    event={e}
-                    onClick={handleClick}
-                />
-            </div>
-        ));
-    }
-
     const scrollBarStyle = darkMode
         ?
         "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-            "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
         :
         "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-            "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+        "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+
+
+    if (_.isEmpty(allEvents) || allEvents.result === 0) {
+        return (
+            <div>
+                No Events
+            </div>
+        );
+    }
 
     return (
-        <div className={`flex flex-col
-        gap-2 overflow-y-auto
-        p-3 min-w-[280px] sm:min-w-[350px] h-[calc(100vh-80px)] max-h-full ${scrollBarStyle}`}>
-            {eventsList}
+        <div className="flex-1 h-full w-[90%] min-w-[18rem] sm:min-w-[22rem]">
+            <Virtuoso
+                data={events.events}
+                totalCount={allEvents.result}
+                style={{ height: "100%" }}
+                className={scrollBarStyle}
+                itemContent={(_, event) => (
+                    <div className="px-2 py-1">
+                        <VatsimEventsListItem
+                            event={event}
+                            onClick={handleClick}
+                        />
+                    </div>
+                )}
+            />
         </div>
     );
 

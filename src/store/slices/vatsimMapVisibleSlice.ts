@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { VatsimMapVisibleState } from "../../types";
 
 interface MapStylePayloadAction {
@@ -31,7 +31,9 @@ const initialState: VatsimMapVisibleState = {
     mapFollowTraffic: false,
     displayTelemetry: false,
     searchBoxVisible: false,
-    mapStyles: "DEFAULT"
+    featuredAirportsVisible: false,
+    mapProjection: "mercator",
+    mapStyles: "MONO_DARK"
 };
 
 const vatsimMapVisibleSlice = createSlice({
@@ -61,8 +63,9 @@ const vatsimMapVisibleSlice = createSlice({
             state.mapFollowTraffic = false;
             state.displayTelemetry = false;
             state.searchBoxVisible = false;
+            state.featuredAirportsVisible = false;
 
-            state.mapStyles = "DEFAULT";
+            state.mapStyles = "MONO_DARK";
         },
         switchMapStyles(state, action: MapStylePayloadAction) {
             state.mapStyles = action.payload.mapStyles;
@@ -77,17 +80,18 @@ const vatsimMapVisibleSlice = createSlice({
         toggleTraconLabel(state, action) {
             state.traconLabelVisible = action.payload;
         },
-        toggleAtcLayer(state, action) {
-            state.allAtcLayerVisible = action.payload;
+        toggleAtcLayer(state) {
+            state.allAtcLayerVisible = !state.allAtcLayerVisible;
         },
-        toggleTrafficLayer(state, action) {
-            state.trafficLayerVisible = action.payload;
+        toggleTrafficLayer(state) {
+            state.trafficLayerVisible = !state.trafficLayerVisible;
         },
-        toggleWeatherRasterLayer(state, action) {
-            state.weatherRasterVisible = action.payload;
+        toggleWeatherRasterLayer(state) {
+            state.weatherRasterVisible = !state.weatherRasterVisible;
         },
-        toggleTerrainLabel(state, action) {
-            state.terrainEnable = action.payload;
+        toggleTerrainLabel(state) {
+            // state.terrainEnable = action.payload;
+            state.terrainEnable = !state.terrainEnable;
         },
         setLiveTrafficAvailable(state, action) {
             state.liveTrafficAvailable = action.payload;
@@ -101,11 +105,13 @@ const vatsimMapVisibleSlice = createSlice({
             }
             state.displayTelemetry = action.payload;
         },
-        toggleMapFollowTraffic(state, action) {
-            state.mapFollowTraffic = action.payload;
+        toggleMapFollowTraffic(state) {
+            // state.mapFollowTraffic = action.payload;
+            state.mapFollowTraffic = !state.mapFollowTraffic;
         },
-        toggleMapLabel(state, action) {
-            state.mapLabelVisible = action.payload;
+        toggleMapLabel(state) {
+            // state.mapLabelVisible = action.payload;
+            state.mapLabelVisible = !state.mapLabelVisible;
         },
         toggleAirportVisible(state, action) {
             state.airportVisible = action.payload;
@@ -116,8 +122,9 @@ const vatsimMapVisibleSlice = createSlice({
         toggleAirportLabel(state, action) {
             state.airportLabelVisible = action.payload;
         },
-        toggleMapRoadLabel(state, action) {
-            state.mapRoadVisible = action.payload;
+        toggleMapRoadLabel(state) {
+            // state.mapRoadVisible = action.payload;
+            state.mapRoadVisible = !state.mapRoadVisible;
         },
         toggleUnderlineFirBoundaries(state, action) {
             state.underlineFirBoundaries = action.payload;
@@ -127,24 +134,38 @@ const vatsimMapVisibleSlice = createSlice({
         },
         toggleMapStyleButton(state, action) {
             state.mapStyleButtonToggle = action.payload;
-            if (action.payload && (state.mapFilterButtonToggle || state.searchBoxVisible)) {
+            if (action.payload) {
                 state.mapFilterButtonToggle = false;
                 state.searchBoxVisible = false;
+                state.featuredAirportsVisible = false;
             }
         },
         toggleMapFilterButton(state, action) {
             state.mapFilterButtonToggle = action.payload;
-            if (action.payload && (state.mapStyleButtonToggle || state.searchBoxVisible)) {
+            if (action.payload) {
                 state.mapStyleButtonToggle = false;
                 state.searchBoxVisible = false;
+                state.featuredAirportsVisible = false;
             }
         },
         toggleSearchBox(state, action) {
             state.searchBoxVisible = action.payload;
-            if (action.payload && (state.mapStyleButtonToggle || state.mapFilterButtonToggle)) {
+            if (action.payload) {
                 state.mapStyleButtonToggle = false;
                 state.mapFilterButtonToggle = false;
+                state.featuredAirportsVisible = false;
             }
+        },
+        toggleFeaturedAirports(state, action) {
+            state.featuredAirportsVisible = action.payload;
+            if (action.payload) {
+                state.mapFilterButtonToggle = false;
+                state.searchBoxVisible = false;
+                state.mapStyleButtonToggle = false;
+            }
+        },
+        setMapProjection(state, action: PayloadAction<"globe" | "mercator">) {
+            state.mapProjection = action.payload;
         }
     }
 });
@@ -171,6 +192,8 @@ export const {
     toggleMapFollowTraffic,
     setLiveTrafficAvailable,
     resetMap,
-    toggleSearchBox
+    toggleSearchBox,
+    toggleFeaturedAirports,
+    setMapProjection
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

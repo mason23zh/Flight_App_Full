@@ -2,7 +2,7 @@ import { Controller, VatsimControllers, VatsimTraconMapping } from "../types";
 import { useEffect, useState } from "react";
 import { db } from "../database/db";
 import { calculateEdgeCoordinates } from "../util/calculateEdgeCoordinates";
-import { createMultiPolygonCircle } from "../component/2d/mapbox_Layer/util/createMultiPolygonCircle";
+import { createMultiPolygonCircle } from "../component/map/mapbox_Layer/util/createMultiPolygonCircle";
 import { Feature, GeoJSON, MultiPolygon, Polygon } from "geojson";
 import _ from "lodash";
 

@@ -18,8 +18,10 @@ memlab.config.js
 .env.development.local
 .env.test.local
 .env.production.local
+nodesource_setup.sh
 
 .idea/
+.vscode/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

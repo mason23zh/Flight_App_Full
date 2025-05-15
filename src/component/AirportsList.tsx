@@ -1,5 +1,5 @@
 import "../styles.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Pagination } from "rsuite";
 import AirportListInfoTab from "./AirportListInfoTab";
 
@@ -19,7 +19,7 @@ function AirportsList({
     } else {
         renderedAirports = data.airports.map((airport) => (
             <div key={airport.ICAO}>
-                <AirportListInfoTab airport={airport}/>
+                <AirportListInfoTab airport={airport} />
             </div>
         ));
     }

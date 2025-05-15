@@ -2,9 +2,9 @@
  * This component will render Runway table's wind component
  * in AirportDetail component
  * * */
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { IconContext } from "react-icons";
- 
+
 function AirportDetailRunwayTableIconContext({
     icon,
     color

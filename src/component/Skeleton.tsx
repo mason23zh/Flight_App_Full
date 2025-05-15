@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import React from "react";
 
 function Skeleton({
     times,
@@ -22,7 +21,7 @@ function Skeleton({
         .map((_, i) => (
             // eslint-disable-next-line react/no-array-index-key
             <div key={i} className={outerClassNames}>
-                <div className={innerClassNames}/>
+                <div className={innerClassNames} />
             </div>
         ));
 

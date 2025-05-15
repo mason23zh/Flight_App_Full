@@ -1,16 +1,19 @@
 import { FallbackTracon, MatchedTracon } from "./useMatchTracon";
 import { IconLayer } from "@deck.gl/layers/typed";
 import { useCallback, useEffect, useMemo } from "react";
-import { HoverTracon } from "../component/2d/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
-import generateTraconIcon from "../component/2d/mapbox_Layer/util/generateTraconIcon";
+import { HoverTracon } from "../component/map/mapbox_Layer/Tracon_Layers/TraconLabelPopup";
+import generateTraconIcon from "../component/map/mapbox_Layer/util/generateTraconIcon";
 import { debounce } from "lodash";
 import { setHoveredTracon } from "../store";
 import { useDispatch } from "react-redux";
 
+//FIXME: the icon disappeared after swtiching form the 2d mode to 3d terrain mode
+
 const useTraconIconLayer = (
     matchedTracon: MatchedTracon[],
     matchedFallbackTracon: FallbackTracon[],
-    visible: boolean) => {
+    visible: boolean,
+) => {
     const dispatch = useDispatch();
 
     const matchedIconData = useMemo(() => {

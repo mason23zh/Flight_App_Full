@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
 
- 
+
 function TimeSection() {
     const [today, setDate] = useState(new Date());
 

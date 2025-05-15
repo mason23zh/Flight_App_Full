@@ -1,7 +1,7 @@
-import SmallAirportLayer from "../component/2d/mapbox_Layer/Airport_Layers/SmallAirportLayer";
-import MediumAirportLayer from "../component/2d/mapbox_Layer/Airport_Layers/MediumAirportLayer";
-import LargeAirportLayer from "../component/2d/mapbox_Layer/Airport_Layers/LargeAirportLayer";
-import MapboxSourceLayer from "../component/2d/mapbox_Layer/Airport_Layers/MapboxSourceLayer";
+import SmallAirportLayer from "../component/map/mapbox_Layer/Airport_Layers/SmallAirportLayer";
+import MediumAirportLayer from "../component/map/mapbox_Layer/Airport_Layers/MediumAirportLayer";
+import LargeAirportLayer from "../component/map/mapbox_Layer/Airport_Layers/LargeAirportLayer";
+import MapboxSourceLayer from "../component/map/mapbox_Layer/Airport_Layers/MapboxSourceLayer";
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
@@ -11,7 +11,7 @@ const useAirportsLayers = () => {
         airportLabelVisible,
         airportVisible
     } = useSelector((state: RootState) => state.vatsimMapVisible);
-    
+
     if (!airportVisible) {
         return { airportLayers: <></> };
     }

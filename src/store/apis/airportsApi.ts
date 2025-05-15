@@ -1,18 +1,22 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { DbAirport, DetailAirportResponse } from "../../types";
+import { DbAirport, DetailAirportResponse, PopularVatsimAirport } from "../../types";
 
 interface AirportResponse {
     result: number,
     data: Array<DbAirport>
 }
 
-interface PopularAirportResponse {
+export interface PopularAirportResponse {
     data: Array<DbAirport>;
 }
 
 export interface DetailAirportResponseQuery {
     result: number,
     data: Array<DetailAirportResponse>
+}
+
+export interface PopularVatsimAirportResponse {
+    data: { airports: Array<PopularVatsimAirport> };
 }
 
 
@@ -24,12 +28,13 @@ export const airportsApi = createApi({
     }),
     endpoints(build) {
         return {
-            fetchVatsimPopularAirports: build.query({
+            fetchVatsimPopularAirports: build.query<PopularVatsimAirportResponse, { limit: number }>({
                 query: ({ limit }) => ({
                     url: `/vatsim-popular-airports?limit=${limit}`,
                     method: "GET",
                 }),
-                keepUnusedDataFor: 300,
+
+                keepUnusedDataFor: 120,
             }),
             fetchMostPopularAirports: build.query<PopularAirportResponse, void>({
                 query: () => ({

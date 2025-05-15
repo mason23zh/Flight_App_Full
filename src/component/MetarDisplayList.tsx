@@ -1,5 +1,4 @@
 // noinspection JSUnresolvedVariable
-import React from "react";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { useFetchWeatherMetarsQuery } from "../store";
@@ -95,14 +94,14 @@ function MetarDisplayList() {
         tempConfig.push(tempOne, tempTwo);
         config = [...config, ...tempConfig];
     }
-  
+
     let content;
     if (isFetching) {
-        content = <Skeleton className="h-8 w-auto" times={8}/>;
+        content = <Skeleton className="h-8 w-auto" times={8} />;
     } else if (error) {
         content = <div>ERROR</div>;
     } else {
-        content = <Table config={config} data={metars.data}/>;
+        content = <Table config={config} data={metars.data} />;
         // content = metars.data.map((metar) => {
         //     return <MetarListItem key={metar.station_id} metar={metar} />;
         // });

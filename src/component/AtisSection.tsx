@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Panel } from "rsuite";
 import { DetailAirportResponseAtis } from "../types";
 

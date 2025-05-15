@@ -1,4 +1,3 @@
-import React from "react";
 import { GiAirplaneDeparture, GiAirplaneArrival } from "react-icons/gi";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -32,11 +31,11 @@ function VatsimAirportInfoTab({
     const darkMode = useTheme();
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-500"
+        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
+        + "h-full bg-gray-500"
         : "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-300";
+        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
+        + "h-full bg-gray-300";
 
 
     const delIcon = controller.DEL ? (
@@ -75,7 +74,7 @@ function VatsimAirportInfoTab({
     const arrivalTraffic = (arrivalNumber && arrivalNumber > 0)
         ? (
             <div className="flex items-center gap-1">
-                <GiAirplaneArrival size={25}/>
+                <GiAirplaneArrival size={25} />
                 <div>{arrivalNumber}</div>
             </div>
         )
@@ -84,7 +83,7 @@ function VatsimAirportInfoTab({
     const departureTraffic = (departureNumber && departureNumber > 0)
         ? (
             <div className="flex items-center gap-1">
-                <GiAirplaneDeparture size={25}/>
+                <GiAirplaneDeparture size={25} />
                 <div>{departureNumber}</div>
             </div>
         )
@@ -112,7 +111,7 @@ function VatsimAirportInfoTab({
             to={`airport/detail/${ICAO}`}
             onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
-            <IoIosArrowRoundForward size={40}/>
+            <IoIosArrowRoundForward size={40} />
         </Link>
     );
 

@@ -1,7 +1,6 @@
-import React from "react";
 import Iframe from "react-iframe";
 import { useTheme } from "../hooks/ThemeContext";
- 
+
 function AirportDetailTrafficWidget({
     iata,
     airportName

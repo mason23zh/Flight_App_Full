@@ -67,41 +67,84 @@ html {
 /*}*/
 
 
-.mapboxgl-popup {
-    animation: fadein 0.2s;
-}
+/*.mapboxgl-popup {*/
+/*    animation: fadein 0.5s;*/
+/*}*/
 
 
 .mapboxgl-popup-content {
     padding: 0;
     /*background-color: #b6a1e3;*/
-    max-width: 400px;
+    /*max-width: 400px;*/
     /*min-width: 50px;*/
     border-radius: 12px;
     /*padding: 1px 1px;*/
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
-    min-width: 300px;
+    /*box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);*/
+    /*min-width: 300px;*/
 }
 
-.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+/*.mapboxgl-popup .mapboxgl-popup-tip {*/
+/*    display: none !important;*/
+/*}*/
+
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+    display: none !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    /*display: none !important;*/
+    background-color: transparent !important;
+}
+
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-    border-bottom-color: rgba(227, 15, 15, 0);
+    display: none !important;
 }
 
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
-.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-    border-top-color: rgba(230, 15, 15, 0);
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+    display: none !important;
 }
 
-.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-    border-right-color: rgba(234, 14, 14, 0);
-}
+/*.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,*/
+/*.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,*/
+/*.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {*/
+/*    border-left: 0 solid grey !important;*/
+/*    border-right: 0 solid grey !important;*/
+/*    border-bottom: 0 solid grey !important;*/
+/*    border-top: 0 solid grey !important;*/
+/*    !*border-top-color: rgb(55, 65, 81) !important;*!*/
+/*    !*border-bottom-color: rgb(55, 65, 81) !important;*!*/
 
-.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-    border-left-color: rgba(230, 14, 14, 0);
-}
+/*    !*border-bottom-color: rgba(227, 15, 15, 0);*!*/
+/*    !*border-left-color: rgba(55, 65, 81, 50);*!*/
+/*    !*display: none;*!*/
+/*}*/
+
+/*.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,*/
+/*.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,*/
+/*.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {*/
+/*    !*border-top-color: rgba(230, 15, 15, 0);*!*/
+/*    border-left-color: rgba(55, 65, 81, 0);*/
+/*    display: none;*/
+
+/*}*/
+
+/*.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {*/
+/*    !*border-right-color: rgba(234, 14, 14, 0);*!*/
+/*    border-left-color: rgba(55, 65, 81, 0);*/
+/*    display: none;*/
+
+/*}*/
+
+/*.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {*/
+/*    !*border-left-color: rgba(230, 14, 14, 0);*!*/
+/*    border-left-color: rgba(55, 65, 81, 0);*/
+/*    display: none;*/
+
+/*}*/
 
 @keyframes slideInFromRight {
     0% {
@@ -132,3 +175,4 @@ html {
 .slide-out {
     animation: slideOutToRight 0.5s forwards;
 }
+

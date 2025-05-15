@@ -27,7 +27,7 @@ function NavbarDropDown() {
     return (
         <div>
             <Dropdown
-                title={<IoListOutline size={25}/>}
+                title={<IoListOutline size={25} />}
                 placement="bottomEnd"
                 noCaret
             >
@@ -44,7 +44,7 @@ function NavbarDropDown() {
                 </Dropdown.Item>
                 <Dropdown.Item as={NavLink} href="/about">About</Dropdown.Item>
                 {/* <Dropdown.Item divider/> */}
-                <Dropdown.Separator/>
+                <Dropdown.Separator />
                 <Dropdown.Item>
                     <div
                         className="flex flex-row justify-center items-center gap-4"
@@ -53,7 +53,7 @@ function NavbarDropDown() {
                         <div>
                             Switch Theme
                         </div>
-                        <div>{darkMode ? <IoSunnyOutline/> : <IoMoon/>}</div>
+                        <div>{darkMode ? <IoSunnyOutline /> : <IoMoon />}</div>
                     </div>
                 </Dropdown.Item>
             </Dropdown>

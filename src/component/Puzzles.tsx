@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { CustomProvider } from "rsuite";
 import AudioPlayer from "react-h5-audio-player";
 import morseCode from "../assets/morseCode.mp3";

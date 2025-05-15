@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useTheme } from "../hooks/ThemeContext";
 
@@ -9,11 +9,11 @@ function InputAndSearch({
     const darkMode = useTheme();
     const inputTheme = darkMode
         ? "w-full p-2 pl-3 flex-grow-2 border-none "
-            + "rounded-l-3xl text-[16px] focus:outline-0 "
-            + "focus:shadow-inner hover:shadow-inner bg-gray-800"
+        + "rounded-l-3xl text-[16px] focus:outline-0 "
+        + "focus:shadow-inner hover:shadow-inner bg-gray-800"
         : "w-full p-2 pl-3 flex-grow-2 border-none "
-            + "rounded-l-3xl text-[16px] focus:outline-0 "
-            + "focus:shadow-inner hover:shadow-inner";
+        + "rounded-l-3xl text-[16px] focus:outline-0 "
+        + "focus:shadow-inner hover:shadow-inner";
     const buttonTheme = darkMode
         ? "p-2 pr-3 bg-gray-700 rounded-r-3xl hover:bg-gray-600"
         : "p-2 pr-3 bg-gray-200 rounded-r-3xl hover:bg-gray-300";
@@ -47,7 +47,7 @@ function InputAndSearch({
                 title="Search"
                 className={buttonTheme}
             >
-                <AiOutlineSearch/>
+                <AiOutlineSearch />
             </button>
         </form>
     );

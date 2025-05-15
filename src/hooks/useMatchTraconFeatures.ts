@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useFetchVatsimTraconBoundariesQuery } from "../store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
-import { extractTraconName } from "../component/2d/mapbox_Layer/util/extractTraconName";
-import { createMultiPolygonCircle } from "../component/2d/mapbox_Layer/util/createMultiPolygonCircle";
+import { extractTraconName } from "../component/map/mapbox_Layer/util/extractTraconName";
+import { createMultiPolygonCircle } from "../component/map/mapbox_Layer/util/createMultiPolygonCircle";
 import _ from "lodash";
 
 interface UseMatchTraconFeaturesReturn {

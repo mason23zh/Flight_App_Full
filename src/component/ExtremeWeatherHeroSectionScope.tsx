@@ -1,4 +1,3 @@
-import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import { CONTINENT, COUNTRY, GLOBAL } from "../util/selection_names";
 import { capitalizeAllLetter, capitalizeFirstLetter } from "../util/stringCapitalize";
@@ -21,7 +20,7 @@ function ExtremeWeatherHeroSectionScope({
                         |
                     </div>
                     <div className="align-bottom">
-                        <ReactCountryFlag className="rounded-3xl" countryCode={code.value.toUpperCase()} svg/>
+                        <ReactCountryFlag className="rounded-3xl" countryCode={code.value.toUpperCase()} svg />
                     </div>
                 </div>
             );
@@ -56,7 +55,7 @@ function ExtremeWeatherHeroSectionScope({
                     <div>
                         {code.label}
                     </div>
-                    <ReactCountryFlag className="rounded-xl" countryCode={code.value.toUpperCase()} svg/>
+                    <ReactCountryFlag className="rounded-xl" countryCode={code.value.toUpperCase()} svg />
                 </div>
             );
         }

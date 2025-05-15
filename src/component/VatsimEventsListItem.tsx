@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
@@ -27,20 +27,20 @@ function VatsimEventsListItem({
         let generatedTheme: string;
         if (darkMode && (storeEvent.id === currentEvent.id)) {
             generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-500 rounded-xl relative "
-                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-400 duration-300";
+                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                + "hover:scale-100 hover:bg-indigo-400 duration-300";
         } else if (darkMode && (storeEvent.id !== currentEvent.id)) {
             generatedTheme = "grid grid-cols-1 p-3 border-[1px] bg-gray-500 rounded-xl relative "
-                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-400 duration-300";
+                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                + "hover:scale-100 hover:bg-indigo-400 duration-300";
         } else if (!darkMode && (storeEvent.id === currentEvent.id)) {
             generatedTheme = "grid grid-cols-1 p-3 border-2 bg-indigo-400 rounded-xl relative "
-                    + "transition ease-in-out delay-50 bg-blue-400 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-400 duration-300 text-gray-100";
+                + "transition ease-in-out delay-50 bg-blue-400 hover:-translate-y-1 "
+                + "hover:scale-100 hover:bg-indigo-400 duration-300 text-gray-100";
         } else if (!darkMode && (storeEvent.id !== currentEvent.id)) {
             generatedTheme = "grid grid-cols-1 p-3 border-2 bg-gray-300 rounded-xl relative "
-                    + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
-                    + "hover:scale-100 hover:bg-indigo-300 duration-300";
+                + "transition ease-in-out delay-50 bg-blue-500 hover:-translate-y-1 "
+                + "hover:scale-100 hover:bg-indigo-300 duration-300";
         }
         return generatedTheme;
     };
@@ -110,7 +110,7 @@ function VatsimEventsListItem({
         <div className="absolute h-5 w-auto top-0 right-0 mt-1 mr-1">
             <div className="flex gap-1 items-center bg-green-500 text-sm p-1 rounded-xl">
                 <div>
-                    <AiOutlineExclamationCircle/>
+                    <AiOutlineExclamationCircle />
                 </div>
                 <div className="">
                     In Progress
@@ -151,4 +151,3 @@ function VatsimEventsListItem({
 }
 
 export default VatsimEventsListItem;
- 

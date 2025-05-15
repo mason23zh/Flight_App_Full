@@ -1,4 +1,3 @@
-import React from "react";
 import { useFetchTafByICAOQuery } from "../store";
 import AirportDetailTafPanel from "./AirportDetailTafPanel";
 

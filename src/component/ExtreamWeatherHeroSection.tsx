@@ -1,4 +1,3 @@
-import React from "react";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import ExtremeWeatherHeroSectionScope from "./ExtremeWeatherHeroSectionScope";
@@ -40,7 +39,7 @@ function ExtremeWeatherHeroSection() {
                     <h2 className="text-xl text-center md:text-3xl
                     transition-all ease-in-out duration-300 hidden sm:block"
                     >
-                        <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope}/>
+                        <ExtremeWeatherHeroSectionScope code={code} weather={weather} scope={scope} />
                     </h2>
                 </div>
             </div>

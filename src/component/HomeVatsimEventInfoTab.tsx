@@ -1,11 +1,10 @@
-import React from "react";
 import moment from "moment";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTheme } from "../hooks/ThemeContext";
 import { changeUserSelectionVatsimEvent } from "../store";
- 
+
 function HomeVatsimEventInfoTab({
     event,
     counter
@@ -21,11 +20,11 @@ function HomeVatsimEventInfoTab({
     const darkMode = useTheme();
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
-            + "h-full bg-gray-500"
+        + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
+        + "h-full bg-gray-500"
         : "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
-            + "h-full bg-gray-300";
+        + "sm:grid-cols-4 md:grid-cols-5 text-center justify-items-center items-center "
+        + "h-full bg-gray-300";
 
 
     // Set localStorage and dispatch the change event action
@@ -78,7 +77,7 @@ function HomeVatsimEventInfoTab({
             to={`/vatsim/events/${name}`}
             onMouseOver={handleClick}
         >
-            <IoIosArrowRoundForward size={40}/>
+            <IoIosArrowRoundForward size={40} />
         </Link>
     );
 

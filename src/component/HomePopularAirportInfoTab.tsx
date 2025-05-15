@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/ThemeContext";
@@ -29,11 +28,11 @@ function HomePopularAirportInfoTab({
     const darkMode = useTheme();
     const themeClass = darkMode
         ? "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-500"
+        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
+        + "h-full bg-gray-500"
         : "border-2 rounded-3xl grid grid-cols-3 "
-            + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-            + "h-full bg-gray-300";
+        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
+        + "h-full bg-gray-300";
 
     const nameSection = (
         <div className="items-center">
@@ -70,7 +69,7 @@ function HomePopularAirportInfoTab({
             to={`/airport/detail/${ICAO}`}
             onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
         >
-            <IoIosArrowRoundForward size={40}/>
+            <IoIosArrowRoundForward size={40} />
         </Link>
     );
 

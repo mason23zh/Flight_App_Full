@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 function ExpandablePanel({
@@ -12,7 +12,7 @@ function ExpandablePanel({
     const handleClick = () => {
         setExpanded(!expanded);
     };
- 
+
     return (
         <div className="mb-2 border rounded">
             <div className="flex p-2 justify-between items-center w-auto h-auto">
@@ -29,7 +29,7 @@ function ExpandablePanel({
                     </div>
                 </div>
                 <div role="presentation" className="cursor-pointer" onClick={handleClick}>
-                    {expanded ? <GoChevronDown/> : <GoChevronLeft/>}
+                    {expanded ? <GoChevronDown /> : <GoChevronLeft />}
                 </div>
             </div>
             {expanded && <div className="p-2 border-r">{children}</div>}

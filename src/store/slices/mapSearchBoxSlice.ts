@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface MapSearchBoxState {
     searchInput: string;
-    tabSelection: string;
+    tabSelection: "airports" | "flights" | "aircraft";
 }
 
 const initialState: MapSearchBoxState = {
     searchInput: "",
-    tabSelection: "1"
+    tabSelection: "airports"
 };
 
 const mapSearchBoxSlice = createSlice({
@@ -17,7 +17,7 @@ const mapSearchBoxSlice = createSlice({
         setSearchInput(state, action: PayloadAction<string>) {
             state.searchInput = action.payload;
         },
-        setTabSelection(state, action: PayloadAction<string>) {
+        setTabSelection(state, action: PayloadAction<"airports" | "flights" | "aircraft">) {
             state.tabSelection = action.payload;
         }
     }

@@ -1,4 +1,3 @@
-import React from "react";
 import AirportDetailWeatherPanel from "./AirportDetailWeatherPanel";
 import { Weather } from "../types";
 

@@ -2,6 +2,7 @@ import { VatsimFlight, VatsimTrackTraffic } from "../types";
 import { useMemo } from "react";
 import { LineLayer } from "@deck.gl/layers/typed";
 import { COORDINATE_SYSTEM } from "@deck.gl/core/typed";
+import chroma from "chroma-js";
 
 const useFlightPathLayer = (
     data: VatsimTrackTraffic,
@@ -15,8 +16,17 @@ const useFlightPathLayer = (
         if (data && selectTraffic) {
             data.track.forEach((t, idx) => {
                 const tempObj = {
-                    from: { coordinates: [] },
-                    to: { coordinates: [] }
+                    // this filedAltitude will be used as the max number to calculate the path color
+                    // if no number, default max altitude to FL400
+                    filedAltitude: Number(selectTraffic?.flight_plan?.altitude || 40000),
+                    from: {
+                        coordinates: [],
+                        altitude: 0,
+                    },
+                    to: {
+                        coordinates: [],
+                        altitude: 0
+                    }
                 };
 
                 if (!t.longitude) return;
@@ -28,6 +38,8 @@ const useFlightPathLayer = (
                         data.track[idx + 1].latitude,
                         terrainEnable ? data.track[idx + 1].altitude : 0
                     ];
+                    tempObj.from.altitude = t?.altitude || 0;
+                    tempObj.to.altitude = data.track[idx + 1]?.altitude || 0;
                 } else if (idx === data.track.length - 1) {
                     // For the last segment, update with current traffic data
                     const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
@@ -37,6 +49,8 @@ const useFlightPathLayer = (
                         selectedObj?.latitude || 0,
                         terrainEnable ? selectedObj?.altitude || 0 : 0
                     ];
+                    tempObj.from.altitude = t?.altitude || 0;
+                    tempObj.to.altitude = selectedObj?.altitude || 0;
                 }
                 track.push(tempObj);
             });
@@ -44,18 +58,36 @@ const useFlightPathLayer = (
         return track;
     }, [data, selectTraffic, trafficData, terrainEnable]);
 
-    return useMemo(() => {
 
+    // lowest altitude color: #07B507
+    const colStart = chroma(120, 0.93, 0.37, "hsl");
+    // highest altitude color :#4855BF
+    const colEnd = chroma(233, 0.48, 0.52, "hsl");
+
+    return useMemo(() => {
         return new LineLayer({
             id: "flight-path",
             data: formatTrack,
-            getColor: () => [255, 140, 0],
+            getColor: (d) => {
+                const altitudeRange = d.filedAltitude; // Max altitude
+                const avgAltitude = (d.from.altitude + d.to.altitude) / 2;
+
+                // Normalize altitude to [0, 1]
+                const normalizedAltitude = Math.min(Math.max(avgAltitude, 0), altitudeRange) / altitudeRange;
+
+                // Interpolate color using chroma.mix
+                const color = chroma.mix(colStart, colEnd, normalizedAltitude, "hsl")
+                    .rgb();
+
+                return [color[0], color[1], color[2]]; // Return RGB color
+            },
+            // getColor: () => [255, 140, 0],
             getSourcePosition: (d) => d.from.coordinates,
             getTargetPosition: (d) => d.to.coordinates,
-            getWidth: 3,
+            getWidth: 5,
             widthMaxPixels: Number.MAX_SAFE_INTEGER,
-            widthMinPixels: 0,
-            widthScale: 1,
+            widthMinPixels: 2,
+            widthScale: 0.3,
             widthUnits: "pixels",
             // autoHighlight: false,
             // coordinateOrigin: [0, 0, 0],

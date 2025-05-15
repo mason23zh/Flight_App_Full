@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import backgroundImage from "../images/mika-baumeister-DHlZenOMjJI-unsplash.jpg";
 import HeroSection from "./HeroSection";
@@ -6,6 +6,7 @@ import AirportsList from "./AirportsList";
 import { useFetchAirportsWithGenericInputQuery } from "../store";
 import { CustomProvider } from "rsuite";
 import { useTheme } from "../hooks/ThemeContext";
+import { Helmet } from "react-helmet-async";
 
 function Airports() {
     const navigate = useNavigate();
@@ -79,25 +80,38 @@ function Airports() {
     } else if (error) {
         renderedAirport = <div className="text-center"><h3>Error</h3></div>;
     } else if (airportData) {
-        renderedAirport = <AirportsList airports={airportData} goToPage={onGoToPage}/>;
+        renderedAirport = <AirportsList airports={airportData} goToPage={onGoToPage} />;
     } else {
         renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
     }
 
     return (
-        <CustomProvider theme={darkMode ? "dark" : "light"}>
-            <div>
-                <HeroSection
-                    backgroundImage={backgroundImage}
-                    message={message}
-                    placedHoldMessage={placeHolderMessage}
-                    onSubmit={handleOnSubmit}
+        <>
+            <Helmet>
+                <title>Airports</title>
+                <meta
+                    name="description"
+                    content="Search and explore airports worldwide by city, province, or airport name. Quickly find detailed information about your desired airport, including location, weather, and more."
                 />
-                {renderedAirport}
-            </div>
-        </CustomProvider>
+                <meta
+                    name="keyword"
+                    content="Airport search, Find airports by city, Find airports by province, Airport information, Airport database, Global airports, airport weather, airport METAR, airport ATIS, flight planning"
+                />
+                <link rel="canonical" href="https://airportweather.org/airport" />
+            </Helmet>
+            <CustomProvider theme={darkMode ? "dark" : "light"}>
+                <div>
+                    <HeroSection
+                        backgroundImage={backgroundImage}
+                        message={message}
+                        placedHoldMessage={placeHolderMessage}
+                        onSubmit={handleOnSubmit}
+                    />
+                    {renderedAirport}
+                </div>
+            </CustomProvider>
+        </>
     );
 }
 
 export default Airports;
- 

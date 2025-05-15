@@ -148,7 +148,7 @@ interface VatsimFlight {
     flight_plan: VatsimFlightPlan
 }
 
-interface TrackObj {
+export interface TrackObj {
     latitude: number,
     longitude: number,
     altitude: number,
@@ -245,6 +245,25 @@ interface DbAirport {
     station: DbAirportStation,
     transitionAltitude: number,
     visited: number
+}
+
+interface PopularVatsimAirport {
+    ICAO: string;
+    iata: string;
+    elevation: number;
+    transitionAltitude: number;
+    runways: Array<Runway>;
+    station: DbAirportStation;
+    visited: number;
+    arrivalNumber: number;
+    departureNumber: number;
+    controller: {
+        DEL?: boolean;
+        GND?: boolean;
+        TWR?: boolean;
+        APP?: boolean;
+        ATIS?: boolean;
+    };
 }
 
 interface LocalDbAirport {
@@ -421,7 +440,8 @@ interface VatsimMatchedFirBoundariesGeoJson {
     features: Array<VatsimGeoJsonFeature>
 }
 
-interface Service {
+
+export interface Service {
     airport: { name: string, icao: string },
     callsign: string,
     cid: string,
@@ -473,6 +493,8 @@ interface VatsimMapVisibleState {
     displayTelemetry: boolean;
     liveTrafficAvailable: boolean;
     searchBoxVisible: boolean;
+    featuredAirportsVisible: boolean;
+    mapProjection: "globe" | "mercator";
     mapStyles: MapStyles;
 }
 
@@ -552,6 +574,7 @@ export type {
     DbAirport,
     LocalDbAirport,
     DetailAirportResponse,
+    PopularVatsimAirport,
     VatsimControllers,
     Controller,
     VatsimGeoJsonFeature,
@@ -565,5 +588,6 @@ export type {
     GroupedFlight,
     MergedFirMatching,
     MergedFssMatching,
-    VatsimTraconMapping
+    VatsimTraconMapping,
+    Atis
 };

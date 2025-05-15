@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-import React from "react";
 import {
     MapContainer, Marker, Popup, TileLayer,
 } from "react-leaflet";
@@ -60,4 +59,3 @@ function AirportMap({
 }
 
 export default AirportMap;
- 

@@ -1,4 +1,3 @@
-import React from "react";
 import { Modal, Button } from "rsuite";
 import SubRowAsync from "./SubRowAsync";
 
@@ -32,7 +31,7 @@ const ExtremeWeatherTableModal = ({
                     <Modal.Title>{renderModalTitle()}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {rowData && <SubRowAsync row={rowData}/>}
+                    {rowData && <SubRowAsync row={rowData} />}
                     {/* <Placeholder.Paragraph/> */}
                 </Modal.Body>
                 <Modal.Footer>

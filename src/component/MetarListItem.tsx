@@ -1,11 +1,10 @@
-import React from "react";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import ExpandablePanel from "./ExpandablePanel";
 import {
     BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
 } from "../util/selection_names";
- 
+
 function MetarListItem({ metar }) {
     const { weather } = useSelector((state: RootState) => state.extremeWeather.userSelection);
 

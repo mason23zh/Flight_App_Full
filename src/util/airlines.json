@@ -60718,5 +60718,26 @@
         "callsign": "West lake",
         "country": "China",
         "active": "Y"
+    },
+    {
+        "id": "19872",
+        "name": "Canadian Pacific Air Lines",
+        "alias": "",
+        "iata": "CP",
+        "icao": "CPC",
+        "callsign": "EMPRESS",
+        "country": "Canada",
+        "active": "Y"
+    },
+    {
+        "id": "19873",
+        "name": "🦙 Alpaca Airway 🦙",
+        "alias": "",
+        "iata": "",
+        "icao": "VCP",
+        "callsign": "Alpaca",
+        "country": "United Kingdom",
+        "active": "Y"
     }
 ]
+

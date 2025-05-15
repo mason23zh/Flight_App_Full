@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { InputPicker } from "rsuite";
 import { useDispatch } from "react-redux";
 import { COUNTRY_CODE } from "../util/country_code";
@@ -65,7 +65,7 @@ function ExtremeWeatherHeader() {
     const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-sm ExWeatherHeadMd:text-lg shadow-md";
 
     const scopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-amber-400 rounded " +
-            "text-gray-600 hover:bg-green-600 hover:text-white duration-100";
+        "text-gray-600 hover:bg-green-600 hover:text-white duration-100";
     const activeScopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-green-600 text-white rounded shadow-md";
 
     const handleWeatherButtonClick = (arg) => {
