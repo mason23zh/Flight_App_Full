@@ -15,24 +15,22 @@ function Weather() {
     const message = "Current weather";
     const placeHolderMessage = "ICAO, name or city...";
     const [userInput, setUserInput] = useState("");
-    const [skipRender, setSkipRender] = useState(true);
     const [weatherData, setWeatherData] = useState();
 
-    let renderedWeather;
+    let renderedWeather: JSX.Element;
 
     const {
         data,
         error,
         isFetching,
     } = useFetchMetarByGenericInputQuery({ data: userInput }, {
-        skip: !userInput,
+        skip: !userInput || userInput.trim() === "",
     });
 
     // store data to localStorage to save the previous search results
     useEffect(() => {
         if (data) {
             setWeatherData(data);
-            // localStorage.setItem("weatherListData", JSON.stringify(data));
         }
     }, [data]);
 
@@ -40,9 +38,8 @@ function Weather() {
         localStorage.setItem("weatherListData", JSON.stringify(weatherData));
     }
 
-    const handleFormSubmit = (input) => {
+    const handleFormSubmit = (input: string) => {
         setUserInput(input.trim());
-        setSkipRender(false);
     };
 
     if (error) {

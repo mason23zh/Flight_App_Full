@@ -201,7 +201,7 @@ function ChangeLog() {
                         - Added color gradient for flight path. <br />
                         - Update the aircraft sprite image and mapping json file. <br />
                         - Fixed the tooltip re-appear after browser window out-of focus and re-focus. <br />
-                        - Fixed the "move to airport" button not working in airport detail panel (Map page). <br />
+                        - Fixed the 'move to airport' button not working in airport detail panel (Map page). <br />
                         - Fixed the Search Results List in map page not scaled correct in 4k monitor <br />
                         - Fixed mouse cursor style issues in Map compoent. <br />
                         - Improve scrollbar style. <br />

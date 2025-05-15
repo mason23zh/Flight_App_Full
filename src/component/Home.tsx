@@ -40,9 +40,9 @@ function Home() {
         ? "flex p-5 text-center justify-center bg-gray-400"
         : "flex p-5 text-center justify-center bg-gray-200";
 
-    let renderedAirport;
-    let renderVatsimAirports;
-    let renderVatsimEvents;
+    let renderedAirport: JSX.Element;
+    let renderVatsimAirports: JSX.Element;
+    let renderVatsimEvents: JSX.Element;
     if (data) {
         renderedAirport = <HomeAirportList airports={data} />;
     } else if (isFetching) {
