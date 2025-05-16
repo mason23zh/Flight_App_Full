@@ -78,10 +78,9 @@ function Home() {
     return (
         <>
             <Helmet>
-                <title>Airport Weather</title>
-                <meta
-                    name="description"
-                    content="Discover comprehensive airport information, real-time Vatsim traffic, and extreme weather conditions worldwide with our powerful aviation tool. Designed for Vatsim pilots and virtual aviation enthusiasts, our site provides accurate airport weather and METAR decoding, detailed airport data, and live Vatsim traffic and controller positions on an interactive map. Stay informed with our Extreme Weather section, highlighting the most challenging weather conditions for flight operations globally. Elevate your virtual flying experience with up-to-date information and seamless navigation."
+                <title>Airport Weather & VATSIM Map | METARs, Airports, Extreme WX</title>
+                <meta name="description"
+                    content="Get real-time METARs, airport info, VATSIM live map, and global extreme weather. A complete toolkit for virtual pilots and aviation enthusiasts."
                 />
                 <meta
                     name="keyword"
