@@ -79,8 +79,10 @@ function Home() {
         <>
             <Helmet>
                 <title>Airport Weather & VATSIM Map | METARs, Airports, Extreme WX</title>
-                <meta name="description"
-                    content="Get real-time METARs, airport info, VATSIM live map, and global extreme weather. A complete toolkit for virtual pilots and aviation enthusiasts."
+
+                <meta
+                    name="description"
+                    content="Track live VATSIM traffic and controllers on an interactive map. Explore global METARs, airport data, VATSIM events, and extreme weather."
                 />
                 <meta
                     name="keyword"

@@ -90,11 +90,11 @@ function HomeHeroSection({
                         className=""
                     >
                         <div className="flex flex-col items-center gap-5">
-                            <h2 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">Get
+                            <h1 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">Get
                                 METARs,
                                 Airports and
                                 More
-                            </h2>
+                            </h1>
                             <div className="self-stretch ml-5 mr-5">
                                 <InputAndSearch
                                     placeholder="ICAO, IATA, name..."
