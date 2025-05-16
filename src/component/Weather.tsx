@@ -63,10 +63,6 @@ function Weather() {
                     name="description"
                     content="Search real-time airport weather by ICAO, name, or city. View raw and decoded METARs for accurate flight planning and virtual aviation."
                 />
-                <meta
-                    name="keywords"
-                    content="airport weather, METAR search, ICAO weather, decoded METAR, real-time aviation weather, flight planning, global airport weather"
-                />
                 <link rel="canonical" href="https://airportweather.org/weather" />
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>

@@ -93,10 +93,6 @@ function Airports() {
                     name="description"
                     content="Search airports by name, city, or ICAO code. Get detailed airport info, METARs, ATIS, and weather for global flight planning."
                 />
-                <meta
-                    name="keywords"
-                    content="airport search, ICAO lookup, find airports by city, airport weather, METAR, ATIS, airport information, flight planning, global airports"
-                />
                 <link rel="canonical" href="https://airportweather.org/airport" />
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>

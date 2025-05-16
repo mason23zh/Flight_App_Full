@@ -84,10 +84,6 @@ function Home() {
                     name="description"
                     content="Track live VATSIM traffic and controllers on an interactive map. Explore global METARs, airport data, VATSIM events, and extreme weather."
                 />
-                <meta
-                    name="keyword"
-                    content="Airport weather, airport METAR, METAR decoded, VATSIM events, VATSIM map, VATSIM live traffic, extreme weather, extreme weather airport, bad weather airport,ATIS"
-                />
                 <link rel="canonical" href="https://airportweather.org" />
             </Helmet>
             <div className="flex flex-col flex-grow mr-0 ml-0">

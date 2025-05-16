@@ -44,15 +44,12 @@ function ExtremeWeather() {
     return (
         <>
             <Helmet>
-                <title>Extreme Weather</title>
+                <title>Extreme Airport Weather | High Winds, Low Visibility & More</title>
                 <meta
                     name="description"
-                    content="Discover extreme weather conditions at airports worldwide with our advanced sorting tools. Track global wind speeds, visibility, temperature extremes, and more, all sourced from the Navigraph database. Perfect for aviation enthusiasts and professionals, this feature lets you identify challenging weather conditions at a glance."
+                    content="Browse airport METARs with extreme and challenging weather. Sort by wind, gusts, viusibility, and more — ideal for flight simmers practicing in harsh conditions."
                 />
-                <meta
-                    name="keyword"
-                    content="Extreme weather, airport weather, global wind speeds, global temperature extremes, high winds airports, low visibility airports, weather sorting, aviation weather"
-                />
+                <link rel="canonical" href="https://airportweather.org/extreme-weather" />
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className={darkMode ? "bg-gray-400 flex-grow flex flex-col" : "bg-gray-200 flex flex-grow flex-col"}>
