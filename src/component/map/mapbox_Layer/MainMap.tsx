@@ -190,14 +190,9 @@ const MainMap = () => {
     return (
         <>
             <Helmet>
-                <title>VATSIM Map</title>
-                <meta
+                <title>VATSIM Map</title> <meta
                     name="description"
-                    content="Explore live VATSIM traffic with our interactive map. Track flights, view controllers, and stay updated on real-time air traffic."
-                />
-                <meta
-                    name="keyword"
-                    content="VATSIM map, live air traffic, VATSIM controllers, VATSIM flights, live flight tracking"
+                    content="Track real-time VATSIM traffic and ATC coverage on a 2D or globe map. View FIRs, TRACONs, controllers, and aircraft with live positions and flight details."
                 />
                 <link rel="canonical" href="https://airportweather.org/map" />
             </Helmet>

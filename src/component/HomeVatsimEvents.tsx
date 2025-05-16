@@ -5,7 +5,7 @@ function HomeVatsimEvents({ vatsimEvents }) {
         events,
         results
     } = vatsimEvents;
-    let renderEvents;
+    let renderEvents: JSX.Element;
     if (events.length === 0 || results === 0) {
         renderEvents = (
             <div className="text-lg text-center">
