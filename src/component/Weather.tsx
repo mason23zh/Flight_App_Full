@@ -58,14 +58,10 @@ function Weather() {
     return (
         <>
             <Helmet>
-                <title>Weather</title>
+                <title>Airport Weather Search | Real-Time METAR</title>
                 <meta
                     name="description"
-                    content="Search and explore real-time airport weather by ICAO code, airport name, city, or other criteria. View detailed METAR reports, including decoded METAR for easy interpretation. Quickly access airport-specific weather updates for accurate and reliable virtual aviation planning"
-                />
-                <meta
-                    name="keyword"
-                    content="Airport weather search, ICAO weather lookup, METAR reports, deocded METAR, real-time aviation weather, airport weather by city, airport weather by name, flight weather updates, global airport weather"
+                    content="Search real-time airport weather by ICAO, name, or city. View raw and decoded METARs for accurate flight planning and virtual aviation."
                 />
                 <link rel="canonical" href="https://airportweather.org/weather" />
             </Helmet>
