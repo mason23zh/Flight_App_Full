@@ -31,9 +31,9 @@ function HeroSection({
                 top-[50%] w-[80%] sm:w-[60%] md:w-[50%] h-fit"
             >
                 <div className="flex flex-col items-center justify-center gap-3">
-                    <h2 className="w-auto text-center text-white text-2xl sm:text-3xl md:text-4xl">
+                    <h1 className="w-auto text-center text-white text-2xl sm:text-3xl md:text-4xl">
                         {message}
-                    </h2>
+                    </h1>
                     <div className="self-stretch ml-5 mr-5">
                         <InputAndSearch placeholder={placedHoldMessage} onSubmit={handleFormSubmit} />
                     </div>

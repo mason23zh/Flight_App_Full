@@ -19,7 +19,7 @@ function Airports() {
     const [skipRender, setSkipRender] = useState(true);
     const [page, setPage] = useState(1);
     const [airportData, setAirportData] = useState();
-    const message = "Airport information";
+    const message = " Airport information";
     const placeHolderMessage = "ICAO, IATA, Name, City ... ";
 
     // take input results from the Navbar and make the search
@@ -64,17 +64,17 @@ function Airports() {
         }
     }, [data, navigate]);
 
-    const handleOnSubmit = (input) => {
+    const handleOnSubmit = (input: string) => {
         setUserInput(input);
         setSkipRender(false);
         setPage(1);
     };
 
-    const onGoToPage = (inputPage) => {
+    const onGoToPage = (inputPage: number) => {
         setPage(inputPage);
     };
 
-    let renderedAirport;
+    let renderedAirport: JSX.Element;
     if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
@@ -88,14 +88,14 @@ function Airports() {
     return (
         <>
             <Helmet>
-                <title>Airports</title>
+                <title>Airport Search | Find Global Airports, METARs & Weather</title>
                 <meta
                     name="description"
-                    content="Search and explore airports worldwide by city, province, or airport name. Quickly find detailed information about your desired airport, including location, weather, and more."
+                    content="Search airports by name, city, or ICAO code. Get detailed airport info, METARs, ATIS, and weather for global flight planning."
                 />
                 <meta
-                    name="keyword"
-                    content="Airport search, Find airports by city, Find airports by province, Airport information, Airport database, Global airports, airport weather, airport METAR, airport ATIS, flight planning"
+                    name="keywords"
+                    content="airport search, ICAO lookup, find airports by city, airport weather, METAR, ATIS, airport information, flight planning, global airports"
                 />
                 <link rel="canonical" href="https://airportweather.org/airport" />
             </Helmet>
