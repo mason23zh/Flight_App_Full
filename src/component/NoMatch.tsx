@@ -10,10 +10,12 @@ function NoMatch() {
             <div className="h-screen">
                 <div className="flex flex-col items-center gap-5">
                     <div className="text-md text-center md:text-3xl">404 Not Found</div>
-                    <div className="text-sm text-center md:text-lg">Looks like you are lost, wanna solve some
-                        puzzles?
+                    <div className="text-sm text-center md:text-lg">
+                        Looks like you are lost, wanna solve some puzzles?
                     </div>
-                    <div className="text-sm text-center md:text-md">Click image below to start finding Orion!</div>
+                    <div className="text-sm text-center md:text-md">
+                        Click image below to start finding Orion!
+                    </div>
                     <Link to="/puzzles">
                         <div className="h-[480px] w-[320px] md:h-[600px] md:w-[400px]">
                             <img src={notFoundImg} alt="Orion Not Found" />

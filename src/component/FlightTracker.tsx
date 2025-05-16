@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { LiveFlightData } from "../types";
 
-
 const FlightTracker = () => {
     const [flightData, setFlightData] = useState<LiveFlightData>({
         latitude: null,

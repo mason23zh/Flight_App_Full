@@ -1,22 +1,13 @@
 import { Modal, Button } from "rsuite";
 import SubRowAsync from "./SubRowAsync";
 
-const ExtremeWeatherTableModal = ({
-    open,
-    onClose,
-    rowData
-}) => {
-
+const ExtremeWeatherTableModal = ({ open, onClose, rowData }) => {
     const renderModalTitle = () => {
         if (rowData) {
             return (
                 <div className="flex flex-col gap-2 p-1 italic text-sm sm:text-lg">
-                    <div>
-                        {rowData.icao}
-                    </div>
-                    <div>
-                        {rowData.name}
-                    </div>
+                    <div>{rowData.icao}</div>
+                    <div>{rowData.name}</div>
                 </div>
             );
         } else {

@@ -23,9 +23,9 @@ root.render(
                 }}
             >
                 <BrowserRouter>
-                    <App/>
+                    <App />
                 </BrowserRouter>
             </PersistGate>
         </Provider>
-    </ThemeProvider>,
-); 
+    </ThemeProvider>
+);

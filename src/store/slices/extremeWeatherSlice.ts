@@ -2,11 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { GLOBAL, WIND_SPEED } from "../../util/selection_names";
 
 interface UserSelection {
-    weather: string
-    scope: string,
-    code: object
+    weather: string;
+    scope: string;
+    code: object;
 }
-
 
 const extremeWeatherSlice = createSlice({
     name: "extremeWeather",

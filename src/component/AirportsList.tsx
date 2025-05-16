@@ -3,10 +3,7 @@ import { useState } from "react";
 import { Pagination } from "rsuite";
 import AirportListInfoTab from "./AirportListInfoTab";
 
-function AirportsList({
-    airports,
-    goToPage
-}) {
+function AirportsList({ airports, goToPage }) {
     type LayoutType = "total" | "-" | "pager" | "|" | "limit" | "skip";
 
     const [layout] = useState<LayoutType[]>(["total", "-", "|", "pager", "skip"]);
@@ -46,7 +43,9 @@ function AirportsList({
                         maxButtons={5}
                         onChangePage={handleGoToPage}
                     />
-                ) : <></>}
+                ) : (
+                    <></>
+                )}
             </div>
 
             <div className="block md:hidden">
@@ -65,7 +64,9 @@ function AirportsList({
                         maxButtons={5}
                         onChangePage={handleGoToPage}
                     />
-                ) : <></>}
+                ) : (
+                    <></>
+                )}
             </div>
         </>
     );
@@ -75,9 +76,7 @@ function AirportsList({
             <div className="grid grid-cols-1 gap-5 auto-rows-fr p-2 w-[75%] mt-3 mb-3">
                 {renderedAirports}
             </div>
-            <div className="ml-3 mr-3">
-                {renderPagination}
-            </div>
+            <div className="ml-3 mr-3">{renderPagination}</div>
         </div>
     );
 }

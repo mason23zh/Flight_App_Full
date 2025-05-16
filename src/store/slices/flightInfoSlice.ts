@@ -5,7 +5,7 @@ interface FlightInfoSlice {
 }
 
 const initialState: FlightInfoSlice = {
-    tracking: false
+    tracking: false,
 };
 
 const flightInfoSlice = createSlice({
@@ -14,8 +14,8 @@ const flightInfoSlice = createSlice({
     reducers: {
         setTrafficTracking(state, action: PayloadAction<boolean>) {
             state.tracking = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const { setTrafficTracking } = flightInfoSlice.actions;

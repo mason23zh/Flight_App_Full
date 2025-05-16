@@ -1,7 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import {
+    persistReducer,
+    persistStore,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from "redux-persist";
 import { airportsApi } from "./apis/airportsApi";
 import { vatsimDataApi } from "./apis/vatsimDataApi";
 import { extremeWeatherApi } from "./apis/extremeWeatherApi";
@@ -12,14 +21,18 @@ import { vatsimApi } from "./apis/vatsimApi";
 import { rainviewerApi } from "./apis/rainviewerApi";
 import { changeUserSelection, extremeWeatherReducer } from "./slices/extremeWeatherSlice";
 import { changeUserSelectionVatsimEvent, vatsimEventReducer } from "./slices/vatsimEventSlice";
-import { setMapSearchSelectedTraffic, mapSearchTrafficReducer } from "./slices/mapSearchTrafficSlice";
+import {
+    setMapSearchSelectedTraffic,
+    mapSearchTrafficReducer,
+} from "./slices/mapSearchTrafficSlice";
 import {
     onMouseHoverFirLabel,
     onMouseLeaveFirLabel,
     onMouseHoverTraconLabel,
     onMouseLeaveTraconLabel,
     onMouseHoverControllerLabel,
-    onMouseLeaveControllerLabel, vatsimMapEventReducer
+    onMouseLeaveControllerLabel,
+    vatsimMapEventReducer,
 } from "./slices/vatsimMapMouseEventSlice";
 import {
     toggleControllerLayer,
@@ -46,7 +59,7 @@ import {
     toggleFeaturedAirports,
     toggleSearchBox,
     setMapProjection,
-    resetMap
+    resetMap,
 } from "./slices/vatsimMapVisibleSlice";
 
 import {
@@ -54,16 +67,13 @@ import {
     removeMessage,
     removeMessageByContent,
     removeMessageByLocation,
-    vatsimMapErrorReducer
+    vatsimMapErrorReducer,
 } from "./slices/vatsimMapErrorSlice";
 import {
     rehydrationCompleteReducer,
-    setRehydrationComplete
+    setRehydrationComplete,
 } from "./slices/rehydrationCompleteSlice";
-import {
-    setSelectedTraffic,
-    vatsimMapTrafficReducer
-} from "./slices/vatsimMapTrafficSlice";
+import { setSelectedTraffic, vatsimMapTrafficReducer } from "./slices/vatsimMapTrafficSlice";
 import {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
@@ -72,23 +82,16 @@ import {
     setAirportTracking,
 } from "./slices/mapSearchAirportSlice";
 
-import {
-    setTrafficTracking,
-    flightInfoReducer
-} from "./slices/flightInfoSlice";
+import { setTrafficTracking, flightInfoReducer } from "./slices/flightInfoSlice";
 
-import {
-    setSearchInput,
-    setTabSelection,
-    mapSearchBoxReducer
-} from "./slices/mapSearchBoxSlice";
+import { setSearchInput, setTabSelection, mapSearchBoxReducer } from "./slices/mapSearchBoxSlice";
 
 import {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
     mapSearchAircraftReducer,
     setFilterAircraftOnMap_aircraft,
-    setSelectedAircraftCategory
+    setSelectedAircraftCategory,
 } from "./slices/mapSearchAircraftSlice";
 
 import {
@@ -96,19 +99,16 @@ import {
     openTrafficDetail,
     closeTrafficDetail,
     closeSearchResults,
-    mapDisplayPanelReducer
+    mapDisplayPanelReducer,
 } from "./slices/mapDisplayPanelSlice";
 
-import {
-    setSelectedAirportICAO,
-    airportSelectionReducer
-} from "./slices/airportSelectionSlice";
+import { setSelectedAirportICAO, airportSelectionReducer } from "./slices/airportSelectionSlice";
 
 import {
     setMatchedFirsError,
     setMatchedFirs,
     setHoveredFir,
-    matchedFirsReducer
+    matchedFirsReducer,
 } from "./slices/matchedFirSlice";
 
 import {
@@ -118,13 +118,10 @@ import {
     setHoveredTracon,
     setMatchedTraconError,
     setMatchedTraconLoading,
-    matchedTraconsReducer
+    matchedTraconsReducer,
 } from "./slices/matchedTraconSlice";
 
-import {
-    setHoveredController,
-    matchedControllerReducer
-} from "./slices/matchedControllerSlice";
+import { setHoveredController, matchedControllerReducer } from "./slices/matchedControllerSlice";
 
 import { setHoveredTraffic, mapLayerHoverReducer } from "./slices/mapLayerHoverSlice";
 
@@ -172,19 +169,20 @@ export const store = configureStore({
         [vatsimDataApi.reducerPath]: vatsimDataApi.reducer,
         [rainviewerApi.reducerPath]: rainviewerApi.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        }
-    })
-        .concat(airportsApi.middleware)
-        .concat(extremeWeatherApi.middleware)
-        .concat(metarApi.middleware)
-        .concat(weatherApi.middleware)
-        .concat(tafApi.middleware)
-        .concat(vatsimApi.middleware)
-        .concat(vatsimDataApi.middleware)
-        .concat(rainviewerApi.middleware)
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        })
+            .concat(airportsApi.middleware)
+            .concat(extremeWeatherApi.middleware)
+            .concat(metarApi.middleware)
+            .concat(weatherApi.middleware)
+            .concat(tafApi.middleware)
+            .concat(vatsimApi.middleware)
+            .concat(vatsimDataApi.middleware)
+            .concat(rainviewerApi.middleware),
 });
 
 setupListeners(store.dispatch);
@@ -207,13 +205,13 @@ export {
     useFetchVatsimControllersDataQuery,
     useFetchVatsimPilotsDataQuery,
     useFetchTrafficTrackDataQuery,
-    useFetchVatsimTrafficByCallsignQuery
+    useFetchVatsimTrafficByCallsignQuery,
 } from "./apis/vatsimApi";
 export {
     useFetchVatsimFirBoundariesQuery,
     useFetchVatsimFirQuery,
     useFetchVatsimFssQuery,
-    useFetchVatsimTraconBoundariesQuery
+    useFetchVatsimTraconBoundariesQuery,
 } from "./apis/vatsimDataApi";
 export { useFetchRainviewerTimeStampsQuery } from "./apis/rainviewerApi";
 export { changeUserSelection, changeUserSelectionVatsimEvent };
@@ -223,7 +221,7 @@ export {
     onMouseHoverTraconLabel,
     onMouseLeaveTraconLabel,
     onMouseHoverControllerLabel,
-    onMouseLeaveControllerLabel
+    onMouseLeaveControllerLabel,
 };
 export {
     toggleTraconLabel,
@@ -249,19 +247,12 @@ export {
     resetMap,
     setMapProjection,
     toggleFeaturedAirports,
-    toggleSearchBox
+    toggleSearchBox,
 };
 
-export {
-    addMessage,
-    removeMessage,
-    removeMessageByContent,
-    removeMessageByLocation,
-};
+export { addMessage, removeMessage, removeMessageByContent, removeMessageByLocation };
 
-export {
-    setRehydrationComplete
-};
+export { setRehydrationComplete };
 
 export { setSelectedTraffic };
 
@@ -271,7 +262,7 @@ export {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
     setFilterAircraftOnMap_airport,
-    setAirportTracking
+    setAirportTracking,
 };
 
 export { setTrafficTracking };
@@ -282,15 +273,10 @@ export {
     setMapSearchSelectedAircraft,
     setAircraftListDisplay,
     setFilterAircraftOnMap_aircraft,
-    setSelectedAircraftCategory
+    setSelectedAircraftCategory,
 };
 
-export {
-    openSearchResults,
-    openTrafficDetail,
-    closeTrafficDetail,
-    closeSearchResults
-};
+export { openSearchResults, openTrafficDetail, closeTrafficDetail, closeSearchResults };
 
 export {
     setMatchedTraconLoading,
@@ -298,27 +284,17 @@ export {
     setFallbackGeoJson,
     setHoveredTracon,
     setMatchedTracons,
-    setMatchedTraconError
+    setMatchedTraconError,
 };
 
-export {
-    setMatchedFirs,
-    setHoveredFir,
-    setMatchedFirsError
-};
+export { setMatchedFirs, setHoveredFir, setMatchedFirsError };
 
-export {
-    setHoveredController
-};
+export { setHoveredController };
 
-export {
-    setSelectedAirportICAO
-};
+export { setSelectedAirportICAO };
 
-export {
-    setHoveredTraffic
-};
+export { setHoveredTraffic };
 
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>  
+export type RootState = ReturnType<typeof store.getState>;

@@ -1,9 +1,11 @@
 import { LocalDbAirport } from "../../../../types";
 import { useDispatch } from "react-redux";
 import {
-    openSearchResults, setFilterAircraftOnMap_aircraft,
+    openSearchResults,
+    setFilterAircraftOnMap_aircraft,
     setFilterAircraftOnMap_airport,
-    setMapSearchSelectedAirport, setTrafficTracking
+    setMapSearchSelectedAirport,
+    setTrafficTracking,
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 import { useMap } from "react-map-gl";
@@ -12,13 +14,9 @@ interface Props {
     airport: LocalDbAirport;
 }
 
-
-const SearchBoxAirportElement = ({
-    airport,
-}: Props) => {
+const SearchBoxAirportElement = ({ airport }: Props) => {
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-
 
     const handleOnClick = () => {
         // dispatch selected airport data to airport arrival panel
@@ -39,8 +37,11 @@ const SearchBoxAirportElement = ({
             const map = mapRef?.getMap();
             if (map) {
                 map.flyTo({
-                    center: [Number(airport.coordinates.split(",")[0]), Number(airport.coordinates.split(",")[1])],
-                    zoom: 13
+                    center: [
+                        Number(airport.coordinates.split(",")[0]),
+                        Number(airport.coordinates.split(",")[1]),
+                    ],
+                    zoom: 13,
                 });
             }
         }
@@ -55,20 +56,10 @@ const SearchBoxAirportElement = ({
                        border-slate-400"
             >
                 <div className="flex items-center text-[16px]">
-                    <div>
-                        {airport.ident}
-                    </div>
-                    {
-                        airport.iata_code && (
-                            <div>
-                                &nbsp;/&nbsp;{airport.iata_code}
-                            </div>
-                        )
-                    }
+                    <div>{airport.ident}</div>
+                    {airport.iata_code && <div>&nbsp;/&nbsp;{airport.iata_code}</div>}
                 </div>
-                <div className="text-sm w-auto">
-                    {airport.name && <div>{airport.name}</div>}
-                </div>
+                <div className="text-sm w-auto">{airport.name && <div>{airport.name}</div>}</div>
             </div>
         </>
     );

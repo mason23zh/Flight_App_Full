@@ -17,10 +17,8 @@ const calculateArrivalTime = (etd: string, enroute: string) => {
     const arrivalMinutes = totalMinutes % 60;
 
     // Format the hours and minutes to always have two digits
-    const formattedHours = arrivalHours.toString()
-        .padStart(2, "0");
-    const formattedMinutes = arrivalMinutes.toString()
-        .padStart(2, "0");
+    const formattedHours = arrivalHours.toString().padStart(2, "0");
+    const formattedMinutes = arrivalMinutes.toString().padStart(2, "0");
 
     return `${formattedHours}${formattedMinutes}`;
 };

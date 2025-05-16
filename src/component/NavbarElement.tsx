@@ -43,9 +43,7 @@ function NavbarElement() {
                 onClick={toggleTheme}
                 className="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300 "
             >
-
                 {darkMode ? <IoSunnyOutline /> : <IoMoon />}
-
             </div>
         </div>
     );
@@ -59,16 +57,26 @@ function NavbarElement() {
                     </Link>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: "none" }} to="/">Home</Link>
+                    <Link style={{ textDecoration: "none" }} to="/">
+                        Home
+                    </Link>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: "none" }} to="/airport">Airport</Link>
+                    <Link style={{ textDecoration: "none" }} to="/airport">
+                        Airport
+                    </Link>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: "none" }} to="/weather">Weather</Link>
+                    <Link style={{ textDecoration: "none" }} to="/weather">
+                        Weather
+                    </Link>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: "none" }} to="/extreme-weather" className="text-red-400">
+                    <Link
+                        style={{ textDecoration: "none" }}
+                        to="/extreme-weather"
+                        className="text-red-400"
+                    >
                         Extreme Weather
                     </Link>
                 </li>
@@ -83,18 +91,15 @@ function NavbarElement() {
                     </Link>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: "none" }} to="/about">About</Link>
+                    <Link style={{ textDecoration: "none" }} to="/about">
+                        About
+                    </Link>
                 </li>
-                <div className="text-xl">
-                    {nightModeToggleSwitch}
-                </div>
+                <div className="text-xl">{nightModeToggleSwitch}</div>
             </ul>
 
             {location.pathname !== "/map" && (
-                <InputAndSearch
-                    onSubmit={handleSearchSubmit}
-                    placeholder="Search Something!"
-                />
+                <InputAndSearch onSubmit={handleSearchSubmit} placeholder="Search Something!" />
             )}
         </nav>
     );

@@ -4,22 +4,16 @@ import { Virtuoso } from "react-virtuoso";
 import Scroller from "../../../../../util/VirtuosoScroller";
 
 /*
-* This component will render list of traffics that displayed in the
-* AirportDepartureArrival Display component.
-* */
+ * This component will render list of traffics that displayed in the
+ * AirportDepartureArrival Display component.
+ * */
 
 interface Props {
     flights: VatsimFlight[];
     arrival: boolean;
 }
 
-const TrafficDetailList = ({
-    flights,
-    arrival,
-
-}: Props) => {
-
-
+const TrafficDetailList = ({ flights, arrival }: Props) => {
     if (!flights || flights.length === 0) {
         return <div className="p-2 text-center text-lg">No Traffic</div>;
     } else {
@@ -30,10 +24,7 @@ const TrafficDetailList = ({
                     style={{ height: "100%" }}
                     data={flights}
                     itemContent={(_, flight) => (
-                        <TrafficDetailElement
-                            flight={flight}
-                            isArrival={arrival}
-                        />
+                        <TrafficDetailElement flight={flight} isArrival={arrival} />
                     )}
                 />
             </div>

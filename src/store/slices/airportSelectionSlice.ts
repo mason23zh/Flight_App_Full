@@ -14,8 +14,8 @@ const airportSelectionSlice = createSlice({
     reducers: {
         setSelectedAirportICAO(state, action: PayloadAction<string | null>) {
             state.airportICAO = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const { setSelectedAirportICAO } = airportSelectionSlice.actions;

@@ -10,11 +10,11 @@ export const rainviewerApi = createApi({
             fetchRainviewerTimeStamps: build.query<Array<number>, void>({
                 query: () => ({
                     url: "",
-                    method: "GET"
-                })
-            })
+                    method: "GET",
+                }),
+            }),
         };
-    }
+    },
 });
 
 export const { useFetchRainviewerTimeStampsQuery } = rainviewerApi;

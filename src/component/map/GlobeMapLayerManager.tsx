@@ -19,7 +19,7 @@ interface Props {
     matchedFirs: MatchedFir[];
     errorMatchedFirs: boolean;
     matchedTracons: MatchedTracon[];
-    matchedFallbackTracons: FallbackTracon[],
+    matchedFallbackTracons: FallbackTracon[];
     isTraconLoading: boolean;
     isTraconError: boolean;
     controllerData: VatsimControllers;
@@ -32,11 +32,9 @@ const GlobeMapLayerManager = ({
     matchedFallbackTracons,
     isTraconLoading,
     isTraconError,
-    controllerData
+    controllerData,
 }: Props) => {
-    const {
-        mapProjection,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
     const { current: mapRef } = useMap();
 
     useGlobeLayerOrdering(mapRef.getMap());
@@ -45,7 +43,10 @@ const GlobeMapLayerManager = ({
         <>
             {mapProjection === "globe" && (
                 <>
-                    <GlobeFirIconLayer matchedFirs={matchedFirs} errorMatchedFirs={errorMatchedFirs} />
+                    <GlobeFirIconLayer
+                        matchedFirs={matchedFirs}
+                        errorMatchedFirs={errorMatchedFirs}
+                    />
                     <GlobeTraconIconLayer_Test
                         matchedTracons={matchedTracons}
                         matchedFallbackTracons={matchedFallbackTracons}
@@ -58,7 +59,6 @@ const GlobeMapLayerManager = ({
                 </>
             )}
         </>
-
     );
 };
 

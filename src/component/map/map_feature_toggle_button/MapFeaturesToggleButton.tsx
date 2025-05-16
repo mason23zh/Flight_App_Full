@@ -16,21 +16,23 @@ const MapFeaturesToggleButton = ({
     initialActive,
     tooltipMessage,
     isTouchScreen,
-    buttonId
+    buttonId,
 }: Props) => {
     const iconClass = "text-white text-xl";
-    const activeClass = isTouchScreen ?
-        "bg-blue-500 px-2 py-1 items-center rounded-lg" :
-        "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
-    const inActiveClass = isTouchScreen ?
-        "bg-gray-500 px-2 py-1 items-center rounded-lg" :
-        "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
+    const activeClass = isTouchScreen
+        ? "bg-blue-500 px-2 py-1 items-center rounded-lg"
+        : "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400";
+    const inActiveClass = isTouchScreen
+        ? "bg-gray-500 px-2 py-1 items-center rounded-lg"
+        : "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400";
     const [isActive, setIsActive] = useState(initialActive);
     const [showTooltip, setShowTooltip] = useState(false);
-    const [activeButtonClass, setActiveButtonClass] = useState(initialActive ? activeClass : inActiveClass);
+    const [activeButtonClass, setActiveButtonClass] = useState(
+        initialActive ? activeClass : inActiveClass
+    );
 
     // Copy React-Icon
-    const styledIcon = React.cloneElement(icon, { "className": iconClass });
+    const styledIcon = React.cloneElement(icon, { className: iconClass });
 
     useEffect(() => {
         if (initialActive) {
@@ -61,7 +63,7 @@ const MapFeaturesToggleButton = ({
             >
                 {styledIcon}
             </button>
-            {(!isTouchScreen) &&
+            {!isTouchScreen && (
                 <Tooltip
                     hidden={showTooltip}
                     anchorSelect={`#${buttonId}`}
@@ -71,12 +73,12 @@ const MapFeaturesToggleButton = ({
                         color: "rgb(255,255,255)",
                         fontSize: "13px",
                         padding: "5px",
-                        borderRadius: "5px"
+                        borderRadius: "5px",
                     }}
                 >
                     {tooltipMessage}
                 </Tooltip>
-            }
+            )}
         </>
     );
 };

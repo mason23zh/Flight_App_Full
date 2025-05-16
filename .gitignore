@@ -19,6 +19,7 @@ memlab.config.js
 .env.test.local
 .env.production.local
 nodesource_setup.sh
+/public/sitemap.xml
 
 .idea/
 .vscode/

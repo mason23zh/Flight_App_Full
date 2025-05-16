@@ -6,12 +6,10 @@ import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 import mapboxgl from "mapbox-gl";
 
 interface Props {
-    hoverFir: MatchedFir,
+    hoverFir: MatchedFir;
 }
 
-const FirLabelPopup = ({
-    hoverFir,
-}: Props) => {
+const FirLabelPopup = ({ hoverFir }: Props) => {
     if (!hoverFir) return null;
 
     let tempFirName: string;
@@ -41,22 +39,13 @@ const FirLabelPopup = ({
 
     // construct the controllers list
     const renderControllersData = hoverFir.controllers.map((c) => {
-        const {
-            hour,
-            minute
-        } = returnOnlineTime(c.logon_time);
+        const { hour, minute } = returnOnlineTime(c.logon_time);
         const key = `${c.name}-${c.logon_time}`;
         return (
             <div key={key} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                <div className={c.callsign.includes("FSS") ? callsignColor : ""}>
-                    {c.callsign}
-                </div>
-                <div className="">
-                    {c.name}
-                </div>
-                <div className={`font-bold ${freqThemeColor}`}>
-                    {c.frequency}
-                </div>
+                <div className={c.callsign.includes("FSS") ? callsignColor : ""}>{c.callsign}</div>
+                <div className="">{c.name}</div>
+                <div className={`font-bold ${freqThemeColor}`}>{c.frequency}</div>
                 <div className="">
                     {hour}:{minute}
                 </div>
@@ -76,20 +65,13 @@ const FirLabelPopup = ({
             closeButton={false}
             // anchor="bottom"
         >
-
             <div className={`w-full p-2 rounded-xl ${colorTheme}`}>
                 <div className="flex text-center gap-3 justify-self-start w-full">
-                    <div className="text-[17px] font-bold">
-                        {hoverFir.firInfo.icao}
-                    </div>
-                    <div className="text-[17px]">
-                        {tempFirName}
-                    </div>
+                    <div className="text-[17px] font-bold">{hoverFir.firInfo.icao}</div>
+                    <div className="text-[17px]">{tempFirName}</div>
                 </div>
 
-                <div className="w-full">
-                    {renderControllersData}
-                </div>
+                <div className="w-full">{renderControllersData}</div>
             </div>
         </Popup>
     );

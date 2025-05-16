@@ -9,7 +9,7 @@ export default {
             zIndex: {
                 "100": "100",
                 "200": "200",
-                "300": "300"
+                "300": "300",
             },
             colors: {
                 "arrival-green": "#09d654",
@@ -22,31 +22,32 @@ export default {
                 shimmer: {
                     "100%": { transform: "translateX(100%)" },
                 },
-                messageFadeOut: { //MapErrorMessageStack notification fade away effect
+                messageFadeOut: {
+                    //MapErrorMessageStack notification fade away effect
                     "0%": { opacity: 0.9 },
-                    "100%": { opacity: 0.3 }
+                    "100%": { opacity: 0.3 },
                 },
                 slideInFromLeft: {
                     "0%": {
                         opacity: 0,
-                        transform: "translateX(-100%)"
+                        transform: "translateX(-100%)",
                     },
                     "100%": {
                         opacity: 1,
-                        transform: "translateX(0)"
+                        transform: "translateX(0)",
                     },
                 },
                 fadeIn: {
                     "0%": { opacity: 0 },
-                    "100%": { opacity: 1 }
-                }
+                    "100%": { opacity: 1 },
+                },
             },
             animation: {
                 fade: "messageFadeOut 4s ease forwards",
                 shimmer: "shimmer 1.5s infinite",
                 bounce: "bounce 1s infinite",
                 slideInFromLeft: "slideInFromLeft 0.5s ease-out",
-                fadeIn: "fadeIn 0.2s ease-in"
+                fadeIn: "fadeIn 0.2s ease-in",
             },
             screens: {
                 airportAccordionExSm: "530px",
@@ -71,9 +72,5 @@ export default {
         },
     },
     darkMode: "class",
-    plugins: [
-        require("tailwind-scrollbar")
-    ],
+    plugins: [require("tailwind-scrollbar")],
 };
-
- 

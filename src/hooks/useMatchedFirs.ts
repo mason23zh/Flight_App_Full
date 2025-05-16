@@ -70,13 +70,10 @@ const fssCallsign = [
     "SAM-N",
     "SAM-E",
     "SAM-S",
-    "SAM-W"
+    "SAM-W",
 ];
 
-
-const useMatchedFirs = (
-    controllerInfo: VatsimControllers | null,
-): UseMatchedFirFeaturesReturn => {
+const useMatchedFirs = (controllerInfo: VatsimControllers | null): UseMatchedFirFeaturesReturn => {
     const [matchedFirs, setMatchedFirs] = useState<MatchedFir[]>([]);
     const [isError, setIsError] = useState<boolean>(false);
 
@@ -92,7 +89,12 @@ const useMatchedFirs = (
         return callsign;
     };
 
-    const addFirToMap = (uniqueId: string, fir: MergedFirMatching, controller: ControllerInfo, isInFss: boolean) => {
+    const addFirToMap = (
+        uniqueId: string,
+        fir: MergedFirMatching,
+        controller: ControllerInfo,
+        isInFss: boolean
+    ) => {
         if (firMap.has(uniqueId)) {
             // This means the fir already added
             const existingFir = firMap.get(uniqueId);
@@ -106,11 +108,10 @@ const useMatchedFirs = (
                 id: uniqueId,
                 controllers: [controller],
                 firInfo: fir,
-                isInFss: isInFss
+                isInFss: isInFss,
             });
         }
     };
-
 
     async function _findMatchingFss(controller: Fss) {
         try {
@@ -127,7 +128,7 @@ const useMatchedFirs = (
                     .equalsIgnoreCase(cleanedCallsign)
                     .first();
                 if (returnedFirList) {
-                    returnedFirList.firs.forEach(fir => {
+                    returnedFirList.firs.forEach((fir) => {
                         addFirToMap(fir.uniqueId, fir, newController, true);
                     });
                 }
@@ -142,7 +143,6 @@ const useMatchedFirs = (
             console.error(`Failed to match FSS for ${controller.callsign}: `, e);
         }
     }
-
 
     async function _findMatchingFir(controller: Fir) {
         try {
@@ -161,8 +161,10 @@ const useMatchedFirs = (
         }
     }
 
-
-    async function findMatchingFir(callsign: string, isFss: boolean): Promise<MergedFirMatching | null> {
+    async function findMatchingFir(
+        callsign: string,
+        isFss: boolean
+    ): Promise<MergedFirMatching | null> {
         // firMap.clear();
         const cleanedCallsign = cleanCallsign(callsign);
         const parts = cleanedCallsign.split("_");
@@ -170,8 +172,7 @@ const useMatchedFirs = (
         let lastValidMatch = null;
 
         for (let i = 1; i <= parts.length; i++) {
-            const partialCallsign = parts.slice(0, i)
-                .join("_");
+            const partialCallsign = parts.slice(0, i).join("_");
 
             const matchingFir = await db.fir
                 .where("callsignPrefix")
@@ -185,14 +186,18 @@ const useMatchedFirs = (
 
                 if (isFss) {
                     // Prefer FIRs with oceanic = 1 when isFss is true
-                    filteredFirs = matchingFir.filter(fir => fir.entries.some(entry => entry.oceanic === "1"));
+                    filteredFirs = matchingFir.filter((fir) =>
+                        fir.entries.some((entry) => entry.oceanic === "1")
+                    );
                     if (filteredFirs.length === 0) {
                         // Fallback to FIRs with oceanic = 0 if none are found with oceanic = 1
                         filteredFirs = matchingFir;
                     }
                 } else {
                     // Prefer FIRs with oceanic = 0 when isFss is false
-                    filteredFirs = matchingFir.filter(fir => fir.entries.some(entry => entry.oceanic === "0"));
+                    filteredFirs = matchingFir.filter((fir) =>
+                        fir.entries.some((entry) => entry.oceanic === "0")
+                    );
                     if (filteredFirs.length === 0) {
                         // Fallback to FIRs with oceanic = 1 if none are found with oceanic = 0
                         filteredFirs = matchingFir;
@@ -213,10 +218,10 @@ const useMatchedFirs = (
         const fetchMatchedFirs = async () => {
             try {
                 // Handle FIR controllers
-                await Promise.all(controllerInfo?.fir.map(fir => _findMatchingFir(fir)));
+                await Promise.all(controllerInfo?.fir.map((fir) => _findMatchingFir(fir)));
 
                 // Handle FSS controllers
-                await Promise.all(controllerInfo?.fss.map(fss => _findMatchingFss(fss)));
+                await Promise.all(controllerInfo?.fss.map((fss) => _findMatchingFss(fss)));
 
                 setMatchedFirs(Array.from(firMap.values()));
             } catch (error) {
@@ -229,7 +234,7 @@ const useMatchedFirs = (
     }, [controllerInfo]);
     return {
         matchedFirs,
-        isError
+        isError,
     };
 };
 

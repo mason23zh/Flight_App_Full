@@ -2,30 +2,17 @@ import { useFetchBasicAirportWithICAOQuery } from "../store";
 import ExpandableContentAirportInfo from "./ExpandableContentAirportInfo";
 
 function SubRowAsync({ row }) {
-    const {
-        data: airport,
-        error,
-        isFetching,
-    } = useFetchBasicAirportWithICAOQuery(
-        row.icao,
-    );
-
+    const { data: airport, error, isFetching } = useFetchBasicAirportWithICAOQuery(row.icao);
 
     if (airport) {
         const airportData = airport.data[0];
-        return (
-            <ExpandableContentAirportInfo row={row} airportData={airportData} />
-        );
+        return <ExpandableContentAirportInfo row={row} airportData={airportData} />;
     }
     if (isFetching) {
-        return (
-            <div>Loading...</div>
-        );
+        return <div>Loading...</div>;
     }
     if (error) {
-        return (
-            <div>Something went wrong</div>
-        );
+        return <div>Something went wrong</div>;
     }
 }
 

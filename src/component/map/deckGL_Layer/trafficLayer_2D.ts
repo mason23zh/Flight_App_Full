@@ -1,6 +1,6 @@
 /*
-* Using IconLayer to render all vatsim traffic with png format
-*/
+ * Using IconLayer to render all vatsim traffic with png format
+ */
 // import React from "react";
 import { IconLayer } from "@deck.gl/layers";
 import { VatsimFlight } from "../../../types";

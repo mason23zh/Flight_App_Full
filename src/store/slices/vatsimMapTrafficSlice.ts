@@ -43,9 +43,9 @@ const initialState: InitialState = {
             fuel_time: "",
             remarks: "",
             revision_id: 0,
-            route: ""
-        }
-    }
+            route: "",
+        },
+    },
 };
 
 const vatsimMapTrafficSlice = createSlice({
@@ -54,8 +54,8 @@ const vatsimMapTrafficSlice = createSlice({
     reducers: {
         setSelectedTraffic(state, action: SetSelectedTrafficAction) {
             state.selectedTraffic = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const { setSelectedTraffic } = vatsimMapTrafficSlice.actions;

@@ -12,7 +12,9 @@ import { Helmet } from "react-helmet-async";
 
 function VatsimEventsAll() {
     const dispatch = useDispatch();
-    const reduxEvent: Partial<Event> = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);
+    const reduxEvent: Partial<Event> = useSelector<RootState>(
+        (state) => state.vatsimEvent.userSelectionVatsimEvent
+    );
     const darkTheme = useTheme();
 
     let eventsList: JSX.Element;
@@ -52,9 +54,9 @@ function VatsimEventsAll() {
 
     const scrollBarStyle = darkTheme
         ? "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+          "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
         : "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+          "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     return (
         <>
@@ -62,11 +64,7 @@ function VatsimEventsAll() {
                 <title>VATSIM Events</title>
                 <meta
                     name="description"
-                    content="Explore a comprehensive list of VATSIM events, including detailed event information, schedules, and associated airports. Easily view events currently in progress and plan your virtual flights with precision. Stay connected with the VATSIM network through up-to-date event details and airport participation."
-                />
-                <meta
-                    name="keyword"
-                    content="VATSIM events, Virtual aviation events, Live VATSIM events, VATSIM event schedule, Ongoing VATSIM events, VATSIM events airports, VATSIM event details, VATSIM flight events"
+                    content="Browse live and upcoming VATSIM events with detailed airport coverage, schedules, and ATC info. Plan your virtual flights with real-time updates."
                 />
                 <link rel="canonical" href="https://airportweather.org/events" />
             </Helmet>

@@ -1,6 +1,7 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
+    "short_name": "Airport WX",
+    "name": "Airport Weather - METARs, VATSIM Map & Events",
+    "version":"0.6",
     "icons": [
         {
             "src": "favicon.ico",
@@ -8,17 +9,17 @@
             "type": "image/x-icon"
         },
         {
-            "src": "logo.png",
+            "src": "logo192.png",
             "type": "image/png",
-            "sizes": "1399x1398"
+            "sizes": "192x192"
         },
         {
-            "src": "logo.png",
+            "src": "logo512.png",
             "type": "image/png",
-            "sizes": "1399x1398"
+            "sizes": "512x512"
         }
     ],
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#ffffff"

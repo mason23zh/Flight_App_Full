@@ -11,23 +11,14 @@ interface Props {
 const AirportInfoExpandContentAirportInfo = ({
     airportData,
     airportError,
-    airportFetching
+    airportFetching,
 }: Props) => {
-
     if (airportError) {
-        return (
-            <div>
-                Unable to fetch airport data
-            </div>
-        );
+        return <div>Unable to fetch airport data</div>;
     }
 
     if (airportFetching) {
-        return (
-            <div>
-                Loading...
-            </div>
-        );
+        return <div>Loading...</div>;
     }
 
     const renderAirportInfo = (airportData: DetailAirportResponseQuery) => {
@@ -37,18 +28,12 @@ const AirportInfoExpandContentAirportInfo = ({
             return (
                 <div className="grid grid-cols-1 p-2 text-sm">
                     <div className="flex gap-1 p-1">
-                        <div>
-                            Name:
-                        </div>
-                        <div>
-                            {airport.station.name || "-"}
-                        </div>
+                        <div>Name:</div>
+                        <div>{airport.station.name || "-"}</div>
                     </div>
                     <div className="flex gap-1 p-1">
                         <div>Elevation:</div>
-                        <div>
-                            {airport.elevation}
-                        </div>
+                        <div>{airport.elevation}</div>
                     </div>
                     <div className="flex gap-1 p-1">
                         <div>Country:</div>
@@ -61,7 +46,9 @@ const AirportInfoExpandContentAirportInfo = ({
                     <div className="flex gap-1 p-1">
                         <div>Transition Altitude:</div>
                         <div>
-                            {airport?.transitionAltitude ? `${airport.transitionAltitude} feet` : "-"}
+                            {airport?.transitionAltitude
+                                ? `${airport.transitionAltitude} feet`
+                                : "-"}
                         </div>
                     </div>
                 </div>
@@ -69,13 +56,8 @@ const AirportInfoExpandContentAirportInfo = ({
         }
     };
 
-
     if (airportData) {
-        return (
-            <div>
-                {renderAirportInfo(airportData)}
-            </div>
-        );
+        return <div>{renderAirportInfo(airportData)}</div>;
     }
 };
 

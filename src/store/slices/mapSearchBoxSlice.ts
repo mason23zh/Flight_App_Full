@@ -7,7 +7,7 @@ interface MapSearchBoxState {
 
 const initialState: MapSearchBoxState = {
     searchInput: "",
-    tabSelection: "airports"
+    tabSelection: "airports",
 };
 
 const mapSearchBoxSlice = createSlice({
@@ -19,12 +19,9 @@ const mapSearchBoxSlice = createSlice({
         },
         setTabSelection(state, action: PayloadAction<"airports" | "flights" | "aircraft">) {
             state.tabSelection = action.payload;
-        }
-    }
+        },
+    },
 });
 
-export const {
-    setSearchInput,
-    setTabSelection
-} = mapSearchBoxSlice.actions;
+export const { setSearchInput, setTabSelection } = mapSearchBoxSlice.actions;
 export const mapSearchBoxReducer = mapSearchBoxSlice.reducer;

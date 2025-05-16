@@ -10,7 +10,7 @@ interface Viewport {
     bearing: number;
     width: number;
     height: number;
-    isDragging: boolean;//to track mouse dragging state
+    isDragging: boolean; //to track mouse dragging state
     mapRef: MapRef;
 }
 
@@ -26,14 +26,9 @@ export const useViewState = () => {
     return context;
 };
 
-
 export const ViewStateProvider: React.FC<{ value: Viewport; children: React.ReactNode }> = ({
     value,
-    children
+    children,
 }) => {
-    return (
-        <ViewStateContext.Provider value={value}>
-            {children}
-        </ViewStateContext.Provider>
-    );
+    return <ViewStateContext.Provider value={value}>{children}</ViewStateContext.Provider>;
 };

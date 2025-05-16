@@ -5,12 +5,15 @@ const switchMapLabels = (map: mapboxgl.Map, visibility: boolean) => {
     if (map) {
         // const map = mapRef.current.getMap();
         const layers = [
-            "continent-label", "country-label", "state-label",
-            "settlement-major-label", "settlement-minor-label",
-            "settlement-subdivision-label"
+            "continent-label",
+            "country-label",
+            "state-label",
+            "settlement-major-label",
+            "settlement-minor-label",
+            "settlement-subdivision-label",
         ];
 
-        layers.forEach(layer => {
+        layers.forEach((layer) => {
             try {
                 map.setLayoutProperty(layer, "visibility", flag);
             } catch (e) {

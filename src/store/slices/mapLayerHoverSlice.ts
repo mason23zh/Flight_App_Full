@@ -6,7 +6,7 @@ const mapLayerHoverSlice = createSlice({
         hoveredTraffic: null,
         hoveredController: null,
         hoveredFir: null,
-        hoveredTracon: null
+        hoveredTracon: null,
     },
     reducers: {
         setHoveredTraffic(state, action) {
@@ -26,8 +26,8 @@ const mapLayerHoverSlice = createSlice({
             state.hoveredController = null;
             state.hoveredTracon = null;
             state.hoveredFir = null;
-        }
-    }
+        },
+    },
 });
 
 export const {
@@ -35,6 +35,6 @@ export const {
     setHoveredController,
     setHoveredFir,
     setHoveredTracon,
-    clearHover
+    clearHover,
 } = mapLayerHoverSlice.actions;
 export const mapLayerHoverReducer = mapLayerHoverSlice.reducer;

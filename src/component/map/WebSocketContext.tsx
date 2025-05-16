@@ -26,7 +26,6 @@ interface WebSocketProviderProps {
 
 type ConnectionStatus = "connected" | "disconnected" | "connecting" | "failed";
 
-
 export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     const [flightData, setFlightData] = useState<LiveFlightData>({
         latitude: null,
@@ -89,13 +88,15 @@ export const WebSocketProvider: FC<WebSocketProviderProps> = ({ children }) => {
     }, []);
 
     return (
-        <WebSocketContext.Provider value={{
-            flightData,
-            liveTrafficAvailable,
-            openWebSocket,
-            closeWebSocket,
-            connectionStatus
-        }}>
+        <WebSocketContext.Provider
+            value={{
+                flightData,
+                liveTrafficAvailable,
+                openWebSocket,
+                closeWebSocket,
+                connectionStatus,
+            }}
+        >
             {children}
         </WebSocketContext.Provider>
     );

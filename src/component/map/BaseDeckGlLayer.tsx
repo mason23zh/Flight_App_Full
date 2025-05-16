@@ -4,7 +4,7 @@ import {
     removeMessageByLocation,
     RootState,
     setMapSearchSelectedAircraft,
-    useFetchVatsimPilotsDataQuery
+    useFetchVatsimPilotsDataQuery,
 } from "../../store";
 import MainDeckGlLayer from "./MainDeckGlLayer";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import { db } from "../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
     searchByAircraftType,
-    searchFlightsByAirports
+    searchFlightsByAirports,
 } from "./map_feature_toggle_button/search_box/mapSearchFunction";
 import { VatsimControllers } from "../../types";
 import { SerializedError } from "@reduxjs/toolkit";
@@ -27,31 +27,27 @@ interface BaseDeckGlLayerProps {
 const BaseDeckGlLayer = ({
     controllerData,
     controllerDataError,
-    controllerDataLoading
+    controllerDataLoading,
 }: BaseDeckGlLayerProps) => {
     const dispatch = useDispatch();
 
-    const {
-        trafficLayerVisible,
-        movingMap,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { trafficLayerVisible, movingMap } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
-    const {
-        filterAircraftOnMap: filterByAircraftType,
-        selectedAircraftCategory,
-    } = useSelector((state: RootState) => state.mapSearchAircraft);
+    const { filterAircraftOnMap: filterByAircraftType, selectedAircraftCategory } = useSelector(
+        (state: RootState) => state.mapSearchAircraft
+    );
 
-    const {
-        filterAircraftOnMap: filterByAirport,
-        selectedAirport,
-    } = useSelector((state: RootState) => state.mapSearchAirport);
+    const { filterAircraftOnMap: filterByAirport, selectedAirport } = useSelector(
+        (state: RootState) => state.mapSearchAirport
+    );
 
     const {
         data: vatsimPilots,
         error: vatsimPilotsError,
-        isLoading: vatsimPilotsLoading
+        isLoading: vatsimPilotsLoading,
     } = useFetchVatsimPilotsDataQuery(undefined, { pollingInterval: 25000 });
-
 
     // Import vatsim pilots into Dexie
     useEffect(() => {
@@ -76,44 +72,43 @@ const BaseDeckGlLayer = ({
         };
     }, [vatsimPilotsLoading, vatsimPilots, vatsimPilotsError]);
 
-
     useEffect(() => {
         if (vatsimPilotsError) {
-            dispatch(addMessage({
-                location: "BASE_TRAFFIC",
-                messageType: "ERROR",
-                content: "Error loading Vatsim pilots data."
-            }));
+            dispatch(
+                addMessage({
+                    location: "BASE_TRAFFIC",
+                    messageType: "ERROR",
+                    content: "Error loading Vatsim pilots data.",
+                })
+            );
         }
 
         if (vatsimPilotsLoading) {
-            dispatch(addMessage({
-                location: "BASE_TRAFFIC",
-                messageType: "LOADING",
-                content: "Loading Vatsim pilots data..."
-            }));
+            dispatch(
+                addMessage({
+                    location: "BASE_TRAFFIC",
+                    messageType: "LOADING",
+                    content: "Loading Vatsim pilots data...",
+                })
+            );
         }
 
         if (vatsimPilots && !vatsimPilotsLoading && !vatsimPilotsError) {
             dispatch(removeMessageByLocation({ location: "BASE_TRAFFIC" }));
         }
-
-    }, [vatsimPilotsLoading,
-        vatsimPilotsError,
-        vatsimPilots,
-        dispatch]);
+    }, [vatsimPilotsLoading, vatsimPilotsError, vatsimPilots, dispatch]);
 
     /*
-    * This useLiveQuery will control what traffic to display on the map,
-    * it will run different query based on the redux state.
-    * useLiveQuery is mandatory here because it will make sure filtered traffic on map to update
-    * */
+     * This useLiveQuery will control what traffic to display on the map,
+     * it will run different query based on the redux state.
+     * useLiveQuery is mandatory here because it will make sure filtered traffic on map to update
+     * */
     const filteredResults = useLiveQuery(
         async () => {
             if (filterByAircraftType && selectedAircraftCategory) {
                 const results = await searchByAircraftType(selectedAircraftCategory);
-                dispatch(setMapSearchSelectedAircraft(results.flatMap(result => result.flights)));
-                return results.flatMap(result => result.flights);
+                dispatch(setMapSearchSelectedAircraft(results.flatMap((result) => result.flights)));
+                return results.flatMap((result) => result.flights);
             } else if (filterByAirport && selectedAirport) {
                 return await searchFlightsByAirports(selectedAirport.ident);
             }
@@ -124,7 +119,7 @@ const BaseDeckGlLayer = ({
             selectedAircraftCategory,
             vatsimPilots,
             filterByAirport,
-            selectedAirport
+            selectedAirport,
         ],
         []
     );

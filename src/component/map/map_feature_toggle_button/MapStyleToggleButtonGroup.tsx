@@ -3,7 +3,7 @@ import { RootState, switchMapStyles } from "../../../store";
 
 //TODO: Remove the light map mode until map style is better.
 //
-type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
+type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
 
 const MapStyleToggleButtonGroup = () => {
     const dispatch = useDispatch();
@@ -21,7 +21,8 @@ const MapStyleToggleButtonGroup = () => {
             <div className="flex flex-col gap-1 rounded-md bg-gray-700 text-sm p-2 text-white">
                 <button
                     className={mapStyles === "DEFAULT" ? activeButtonStyle : inactiveButtonStyle}
-                    onClick={() => handleOnClick("DEFAULT")}>
+                    onClick={() => handleOnClick("DEFAULT")}
+                >
                     VFR
                 </button>
 
@@ -33,13 +34,15 @@ const MapStyleToggleButtonGroup = () => {
 
                 <button
                     className={mapStyles === "MONO_DARK" ? activeButtonStyle : inactiveButtonStyle}
-                    onClick={() => handleOnClick("MONO_DARK")}>
+                    onClick={() => handleOnClick("MONO_DARK")}
+                >
                     Dark
                 </button>
 
                 <button
                     className={mapStyles === "SATELLITE" ? activeButtonStyle : inactiveButtonStyle}
-                    onClick={() => handleOnClick("SATELLITE")}>
+                    onClick={() => handleOnClick("SATELLITE")}
+                >
                     Satellite
                 </button>
             </div>

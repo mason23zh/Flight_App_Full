@@ -1,17 +1,10 @@
 import HomeVatsimEventInfoTab from "./HomeVatsimEventInfoTab";
 
 function HomeVatsimEvents({ vatsimEvents }) {
-    const {
-        events,
-        results
-    } = vatsimEvents;
-    let renderEvents;
+    const { events, results } = vatsimEvents;
+    let renderEvents: JSX.Element;
     if (events.length === 0 || results === 0) {
-        renderEvents = (
-            <div className="text-lg text-center">
-                No In Progress Vatsim Events
-            </div>
-        );
+        renderEvents = <div className="text-lg text-center">No In Progress Vatsim Events</div>;
     } else {
         renderEvents = events.map((e, i) => (
             <div key={e.id}>

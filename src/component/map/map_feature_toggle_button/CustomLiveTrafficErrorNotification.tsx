@@ -13,11 +13,10 @@ interface Props {
 const CustomLiveTrafficErrorNotification = ({
     onAutoClose,
     onManualClose,
-    autoCloseTime
+    autoCloseTime,
 }: Props) => {
     const [timer, setTimer] = useState<Timer | null>(null);
     const oscLink = "https://github.com/mason23zh/Orion-Sim-Connector-OSC/releases/tag/Version-0.3";
-
 
     useEffect(() => {
         const newTimer = new Timer(() => onAutoClose(), autoCloseTime);
@@ -40,8 +39,8 @@ const CustomLiveTrafficErrorNotification = ({
         }
     };
 
-    const notificationClass = "fixed bottom-[20px] left-1/2 transform -translate-x-1/2 " +
-        "bg-purple-200 p-2 rounded";
+    const notificationClass =
+        "fixed bottom-[20px] left-1/2 transform -translate-x-1/2 " + "bg-purple-200 p-2 rounded";
 
     return (
         <div
@@ -50,9 +49,7 @@ const CustomLiveTrafficErrorNotification = ({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div
-                className="flex items-center justify-center gap-3 text-sm font-Rubik text-gray-900"
-            >
+            <div className="flex items-center justify-center gap-3 text-sm font-Rubik text-gray-900">
                 <div className="text-red-700">
                     <PiWarningCircle size={20} />
                 </div>
@@ -63,7 +60,8 @@ const CustomLiveTrafficErrorNotification = ({
                         href={oscLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline decoration-solid">
+                        className="underline decoration-solid"
+                    >
                         here
                     </a>
                 </div>

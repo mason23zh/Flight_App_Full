@@ -8,14 +8,10 @@ type MapStyle = "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
 interface Props {
     mapLabelVisible: boolean;
     mapRoadVisible: boolean;
-    mapStyles: MapStyle
+    mapStyles: MapStyle;
 }
 
-const useMapLabelAndRoadFeature = ({
-    mapLabelVisible,
-    mapRoadVisible,
-    mapStyles
-}: Props) => {
+const useMapLabelAndRoadFeature = ({ mapLabelVisible, mapRoadVisible, mapStyles }: Props) => {
     const { current: mapRef } = useMap();
 
     useEffect(() => {
@@ -50,7 +46,6 @@ const useMapLabelAndRoadFeature = ({
         return () => {
             map.off("style.load", reapply);
         };
-
     }, [mapRef, mapLabelVisible, mapRoadVisible, mapStyles]);
 };
 

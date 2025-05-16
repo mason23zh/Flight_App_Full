@@ -35,15 +35,21 @@ const generateURL = (weather, scope, code) => {
     }
 
     if (weather === WIND_GUST) {
-        url_weather_selection = url_code_flag === true ? `wind-gust-speed/${code.value || tempCode}` : "wind-gust-speed";
+        url_weather_selection =
+            url_code_flag === true
+                ? `wind-gust-speed/${code.value || tempCode}`
+                : "wind-gust-speed";
     } else if (weather === WIND_SPEED) {
-        url_weather_selection = url_code_flag === true ? `wind-speed/${code.value || tempCode}` : "wind-speed";
+        url_weather_selection =
+            url_code_flag === true ? `wind-speed/${code.value || tempCode}` : "wind-speed";
     } else if (weather === VISIBILITY) {
-        url_weather_selection = url_code_flag === true ? `visibility/${code.value || tempCode}` : "visibility";
+        url_weather_selection =
+            url_code_flag === true ? `visibility/${code.value || tempCode}` : "visibility";
     } else if (weather === BARO) {
         url_weather_selection = url_code_flag === true ? `baro/${code.value || tempCode}` : "baro";
     } else if (weather === TEMPERATURE) {
-        url_weather_selection = url_code_flag === true ? `temperature/${code.value || tempCode}` : "temperature";
+        url_weather_selection =
+            url_code_flag === true ? `temperature/${code.value || tempCode}` : "temperature";
     }
 
     return `/${url_scope}/${url_weather_selection}?decode=true`;
@@ -58,12 +64,7 @@ export const extremeWeatherApi = createApi({
     endpoints(build) {
         return {
             fetchWeatherMetars: build.query({
-                query: ({
-                    scope,
-                    weather,
-                    code,
-                    params,
-                }) => {
+                query: ({ scope, weather, code, params }) => {
                     const taggedUrl = generateURL(weather, scope, code);
                     return {
                         url: taggedUrl,

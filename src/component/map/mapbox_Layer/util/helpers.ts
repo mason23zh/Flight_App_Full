@@ -15,7 +15,6 @@ export function isAirportService(
     return "services" in feature;
 }
 
-
 // The markerOffsetObject is used to offset the Popup,
 // without this the Popup will be positioned at the center.
 // This would result Popup overlay with the mouse cursor,
@@ -28,16 +27,15 @@ const offsetTop = 10;
 const offsetBottom = -20;
 const offsetLeft = 25;
 export const markerOffsetObject = {
-    "top": [0, offsetTop],
+    top: [0, offsetTop],
     "top-left": [offsetLeft, offsetTop],
     "top-right": [-offsetLeft, offsetTop],
-    "bottom": [0, offsetBottom],
+    bottom: [0, offsetBottom],
     "bottom-left": [offsetLeft, offsetBottom],
     "bottom-right": [-offsetLeft, offsetBottom],
-    "left": [offsetLeft, offsetBottom],
-    "right": [-offsetLeft, offsetBottom],
+    left: [offsetLeft, offsetBottom],
+    right: [-offsetLeft, offsetBottom],
 };
-
 
 /**
  * Type predicate to narrow an unknown error to `FetchBaseQueryError`
@@ -61,6 +59,5 @@ export const markerOffsetObject = {
 //             typeof (error as any).message === "string"
 //     );
 // }
-
 
 // export { isFeatureCollection };

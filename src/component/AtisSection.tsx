@@ -7,7 +7,6 @@ interface Props {
 }
 
 function AtisSection({ ATIS }: Props) {
-
     const [atis, setAtis] = useState<DetailAirportResponseAtis>();
     let renderATIS;
 
@@ -79,11 +78,7 @@ function AtisSection({ ATIS }: Props) {
             </div>
         );
     }
-    return (
-        <div className="min-w-[150px]">
-            {renderATIS}
-        </div>
-    );
+    return <div className="min-w-[150px]">{renderATIS}</div>;
 }
 
 export default AtisSection;

@@ -27,7 +27,7 @@ interface UseMatchTraconReturn {
 export interface FallbackTracon {
     center: number[];
     radius: number;
-    controllers: Controller[],
+    controllers: Controller[];
     edgeCoordinates: number[]; // for marker render
 }
 
@@ -35,7 +35,9 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
     const matchedTraconMap: Map<string, MatchedTracon> = new Map();
     const fallbackTraconMap: Map<string, FallbackTracon> = new Map();
     const fallbackTraconGeoJsonMap: Map<string, Feature<Polygon | MultiPolygon>> = new Map();
-    const [matchedFallbackTracons, setMatchedFallbackTracons] = useState<FallbackTracon[] | null>(null);
+    const [matchedFallbackTracons, setMatchedFallbackTracons] = useState<FallbackTracon[] | null>(
+        null
+    );
     const [matchedTracons, setMatchedTracons] = useState<MatchedTracon[] | null>(null);
     const [fallbackGeoJson, setFallbackGeoJson] = useState<GeoJSON.FeatureCollection | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -51,9 +53,12 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
             // const radius = Number(controller.visual_range || 120) / 2 * 1.6;
             const option = {
                 steps: 30,
-                units: "kilometers"
+                units: "kilometers",
             };
-            fallbackTraconGeoJsonMap.set(callsignPrefix, createMultiPolygonCircle(center, 40, option, controller));
+            fallbackTraconGeoJsonMap.set(
+                callsignPrefix,
+                createMultiPolygonCircle(center, 40, option, controller)
+            );
         }
     };
 
@@ -69,15 +74,15 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
             const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
             const radius = Number(controller.visual_range || 120);
 
-            const edgeCoordinates = fallbackTraconGeoJsonMap
-                .get(callsignPrefix)?.geometry?.coordinates[0][0][0] as number[] ||
-                    calculateEdgeCoordinates(center, radius);
+            const edgeCoordinates =
+                (fallbackTraconGeoJsonMap.get(callsignPrefix)?.geometry
+                    ?.coordinates[0][0][0] as number[]) || calculateEdgeCoordinates(center, radius);
 
             const tempFallbackObj: FallbackTracon = {
                 center: center,
                 radius: radius,
                 controllers: [controller],
-                edgeCoordinates: edgeCoordinates
+                edgeCoordinates: edgeCoordinates,
             };
             fallbackTraconMap.set(callsignPrefix, tempFallbackObj);
         }
@@ -117,13 +122,9 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
         let matched = false;
 
         for (let i = callsignParts.length; i > 0; i--) {
-            const prefix = callsignParts.slice(0, i)
-                .join("_");
+            const prefix = callsignParts.slice(0, i).join("_");
 
-            const matches = await db.tracon
-                .where("prefix")
-                .anyOfIgnoreCase(prefix)
-                .toArray();
+            const matches = await db.tracon.where("prefix").anyOfIgnoreCase(prefix).toArray();
 
             if (matches.length === 1) {
                 addToMap(
@@ -161,11 +162,13 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
                 setIsLoading(true);
                 setIsError(false);
 
-                await Promise.all(controllerData.tracon.map(tracon => findMatchingTracons(tracon)));
+                await Promise.all(
+                    controllerData.tracon.map((tracon) => findMatchingTracons(tracon))
+                );
                 setMatchedTracons(Array.from(matchedTraconMap.values()));
                 setFallbackGeoJson({
                     type: "FeatureCollection",
-                    features: [...Array.from(fallbackTraconGeoJsonMap.values())]
+                    features: [...Array.from(fallbackTraconGeoJsonMap.values())],
                 });
                 setMatchedFallbackTracons(Array.from(fallbackTraconMap.values()));
             } catch (e) {
@@ -178,7 +181,6 @@ const useMatchTracon = (controllerData: VatsimControllers): UseMatchTraconReturn
 
         fetchMatchedTracons();
     }, [controllerData]);
-
 
     return {
         matchedTracons,

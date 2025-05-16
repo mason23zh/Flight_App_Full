@@ -13,10 +13,10 @@ const MediumAirportLayer = ({ displayLabel }) => {
                 minzoom={5}
                 paint={{
                     "circle-color": "#3f9cd1",
-                    "circle-radius": 3
+                    "circle-radius": 3,
                 }}
             />
-            {displayLabel &&
+            {displayLabel && (
                 <AirportLabelLayer
                     id="medium-gns-430-airport-label"
                     allowTextOverlap={false}
@@ -26,11 +26,11 @@ const MediumAirportLayer = ({ displayLabel }) => {
                         ["zoom"],
                         ["get", "ICAO"],
                         7,
-                        ["concat", ["get", "ICAO"], " \n ", ["get", "name"]]
+                        ["concat", ["get", "ICAO"], " \n ", ["get", "name"]],
                     ]}
                     minzoom={5}
                 />
-            }
+            )}
         </>
     );
 };

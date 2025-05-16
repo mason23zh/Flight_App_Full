@@ -7,11 +7,10 @@ const useGenerateFirGeoJson = (matchedFirs: MatchedFir[]) => {
     const [activeFirFeatures, setActiveFirFeatures] = useState<FirFeature[] | []>([]);
     const [isError, setIsError] = useState<Error | null>(null);
 
-
     useEffect(() => {
         const fetchFirFeature = async () => {
             try {
-                const promises = matchedFirs.map(matchedFir => {
+                const promises = matchedFirs.map((matchedFir) => {
                     const id = matchedFir.firInfo.firBoundary;
                     const oceanic = matchedFir.firInfo.entries[0]?.oceanic || "0";
 
@@ -19,7 +18,7 @@ const useGenerateFirGeoJson = (matchedFirs: MatchedFir[]) => {
                 });
 
                 const firFeatures = await Promise.all(promises);
-                setActiveFirFeatures(firFeatures.filter(feature => feature !== undefined));
+                setActiveFirFeatures(firFeatures.filter((feature) => feature !== undefined));
             } catch (e) {
                 setIsError(e);
             }
@@ -30,7 +29,7 @@ const useGenerateFirGeoJson = (matchedFirs: MatchedFir[]) => {
 
     return {
         activeFirFeatures,
-        isError
+        isError,
     };
 };
 

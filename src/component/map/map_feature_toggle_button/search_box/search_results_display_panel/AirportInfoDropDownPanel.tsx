@@ -6,7 +6,7 @@ import {
     closeSearchResults,
     setAirportDepartureArrivalDisplay,
     setFilterAircraftOnMap_airport,
-    setMapSearchSelectedAirport
+    setMapSearchSelectedAirport,
 } from "../../../../../store";
 
 interface Props {
@@ -28,19 +28,17 @@ const AirportInfoDropDownPanel = ({ airport }: Props) => {
     };
 
     return (
-        <div
-            className="grid grid-cols-4 items-center">
+        <div className="grid grid-cols-4 items-center">
             <div className="col-span-3 grid grid-cols-1 justify-self-start gap-1">
-                <div className="text-[15px] pl-1">
-                    {airport?.name || "N/A"}
-                </div>
+                <div className="text-[15px] pl-1">{airport?.name || "N/A"}</div>
                 <div className="w-fit pl-1 justify-self-start">
                     <AirportIdentDisplayBox airport={airport} />
                 </div>
             </div>
             <div
                 onClick={handleCloseClick}
-                className="justify-self-end text-[25px] hover:cursor-pointer hover:text-gray-700">
+                className="justify-self-end text-[25px] hover:cursor-pointer hover:text-gray-700"
+            >
                 <IoMdCloseCircleOutline />
             </div>
         </div>

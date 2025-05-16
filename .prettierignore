@@ -1,0 +1,18 @@
+# Skip build artifacts and deps
+node_modules/
+dist/
+build/
+coverage/
+assets/
+public/
+test_data/
+
+# Skip config / IDE folders
+.vscode/
+.idea/
+
+# lock and images
+*.lock
+*.png
+*.jpg
+*.svg

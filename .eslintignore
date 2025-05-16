@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+coverage/
+public/
+script/
+
+*.min.js
+*.lock

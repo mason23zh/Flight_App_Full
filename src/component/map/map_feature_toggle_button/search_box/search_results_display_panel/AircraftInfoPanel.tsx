@@ -5,7 +5,7 @@ import {
     closeSearchResults,
     setAircraftListDisplay,
     setFilterAircraftOnMap_aircraft,
-    setSelectedAircraftCategory
+    setSelectedAircraftCategory,
 } from "../../../../../store";
 
 interface Props {

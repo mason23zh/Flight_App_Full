@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 function Layout() {
     const location = useLocation();
-    const showFooter = (location.pathname !== "/map") && (location.pathname !== "/vatsim/events");
+    const showFooter = location.pathname !== "/map" && location.pathname !== "/vatsim/events";
     // const showFooter = location.pathname !== "/vatsim/events";
     // const showFooter = true;
 
@@ -17,13 +17,12 @@ function Layout() {
             <main className="flex flex-grow flex-col justify-between">
                 <Outlet />
             </main>
-            {showFooter &&
+            {showFooter && (
                 <footer id="footer" className="h-auto">
                     <Footer />
                 </footer>
-            }
+            )}
         </div>
-
     );
 }
 

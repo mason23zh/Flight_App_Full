@@ -1,9 +1,10 @@
-
 interface HoveredTrafficTooltipFlightProgressBarProps {
     progress: number;
 }
 
-const HoveredTrafficTooltipFlightProgressBar = ({ progress }: HoveredTrafficTooltipFlightProgressBarProps) => {
+const HoveredTrafficTooltipFlightProgressBar = ({
+    progress,
+}: HoveredTrafficTooltipFlightProgressBarProps) => {
     return (
         <div className="relative h-1 bg-gray-600 rounded-full overflow-hidden">
             <div

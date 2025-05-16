@@ -6,16 +6,14 @@ import { RootState } from "../../store";
 import useMapLabelAndRoadFeature from "../../hooks/useMapLabelAndRoadFeature";
 
 const MapEffectManager = () => {
-    const {
-        mapStyles,
-        mapRoadVisible,
-        mapLabelVisible,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapStyles, mapRoadVisible, mapLabelVisible } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
     useMapLabelAndRoadFeature({
         mapLabelVisible,
         mapRoadVisible,
-        mapStyles
+        mapStyles,
     });
 
     return null;

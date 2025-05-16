@@ -5,8 +5,9 @@ import {
     openSearchResults,
     setFilterAircraftOnMap_aircraft,
     setFilterAircraftOnMap_airport,
-    setMapSearchSelectedAirport, setTrafficTracking,
-    toggleSearchBox
+    setMapSearchSelectedAirport,
+    setTrafficTracking,
+    toggleSearchBox,
 } from "../../../../store";
 import { useLiveQuery } from "dexie-react-hooks";
 import { searchAirportByIdent } from "../search_box/mapSearchFunction";
@@ -35,13 +36,10 @@ const serviceLabels = {
 const FeaturedAirportElement = ({ featuredAirport }: Props) => {
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    const activeServices = Object.keys(featuredAirport.controller)
-        .filter(service => featuredAirport.controller[service]);
-    const {
-        arrivalNumber,
-        departureNumber,
-        station
-    } = featuredAirport;
+    const activeServices = Object.keys(featuredAirport.controller).filter(
+        (service) => featuredAirport.controller[service]
+    );
+    const { arrivalNumber, departureNumber, station } = featuredAirport;
 
     // Get local airport from the indexDB
     const dbAirport = useLiveQuery(
@@ -58,23 +56,25 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
         { airports: [] }
     );
 
-    const arrivalTraffic = (arrivalNumber && arrivalNumber > 0)
-        ? (
+    const arrivalTraffic =
+        arrivalNumber && arrivalNumber > 0 ? (
             <div className="flex items-center font-bold ">
                 <FaPlaneArrival size={15} />
                 <div>{arrivalNumber}</div>
             </div>
-        )
-        : <></>;
+        ) : (
+            <></>
+        );
 
-    const departureTraffic = (departureNumber && departureNumber > 0)
-        ? (
+    const departureTraffic =
+        departureNumber && departureNumber > 0 ? (
             <div className="flex items-center">
                 <FaPlaneDeparture size={15} />
                 <div>{departureNumber}</div>
             </div>
-        )
-        : <></>;
+        ) : (
+            <></>
+        );
 
     const handleOnClick = () => {
         // dispatch selected airport data to airport arrival panel
@@ -93,9 +93,11 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
             const map = mapRef?.getMap();
             if (map) {
                 map.flyTo({
-                    center: [Number(station.geometry.coordinates[0]),
-                        Number(station.geometry.coordinates[1])],
-                    zoom: 13
+                    center: [
+                        Number(station.geometry.coordinates[0]),
+                        Number(station.geometry.coordinates[1]),
+                    ],
+                    zoom: 13,
                 });
             }
         }
@@ -108,16 +110,16 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
           hover:bg-gray-600 hover:cursor-pointer"
             onClick={handleOnClick}
         >
-            <div className="col-span-1 self-center">
-                {featuredAirport.ICAO}
-            </div>
+            <div className="col-span-1 self-center">{featuredAirport.ICAO}</div>
 
             <div className="col-span-1 self-center">
                 {featuredAirport.station?.country.country_name}
             </div>
 
             <div className="col-span-1 self-center">
-                <div className={`flex flex-col items-center col-span-2 ${activeServices.length === 0 ? "justify-center" : "justify-between"}`}>
+                <div
+                    className={`flex flex-col items-center col-span-2 ${activeServices.length === 0 ? "justify-center" : "justify-between"}`}
+                >
                     {/* Top section: Arrival and Departure Traffic */}
                     <div className="flex gap-2 mb-1">
                         {departureTraffic}
@@ -130,12 +132,14 @@ const FeaturedAirportElement = ({ featuredAirport }: Props) => {
                             {activeServices.map((service, index) => (
                                 <span
                                     key={service}
-                                    className={`flex items-center justify-center text-white font-bold text-xs px-[5px] py-1 ${serviceStyles[service]
-                                    } ${activeServices.length === 1
-                                        ? "rounded-l-lg rounded-r-lg" // If only one element, round both sides
-                                        : index === 0
-                                            ? "rounded-l-lg" // Round left edge for the first element
-                                            : index === activeServices.length - 1
+                                    className={`flex items-center justify-center text-white font-bold text-xs px-[5px] py-1 ${
+                                        serviceStyles[service]
+                                    } ${
+                                        activeServices.length === 1
+                                            ? "rounded-l-lg rounded-r-lg" // If only one element, round both sides
+                                            : index === 0
+                                              ? "rounded-l-lg" // Round left edge for the first element
+                                              : index === activeServices.length - 1
                                                 ? "rounded-r-lg" // Round right edge for the last element
                                                 : ""
                                     }`}

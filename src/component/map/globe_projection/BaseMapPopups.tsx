@@ -21,13 +21,12 @@ const BaseMapPopups = () => {
         popupRef.current?.addClassName("p-0");
     }, [popupRef.current, hoveredTraffic]);
 
-
     return (
         <>
             {hoveredFir && <FirLabelPopup hoverFir={hoveredFir} />}
             {hoveredTracon && <TraconLabelPopup hoverTracon={hoveredTracon} />}
             {hoveredController && <ControllerMarkerPopup hoverInfo={hoveredController} />}
-            {(hoveredTraffic && hoveredTraffic.info) && (
+            {hoveredTraffic && hoveredTraffic.info && (
                 <Popup
                     closeButton={false}
                     ref={popupRef}

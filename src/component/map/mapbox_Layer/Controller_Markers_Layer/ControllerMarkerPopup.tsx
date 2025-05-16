@@ -7,34 +7,33 @@ import useIsTouchScreen from "../../../../hooks/useIsTouchScreen";
 import mapboxgl from "mapbox-gl";
 
 interface Service {
-    airport: { name: string, icao: string },
-    callsign: string,
-    cid: string,
-    coordinates: string[],
-    facility: number,
-    frequency: string,
-    last_updated: string,
-    logon_time: string,
-    name: string,
-    rating: number,
-    server: string,
-    serviceType: string,
-    text_atis: string[],
-    visual_range: number,
-    atis_code?: string,
+    airport: { name: string; icao: string };
+    callsign: string;
+    cid: string;
+    coordinates: string[];
+    facility: number;
+    frequency: string;
+    last_updated: string;
+    logon_time: string;
+    name: string;
+    rating: number;
+    server: string;
+    serviceType: string;
+    text_atis: string[];
+    visual_range: number;
+    atis_code?: string;
 }
 
 interface AirportService {
-    airportName: string,
-    icao: string,
-    coordinates: string[],
-    services: Array<Service>
+    airportName: string;
+    icao: string;
+    coordinates: string[];
+    services: Array<Service>;
 }
 
 interface Props {
     hoverInfo: AirportService;
 }
-
 
 const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
     let renderServices: JSX.Element[];
@@ -48,13 +47,14 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
 
     if (hoverInfo.services && hoverInfo.services.length > 0) {
         renderServices = hoverInfo.services
-            .filter(serviceInfo => serviceInfo.facility !== 5)
+            .filter((serviceInfo) => serviceInfo.facility !== 5)
             .map((serviceInfo) => {
                 return (
                     <div key={serviceInfo.callsign}>
                         <ControllerPopupContent
                             serviceData={serviceInfo}
-                            serviceType={serviceInfo.serviceType} />
+                            serviceType={serviceInfo.serviceType}
+                        />
                     </div>
                 );
             });
@@ -65,7 +65,6 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             if (!isTouchScreen) {
                 // @ts-expect-error
                 popupRef.current.setOffset(markerOffsetObject);
-
             } else {
                 popupRef.current.setOffset([0, -30]);
             }
@@ -83,18 +82,19 @@ const ControllerMarkerPopup = ({ hoverInfo }: Props) => {
             latitude={lat}
             maxWidth={isTouchScreen ? "380px" : "500px"}
             anchor={isTouchScreen ? "bottom" : undefined}
-        // offset={markerOffsetObject}
+            // offset={markerOffsetObject}
         >
-            <div className={`grid grid-cols-1 justify-center items-center
+            <div
+                className={`grid grid-cols-1 justify-center items-center
             gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}
             >
-                <div className="justify-self-start italic
-                font-bold text-sm sm:text-lg">
+                <div
+                    className="justify-self-start italic
+                font-bold text-sm sm:text-lg"
+                >
                     {hoverInfo.icao}
                 </div>
-                <div className="justify-self-start font-extrabold">
-                    {airportName}
-                </div>
+                <div className="justify-self-start font-extrabold">{airportName}</div>
                 {renderServices}
             </div>
         </Popup>

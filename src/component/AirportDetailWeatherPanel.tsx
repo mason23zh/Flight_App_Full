@@ -45,9 +45,7 @@ function AirportDetailWeatherPanel({
             if (cloud.code === "CAVOK" || cloud.code === "NCD" || cloud.code === "SKC") {
                 return (
                     <div className="flex flex-col" key={`${cloud.code}${cloud.text}`}>
-                        <div>
-                            {cloud.code}
-                        </div>
+                        <div>{cloud.code}</div>
                     </div>
                 );
             }
@@ -62,7 +60,6 @@ function AirportDetailWeatherPanel({
         });
     }
 
-
     return (
         <div>
             <Panel header={raw_text} collapsible bordered defaultExpanded={expand}>
@@ -70,16 +67,20 @@ function AirportDetailWeatherPanel({
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2 ">
                             <div className="text-left sm:text-center">Temperature:</div>
-                            <div className="text-right sm:text-center">{temperature?.celsius}{"\u00b0"}C
-                                ({temperature?.fahrenheit}{"\u00b0"}F)
+                            <div className="text-right sm:text-center">
+                                {temperature?.celsius}
+                                {"\u00b0"}C ({temperature?.fahrenheit}
+                                {"\u00b0"}F)
                             </div>
                         </div>
                     </div>
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2">
                             <div className="text-left sm:text-center">Dewpoint:</div>
-                            <div className="text-right sm:text-center">{dewpoint?.celsius}{"\u00b0"}C
-                                ({dewpoint?.fahrenheit}{"\u00b0"}F)
+                            <div className="text-right sm:text-center">
+                                {dewpoint?.celsius}
+                                {"\u00b0"}C ({dewpoint?.fahrenheit}
+                                {"\u00b0"}F)
                             </div>
                         </div>
                     </div>
@@ -92,8 +93,8 @@ function AirportDetailWeatherPanel({
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2">
                             <div className="text-left sm:text-center">Pressure (altimeter):</div>
-                            <div className="text-right sm:text-center">{barometer.hg} inches Hg
-                                ({barometer.mb} mb)
+                            <div className="text-right sm:text-center">
+                                {barometer.hg} inches Hg ({barometer.mb} mb)
                             </div>
                         </div>
                     </div>
@@ -102,15 +103,16 @@ function AirportDetailWeatherPanel({
                             <div className="text-left sm:text-center">Wind:</div>
                             <div className="text-right sm:text-center">
                                 {wind.degrees === -1 ? "VRB " : `${wind.degrees} degrees`}
-                                at {wind.speed_kts} kts {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
+                                at {wind.speed_kts} kts{" "}
+                                {wind.gust_kts ? `Gust ${wind.gust_kts} kts` : ""}
                             </div>
                         </div>
                     </div>
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2">
                             <div className="text-left sm:text-center">Visibility:</div>
-                            <div className="text-right sm:text-center">{visibility.miles_float} miles
-                                ({visibility.meters_float} meters)
+                            <div className="text-right sm:text-center">
+                                {visibility.miles_float} miles ({visibility.meters_float} meters)
                             </div>
                         </div>
                     </div>
@@ -120,12 +122,11 @@ function AirportDetailWeatherPanel({
                             <div className="text-right sm:text-center">{renderCloudsLayers}</div>
                         </div>
                     </div>
-                    {renderWeather.length !== 0
-                        ? (
-                            <div className="hover:border-2 rounded-xl">
-                                {renderWeather}
-                            </div>
-                        ) : <></>}
+                    {renderWeather.length !== 0 ? (
+                        <div className="hover:border-2 rounded-xl">{renderWeather}</div>
+                    ) : (
+                        <></>
+                    )}
                     <div className="hover:border-2 rounded-xl">
                         <div className="grid grid-cols-2">
                             <div className="text-left sm:text-center">Flight Category:</div>

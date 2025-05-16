@@ -5,8 +5,8 @@ const vatsimMapMouseEventSlice = createSlice({
     initialState: {
         userSelectionEvent: {
             type: "FeatureCollection",
-            features: []
-        }
+            features: [],
+        },
     },
 
     reducers: {
@@ -27,8 +27,8 @@ const vatsimMapMouseEventSlice = createSlice({
         },
         onMouseLeaveControllerLabel(state, action) {
             state.userSelectionEvent = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const {
@@ -37,8 +37,7 @@ export const {
     onMouseHoverTraconLabel,
     onMouseLeaveTraconLabel,
     onMouseHoverControllerLabel,
-    onMouseLeaveControllerLabel
+    onMouseLeaveControllerLabel,
 } = vatsimMapMouseEventSlice.actions;
 
 export const vatsimMapEventReducer = vatsimMapMouseEventSlice.reducer;
-

@@ -3,7 +3,7 @@ import { VatsimMapVisibleState } from "../../types";
 
 interface MapStylePayloadAction {
     payload: {
-        mapStyles: "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE"
+        mapStyles: "DEFAULT" | "MONO_LIGHT" | "MONO_DARK" | "SATELLITE";
     };
 }
 
@@ -33,7 +33,7 @@ const initialState: VatsimMapVisibleState = {
     searchBoxVisible: false,
     featuredAirportsVisible: false,
     mapProjection: "mercator",
-    mapStyles: "MONO_DARK"
+    mapStyles: "MONO_DARK",
 };
 
 const vatsimMapVisibleSlice = createSlice({
@@ -166,8 +166,8 @@ const vatsimMapVisibleSlice = createSlice({
         },
         setMapProjection(state, action: PayloadAction<"globe" | "mercator">) {
             state.mapProjection = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const {
@@ -194,6 +194,6 @@ export const {
     resetMap,
     toggleSearchBox,
     toggleFeaturedAirports,
-    setMapProjection
+    setMapProjection,
 } = vatsimMapVisibleSlice.actions;
 export const vatsimMapVisibleReducer = vatsimMapVisibleSlice.reducer;

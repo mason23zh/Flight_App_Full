@@ -3,10 +3,10 @@ import { MatchedTracon } from "../../../../hooks/useMatchTracon";
 import { HoverTracon } from "./TraconLabelPopup";
 
 export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): LineLayer => {
-    const filterConditions = matchedTracon.map(tracon => [
+    const filterConditions = matchedTracon.map((tracon) => [
         "all",
         ["==", ["get", "id"], tracon.traconInfo.id],
-        ["in", tracon.traconInfo.callsignPrefix, ["get", "prefix"]]
+        ["in", tracon.traconInfo.callsignPrefix, ["get", "prefix"]],
     ]);
 
     return {
@@ -18,7 +18,7 @@ export const activeTraconLineLayerStyle = (matchedTracon: MatchedTracon[]): Line
             "line-color": "#04BDFF",
             "line-width": 2,
         },
-        filter: ["any", ...filterConditions]
+        filter: ["any", ...filterConditions],
     };
 };
 
@@ -35,20 +35,23 @@ export const activeTraconFillLayerStyle = (hoverInfo: HoverTracon | null): FillL
             "fill-color": "#27aef5",
             "fill-opacity": [
                 "case",
-                ["all",
+                [
+                    "all",
                     ["==", ["get", "id"], hoverTraconId],
-                    ["in", hoverCallsignPrefix, ["get", "prefix"]]
+                    ["in", hoverCallsignPrefix, ["get", "prefix"]],
                 ],
                 0.4,
-                0
-            ]
+                0,
+            ],
         },
-        filter: hoverTraconId && hoverCallsignPrefix
-            ? ["all",
-                ["==", ["get", "id"], hoverTraconId],
-                ["in", hoverCallsignPrefix, ["get", "prefix"]]
-            ]
-            : ["has", "id"]
+        filter:
+            hoverTraconId && hoverCallsignPrefix
+                ? [
+                      "all",
+                      ["==", ["get", "id"], hoverTraconId],
+                      ["in", hoverCallsignPrefix, ["get", "prefix"]],
+                  ]
+                : ["has", "id"],
     };
 };
 
@@ -71,14 +74,9 @@ export const fallBackHighlightTraconFillLayerStyle = (hoverCast: HoverTracon): F
         type: "fill",
         paint: {
             "fill-color": "#27aef5",
-            "fill-opacity": [
-                "case",
-                ["==", ["get", "id"], hoverId],
-                0.4,
-                0
-            ]
+            "fill-opacity": ["case", ["==", ["get", "id"], hoverId], 0.4, 0],
         },
-        filter: hoverId ? ["==", ["get", "id"], hoverId] : ["has", "id"]
+        filter: hoverId ? ["==", ["get", "id"], hoverId] : ["has", "id"],
     };
 };
 
@@ -88,6 +86,6 @@ export const fallbackTraconBoundariesLineLayerStyle: LineLayer = {
     type: "line",
     paint: {
         "line-color": "#04BDFF",
-        "line-width": 2
-    }
+        "line-width": 2,
+    },
 };

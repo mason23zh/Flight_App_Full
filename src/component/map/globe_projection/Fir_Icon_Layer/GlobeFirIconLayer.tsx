@@ -4,10 +4,7 @@ import { RootState } from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import { MatchedFir } from "../../../../hooks/useMatchedFirs";
 import generateFirIcon from "../../mapbox_Layer/util/generateFirIcon";
-import {
-    GLOBE_FIR_ICON_LAYER_ID,
-    GLOBE_FIR_ICON_SOURCE_ID,
-} from "../layerSourceName";
+import { GLOBE_FIR_ICON_LAYER_ID, GLOBE_FIR_ICON_SOURCE_ID } from "../layerSourceName";
 import mapboxgl from "mapbox-gl";
 
 interface Props {
@@ -15,15 +12,10 @@ interface Props {
     errorMatchedFirs: boolean;
 }
 
-const GlobeFirIconLayer = ({
-    matchedFirs,
-    errorMatchedFirs
-}: Props) => {
+const GlobeFirIconLayer = ({ matchedFirs, errorMatchedFirs }: Props) => {
     const { current: mapRef } = useMap();
 
-    const {
-        allAtcLayerVisible,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
     const imagePrefix = "fir-icon-";
     const loadedIconRef = useRef(new Set<string>());
 

@@ -9,10 +9,7 @@ export default defineConfig({
     server: {
         port: 3000,
     },
-    plugins: [
-        react(),
-        commonjs(),
-    ],
+    plugins: [react(), commonjs()],
     assetsInclude: ["**/*.gltf", "**/*.glb"],
     css: {
         postcss: {

@@ -9,10 +9,7 @@ interface TargetAirportsHoverPopupProps {
     airportInfo: AirportResponse;
 }
 
-const TargetAirportsHoverPopup = ({
-    type,
-    airportInfo
-}: TargetAirportsHoverPopupProps) => {
+const TargetAirportsHoverPopup = ({ type, airportInfo }: TargetAirportsHoverPopupProps) => {
     let renderedContent;
     const darkMode = useTheme();
 
@@ -20,7 +17,6 @@ const TargetAirportsHoverPopup = ({
 
     if (type === "DEPARTURE") {
         renderedContent = (
-
             <div className={`flex flex-col py-1 px-2 rounded-lg ${colorTheme}`}>
                 <div className="flex items-center gap-1">
                     <div>
@@ -28,17 +24,17 @@ const TargetAirportsHoverPopup = ({
                             className={darkMode ? "text-red-400" : "text-departure-red"}
                         />
                     </div>
-                    <div className={darkMode ? "text-red-400 font-bold" : "text-departure-red font-bold"}>
+                    <div
+                        className={
+                            darkMode ? "text-red-400 font-bold" : "text-departure-red font-bold"
+                        }
+                    >
                         DEPARTURE
                     </div>
                 </div>
                 <div className="flex items-center gap-1">
-                    <div>
-                        {airportInfo.data[0].station.name}
-                    </div>
-                    <div>
-                        ({airportInfo.data[0].ICAO})
-                    </div>
+                    <div>{airportInfo.data[0].station.name}</div>
+                    <div>({airportInfo.data[0].ICAO})</div>
                 </div>
             </div>
         );
@@ -54,12 +50,8 @@ const TargetAirportsHoverPopup = ({
                     <div className="text-arrival-green">ARRIVAL</div>
                 </div>
                 <div className="flex items-center gap-1">
-                    <div>
-                        {airportInfo.data[0].station.name}
-                    </div>
-                    <div>
-                        ({airportInfo.data[0].ICAO})
-                    </div>
+                    <div>{airportInfo.data[0].station.name}</div>
+                    <div>({airportInfo.data[0].ICAO})</div>
                 </div>
             </div>
         );
@@ -78,9 +70,7 @@ const TargetAirportsHoverPopup = ({
             longitude={Number(airportInfo.data[0].station.geometry.coordinates[0])}
             latitude={Number(airportInfo.data[0].station.geometry.coordinates[1])}
         >
-            <div>
-                {renderedContent}
-            </div>
+            <div>{renderedContent}</div>
         </Popup>
     );
 };

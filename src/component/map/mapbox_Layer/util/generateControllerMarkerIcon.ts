@@ -4,7 +4,7 @@ export const enum Services {
     ATIS = "ATIS",
     DEL = "DEL",
     TWR = "TWR",
-    GND = "GND"
+    GND = "GND",
 }
 
 //TODO: Move this function into worker
@@ -67,7 +67,11 @@ function drawControllerIcon(
             radiusBottomLeft = 0;
 
         if (services.length === 1) {
-            radiusTopLeft = radiusTopRight = radiusBottomRight = radiusBottomLeft = serviceCornerRadius;
+            radiusTopLeft =
+                radiusTopRight =
+                radiusBottomRight =
+                radiusBottomLeft =
+                    serviceCornerRadius;
         } else if (index === 0) {
             radiusTopLeft = radiusBottomLeft = serviceCornerRadius;
         } else if (index === services.length - 1) {
@@ -77,12 +81,7 @@ function drawControllerIcon(
         ctx.beginPath();
         ctx.moveTo(iconX + radiusTopLeft, iconY);
         ctx.lineTo(iconX + iconWidth - radiusTopRight, iconY);
-        ctx.quadraticCurveTo(
-            iconX + iconWidth,
-            iconY,
-            iconX + iconWidth,
-            iconY + radiusTopRight
-        );
+        ctx.quadraticCurveTo(iconX + iconWidth, iconY, iconX + iconWidth, iconY + radiusTopRight);
         ctx.lineTo(iconX + iconWidth, iconY + iconHeight - radiusBottomRight);
         ctx.quadraticCurveTo(
             iconX + iconWidth,
@@ -119,6 +118,5 @@ function generateControllerMarkerIconWithIcao(icao: string, services: string[]):
 
     return canvas.toDataURL();
 }
-
 
 export { generateControllerMarkerIconWithIcao };

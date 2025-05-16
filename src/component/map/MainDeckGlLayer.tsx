@@ -40,11 +40,10 @@ import {
     MERCATOR_FIR_ICON_LAYER_ID,
     MERCATOR_TRACON_ICON_LAYER_ID,
     MERCATOR_TRAFFIC_LAYER_2D_ID,
-    MERCATOR_TRAFFIC_LAYER_3D_ID
+    MERCATOR_TRAFFIC_LAYER_3D_ID,
 } from "./deckGL_Layer/mercatorLayerNames";
 
 // import useTrafficCallsignLayer from "../../hooks/useTrafficCallsignLayer";
-
 
 interface MainTrafficLayerProps {
     vatsimPilots: Array<VatsimFlight>;
@@ -59,7 +58,7 @@ interface PickedTraffic extends PickingInfo {
     object?: VatsimFlight | null;
 }
 
-// TODO: error handle 
+// TODO: error handle
 //TODO: Selected traffic state might be redundent
 const MainDeckGlLayer = ({
     vatsimPilots,
@@ -68,49 +67,44 @@ const MainDeckGlLayer = ({
     controllerDataLoading,
     trafficLayerVisible,
     movingMap,
-}:
-    MainTrafficLayerProps) => {
-
+}: MainTrafficLayerProps) => {
     const isTouchScreen = useIsTouchScreen();
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
 
-
     const [cursor, setCursor] = useState("grab");
     const [hoveredTraffic, setHoveredTraffic] = useState<PickingInfo | null>(null);
     const [selectTraffic, setSelectTraffic] = useState<VatsimFlight | null>(null);
-    const {
-        terrainEnable,
-        mapFollowTraffic
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const {
-        allAtcLayerVisible,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { terrainEnable, mapFollowTraffic } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
+    const { allAtcLayerVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
 
-    const { selectedTraffic: mapSearchSelectedTraffic } = useSelector((state: RootState) => state.mapSearchTraffic);
+    const { selectedTraffic: mapSearchSelectedTraffic } = useSelector(
+        (state: RootState) => state.mapSearchTraffic
+    );
 
-    const [currentViewBounds, setCurrentViewBounds] = useState<[number, number, number, number] | null>(null);
+    const [currentViewBounds, setCurrentViewBounds] = useState<
+        [number, number, number, number] | null
+    >(null);
 
     const { flightData } = useWebSocketContext();
 
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
 
-
     const {
         matchedFirs,
         hoveredFir,
-        isError: errorMatchedFirs
+        isError: errorMatchedFirs,
     } = useSelector((state: RootState) => state.matchedFirs);
-
 
     const {
         matchedFallbackTracons,
         matchedTracons,
         hoveredTracon,
         isLoading: isTraconLoading,
-        isError: isTraconError
+        isError: isTraconError,
     } = useSelector((state: RootState) => state.matchedTracons);
-
 
     const { hoveredController } = useSelector((state: RootState) => state.matchedControllers);
 
@@ -166,16 +160,15 @@ const MainDeckGlLayer = ({
     const {
         data: trackData,
         error: trackError,
-        isLoading: trackLoading
+        isLoading: trackLoading,
     } = useFetchTrafficTrackDataQuery(selectTraffic?.callsign ?? "", {
-        skip: !selectTraffic
+        skip: !selectTraffic,
     });
 
     const filteredTrafficData = useMemo(() => {
         if (!currentViewBounds || !vatsimPilots || vatsimPilots.length === 0) return [];
         return filterTrafficDataInViewport(vatsimPilots, currentViewBounds);
     }, [currentViewBounds, vatsimPilots]);
-
 
     useEffect(() => {
         if (movingMap && flightData && mapFollowTraffic) {
@@ -185,7 +178,6 @@ const MainDeckGlLayer = ({
             }
         }
     }, [movingMap, flightData, terrainEnable, map, mapFollowTraffic]);
-
 
     useEffect(() => {
         setSelectTraffic(null);
@@ -203,18 +195,23 @@ const MainDeckGlLayer = ({
         }
     }, [mapSearchSelectedTraffic]);
 
-
     const debouncedErrorDispatch = debounce(() => {
-        dispatch(addMessage({
-            location: "MAIN_DECK_GL",
-            messageType: "ERROR",
-            content: "Error loading map features"
-        }));
-    }, 800);  // 800ms delay before dispatching error message
+        dispatch(
+            addMessage({
+                location: "MAIN_DECK_GL",
+                messageType: "ERROR",
+                content: "Error loading map features",
+            })
+        );
+    }, 800); // 800ms delay before dispatching error message
 
     useEffect(() => {
         const isLoading = trackLoading || isTraconLoading || controllerDataLoading;
-        const isError = Boolean(trackError) || Boolean(controllerDataError) || errorMatchedFirs || isTraconError;
+        const isError =
+            Boolean(trackError) ||
+            Boolean(controllerDataError) ||
+            errorMatchedFirs ||
+            isTraconError;
 
         if (isError) {
             debouncedErrorDispatch();
@@ -224,18 +221,20 @@ const MainDeckGlLayer = ({
         }
 
         if (isLoading) {
-            dispatch(addMessage({
-                location: "MAIN_DECK_GL",
-                messageType: "LOADING",
-                content: "Loading map features"
-            }));
+            dispatch(
+                addMessage({
+                    location: "MAIN_DECK_GL",
+                    messageType: "LOADING",
+                    content: "Loading map features",
+                })
+            );
         } else {
             dispatch(removeMessageByLocation({ location: "MAIN_DECK_GL" }));
         }
 
         // Cleanup function
         return () => {
-            debouncedErrorDispatch.cancel();  // Cancel debounced function on cleanup
+            debouncedErrorDispatch.cancel(); // Cancel debounced function on cleanup
         };
     }, [
         trackError,
@@ -244,35 +243,53 @@ const MainDeckGlLayer = ({
         controllerDataLoading,
         errorMatchedFirs,
         isTraconLoading,
-        isTraconError
-    ]
+        isTraconError,
+    ]);
+
+    const deckOnClick = useCallback(
+        (info: PickedTraffic) => {
+            if (
+                info.layer &&
+                (info.layer.id === MERCATOR_TRAFFIC_LAYER_2D_ID ||
+                    info.layer.id === MERCATOR_TRAFFIC_LAYER_3D_ID) &&
+                info.object &&
+                (!selectTraffic || info.object.callsign !== selectTraffic.callsign)
+            ) {
+                setSelectTraffic(info.object);
+                dispatch(setSelectedTraffic(info.object));
+                // dispatch(setAirportDepartureArrivalDisplay(false));
+                dispatch(openTrafficDetail());
+            } else if (!info.layer || !info.object) {
+                dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
+                dispatch(closeTrafficDetail());
+                setSelectTraffic(null);
+            }
+        },
+        [selectTraffic]
     );
 
-    const deckOnClick = useCallback((info: PickedTraffic) => {
-        if (info.layer &&
-            (info.layer.id === MERCATOR_TRAFFIC_LAYER_2D_ID
-                || info.layer.id === MERCATOR_TRAFFIC_LAYER_3D_ID) &&
-            info.object &&
-            (!selectTraffic || (info.object.callsign !== selectTraffic.callsign))
-        ) {
-            setSelectTraffic(info.object);
-            dispatch(setSelectedTraffic(info.object));
-            // dispatch(setAirportDepartureArrivalDisplay(false));
-            dispatch(openTrafficDetail());
-        } else if (!info.layer || !info.object) {
-            dispatch(setSelectedTraffic(null)); //dispatch null would close the FlightInfo Panel
-            dispatch(closeTrafficDetail());
-            setSelectTraffic(null);
-        }
-    }, [selectTraffic]);
-
-
     const firIconLayer = useFirIconLayer(matchedFirs, allAtcLayerVisible);
-    const traconIconLayer = useTraconIconLayer(matchedTracons, matchedFallbackTracons, allAtcLayerVisible);
+    const traconIconLayer = useTraconIconLayer(
+        matchedTracons,
+        matchedFallbackTracons,
+        allAtcLayerVisible
+    );
     const controllerIconLayer = useControllerIconLayer(controllerData, allAtcLayerVisible);
-    const trackLayer = useFlightPathLayer(trackData?.data, selectTraffic, vatsimPilots, trafficLayerVisible, terrainEnable);
-    const trafficLayer3D = useTrafficLayer3D(filteredTrafficData, terrainEnable && trafficLayerVisible);
-    const trafficLayer2D = useTrafficLayer2D(filteredTrafficData, !terrainEnable && trafficLayerVisible);
+    const trackLayer = useFlightPathLayer(
+        trackData?.data,
+        selectTraffic,
+        vatsimPilots,
+        trafficLayerVisible,
+        terrainEnable
+    );
+    const trafficLayer3D = useTrafficLayer3D(
+        filteredTrafficData,
+        terrainEnable && trafficLayerVisible
+    );
+    const trafficLayer2D = useTrafficLayer2D(
+        filteredTrafficData,
+        !terrainEnable && trafficLayerVisible
+    );
     const localFlightLayer = useLocalTrackFlightLayer(flightData, movingMap, terrainEnable);
     // const trafficCallsignLayer = useTrafficCallsignLayer(filteredTrafficData, true);
 
@@ -284,15 +301,14 @@ const MainDeckGlLayer = ({
         controllerIconLayer,
         traconIconLayer,
         firIconLayer,
-        localFlightLayer //localFlightLayer will on top
+        localFlightLayer, //localFlightLayer will on top
     ];
-
 
     const handleHover = useCallback(
         throttle((info: PickingInfo) => {
-
             let match = false;
-            if (info?.layer?.id === MERCATOR_TRACON_ICON_LAYER_ID ||
+            if (
+                info?.layer?.id === MERCATOR_TRACON_ICON_LAYER_ID ||
                 info?.layer?.id === MERCATOR_FIR_ICON_LAYER_ID ||
                 info?.layer?.id === MERCATOR_CONTROLLER_ICON_LAYER_ID ||
                 info?.layer?.id === MERCATOR_TRAFFIC_LAYER_3D_ID ||
@@ -301,9 +317,11 @@ const MainDeckGlLayer = ({
                 match = true;
             }
 
-            if ((info?.layer?.id === MERCATOR_TRAFFIC_LAYER_2D_ID ||
-                info?.layer?.id === MERCATOR_TRAFFIC_LAYER_3D_ID)
-                && info?.object?.cid) {
+            if (
+                (info?.layer?.id === MERCATOR_TRAFFIC_LAYER_2D_ID ||
+                    info?.layer?.id === MERCATOR_TRAFFIC_LAYER_3D_ID) &&
+                info?.object?.cid
+            ) {
                 setHoveredTraffic(info);
             } else {
                 setHoveredTraffic(null);
@@ -333,7 +351,7 @@ const MainDeckGlLayer = ({
                 getCursor={() => cursor}
             />
 
-            {(hoveredTraffic && hoveredTraffic.object && !isTouchScreen) && (
+            {hoveredTraffic && hoveredTraffic.object && !isTouchScreen && (
                 <div
                     className="absolute z-10 pointer-events-none text-xs"
                     style={{
@@ -345,18 +363,11 @@ const MainDeckGlLayer = ({
                 </div>
             )}
 
-            {hoveredController &&
-                <ControllerMarkerPopup hoverInfo={hoveredController} />
-            }
+            {hoveredController && <ControllerMarkerPopup hoverInfo={hoveredController} />}
 
-            {(hoveredTracon) &&
-                <TraconLabelPopup hoverTracon={hoveredTracon} />
-            }
+            {hoveredTracon && <TraconLabelPopup hoverTracon={hoveredTracon} />}
 
-            {(hoveredFir) &&
-                <FirLabelPopup hoverFir={hoveredFir} />
-            }
-
+            {hoveredFir && <FirLabelPopup hoverFir={hoveredFir} />}
         </>
     );
 };

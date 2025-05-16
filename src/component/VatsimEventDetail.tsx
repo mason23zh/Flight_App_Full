@@ -11,12 +11,13 @@ import { useTheme } from "../hooks/ThemeContext";
 import { Event } from "../types/index";
 
 function VatsimEventDetail({ onlyDetail }) {
-
     const darkTheme = useTheme();
     const navigate = useNavigate();
-    let renderAirportList;
+    let renderAirportList: JSX.Element[];
     const [event, setEvent] = useState<Partial<Event>>({});
-    const reduxEvent: Partial<Event> = useSelector((state: RootState) => state.vatsimEvent.userSelectionVatsimEvent);
+    const reduxEvent: Partial<Event> = useSelector(
+        (state: RootState) => state.vatsimEvent.userSelectionVatsimEvent
+    );
     // This useEffect will handle the case if user open a new tab on the Home page
     // The localStorage will be stored if user click 'go-to' button in HomeVatsimEventInfoTab
     useEffect(() => {
@@ -28,7 +29,6 @@ function VatsimEventDetail({ onlyDetail }) {
             navigate("/");
         }
     }, [reduxEvent]);
-
 
     const handleClick = () => {
         navigate("/vatsim/events");
@@ -54,26 +54,22 @@ function VatsimEventDetail({ onlyDetail }) {
     const renderTime = (startTime, endTime, utcFlag) => {
         if (startTime && endTime && utcFlag) {
             return (
-                <div>{moment(startTime)
-                    .utc()
-                    .format("D MMM")} @ {moment(startTime)
-                    .utc()
-                    .format("HH:mm")} to {moment(endTime)
-                    .utc()
-                    .format("HH:mm")} (UTC)
+                <div>
+                    {moment(startTime).utc().format("D MMM")} @{" "}
+                    {moment(startTime).utc().format("HH:mm")} to{" "}
+                    {moment(endTime).utc().format("HH:mm")} (UTC)
                 </div>
             );
         }
         if (startTime && endTime && !utcFlag) {
             return (
-                <div>{moment(startTime)
-                    .format("D MMM")} @ {moment(startTime)
-                    .format("HH:mm")} to {moment(endTime)
-                    .format("HH:mm")} (Local)
+                <div>
+                    {moment(startTime).format("D MMM")} @ {moment(startTime).format("HH:mm")} to{" "}
+                    {moment(endTime).format("HH:mm")} (Local)
                 </div>
             );
         }
-        return (<></>);
+        return <></>;
     };
 
     const renderImage = (
@@ -90,9 +86,7 @@ function VatsimEventDetail({ onlyDetail }) {
         renderAirportList = event.airports.map((airport) => (
             <div key={airport.icao}>
                 <div className={airportStyle}>
-                    <a href={`airport/detail/${airport.icao}`}>
-                        {airport.icao}
-                    </a>
+                    <a href={`airport/detail/${airport.icao}`}>{airport.icao}</a>
                 </div>
             </div>
         ));
@@ -114,9 +108,7 @@ function VatsimEventDetail({ onlyDetail }) {
                             <div className="flex gap-1 justify-self-start flex-wrap">
                                 {renderAirportList}
                             </div>
-                            <div className="justify-self-start">
-                                {renderImage}
-                            </div>
+                            <div className="justify-self-start">{renderImage}</div>
                         </div>
                     </div>
                     <div className="col-span-2">

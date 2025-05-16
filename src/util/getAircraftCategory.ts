@@ -82,7 +82,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             "R722",
             "T154",
             "RJ1H",
-            "RJ85"
+            "RJ85",
         ],
         regional: [
             "AN2",
@@ -152,7 +152,7 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
             "LR60",
             "P180",
             "GLF6",
-            "GLF4"
+            "GLF4",
         ],
         generalAviation: [
             "C172",
@@ -253,27 +253,27 @@ export const getAircraftSizeCategory = (aircraftCode: string) => {
     for (const [category, codes] of Object.entries(aircraftCategories)) {
         if (codes.includes(aircraftCode)) {
             switch (category) {
-            case "wideBody":
-                scale = 12;
-                break;
-            case "narrowBody":
-                scale = 10;
-                break;
-            case "regional":
-                scale = 9;
-                break;
-            case "businessJet":
-                scale = 9;
-                break;
-            case "generalAviation":
-                scale = 7;
-                break;
-            case "helicopter":
-                scale = 13;
-                break;
-            case "military":
-                scale = 10;
-                break;
+                case "wideBody":
+                    scale = 12;
+                    break;
+                case "narrowBody":
+                    scale = 10;
+                    break;
+                case "regional":
+                    scale = 9;
+                    break;
+                case "businessJet":
+                    scale = 9;
+                    break;
+                case "generalAviation":
+                    scale = 7;
+                    break;
+                case "helicopter":
+                    scale = 13;
+                    break;
+                case "military":
+                    scale = 10;
+                    break;
             }
             return scale;
         }

@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { DbAirport, DetailAirportResponse, PopularVatsimAirport } from "../../types";
 
 interface AirportResponse {
-    result: number,
-    data: Array<DbAirport>
+    result: number;
+    data: Array<DbAirport>;
 }
 
 export interface PopularAirportResponse {
@@ -11,14 +11,13 @@ export interface PopularAirportResponse {
 }
 
 export interface DetailAirportResponseQuery {
-    result: number,
-    data: Array<DetailAirportResponse>
+    result: number;
+    data: Array<DetailAirportResponse>;
 }
 
 export interface PopularVatsimAirportResponse {
     data: { airports: Array<PopularVatsimAirport> };
 }
-
 
 export const airportsApi = createApi({
     reducerPath: "airports",
@@ -28,7 +27,10 @@ export const airportsApi = createApi({
     }),
     endpoints(build) {
         return {
-            fetchVatsimPopularAirports: build.query<PopularVatsimAirportResponse, { limit: number }>({
+            fetchVatsimPopularAirports: build.query<
+                PopularVatsimAirportResponse,
+                { limit: number }
+            >({
                 query: ({ limit }) => ({
                     url: `/vatsim-popular-airports?limit=${limit}`,
                     method: "GET",
@@ -49,30 +51,23 @@ export const airportsApi = createApi({
                     method: "GET",
                 }),
             }),
-            fetchDetailAirportWithICAO: build.query<DetailAirportResponseQuery, { icao: string, decode: boolean }>({
-                query: ({
-                    icao,
-                    decode
-                }) => ({
+            fetchDetailAirportWithICAO: build.query<
+                DetailAirportResponseQuery,
+                { icao: string; decode: boolean }
+            >({
+                query: ({ icao, decode }) => ({
                     url: `icao/${icao}?decode=${decode}`,
                     method: "GET",
                 }),
             }),
             fetchDetailAirportWithICAO_Widget: build.query({
-                query: ({
-                    icao,
-                    decode
-                }) => ({
+                query: ({ icao, decode }) => ({
                     url: `icao/widget/${icao}?decode=${decode}`,
                     method: "GET",
                 }),
             }),
             fetchAirportsWithGenericInput: build.query({
-                query: ({
-                    searchTerm,
-                    page,
-                    limit
-                }) => ({
+                query: ({ searchTerm, page, limit }) => ({
                     url: `/generic/paginate/${searchTerm}?page=${page}&limit=${limit}`,
                     method: "GET",
                 }),

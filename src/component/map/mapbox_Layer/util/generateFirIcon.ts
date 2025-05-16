@@ -2,11 +2,11 @@ import { createCanvas, CanvasRenderingContext2D } from "canvas"; // Ensure you h
 
 function generateFirIcon(icao: string, isFss: boolean): string {
     // Fixed dimensions for the canvas
-    const canvasWidth = 160;  // Fixed width for Deck.gl IconLayer compatibility
-    const canvasHeight = 70;  // Fixed height to accommodate both ICAO and FSS consistently
-    const cornerRadius = 8;  // Rounded corner radius for sections
-    const minTextPadding = 10;  // Minimum padding for text in the background
-    const maxBackgroundWidth = canvasWidth - 20;  // Max background width with padding
+    const canvasWidth = 160; // Fixed width for Deck.gl IconLayer compatibility
+    const canvasHeight = 70; // Fixed height to accommodate both ICAO and FSS consistently
+    const cornerRadius = 8; // Rounded corner radius for sections
+    const minTextPadding = 10; // Minimum padding for text in the background
+    const maxBackgroundWidth = canvasWidth - 20; // Max background width with padding
 
     // Create the canvas element with fixed width and height
     const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -62,9 +62,15 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     }
 
     // Calculate text width and adjust background width dynamically
-    ctx.font = "bold 25px Arial";  // Font for calculating text width
-    const icaoTextWidth = Math.min(ctx.measureText(icao).width + minTextPadding * 2, maxBackgroundWidth);
-    const fssTextWidth = Math.min(ctx.measureText("FSS").width + minTextPadding * 2, maxBackgroundWidth);
+    ctx.font = "bold 25px Arial"; // Font for calculating text width
+    const icaoTextWidth = Math.min(
+        ctx.measureText(icao).width + minTextPadding * 2,
+        maxBackgroundWidth
+    );
+    const fssTextWidth = Math.min(
+        ctx.measureText("FSS").width + minTextPadding * 2,
+        maxBackgroundWidth
+    );
     const backgroundWidth = Math.max(icaoTextWidth, fssTextWidth);
 
     // Center align the backgrounds on the canvas
@@ -75,21 +81,43 @@ function generateFirIcon(icao: string, isFss: boolean): string {
         const fssHeight = 30; // Fixed height for FSS section
         ctx.save();
         ctx.beginPath();
-        drawCustomRoundedRect(ctx, backgroundX, 0, backgroundWidth, fssHeight, cornerRadius, true, true, false, false);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            0,
+            backgroundWidth,
+            fssHeight,
+            cornerRadius,
+            true,
+            true,
+            false,
+            false
+        );
         ctx.clip();
         ctx.clearRect(backgroundX, 0, backgroundWidth, fssHeight);
 
         // Set FSS background color and draw
         ctx.fillStyle = "rgba(59, 130, 246, 0.8)"; // Blue color for FSS (Tailwind: blue-500)
-        drawCustomRoundedRect(ctx, backgroundX, 0, backgroundWidth, fssHeight, cornerRadius, true, true, false, false);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            0,
+            backgroundWidth,
+            fssHeight,
+            cornerRadius,
+            true,
+            true,
+            false,
+            false
+        );
         ctx.fill();
 
         // Draw FSS Text
         ctx.fillStyle = "#000000"; // Text color for FSS
-        ctx.font = "bold 24px Arial";  // Font size for FSS
+        ctx.font = "bold 24px Arial"; // Font size for FSS
         ctx.textAlign = "center";
-        ctx.textBaseline = "middle";  // Vertically center the text
-        ctx.fillText("FSS", canvasWidth / 2, fssHeight / 2);  // Center FSS text vertically
+        ctx.textBaseline = "middle"; // Vertically center the text
+        ctx.fillText("FSS", canvasWidth / 2, fssHeight / 2); // Center FSS text vertically
         ctx.restore();
     }
 
@@ -99,9 +127,31 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     ctx.save();
     ctx.beginPath();
     if (isFss) {
-        drawCustomRoundedRect(ctx, backgroundX, icaoY, backgroundWidth, icaoHeight, cornerRadius, false, false, true, true);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            icaoY,
+            backgroundWidth,
+            icaoHeight,
+            cornerRadius,
+            false,
+            false,
+            true,
+            true
+        );
     } else {
-        drawCustomRoundedRect(ctx, backgroundX, icaoY, backgroundWidth, icaoHeight, cornerRadius, true, true, true, true);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            icaoY,
+            backgroundWidth,
+            icaoHeight,
+            cornerRadius,
+            true,
+            true,
+            true,
+            true
+        );
     }
     ctx.clip();
     ctx.clearRect(backgroundX, icaoY, backgroundWidth, icaoHeight);
@@ -109,18 +159,40 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     // Draw ICAO background color
     ctx.fillStyle = "rgba(255, 251, 235, 0.8)"; // Amber background color for ICAO section (Tailwind: amber-50)
     if (isFss) {
-        drawCustomRoundedRect(ctx, backgroundX, icaoY, backgroundWidth, icaoHeight, cornerRadius, false, false, true, true);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            icaoY,
+            backgroundWidth,
+            icaoHeight,
+            cornerRadius,
+            false,
+            false,
+            true,
+            true
+        );
     } else {
-        drawCustomRoundedRect(ctx, backgroundX, icaoY, backgroundWidth, icaoHeight, cornerRadius, true, true, true, true);
+        drawCustomRoundedRect(
+            ctx,
+            backgroundX,
+            icaoY,
+            backgroundWidth,
+            icaoHeight,
+            cornerRadius,
+            true,
+            true,
+            true,
+            true
+        );
     }
     ctx.fill();
 
     // Draw ICAO Code in the center of the remaining area
     ctx.fillStyle = "#000000"; // Black color for ICAO text
-    ctx.font = "bold 24px Arial";  // Updated font size for ICAO
+    ctx.font = "bold 24px Arial"; // Updated font size for ICAO
     ctx.textAlign = "center";
-    ctx.textBaseline = "middle";  // Vertically center the text
-    ctx.fillText(icao, canvasWidth / 2, icaoY + icaoHeight / 2);  // Center ICAO text vertically
+    ctx.textBaseline = "middle"; // Vertically center the text
+    ctx.fillText(icao, canvasWidth / 2, icaoY + icaoHeight / 2); // Center ICAO text vertically
 
     ctx.restore(); // Restore the context state
 
@@ -128,6 +200,5 @@ function generateFirIcon(icao: string, isFss: boolean): string {
     const iconURL = canvas.toDataURL();
     return iconURL;
 }
-
 
 export default generateFirIcon;

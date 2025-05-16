@@ -3,7 +3,7 @@ import {
     addMessage,
     removeMessageByLocation,
     RootState,
-    useFetchVatsimFirBoundariesQuery
+    useFetchVatsimFirBoundariesQuery,
 } from "../../../store";
 import FirLayer from "./FIR_Layers/FirLayer";
 import TraconLayer from "./Tracon_Layers/TraconLayer";
@@ -21,62 +21,63 @@ interface AtcLayerProps {
     controllerError: SerializedError | FetchBaseQueryError;
 }
 
-const AtcLayer = ({
-    controllerData,
-    controllerError,
-    controllerLoading
-}: AtcLayerProps) => {
+const AtcLayer = ({ controllerData, controllerError, controllerLoading }: AtcLayerProps) => {
     const dispatch = useDispatch();
 
-    const {
-        allAtcLayerVisible,
-        underlineFirBoundaries
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { allAtcLayerVisible, underlineFirBoundaries } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
     const {
         data: geoJsonData,
         error: geoJsonError,
-        isLoading: geoJsonLoading
+        isLoading: geoJsonLoading,
     } = useFetchVatsimFirBoundariesQuery();
 
     useEffect(() => {
         if (controllerLoading || geoJsonLoading) {
-            dispatch(addMessage({
-                location: "ATC",
-                messageType: "LOADING",
-                content: "Loading controllers..."
-            }));
+            dispatch(
+                addMessage({
+                    location: "ATC",
+                    messageType: "LOADING",
+                    content: "Loading controllers...",
+                })
+            );
         }
 
         if (controllerError || geoJsonError) {
-            dispatch(addMessage({
-                location: "ATC",
-                messageType: "ERROR",
-                content: "Error loading controllers data."
-            }));
+            dispatch(
+                addMessage({
+                    location: "ATC",
+                    messageType: "ERROR",
+                    content: "Error loading controllers data.",
+                })
+            );
         }
 
-        if (controllerData &&
-                geoJsonData &&
-                !controllerLoading &&
-                !controllerError &&
-                !geoJsonLoading &&
-                !geoJsonError) {
+        if (
+            controllerData &&
+            geoJsonData &&
+            !controllerLoading &&
+            !controllerError &&
+            !geoJsonLoading &&
+            !geoJsonError
+        ) {
             dispatch(removeMessageByLocation({ location: "ATC" }));
         }
     }, [controllerError, controllerLoading, controllerData]);
-
 
     const newControllerData = useMemo(() => controllerData, [JSON.stringify(controllerData)]);
 
     return (
         <>
-            {underlineFirBoundaries && <FirUnderlineLayer/>}
-            {allAtcLayerVisible && (<>
-                <FirLayer controllerInfo={newControllerData}/>
-                <TraconLayer controllerInfo={newControllerData}/>
-            </>)
-            }
+            {underlineFirBoundaries && <FirUnderlineLayer />}
+            {allAtcLayerVisible && (
+                <>
+                    <FirLayer controllerInfo={newControllerData} />
+                    <TraconLayer controllerInfo={newControllerData} />
+                </>
+            )}
         </>
     );
 };

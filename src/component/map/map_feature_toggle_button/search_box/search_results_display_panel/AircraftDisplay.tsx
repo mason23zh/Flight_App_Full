@@ -6,7 +6,8 @@ import SearchBoxFlightDisplaySection from "../SearchBoxFlightDisplaySection";
 const AircraftDisplay = () => {
     const { selectedAircraftType } = useSelector((state: RootState) => state.mapSearchAircraft);
 
-    const wrapperStyle = "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
+    const wrapperStyle =
+        "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
         " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
         "bottom-10 max-h-[40rem] min-h-[15rem]";
 

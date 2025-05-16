@@ -59,12 +59,9 @@ const BaseMap = ({ children }: BaseMapProps) => {
     const darkMode = useTheme();
     const isDatabaseInitialized = useInitializeDatabase();
 
-    const {
-        terrainEnable,
-        mapProjection,
-        mapStyles
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
-
+    const { terrainEnable, mapProjection, mapStyles } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
     const defaultViewState = {
         longitude: -29.858598,
@@ -75,7 +72,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
         width: 0,
         height: 0,
     };
-
 
     const [mapStyle, setMapStyle] = useState<CSSProperties>({
         height: "100%", // Default style
@@ -92,7 +88,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
     //         mapRef.current.resize();
     //     }
     // }, [mapStyle, mapRef]);
-
 
     //force page reload, when navigate from other component,
     //reload the page to reset the map. This would make sure every layer is loaded.
@@ -114,7 +109,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
             }
         };
     }, [location.pathname, mapProjection]);
-
 
     // adjust map height
     useEffect(() => {
@@ -201,7 +195,7 @@ const BaseMap = ({ children }: BaseMapProps) => {
                         info: trafficData,
                         x: e.point.x,
                         y: e.point.y,
-                    }),
+                    })
                 );
 
                 match = true;
@@ -209,15 +203,22 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
             if (layerId === GLOBE_CONTROLLER_ICON_LAYER_ID) {
                 // setCursor("pointer");
-                const properties = feature.properties as Omit<AirportService, "services" | "coordinates"> & {
+                const properties = feature.properties as Omit<
+                    AirportService,
+                    "services" | "coordinates"
+                > & {
                     coordinates: string | null;
                     services: string | null;
                 };
 
                 const controllerServiceData: AirportService = {
                     ...properties,
-                    coordinates: properties.coordinates ? (JSON.parse(properties.coordinates) as string[]) : [],
-                    services: properties.services ? (JSON.parse(properties.services) as Array<Service>) : [],
+                    coordinates: properties.coordinates
+                        ? (JSON.parse(properties.coordinates) as string[])
+                        : [],
+                    services: properties.services
+                        ? (JSON.parse(properties.services) as Array<Service>)
+                        : [],
                 };
 
                 dispatch(setHoveredController(controllerServiceData));
@@ -227,7 +228,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
             if (layerId === GLOBE_FIR_ICON_LAYER_ID) {
                 // setCursor("pointer");
-                const properties = feature.properties as Omit<MatchedFir, "firInfo" | "controller"> & {
+                const properties = feature.properties as Omit<
+                    MatchedFir,
+                    "firInfo" | "controller"
+                > & {
                     controllers: string | null;
                     firInfo: string | null;
                 };
@@ -246,7 +250,10 @@ const BaseMap = ({ children }: BaseMapProps) => {
 
             if (layerId === GLOBE_TRACON_ICON_LAYER_ID) {
                 // setCursor("pointer");
-                const properties = feature.properties as Omit<HoverTracon, "controllers" | "traconInfo"> & {
+                const properties = feature.properties as Omit<
+                    HoverTracon,
+                    "controllers" | "traconInfo"
+                > & {
                     controllers: string | null;
                     traconInfo: string | null;
                 };
@@ -299,10 +306,14 @@ const BaseMap = ({ children }: BaseMapProps) => {
                     dragPan={true}
                     onDragStart={() => setCursor("grabbing")}
                     onDragEnd={() => setCursor("grab")}
-                    terrain={terrainEnable ? {
-                        source: "mapbox-dem",
-                        exaggeration: 1.5
-                    } : undefined}
+                    terrain={
+                        terrainEnable
+                            ? {
+                                  source: "mapbox-dem",
+                                  exaggeration: 1.5,
+                              }
+                            : undefined
+                    }
                     renderWorldCopies={false} //prevent map wrapping
                     logoPosition={"bottom-right"}
                     interactiveLayerIds={[
@@ -337,7 +348,6 @@ const BaseMap = ({ children }: BaseMapProps) => {
                             {children}
                         </>
                     ) : (
-
                         <GeneralLoading themeMode={darkMode ? "dark" : "light"} />
                     )}
                 </Map>

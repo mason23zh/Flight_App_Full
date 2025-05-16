@@ -86,445 +86,442 @@ import IMG_9800 from "../images/Orion/IMG_9800.jpg";
 import IMG_9947 from "../images/Orion/IMG_9947.jpg";
 import IMG_9969 from "../images/Orion/IMG_9969.jpg";
 
-
 export const photos = [
     {
         src: IMG_0049,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_0052,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_0103,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0109,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0147,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0159,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_0202,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0212,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0223,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_0233,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_0776,
         width: 1080,
-        height: 1546
+        height: 1546,
     },
     {
         src: IMG_0896,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_0968,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1145,
         width: 1980,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_1231,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1388,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1438,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1452,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1501,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1607,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_1777,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1833,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_1907,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_1985,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2022,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2181,
         width: 1980,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_2200,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2226,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2262,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2384,
         width: 1980,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_2469,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_2481,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_2535,
         width: 3520,
-        height: 1980
+        height: 1980,
     },
     {
         src: IMG_2559,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2571,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_2619,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2868,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_2913,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2914,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_2929,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3012,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_3028,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3050,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3052,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3150,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_3162,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3187,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3333,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3401,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3506,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3521,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3575,
         width: 3520,
-        height: 1980
+        height: 1980,
     },
     {
         src: IMG_3595,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3596,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3638,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3670,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3672,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3676,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_3867,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_6758,
         width: 2048,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_6888,
         width: 752,
-        height: 779
+        height: 779,
     },
     {
         src: IMG_7319,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_7323,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_7335,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_7958,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_8084,
         width: 1980,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_8189,
         width: 1980,
-        height: 3520
+        height: 3520,
     },
     {
         src: IMG_8197,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_8245,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_8281,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_8443,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_8536,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_8856,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_8998,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9057,
         width: 800,
-        height: 600
+        height: 600,
     },
     {
         src: IMG_9361,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9363,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9366,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9369,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9403,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9597,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9638,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9648,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9774,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9800,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9947,
         width: 600,
-        height: 800
+        height: 800,
     },
     {
         src: IMG_9969,
         width: 800,
-        height: 600
+        height: 600,
     },
 ];
 
 // export default photos;
- 
- 

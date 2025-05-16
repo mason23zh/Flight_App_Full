@@ -9,7 +9,7 @@ import {
     LocalDbAirport,
     MergedFirMatching,
     MergedFssMatching,
-    VatsimTraconMapping
+    VatsimTraconMapping,
 } from "../types";
 
 export const useInitializeDatabase = () => {
@@ -19,18 +19,21 @@ export const useInitializeDatabase = () => {
         const initializeDatabase = async () => {
             try {
                 db.on("versionchange", (event) => {
-                    console.log(`Database version change detected. Old version: ${event.oldVersion}`);
-                    db.delete()
-                        .then(() => {
-                            console.log("Old database deleted. Reloading the page with new version.");
-                        });
+                    console.log(
+                        `Database version change detected. Old version: ${event.oldVersion}`
+                    );
+                    db.delete().then(() => {
+                        console.log("Old database deleted. Reloading the page with new version.");
+                    });
                 });
 
                 // import airport
                 const airportCount = await db.airports.count();
                 if (airportCount === 0) {
                     // console.log("Import airport to local db.");
-                    const { default: airportData } = await import("../assets/airport_data/airports_with_location.json");
+                    const { default: airportData } = await import(
+                        "../assets/airport_data/airports_with_location.json"
+                    );
                     if (Array.isArray(airportData)) {
                         await db.loadAirports(airportData as unknown as LocalDbAirport[]);
                     } else {
@@ -42,7 +45,9 @@ export const useInitializeDatabase = () => {
                 const firCount = await db.fir.count();
                 if (firCount === 0) {
                     // console.log("Import fir to local db.");
-                    const { default: firData } = await import ("../assets/Vatsim/fir-matching-with-suffix.json");
+                    const { default: firData } = await import(
+                        "../assets/Vatsim/fir-matching-with-suffix.json"
+                    );
                     if (Array.isArray(firData)) {
                         await db.loadFir(firData as unknown as MergedFirMatching[]);
                     } else {
@@ -54,7 +59,9 @@ export const useInitializeDatabase = () => {
                 const fssCount = await db.fss.count();
                 if (fssCount === 0) {
                     // console.log("import fss to local db.");
-                    const { default: fssData } = await import ("../assets/Vatsim/fss-mapping-with-fir.json");
+                    const { default: fssData } = await import(
+                        "../assets/Vatsim/fss-mapping-with-fir.json"
+                    );
                     if (Array.isArray(fssData)) {
                         await db.loadFss(fssData as unknown as MergedFssMatching[]);
                     } else {
@@ -65,7 +72,9 @@ export const useInitializeDatabase = () => {
                 //import tracon
                 const traconCount = await db.tracon.count();
                 if (traconCount === 0) {
-                    const { default: traconData } = await import ("../assets/Vatsim/vatsim-tracon-mapping.json");
+                    const { default: traconData } = await import(
+                        "../assets/Vatsim/vatsim-tracon-mapping.json"
+                    );
                     if (Array.isArray(traconData)) {
                         await db.loadTracon(traconData as unknown as VatsimTraconMapping[]);
                     } else {

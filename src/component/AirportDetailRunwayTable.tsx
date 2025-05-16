@@ -1,27 +1,22 @@
 import { useState } from "react";
 import { Table } from "rsuite";
 import {
-    HiArrowNarrowDown, HiArrowNarrowLeft, HiArrowNarrowRight, HiArrowNarrowUp,
+    HiArrowNarrowDown,
+    HiArrowNarrowLeft,
+    HiArrowNarrowRight,
+    HiArrowNarrowUp,
 } from "react-icons/hi";
 import AirportDetailRunwayTableIconContext from "./AirportDetailRunwayTable_IconContext";
 import { Runway, Weather } from "../types";
 
-const {
-    Column,
-    HeaderCell,
-    Cell
-} = Table;
+const { Column, HeaderCell, Cell } = Table;
 
 interface Props {
     runways: Array<Runway>;
     metar: Weather;
 }
 
-function AirportDetailRunwayTable({
-    runways,
-    metar
-}: Props) {
-
+function AirportDetailRunwayTable({ runways, metar }: Props) {
     const [sortColumn, setSortColumn] = useState<keyof Runway | null>(null);
     const [sortType, setSortType] = useState<"asc" | "desc" | null>(null);
 
@@ -33,8 +28,12 @@ function AirportDetailRunwayTable({
         if (metar) {
             const windDegrees = metar?.wind?.degrees;
             const windSpeed = metar?.wind?.speed_kts;
-            const crossWind = Math.round(Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
-            const headWind = Math.round(Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed));
+            const crossWind = Math.round(
+                Math.sin(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed)
+            );
+            const headWind = Math.round(
+                Math.cos(toRadians(Number(runwayHdg) - Number(windDegrees))) * Number(windSpeed)
+            );
             if (crossWind <= 0) {
                 crossWindComponent = (
                     <div className="rounded-lg p-1 flex items-center gap-1">
@@ -64,7 +63,6 @@ function AirportDetailRunwayTable({
                     </div>
                 );
             }
-
 
             if (headWind <= 0) {
                 headWindComponent = (
@@ -104,9 +102,7 @@ function AirportDetailRunwayTable({
                     </div>
                 );
             }
-            return (
-                <div>N/A</div>
-            );
+            return <div>N/A</div>;
         }
     };
 
@@ -193,9 +189,7 @@ function AirportDetailRunwayTable({
 
                 <Column width={170} align="center">
                     <HeaderCell>Wind Component</HeaderCell>
-                    <Cell>
-                        {(rowData) => renderWindComponent(rowData.runwayHdg)}
-                    </Cell>
+                    <Cell>{(rowData) => renderWindComponent(rowData.runwayHdg)}</Cell>
                 </Column>
             </Table>
         </div>

@@ -25,29 +25,39 @@ const useFlightPathLayer = (
                     },
                     to: {
                         coordinates: [],
-                        altitude: 0
-                    }
+                        altitude: 0,
+                    },
                 };
 
                 if (!t.longitude) return;
 
                 if (idx < data.track.length - 1) {
-                    tempObj.from.coordinates = [t.longitude, t.latitude, terrainEnable ? t.altitude : 0];
+                    tempObj.from.coordinates = [
+                        t.longitude,
+                        t.latitude,
+                        terrainEnable ? t.altitude : 0,
+                    ];
                     tempObj.to.coordinates = [
                         data.track[idx + 1].longitude,
                         data.track[idx + 1].latitude,
-                        terrainEnable ? data.track[idx + 1].altitude : 0
+                        terrainEnable ? data.track[idx + 1].altitude : 0,
                     ];
                     tempObj.from.altitude = t?.altitude || 0;
                     tempObj.to.altitude = data.track[idx + 1]?.altitude || 0;
                 } else if (idx === data.track.length - 1) {
                     // For the last segment, update with current traffic data
-                    const selectedObj = trafficData.find((o) => o.callsign === selectTraffic.callsign);
-                    tempObj.from.coordinates = [t.longitude, t.latitude, terrainEnable ? t.altitude : 0];
+                    const selectedObj = trafficData.find(
+                        (o) => o.callsign === selectTraffic.callsign
+                    );
+                    tempObj.from.coordinates = [
+                        t.longitude,
+                        t.latitude,
+                        terrainEnable ? t.altitude : 0,
+                    ];
                     tempObj.to.coordinates = [
                         selectedObj?.longitude || 0,
                         selectedObj?.latitude || 0,
-                        terrainEnable ? selectedObj?.altitude || 0 : 0
+                        terrainEnable ? selectedObj?.altitude || 0 : 0,
                     ];
                     tempObj.from.altitude = t?.altitude || 0;
                     tempObj.to.altitude = selectedObj?.altitude || 0;
@@ -57,7 +67,6 @@ const useFlightPathLayer = (
         }
         return track;
     }, [data, selectTraffic, trafficData, terrainEnable]);
-
 
     // lowest altitude color: #07B507
     const colStart = chroma(120, 0.93, 0.37, "hsl");
@@ -73,11 +82,11 @@ const useFlightPathLayer = (
                 const avgAltitude = (d.from.altitude + d.to.altitude) / 2;
 
                 // Normalize altitude to [0, 1]
-                const normalizedAltitude = Math.min(Math.max(avgAltitude, 0), altitudeRange) / altitudeRange;
+                const normalizedAltitude =
+                    Math.min(Math.max(avgAltitude, 0), altitudeRange) / altitudeRange;
 
                 // Interpolate color using chroma.mix
-                const color = chroma.mix(colStart, colEnd, normalizedAltitude, "hsl")
-                    .rgb();
+                const color = chroma.mix(colStart, colEnd, normalizedAltitude, "hsl").rgb();
 
                 return [color[0], color[1], color[2]]; // Return RGB color
             },
@@ -99,9 +108,9 @@ const useFlightPathLayer = (
             visible: visible,
             wrapLongitude: true,
             updateTriggers: {
-                getSourcePosition: formatTrack.map(t => t.from.coordinates.join(",")),  // Trigger update when track changes
-                getTargetPosition: formatTrack.map(t => t.to.coordinates.join(",")),  // Trigger update when track changes
-            }
+                getSourcePosition: formatTrack.map((t) => t.from.coordinates.join(",")), // Trigger update when track changes
+                getTargetPosition: formatTrack.map((t) => t.to.coordinates.join(",")), // Trigger update when track changes
+            },
         });
     }, [data, selectTraffic, trafficData, terrainEnable]);
 };

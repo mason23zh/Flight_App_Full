@@ -9,29 +9,26 @@ import { createMultiPolygonCircle } from "../component/map/mapbox_Layer/util/cre
 import _ from "lodash";
 
 interface UseMatchTraconFeaturesReturn {
-    geoJsonFeatures: GeoJson.FeatureCollection,
-    isLoading: boolean,
-    error: FetchBaseQueryError | SerializedError
+    geoJsonFeatures: GeoJson.FeatureCollection;
+    isLoading: boolean;
+    error: FetchBaseQueryError | SerializedError;
 }
 
-
-const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTraconFeaturesReturn => {
-    const {
-        data: geoJsonData,
-        isLoading,
-        error
-    } = useFetchVatsimTraconBoundariesQuery();
+const useMatchTraconFeatures = (
+    controllerInfo: VatsimControllers
+): UseMatchTraconFeaturesReturn => {
+    const { data: geoJsonData, isLoading, error } = useFetchVatsimTraconBoundariesQuery();
 
     const [geoJsonFeatures, setGeoJsonFeatures] = useState<GeoJson.FeatureCollection>({
         type: "FeatureCollection",
-        features: []
+        features: [],
     });
 
     useEffect(() => {
         if (isLoading || error) {
             setGeoJsonFeatures({
                 type: "FeatureCollection",
-                features: []
+                features: [],
             });
             return;
         }
@@ -39,10 +36,11 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
         if (controllerInfo?.tracon && geoJsonData) {
             const featuresMap = new Map();
 
-            controllerInfo.tracon.forEach(controller => {
+            controllerInfo.tracon.forEach((controller) => {
                 const originalParts = controller.callsign.split("_");
-                const isApproachOrDeparture = originalParts[originalParts.length - 1] === "APP" ||
-                        originalParts[originalParts.length - 1] === "DEP";
+                const isApproachOrDeparture =
+                    originalParts[originalParts.length - 1] === "APP" ||
+                    originalParts[originalParts.length - 1] === "DEP";
                 if (isApproachOrDeparture) originalParts.pop(); // Remove "APP" or "DEP"
 
                 let matched = false;
@@ -50,8 +48,11 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
                 let parts = [...originalParts];
                 while (parts.length > 0 && !matched) {
                     const potentialMatch = parts.join("_");
-                    geoJsonData.features.forEach(feature => {
-                        if (Array.isArray(feature.properties?.prefix) && feature.properties.prefix.includes(potentialMatch)) {
+                    geoJsonData.features.forEach((feature) => {
+                        if (
+                            Array.isArray(feature.properties?.prefix) &&
+                            feature.properties.prefix.includes(potentialMatch)
+                        ) {
                             matched = true;
                             const key = `${feature.properties.id}-${potentialMatch}`;
                             if (!featuresMap.has(key)) {
@@ -59,17 +60,22 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
                                     ...feature,
                                     properties: {
                                         ...feature.properties,
-                                        controllers: []
-                                    }
+                                        controllers: [],
+                                    },
                                 });
                             }
                             const existingFeature = featuresMap.get(key);
-                            if (existingFeature && !existingFeature.properties.controllers.some(ctrl => ctrl.callsign === controller.callsign)) {
+                            if (
+                                existingFeature &&
+                                !existingFeature.properties.controllers.some(
+                                    (ctrl) => ctrl.callsign === controller.callsign
+                                )
+                            ) {
                                 existingFeature.properties.controllers.push({
                                     name: controller.name,
                                     frequency: controller.frequency,
                                     logon_time: controller.logon_time,
-                                    callsign: controller.callsign
+                                    callsign: controller.callsign,
                                 });
                             }
                         }
@@ -79,13 +85,16 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
 
                 // Handle some edge case such like: URSS_1_R_APP
                 if (!matched) {
-                    parts = controller.callsign.split("_")
-                        .filter(part => part !== "APP" && part !== "DEP" && part !== "1");
+                    parts = controller.callsign
+                        .split("_")
+                        .filter((part) => part !== "APP" && part !== "DEP" && part !== "1");
                     while (parts.length > 0 && !matched) {
                         const potentialMatch = parts.join("_");
-                        geoJsonData.features.forEach(feature => {
-                            if (Array.isArray(feature.properties?.prefix) &&
-                                    feature.properties.prefix.includes(potentialMatch)) {
+                        geoJsonData.features.forEach((feature) => {
+                            if (
+                                Array.isArray(feature.properties?.prefix) &&
+                                feature.properties.prefix.includes(potentialMatch)
+                            ) {
                                 matched = true;
                                 const key = `${feature.properties.id}-${potentialMatch}`;
                                 if (!featuresMap.has(key)) {
@@ -93,19 +102,22 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
                                         ...feature,
                                         properties: {
                                             ...feature.properties,
-                                            controllers: []
-                                        }
+                                            controllers: [],
+                                        },
                                     });
                                 }
                                 const existingFeature = featuresMap.get(key);
-                                if (existingFeature &&
-                                        !existingFeature.properties.controllers.some(ctrl =>
-                                            ctrl.callsign === controller.callsign)) {
+                                if (
+                                    existingFeature &&
+                                    !existingFeature.properties.controllers.some(
+                                        (ctrl) => ctrl.callsign === controller.callsign
+                                    )
+                                ) {
                                     existingFeature.properties.controllers.push({
                                         name: controller.name,
                                         frequency: controller.frequency,
                                         logon_time: controller.logon_time,
-                                        callsign: controller.callsign
+                                        callsign: controller.callsign,
                                     });
                                 }
                             }
@@ -115,31 +127,44 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
                 }
 
                 // If no match found, create a circle with the given visual_range
-                if (!matched &&
-                        (controller.visual_range &&
-                                !_.isEmpty(controller.airport) &&
-                                controller.coordinates.length !== 0)) {
-                    const center = [Number(controller.coordinates[0]), Number(controller.coordinates[1])];
-                    const radius = controller.visual_range * 1.852 / 5;
+                if (
+                    !matched &&
+                    controller.visual_range &&
+                    !_.isEmpty(controller.airport) &&
+                    controller.coordinates.length !== 0
+                ) {
+                    const center = [
+                        Number(controller.coordinates[0]),
+                        Number(controller.coordinates[1]),
+                    ];
+                    const radius = (controller.visual_range * 1.852) / 5;
                     const options = {
                         steps: 40,
-                        units: "kilometers"
+                        units: "kilometers",
                     };
-                    const multiPolygonCircle = createMultiPolygonCircle(center, radius, options, controller);
+                    const multiPolygonCircle = createMultiPolygonCircle(
+                        center,
+                        radius,
+                        options,
+                        controller
+                    );
                     const key = `circle-${controller.callsign.split("_")[0]}`;
                     const name = extractTraconName(controller);
 
                     // If more than one controller working on the same tracon, add them
                     if (featuresMap.has(key)) {
                         const existingFeature = featuresMap.get(key);
-                        if (existingFeature &&
-                                !existingFeature.properties.controllers.some(ctrl =>
-                                    ctrl.callsign === controller.callsign)) {
+                        if (
+                            existingFeature &&
+                            !existingFeature.properties.controllers.some(
+                                (ctrl) => ctrl.callsign === controller.callsign
+                            )
+                        ) {
                             existingFeature.properties.controllers.push({
                                 callsign: controller.callsign,
                                 frequency: controller.frequency,
                                 logon_time: controller.logon_time,
-                                name: controller.name
+                                name: controller.name,
                             });
                         }
                     } else {
@@ -149,13 +174,15 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
                                 ...multiPolygonCircle.properties,
                                 id: controller.callsign.split("_")[0],
                                 name: name,
-                                controllers: [{
-                                    callsign: controller.callsign,
-                                    frequency: controller.frequency,
-                                    logon_time: controller.logon_time,
-                                    name: controller.name
-                                }]
-                            }
+                                controllers: [
+                                    {
+                                        callsign: controller.callsign,
+                                        frequency: controller.frequency,
+                                        logon_time: controller.logon_time,
+                                        name: controller.name,
+                                    },
+                                ],
+                            },
                         });
                     }
                 }
@@ -163,7 +190,7 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
 
             setGeoJsonFeatures({
                 type: "FeatureCollection",
-                features: Array.from(featuresMap.values())
+                features: Array.from(featuresMap.values()),
             });
         }
     }, [controllerInfo, geoJsonData, isLoading, error]);
@@ -171,9 +198,8 @@ const useMatchTraconFeatures = (controllerInfo: VatsimControllers): UseMatchTrac
     return {
         geoJsonFeatures,
         isLoading,
-        error
+        error,
     };
 };
-
 
 export default useMatchTraconFeatures;

@@ -8,8 +8,8 @@ const rehydrationCompleteSlice = createSlice({
     reducers: {
         setRehydrationComplete(state) {
             state.isComplete = true;
-        }
-    }
+        },
+    },
 });
 
 export const { setRehydrationComplete } = rehydrationCompleteSlice.actions;

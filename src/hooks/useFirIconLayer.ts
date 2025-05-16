@@ -28,7 +28,10 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
     const iconData = useMemo(() => {
         if (!matchedFirs) return [];
         return matchedFirs.map((feature) => {
-            const coordinates = [Number(feature.firInfo?.entries[0]?.label_lon), Number(feature.firInfo?.entries[0]?.label_lat)];
+            const coordinates = [
+                Number(feature.firInfo?.entries[0]?.label_lon),
+                Number(feature.firInfo?.entries[0]?.label_lat),
+            ];
             if (feature.isInFss || feature.firInfo.isFss) {
                 return {
                     position: coordinates,
@@ -40,17 +43,20 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
             return {
                 position: coordinates,
                 iconUrl: generateFirIcon(feature.firInfo.firBoundary, false),
-                firInfo: feature
+                firInfo: feature,
             };
         });
     }, [matchedFirs]);
 
-    const getIcon = useCallback((d) => ({
-        url: d.iconUrl,
-        width: 160,
-        height: 70,
-        anchorY: 70,
-    }), []);
+    const getIcon = useCallback(
+        (d) => ({
+            url: d.iconUrl,
+            width: 160,
+            height: 70,
+            anchorY: 70,
+        }),
+        []
+    );
 
     return useMemo(() => {
         return new IconLayer({
@@ -71,8 +77,7 @@ const useFirIconLayer = (matchedFirs: MatchedFir[], visible: boolean) => {
             },
             parameters: { depthTest: false },
             updateTriggers: {
-                getIcon: matchedFirs.map(fir => fir.firInfo.firBoundary)
-                    .join("-")
+                getIcon: matchedFirs.map((fir) => fir.firInfo.firBoundary).join("-"),
             },
         });
     }, [matchedFirs, visible]);

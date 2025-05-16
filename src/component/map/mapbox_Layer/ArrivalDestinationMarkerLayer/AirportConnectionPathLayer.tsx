@@ -10,14 +10,14 @@ interface AirportConnectionPathLayerProps {
 
 const AirportConnectionPathLayer = ({
     departureAirport,
-    arrivalAirport
+    arrivalAirport,
 }: AirportConnectionPathLayerProps) => {
     if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
         return;
     }
     const greatCircleFeature = drawGreatCirclePointsFeature(
         departureAirport.data[0].station.geometry.coordinates,
-        arrivalAirport.data[0].station.geometry.coordinates,
+        arrivalAirport.data[0].station.geometry.coordinates
     );
 
     return (

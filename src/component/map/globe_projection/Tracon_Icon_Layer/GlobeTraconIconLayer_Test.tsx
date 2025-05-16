@@ -25,7 +25,7 @@ interface TraconFeature {
 const GlobeTraconIconLayer_Test = ({
     matchedTracons,
     matchedFallbackTracons,
-    isTraconError
+    isTraconError,
 }: Props) => {
     const { current: mapRef } = useMap();
     const previousTraconsRef = useRef<TraconFeature[]>([]);
@@ -33,10 +33,9 @@ const GlobeTraconIconLayer_Test = ({
     const imagePrefix = "tracon-icon-";
     const iconCache = useRef(new Map<string, HTMLImageElement>());
 
-    const {
-        mapStyles,
-        allAtcLayerVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapStyles, allAtcLayerVisible } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
     const normalizeTracons = useCallback(
         (matchedTracons: MatchedTracon[], fallbackTracons: FallbackTracon[]): TraconFeature[] => {
@@ -64,11 +63,12 @@ const GlobeTraconIconLayer_Test = ({
 
             return [...matchedFeatures, ...fallbackFeatures];
         },
-        [],
+        []
     );
 
     const diffTracons = useCallback((newData: TraconFeature[], oldData: TraconFeature[]) => {
-        const toKeyedMap = (data: TraconFeature[]) => new Map(data.map((tracon) => [tracon.uniqueId, tracon]));
+        const toKeyedMap = (data: TraconFeature[]) =>
+            new Map(data.map((tracon) => [tracon.uniqueId, tracon]));
 
         const newMap = toKeyedMap(newData);
         const oldMap = toKeyedMap(oldData);
@@ -83,7 +83,8 @@ const GlobeTraconIconLayer_Test = ({
             } else {
                 const oldTracon = oldMap.get(key);
                 if (
-                    newTracon.originalData.controllers[0].callsign !== oldTracon?.originalData.controllers[0].callsign
+                    newTracon.originalData.controllers[0].callsign !==
+                    oldTracon?.originalData.controllers[0].callsign
                 ) {
                     updated.push(newTracon);
                 }
@@ -99,55 +100,60 @@ const GlobeTraconIconLayer_Test = ({
         return {
             added,
             updated,
-            removed
+            removed,
         };
     }, []);
 
-    const loadIcons = useCallback((map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
-        const iconsToLoad = [...added, ...updated].filter((tracon) => !loadedIconsRef.current.has(tracon.iconId));
+    const loadIcons = useCallback(
+        (map: mapboxgl.Map, added: TraconFeature[], updated: TraconFeature[]) => {
+            const iconsToLoad = [...added, ...updated].filter(
+                (tracon) => !loadedIconsRef.current.has(tracon.iconId)
+            );
 
-        if (iconsToLoad.length === 0) return;
+            if (iconsToLoad.length === 0) return;
 
-        const processBatch = (startIndex: number) => {
-            const batchSize = 5;
-            const endIndex = Math.min(startIndex + batchSize, iconsToLoad.length);
+            const processBatch = (startIndex: number) => {
+                const batchSize = 5;
+                const endIndex = Math.min(startIndex + batchSize, iconsToLoad.length);
 
-            const currentBatch = iconsToLoad.slice(startIndex, endIndex);
+                const currentBatch = iconsToLoad.slice(startIndex, endIndex);
 
-            currentBatch.forEach((tracon) => {
-                const callsign = tracon.originalData.controllers[0].callsign.slice(0, -4);
+                currentBatch.forEach((tracon) => {
+                    const callsign = tracon.originalData.controllers[0].callsign.slice(0, -4);
 
-                // Check cache first
-                const cachedImage = iconCache.current.get(tracon.iconId);
-                if (cachedImage) {
-                    if (!map.hasImage(tracon.iconId)) {
-                        map.addImage(tracon.iconId, cachedImage, { sdf: false });
-                        loadedIconsRef.current.add(tracon.iconId);
-                    }
-                    return;
-                }
-
-                // Generate new icon
-                const image = new Image();
-                image.onload = () => {
-                    requestAnimationFrame(() => {
+                    // Check cache first
+                    const cachedImage = iconCache.current.get(tracon.iconId);
+                    if (cachedImage) {
                         if (!map.hasImage(tracon.iconId)) {
-                            map.addImage(tracon.iconId, image, { sdf: false });
+                            map.addImage(tracon.iconId, cachedImage, { sdf: false });
                             loadedIconsRef.current.add(tracon.iconId);
-                            iconCache.current.set(tracon.iconId, image);
                         }
-                    });
-                };
-                image.src = generateTraconIcon(callsign);
-            });
+                        return;
+                    }
 
-            if (endIndex < iconsToLoad.length) {
-                setTimeout(() => processBatch(endIndex), 16);
-            }
-        };
+                    // Generate new icon
+                    const image = new Image();
+                    image.onload = () => {
+                        requestAnimationFrame(() => {
+                            if (!map.hasImage(tracon.iconId)) {
+                                map.addImage(tracon.iconId, image, { sdf: false });
+                                loadedIconsRef.current.add(tracon.iconId);
+                                iconCache.current.set(tracon.iconId, image);
+                            }
+                        });
+                    };
+                    image.src = generateTraconIcon(callsign);
+                });
 
-        processBatch(0);
-    }, []);
+                if (endIndex < iconsToLoad.length) {
+                    setTimeout(() => processBatch(endIndex), 16);
+                }
+            };
+
+            processBatch(0);
+        },
+        []
+    );
 
     const removeIcons = useCallback((map: mapboxgl.Map, removed: TraconFeature[]) => {
         removed.forEach((tracon) => {
@@ -209,11 +215,7 @@ const GlobeTraconIconLayer_Test = ({
         const map = mapRef.getMap();
 
         const normlizeData = normalizeTracons(matchedTracons, matchedFallbackTracons);
-        const {
-            added,
-            updated,
-            removed
-        } = diffTracons(normlizeData, previousTraconsRef.current);
+        const { added, updated, removed } = diffTracons(normlizeData, previousTraconsRef.current);
         loadIcons(map, added, updated);
         removeIcons(map, removed);
         updateGeoJson(map, normlizeData);
@@ -240,11 +242,7 @@ const GlobeTraconIconLayer_Test = ({
             previousTraconsRef.current = [];
 
             const normlizeData = normalizeTracons(matchedTracons, matchedFallbackTracons);
-            const {
-                added,
-                updated,
-                removed
-            } = diffTracons(normlizeData, []);
+            const { added, updated, removed } = diffTracons(normlizeData, []);
             // console.log("restore on style change added:", added.length);
             // console.log("restore on style change updated:", updated.length);
             // console.log("restore on style change removed:", removed.length);
