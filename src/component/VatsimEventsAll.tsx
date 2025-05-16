@@ -52,9 +52,9 @@ function VatsimEventsAll() {
 
     const scrollBarStyle = darkTheme
         ? "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+          "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
         : "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
+          "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     return (
         <>

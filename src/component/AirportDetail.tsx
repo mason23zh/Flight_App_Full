@@ -3,7 +3,6 @@
  in AirportAccordion
  * */
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { CustomProvider } from "rsuite";
 import { useNavigate, useParams } from "react-router-dom";
 import AirportMap from "./AirportMap";
@@ -12,7 +11,6 @@ import AirportDetailRunwayTable from "./AirportDetailRunwayTable";
 import AirportDetailWeatherSection from "./AirportDetailWeatherSection";
 import { useTheme } from "../hooks/ThemeContext";
 import AtisSection from "./AtisSection";
-import NoMatch from "./NoMatch";
 import AirportDetailPanel from "./AirportDetailPanel";
 import AirportDetailTafSection from "./AirportDetailTafSection";
 import TimeSection from "./TimeSection";
