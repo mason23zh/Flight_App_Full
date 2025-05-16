@@ -12,10 +12,10 @@ const LargeAirportLayer = ({ displayLabel }) => {
                 filter={["==", "type", "large_airport"]}
                 paint={{
                     "circle-color": "#3f9cd1",
-                    "circle-radius": 3
+                    "circle-radius": 3,
                 }}
             />
-            {displayLabel &&
+            {displayLabel && (
                 <AirportLabelLayer
                     id={"large-gns-430-airport-label"}
                     allowTextOverlap={false}
@@ -26,10 +26,10 @@ const LargeAirportLayer = ({ displayLabel }) => {
                         ["zoom"],
                         ["get", "ICAO"],
                         6,
-                        ["concat", ["get", "ICAO"], " \n ", ["get", "name"]]
+                        ["concat", ["get", "ICAO"], " \n ", ["get", "name"]],
                     ]}
                 />
-            }
+            )}
         </>
     );
 };

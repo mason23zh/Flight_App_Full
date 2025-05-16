@@ -4,25 +4,24 @@ import { useSelector } from "react-redux";
 import { useFetchWeatherMetarsQuery } from "../store";
 import Skeleton from "./Skeleton";
 import Table from "./Table";
-import {
-    BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
-} from "../util/selection_names";
+import { BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED } from "../util/selection_names";
 
 function MetarDisplayList() {
-    const {
-        weather,
-        scope,
-        code
-    } = useSelector((state: RootState) => state.extremeWeather.userSelection);
+    const { weather, scope, code } = useSelector(
+        (state: RootState) => state.extremeWeather.userSelection
+    );
     const {
         data: metars,
         error,
         isFetching,
-    } = useFetchWeatherMetarsQuery({
-        scope,
-        weather,
-        code
-    }, { refetchOnMountOrArgChange: true });
+    } = useFetchWeatherMetarsQuery(
+        {
+            scope,
+            weather,
+            code,
+        },
+        { refetchOnMountOrArgChange: true }
+    );
 
     const tempConfig = [];
     let config = [
@@ -69,7 +68,8 @@ function MetarDisplayList() {
     } else if (weather === VISIBILITY) {
         const tempOne = {
             label: "Visibility",
-            render: (metar) => `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`,
+            render: (metar) =>
+                `${metar.visibility_statute_mi} mi / ${Math.round(metar.visibility_statute_mi * 1609)} m`,
         };
         tempConfig.push(tempOne);
         config = [...config, ...tempConfig];

@@ -5,10 +5,7 @@ interface Props {
     airport: LocalDbAirport;
 }
 
-const AirportInfoSection = ({
-    airport,
-}: Props) => {
-
+const AirportInfoSection = ({ airport }: Props) => {
     return (
         <div className="text-[16px]">
             <AirportInfoDropDownPanel airport={airport} />

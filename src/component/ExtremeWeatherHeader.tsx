@@ -40,7 +40,7 @@ function ExtremeWeatherHeader() {
     const [scopeActive, setScopeActive] = useState({
         GLOBAL: true,
         COUNTRY: false,
-        CONTINENT: false
+        CONTINENT: false,
     });
     const [showDropDown, setShowDropDown] = useState(false);
 
@@ -52,7 +52,10 @@ function ExtremeWeatherHeader() {
                 code: { value: "ca" },
             };
             setUserSelection(updatedState);
-        } else if (userSelection.scope === CONTINENT && Object.keys(userSelection.code).length === 0) {
+        } else if (
+            userSelection.scope === CONTINENT &&
+            Object.keys(userSelection.code).length === 0
+        ) {
             const updatedState = {
                 ...userSelection,
                 code: { value: "na" },
@@ -62,11 +65,14 @@ function ExtremeWeatherHeader() {
         dispatch(changeUserSelection(userSelection));
     }, [userSelection, dispatch]);
 
-    const activeButtonClass = "p-1 rounded text-white bg-blue-500 text-sm ExWeatherHeadMd:text-lg shadow-md";
+    const activeButtonClass =
+        "p-1 rounded text-white bg-blue-500 text-sm ExWeatherHeadMd:text-lg shadow-md";
 
-    const scopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-amber-400 rounded " +
+    const scopeButtonClass =
+        "p-1 text-sm ExWeatherHeadMd:text-lg bg-amber-400 rounded " +
         "text-gray-600 hover:bg-green-600 hover:text-white duration-100";
-    const activeScopeButtonClass = "p-1 text-sm ExWeatherHeadMd:text-lg bg-green-600 text-white rounded shadow-md";
+    const activeScopeButtonClass =
+        "p-1 text-sm ExWeatherHeadMd:text-lg bg-green-600 text-white rounded shadow-md";
 
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {

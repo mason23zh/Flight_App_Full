@@ -9,15 +9,15 @@ const initialState: MatchedControllerSlice = {
     hoveredController: null,
 };
 
-const matchedControllerSlice = createSlice(({
+const matchedControllerSlice = createSlice({
     name: "matchedControllers",
     initialState,
     reducers: {
         setHoveredController(state, action: PayloadAction<AirportService>) {
             state.hoveredController = action.payload;
-        }
-    }
-}));
+        },
+    },
+});
 
 export const { setHoveredController } = matchedControllerSlice.actions;
 

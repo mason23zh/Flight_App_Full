@@ -48,8 +48,8 @@ const matchedTraconSlice = createSlice({
         },
         setMatchedTraconLoading: (state, action: PayloadAction<boolean>) => {
             state.isLoading = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const {
@@ -58,7 +58,7 @@ export const {
     setFallbackGeoJson,
     setHoveredTracon,
     setMatchedTraconError,
-    setMatchedTraconLoading
+    setMatchedTraconLoading,
 } = matchedTraconSlice.actions;
 
 export const matchedTraconsReducer = matchedTraconSlice.reducer;

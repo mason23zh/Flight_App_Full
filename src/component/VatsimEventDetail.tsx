@@ -15,7 +15,9 @@ function VatsimEventDetail({ onlyDetail }) {
     const navigate = useNavigate();
     let renderAirportList: JSX.Element[];
     const [event, setEvent] = useState<Partial<Event>>({});
-    const reduxEvent: Partial<Event> = useSelector((state: RootState) => state.vatsimEvent.userSelectionVatsimEvent);
+    const reduxEvent: Partial<Event> = useSelector(
+        (state: RootState) => state.vatsimEvent.userSelectionVatsimEvent
+    );
     // This useEffect will handle the case if user open a new tab on the Home page
     // The localStorage will be stored if user click 'go-to' button in HomeVatsimEventInfoTab
     useEffect(() => {
@@ -53,7 +55,8 @@ function VatsimEventDetail({ onlyDetail }) {
         if (startTime && endTime && utcFlag) {
             return (
                 <div>
-                    {moment(startTime).utc().format("D MMM")} @ {moment(startTime).utc().format("HH:mm")} to{" "}
+                    {moment(startTime).utc().format("D MMM")} @{" "}
+                    {moment(startTime).utc().format("HH:mm")} to{" "}
                     {moment(endTime).utc().format("HH:mm")} (UTC)
                 </div>
             );
@@ -96,17 +99,23 @@ function VatsimEventDetail({ onlyDetail }) {
                 <div className="p-10 grid grid-cols-1 lg:grid-cols-5 gap-10 ml-5 mr-5 max-w-[1400px]">
                     <div className="col-span-3">
                         <div className="grid grid-cols-1 gap-3">
-                            <div className="text-3xl sm:text-5xl justify-self-start font-bold">{event.name}</div>
+                            <div className="text-3xl sm:text-5xl justify-self-start font-bold">
+                                {event.name}
+                            </div>
                             <div className="text-md sm:text-xl justify-self-start">
                                 {renderTime(event.start_time, event.end_time, false)}
                             </div>
-                            <div className="flex gap-1 justify-self-start flex-wrap">{renderAirportList}</div>
+                            <div className="flex gap-1 justify-self-start flex-wrap">
+                                {renderAirportList}
+                            </div>
                             <div className="justify-self-start">{renderImage}</div>
                         </div>
                     </div>
                     <div className="col-span-2">
                         <div className="grid grid-cols-1 gap-2">
-                            <div className="text-xl sm:text-2xl justify-self-start font-bold">DESCRIPTION</div>
+                            <div className="text-xl sm:text-2xl justify-self-start font-bold">
+                                DESCRIPTION
+                            </div>
                             <div className="text-md sm:text-xl overflow-hidden">
                                 <div dangerouslySetInnerHTML={{ __html: event.description }} />
                             </div>

@@ -10,8 +10,7 @@ function ChangeLog() {
                 <div>---</div>
                 <div className="flex flex-col gap-3">
                     <div>
-                        Beta 0.1 <br />
-                        - Initial Release &#127881;
+                        Beta 0.1 <br />- Initial Release &#127881;
                     </div>
                     <div>
                         Beta 0.1.1 <br />
@@ -22,7 +21,8 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.1.2 <br />
-                        - Fix the dark mode persistence issue when opening the new browser tab <br />
+                        - Fix the dark mode persistence issue when opening the new browser tab{" "}
+                        <br />
                         - Added dark mode to NoMatch Page <br />
                         - Added disclaimer in footer <br />
                         - Improve the contrast for Get Data button <br />
@@ -44,7 +44,8 @@ function ChangeLog() {
                         Beta 0.2.1 <br />
                         - Added margin on input bar <br />
                         - Added Footer to display disclaimer <br />
-                        - Fix the Map size change in the Airport Detail page<br />
+                        - Fix the Map size change in the Airport Detail page
+                        <br />
                         - Fix the width issue when screen become too small <br />
                         - Adjust the Detail Weather panel when switching to a smaller screen <br />
                         - Adjust the width for input search bar <br />
@@ -54,10 +55,11 @@ function ChangeLog() {
                         Beta 0.2.2 <br />
                         - Added popular airports in the Home page <br />
                         - Added ATIS in Airport Detail page <br />
-                        - Fix the issue in localStorage so the theme and airport/weather list will be persistence
-                        after the refresh<br />
-                        - Fix the issue when loading up a page for the first time will stucked at loading page if no
-                        localStorage available <br />
+                        - Fix the issue in localStorage so the theme and airport/weather list will
+                        be persistence after the refresh
+                        <br />
+                        - Fix the issue when loading up a page for the first time will stucked at
+                        loading page if no localStorage available <br />
                         - Fix the input bar zoom issue in IOS <br />
                         - Re-tune the Home page layout to fit smaller screen better <br />
                         - Fix the Weather input bar not trimming the user input <br />
@@ -66,18 +68,20 @@ function ChangeLog() {
                     <div>
                         Beta 0.3 <br />
                         - Added popular Vatsim airports <br />
-                        - Added visual guidance in the Home page to indicate the page could be scrolled down <br />
+                        - Added visual guidance in the Home page to indicate the page could be
+                        scrolled down <br />
                         - Change display layout for popular airport in Home page <br />
                         - Fix the visited airport been counted twice issue <br />
                         - Fix the issue when page is rendering from the bottom <br />
-                        - Fix the issue NotFound page might render if Airport Detail page is taking too long to
-                        retrieve data <br />
+                        - Fix the issue NotFound page might render if Airport Detail page is taking
+                        too long to retrieve data <br />
                     </div>
                     <div>
                         Beta 0.3.1 <br />
                         - Added responsive to Pagination component in airport search list <br />
                         - Change airport search list to new display layout <br />
-                        - Fix UI issue in Home page popular airport tab (location render twice) <br />
+                        - Fix UI issue in Home page popular airport tab (location render twice){" "}
+                        <br />
                     </div>
                     <div>
                         Beta 0.3.2 <br />
@@ -86,10 +90,12 @@ function ChangeLog() {
                     </div>
                     <div>
                         Beta 0.3.3 <br />
-                        - Added dark theme map tile in Airport Detail when switching to dark mode <br />
+                        - Added dark theme map tile in Airport Detail when switching to dark mode{" "}
+                        <br />
                         - Added linear-gradient to home page background image <br />
                         - Automatically detect system dark mode setting <br />
-                        - Make URLs in Airport Detail page table shorter, results a smaller table <br />
+                        - Make URLs in Airport Detail page table shorter, results a smaller table{" "}
+                        <br />
                         - Lower the Home Page background image brightness in dark mode <br />
                         - Change input field background color to match dark mode <br />
                         - Change search bar layout for Home, Weather and Airport page <br />
@@ -102,8 +108,8 @@ function ChangeLog() {
                         - Fix the Home page navigate section button style issue <br />
                         - Added image modal in Orion page <br />
                         - Change background color for traffic table <br />
-                        - Added feature that if airport search only return 1 results, instead showing airport list,
-                        - direct render the airport detail page <br />
+                        - Added feature that if airport search only return 1 results, instead
+                        showing airport list, - direct render the airport detail page <br />
                     </div>
                     <div>
                         Beta 0.3.5 <br />
@@ -117,13 +123,15 @@ function ChangeLog() {
                     <div>
                         Beta 0.4 <br />
                         - Added Vatsim event feature <br />
-                        - Fix the issue if no localStorage data enter new ICAO in airport detail page will direct
-                        back to home page <br />
-                        - Fix container height issue when using 100% viewport in some components <br />
+                        - Fix the issue if no localStorage data enter new ICAO in airport detail
+                        page will direct back to home page <br />
+                        - Fix container height issue when using 100% viewport in some components{" "}
+                        <br />
                     </div>
                     <div>
                         Beta 0.4.1 <br />
-                        - Vite migration &#9889;<br />
+                        - Vite migration &#9889;
+                        <br />
                         - Added interactive map <br />
                         - Fix theme not correctly apply issue <br />
                     </div>
@@ -153,7 +161,8 @@ function ChangeLog() {
                         - Added responsive design for map elements <br />
                         - Added airliner name display <br />
                         - Fixed the tracon popup for the API update <br />
-                        - Fixed the great circle path drawing got messy if path is crossing the 180° meridian <br />
+                        - Fixed the great circle path drawing got messy if path is crossing the 180°
+                        meridian <br />
                     </div>
                     <div>
                         Beta 0.5 <br />
@@ -163,7 +172,8 @@ function ChangeLog() {
                         - Added option to reset map options <br />
                         - Disable tooltip if user is on touchscreen device <br />
                         - Fix the address bar blocking content in IOS device issue <br />
-                        - Fix page failed to direct when selecting airport directly from weather list <br />
+                        - Fix page failed to direct when selecting airport directly from weather
+                        list <br />
                         - Adjust map control panel to fit for touchscreen device <br />
                         - Adjust map control panel hover and selection visual style <br />
                         - Adjust Home page to be fitted in the IOS device <br />
@@ -171,14 +181,19 @@ function ChangeLog() {
                     <div>
                         Beta 0.5.1 <br />
                         - Added moving map to track local sim flight <br />
-                        - Added search feature in the map<br />
+                        - Added search feature in the map
+                        <br />
                         - Added airport layout for all map styles <br />
                         - Map performance optimization <br />
-                        - Fixed the issue that Detail Airport Page not loading correctly in some condition <br />
-                        - Fixed the issue that partial traffic path remains in 3D mode if map is in 2D mode <br />
+                        - Fixed the issue that Detail Airport Page not loading correctly in some
+                        condition <br />
+                        - Fixed the issue that partial traffic path remains in 3D mode if map is in
+                        2D mode <br />
                         - Fixed the issue that traffic path is incorrect in 2D mode <br />
-                        - Fixed the issue that theme mode does not apply in the Main Map correctly sometimes <br />
-                        - Fixed the issue that map might freeze if load with terrain mode enabled <br />
+                        - Fixed the issue that theme mode does not apply in the Main Map correctly
+                        sometimes <br />
+                        - Fixed the issue that map might freeze if load with terrain mode enabled{" "}
+                        <br />
                         - Applied new design to Extreme Weather page <br />
                         - Applied change for the new Datis API format <br />
                         - Remove the hover popup arrow tip (controller marker) <br />
@@ -191,7 +206,8 @@ function ChangeLog() {
                         - Fixed some minor font issue <br />
                         - Improve Map performance, reduce memory usage <br />
                         - Adjust Event page style <br />
-                        - Change mouse to pointer when hover over the Extreme Weather table item <br />
+                        - Change mouse to pointer when hover over the Extreme Weather table item{" "}
+                        <br />
                         - Disable the translation to prevent some crash <br />
                     </div>
                     <div>
@@ -200,9 +216,12 @@ function ChangeLog() {
                         - Added popular Vatsim airports in the map page <br />
                         - Added color gradient for flight path. <br />
                         - Update the aircraft sprite image and mapping json file. <br />
-                        - Fixed the tooltip re-appear after browser window out-of focus and re-focus. <br />
-                        - Fixed the 'move to airport' button not working in airport detail panel (Map page). <br />
-                        - Fixed the Search Results List in map page not scaled correct in 4k monitor <br />
+                        - Fixed the tooltip re-appear after browser window out-of focus and
+                        re-focus. <br />
+                        - Fixed the 'move to airport' button not working in airport detail panel
+                        (Map page). <br />
+                        - Fixed the Search Results List in map page not scaled correct in 4k monitor{" "}
+                        <br />
                         - Fixed mouse cursor style issues in Map compoent. <br />
                         - Improve scrollbar style. <br />
                         - Improve the airport departure arrival panel style. <br />

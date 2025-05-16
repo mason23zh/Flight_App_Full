@@ -7,15 +7,10 @@ interface OtherDataBlockProps {
     arrAirport: AirportResponse;
 }
 
-const OtherDataBlock = ({
-    flight_plan,
-    depAirport,
-    arrAirport
-}: OtherDataBlockProps) => {
+const OtherDataBlock = ({ flight_plan, depAirport, arrAirport }: OtherDataBlockProps) => {
     if (!flight_plan) {
         return (
-            <div className="text-sm text-white text-center"
-            >
+            <div className="text-sm text-white text-center">
                 No Flight Plan Available For This Flight
             </div>
         );

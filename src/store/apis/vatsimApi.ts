@@ -1,10 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Event, VatsimControllers, VatsimFlight, VatsimTrackTraffic } from "../../types/";
 
-
 export interface EventResponse {
-    result: number,
-    events: [Event]
+    result: number;
+    events: [Event];
 }
 
 interface VatsimTrackResponse {
@@ -12,9 +11,8 @@ interface VatsimTrackResponse {
 }
 
 interface VatsimTrafficResponse {
-    data: { results: number, pilots: Array<VatsimFlight> };
+    data: { results: number; pilots: Array<VatsimFlight> };
 }
-
 
 export const vatsimApi = createApi({
     reducerPath: "vatsim",
@@ -40,26 +38,26 @@ export const vatsimApi = createApi({
                 query: () => ({
                     url: "/getVatsimControllers",
                     method: "GET",
-                })
+                }),
             }),
             fetchVatsimPilotsData: build.query<VatsimTrafficResponse, void>({
                 query: () => ({
                     url: "/getPilots",
                     method: "GET",
-                })
+                }),
             }),
             fetchTrafficTrackData: build.query<VatsimTrackResponse, string>({
                 query: (callsign) => ({
                     url: `/getTrafficByCallsign/track/${callsign}`,
                     method: "GET",
-                })
+                }),
             }),
             fetchVatsimTrafficByCallsign: build.query<VatsimTrafficResponse, string>({
                 query: (callsign) => ({
                     url: `/getVatsimTrafficByCallsign/${callsign}`,
-                    method: "GET"
-                })
-            })
+                    method: "GET",
+                }),
+            }),
         };
     },
 });
@@ -69,5 +67,5 @@ export const {
     useFetchVatsimControllersDataQuery,
     useFetchVatsimPilotsDataQuery,
     useFetchTrafficTrackDataQuery,
-    useFetchVatsimTrafficByCallsignQuery
+    useFetchVatsimTrafficByCallsignQuery,
 } = vatsimApi;

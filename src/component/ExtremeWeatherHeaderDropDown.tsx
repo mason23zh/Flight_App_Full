@@ -34,7 +34,7 @@ function ExtremeWeatherHeaderDropDown() {
     const [scopeActive, setScopeActive] = useState({
         GLOBAL: true,
         COUNTRY: false,
-        CONTINENT: false
+        CONTINENT: false,
     });
     const [showDropDown, setShowDropDown] = useState(false);
 
@@ -46,7 +46,10 @@ function ExtremeWeatherHeaderDropDown() {
                 code: { value: "ca" },
             };
             setUserSelection(updatedState);
-        } else if (userSelection.scope === CONTINENT && Object.keys(userSelection.code).length === 0) {
+        } else if (
+            userSelection.scope === CONTINENT &&
+            Object.keys(userSelection.code).length === 0
+        ) {
             const updatedState = {
                 ...userSelection,
                 code: { value: "na" },
@@ -55,7 +58,6 @@ function ExtremeWeatherHeaderDropDown() {
         }
         dispatch(changeUserSelection(userSelection));
     }, [userSelection, dispatch]);
-
 
     const handleWeatherButtonClick = (arg) => {
         const updateSelection = {
@@ -116,7 +118,6 @@ function ExtremeWeatherHeaderDropDown() {
 
     let renderedDropDown: JSX.Element;
 
-
     if (showDropDown && userSelection.scope === COUNTRY) {
         renderedDropDown = (
             <InputPicker
@@ -136,15 +137,12 @@ function ExtremeWeatherHeaderDropDown() {
                 style={{ width: 120 }}
                 placeholder="Select Continent"
             />
-
         );
     }
 
-
     return (
         <div className="text-sm flex items-center justify-center p-3 gap-2">
-            <Dropdown
-                title={userSelection.weather.replace("_", " ")}>
+            <Dropdown title={userSelection.weather.replace("_", " ")}>
                 <Dropdown.Item
                     onSelect={() => handleWeatherButtonClick(WIND_SPEED)}
                     active={weatherActive.WIND_SPEED}
@@ -197,9 +195,7 @@ function ExtremeWeatherHeaderDropDown() {
                     Continent
                 </Dropdown.Item>
             </Dropdown>
-            <div>
-                {renderedDropDown}
-            </div>
+            <div>{renderedDropDown}</div>
         </div>
     );
 }

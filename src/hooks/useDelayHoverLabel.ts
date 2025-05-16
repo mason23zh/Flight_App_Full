@@ -13,13 +13,13 @@ interface AirportResponseWithDepartureOriginType {
 
 const useDelayHoverLabel = () => {
     const [hoverInfo, setHoverInfo] = useState<
-            GeoJson.FeatureCollection |
-            AirportService |
-            AirportResponseWithDepartureOriginType |
-            MatchedFir |
-            MatchedTracon |
-            FallbackTracon |
-            null
+        | GeoJson.FeatureCollection
+        | AirportService
+        | AirportResponseWithDepartureOriginType
+        | MatchedFir
+        | MatchedTracon
+        | FallbackTracon
+        | null
     >(null);
     const hoverDelayHandlerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -36,23 +36,28 @@ const useDelayHoverLabel = () => {
     }, [clearHoverTimeout]);
 
     const handleMouse = useCallback(
-        (info: GeoJson.FeatureCollection |
-                            AirportService |
-                            AirportResponseWithDepartureOriginType |
-                            MatchedTracon |
-                            MatchedFir |
-                            FallbackTracon |
-                            null,
-        entering: boolean,
-        enterDelay: number,
-        leaveDelay: number) => {
+        (
+            info:
+                | GeoJson.FeatureCollection
+                | AirportService
+                | AirportResponseWithDepartureOriginType
+                | MatchedTracon
+                | MatchedFir
+                | FallbackTracon
+                | null,
+            entering: boolean,
+            enterDelay: number,
+            leaveDelay: number
+        ) => {
             clearHoverTimeout();
 
             const delay = entering ? enterDelay : leaveDelay;
             hoverDelayHandlerRef.current = setTimeout(() => {
                 setHoverInfo(info);
             }, delay);
-        }, [clearHoverTimeout]);
+        },
+        [clearHoverTimeout]
+    );
 
     return [hoverInfo, handleMouse] as const;
 };

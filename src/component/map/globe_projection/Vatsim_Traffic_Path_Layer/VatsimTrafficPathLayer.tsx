@@ -6,22 +6,20 @@ import { GeoJSON } from "geojson";
 import { Layer, Source } from "react-map-gl";
 
 const VatsimTrafficPathLayer = () => {
-
     const { selectedTraffic } = useSelector((state: RootState) => state.vatsimMapTraffic);
 
     const {
         data: trackData,
         error: trackError,
-        isLoading: trackLoading
+        isLoading: trackLoading,
     } = useFetchTrafficTrackDataQuery(selectedTraffic?.callsign ?? "", {
-        skip: !selectedTraffic || selectedTraffic.cid === 0
+        skip: !selectedTraffic || selectedTraffic.cid === 0,
     });
 
-
     /*
-    * Reference to: https://docs.mapbox.com/mapbox-gl-js/example/line-across-180th-meridian/
-    *
-    * */
+     * Reference to: https://docs.mapbox.com/mapbox-gl-js/example/line-across-180th-meridian/
+     *
+     * */
     const adjustAntimeridianCrossing = (coordinates) => {
         if (coordinates.length < 2) return coordinates; // No adjustment needed for fewer than 2 points
 
@@ -46,29 +44,26 @@ const VatsimTrafficPathLayer = () => {
         return adjustedCoordinates;
     };
 
-
     const geoJsonData = useMemo(() => {
-        if (!trackData || !trackData?.data || trackLoading || trackError || !selectedTraffic) return null;
+        if (!trackData || !trackData?.data || trackLoading || trackError || !selectedTraffic)
+            return null;
 
-        const normalizedCoordinates = trackData.data.track.map(({
-            longitude,
-            latitude
-        }: TrackObj) => [
-            ((longitude + 180) % 360 + 360) % 360 - 180, // Normalize longitude
-            latitude
-        ])
+        const normalizedCoordinates = trackData.data.track
+            .map(({ longitude, latitude }: TrackObj) => [
+                ((((longitude + 180) % 360) + 360) % 360) - 180, // Normalize longitude
+                latitude,
+            ])
             .filter(([longitude, latitude]) => longitude !== 0 || latitude !== 0); // filter out [0,0] coordinates
 
         const currentTrafficCoordinates = [
-            ((selectedTraffic.longitude + 180) % 360 + 360) % 360 - 180, // Normalize current longitude
-            selectedTraffic.latitude
+            ((((selectedTraffic.longitude + 180) % 360) + 360) % 360) - 180, // Normalize current longitude
+            selectedTraffic.latitude,
         ];
 
         normalizedCoordinates.push(currentTrafficCoordinates);
 
         // Adjust for antimeridian crossing
         const adjustedCoordinates = adjustAntimeridianCrossing(normalizedCoordinates);
-
 
         return {
             type: "FeatureCollection",
@@ -79,33 +74,28 @@ const VatsimTrafficPathLayer = () => {
                         type: "LineString",
                         coordinates: adjustedCoordinates,
                     },
-                    properties: {}
-                }
-            ]
+                    properties: {},
+                },
+            ],
         } as GeoJSON;
-
     }, [trackData, trackLoading, trackError, selectedTraffic]);
 
     if (trackLoading || trackError || !geoJsonData) return null;
 
     return (
-        <Source
-            id="flght-path-globe"
-            type="geojson"
-            data={geoJsonData}
-        >
+        <Source id="flght-path-globe" type="geojson" data={geoJsonData}>
             <Layer
                 id="flight-path-layer-globe"
                 // beforeId="vatsim-traffic-globe-layer"
                 type="line"
                 layout={{
                     "line-cap": "round",
-                    "line-join": "round"
+                    "line-join": "round",
                 }}
                 paint={{
                     "line-color": "#4855BF",
                     "line-width": 3,
-                    "line-opacity": 0.8
+                    "line-opacity": 0.8,
                 }}
             />
         </Source>

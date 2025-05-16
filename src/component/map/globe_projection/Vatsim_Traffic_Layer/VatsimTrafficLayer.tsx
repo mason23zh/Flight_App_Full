@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo } from "react";
-import { RootState, setMapSearchSelectedAircraft, useFetchVatsimPilotsDataQuery } from "../../../../store";
+import {
+    RootState,
+    setMapSearchSelectedAircraft,
+    useFetchVatsimPilotsDataQuery,
+} from "../../../../store";
 import { GeoJSONSource, Layer, Source, useMap } from "react-map-gl";
 import B38M from "../../../../assets/mapbox/B38M_1.png";
 import { GeoJSON } from "geojson";
@@ -19,23 +23,16 @@ const VatsimTrafficLayer = () => {
     const imageId = "B38M";
     const dispatch = useDispatch();
     const { current: mapRef } = useMap();
-    const {
-        mapStyles,
-        trafficLayerVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
-
-    const {
-        filterAircraftOnMap: filterByAircraftType,
-        selectedAircraftCategory
-    } = useSelector(
-        (state: RootState) => state.mapSearchAircraft,
+    const { mapStyles, trafficLayerVisible } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
     );
 
-    const {
-        filterAircraftOnMap: filterByAirport,
-        selectedAirport
-    } = useSelector(
-        (state: RootState) => state.mapSearchAirport,
+    const { filterAircraftOnMap: filterByAircraftType, selectedAircraftCategory } = useSelector(
+        (state: RootState) => state.mapSearchAircraft
+    );
+
+    const { filterAircraftOnMap: filterByAirport, selectedAirport } = useSelector(
+        (state: RootState) => state.mapSearchAirport
     );
 
     const {
@@ -77,8 +74,14 @@ const VatsimTrafficLayer = () => {
             }
             return vatsimPilots?.data.pilots || [];
         },
-        [filterByAircraftType, selectedAircraftCategory, vatsimPilots, filterByAirport, selectedAirport],
-        [],
+        [
+            filterByAircraftType,
+            selectedAircraftCategory,
+            vatsimPilots,
+            filterByAirport,
+            selectedAirport,
+        ],
+        []
     );
 
     const memoizedVatsimPilotToDisplay: VatsimFlight[] = useMemo(() => {
@@ -146,7 +149,6 @@ const VatsimTrafficLayer = () => {
         };
 
         loadAircraftImage();
-
     }, [mapStyles, mapRef]);
 
     //restore aircraft icons && source after map style change

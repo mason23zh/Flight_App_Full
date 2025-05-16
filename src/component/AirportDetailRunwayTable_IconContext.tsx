@@ -5,19 +5,17 @@
 import { useMemo } from "react";
 import { IconContext } from "react-icons";
 
-function AirportDetailRunwayTableIconContext({
-    icon,
-    color
-}) {
-    const obj = useMemo(() => ({
-        color,
-    }), [color]);
+function AirportDetailRunwayTableIconContext({ icon, color }) {
+    const obj = useMemo(
+        () => ({
+            color,
+        }),
+        [color]
+    );
     return (
         <div>
             <IconContext.Provider value={obj.color}>
-                <div>
-                    {icon}
-                </div>
+                <div>{icon}</div>
             </IconContext.Provider>
         </div>
     );

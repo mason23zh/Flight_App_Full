@@ -5,7 +5,7 @@ import {
     LocalDbAirport,
     MergedFirMatching,
     MergedFssMatching,
-    VatsimFlight
+    VatsimFlight,
 } from "../types";
 import { VatsimTraconMapping } from "../types";
 
@@ -19,10 +19,8 @@ class VatsimLocalDB extends Dexie {
 
     constructor() {
         super("LocalVatsimDB");
-        this.version(2)
-            .stores(
-                {
-                    vatsimTraffic: `&cid, 
+        this.version(2).stores({
+            vatsimTraffic: `&cid, 
                         callsign, 
                         name, 
                         flight_plan.aircraft, 
@@ -34,21 +32,20 @@ class VatsimLocalDB extends Dexie {
                         flight_plan.departure, 
                         [flight_plan.departure+flight_plan.arrival]`,
 
-                    airports: `&ident, 
+            airports: `&ident, 
                             gps_code, 
                             iata_code, 
                             municipality,
                             name`,
-                    fir: `&uniqueId,
+            fir: `&uniqueId,
                         icao,
                         callsignPrefix,
                         firBoundary`,
-                    fss: `&fssCallsign, 
+            fss: `&fssCallsign, 
                           fssName`,
-                    tracon: `&uniqueId,id,
+            tracon: `&uniqueId,id,
                             *prefix`,
-                },
-            );
+        });
     }
 
     #chunkArray(array: VatsimFlight[], size: number) {
@@ -61,28 +58,30 @@ class VatsimLocalDB extends Dexie {
     }
 
     async syncVatsimTraffic(newData: VatsimFlight[]) {
-        const currentKeys = await this.vatsimTraffic.toCollection()
-            .primaryKeys();
-        const newKeys = newData.map(item => item.cid);
-        const keysToRemove = currentKeys.filter(key => !newKeys.includes(Number(key)));
+        const currentKeys = await this.vatsimTraffic.toCollection().primaryKeys();
+        const newKeys = newData.map((item) => item.cid);
+        const keysToRemove = currentKeys.filter((key) => !newKeys.includes(Number(key)));
 
         // Append aircraft data to VatsimFlight to include aircraft name and iata code
-        const updatedData = newData.map(flight => {
-            if (flight.flight_plan) {  //some traffic may not have flight plan
-                const aircraft = aircraftData.find(mapping => mapping.icao === flight.flight_plan.aircraft_short);
+        const updatedData = newData.map((flight) => {
+            if (flight.flight_plan) {
+                //some traffic may not have flight plan
+                const aircraft = aircraftData.find(
+                    (mapping) => mapping.icao === flight.flight_plan.aircraft_short
+                );
                 let updatedFlightPlan = { ...flight.flight_plan };
 
                 if (aircraft) {
                     updatedFlightPlan = {
                         ...flight.flight_plan,
                         aircraft_name: aircraft.name,
-                        aircraft_iata: aircraft.iata
+                        aircraft_iata: aircraft.iata,
                     };
                 }
 
                 return {
                     ...flight,
-                    flight_plan: updatedFlightPlan
+                    flight_plan: updatedFlightPlan,
                 };
             } else {
                 return flight;
@@ -100,30 +99,29 @@ class VatsimLocalDB extends Dexie {
     }
 
     async loadAirports(newData: LocalDbAirport[]) {
-        const validAirportData = newData.filter(airport => airport.ident);
+        const validAirportData = newData.filter((airport) => airport.ident);
         await this.airports.clear();
         await this.airports.bulkPut(validAirportData);
     }
 
     async loadFir(newData: MergedFirMatching[]) {
-        const validFirData = newData.filter(fir => fir.uniqueId);
+        const validFirData = newData.filter((fir) => fir.uniqueId);
         await this.fir.clear();
         await this.fir.bulkPut(validFirData);
     }
 
     async loadFss(newData: MergedFssMatching[]) {
-        const validFssData = newData.filter(fss => fss.fssCallsign);
+        const validFssData = newData.filter((fss) => fss.fssCallsign);
         await this.fss.clear();
         await this.fss.bulkPut(validFssData);
     }
 
     async loadTracon(newData: VatsimTraconMapping[]) {
-        const validTraconData = newData.filter(tracon => tracon.uniqueId);
+        const validTraconData = newData.filter((tracon) => tracon.uniqueId);
         await this.tracon.clear();
         await this.tracon.bulkPut(validTraconData);
     }
 }
-
 
 const db = new VatsimLocalDB();
 

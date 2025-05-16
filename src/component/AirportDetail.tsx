@@ -38,16 +38,20 @@ function AirportDetail() {
         data: fetchedAirportData,
         error: airportDataError,
         isFetching: airportDataFetching,
-    } = useFetchDetailAirportWithICAOQuery({
-        icao: effectiveICAO,
-        decode: true
-    }, {
-        skip: !isValidICAO
-    });
+    } = useFetchDetailAirportWithICAOQuery(
+        {
+            icao: effectiveICAO,
+            decode: true,
+        },
+        {
+            skip: !isValidICAO,
+        }
+    );
 
     useEffect(() => {
         if (
-            !isValidICAO || airportDataError ||
+            !isValidICAO ||
+            airportDataError ||
             (fetchedAirportData &&
                 (fetchedAirportData.result === 0 || fetchedAirportData.data.length === 0))
         ) {
@@ -69,33 +73,27 @@ function AirportDetail() {
     }
 
     if (airport && fetchedAirportData) {
-        const {
-            country_code,
-            country_name
-        } = airport.station.country || {};
+        const { country_code, country_name } = airport.station.country || {};
         const { region_name } = airport.station.region;
         const { name } = airport.station;
-        const {
-            type,
-            home_link,
-            wikipedia_link
-        } = airport.additional;
-        const {
-            ICAO,
-            iata,
-            elevation,
-            transitionAltitude,
-        } = airport;
+        const { type, home_link, wikipedia_link } = airport.additional;
+        const { ICAO, iata, elevation, transitionAltitude } = airport;
         const [lng, lat] = airport.station.geometry.coordinates;
 
         return (
             <>
                 <Helmet>
-                    <title>{ICAO || "-"} | {name || "-"}</title> <meta
+                    <title>
+                        {ICAO || "-"} | {name || "-"}
+                    </title>{" "}
+                    <meta
                         name="description"
                         content={`View airport details for ${ICAO}, including live and decoded METARs, TAFs, ATIS (if available), and detailed runway info like ILS, length, and elevation.`}
                     />
-                    <link rel="canonical" href={`https://airportweather.org/airport/detail/${ICAO}`} />
+                    <link
+                        rel="canonical"
+                        href={`https://airportweather.org/airport/detail/${ICAO}`}
+                    />
                 </Helmet>
                 <CustomProvider theme={themeMode}>
                     <div className="p-3 grid grid-cols-1 items-center justify-items-stretch">

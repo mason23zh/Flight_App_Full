@@ -12,61 +12,63 @@ import { useDispatch } from "react-redux";
 const useTraconIconLayer = (
     matchedTracon: MatchedTracon[],
     matchedFallbackTracon: FallbackTracon[],
-    visible: boolean,
+    visible: boolean
 ) => {
     const dispatch = useDispatch();
 
     const matchedIconData = useMemo(() => {
-        return (!matchedTracon || matchedTracon.length === 0)
+        return !matchedTracon || matchedTracon.length === 0
             ? []
             : matchedTracon.map((tracon) => {
-                if (tracon.traconInfo.coordinates.length > 1) {
-                    const lon = tracon.traconInfo.coordinates[0];
-                    const lat = tracon.traconInfo.coordinates[1];
-                    const name = tracon.traconInfo.name;
+                  if (tracon.traconInfo.coordinates.length > 1) {
+                      const lon = tracon.traconInfo.coordinates[0];
+                      const lat = tracon.traconInfo.coordinates[1];
+                      const name = tracon.traconInfo.name;
 
-                    const traconHoverObj: HoverTracon = {
-                        controllers: tracon.controllers,
-                        traconInfo: {
-                            id: tracon.traconInfo.id,
-                            callsignPrefix: tracon.traconInfo.callsignPrefix,
-                            name: name,
-                            coordinates: [lon, lat],
-                        }
-                    };
+                      const traconHoverObj: HoverTracon = {
+                          controllers: tracon.controllers,
+                          traconInfo: {
+                              id: tracon.traconInfo.id,
+                              callsignPrefix: tracon.traconInfo.callsignPrefix,
+                              name: name,
+                              coordinates: [lon, lat],
+                          },
+                      };
 
-                    return {
-                        position: [Number(lon), Number(lat)],
-                        iconUrl: generateTraconIcon(tracon.traconInfo.id),
-                        traconInfo: traconHoverObj
-                    };
-                }
-            });
+                      return {
+                          position: [Number(lon), Number(lat)],
+                          iconUrl: generateTraconIcon(tracon.traconInfo.id),
+                          traconInfo: traconHoverObj,
+                      };
+                  }
+              });
     }, [matchedTracon]);
 
     const fallBackIconData = useMemo(() => {
-        return (!matchedFallbackTracon || matchedFallbackTracon.length === 0)
+        return !matchedFallbackTracon || matchedFallbackTracon.length === 0
             ? []
             : matchedFallbackTracon.map((tracon) => {
-                const lon = tracon.edgeCoordinates[0];
-                const lat = tracon.edgeCoordinates[1];
-                const name = (tracon.controllers && tracon.controllers.length !== 0) ?
-                    tracon.controllers[0].airport.name + " APP/DEP" : "-";
+                  const lon = tracon.edgeCoordinates[0];
+                  const lat = tracon.edgeCoordinates[1];
+                  const name =
+                      tracon.controllers && tracon.controllers.length !== 0
+                          ? tracon.controllers[0].airport.name + " APP/DEP"
+                          : "-";
 
-                const traconHoverObj: HoverTracon = {
-                    controllers: tracon.controllers,
-                    traconInfo: {
-                        name: name,
-                        coordinates: [lon, lat],
-                    }
-                };
+                  const traconHoverObj: HoverTracon = {
+                      controllers: tracon.controllers,
+                      traconInfo: {
+                          name: name,
+                          coordinates: [lon, lat],
+                      },
+                  };
 
-                return {
-                    position: [lon, lat],
-                    iconUrl: generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4)),
-                    traconInfo: traconHoverObj,
-                };
-            });
+                  return {
+                      position: [lon, lat],
+                      iconUrl: generateTraconIcon(tracon.controllers[0].callsign.slice(0, -4)),
+                      traconInfo: traconHoverObj,
+                  };
+              });
     }, [matchedFallbackTracon]);
 
     const debouncedHover = useCallback(
@@ -83,13 +85,15 @@ const useTraconIconLayer = (
         };
     }, [debouncedHover]);
 
-    const getIcon = useCallback((d) => ({
-        url: d.iconUrl,
-        width: 130,
-        height: 50,
-        anchorY: 50,
-    }), []);
-
+    const getIcon = useCallback(
+        (d) => ({
+            url: d.iconUrl,
+            width: 130,
+            height: 50,
+            anchorY: 50,
+        }),
+        []
+    );
 
     return useMemo(() => {
         return new IconLayer({
@@ -97,7 +101,7 @@ const useTraconIconLayer = (
             data: [...matchedIconData, ...fallBackIconData],
             pickable: true,
             visible: visible,
-            getPosition: d => d.position,
+            getPosition: (d) => d.position,
             getIcon,
             sizeScale: 0.8,
             getSize: () => 28,
@@ -110,9 +114,9 @@ const useTraconIconLayer = (
             },
             updateTriggers: {
                 getIcon: {
-                    matched: matchedTracon.map((tracon) => tracon.traconInfo.id)
-                        .join("-"),
-                    fallback: matchedFallbackTracon.map((tracon) => tracon.controllers[0]?.callsign.slice(0, -4))
+                    matched: matchedTracon.map((tracon) => tracon.traconInfo.id).join("-"),
+                    fallback: matchedFallbackTracon
+                        .map((tracon) => tracon.controllers[0]?.callsign.slice(0, -4))
                         .join("-"),
                 },
             },

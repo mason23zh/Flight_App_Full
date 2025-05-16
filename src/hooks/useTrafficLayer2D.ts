@@ -12,7 +12,9 @@ const useTrafficLayer2D = (data: Array<VatsimFlight>, visible: boolean) => {
             getPosition: data.map((d) => `${d.longitude},${d.latitude}`).join("-"), // Trigger update if positions change
             getAngle: data.map((d) => d.heading).join("-"), // Trigger update if headings change
             getIcon: data.map((d) => d.flight_plan?.aircraft_short || "CL60").join("-"), // Trigger update if icons change
-            getSize: data.map((d) => getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738")).join("-"), // Trigger update if sizes change
+            getSize: data
+                .map((d) => getAircraftSizeCategory(d.flight_plan?.aircraft_short || "B738"))
+                .join("-"), // Trigger update if sizes change
         };
 
         return new IconLayer({

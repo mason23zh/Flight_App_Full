@@ -3,10 +3,7 @@ import { Table } from "rsuite";
 import { useSelector } from "react-redux";
 import { RootState, useFetchWeatherMetarsQuery } from "../store";
 import { Weather } from "../types";
-import {
-    BARO,
-    TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED,
-} from "../util/selection_names";
+import { BARO, TEMPERATURE, VISIBILITY, WIND_GUST, WIND_SPEED } from "../util/selection_names";
 import GeneralLoading from "./GeneralLoading";
 import useIsTouchScreen from "../hooks/useIsTouchScreen";
 import ExtremeWeatherTableModal from "./ExtremeWeatherTable_Modal";
@@ -17,38 +14,28 @@ interface Props {
     darkTheme: boolean;
 }
 
-const {
-    Column,
-    HeaderCell,
-    Cell
-} = Table;
+const { Column, HeaderCell, Cell } = Table;
 const rowKey = "icao";
 
-const WeatherTable = ({
-    requestNumber,
-    tableHeight,
-    darkTheme
-}: Props) => {
+const WeatherTable = ({ requestNumber, tableHeight, darkTheme }: Props) => {
     const isTouchScreen = useIsTouchScreen();
-    const {
-        weather,
-        scope,
-        code
-    } = useSelector((state: RootState) => state.extremeWeather.userSelection);
+    const { weather, scope, code } = useSelector(
+        (state: RootState) => state.extremeWeather.userSelection
+    );
 
     // default to asc order
     const [sortOrder, setSortOrder] = useState(1);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [selectedRowData, setSelectedRowData] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [requestParams, setRequestParams] = useState<{ limit: number, sort: number }>({
+    const [requestParams, setRequestParams] = useState<{ limit: number; sort: number }>({
         limit: requestNumber,
-        sort: sortOrder
+        sort: sortOrder,
     });
 
     /*
-    * If screen width is below 640, do not render Airport Name column
-    * */
+     * If screen width is below 640, do not render Airport Name column
+     * */
     useEffect(() => {
         const detectIfSmallScreen = () => {
             const rootWidth = document.getElementById("root")?.offsetWidth;
@@ -66,14 +53,13 @@ const WeatherTable = ({
         };
     }, []);
 
-
     /*
-    * Change the request params to trigger rtkQuery to make new request
-    * */
+     * Change the request params to trigger rtkQuery to make new request
+     * */
     useEffect(() => {
         setRequestParams({
             sort: sortOrder,
-            limit: requestNumber
+            limit: requestNumber,
         });
     }, [sortOrder, requestNumber]);
 
@@ -81,12 +67,15 @@ const WeatherTable = ({
         data: metars,
         error,
         isFetching,
-    } = useFetchWeatherMetarsQuery({
-        scope,
-        weather,
-        code,
-        params: requestParams,
-    }, { refetchOnMountOrArgChange: true });
+    } = useFetchWeatherMetarsQuery(
+        {
+            scope,
+            weather,
+            code,
+            params: requestParams,
+        },
+        { refetchOnMountOrArgChange: true }
+    );
 
     // merge new data into exist metars
     const weatherRowData = useMemo(() => {
@@ -136,7 +125,7 @@ const WeatherTable = ({
                     updatedMetar = {
                         ...metar,
                         altim_in_hg: updatedBaro,
-                        name: metar.station.location.name
+                        name: metar.station.location.name,
                     };
                     return updatedMetar;
                 });
@@ -150,7 +139,7 @@ const WeatherTable = ({
                     updatedMetar = {
                         ...metar,
                         temp_c: metar.temperature.celsius,
-                        name: metar.station.location.name
+                        name: metar.station.location.name,
                     };
                     return updatedMetar;
                 });
@@ -161,11 +150,8 @@ const WeatherTable = ({
         return [];
     }, [metars, isFetching, error]);
 
-
     if (isFetching) {
-        return (
-            <GeneralLoading themeMode={darkTheme ? "dark" : "light"} />
-        );
+        return <GeneralLoading themeMode={darkTheme ? "dark" : "light"} />;
     }
     //
     // if (error) {
@@ -173,13 +159,13 @@ const WeatherTable = ({
     // }
 
     /*
-    * Render column depends on the user selection
-    * Wind Speed -> wind_speed_kt & wind_data
-    * Wind Gust -> wind_gust_ket & wind_data
-    * Visibility -> visibility_statute_mi
-    * Baro -> altim_in_hg
-    * Temperature -> temp_c
-    * */
+     * Render column depends on the user selection
+     * Wind Speed -> wind_speed_kt & wind_data
+     * Wind Gust -> wind_gust_ket & wind_data
+     * Visibility -> visibility_statute_mi
+     * Baro -> altim_in_hg
+     * Temperature -> temp_c
+     * */
     const renderDynamicDataColumn = () => {
         if (weather === WIND_SPEED) {
             return (
@@ -238,17 +224,17 @@ const WeatherTable = ({
     };
 
     /*
-    * handleSortColumn will change the requestParams
-    * This will set trkQuery to make a new request with sorted data.
-    * We don't sort locally.
-    * */
+     * handleSortColumn will change the requestParams
+     * This will set trkQuery to make a new request with sorted data.
+     * We don't sort locally.
+     * */
     const handleSortColumn = (sortColumn: "temp_c" | "altim_in_hg") => {
         if (sortColumn === "temp_c" || sortColumn === "altim_in_hg") {
             const newSortOrder = sortOrder * -1;
             setSortOrder(newSortOrder);
             setRequestParams({
                 sort: newSortOrder,
-                limit: 10
+                limit: 10,
             });
         }
     };
@@ -263,15 +249,16 @@ const WeatherTable = ({
         setSelectedRowData(null);
     };
 
-
     return (
         <div className="flex flex-col">
-            <div style={{
-                height: `${tableHeight}`,
-                width: "100%",
-                overflowX: "auto",
-                position: "relative",
-            }}>
+            <div
+                style={{
+                    height: `${tableHeight}`,
+                    width: "100%",
+                    overflowX: "auto",
+                    position: "relative",
+                }}
+            >
                 <Table
                     shouldUpdateScroll={false}
                     autoHeight={false}
@@ -292,22 +279,22 @@ const WeatherTable = ({
                     {/*
                     Conditional render Airport Name column based on the screen width
                 */}
-                    {!isSmallScreen ?
+                    {!isSmallScreen ? (
                         <Column flexGrow={2} align="center">
                             <HeaderCell>Airport Name</HeaderCell>
                             <Cell dataKey="station.location.name" />
                         </Column>
-                        : null
-                    }
+                    ) : null}
 
                     {renderDynamicDataColumn()}
                 </Table>
-                {(setSelectedRowData) &&
+                {setSelectedRowData && (
                     <ExtremeWeatherTableModal
                         rowData={selectedRowData}
                         open={isModalOpen}
-                        onClose={handleModalClose} />
-                }
+                        onClose={handleModalClose}
+                    />
+                )}
             </div>
         </div>
     );

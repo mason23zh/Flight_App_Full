@@ -8,16 +8,12 @@ interface Props {
 }
 
 /*
-* This component will render list of aircraft and number of online in the search box
-* */
+ * This component will render list of aircraft and number of online in the search box
+ * */
 
 const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
     if (aircrafts.length === 0) {
-        return (
-            <div>
-                No Matched Aircraft
-            </div>
-        );
+        return <div>No Matched Aircraft</div>;
     }
 
     return (
@@ -26,9 +22,7 @@ const SearchBoxAircraftDisplaySection = ({ aircrafts }: Props) => {
                 data={aircrafts}
                 style={{ height: "100%" }}
                 components={{ Scroller }}
-                itemContent={(_, aircraft) => (
-                    <SearchBoxAircraftGroup aircraft={aircraft} />
-                )}
+                itemContent={(_, aircraft) => <SearchBoxAircraftGroup aircraft={aircraft} />}
             />
         </div>
     );

@@ -9,4 +9,3 @@ export function getDayNightTerminator() {
         return null;
     }
 }
-

@@ -4,20 +4,13 @@ import { useTheme } from "../hooks/ThemeContext";
 import { setSelectedAirportICAO } from "../store";
 import { useDispatch } from "react-redux";
 
-function HomePopularAirportInfoTab({
-    airport,
-    counter
-}) {
+function HomePopularAirportInfoTab({ airport, counter }) {
     const dispatch = useDispatch();
-    const {
-        ICAO,
-        iata,
-        station,
-        visited,
-    } = airport;
-    const icaoAndIata = iata.length === 0
-        ? <div>{ICAO}</div>
-        : (
+    const { ICAO, iata, station, visited } = airport;
+    const icaoAndIata =
+        iata.length === 0 ? (
+            <div>{ICAO}</div>
+        ) : (
             <div className="flex justify-center items-center gap-1">
                 <div>{ICAO}</div>
                 <div className="hidden md:block">/</div>
@@ -27,22 +20,16 @@ function HomePopularAirportInfoTab({
 
     const darkMode = useTheme();
     const themeClass = darkMode
-        ? "border-2 rounded-3xl grid grid-cols-3 "
-        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-        + "h-full bg-gray-500"
-        : "border-2 rounded-3xl grid grid-cols-3 "
-        + "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center "
-        + "h-full bg-gray-300";
+        ? "border-2 rounded-3xl grid grid-cols-3 " +
+          "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center " +
+          "h-full bg-gray-500"
+        : "border-2 rounded-3xl grid grid-cols-3 " +
+          "sm:grid-cols-4 md:grid-cols-6 text-center justify-items-center items-center " +
+          "h-full bg-gray-300";
 
-    const nameSection = (
-        <div className="items-center">
-            {station.name}
-        </div>
-    );
+    const nameSection = <div className="items-center">{station.name}</div>;
 
-    const icaoSection = (
-        <div>{icaoAndIata}</div>
-    );
+    const icaoSection = <div>{icaoAndIata}</div>;
 
     const locationSection = (
         <div>
@@ -52,55 +39,30 @@ function HomePopularAirportInfoTab({
             <div className="hidden md:block lg:hidden">
                 {station.city}, {station.country.country_name}
             </div>
-            <div className="block md:hidden">
-                {station.city}
-            </div>
+            <div className="block md:hidden">{station.city}</div>
         </div>
     );
 
-    const visitedSection = (
-        <div>
-            visited: {visited}
-        </div>
-    );
+    const visitedSection = <div>visited: {visited}</div>;
 
     const goToAirportIcon = (
-        <Link
-            to={`/airport/detail/${ICAO}`}
-            onClick={() => dispatch(setSelectedAirportICAO(ICAO))}
-        >
+        <Link to={`/airport/detail/${ICAO}`} onClick={() => dispatch(setSelectedAirportICAO(ICAO))}>
             <IoIosArrowRoundForward size={40} />
         </Link>
     );
 
-
-    const counterSection = (
-        <div className="border-1">
-            #{counter + 1}
-        </div>
-    );
-
+    const counterSection = <div className="border-1">#{counter + 1}</div>;
 
     return (
         <div className={themeClass}>
-            <div className="justify-self-start ml-4 p-2 hidden md:block">
-                {counterSection}
-            </div>
+            <div className="justify-self-start ml-4 p-2 hidden md:block">{counterSection}</div>
             <div className="justify-self-start p-2 ml-1 md:ml-0 md:justify-self-center">
                 {icaoSection}
             </div>
-            <div className="p-2 hidden md:block">
-                {nameSection}
-            </div>
-            <div className="p-2 justify-self-center hidden sm:block">
-                {locationSection}
-            </div>
-            <div className="p-2 justify-self-center">
-                {visitedSection}
-            </div>
-            <div className="justify-self-end mr-3">
-                {goToAirportIcon}
-            </div>
+            <div className="p-2 hidden md:block">{nameSection}</div>
+            <div className="p-2 justify-self-center hidden sm:block">{locationSection}</div>
+            <div className="p-2 justify-self-center">{visitedSection}</div>
+            <div className="justify-self-end mr-3">{goToAirportIcon}</div>
         </div>
     );
 }

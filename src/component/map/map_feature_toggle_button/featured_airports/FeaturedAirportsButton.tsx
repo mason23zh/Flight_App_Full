@@ -10,21 +10,17 @@ interface Props {
     tooltipMessage: string;
 }
 
-const FeaturedAirportsButton = ({
-    isTouchScreen,
-    tooltipMessage
-}: Props) => {
+const FeaturedAirportsButton = ({ isTouchScreen, tooltipMessage }: Props) => {
     const dispatch = useDispatch();
     const { featuredAirportsVisible } = useSelector((state: RootState) => state.vatsimMapVisible);
     const [showTooltip, setShowTooltip] = useState(false);
 
-
-    const activeClass = isTouchScreen ?
-        "bg-blue-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl" :
-        "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400 text-yellow-400 text-xl";
-    const inActiveClass = isTouchScreen ?
-        "bg-gray-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl" :
-        "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400 text-yellow-400 text-xl";
+    const activeClass = isTouchScreen
+        ? "bg-blue-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl"
+        : "bg-blue-500 px-2 py-1 items-center rounded-lg hover:bg-blue-400 text-yellow-400 text-xl";
+    const inActiveClass = isTouchScreen
+        ? "bg-gray-500 px-2 py-1 items-center rounded-lg text-yellow-400 text-xl"
+        : "bg-gray-500 px-2 py-1 items-center rounded-lg hover:bg-gray-400 text-yellow-400 text-xl";
 
     const activeButtonClass = featuredAirportsVisible ? activeClass : inActiveClass;
 
@@ -34,10 +30,10 @@ const FeaturedAirportsButton = ({
         dispatch(toggleFeaturedAirports(localState));
     };
 
-
     return (
         <>
-            <div className=""
+            <div
+                className=""
                 onMouseEnter={() => setShowTooltip(false)}
                 onMouseLeave={() => setShowTooltip(true)}
             >
@@ -50,11 +46,9 @@ const FeaturedAirportsButton = ({
                 </button>
             </div>
 
-            {featuredAirportsVisible &&
-                <FeaturedAirportsPanel />
-            }
+            {featuredAirportsVisible && <FeaturedAirportsPanel />}
 
-            {(!isTouchScreen) &&
+            {!isTouchScreen && (
                 <Tooltip
                     hidden={showTooltip}
                     anchorSelect="#featured-airports-button"
@@ -65,12 +59,12 @@ const FeaturedAirportsButton = ({
                         color: "rgb(255,255,255)",
                         fontSize: "13px",
                         padding: "5px",
-                        borderRadius: "5px"
+                        borderRadius: "5px",
                     }}
                 >
                     {tooltipMessage}
                 </Tooltip>
-            }
+            )}
         </>
     );
 };

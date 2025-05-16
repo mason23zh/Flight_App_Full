@@ -4,7 +4,10 @@ import { Layer, Source, useMap } from "react-map-gl";
 import { AirportService, Atis, Controller, VatsimControllers } from "../../../../types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
-import { GLOBE_CONTROLLER_ICON_LAYER_ID, GLOBE_CONTROLLER_ICON_SOURCE_ID } from "../layerSourceName";
+import {
+    GLOBE_CONTROLLER_ICON_LAYER_ID,
+    GLOBE_CONTROLLER_ICON_SOURCE_ID,
+} from "../layerSourceName";
 import mapboxgl, { GeoJSONSource } from "mapbox-gl";
 
 interface Facilities {
@@ -48,10 +51,9 @@ interface Props {
 }
 
 const GlobeControllerIconLayer = ({ controllerData }: Props) => {
-    const {
-        mapStyles,
-        allAtcLayerVisible
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapStyles, allAtcLayerVisible } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
     const controllerCacheRef = useRef<AirportService[]>([]);
     const loadedIconsRef = useRef(new Set<string>());
     const { current: mapRef } = useMap();
@@ -60,7 +62,7 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const combineAirportServices = (
         controllers: Controller[],
         atis: Atis[],
-        facilities: Facilities[],
+        facilities: Facilities[]
     ): Array<AirportService> => {
         const facilityMap = facilities.reduce((map, f) => {
             map[f.id] = f.short;
@@ -101,18 +103,22 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     };
 
     const diffControllers = useCallback((newData: AirportService[], oldData: AirportService[]) => {
-        const toMap = (data: AirportService[]) => new Map(data.map((service) => [service.icao, service]));
+        const toMap = (data: AirportService[]) =>
+            new Map(data.map((service) => [service.icao, service]));
         const newMap = toMap(newData);
         const oldMap = toMap(oldData);
 
-        const added = [...newMap.entries()].filter(([key]) => !oldMap.has(key))
+        const added = [...newMap.entries()]
+            .filter(([key]) => !oldMap.has(key))
             .map(([, service]) => service);
-        const removed = [...oldMap.entries()].filter(([key]) => !newMap.has(key))
+        const removed = [...oldMap.entries()]
+            .filter(([key]) => !newMap.has(key))
             .map(([, service]) => service);
         const updated = [...newMap.entries()]
             .filter(
                 ([key, service]) =>
-                    oldMap.has(key) && JSON.stringify(service.services) !== JSON.stringify(oldMap.get(key)?.services),
+                    oldMap.has(key) &&
+                    JSON.stringify(service.services) !== JSON.stringify(oldMap.get(key)?.services)
             )
             .map(([, service]) => service);
 
@@ -124,10 +130,7 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     }, []);
 
     const loadIcons = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
-        services.forEach(({
-            icao,
-            services
-        }) => {
+        services.forEach(({ icao, services }) => {
             const iconId = `${imagePrefix}${icao}`;
             if (!map.hasImage(iconId) && !loadedIconsRef.current.has(iconId)) {
                 const image = new Image();
@@ -137,9 +140,7 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
                         loadedIconsRef.current.add(iconId);
                     }
                 };
-                const uniqueServiceTypes = Array.from(
-                    new Set(services.map((s) => s.serviceType))
-                );
+                const uniqueServiceTypes = Array.from(new Set(services.map((s) => s.serviceType)));
 
                 image.src = generateControllerMarkerIconWithIcao(icao, uniqueServiceTypes);
             }
@@ -159,11 +160,7 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
     const updateGeoJson = useCallback((map: mapboxgl.Map, services: AirportService[]) => {
         const geoJson: GeoJSON.FeatureCollection = {
             type: "FeatureCollection",
-            features: services.map(({
-                icao,
-                coordinates,
-                services
-            }) => ({
+            features: services.map(({ icao, coordinates, services }) => ({
                 type: "Feature",
                 geometry: {
                     type: "Point",
@@ -207,20 +204,26 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
         const combinedData = combineAirportServices(
             controllerData?.other.controllers || [],
             controllerData?.other.atis || [],
-            facilities,
+            facilities
         );
 
-        const {
-            added,
-            updated,
-            removed
-        } = diffControllers(combinedData, controllerCacheRef.current);
+        const { added, updated, removed } = diffControllers(
+            combinedData,
+            controllerCacheRef.current
+        );
         loadIcons(map, [...added, ...updated]);
         removeIcons(map, removed);
         updateGeoJson(map, combinedData);
 
         controllerCacheRef.current = combinedData;
-    }, [controllerData, combineAirportServices, diffControllers, loadIcons, removeIcons, updateGeoJson]);
+    }, [
+        controllerData,
+        combineAirportServices,
+        diffControllers,
+        loadIcons,
+        removeIcons,
+        updateGeoJson,
+    ]);
 
     useEffect(() => {
         if (!mapRef?.getMap) return;
@@ -233,13 +236,10 @@ const GlobeControllerIconLayer = ({ controllerData }: Props) => {
             const combinedData = combineAirportServices(
                 controllerData?.other.controllers || [],
                 controllerData?.other.atis || [],
-                facilities,
+                facilities
             );
 
-            const {
-                added,
-                removed
-            } = diffControllers(combinedData, []);
+            const { added, removed } = diffControllers(combinedData, []);
             loadIcons(map, added);
             removeIcons(map, removed);
             updateGeoJson(map, added);

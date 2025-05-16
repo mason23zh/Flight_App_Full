@@ -47,22 +47,13 @@ const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
 
     const renderControllersData = hoverTracon?.controllers.map((c) => {
         const uniqueKey = c.name + c.callsign;
-        const {
-            hour,
-            minute
-        } = returnOnlineTime(c.logon_time);
+        const { hour, minute } = returnOnlineTime(c.logon_time);
 
         return (
             <div key={uniqueKey} className="flex items-center text-center gap-2 px-2 py-1 w-fit">
-                <div className="">
-                    {c.callsign}
-                </div>
-                <div className="">
-                    {c.name}
-                </div>
-                <div className={`font-bold ${freqThemeColor}`}>
-                    {c.frequency}
-                </div>
+                <div className="">{c.callsign}</div>
+                <div className="">{c.name}</div>
+                <div className={`font-bold ${freqThemeColor}`}>{c.frequency}</div>
                 <div className="">
                     {hour}:{minute}
                 </div>
@@ -80,18 +71,15 @@ const TraconLabelPopup = ({ hoverTracon }: TraconLabelPopupProps) => {
             maxWidth={isTouchScreen ? "380px" : "500px"}
             anchor={isTouchScreen ? "bottom" : undefined}
         >
-            <div className={`grid grid-cols-1 justify-center items-center
+            <div
+                className={`grid grid-cols-1 justify-center items-center
             gap-1 p-1 sm:p-2 w-full rounded-lg ${colorTheme}`}
             >
                 <div className="flex text-center gap-3 justify-self-start w-max">
-                    <div className="text-sm font-bold">
-                        {traconName}
-                    </div>
+                    <div className="text-sm font-bold">{traconName}</div>
                 </div>
 
-                <div className="w-full">
-                    {renderControllersData}
-                </div>
+                <div className="w-full">{renderControllersData}</div>
             </div>
         </Popup>
     );

@@ -3,8 +3,11 @@ import { useDispatch } from "react-redux";
 import {
     openSearchResults,
     setAircraftListDisplay,
-    setAirportDepartureArrivalDisplay, setFilterAircraftOnMap_aircraft, setFilterAircraftOnMap_airport,
-    setMapSearchSelectedAircraft, setSelectedAircraftCategory,
+    setAirportDepartureArrivalDisplay,
+    setFilterAircraftOnMap_aircraft,
+    setFilterAircraftOnMap_airport,
+    setMapSearchSelectedAircraft,
+    setSelectedAircraftCategory,
 } from "../../../../store";
 import { toggleSearchBox } from "../../../../store/slices/vatsimMapVisibleSlice";
 
@@ -38,10 +41,9 @@ const SearchBoxAircraftGroup = ({ aircraft }: Props) => {
         <div
             onClick={handleClick}
             className="grid grid-cols-2 p-2 sm:grid-cols-4 gap-1 sm:gap-2
-        items-center w-full border-b hover:bg-gray-400 hover:cursor-pointer h-auto ">
-            <div className="sm:col-span-1">
-                {aircraft.aircraftType}
-            </div>
+        items-center w-full border-b hover:bg-gray-400 hover:cursor-pointer h-auto "
+        >
+            <div className="sm:col-span-1">{aircraft.aircraftType}</div>
             <div className="sm:col-span-2">
                 {aircraft.flights[0].flight_plan?.aircraft_name || "-"}
             </div>

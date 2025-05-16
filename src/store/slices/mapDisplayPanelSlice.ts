@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
 interface PanelState {
     activePanel: "searchResults" | "trafficDetail" | null;
     searchResultsType: "AIRCRAFT" | "AIRPORT" | "TRAFFIC" | null;
@@ -66,14 +65,10 @@ const mapDisplayPanelSlice = createSlice({
             state.trafficDetailVisible = false;
             state.searchResultsType = null;
             state.activePanel = null;
-        }
-    }
+        },
+    },
 });
 
-export const {
-    openSearchResults,
-    openTrafficDetail,
-    closeTrafficDetail,
-    closeSearchResults
-} = mapDisplayPanelSlice.actions;
+export const { openSearchResults, openTrafficDetail, closeTrafficDetail, closeSearchResults } =
+    mapDisplayPanelSlice.actions;
 export const mapDisplayPanelReducer = mapDisplayPanelSlice.reducer;

@@ -6,13 +6,8 @@ interface Props {
 }
 
 function AirportDetailWeatherSection({ metar }: Props) {
-
     if (!metar) {
-        return (
-            <div>
-                Unable to fetch weather
-            </div>
-        );
+        return <div>Unable to fetch weather</div>;
     }
 
     if (metar) {
@@ -31,9 +26,7 @@ function AirportDetailWeatherSection({ metar }: Props) {
 
         const renderRawText = (
             // Limit the width here to show the click chevron
-            <div className="w-[95%]">
-                {raw_text}
-            </div>
+            <div className="w-[95%]">{raw_text}</div>
         );
         return (
             <div className="w-auto">

@@ -1,7 +1,5 @@
 import { Source, useMap } from "react-map-gl";
-import {
-    RootState,
-} from "../../../store";
+import { RootState } from "../../../store";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 const MapTerrainSource = () => {

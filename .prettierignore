@@ -5,6 +5,7 @@ build/
 coverage/
 assets/
 public/
+test_data/
 
 # Skip config / IDE folders
 .vscode/

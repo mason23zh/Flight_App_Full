@@ -4,24 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleMapStyleButton } from "../../../store";
 import { Tooltip } from "react-tooltip";
 
-type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT"
+type MapStyleName = "VFR" | "NGT" | "DAY" | "SAT";
 
 interface Props {
     isTouchScreen: boolean;
 }
 
-const MapStyleToggleButton = ({
-    isTouchScreen
-}: Props) => {
+const MapStyleToggleButton = ({ isTouchScreen }: Props) => {
     let mapStyleName: MapStyleName;
     const dispatch = useDispatch();
     // when user click the button, tooltip will disappear
     const [buttonClick, setButtonClick] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
     const { mapStyles } = useSelector((state: RootState) => state.vatsimMapVisible);
-    const {
-        mapStyleButtonToggle
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { mapStyleButtonToggle } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     // close the popup when mapStyle changes
     useEffect(() => {
@@ -29,18 +25,18 @@ const MapStyleToggleButton = ({
     }, [mapStyles]);
 
     switch (mapStyles) {
-    case "DEFAULT":
-        mapStyleName = "VFR";
-        break;
-    case "MONO_LIGHT":
-        mapStyleName = "DAY";
-        break;
-    case "MONO_DARK":
-        mapStyleName = "NGT";
-        break;
-    case "SATELLITE":
-        mapStyleName = "SAT";
-        break;
+        case "DEFAULT":
+            mapStyleName = "VFR";
+            break;
+        case "MONO_LIGHT":
+            mapStyleName = "DAY";
+            break;
+        case "MONO_DARK":
+            mapStyleName = "NGT";
+            break;
+        case "SATELLITE":
+            mapStyleName = "SAT";
+            break;
     }
 
     useEffect(() => {
@@ -54,13 +50,12 @@ const MapStyleToggleButton = ({
         dispatch(toggleMapStyleButton(!mapStyleButtonToggle));
     };
 
-
-    const inactiveButtonClass = isTouchScreen ?
-        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center" :
-        "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center hover:bg-gray-400";
-    const activeButtonClass = isTouchScreen ?
-        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center" :
-        "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center hover:bg-blue-400";
+    const inactiveButtonClass = isTouchScreen
+        ? "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center"
+        : "relative px-2 py-1 bg-gray-500 rounded-md text-white text-[10px] text-center hover:bg-gray-400";
+    const activeButtonClass = isTouchScreen
+        ? "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center"
+        : "relative px-2 py-1 bg-blue-500 rounded-md text-white text-[10px] text-center hover:bg-blue-400";
 
     const tooltipMessage = "Switching map style";
 
@@ -83,13 +78,10 @@ const MapStyleToggleButton = ({
                 `}
                 style={{ visibility: mapStyleButtonToggle ? "visible" : "hidden" }}
             >
-                {mapStyleButtonToggle ?
-                    <MapStyleToggleButtonGroup />
-                    : ""
-                }
+                {mapStyleButtonToggle ? <MapStyleToggleButtonGroup /> : ""}
             </div>
 
-            {(!isTouchScreen && !buttonClick && !mapStyleButtonToggle) &&
+            {!isTouchScreen && !buttonClick && !mapStyleButtonToggle && (
                 <Tooltip
                     hidden={showTooltip}
                     anchorSelect="#map-style-toggle-button"
@@ -99,14 +91,13 @@ const MapStyleToggleButton = ({
                         color: "rgb(255,255,255)",
                         fontSize: "13px",
                         padding: "5px",
-                        borderRadius: "5px"
+                        borderRadius: "5px",
                     }}
                 >
                     {tooltipMessage}
                 </Tooltip>
-            }
-        </div
-        >
+            )}
+        </div>
     );
 };
 

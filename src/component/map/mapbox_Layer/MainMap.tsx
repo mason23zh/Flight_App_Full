@@ -23,8 +23,7 @@ import {
 } from "../../../store";
 import { VatsimFlight } from "../../../types";
 import DayNightLayer from "./DayNightTerminator_Layers/DayNightLayer";
-import AirportDepartureArrivalDisplay
-    from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
+import AirportDepartureArrivalDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AirportDepartureArrivalDisplay";
 import AircraftDisplay from "../map_feature_toggle_button/search_box/search_results_display_panel/AircraftDisplay";
 import useMatchTracon from "../../../hooks/useMatchTracon";
 import useMatchedFirs from "../../../hooks/useMatchedFirs";
@@ -36,44 +35,52 @@ import MapTerrainSource from "./MapTerrainSource";
 const MainMap = () => {
     const dispatch = useDispatch();
 
-    const traffic = useSelector<RootState, VatsimFlight>((state) => state.vatsimMapTraffic.selectedTraffic || null);
+    const traffic = useSelector<RootState, VatsimFlight>(
+        (state) => state.vatsimMapTraffic.selectedTraffic || null
+    );
 
     const { selectedAirport } = useSelector((state: RootState) => state.mapSearchAirport);
 
-    const {
-        dayNightTerminator,
-        mapProjection
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
-
-    const {
-        activePanel,
-        searchResultsType,
-        searchResultsVisible,
-        trafficDetailVisible
-    } = useSelector(
-        (state: RootState) => state.mapDisplayPanel,
+    const { dayNightTerminator, mapProjection } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
     );
+
+    const { activePanel, searchResultsType, searchResultsVisible, trafficDetailVisible } =
+        useSelector((state: RootState) => state.mapDisplayPanel);
 
     if (!window.WebGLRenderingContext) {
         return <div>Unsupported Device</div>;
     }
 
     const renderAircraftDisplayPanel = () => {
-        if (activePanel === "searchResults" && searchResultsType === "AIRCRAFT" && searchResultsVisible) {
+        if (
+            activePanel === "searchResults" &&
+            searchResultsType === "AIRCRAFT" &&
+            searchResultsVisible
+        ) {
             return <AircraftDisplay />;
         }
         return null;
     };
 
     const renderAircraftDepartureArrivalDisplayPanel = () => {
-        if (activePanel === "searchResults" && searchResultsType === "AIRPORT" && searchResultsVisible) {
+        if (
+            activePanel === "searchResults" &&
+            searchResultsType === "AIRPORT" &&
+            searchResultsVisible
+        ) {
             return <AirportDepartureArrivalDisplay airport={selectedAirport} />;
         }
         return null;
     };
 
     const renderFlightInfoPanel = () => {
-        if (activePanel === "trafficDetail" && trafficDetailVisible && traffic && traffic.callsign.length !== 0) {
+        if (
+            activePanel === "trafficDetail" &&
+            trafficDetailVisible &&
+            traffic &&
+            traffic.callsign.length !== 0
+        ) {
             return <FlightInfo />;
         }
         return null;
@@ -85,10 +92,7 @@ const MainMap = () => {
         isLoading: controllerLoading,
     } = useFetchVatsimControllersDataQuery(undefined, { pollingInterval: 60000 });
 
-    const {
-        matchedFirs,
-        isError: isFirError
-    } = useMatchedFirs(controllerData);
+    const { matchedFirs, isError: isFirError } = useMatchedFirs(controllerData);
 
     // close all panel upon first time loading.
     useEffect(() => {
@@ -163,24 +167,25 @@ const MainMap = () => {
             // Check for hardware acceleration
             const canvas = document.createElement("canvas");
             const gl =
-                canvas.getContext("webgl") || (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
+                canvas.getContext("webgl") ||
+                (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
 
             if (gl) {
                 const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
-                const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "";
+                const renderer = debugInfo
+                    ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+                    : "";
 
                 // If software rendering is being used, show a warning
                 if (
-                    renderer.toLowerCase()
-                        .includes("swiftshader") ||
-                    renderer.toLowerCase()
-                        .includes("software") ||
+                    renderer.toLowerCase().includes("swiftshader") ||
+                    renderer.toLowerCase().includes("software") ||
                     !renderer
                 ) {
                     console.warn(
                         "Hardware acceleration is disabled in Chrome. " +
-                        "This may cause high CPU usage. " +
-                        "Enable hardware acceleration in Chrome settings for better performance.",
+                            "This may cause high CPU usage. " +
+                            "Enable hardware acceleration in Chrome settings for better performance."
                     );
                 }
             }

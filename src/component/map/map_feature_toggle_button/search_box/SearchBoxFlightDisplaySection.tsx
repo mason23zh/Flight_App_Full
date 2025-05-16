@@ -11,9 +11,9 @@ interface Props {
 //TODO: Prevent list jump back to top after state update.
 
 /*
-* To render traffic list.
-* This component will be used in both Search Box results and AircraftDisplay panel
-* */
+ * To render traffic list.
+ * This component will be used in both Search Box results and AircraftDisplay panel
+ * */
 
 const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
     const [selectedTraffic, setSelectedTraffic] = useState<VatsimFlight | null>(null);
@@ -23,13 +23,8 @@ const SearchBoxFlightDisplaySection = ({ flights }: Props) => {
     };
 
     if (flights.length === 0) {
-        return (
-            <div>
-                No Matched Flight
-            </div>
-        );
+        return <div>No Matched Flight</div>;
     }
-
 
     return (
         <div className="flex-1 h-full ">

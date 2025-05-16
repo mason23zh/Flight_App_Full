@@ -14,9 +14,7 @@ interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-const TraconLayer = ({
-    controllerInfo,
-}: Controller) => {
+const TraconLayer = ({ controllerInfo }: Controller) => {
     const dispatch = useDispatch();
     const {
         matchedFallbackTracons,
@@ -24,36 +22,47 @@ const TraconLayer = ({
         fallbackGeoJson,
         hoveredTracon,
         isLoading: isTraconLoading,
-        isError: isTraconError
+        isError: isTraconError,
     } = useSelector((state: RootState) => state.matchedTracons);
-
 
     useEffect(() => {
         if (isTraconLoading) {
-            dispatch(addMessage({
-                location: "TRACON",
-                messageType: "LOADING",
-                content: "Loading Tracon layer..."
-            }));
+            dispatch(
+                addMessage({
+                    location: "TRACON",
+                    messageType: "LOADING",
+                    content: "Loading Tracon layer...",
+                })
+            );
         }
 
         if (isTraconError) {
-            dispatch(addMessage({
-                location: "TRACON",
-                messageType: "ERROR",
-                content: "Error loading Tracon layer."
-            }));
+            dispatch(
+                addMessage({
+                    location: "TRACON",
+                    messageType: "ERROR",
+                    content: "Error loading Tracon layer.",
+                })
+            );
         }
         if (matchedTracons && !isTraconError && !isTraconLoading) {
             dispatch(removeMessageByLocation({ location: "TRACON" }));
         }
     }, [isTraconError, isTraconLoading, controllerInfo, matchedTracons, matchedFallbackTracons]);
 
-
     if (matchedTracons) {
-        const activeTraconOutlineStyle = useMemo(() => activeTraconLineLayerStyle(matchedTracons), [matchedTracons]);
-        const activeHoverTraconLayerStyle = useMemo(() => activeTraconFillLayerStyle(hoveredTracon), [hoveredTracon]);
-        const fallbackHoverTraconFillStyle = useMemo(() => fallBackHighlightTraconFillLayerStyle(hoveredTracon), [hoveredTracon]);
+        const activeTraconOutlineStyle = useMemo(
+            () => activeTraconLineLayerStyle(matchedTracons),
+            [matchedTracons]
+        );
+        const activeHoverTraconLayerStyle = useMemo(
+            () => activeTraconFillLayerStyle(hoveredTracon),
+            [hoveredTracon]
+        );
+        const fallbackHoverTraconFillStyle = useMemo(
+            () => fallBackHighlightTraconFillLayerStyle(hoveredTracon),
+            [hoveredTracon]
+        );
         return (
             <>
                 <Source
@@ -61,24 +70,20 @@ const TraconLayer = ({
                     type="vector"
                     url="mapbox://mason-zh.cm04i1y2uaj211uo5ad8y37hg-5vcaj"
                 >
-                    <Layer {...activeTraconOutlineStyle}/>
-                    {(hoveredTracon && hoveredTracon.traconInfo.id) && <Layer {...activeHoverTraconLayerStyle}/>}
+                    <Layer {...activeTraconOutlineStyle} />
+                    {hoveredTracon && hoveredTracon.traconInfo.id && (
+                        <Layer {...activeHoverTraconLayerStyle} />
+                    )}
                 </Source>
 
                 {fallbackGeoJson &&
-                            matchedFallbackTracons &&
-                            fallbackGeoJson.features.length > 0 &&
-                            (
-                                <Source
-                                    id="fallback-tracon-geojson"
-                                    type="geojson"
-                                    data={fallbackGeoJson}
-                                >
-                                    <Layer {...fallbackTraconBoundariesLineLayerStyle}/>
-                                    {hoveredTracon && <Layer {...fallbackHoverTraconFillStyle}/>}
-                                </Source>
-                            )
-                }
+                    matchedFallbackTracons &&
+                    fallbackGeoJson.features.length > 0 && (
+                        <Source id="fallback-tracon-geojson" type="geojson" data={fallbackGeoJson}>
+                            <Layer {...fallbackTraconBoundariesLineLayerStyle} />
+                            {hoveredTracon && <Layer {...fallbackHoverTraconFillStyle} />}
+                        </Source>
+                    )}
             </>
         );
     }

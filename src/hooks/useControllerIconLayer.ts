@@ -2,9 +2,7 @@ import { AirportService, VatsimControllers } from "../types";
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect, useMemo } from "react";
 // import generateControllerMarkerIcon from "../component/2d/mapbox_Layer/util/generateControllerMarkerIcon";
-import {
-    generateControllerMarkerIconWithIcao,
-} from "../component/map/mapbox_Layer/util/generateControllerMarkerIcon";
+import { generateControllerMarkerIconWithIcao } from "../component/map/mapbox_Layer/util/generateControllerMarkerIcon";
 
 import { IconLayer } from "@deck.gl/layers/typed";
 import { debounce } from "lodash";
@@ -12,50 +10,44 @@ import { RootState, setHoveredController } from "../store";
 
 const facilities = [
     {
-        "id": 0,
-        "short": "OBS",
-        "long": "Observer"
+        id: 0,
+        short: "OBS",
+        long: "Observer",
     },
     {
-        "id": 1,
-        "short": "FSS",
-        "long": "Flight Service Station"
+        id: 1,
+        short: "FSS",
+        long: "Flight Service Station",
     },
     {
-        "id": 2,
-        "short": "DEL",
-        "long": "Clearance Delivery"
+        id: 2,
+        short: "DEL",
+        long: "Clearance Delivery",
     },
     {
-        "id": 3,
-        "short": "GND",
-        "long": "Ground"
+        id: 3,
+        short: "GND",
+        long: "Ground",
     },
     {
-        "id": 4,
-        "short": "TWR",
-        "long": "Tower"
+        id: 4,
+        short: "TWR",
+        long: "Tower",
     },
     {
-        "id": 5,
-        "short": "APP",
-        "long": "Approach/Departure"
+        id: 5,
+        short: "APP",
+        long: "Approach/Departure",
     },
     {
-        "id": 6,
-        "short": "CTR",
-        "long": "Enroute"
-    }
+        id: 6,
+        short: "CTR",
+        long: "Enroute",
+    },
 ];
 
-const useControllerIconLayer = (
-    controllerData: VatsimControllers,
-    visible: boolean,
-) => {
-
-    const {
-        mapProjection
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+const useControllerIconLayer = (controllerData: VatsimControllers, visible: boolean) => {
+    const { mapProjection } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     if (mapProjection === "globe") {
         return null;
@@ -75,7 +67,6 @@ const useControllerIconLayer = (
         };
     }, [debouncedHover]);
 
-
     const iconData = useMemo(() => {
         if (!controllerData) return null;
         const combineAirportServices = (controllers, atis, facilities): Array<AirportService> => {
@@ -93,7 +84,7 @@ const useControllerIconLayer = (
                         airportName: data.airport.name,
                         icao: airportCode,
                         coordinates: data.coordinates,
-                        services: []
+                        services: [],
                     };
                 }
 
@@ -105,14 +96,14 @@ const useControllerIconLayer = (
             }
 
             // Process controllers array
-            controllers.forEach(controller => {
+            controllers.forEach((controller) => {
                 const airportCode = controller.airport.icao;
                 const serviceType = facilityMap[controller.facility]; // Use facility id to get service type
                 addServiceData(airportCode, serviceType, controller);
             });
 
             // Process atis array
-            atis.forEach(atisData => {
+            atis.forEach((atisData) => {
                 const airportCode = atisData.airport.icao;
                 const serviceType = "ATIS"; // ATIS is a special case
                 addServiceData(airportCode, serviceType, atisData);
@@ -122,13 +113,14 @@ const useControllerIconLayer = (
             return Object.values(combinedData);
         };
 
-        const airportService = combineAirportServices(controllerData.other.controllers, controllerData.other.atis, facilities);
+        const airportService = combineAirportServices(
+            controllerData.other.controllers,
+            controllerData.other.atis,
+            facilities
+        );
 
         const data = airportService.map((service: AirportService) => {
-            const coordinates = [
-                Number(service.coordinates[0]),
-                Number(service.coordinates[1]),
-            ];
+            const coordinates = [Number(service.coordinates[0]), Number(service.coordinates[1])];
 
             const serviceTypes = [...new Set(service.services.map((s) => s.serviceType))];
 
@@ -136,12 +128,11 @@ const useControllerIconLayer = (
             return {
                 position: coordinates,
                 iconUrl: generateControllerMarkerIconWithIcao(service.icao, serviceTypes),
-                serviceInfo: service
+                serviceInfo: service,
             };
         });
         return data;
     }, [controllerData]);
-
 
     return useMemo(() => {
         return new IconLayer({
@@ -149,8 +140,8 @@ const useControllerIconLayer = (
             data: iconData,
             pickable: true,
             visible: visible,
-            getPosition: d => d.position,
-            getIcon: d => ({
+            getPosition: (d) => d.position,
+            getIcon: (d) => ({
                 url: d.iconUrl,
                 width: 130,
                 height: 80,
@@ -160,9 +151,7 @@ const useControllerIconLayer = (
             sizeScale: 1,
             getSize: () => 29,
             // onHover: d => onHoverCallback(d.serviceInfo),
-            onHover: ({
-                object,
-            }) => {
+            onHover: ({ object }) => {
                 if (object) {
                     debouncedHover(object.serviceInfo);
                 } else {
@@ -172,10 +161,15 @@ const useControllerIconLayer = (
             // getColor: () => [0, 0, 0, 255],
             parameters: { depthTest: false },
             updateTriggers: {
-                getIcon: iconData?.map(d => `${d.serviceInfo.icao}-${d.serviceInfo.services.map(s => s.serviceType)
-                    .join(",")}`)
+                getIcon: iconData
+                    ?.map(
+                        (d) =>
+                            `${d.serviceInfo.icao}-${d.serviceInfo.services
+                                .map((s) => s.serviceType)
+                                .join(",")}`
+                    )
                     .join("-"),
-            }
+            },
         });
     }, [controllerData, visible]);
 };

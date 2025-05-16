@@ -6,14 +6,11 @@ import { EventResponse } from "../store/apis/vatsimApi";
 import { Virtuoso } from "react-virtuoso";
 
 interface Props {
-    events: EventResponse,
-    onClick: () => void
+    events: EventResponse;
+    onClick: () => void;
 }
 
-function VatsimEventsList({
-    events,
-    onClick
-}: Props) {
+function VatsimEventsList({ events, onClick }: Props) {
     const darkMode = useTheme();
     const [allEvents, setAllEvents] = useState<EventResponse | null>(null);
 
@@ -23,26 +20,18 @@ function VatsimEventsList({
         }
     }, [events]);
 
-
     const handleClick = () => {
         onClick();
     };
 
     const scrollBarStyle = darkMode
-        ?
-        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
-        :
-        "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
-        "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
-
+        ? "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+          "scrollbar-thumb-gray-300 scrollbar-track-slate-500"
+        : "scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar " +
+          "scrollbar-thumb-slate-400 scrollbar-track-gray-300";
 
     if (_.isEmpty(allEvents) || allEvents.result === 0) {
-        return (
-            <div>
-                No Events
-            </div>
-        );
+        return <div>No Events</div>;
     }
 
     return (
@@ -54,16 +43,12 @@ function VatsimEventsList({
                 className={scrollBarStyle}
                 itemContent={(_, event) => (
                     <div className="px-2 py-1">
-                        <VatsimEventsListItem
-                            event={event}
-                            onClick={handleClick}
-                        />
+                        <VatsimEventsListItem event={event} onClick={handleClick} />
                     </div>
                 )}
             />
         </div>
     );
-
 }
 
 export default VatsimEventsList;

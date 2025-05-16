@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
-function ExpandablePanel({
-    metar,
-    weather,
-    weatherData,
-    children,
-}) {
+function ExpandablePanel({ metar, weather, weatherData, children }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleClick = () => {

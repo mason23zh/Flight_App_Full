@@ -2,8 +2,7 @@ import { useMemo } from "react";
 
 const useIsTouchScreen = () => {
     return useMemo(() => {
-        return "ontouchstart" in window ||
-                navigator.maxTouchPoints > 0;
+        return "ontouchstart" in window || navigator.maxTouchPoints > 0;
     }, []);
 };
 

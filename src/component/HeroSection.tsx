@@ -1,17 +1,11 @@
 import InputAndSearch from "./InputAndSearch";
 
-function HeroSection({
-    backgroundImage,
-    message,
-    placedHoldMessage,
-    onSubmit,
-}) {
+function HeroSection({ backgroundImage, message, placedHoldMessage, onSubmit }) {
     const handleFormSubmit = (userInput: string) => {
         if (userInput.length !== 0) {
             onSubmit(userInput);
         }
     };
-
 
     return (
         <div className="relative">
@@ -35,7 +29,10 @@ function HeroSection({
                         {message}
                     </h1>
                     <div className="self-stretch ml-5 mr-5">
-                        <InputAndSearch placeholder={placedHoldMessage} onSubmit={handleFormSubmit} />
+                        <InputAndSearch
+                            placeholder={placedHoldMessage}
+                            onSubmit={handleFormSubmit}
+                        />
                     </div>
                 </div>
             </div>

@@ -30,14 +30,14 @@ const mapSearchAirportSlice = createSlice({
         },
         setAirportTracking(state, action: PayloadAction<boolean>) {
             state.tracking = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const {
     setMapSearchSelectedAirport,
     setAirportDepartureArrivalDisplay,
     setFilterAircraftOnMap_airport,
-    setAirportTracking
+    setAirportTracking,
 } = mapSearchAirportSlice.actions;
 export const mapSearchAirportReducer = mapSearchAirportSlice.reducer;

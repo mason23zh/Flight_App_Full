@@ -9,22 +9,20 @@ interface Props {
     airport: LocalDbAirport;
 }
 
-const AirportDepartureArrivalPanelInfoTab = ({
-    airport,
-}: Props) => {
+const AirportDepartureArrivalPanelInfoTab = ({ airport }: Props) => {
     /*
-    * The useFetchDetailAirportWithICAOQuery will return ATIS, airport info and weather
-    * So we call here and pass the state to child component
-    * */
+     * The useFetchDetailAirportWithICAOQuery will return ATIS, airport info and weather
+     * So we call here and pass the state to child component
+     * */
     if (!airport) return null;
 
     const {
         data: airportData,
         error: airportDataError,
-        isFetching: airportDataFetching
+        isFetching: airportDataFetching,
     } = useFetchDetailAirportWithICAOQuery({
         icao: airport?.ident,
-        decode: true
+        decode: true,
     });
 
     const [weatherPanel, setWeatherPanel] = useState(false);
@@ -38,83 +36,67 @@ const AirportDepartureArrivalPanelInfoTab = ({
     }, []);
 
     const handleWeatherClick = () => {
-        setWeatherPanel(prev => !prev);
+        setWeatherPanel((prev) => !prev);
     };
 
     const handleAtcClick = () => {
-        setAtcPanel(prev => !prev);
+        setAtcPanel((prev) => !prev);
     };
 
     const handleAirportInfoClick = () => {
-        setAirportInfoPanel(prev => !prev);
+        setAirportInfoPanel((prev) => !prev);
     };
 
     if (airportDataError) {
-        return (
-            <div>
-                Error Loading data
-            </div>
-        );
+        return <div>Error Loading data</div>;
     }
 
     if (airportDataFetching) {
-        return (
-            <div>
-                Loading data...
-            </div>
-        );
+        return <div>Loading data...</div>;
     }
 
     return (
-        <div
-            className="flex flex-col gap-2 overflow-y-auto p-2 rounded-md"
-        >
+        <div className="flex flex-col gap-2 overflow-y-auto p-2 rounded-md">
             <div
                 onClick={handleWeatherClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
             >
-                <div className="items-center text-[17px] sm:text-[18px] text-center">
-                    Weather
-                </div>
-                {weatherPanel &&
+                <div className="items-center text-[17px] sm:text-[18px] text-center">Weather</div>
+                {weatherPanel && (
                     <AirportInfoExpandContent_Weather
                         airport={airport}
                         airportData={airportData}
                         airportError={airportDataError}
                         airportFetching={airportDataFetching}
                     />
-                }
+                )}
             </div>
 
             <div
                 onClick={handleAtcClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
             >
-                <div className="items-center text-[17px] sm:text-[18px] text-center">
-                    ATIS
-                </div>
-                {atcPanel &&
+                <div className="items-center text-[17px] sm:text-[18px] text-center">ATIS</div>
+                {atcPanel && (
                     <AirportInfoExpandContent_Atis
                         airportData={airportData}
                         airportError={airportDataError}
                         airportFetching={airportDataFetching}
                     />
-                }
+                )}
             </div>
             <div
                 onClick={handleAirportInfoClick}
                 className="hover:cursor-pointer border-[1px] rounded-md p-1 hover:bg-gray-600"
             >
-                <div className="items-center text-[17px] sm:text-[18px] text-center">
-                    Info
-                </div>
-                {airportInfoPanel &&
+                <div className="items-center text-[17px] sm:text-[18px] text-center">Info</div>
+                {airportInfoPanel && (
                     <AirportInfoExpandContent_AirportInfo
                         airportData={airportData}
                         airportError={airportDataError}
                         airportFetching={airportDataFetching}
                     />
-                }
+                )}
             </div>
         </div>
     );

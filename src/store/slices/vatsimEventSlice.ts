@@ -15,4 +15,3 @@ const vatsimEventSlice = createSlice({
 
 export const { changeUserSelectionVatsimEvent } = vatsimEventSlice.actions;
 export const vatsimEventReducer = vatsimEventSlice.reducer;
- 

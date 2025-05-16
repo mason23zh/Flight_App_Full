@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 
-type StyleName = "outdoor-base-v1" | "Monochrome-dark" | "Satellite Streets" | "Monochrome-light"
+type StyleName = "outdoor-base-v1" | "Monochrome-dark" | "Satellite Streets" | "Monochrome-light";
 
 const switchMapRoads = (map: mapboxgl.Map, visibility: boolean) => {
     const flag = visibility ? "visible" : "none";
@@ -30,7 +30,10 @@ const switchMapRoads = (map: mapboxgl.Map, visibility: boolean) => {
             map.setLayoutProperty("road-motorway-trunk", "visibility", flag);
             map.setLayoutProperty("road-motorway-trunk-case", "visibility", flag);
             map.setLayoutProperty("road-primary", "visibility", flag);
-        } else if (currentMapStyle === "Monochrome-dark" || currentMapStyle === "Monochrome-light") {
+        } else if (
+            currentMapStyle === "Monochrome-dark" ||
+            currentMapStyle === "Monochrome-light"
+        ) {
             map.setLayoutProperty("road-label-simple", "visibility", flag);
             map.setLayoutProperty("road-path", "visibility", flag);
             map.setLayoutProperty("road-path-cycleway-piste", "visibility", flag);

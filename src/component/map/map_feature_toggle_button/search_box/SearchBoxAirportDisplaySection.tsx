@@ -7,13 +7,11 @@ interface Props {
     airports: LocalDbAirport[];
 }
 
-
 /*
-* This component will render list of airports in the search box
-* */
+ * This component will render list of airports in the search box
+ * */
 
 const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
-
     if (airports.length === 0) {
         return <div>No Matched Airport</div>;
     }
@@ -24,11 +22,7 @@ const SearchBoxAirportDisplaySection = ({ airports }: Props) => {
                 data={airports}
                 style={{ height: "100%" }}
                 components={{ Scroller }}
-                itemContent={(_, airport) => (
-                    <SearchBoxAirportElement
-                        airport={airport}
-                    />
-                )}
+                itemContent={(_, airport) => <SearchBoxAirportElement airport={airport} />}
             />
         </div>
     );

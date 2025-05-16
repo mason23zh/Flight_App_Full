@@ -13,7 +13,7 @@ export function useThemeUpdate() {
 
 export function ThemeProvider({ children }) {
     const [darkTheme, setDarkTheme] = useState(false);
-    
+
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     function toggleTheme() {
         setDarkTheme((prevDarkTheme) => !prevDarkTheme);
@@ -23,7 +23,7 @@ export function ThemeProvider({ children }) {
             localStorage.setItem("themeDark", "true");
         }
     }
-    
+
     const onSelectMode = (mode) => {
         // Only change the theme by browsers theme if user have not selected any theme
         if (mode === "dark") {
@@ -36,22 +36,24 @@ export function ThemeProvider({ children }) {
             localStorage.setItem("themeDark", "false");
         }
     };
-    
+
     useEffect(() => {
         // Add listener to update styles
-        window.matchMedia("(prefers-color-scheme: dark)")
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
             .addEventListener("change", (e) => onSelectMode(e.matches ? "dark" : "light"));
-        
+
         // Setup dark/light mode for the first time
         onSelectMode(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        
+
         // Remove listener
         return () => {
-            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", () => {
-            });
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .removeEventListener("change", () => {});
         };
     }, []);
-    
+
     // sync the localStorage with useContext state
     useEffect(() => {
         if (localStorage.themeDark) {
@@ -62,7 +64,7 @@ export function ThemeProvider({ children }) {
             }
         }
     }, []);
-    
+
     return (
         <ThemeContext.Provider value={darkTheme}>
             {/* eslint-disable-next-line react/jsx-no-bind */}

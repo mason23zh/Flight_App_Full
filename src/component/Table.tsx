@@ -1,8 +1,4 @@
-
-function Table({
-    config,
-    data
-}) {
+function Table({ config, data }) {
     const renderedHeaders = config.map((column) => <th key={column.label}>{column.label}</th>);
 
     const renderedRows = data.map((rowData) => {

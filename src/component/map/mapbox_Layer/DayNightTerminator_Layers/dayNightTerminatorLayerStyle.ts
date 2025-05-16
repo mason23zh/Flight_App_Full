@@ -5,8 +5,8 @@ export const dayNightTerminatorStyle: FillLayer = {
     type: "fill",
     paint: {
         "fill-color": "#818589",
-        "fill-opacity": 0.3
-    }
+        "fill-opacity": 0.3,
+    },
 };
 
 // export const dayNightTerminatorStyle: LineLayer = {

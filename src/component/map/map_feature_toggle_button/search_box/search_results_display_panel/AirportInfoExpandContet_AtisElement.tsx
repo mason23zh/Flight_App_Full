@@ -3,11 +3,7 @@ interface Props {
     vatsim: boolean;
 }
 
-const AirportInfoExpandContent_AtisElement = ({
-    atis,
-    vatsim
-}: Props) => {
-
+const AirportInfoExpandContent_AtisElement = ({ atis, vatsim }: Props) => {
     return (
         <div className="grid grid-cols-5 p-2 gap-3 ">
             <div className="col-span-1">

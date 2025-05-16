@@ -4,9 +4,13 @@
 import * as turf from "@turf/turf";
 import { Feature, MultiPolygon } from "geojson";
 
-export const createMultiPolygonCircle = (center, radius, options, controllerInfo): Feature<MultiPolygon> => {
+export const createMultiPolygonCircle = (
+    center,
+    radius,
+    options,
+    controllerInfo
+): Feature<MultiPolygon> => {
     if (isNaN(center[0]) || isNaN(center[1])) return;
-
 
     const circle = turf.circle(center, radius, options);
 
@@ -14,11 +18,11 @@ export const createMultiPolygonCircle = (center, radius, options, controllerInfo
         type: "Feature",
         properties: {
             id: controllerInfo.callsign,
-            prefix: [controllerInfo.callsign]
+            prefix: [controllerInfo.callsign],
         },
         geometry: {
             type: "MultiPolygon",
-            coordinates: [circle.geometry.coordinates]
-        }
+            coordinates: [circle.geometry.coordinates],
+        },
     };
 };

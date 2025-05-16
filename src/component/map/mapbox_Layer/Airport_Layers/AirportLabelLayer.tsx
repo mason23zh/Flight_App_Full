@@ -1,22 +1,15 @@
 import { Expression } from "mapbox-gl";
 import { Layer } from "react-map-gl";
 
-
 interface Props {
-    id: string,
-    filter: string[],
-    textFiled: Expression,
-    minzoom: number,
-    allowTextOverlap: boolean,
+    id: string;
+    filter: string[];
+    textFiled: Expression;
+    minzoom: number;
+    allowTextOverlap: boolean;
 }
 
-const AirportLabelLayer = ({
-    id,
-    filter,
-    textFiled,
-    minzoom,
-    allowTextOverlap
-}: Props) => {
+const AirportLabelLayer = ({ id, filter, textFiled, minzoom, allowTextOverlap }: Props) => {
     return (
         <Layer
             type="symbol"

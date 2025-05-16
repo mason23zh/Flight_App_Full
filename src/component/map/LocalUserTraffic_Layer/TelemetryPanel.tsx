@@ -4,26 +4,23 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 const TelemetryPanel = () => {
-    const {
-        flightData,
-        liveTrafficAvailable
-    } = useWebSocketContext();
+    const { flightData, liveTrafficAvailable } = useWebSocketContext();
 
-    const {
-        displayTelemetry,
-        movingMap
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
+    const { displayTelemetry, movingMap } = useSelector(
+        (state: RootState) => state.vatsimMapVisible
+    );
 
     if (!flightData || !liveTrafficAvailable || !movingMap) return null;
 
-
     return (
-        <div className={`w-auto z-[200] absolute top-[5%] 
+        <div
+            className={`w-auto z-[200] absolute top-[5%] 
         right-5 grid grid-rows-1 
         bg-gray-700 p-2 gap-2 rounded-lg 
         transform transition-all duration-300 ease-in-out
         ${displayTelemetry ? "transition-x-0 opacity-100" : "translate-x-5 opacity-0"}
-        `}>
+        `}
+        >
             <TelemetryElement
                 telemetryName="Indicated Airpseed (IAS)"
                 telemetryData={Math.round(flightData.indicated_airspeed)}

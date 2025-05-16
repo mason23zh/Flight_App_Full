@@ -9,17 +9,12 @@ interface Props {
     isTouchScreen: boolean;
 }
 
-const MapFilterToggleButton = ({
-    isTouchScreen
-}: Props) => {
+const MapFilterToggleButton = ({ isTouchScreen }: Props) => {
     const dispatch = useDispatch();
     const [buttonClick, setButtonClick] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
-    const {
-        mapFilterButtonToggle,
-    } = useSelector((state: RootState) => state.vatsimMapVisible);
-
+    const { mapFilterButtonToggle } = useSelector((state: RootState) => state.vatsimMapVisible);
 
     useEffect(() => {
         if (buttonClick) {
@@ -32,12 +27,12 @@ const MapFilterToggleButton = ({
         setButtonClick(true);
     };
 
-    const inactiveButtonClass = isTouchScreen ?
-        "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full" :
-        "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full hover:bg-gray-400";
-    const activeButtonClass = isTouchScreen ?
-        "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full" :
-        "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full hover:bg-blue-400";
+    const inactiveButtonClass = isTouchScreen
+        ? "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full"
+        : "relative px-2 py-1 bg-gray-500 rounded-md text-white items-center w-full hover:bg-gray-400";
+    const activeButtonClass = isTouchScreen
+        ? "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full"
+        : "relative px-2 py-1 bg-blue-500 rounded-md text-white items-center w-full hover:bg-blue-400";
 
     const tooltipMessage = "Map feature selector";
 
@@ -63,7 +58,7 @@ const MapFilterToggleButton = ({
                 <MapFeaturesToggleButtonGroup isTouchScreen={isTouchScreen} />
             </div>
 
-            {(!isTouchScreen && !buttonClick && !mapFilterButtonToggle) &&
+            {!isTouchScreen && !buttonClick && !mapFilterButtonToggle && (
                 <Tooltip
                     hidden={showTooltip}
                     anchorSelect="#map-filter-toggle-button"
@@ -73,12 +68,12 @@ const MapFilterToggleButton = ({
                         color: "rgb(255,255,255)",
                         fontSize: "13px",
                         padding: "5px",
-                        borderRadius: "5px"
+                        borderRadius: "5px",
                     }}
                 >
                     {tooltipMessage}
                 </Tooltip>
-            }
+            )}
         </div>
     );
 };

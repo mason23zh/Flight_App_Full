@@ -5,15 +5,11 @@ export const tafApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://api.airportweather.org/v1/taf",
         // baseUrl: "http://127.0.0.1:80/v1/v1/taf"
-
     }),
     endpoints(build) {
         return {
             fetchTafByICAO: build.query({
-                query: ({
-                    icao,
-                    decode
-                }) => ({
+                query: ({ icao, decode }) => ({
                     url: `/get-taf/${icao}?decode=${decode}`,
                     method: "GET",
                 }),

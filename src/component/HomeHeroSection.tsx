@@ -6,28 +6,23 @@ import { useTheme } from "../hooks/ThemeContext";
 import InputAndSearch from "./InputAndSearch";
 import { globalAirportICAO } from "../util/globalAirportICAO";
 
-
-function HomeHeroSection({
-    backgroundImage,
-    vatsimEvents,
-}) {
+function HomeHeroSection({ backgroundImage, vatsimEvents }) {
     const navigate = useNavigate();
     const [randAirport, setRandAirport] = useState(null);
     const [input, setInput] = useState("");
     const [vatsimEventsStatus, setVatsimEventsStatus] = useState(false);
     const [elementHeight, setElementHeight] = useState("100vh");
 
-
     const darkMode = useTheme();
 
-    const getRandomAirport = () => globalAirportICAO[Math.floor(Math.random() * globalAirportICAO.length)];
+    const getRandomAirport = () =>
+        globalAirportICAO[Math.floor(Math.random() * globalAirportICAO.length)];
 
     useEffect(() => {
         const navbarHeight = document.querySelector(".main-navbar").clientHeight;
         const heroSectionHeight = `calc(100dvh - ${navbarHeight}px`;
-        setElementHeight(prev => heroSectionHeight);
+        setElementHeight((prev) => heroSectionHeight);
     }, []);
-
 
     useEffect(() => {
         const randomICAO = getRandomAirport();
@@ -37,7 +32,9 @@ function HomeHeroSection({
 
         const fetchRandomAirport = async (airportICAO) => {
             try {
-                const response = await axios.get(`https://api.airportweather.org/v1/airports/icao/${airportICAO}?decode=true`);
+                const response = await axios.get(
+                    `https://api.airportweather.org/v1/airports/icao/${airportICAO}?decode=true`
+                );
                 if (response) {
                     setRandAirport(response.data.data[0].airport);
                 }
@@ -47,12 +44,10 @@ function HomeHeroSection({
             }
         };
 
-        fetchRandomAirport(randomICAO)
-            .catch((e) => {
-                setRandAirport(-1);
-            });
+        fetchRandomAirport(randomICAO).catch((e) => {
+            setRandAirport(-1);
+        });
     }, []);
-
 
     const handleSubmitNew = (data) => {
         if (data.length !== 0) {
@@ -82,18 +77,15 @@ function HomeHeroSection({
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url(${backgroundImage})`,
                 }}
             >
-                <div className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[55%]
+                <div
+                    className="absolute translate-x-[-50%] translate-y-[-50%] left-[50%] top-[55%]
                      transition-all ease-in-out duration-300
                      w-[90%] sm:w-[60%] md:w-[50%] h-fit"
                 >
-                    <div
-                        className=""
-                    >
+                    <div className="">
                         <div className="flex flex-col items-center gap-5">
-                            <h1 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">Get
-                                METARs,
-                                Airports and
-                                More
+                            <h1 className="text-center text-lg text-white sm:text-2xl md:text-white md:text-3xl">
+                                Get METARs, Airports and More
                             </h1>
                             <div className="self-stretch ml-5 mr-5">
                                 <InputAndSearch
@@ -103,7 +95,10 @@ function HomeHeroSection({
                             </div>
                             <div className={featureListStyle}>
                                 <div className="md:justify-self-end p-2 text-white text-[16px]">
-                                    <button className="hover:italic" onClick={handleRandomAirportClick}>
+                                    <button
+                                        className="hover:italic"
+                                        onClick={handleRandomAirportClick}
+                                    >
                                         Random Airport
                                     </button>
                                 </div>
@@ -124,7 +119,9 @@ function HomeHeroSection({
                                             Vatsim Events
                                         </Link>
                                     </div>
-                                ) : <></>}
+                                ) : (
+                                    <></>
+                                )}
                                 <div className="md:justify-self-start p-2 text-white text-[16px]">
                                     <Link
                                         to="/#popular-airports"

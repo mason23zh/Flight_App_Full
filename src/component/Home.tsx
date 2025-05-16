@@ -19,11 +19,7 @@ import { Helmet } from "react-helmet-async";
 function Home() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [vatsimEventsAvailable, setVatsimEventsAvailable] = useState(false);
-    const {
-        data,
-        error,
-        isFetching,
-    } = useFetchMostPopularAirportsQuery();
+    const { data, error, isFetching } = useFetchMostPopularAirportsQuery();
     const {
         data: vatsimEvents,
         error: vatsimEventsError,
@@ -51,7 +47,6 @@ function Home() {
         renderedAirport = <h3 className="text-lg text-center">Error loading Airports</h3>;
     }
 
-
     if (vatsimAirports) {
         renderVatsimAirports = <HomeVatsimAirportsList airports={vatsimAirports} />;
     } else if (vatsimAirportsFetching) {
@@ -74,7 +69,6 @@ function Home() {
         }
     }, [vatsimEvents]);
 
-
     return (
         <>
             <Helmet>
@@ -88,44 +82,26 @@ function Home() {
             </Helmet>
             <div className="flex flex-col flex-grow mr-0 ml-0">
                 <ScrollToHashElement />
-                <HomeHeroSection
-                    backgroundImage={backgroundImage}
-                    vatsimEvents
-                />
+                <HomeHeroSection backgroundImage={backgroundImage} vatsimEvents />
                 <CustomProvider theme={darkMode ? "dark" : "light"}>
                     <div className={darkTheme}>
-                        <div
-                            className="text-2xl md:text-3xl"
-                            id="popular-vatsim-airports"
-                        >
+                        <div className="text-2xl md:text-3xl" id="popular-vatsim-airports">
                             Popular Vatsim Airports
                         </div>
                     </div>
-                    <div>
-                        {renderVatsimAirports}
-                    </div>
+                    <div>{renderVatsimAirports}</div>
                     <div className={darkTheme}>
-                        <div
-                            className="text-2xl md:text-3xl"
-                            id="popular-airports"
-                        >
+                        <div className="text-2xl md:text-3xl" id="popular-airports">
                             Popular Airports
                         </div>
                     </div>
-                    <div>
-                        {renderedAirport}
-                    </div>
+                    <div>{renderedAirport}</div>
                     <div className={darkTheme}>
-                        <div
-                            className="text-2xl md:text-3xl"
-                            id="current-vatsim-events"
-                        >
+                        <div className="text-2xl md:text-3xl" id="current-vatsim-events">
                             Current Vatsim Events
                         </div>
                     </div>
-                    <div>
-                        {renderVatsimEvents}
-                    </div>
+                    <div>{renderVatsimEvents}</div>
                 </CustomProvider>
             </div>
         </>

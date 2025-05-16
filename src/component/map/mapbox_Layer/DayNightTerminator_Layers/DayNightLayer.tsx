@@ -3,7 +3,6 @@ import { getDayNightTerminator } from "../util/getDayNightTerminator";
 import { Layer, Source } from "react-map-gl";
 import { dayNightTerminatorStyle } from "./dayNightTerminatorLayerStyle";
 
-
 const DayNightLayer = () => {
     const geoJsonData = getDayNightTerminator();
     if (!geoJsonData) {
@@ -12,7 +11,8 @@ const DayNightLayer = () => {
         return (
             <Source type="geojson" data={getDayNightTerminator()}>
                 <Layer {...dayNightTerminatorStyle} />
-            </Source>);
+            </Source>
+        );
     }
 };
 

@@ -29,7 +29,7 @@ export class Timer {
     /** resumes the timer */
     resume(): Timer {
         if (!this._durationTimeoutId && !this._done) {
-            this._start = new Date;
+            this._start = new Date();
             this._durationTimeoutId = setTimeout(this._callback, this._remaining);
         }
         return this;
@@ -51,5 +51,4 @@ export class Timer {
             this._durationTimeoutId = undefined;
         }
     }
-
 }

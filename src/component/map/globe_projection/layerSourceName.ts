@@ -13,4 +13,3 @@ export const GLOBE_TRACON_ICON_SOURCE_ID = "tracon-icon-layer-source-globe";
 // globe FIR layer and source name
 export const GLOBE_FIR_ICON_LAYER_ID = "fir-icon-globe-layer";
 export const GLOBE_FIR_ICON_SOURCE_ID = "fir-icon-layer-source-globe";
-

@@ -20,15 +20,10 @@ interface AirportResponseWithDepartureOriginType {
     airportInfo: AirportResponse;
 }
 
-
-const TargetAirportsLayer = ({
-    departureAirport,
-    arrivalAirport
-}: TargetAirportsLayerProps) => {
+const TargetAirportsLayer = ({ departureAirport, arrivalAirport }: TargetAirportsLayerProps) => {
     // ReactGL marker can not be hovered, hence using custom hook here to handle hover
     const [hoverInfo, handleMouse] = useDelayHoverLabel();
-    const hoverAirportInfo = hoverInfo as AirportResponseWithDepartureOriginType || null; //cast
-
+    const hoverAirportInfo = (hoverInfo as AirportResponseWithDepartureOriginType) || null; //cast
 
     const pins = useMemo(() => {
         // always calculate the pin, but conditional render them
@@ -44,15 +39,21 @@ const TargetAirportsLayer = ({
                     scale={0.5}
                 >
                     <div
-                        onMouseEnter={() => handleMouse({
-                            type: "DEPARTURE",
-                            airportInfo: departureAirport
-                        }, true, 150, 10)}
+                        onMouseEnter={() =>
+                            handleMouse(
+                                {
+                                    type: "DEPARTURE",
+                                    airportInfo: departureAirport,
+                                },
+                                true,
+                                150,
+                                10
+                            )
+                        }
                         onMouseLeave={() => handleMouse(null, false, 150, 10)}
                     >
-                        <Pin type="DEPARTURE" size={38}/>
+                        <Pin type="DEPARTURE" size={38} />
                     </div>
-
                 </Marker>
 
                 <Marker
@@ -62,21 +63,28 @@ const TargetAirportsLayer = ({
                     scale={0.5}
                 >
                     <div
-                        onMouseEnter={() => handleMouse({
-                            type: "ARRIVAL",
-                            airportInfo: arrivalAirport
-                        }, true, 150, 10)}
+                        onMouseEnter={() =>
+                            handleMouse(
+                                {
+                                    type: "ARRIVAL",
+                                    airportInfo: arrivalAirport,
+                                },
+                                true,
+                                150,
+                                10
+                            )
+                        }
                         onMouseLeave={() => handleMouse(null, false, 150, 10)}
                     >
-                        <Pin type="ARRIVAL" size={38}/>
+                        <Pin type="ARRIVAL" size={38} />
                     </div>
                 </Marker>
-
             </>
         );
-    },
-    [departureAirport.data[0]?.station.geometry.coordinates[0],
-        arrivalAirport.data[0]?.station.geometry.coordinates[0]]);
+    }, [
+        departureAirport.data[0]?.station.geometry.coordinates[0],
+        arrivalAirport.data[0]?.station.geometry.coordinates[0],
+    ]);
 
     if (!departureAirport.data[0] || !arrivalAirport.data[0]) {
         return null;
@@ -90,10 +98,12 @@ const TargetAirportsLayer = ({
                 arrivalAirport={arrivalAirport}
             />
 
-            {hoverInfo && <TargetAirportsHoverPopup
-                type={hoverAirportInfo.type}
-                airportInfo={hoverAirportInfo.airportInfo}
-            />}
+            {hoverInfo && (
+                <TargetAirportsHoverPopup
+                    type={hoverAirportInfo.type}
+                    airportInfo={hoverAirportInfo.airportInfo}
+                />
+            )}
         </div>
     );
 };

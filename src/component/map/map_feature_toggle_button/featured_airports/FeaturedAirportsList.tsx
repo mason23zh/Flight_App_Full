@@ -3,13 +3,11 @@ import FeaturedAirportElement from "./FeaturedAirportElement";
 import { Virtuoso } from "react-virtuoso";
 import Scroller from "../../../../util/VirtuosoScroller";
 
-
 interface Props {
     featuredAirportsList: PopularVatsimAirportResponse;
 }
 
 const FeaturedAirportsList = ({ featuredAirportsList }: Props) => {
-
     if (!featuredAirportsList.data || featuredAirportsList.data?.airports.length === 0) {
         return <div>No Vatsim Controllers</div>;
     }
@@ -20,11 +18,7 @@ const FeaturedAirportsList = ({ featuredAirportsList }: Props) => {
                 data={featuredAirportsList.data.airports}
                 style={{ height: "100%" }}
                 components={{ Scroller }}
-                itemContent={(_, airport) => (
-                    <FeaturedAirportElement
-                        featuredAirport={airport}
-                    />
-                )}
+                itemContent={(_, airport) => <FeaturedAirportElement featuredAirport={airport} />}
             />
         </div>
     );

@@ -5,15 +5,11 @@ export const metarApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://api.airportweather.org/v1/metar",
         // baseUrl: "http://127.0.0.1:80/v1/metar"
-
     }),
     endpoints(build) {
         return {
             fetchMetarByICAO: build.query({
-                query: ({
-                    icao,
-                    decode
-                }) => ({
+                query: ({ icao, decode }) => ({
                     url: `/get-metar/${icao}?decode=${decode}`,
                     method: "GET",
                 }),
@@ -29,7 +25,4 @@ export const metarApi = createApi({
     },
 });
 
-export const {
-    useFetchMetarByICAOQuery,
-    useFetchMetarByGenericInputQuery
-} = metarApi;
+export const { useFetchMetarByICAOQuery, useFetchMetarByGenericInputQuery } = metarApi;

@@ -5,6 +5,6 @@ export const nexradLayerStyle: RasterLayer = {
     type: "raster",
     source: "nexrad-source",
     paint: {
-        "raster-opacity": 0.5
-    }
+        "raster-opacity": 0.5,
+    },
 };

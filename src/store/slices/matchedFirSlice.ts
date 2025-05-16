@@ -10,7 +10,7 @@ interface MatchedFirSlice {
 const initialState: MatchedFirSlice = {
     matchedFirs: [],
     hoveredFir: null,
-    isError: false
+    isError: false,
 };
 
 const matchedFirSlice = createSlice({
@@ -33,15 +33,11 @@ const matchedFirSlice = createSlice({
         resetMatchedFirs(state) {
             state.matchedFirs = [];
             state.isError = false;
-        }
-    }
+        },
+    },
 });
 
-export const {
-    setMatchedFirs,
-    setMatchedFirsError,
-    resetMatchedFirs,
-    setHoveredFir
-} = matchedFirSlice.actions;
+export const { setMatchedFirs, setMatchedFirsError, resetMatchedFirs, setHoveredFir } =
+    matchedFirSlice.actions;
 
 export const matchedFirsReducer = matchedFirSlice.reducer;

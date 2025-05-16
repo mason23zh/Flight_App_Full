@@ -12,7 +12,9 @@ import { Helmet } from "react-helmet-async";
 
 function VatsimEventsAll() {
     const dispatch = useDispatch();
-    const reduxEvent: Partial<Event> = useSelector<RootState>((state) => state.vatsimEvent.userSelectionVatsimEvent);
+    const reduxEvent: Partial<Event> = useSelector<RootState>(
+        (state) => state.vatsimEvent.userSelectionVatsimEvent
+    );
     const darkTheme = useTheme();
 
     let eventsList: JSX.Element;

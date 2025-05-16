@@ -16,7 +16,7 @@ const MapFeaturesToggleButton_v2 = ({
     initialActive,
     tooltipMessage,
     isTouchScreen,
-    buttonId
+    buttonId,
 }: Props) => {
     const iconClass = "text-white text-xl";
     const activeClass = isTouchScreen
@@ -55,7 +55,7 @@ const MapFeaturesToggleButton_v2 = ({
                         color: "rgb(255,255,255)",
                         fontSize: "13px",
                         padding: "5px",
-                        borderRadius: "5px"
+                        borderRadius: "5px",
                     }}
                 >
                     {tooltipMessage}

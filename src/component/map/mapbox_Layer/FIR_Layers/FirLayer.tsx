@@ -11,25 +11,23 @@ interface Controller {
     controllerInfo: VatsimControllers;
 }
 
-const FirLayer = ({
-    controllerInfo,
-}: Controller) => {
-
+const FirLayer = ({ controllerInfo }: Controller) => {
     const dispatch = useDispatch();
     const {
         matchedFirs: matchedFIRS,
         hoveredFir,
-        isError: errorMatchedFirs
+        isError: errorMatchedFirs,
     } = useSelector((state: RootState) => state.matchedFirs);
-
 
     useEffect(() => {
         if (errorMatchedFirs) {
-            dispatch(addMessage({
-                location: "FIR",
-                messageType: "ERROR",
-                content: "Error loading Fir layer."
-            }));
+            dispatch(
+                addMessage({
+                    location: "FIR",
+                    messageType: "ERROR",
+                    content: "Error loading Fir layer.",
+                })
+            );
         }
 
         if (matchedFIRS?.length > 0 && !errorMatchedFirs) {
@@ -37,11 +35,12 @@ const FirLayer = ({
         }
     }, [errorMatchedFirs, matchedFIRS]);
 
-    const matchedFirs = matchedFIRS.map(fir => ({
+    const matchedFirs = matchedFIRS.map((fir) => ({
         id: fir.firInfo.firBoundary,
-        oceanic: fir.firInfo?.entries[0]?.oceanic || "0"
+        oceanic: fir.firInfo?.entries[0]?.oceanic || "0",
     }));
-    const layerStyle = useMemo(() => activeFirLayerStyle(matchedFirs, hoveredFir),
+    const layerStyle = useMemo(
+        () => activeFirLayerStyle(matchedFirs, hoveredFir),
         [matchedFirs, hoveredFir]
     );
 
@@ -56,7 +55,7 @@ const FirLayer = ({
                 type="vector"
                 url="mapbox://mason-zh.cm00590z503li1tlkgyy8e5s3-5pv1b"
             >
-                <Layer {...layerStyle}/>
+                <Layer {...layerStyle} />
             </Source>
         );
     }

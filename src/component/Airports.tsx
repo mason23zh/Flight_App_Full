@@ -11,10 +11,7 @@ import { Helmet } from "react-helmet-async";
 function Airports() {
     const navigate = useNavigate();
     const darkMode = useTheme();
-    const {
-        pathname,
-        state
-    } = useLocation();
+    const { pathname, state } = useLocation();
     const [userInput, setUserInput] = useState("");
     const [skipRender, setSkipRender] = useState(true);
     const [page, setPage] = useState(1);
@@ -30,18 +27,17 @@ function Airports() {
         }
     }, [state?.userInput]);
 
-    const {
-        data,
-        error,
-        isFetching,
-    } = useFetchAirportsWithGenericInputQuery({
-        searchTerm: userInput,
-        page,
-        limit: 10
-    }, {
-        skip: skipRender,
-        refetchOnMountOrArgChange: true,
-    });
+    const { data, error, isFetching } = useFetchAirportsWithGenericInputQuery(
+        {
+            searchTerm: userInput,
+            page,
+            limit: 10,
+        },
+        {
+            skip: skipRender,
+            refetchOnMountOrArgChange: true,
+        }
+    );
 
     useEffect(() => {
         if (data) {
@@ -78,11 +74,19 @@ function Airports() {
     if (isFetching) {
         renderedAirport = <div className="text-lg text-center">Loading...</div>;
     } else if (error) {
-        renderedAirport = <div className="text-center"><h3>Error</h3></div>;
+        renderedAirport = (
+            <div className="text-center">
+                <h3>Error</h3>
+            </div>
+        );
     } else if (airportData) {
         renderedAirport = <AirportsList airports={airportData} goToPage={onGoToPage} />;
     } else {
-        renderedAirport = <div className="text-center text-xl"><h3>Enter search query</h3></div>;
+        renderedAirport = (
+            <div className="text-center text-xl">
+                <h3>Enter search query</h3>
+            </div>
+        );
     }
 
     return (

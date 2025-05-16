@@ -14,7 +14,7 @@ const useTrafficCallsignLayer = (data: Array<VatsimFlight>, visible: boolean) =>
             getAlignmentBaseline: "center",
             getPixelOffset: [0, -25],
             getColor: [255, 128, 0],
-            getSize: 15
+            getSize: 15,
         });
     }, [data, visible]);
 };

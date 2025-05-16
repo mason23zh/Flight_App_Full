@@ -6,7 +6,7 @@ interface MapSearchTrafficState {
 }
 
 const initialState: MapSearchTrafficState = {
-    selectedTraffic: null
+    selectedTraffic: null,
 };
 
 const mapSearchTrafficSlice = createSlice({
@@ -15,8 +15,8 @@ const mapSearchTrafficSlice = createSlice({
     reducers: {
         setMapSearchSelectedTraffic(state, action: PayloadAction<VatsimFlight>) {
             state.selectedTraffic = action.payload;
-        }
-    }
+        },
+    },
 });
 
 export const { setMapSearchSelectedTraffic } = mapSearchTrafficSlice.actions;

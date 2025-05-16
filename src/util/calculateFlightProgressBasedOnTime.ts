@@ -15,7 +15,10 @@ const calculateFlightProgress = (flight: VatsimFlight): number => {
     if (!flight_plan.deptime || !flight_plan.enroute_time) return 0; // Safety check
 
     // Calculate estimated arrival time using calculateArrivalTime function
-    const estimatedArrivalTime = calculateArrivalTime(flight_plan.deptime, flight_plan.enroute_time);
+    const estimatedArrivalTime = calculateArrivalTime(
+        flight_plan.deptime,
+        flight_plan.enroute_time
+    );
 
     // Convert deptime and estimatedArrivalTime to minutes since midnight
     const departureMinutes = convertToMinutes(flight_plan.deptime);
@@ -39,7 +42,7 @@ const calculateFlightProgress = (flight: VatsimFlight): number => {
 
     // Calculate progress percentage
     const progress = Math.min(Math.max((elapsedTime / totalFlightDuration) * 100, 0), 100); // Ensure it stays between 0-100%
- 
+
     return progress;
 };
 export default calculateFlightProgress;

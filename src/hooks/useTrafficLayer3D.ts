@@ -4,22 +4,16 @@ import { ScenegraphLayer, ScenegraphLayerProps } from "@deck.gl/mesh-layers/type
 import { useMemo } from "react";
 
 const ANIMATIONS: ScenegraphLayerProps["_animations"] = {
-    "*": { speed: 1 }
+    "*": { speed: 1 },
 };
 
-const useTrafficLayer3D = (
-    data: Array<VatsimFlight>,
-    visible: boolean,
-) => {
+const useTrafficLayer3D = (data: Array<VatsimFlight>, visible: boolean) => {
     return useMemo(() => {
-
         if (!data || data.length === 0) return null;
 
         const updateTriggers = {
-            getPosition: data.map(d => `${d.longitude},${d.latitude}`)
-                .join("-"),
-            getOrientation: data.map(d => d.heading)
-                .join("-"),
+            getPosition: data.map((d) => `${d.longitude},${d.latitude}`).join("-"),
+            getOrientation: data.map((d) => d.heading).join("-"),
         };
 
         return new ScenegraphLayer({

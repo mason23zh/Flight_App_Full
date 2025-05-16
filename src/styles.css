@@ -1,17 +1,17 @@
 @import "../node_modules/rsuite/dist/rsuite.css";
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
-@import 'leaflet/dist/leaflet.css';
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+@import "leaflet/dist/leaflet.css";
 @import "mapbox-gl/dist/mapbox-gl.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
-body, #root {
+body,
+#root {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -66,11 +66,9 @@ html {
 /*    }*/
 /*}*/
 
-
 /*.mapboxgl-popup {*/
 /*    animation: fadein 0.5s;*/
 /*}*/
-
 
 .mapboxgl-popup-content {
     padding: 0;
@@ -175,4 +173,3 @@ html {
 .slide-out {
     animation: slideOutToRight 0.5s forwards;
 }
-

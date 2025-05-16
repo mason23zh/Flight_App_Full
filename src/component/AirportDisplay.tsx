@@ -1,12 +1,5 @@
-
 function AirportDisplay({ airport }) {
-    const {
-        ICAO,
-        elevation,
-        name,
-        runways,
-        transitionAltitude,
-    } = airport;
+    const { ICAO, elevation, name, runways, transitionAltitude } = airport;
     const renderedRunways = runways.map((runway) => (
         <div key={runway._id}>
             {runway.runway_id}
@@ -16,23 +9,15 @@ function AirportDisplay({ airport }) {
     ));
     return (
         <div>
-            ICAO:
-            {" "}
-            {ICAO}
+            ICAO: {ICAO}
             <br />
-            Elevation:
-            {" "}
-            {elevation}
+            Elevation: {elevation}
             <br />
-            Name:
-            {" "}
-            {name}
+            Name: {name}
             <br />
             {renderedRunways}
             <br />
-            TransitionAltitude:
-            {" "}
-            {transitionAltitude}
+            TransitionAltitude: {transitionAltitude}
             <hr />
         </div>
     );

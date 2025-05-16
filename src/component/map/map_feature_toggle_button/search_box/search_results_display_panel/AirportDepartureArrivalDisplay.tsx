@@ -10,18 +10,16 @@ interface Props {
     airport: LocalDbAirport;
 }
 
-const AirportDepartureArrivalDisplay = ({
-    airport
-}: Props) => {
+const AirportDepartureArrivalDisplay = ({ airport }: Props) => {
     const [arrivalTraffic, setArrivalTraffic] = useState<VatsimFlight[]>(null);
     const [departureTraffic, setDepartureTraffic] = useState<VatsimFlight[]>(null);
     const [activeTab, setActiveTab] = useState<"departure" | "arrival" | "info">("departure");
     const [loading, setLoading] = useState(true);
 
-    const wrapperStyle = "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
+    const wrapperStyle =
+        "absolute z-[200] top-5 sm:top-0 left-1/2 transform -translate-x-1/2" +
         " w-[19rem] sm:w-[22rem] max-w-[90%] sm:right-5 sm:left-auto sm:translate-x-0 sm:translate-y-[5%] " +
         "bottom-10 max-h-[40rem] min-h-[15rem]";
-
 
     // reset the tab to departure after switching a new airport from the Popular vatsim airports list.
     useEffect(() => {
@@ -41,7 +39,9 @@ const AirportDepartureArrivalDisplay = ({
             results.filter((traffic) => {
                 if (traffic?.flight_plan?.departure.toLowerCase() === airport.ident.toLowerCase()) {
                     departureTraffic.push(traffic);
-                } else if (traffic?.flight_plan?.arrival.toLowerCase() === airport.ident.toLowerCase()) {
+                } else if (
+                    traffic?.flight_plan?.arrival.toLowerCase() === airport.ident.toLowerCase()
+                ) {
                     arrivalTraffic.push(traffic);
                 }
             });
@@ -59,31 +59,20 @@ const AirportDepartureArrivalDisplay = ({
         };
     }, [airport]);
 
-
     const renderContent = () => {
         switch (activeTab) {
-        case "departure":
-            return (
-                <TrafficDetailList
-                    flights={departureTraffic}
-                    arrival={false}
-                />
-            );
-        case "arrival":
-            return (
-                <TrafficDetailList
-                    flights={arrivalTraffic}
-                    arrival={true}
-                />
-            );
-        case "info":
-            return (
-                <div>
-                    <AirportDepartureArrivalPanelInfoTab airport={airport} />
-                </div>
-            );
-        default:
-            return null;
+            case "departure":
+                return <TrafficDetailList flights={departureTraffic} arrival={false} />;
+            case "arrival":
+                return <TrafficDetailList flights={arrivalTraffic} arrival={true} />;
+            case "info":
+                return (
+                    <div>
+                        <AirportDepartureArrivalPanelInfoTab airport={airport} />
+                    </div>
+                );
+            default:
+                return null;
         }
     };
 
