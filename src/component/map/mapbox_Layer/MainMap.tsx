@@ -190,7 +190,8 @@ const MainMap = () => {
     return (
         <>
             <Helmet>
-                <title>VATSIM Map</title> <meta
+                <title>VATSIM Map | Live Traffic, Controllers, FIRs & TRACONs</title>
+                <meta
                     name="description"
                     content="Track real-time VATSIM traffic and ATC coverage on a 2D or globe map. View FIRs, TRACONs, controllers, and aircraft with live positions and flight details."
                 />

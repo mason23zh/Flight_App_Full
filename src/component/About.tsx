@@ -25,16 +25,12 @@ function About() {
     return (
         <>
             <Helmet>
-                <title>About Page</title>
+                <title>About Airport Weather | VATSIM Map, METARs & Flight Tools</title>
                 <meta
                     name="description"
-                    content="Learn more about our platform, designed to provide real-time weather updates, VATSIM traffic insights, and detailed airport information. Discover our mission to support aviation enthusiasts with accurate, user-friendly tools for flight planning and virtual flying"
+                    content="Learn about Airport Weather — a platform for virtual pilots to explore real-time METARs, VATSIM traffic, airport data, and advanced map tools for flight simulation."
                 />
-                <meta
-                    name="keyword"
-                    content="about page, VATSIM, virtual aviation tool, airport information, aviation enthusiasts, About Airport Weather"
-                />
-                <link rel="canonical" href="https://airportweather.org/about"/>
+                <link rel="canonical" href="https://airportweather.org/about" />
             </Helmet>
             <CustomProvider theme={darkMode ? "dark" : "light"}>
                 <div className="h-auto">
