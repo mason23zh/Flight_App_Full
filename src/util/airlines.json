@@ -25810,6 +25810,7 @@
         "active": "N"
     },
     {
+
         "id": "2583",
         "name": "GoldAir",
         "alias": "\\N",
@@ -34157,6 +34158,7 @@
         "icao": "LMJ",
         "callsign": "MASTERJET",
         "country": "Portugal",
+
         "active": "N"
     },
     {
@@ -50526,6 +50528,7 @@
         "iata": "9T",
         "icao": "ABS",
         "callsign": "ATHABASKA",
+
         "country": "Canada",
         "active": "Y"
     },
@@ -53284,6 +53287,7 @@
         "name": "Virgin Atlantic Airways",
         "alias": "\\N",
         "iata": "VS",
+
         "icao": "VIR",
         "callsign": "VIRGIN",
         "country": "United Kingdom",
