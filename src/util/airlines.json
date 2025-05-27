@@ -19576,6 +19576,7 @@
         "iata": "",
         "icao": "DGO",
         "callsign": "DGO JET",
+
         "country": "Mexico",
         "active": "N"
     },
@@ -25810,7 +25811,6 @@
         "active": "N"
     },
     {
-
         "id": "2583",
         "name": "GoldAir",
         "alias": "\\N",
@@ -33240,6 +33240,7 @@
         "country": "Ukraine",
         "active": "N"
     },
+
     {
         "id": "3328",
         "name": "Lund University School of Aviation",
@@ -60735,7 +60736,7 @@
     },
     {
         "id": "19873",
-        "name": "🦙 Alpaca Airway 🦙",
+        "name": "🦙 Alpaca Airways 🦙",
         "alias": "",
         "iata": "",
         "icao": "VCP",
